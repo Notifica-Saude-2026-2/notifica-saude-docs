@@ -1,0 +1,212 @@
+/* Cor de marca do NotificaSaúde, reaproveitada do header do frontend real
+   (git_notifica_saude/notifica-saude-frontend/src/components/common/layout/Header/Header.module.css).
+   O header do app real NÃO é uma cor sólida — é um gradiente:
+   background: linear-gradient(90deg, #2f4fff 0%, #1d2fd6 100%);
+   Por isso as tentativas anteriores com cor sólida nunca bateram exatamente.
+   Os valores abaixo (flat, ponta clara do gradiente) seguem usados pra
+   elementos pontuais do tema (links, destaques) onde gradiente não cabe. */
+:root {
+  --md-primary-fg-color: #2f4fff;
+  --md-primary-fg-color--light: #5a72ff;
+  --md-primary-fg-color--dark: #1d2fd6;
+  --md-primary-bg-color: #ffffff;
+}
+
+/* Header, rodapé (nav anterior/próxima) e faixa "Made with Material for MkDocs":
+   aplicamos o MESMO gradiente exato do header do app real, em vez de cor
+   sólida — assim os três ficam idênticos ao original. Sobrescreve
+   diretamente o "background" (não só a variável de cor), então funciona
+   independente de qual seletor o Material usa internamente pra cada um. */
+.md-header,
+.md-tabs,
+.md-footer,
+.md-footer-meta {
+  background: linear-gradient(90deg, #667cf8 0%, #1d2fd6 40%);
+}
+
+/* No modo escuro, escurece o mesmo gradiente em vez de trocar de cor —
+   mantém a identidade visual, só fica mais confortável ao lado do fundo
+   escuro. Ajustável só mexendo no valor do brightness(). */
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-tabs,
+[data-md-color-scheme="slate"] .md-footer,
+[data-md-color-scheme="slate"] .md-footer-meta {
+  filter: brightness(0.93);
+}
+
+/* Centraliza os itens da barra de navegação (tabs) no header */
+.md-tabs__list {
+  justify-content: center;
+  width: 100%;
+}
+
+/* Ao rolar a página, só o header original (logo, busca, ícones) deve ficar
+   fixo no topo — a barra de abas (tabs) não deve "grudar" junto, senão o
+   topo fica comprido demais. O Material controla o comportamento de
+   esconder/fixar a barra de abas via JavaScript (aplicado inline no
+   elemento), que tem prioridade sobre CSS normal — por isso o !important
+   aqui é necessário pra realmente sobrepor. */
+.md-header {
+  position: sticky !important;
+  top: 0 !important;
+}
+
+.md-tabs {
+  position: static !important;
+  transform: none !important;
+}
+
+/* Alinha o campo de busca com a logo/título: no desktop, o Material posiciona
+   a busca com "float" (pra animação de expandir), então ela não acompanha o
+   align-items:center que centraliza os outros itens do header. Empurra pra
+   baixo manualmente pra bater com o centro vertical da logo/título. */
+.md-search__inner {
+  margin-top: 0.4rem;
+}
+
+/* Logo maior no header (padrão do Material é pequeno demais pra ficar legível).
+   Usa transform:scale() em vez de aumentar a height — scale() não ocupa mais
+   espaço no layout, então a barra do header não cresce junto com a logo. */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 1.9rem;
+  width: auto;
+  transform: scale(1.3);
+}
+
+/* Link do GitHub no header: mantém só o ícone, esconde o nome do repositório.
+   O Material reserva 11.7rem de largura fixa pro texto do repositório — sem
+   o texto, sobrava um espaço vazio enorme empurrando os ícones pra longe. */
+.md-source__repository {
+  display: none;
+}
+
+.md-header__source {
+  width: auto;
+  max-width: none;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+}
+
+/* Aproxima ainda mais o alternador de tema do ícone do GitHub */
+.md-header__inner > [data-md-component="palette"] .md-header__button {
+  margin-right: -1.5rem;
+}
+
+/* Reordena os controles do header: busca -> alternador claro/escuro -> github
+   (a ordem padrão do Material é alternador -> busca -> github) */
+.md-header__inner > label[for="__search"],
+.md-header__inner > [data-md-component="search"] {
+  order: 1;
+}
+
+.md-header__inner > [data-md-component="palette"] {
+  order: 2;
+}
+
+.md-header__inner > .md-header__source {
+  order: 3;
+}
+
+/* Busca mais clean: fundo translúcido em vez da caixa branca sólida padrão,
+   que destoava muito do azul do header */
+.md-search__form {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 1.2rem;
+  box-shadow: none;
+}
+
+.md-search__form:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.md-search__input,
+.md-search__icon {
+  color: #ffffff;
+}
+
+.md-search__input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* O Material troca a busca pra um card branco opaco com cantos quadrados
+   quando ativa/focada, usando um seletor mais específico do que o de cima
+   ([data-md-toggle=search]:checked ~ .md-header .md-search__form) — repetimos
+   o mesmo seletor aqui pra manter o visual translúcido também nesse estado */
+[data-md-toggle="search"]:checked ~ .md-header .md-search__form {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 1.2rem;
+  box-shadow: none;
+  color: #ffffff;
+}
+
+[data-md-toggle="search"]:checked ~ .md-header .md-search__input + .md-search__icon {
+  color: #ffffff;
+}
+
+/* Remove a mensagem "Digite para iniciar a busca" (placeholder de estado vazio)
+   que aparecia no dropdown de resultados antes de digitar qualquer coisa */
+.md-search-result__meta {
+  display: none;
+}
+
+/* Logos institucionais no rodapé (FACOM + NES), inseridos via
+   overrides/partials/copyright.html. Centraliza tudo: a faixa inteira
+   do rodapé e a linha com os dois logos + "Made with Material for MkDocs". */
+.md-footer-meta__inner {
+  justify-content: center;
+}
+
+.md-copyright {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.74rem;
+  width: 100%;
+  padding: 0.51rem 0;
+}
+
+.md-footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.24rem;
+}
+
+.md-footer-logo img {
+  height: 1.09rem;
+  width: auto;
+}
+
+.md-footer-logo span {
+  font-size: 0.45rem;
+  font-weight: 400;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.md-footer-generator {
+  white-space: nowrap;
+}
+
+/* Modo escuro 50% mais escuro: o Material usa hsl(hue, 15%, 14%) como fundo
+   da página no modo slate — reduzimos a luminosidade pela metade (14% -> 7%),
+   e o mesmo pros blocos de código (18% -> 9%). Repete o seletor
+   "[data-md-color-scheme=slate]" (não só :root) pelo mesmo motivo do rodapé:
+   o Material aplica esse atributo direto na <body> via JS. */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: hsla(var(--md-hue), 15%, 7%, 1);
+  --md-default-bg-color--light: hsla(var(--md-hue), 15%, 7%, 0.54);
+  --md-default-bg-color--lighter: hsla(var(--md-hue), 15%, 7%, 0.26);
+  --md-default-bg-color--lightest: hsla(var(--md-hue), 15%, 7%, 0.07);
+  --md-code-bg-color: hsla(var(--md-hue), 15%, 9%, 1);
+  --md-code-bg-color--light: hsla(var(--md-hue), 15%, 9%, 0.9);
+  --md-code-bg-color--lighter: hsla(var(--md-hue), 15%, 9%, 0.54);
+
+  /* Texto mais claro e menos "acinzentado": aumenta luminosidade (90% -> 97%)
+     e opacidade (0.82 -> 0.95) do texto padrão no modo escuro. */
+  --md-default-fg-color: hsla(var(--md-hue), 15%, 100%, 1);
+  --md-default-fg-color--light: hsla(var(--md-hue), 15%, 100%, 0.74);
+  --md-default-fg-color--lighter: hsla(var(--md-hue), 15%, 100%, 0.47);
+  --md-default-fg-color--lightest: hsla(var(--md-hue), 15%, 100%, 0.21);
+}
