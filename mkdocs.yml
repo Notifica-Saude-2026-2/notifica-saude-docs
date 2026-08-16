@@ -1,0 +1,69 @@
+site_name: Documentação Notifica Saúde
+site_description: Documentação do Sistema Notifica Saúde - Registro, Análise e Acompanhamento de Incidentes.
+repo_url: https://github.com/Notifica-Saude-2026-2/notifica-saude-documentation
+repo_name: Notifica-Saude-2026-2/notifica-saude-documentation
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: pt-BR
+  logo: assets/favicon.png
+  favicon: assets/favicon.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Mudar para modo escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Mudar para modo claro
+  features:
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Visão Geral:
+      - Início: index.md
+      - Manual do Sistema: manual-sistema/index.md
+  - Descoberta do Produto:
+      - Visão geral: descoberta-produto/index.md
+      - Entrevistas e Formulários: descoberta-produto/entrevistas-e-formularios.md
+      - Mapeamento de Processos: descoberta-produto/mapeamento-processos.md
+  - Requisitos e Arquitetura:
+      - Requisitos: requisitos/index.md
+      - Matriz RBAC: requisitos/matriz-rbac.md
+      - Arquitetura: arquitetura/index.md
+      - Modelagem: arquitetura/modelagem.md
+      - Guia de Ambiente — Frontend: arquitetura/guia-ambiente-frontend.md
+      - Guia de Ambiente — Backend: arquitetura/guia-ambiente-backend.md
+  - Qualidade e Testes:
+      - Visão geral: vvt/index.md
+      - Plano de Testes: vvt/plano-de-testes.md
+      - Casos de Teste e Matriz de Rastreabilidade: vvt/casos-de-teste.md
+      - Relatórios: vvt/relatorios.md
+      - Uso do SonarCloud: vvt/sonarcloud.md
+      - Teste de Usabilidade: teste-usabilidade/index.md
+  - Gestão do Projeto:
+      - Visão geral: gerencia-projeto/index.md
+      - GCS: gcs/index.md
+      - Sprints: sprints/index.md
+      - Plano, Riscos e Decisões: gerencia-projeto/plano-riscos-decisoes.md
+      - Atas de Reunião: gerencia-projeto/atas-de-reuniao.md
+      - Registros de Uso de IA: registros-ia/index.md
+      - Uso do MkDocs:
+          - Visão geral: uso-mkdocs/index.md
+          - Decisão da Ferramenta: uso-mkdocs/decisao-da-ferramenta.md
+          - Configuração e Manutenção: uso-mkdocs/configuracao-e-manutencao.md
+  - Implantação e Entregas:
+      - Implantação: implantacao/index.md
+      - Apresentações NES: entregas-nes/index.md
