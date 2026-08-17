@@ -1,3 +1,0 @@
-﻿# Requisitos
-
-> Conteúdo em construção.
