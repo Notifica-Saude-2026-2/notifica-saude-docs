@@ -1,0 +1,3851 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação do Sistema Notifica Saúde - Registro, Análise e Acompanhamento de Incidentes.">
+      
+      
+      
+      
+        <link rel="prev" href="../../descoberta-produto/mapeamento-processos/">
+      
+      
+        <link rel="next" href="../matriz-rbac/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Especificação de Requisitos de Software - Documentação Notifica Saúde</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sumario" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Documentação Notifica Saúde" class="md-header__button md-logo" aria-label="Documentação Notifica Saúde" data-md-component="logo">
+      
+  <img src="../../assets/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentação Notifica Saúde
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Especificação de Requisitos de Software
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mudar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Notifica-Saude-2026-2/notifica-saude-documentation" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Notifica-Saude-2026-2/notifica-saude-documentation
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Visão Geral
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../descoberta-produto/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Descoberta do Produto
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Requisitos e Arquitetura
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../vvt/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Qualidade e Testes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../gerencia-projeto/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Gestão do Projeto
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../implantacao/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Implantação e Entregas
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Documentação Notifica Saúde" class="md-nav__button md-logo" aria-label="Documentação Notifica Saúde" data-md-component="logo">
+      
+  <img src="../../assets/favicon.png" alt="logo">
+
+    </a>
+    Documentação Notifica Saúde
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Notifica-Saude-2026-2/notifica-saude-documentation" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Notifica-Saude-2026-2/notifica-saude-documentation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão Geral
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Visão Geral
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual-sistema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual do Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../descoberta-produto/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Descoberta do Produto
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Descoberta do Produto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../descoberta-produto/entrevistas-e-formularios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrevistas e Formulários
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../descoberta-produto/mapeamento-processos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mapeamento de Processos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requisitos e Arquitetura
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Requisitos e Arquitetura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requisitos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Requisitos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação de Requisitos de Software
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação de Requisitos de Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sumário
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introdução
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-glossario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Glossário
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-descricao-dos-atores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Descrição dos Atores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-epicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Épicos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Épicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#epico-1-registro-de-notificacoes-de-incidentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Épico 1 — Registro de notificações de incidentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#epico-2-gestao-e-classificacao-de-notificacoes-de-incidentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Épico 2 — Gestão e classificação de notificações de incidentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#epico-3-autenticacao-e-controle-de-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Épico 3 — Autenticação e controle de acesso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#epico-4-registro-de-analise-em-notificacao-de-incidentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Épico 4 — Registro de análise em notificação de incidentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#epico-5-gestao-de-plano-de-acao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Épico 5 — Gestão de plano de ação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-historias-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Histórias de Usuário
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Histórias de Usuário">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-registro-de-notificacoes-de-incidentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Registro de notificações de incidentes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 Registro de notificações de incidentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#us-11-registrar-notificacao-de-incidente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-1.1 — Registrar notificação de incidente
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-gestao-e-classificacao-de-notificacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Gestão e classificação de notificações
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 Gestão e classificação de notificações">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#us-21-visualizar-notificacoes-registradas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-2.1 — Visualizar notificações registradas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-22-complementar-ou-corrigir-informacoes-da-notificacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-2.2 — Complementar ou corrigir informações da notificação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-23-classificar-incidente-notificado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-2.3 — Classificar incidente notificado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-24-definir-e-gerenciar-status-do-incidente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-2.4 — Definir e gerenciar status do incidente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-25-encaminhar-notificacao-para-area-responsavel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-2.5 — Encaminhar notificação para área responsável
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-autenticacao-e-controle-de-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Autenticação e controle de acesso
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 Autenticação e controle de acesso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#us-31-realizar-login-no-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-3.1 — Realizar login no sistema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-32-recuperar-senha-de-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-3.2 — Recuperar senha de acesso
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-registro-de-analise-em-notificacao-de-incidentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Registro de análise em notificação de incidentes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4 Registro de análise em notificação de incidentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#us-41-visualizar-notificacao-encaminhada-para-analise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-4.1 — Visualizar notificação encaminhada para análise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-42-registrar-analise-do-incidente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-4.2 — Registrar análise do incidente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-43-acompanhar-plano-de-acao-e-prazos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-4.3 — Acompanhar plano de ação e prazos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-44-concluir-investigacao-do-incidente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-4.4 — Concluir investigação do incidente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-45-consultar-historico-da-analise-e-das-acoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-4.5 — Consultar histórico da análise e das ações
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-gestao-de-plano-de-acao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Gestão de plano de ação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5 Gestão de plano de ação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#us-51-acessar-e-preencher-o-plano-de-acao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-5.1 — Acessar e preencher o plano de ação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-52-adicionar-acoes-ao-plano-de-acao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-5.2 — Adicionar ações ao plano de ação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-53-acompanhar-e-atualizar-o-andamento-das-acoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-5.3 — Acompanhar e atualizar o andamento das ações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-54-avaliar-a-efetividade-das-acoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-5.4 — Avaliar a efetividade das ações
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-requisitos-nao-funcionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Requisitos Não-funcionais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Requisitos Não-funcionais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-disponibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Disponibilidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-seguranca-da-informacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Segurança da Informação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-protecao-de-dados-e-lgpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Proteção de Dados e LGPD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-compatibilidade-e-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Compatibilidade e Acesso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-desempenho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 Desempenho
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66-acessibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 Acessibilidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-regras-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Regras de Negócio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Referências
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matriz-rbac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matriz RBAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitetura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/especificacao-arquitetura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação de Arquitetura de Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/brevo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brevo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Banco de Dados
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Banco de Dados
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/modelo-dominio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação do Modelo de Domínio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/modelo-logico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação do Modelo Lógico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../vvt/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualidade e Testes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Qualidade e Testes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vvt/plano-de-testes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plano de Testes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vvt/casos-de-teste/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Casos de Teste e Matriz de Rastreabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vvt/relatorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relatórios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vvt/sonarcloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uso do SonarCloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teste-usabilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teste de Usabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gerencia-projeto/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestão do Projeto
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestão do Projeto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gcs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GCS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sprints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gerencia-projeto/plano-riscos-decisoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plano, Riscos e Decisões
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gerencia-projeto/atas-de-reuniao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atas de Reunião
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../registros-ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registros de Uso de IA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../uso-mkdocs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uso do MkDocs
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Uso do MkDocs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uso-mkdocs/decisao-da-ferramenta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisão da Ferramenta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uso-mkdocs/configuracao-e-manutencao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuração e Manutenção
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../implantacao/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implantação e Entregas
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Implantação e Entregas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../implantacao/guia-ambiente-frontend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia de Ambiente — Frontend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entregas-nes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Apresentações NES
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sumário
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introdução
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-glossario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Glossário
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-descricao-dos-atores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Descrição dos Atores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-epicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Épicos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Épicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#epico-1-registro-de-notificacoes-de-incidentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Épico 1 — Registro de notificações de incidentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#epico-2-gestao-e-classificacao-de-notificacoes-de-incidentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Épico 2 — Gestão e classificação de notificações de incidentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#epico-3-autenticacao-e-controle-de-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Épico 3 — Autenticação e controle de acesso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#epico-4-registro-de-analise-em-notificacao-de-incidentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Épico 4 — Registro de análise em notificação de incidentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#epico-5-gestao-de-plano-de-acao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Épico 5 — Gestão de plano de ação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-historias-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Histórias de Usuário
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Histórias de Usuário">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-registro-de-notificacoes-de-incidentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Registro de notificações de incidentes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 Registro de notificações de incidentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#us-11-registrar-notificacao-de-incidente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-1.1 — Registrar notificação de incidente
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-gestao-e-classificacao-de-notificacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Gestão e classificação de notificações
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 Gestão e classificação de notificações">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#us-21-visualizar-notificacoes-registradas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-2.1 — Visualizar notificações registradas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-22-complementar-ou-corrigir-informacoes-da-notificacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-2.2 — Complementar ou corrigir informações da notificação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-23-classificar-incidente-notificado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-2.3 — Classificar incidente notificado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-24-definir-e-gerenciar-status-do-incidente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-2.4 — Definir e gerenciar status do incidente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-25-encaminhar-notificacao-para-area-responsavel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-2.5 — Encaminhar notificação para área responsável
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-autenticacao-e-controle-de-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Autenticação e controle de acesso
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 Autenticação e controle de acesso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#us-31-realizar-login-no-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-3.1 — Realizar login no sistema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-32-recuperar-senha-de-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-3.2 — Recuperar senha de acesso
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-registro-de-analise-em-notificacao-de-incidentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Registro de análise em notificação de incidentes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4 Registro de análise em notificação de incidentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#us-41-visualizar-notificacao-encaminhada-para-analise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-4.1 — Visualizar notificação encaminhada para análise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-42-registrar-analise-do-incidente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-4.2 — Registrar análise do incidente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-43-acompanhar-plano-de-acao-e-prazos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-4.3 — Acompanhar plano de ação e prazos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-44-concluir-investigacao-do-incidente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-4.4 — Concluir investigação do incidente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-45-consultar-historico-da-analise-e-das-acoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-4.5 — Consultar histórico da análise e das ações
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-gestao-de-plano-de-acao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Gestão de plano de ação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5 Gestão de plano de ação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#us-51-acessar-e-preencher-o-plano-de-acao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-5.1 — Acessar e preencher o plano de ação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-52-adicionar-acoes-ao-plano-de-acao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-5.2 — Adicionar ações ao plano de ação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-53-acompanhar-e-atualizar-o-andamento-das-acoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-5.3 — Acompanhar e atualizar o andamento das ações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-54-avaliar-a-efetividade-das-acoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US-5.4 — Avaliar a efetividade das ações
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-requisitos-nao-funcionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Requisitos Não-funcionais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Requisitos Não-funcionais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-disponibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Disponibilidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-seguranca-da-informacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Segurança da Informação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-protecao-de-dados-e-lgpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Proteção de Dados e LGPD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-compatibilidade-e-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Compatibilidade e Acesso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-desempenho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 Desempenho
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66-acessibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 Acessibilidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-regras-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Regras de Negócio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Referências
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 align="center">Especificação de Requisitos de Software</h1>
+
+<p align="center"><strong>Sistema Notifica Saúde — Versão 2.8</strong></p>
+
+<p align="center"><strong>Mantenedores:</strong> Gustavo Henrique, Kauan Cardoso, Sophya Ribeiro, Brenno, Catarina, Eduardo</p>
+
+<details class="note">
+<summary>Histórico de Alterações</summary>
+<table>
+<thead>
+<tr>
+<th>Versão</th>
+<th>Data</th>
+<th>Justificativa</th>
+<th>Responsável</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>10/03/2026</td>
+<td>Primeira versão do documento, glossário e estrutura dos requisitos.</td>
+<td>Sophya Ribeiro</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>11/03/2026</td>
+<td>Inserção de novos termos no glossário. Adição dos épicos 1 e 2, bem como suas respectivas histórias de usuário.</td>
+<td>Sophya Ribeiro</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>12/03/2026</td>
+<td>Alteração e inserção nos critérios de aceite da US 2.3.</td>
+<td>Sophya Ribeiro</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>16/03/2026</td>
+<td>Ajustes específicos. Primeira validação do documento.</td>
+<td>Sophya Ribeiro</td>
+</tr>
+<tr>
+<td>1.2</td>
+<td>18/03/2026</td>
+<td>Adição de novo ator, conforme validação das proponentes. Ajustes pontuais em critérios de aceite. Primeira validação formal com proponentes.</td>
+<td>Sophya Ribeiro</td>
+</tr>
+<tr>
+<td>1.3</td>
+<td>28/04/2026</td>
+<td>Atualização pontual nos épicos 1 e 2, requisitos não-funcionais e regras de negócio.</td>
+<td>Sophya Ribeiro, Aline Hirokawa</td>
+</tr>
+<tr>
+<td>1.4</td>
+<td>29/04/2026</td>
+<td>Inserção do épico referente a autenticação.</td>
+<td>Sophya Ribeiro</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>30/04/2026</td>
+<td>Inserção da História de usuário referente ao status dos incidentes.</td>
+<td>Sophya Ribeiro</td>
+</tr>
+<tr>
+<td>2.1</td>
+<td>05/05/2026</td>
+<td>Ajustes nos requisitos não-funcionais</td>
+<td>Aline Hirokawa</td>
+</tr>
+<tr>
+<td>2.2</td>
+<td>07/05/2026</td>
+<td>Adição de novos critérios de aceite na US2.5.</td>
+<td>Sophya Ribeiro</td>
+</tr>
+<tr>
+<td>2.3</td>
+<td>19/05/2026</td>
+<td>Adição de texto para template do email da US2.5.</td>
+<td>Sophya Ribeiro</td>
+</tr>
+<tr>
+<td>2.4</td>
+<td>20/05/2026</td>
+<td>Adição de nova pergunta no formulário de classificação.</td>
+<td>Sophya Ribeiro</td>
+</tr>
+<tr>
+<td>2.5</td>
+<td>01/06/2026</td>
+<td>Atualização no modelo de descrição dos épicos.</td>
+<td>Sophya Ribeiro</td>
+</tr>
+<tr>
+<td>2.6</td>
+<td>08/06/2026</td>
+<td>Edição e exclusão de requisitos não-funcionais.</td>
+<td>Sophya Ribeiro</td>
+</tr>
+<tr>
+<td>2.7</td>
+<td>10/08/2026</td>
+<td>Adição do Épico 4, e das histórias de usuários</td>
+<td>Gustavo Henrique</td>
+</tr>
+<tr>
+<td>2.8</td>
+<td>13/08/2026</td>
+<td>Adição do Épico 5, gestão do plano de ação</td>
+<td>Gustavo Henrique</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="sumario">Sumário</h2>
+<ul>
+<li><a href="#introducao">1. Introdução</a></li>
+<li><a href="#glossario">2. Glossário</a></li>
+<li><a href="#descricao-atores">3. Descrição dos Atores</a></li>
+<li><a href="#epicos">4. Épicos</a></li>
+<li><a href="#historias-usuario">5. Histórias de Usuário</a><ul>
+<li><a href="#historias-51">5.1 Registro de notificações de incidentes</a></li>
+<li><a href="#historias-52">5.2 Gestão e classificação de notificações</a></li>
+<li><a href="#historias-53">5.3 Autenticação e controle de acesso</a></li>
+<li><a href="#historias-54">5.4 Registro de análise em notificação de incidentes</a></li>
+<li><a href="#historias-55">5.5 Gestão de plano de ação</a></li>
+</ul>
+</li>
+<li><a href="#rnf">6. Requisitos Não-funcionais</a><ul>
+<li><a href="#rnf-disponibilidade">6.1 Disponibilidade</a></li>
+<li><a href="#rnf-seguranca">6.2 Segurança da Informação</a></li>
+<li><a href="#rnf-lgpd">6.3 Proteção de Dados e LGPD</a></li>
+<li><a href="#rnf-compatibilidade">6.4 Compatibilidade e Acesso</a></li>
+<li><a href="#rnf-desempenho">6.5 Desempenho</a></li>
+<li><a href="#rnf-acessibilidade">6.6 Acessibilidade</a></li>
+</ul>
+</li>
+<li><a href="#regras-negocio">7. Regras de Negócio</a></li>
+<li><a href="#referencias">8. Referências</a></li>
+</ul>
+<hr />
+<p><a id="introducao"></a></p>
+<h2 id="1-introducao">1. Introdução</h2>
+<p>Este documento é destinado aos stakeholders da solução Notifica Saúde, tanto diretos quanto indiretos. Ele apresenta os requisitos de um sistema voltado ao registro, análise e monitoramento de incidentes relacionados à segurança do paciente em serviços de saúde.</p>
+<p>A solução proposta permite que usuários realizem notificações de incidentes por meio de um formulário eletrônico, de forma identificada ou anônima. Após o registro, as notificações são encaminhadas ao Núcleo de Segurança do Paciente, responsável pela classificação do incidente, acompanhamento do fluxo de investigação e monitoramento das ações corretivas definidas pelos setores responsáveis.</p>
+<p>Além disso, o sistema possibilita o acompanhamento do status das notificações, o registro das análises realizadas pelas áreas envolvidas e a geração de relatórios consolidados para apoio ao monitoramento e à melhoria contínua dos processos relacionados à segurança do paciente.</p>
+<hr />
+<p><a id="glossario"></a></p>
+<h2 id="2-glossario">2. Glossário</h2>
+<table>
+<thead>
+<tr>
+<th>Termo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Incidente</td>
+<td>Ocorrência ou circunstância relacionada ao cuidado em saúde que poderia resultar, ou resultou, em dano ao paciente. Inclui desde situações de risco até eventos que efetivamente causaram dano.</td>
+</tr>
+<tr>
+<td>Notificação</td>
+<td>Registro formal de um incidente relacionado à segurança do paciente realizado no sistema. A notificação é o artefato gerado quando ocorre ou é identificado um incidente, devendo ser registrada independentemente da existência de dano ao paciente, conforme diretrizes e regulamentações de segurança do paciente. Seu objetivo é permitir o monitoramento, a análise e a implementação de ações de melhoria para prevenção de novos incidentes. A notificação pode ser realizada por qualquer pessoa e pode ocorrer de forma identificada ou anônima.</td>
+</tr>
+<tr>
+<td>Evento adverso</td>
+<td>Tipo de incidente que resulta em dano ao paciente decorrente do cuidado em saúde e não da evolução natural da doença. Pode ser classificado conforme a gravidade do dano (leve, moderado, grave ou catastrófico).</td>
+</tr>
+<tr>
+<td>Classificação do Incidente</td>
+<td>Processo realizado pelo Núcleo de Segurança do Paciente para categorizar o incidente de acordo com critérios de gravidade, tipo e impacto ao paciente.</td>
+</tr>
+<tr>
+<td>Dano Leve</td>
+<td>Incidente que não resulta em dano ao paciente, mas que deve ser registrado e monitorado conforme exigências regulatórias e políticas de segurança do paciente.</td>
+</tr>
+<tr>
+<td>Dano Moderado</td>
+<td>Incidente que causa algum impacto ao paciente, podendo exigir intervenção ou acompanhamento, porém sem resultar em consequências graves ou permanentes.</td>
+</tr>
+<tr>
+<td>Dano Grave</td>
+<td>Incidente que causa dano significativo ao paciente, podendo resultar em agravamento clínico relevante, necessidade de intervenção médica importante ou prolongamento da internação.</td>
+</tr>
+<tr>
+<td>Dano Catastrófico</td>
+<td>Incidente que resulta em óbito do paciente decorrente do evento relacionado ao cuidado em saúde.</td>
+</tr>
+<tr>
+<td>Near Miss</td>
+<td>Incidente que poderia causar dano ao paciente, mas que foi interceptado antes de atingir o paciente ou antes de produzir qualquer consequência.</td>
+</tr>
+<tr>
+<td>Circunstância de Risco</td>
+<td>Situação ou condição com potencial de causar um incidente relacionado ao cuidado em saúde, mesmo que nenhum erro ou dano tenha ocorrido.</td>
+</tr>
+<tr>
+<td>Área Notificada</td>
+<td>Setor, unidade ou departamento da instituição de saúde onde o incidente ocorreu e que será responsável por investigar a ocorrência e propor ações corretivas.</td>
+</tr>
+<tr>
+<td>Gestor da Área</td>
+<td>Profissional responsável pela gestão de um setor específico da instituição de saúde, encarregado de conduzir a investigação do incidente e definir ações corretivas.</td>
+</tr>
+<tr>
+<td>Investigação de Incidente</td>
+<td>Processo de análise conduzido pela área responsável para identificar as causas que levaram à ocorrência do incidente.</td>
+</tr>
+<tr>
+<td>Análise de Causa Raiz</td>
+<td>Método estruturado de investigação utilizado para identificar as causas fundamentais que contribuíram para a ocorrência de um incidente.</td>
+</tr>
+<tr>
+<td>Diagrama de Ishikawa</td>
+<td>Ferramenta de análise utilizada na investigação de incidentes para identificar e organizar possíveis causas do problema, também conhecida como diagrama de causa e efeito ou espinha de peixe.</td>
+</tr>
+<tr>
+<td>Plano de Ação</td>
+<td>Conjunto de ações corretivas e preventivas definidas após a investigação de um incidente, com responsáveis e prazos estabelecidos para evitar recorrência.</td>
+</tr>
+<tr>
+<td>Ação Corretiva</td>
+<td>Medida adotada para corrigir uma falha identificada e reduzir a probabilidade de repetição do incidente.</td>
+</tr>
+<tr>
+<td>Prazo de Tratativa</td>
+<td>Período definido para que a área responsável analise o incidente e registre as ações ou respostas no sistema.</td>
+</tr>
+<tr>
+<td>Status da Notificação</td>
+<td>Estado atual de uma notificação dentro do fluxo do sistema, indicando em que etapa do processo ela se encontra (ex.: registrada, classificada, em investigação, em análise, encerrada).</td>
+</tr>
+<tr>
+<td>Núcleo de Segurança do Paciente (NSP)</td>
+<td>Unidade ou equipe institucional responsável por receber notificações de incidentes, realizar a classificação inicial, acompanhar investigações e monitorar ações corretivas relacionadas à segurança do paciente.</td>
+</tr>
+<tr>
+<td>NOTIVISA</td>
+<td>Sistema nacional da Agência Nacional de Vigilância Sanitária (ANVISA) utilizado para registro e monitoramento de incidentes relacionados à vigilância sanitária e segurança do paciente.</td>
+</tr>
+<tr>
+<td>Never Events</td>
+<td>Eventos nunca (NE) são incidentes de segurança do paciente que podem ser evitados e tão graves que nunca deveriam acontecer.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a id="descricao-atores"></a></p>
+<h2 id="3-descricao-dos-atores">3. Descrição dos Atores</h2>
+<table>
+<thead>
+<tr>
+<th>Ator</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Notificante</td>
+<td>Usuário responsável por registrar uma notificação de incidente no sistema. Pode ser um profissional de saúde, paciente, acompanhante ou qualquer pessoa que tenha conhecimento do ocorrido. A notificação pode ser realizada de forma identificada ou anônima.</td>
+</tr>
+<tr>
+<td>Profissional do Núcleo de Segurança do Paciente (NSP)</td>
+<td>Usuário responsável por acessar as notificações registradas, realizar a análise inicial e classificar o incidente conforme critérios estabelecidos. Também acompanha o andamento das notificações. Responsável por gerenciar os usuários vinculados à sua instituição, incluindo cadastro, edição e definição de perfis de acesso. Pode gerar relatórios com base em filtros.</td>
+</tr>
+<tr>
+<td>Gestor de Área</td>
+<td>Usuário responsável pelo setor onde o incidente ocorreu. Após a classificação realizada pelo Núcleo de Segurança do Paciente, o gestor acessa a notificação para realizar a investigação do incidente, registrar a análise das causas e definir o plano de ação com medidas corretivas ou preventivas. Pode gerar relatórios do seu setor/área com base em filtros.</td>
+</tr>
+<tr>
+<td>Administrador do Sistema</td>
+<td>Usuário responsável pela administração global do sistema, com acesso irrestrito a todas as instituições cadastradas. Pode gerenciar usuários em nível sistêmico, configurar parâmetros gerais da aplicação, supervisionar o uso do sistema e garantir seu correto funcionamento em todos os contextos institucionais.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a id="epicos"></a></p>
+<h2 id="4-epicos">4. Épicos</h2>
+<p>Nesta seção são apresentados os épicos do sistema NotificaSaúde, organizados com o objetivo de agrupar funcionalidades relacionadas de acordo com os principais fluxos e necessidades identificados no processo de gestão de incidentes. Cada épico contém uma descrição resumida de seu propósito e a relação das histórias de usuário associadas, permitindo uma visão mais ampla das funcionalidades do produto e de como elas se conectam aos objetivos do sistema.</p>
+<h3 id="epico-1-registro-de-notificacoes-de-incidentes">Épico 1 — Registro de notificações de incidentes</h3>
+<p><strong>COMO</strong> qualquer pessoa que tenha conhecimento de um incidente (profissional de saúde, paciente, acompanhante ou terceiro)
+<strong>QUERO</strong> registrar uma notificação de incidente no sistema
+<strong>PARA</strong> que a ocorrência seja analisada e tratada pela instituição, contribuindo para a melhoria da segurança do paciente.</p>
+<p><strong>Histórias de usuário:</strong> <a href="#us-1-1">US 1.1 — Registrar notificação de incidente</a></p>
+<h3 id="epico-2-gestao-e-classificacao-de-notificacoes-de-incidentes">Épico 2 — Gestão e classificação de notificações de incidentes</h3>
+<p><strong>COMO</strong> profissional do Núcleo de Segurança do Paciente, devidamente autenticado no sistema
+<strong>QUERO</strong> visualizar, complementar, classificar e encaminhar notificações de incidentes registradas
+<strong>PARA</strong> garantir que as ocorrências sejam corretamente analisadas e direcionadas às áreas responsáveis para investigação e definição de ações corretivas.</p>
+<p><strong>Histórias de usuário:</strong></p>
+<ul>
+<li><a href="#us-2-1">US 2.1 — Visualizar notificações registradas</a></li>
+<li><a href="#us-2-2">US 2.2 — Complementar ou corrigir informações da notificação</a></li>
+<li><a href="#us-2-3">US 2.3 — Classificar incidente notificado</a></li>
+<li><a href="#us-2-4">US 2.4 — Definir e gerenciar status do incidente</a></li>
+<li><a href="#us-2-5">US 2.5 — Encaminhar notificação para área responsável</a></li>
+</ul>
+<h3 id="epico-3-autenticacao-e-controle-de-acesso">Épico 3 — Autenticação e controle de acesso</h3>
+<p><strong>COMO</strong> usuário previamente cadastrado no sistema
+<strong>QUERO</strong> realizar login e recuperar minha senha de acesso quando necessário
+<strong>PARA</strong> acessar a plataforma de forma segura e utilizar suas funcionalidades conforme meu perfil de acesso.</p>
+<p><strong>Histórias de usuário:</strong></p>
+<ul>
+<li><a href="#us-3-1">US 3.1 — Realizar login no sistema</a></li>
+<li><a href="#us-3-2">US 3.2 — Recuperar senha de acesso</a></li>
+</ul>
+<h3 id="epico-4-registro-de-analise-em-notificacao-de-incidentes">Épico 4 — Registro de análise em notificação de incidentes</h3>
+<p><strong>COMO</strong> gestor da área ou profissional do Núcleo de Segurança do Paciente
+<strong>QUERO</strong> registrar uma análise em uma notificação de incidente
+<strong>PARA</strong> investigar as causas do ocorrido e documentar as informações relevantes para definição de ações corretivas e preventivas.</p>
+<p><strong>Histórias de usuário:</strong></p>
+<ul>
+<li><a href="#us-4-1">US 4.1 — Visualizar notificação encaminhada para análise</a></li>
+<li><a href="#us-4-2">US 4.2 — Registrar análise do incidente</a></li>
+<li><a href="#us-4-3">US 4.3 — Acompanhar plano de ação e prazos</a></li>
+<li><a href="#us-4-4">US 4.4 — Concluir investigação do incidente</a></li>
+<li><a href="#us-4-5">US 4.5 — Consultar histórico da análise e das ações</a></li>
+</ul>
+<h3 id="epico-5-gestao-de-plano-de-acao">Épico 5 — Gestão de plano de ação</h3>
+<p><strong>COMO</strong> profissional responsável pela análise ou setor responsável pela execução
+<strong>QUERO</strong> registrar e acompanhar um plano de ação relacionado ao problema identificado na análise
+<strong>PARA</strong> definir, executar, acompanhar e avaliar as ações necessárias para tratar o problema identificado.</p>
+<p><strong>Histórias de usuário:</strong></p>
+<ul>
+<li><a href="#us-5-1">US 5.1 — Acessar e preencher o plano de ação</a></li>
+<li><a href="#us-5-2">US 5.2 — Adicionar ações ao plano de ação</a></li>
+<li><a href="#us-5-3">US 5.3 — Acompanhar e atualizar o andamento das ações</a></li>
+<li><a href="#us-5-4">US 5.4 — Avaliar a efetividade das ações</a></li>
+</ul>
+<hr />
+<p><a id="historias-usuario"></a></p>
+<h2 id="5-historias-de-usuario">5. Histórias de Usuário</h2>
+<p>Nesta seção são apresentadas as histórias de usuário do sistema NotificaSaúde, elaboradas com o objetivo de representar as necessidades dos diferentes perfis de usuários envolvidos no processo de gestão de incidentes. Cada história é acompanhada de seus respectivos critérios de aceite, contexto de uso e relação com as regras de negócio identificadas, permitindo detalhar os comportamentos esperados do sistema e orientar o desenvolvimento das funcionalidades propostas. As histórias foram definidas com base nas informações levantadas junto aos stakeholders, entrevistas realizadas e análise do fluxo atual de gerenciamento de incidentes em instituições de saúde.</p>
+<p><a id="historias-51"></a></p>
+<h3 id="51-registro-de-notificacoes-de-incidentes">5.1 Registro de notificações de incidentes</h3>
+<p><a id="us-1-1"></a></p>
+<h4 id="us-11-registrar-notificacao-de-incidente">US-1.1 — Registrar notificação de incidente</h4>
+<p><strong>Épico:</strong> 1 — Registro de notificações de incidentes · <strong>Prioridade:</strong> Alta</p>
+<p><strong>COMO</strong> Notificante
+<strong>QUERO</strong> registrar uma notificação de incidente no sistema
+<strong>PARA</strong> que a ocorrência seja analisada e tratada pela instituição, contribuindo para melhoria da segurança do paciente</p>
+<p><strong>Regras de Negócio:</strong> RN-04</p>
+<p><strong>Critérios de Aceite</strong></p>
+<ul>
+<li><strong>CA01 — Acesso ao formulário de notificação</strong>
+    <strong>Dado que</strong> um usuário acesse o sistema de notificação, <strong>quando</strong> selecionar a opção de registrar um incidente, <strong>então</strong> o sistema deve apresentar um formulário eletrônico para preenchimento da notificação.</li>
+<li><strong>CA02 — Campos do formulário de notificação</strong>
+    <strong>Dado que</strong> o usuário esteja preenchendo o formulário de notificação, <strong>quando</strong> visualizar o formulário, <strong>então</strong> o sistema deve apresentar os campos previamente configurados.</li>
+<li><strong>CA03 — Registro da notificação</strong>
+    <strong>Dado que</strong> o usuário preencheu o formulário de notificação, <strong>quando</strong> confirmar o envio, <strong>então</strong> o sistema deve registrar a notificação e atribuir o status "Novo".</li>
+</ul>
+<p><strong>Contexto de Uso:</strong> Esta funcionalidade pode ser utilizada por qualquer pessoa que tenha conhecimento do incidente, incluindo profissionais de saúde, pacientes, acompanhantes ou terceiros.</p>
+<p><a id="historias-52"></a></p>
+<h3 id="52-gestao-e-classificacao-de-notificacoes">5.2 Gestão e classificação de notificações</h3>
+<p><a id="us-2-1"></a></p>
+<h4 id="us-21-visualizar-notificacoes-registradas">US-2.1 — Visualizar notificações registradas</h4>
+<p><strong>Épico:</strong> 2 — Gestão e classificação de notificações · <strong>Prioridade:</strong> Alta</p>
+<p><strong>COMO</strong> Profissional do Núcleo de Segurança do Paciente, devidamente autenticado no sistema
+<strong>QUERO</strong> visualizar as notificações registradas no sistema
+<strong>PARA</strong> acompanhar os incidentes reportados e iniciar o processo de análise.</p>
+<p><strong>Regras de Negócio:</strong> RN-10</p>
+<p><strong>Critérios de Aceite</strong></p>
+<ul>
+<li><strong>CA01 — Acesso à lista de notificações</strong>
+    <strong>Dado que</strong> o usuário esteja autenticado como profissional do Núcleo de Segurança do Paciente, <strong>quando</strong> acessar o painel de notificações, <strong>então</strong> o sistema deve apresentar uma lista com todas as notificações registradas.</li>
+<li><strong>CA02 — Informações exibidas na lista</strong>
+    <strong>Dado que</strong> o usuário esteja visualizando a lista de notificações, <strong>quando</strong> as notificações forem exibidas, <strong>então</strong> o sistema deve apresentar, no mínimo: identificador único da notificação (decimal sequencial), data de registro, setor, status da notificação e os primeiros 200 caracteres da descrição.</li>
+<li><strong>CA03 — Ordenação padrão das notificações</strong>
+    <strong>Dado que</strong> o profissional do Núcleo de Segurança do Paciente esteja visualizando a lista de notificações, <strong>quando</strong> acessar o painel de notificações, <strong>então</strong> o sistema deve apresentar as notificações ordenadas por padrão das mais recentes para as mais antigas.</li>
+<li><strong>CA04 — Ordenações possíveis para as notificações</strong>
+    <strong>Dado que</strong> o usuário esteja visualizando a lista de notificações, <strong>quando</strong> utilizar as opções de ordenação, <strong>então</strong> o sistema deve permitir ordenar as notificações por mais recentes ou mais antigas.</li>
+<li><strong>CA05 — Filtros</strong>
+    <strong>Dado que</strong> o usuário esteja visualizando a lista de notificações, <strong>quando</strong> desejar localizar uma notificação específica, <strong>então</strong> o sistema deve permitir buscar notificações pelo tipo de incidente, pelo grau de dano (se houver) e pelo setor onde ocorreu o incidente.</li>
+<li><strong>CA06 — Barra de pesquisa</strong>
+    <strong>Dado que</strong> o usuário esteja visualizando a lista de notificações, <strong>quando</strong> informar um identificador na barra de pesquisa, <strong>então</strong> o sistema deve exibir as notificações correspondentes ao identificador informado.</li>
+<li><strong>CA07 — Acesso ao detalhamento da notificação</strong>
+    <strong>Dado que</strong> o usuário esteja visualizando a lista de notificações, <strong>quando</strong> selecionar uma notificação específica, <strong>então</strong> o sistema deve apresentar os detalhes completos da notificação registrada, bem como o histórico de modificações.</li>
+</ul>
+<p><strong>Contexto de Uso:</strong> Essa funcionalidade é utilizada pelos profissionais do Núcleo de Segurança do Paciente para acompanhar as notificações registradas no sistema, ter uma visão geral da quantidade de notificações recebidas e iniciar o processo de análise e classificação dos incidentes.</p>
+<p><a id="us-2-2"></a></p>
+<h4 id="us-22-complementar-ou-corrigir-informacoes-da-notificacao">US-2.2 — Complementar ou corrigir informações da notificação</h4>
+<p><strong>Épico:</strong> 2 — Gestão e classificação de notificações · <strong>Prioridade:</strong> Média</p>
+<p><strong>COMO</strong> Profissional do Núcleo de Segurança do Paciente
+<strong>QUERO</strong> complementar ou corrigir informações da notificação registrada
+<strong>PARA</strong> garantir que os dados necessários para análise e encaminhamento do incidente estejam corretos.</p>
+<p><strong>Regras de Negócio:</strong> RN-02, RN-09</p>
+<p><strong>Critérios de Aceite</strong></p>
+<ul>
+<li><strong>CA01 — Edição de campos da notificação</strong>
+    <strong>Dado que</strong> o profissional do Núcleo de Segurança do Paciente esteja visualizando os detalhes de uma notificação, <strong>quando</strong> selecionar a opção de editar informações da notificação, <strong>então</strong> o sistema deve permitir a edição ou preenchimento de campos complementares da notificação.</li>
+<li><strong>CA02 — Campos editáveis</strong>
+    <strong>Dado que</strong> o profissional esteja editando uma notificação, <strong>quando</strong> acessar a visão detalhada da notificação, <strong>então</strong> o sistema deve permitir a edição ou preenchimento dos campos do formulário de registro de incidente.</li>
+<li><strong>CA03 — Impedimento de edição da descrição</strong>
+    <strong>Dado que</strong> existe um incidente, <strong>quando</strong> o incidente for editado, <strong>então</strong> o sistema não deve permitir editar a descrição.</li>
+<li><strong>CA04 — Registro das alterações</strong>
+    <strong>Dado que</strong> o profissional do Núcleo de Segurança do Paciente realize alterações nas informações da notificação, <strong>quando</strong> salvar as modificações, <strong>então</strong> o sistema deve registrar essas alterações no histórico de modificações, incluindo data, hora, autor responsável e quais campos foram alterados.</li>
+</ul>
+<p><strong>Contexto de Uso:</strong> Essa funcionalidade permite que o Núcleo de Segurança do Paciente complemente ou corrija informações da notificação quando os dados registrados inicialmente estiverem incompletos ou incorretos, garantindo maior qualidade das informações utilizadas na análise do incidente.</p>
+<p><a id="us-2-3"></a></p>
+<h4 id="us-23-classificar-incidente-notificado">US-2.3 — Classificar incidente notificado</h4>
+<p><strong>Épico:</strong> 2 — Gestão e classificação de notificações · <strong>Prioridade:</strong> Média</p>
+<p><strong>COMO</strong> Profissional do Núcleo de Segurança do Paciente
+<strong>QUERO</strong> classificar o incidente registrado
+<strong>PARA</strong> categorizar a notificação e dar continuidade ao fluxo de análise.</p>
+<p><strong>Regras de Negócio:</strong> RN-03, RN-05</p>
+<p><strong>Critérios de Aceite</strong></p>
+<ul>
+<li><strong>CA01 — Acesso à classificação do incidente</strong>
+    <strong>Dado que</strong> o usuário esteja visualizando os detalhes de uma notificação, <strong>quando</strong> selecionar a opção de classificar o incidente, <strong>então</strong> o sistema deve permitir o registro da classificação do incidente.</li>
+<li><strong>CA02 — Impedimento de classificação</strong>
+    <strong>Dado que</strong> existam campos obrigatórios não preenchidos, <strong>quando</strong> o usuário tentar classificar o incidente, <strong>então</strong> o sistema deve impedir a classificação.</li>
+<li><strong>CA03 — Campos de classificação</strong>
+    <strong>Dado que</strong> o usuário esteja classificando um incidente, <strong>quando</strong> acessar o formulário de classificação, <strong>então</strong> o sistema deve apresentar um fluxo estruturado, com exibição condicional de campos conforme a classificação selecionada, contendo:<ul>
+<li><strong>Classificação do incidente</strong> (obrigatória, seleção única): Circunstância notificável / Near Miss / Incidente sem dano / Incidente com dano (Evento Adverso). Se "Evento Adverso", segue para <em>Grau do dano</em>; caso contrário, segue direto para <em>Tipo de incidente</em>.</li>
+<li><strong>Grau do dano</strong> (obrigatória, seleção única, exibida apenas para "Evento Adverso"): Leve / Moderado / Grave / Óbito / Never Event (Evento Sentinela / Catastrófico). Se "Never Event", segue para <em>Tipo de Never Event</em>; caso contrário, segue para <em>Tipo de incidente</em>.</li>
+<li><strong>Never Event</strong> (obrigatória de acordo com a condicional, seleção única): lista com os eventos-sentinela reconhecidos (ex.: alta/liberação indevida de paciente incapaz, contaminação na administração de O2/gases medicinais, cirurgia em local/lado/paciente errado, retenção de corpo estranho após cirurgia, troca de bebês, suicídio/tentativa/dano autoinfligido grave durante assistência, entre outros previstos na lista completa do formulário).</li>
+<li><strong>Tipo de incidente</strong> (obrigatória, múltipla escolha, exibida apenas se o Grau do dano for diferente de "Never Event"): Erro de medicação, Falha na identificação do paciente, Queda, Lesão por pressão, Infecção relacionada à assistência, Procedimento cirúrgico, Equipamento ou dispositivo médico, Falha de diagnóstico, Comunicação, Transfusão sanguínea, Documentação/prontuário, Outro (com campo de texto).</li>
+<li><strong>Envolvidos no incidente</strong> (obrigatória, múltipla escolha): Profissional de saúde, Paciente, Familiar/acompanhante, Equipamento médico, Dispositivo médico, Medicamento, Sistema de informação, Ambiente físico, Outro (campo de texto obrigatório se selecionado).</li>
+<li><strong>Observações do NSP</strong> (opcional, campo textual, limite de 400 caracteres).</li>
+<li><strong>Sugestão de protocolo de investigação</strong>: Investigação Direta (ACR + Ishikawa + 5 Porquês + SMART) — para circunstâncias notificáveis, near misses, incidentes sem dano e com dano leve; ou Investigação Sistêmica Profunda (Protocolo de Londres + SMART) — para incidentes com dano moderado, grave, óbitos e Never Events. Um tooltip na primeira opção orienta: <em>"Se você estiver diante de um near miss (quase erro) ou de um incidente sem dano, mas que possua altíssimo potencial de dano ou grande oportunidade de aprendizado organizacional, utilize o Protocolo de Londres."</em></li>
+</ul>
+</li>
+<li><strong>CA04 — Registro da classificação</strong>
+    <strong>Dado que</strong> o usuário preencheu todos os campos de classificação, <strong>quando</strong> confirmar o registro, <strong>então</strong> o sistema deve atualizar o status da notificação.</li>
+<li><strong>CA05 — Atribuição de prazo de validade com base na classificação</strong>
+    <strong>Dado que</strong> o profissional do NSP classificou um incidente, <strong>quando</strong> a classificação for salva, <strong>então</strong> o sistema deve exibir na tela e definir automaticamente a data de validade com base no grau de dano: Sem dano ou dano leve — 10 dias; Dano moderado — 7 dias; Dano grave — 4 dias. A validade conta a partir da data de registro do incidente.</li>
+<li><strong>CA06 — Edição de classificação após encaminhamento do incidente</strong>
+    <strong>Dado que</strong> o incidente já tenha sido encaminhado para o setor responsável, <strong>quando</strong> o usuário tentar editar a classificação, <strong>então</strong> o sistema deve impedir a alteração.</li>
+</ul>
+<p><strong>Contexto de Uso:</strong> A classificação do incidente é realizada pelo Núcleo de Segurança do Paciente após o recebimento da notificação, com base em critérios institucionais e diretrizes de segurança do paciente.</p>
+<p><a id="us-2-4"></a></p>
+<h4 id="us-24-definir-e-gerenciar-status-do-incidente">US-2.4 — Definir e gerenciar status do incidente</h4>
+<p><strong>Épico:</strong> 2 — Gestão e classificação de notificações · <strong>Prioridade:</strong> Média</p>
+<p><strong>COMO</strong> profissional do Núcleo de Segurança do Paciente
+<strong>QUERO</strong> visualizar o status atualizado dos incidentes
+<strong>PARA</strong> acompanhar em que etapa do fluxo cada notificação se encontra</p>
+<p><strong>Regras de Negócio:</strong> RN-08</p>
+<p><strong>Critérios de Aceite</strong></p>
+<ul>
+<li><strong>CA01 — Status inicial do incidente</strong>
+    <strong>Dado que</strong> uma nova notificação seja registrada, <strong>quando</strong> for criada, <strong>então</strong> o sistema deve definir automaticamente o status como "Novo".</li>
+<li><strong>CA02 — Transição para status "Classificado"</strong>
+    <strong>Dado que</strong> o profissional do NSP esteja classificando um incidente, <strong>quando</strong> todos os campos obrigatórios da classificação forem preenchidos e salvos, <strong>então</strong> o sistema deve atualizar automaticamente o status para "Classificado".</li>
+<li><strong>CA03 — Transição para status "Analisado"</strong>
+    <strong>Dado que</strong> o incidente esteja classificado, <strong>quando</strong> o profissional registrar uma análise do incidente, <strong>então</strong> o sistema deve atualizar automaticamente o status para "Analisado".</li>
+<li><strong>CA04 — Transição para status "Encaminhado"</strong>
+    <strong>Dado que</strong> o incidente esteja classificado, <strong>quando</strong> o profissional encaminhar o incidente para análise de um setor, <strong>então</strong> o sistema deve atualizar automaticamente o status para "Encaminhado para o setor".</li>
+<li><strong>CA05 — Arquivamento do incidente</strong>
+    <strong>Dado que</strong> o usuário autenticado como "Profissional do NSP" esteja visualizando um incidente, <strong>quando</strong> selecionar a opção de arquivar, <strong>então</strong> o sistema deve atualizar automaticamente o status para "Arquivado".</li>
+<li><strong>CA06 — Status "Arquivado" como estado final</strong>
+    <strong>Dado que</strong> o incidente esteja com status "Arquivado", <strong>quando</strong> o usuário visualizar ou acessar o incidente, <strong>então</strong> o sistema deve mantê-lo como estado final, não permitindo novas alterações no fluxo padrão.</li>
+<li><strong>CA07 — Coerência do fluxo de status</strong>
+    <strong>Dado que</strong> o incidente esteja em um determinado status, <strong>quando</strong> ocorrer uma ação no sistema, <strong>então</strong> o status deve ser atualizado automaticamente conforme as regras de transição definidas.</li>
+<li><strong>CA08 — Status não editável manualmente</strong>
+    <strong>Dado que</strong> o usuário esteja visualizando um incidente, <strong>quando</strong> acessar o campo de status, <strong>então</strong> o sistema deve permitir apenas a visualização, não sendo possível alterar manualmente o status.</li>
+</ul>
+<p><strong>Contexto de Uso:</strong> Essa funcionalidade é utilizada pelos profissionais do Núcleo de Segurança do Paciente para acompanhar o progresso das notificações ao longo do fluxo de tratamento, desde o registro inicial até sua classificação, análise, encaminhamento e arquivamento. O status permite identificar rapidamente em que etapa cada incidente se encontra, garantindo organização, rastreabilidade e controle do ciclo de vida das notificações, sem permitir alterações manuais indevidas ou exclusão de registros.</p>
+<p><a id="us-2-5"></a></p>
+<h4 id="us-25-encaminhar-notificacao-para-area-responsavel">US-2.5 — Encaminhar notificação para área responsável</h4>
+<p><strong>Épico:</strong> 2 — Gestão e classificação de notificações · <strong>Prioridade:</strong> Média</p>
+<p><strong>COMO</strong> Profissional do Núcleo de Segurança do Paciente
+<strong>QUERO</strong> encaminhar a notificação para o setor responsável
+<strong>PARA</strong> que a área realize a investigação do incidente.</p>
+<p><strong>Regras de Negócio:</strong> RN-08</p>
+<p><strong>Critérios de Aceite</strong></p>
+<ul>
+<li><strong>CA01 — Seleção da área responsável</strong>
+    <strong>Dado que</strong> o incidente já tenha sido classificado, <strong>quando</strong> o profissional do NSP selecionar a opção de encaminhamento, <strong>então</strong> o sistema deve permitir encaminhar a notificação, de acordo com template pré-estabelecido, ao(s) responsável(is) pelo setor.</li>
+<li>
+<p><strong>CA02 — Envio de e-mail de encaminhamento</strong>
+    <strong>Dado que</strong> a notificação seja encaminhada para uma unidade/setor responsável, <strong>quando</strong> o encaminhamento for concluído, <strong>então</strong> o sistema deve enviar um e-mail contendo o número da notificação, instruções de acesso ao sistema, orientações para análise do caso e registro do plano de ação pelo setor responsável, com o seguinte texto:</p>
+<blockquote>
+<p>Olá,</p>
+<p>Informamos que o incidente de segurança do paciente nº (Número da Notificação) foi registrado e direcionado para sua unidade/setor.</p>
+<p>Para ter acesso aos detalhes do incidente e à sua gravidade, acesse a plataforma digital Notifica Saúde o mais breve possível e priorize a análise e a condução das ações necessárias para prevenir a recorrência de incidentes semelhantes.</p>
+<p>Para acessar o Notifica Saúde:
+1. Clique no link: (Inserir o link aqui)
+2. Insira seu login e senha institucional.
+3. Localize a notificação nº (Número da Notificação).
+4. Registre a análise detalhada do caso e seu respectivo plano de ação.</p>
+<p>Atenciosamente,
+Núcleo de Segurança do Paciente (NSP)</p>
+</blockquote>
+</li>
+<li>
+<p><strong>CA03 — Encaminhamento de incidentes não classificados</strong>
+    <strong>Dado que</strong> o usuário tente encaminhar um incidente, <strong>quando</strong> a classificação do incidente não estiver completa, <strong>então</strong> o sistema deve impedir o encaminhamento da notificação.</p>
+</li>
+<li><strong>CA04 — Atualização do status</strong>
+    <strong>Dado que</strong> o encaminhamento foi realizado, <strong>quando</strong> a operação for concluída, <strong>então</strong> o sistema deve atualizar o status da notificação.</li>
+<li><strong>CA05 — Restrição de reencaminhamento para o mesmo setor</strong>
+    <strong>Dado que</strong> o gestor da área esteja visualizando um incidente já encaminhado para seu setor, <strong>quando</strong> acessar as opções de encaminhamento da notificação, <strong>então</strong> o sistema não deve exibir a opção de encaminhar o incidente novamente para o mesmo setor.</li>
+<li><strong>CA06 — Bloqueio de edição após encaminhamento</strong>
+    <strong>Dado que</strong> a notificação tenha sido encaminhada para um setor responsável, <strong>quando</strong> o usuário acessar a notificação, <strong>então</strong> o sistema não deve permitir a edição das informações gerais e da classificação.</li>
+</ul>
+<p><strong>Contexto de Uso:</strong> Após a classificação do incidente, o Núcleo de Segurança do Paciente encaminha a notificação ao gestor do setor onde o incidente ocorreu, que será responsável pela investigação e definição das ações corretivas.</p>
+<p><a id="historias-53"></a></p>
+<h3 id="53-autenticacao-e-controle-de-acesso">5.3 Autenticação e controle de acesso</h3>
+<p><a id="us-3-1"></a></p>
+<h4 id="us-31-realizar-login-no-sistema">US-3.1 — Realizar login no sistema</h4>
+<p><strong>Épico:</strong> 3 — Autenticação e controle de acesso · <strong>Prioridade:</strong> Alta</p>
+<p><strong>COMO</strong> usuário previamente cadastrado no sistema
+<strong>QUERO</strong> realizar login utilizando meu e-mail e senha
+<strong>PARA</strong> acessar as funcionalidades do sistema de forma segura</p>
+<p><strong>Regras de Negócio:</strong> RN-01</p>
+<p><strong>Critérios de Aceite</strong></p>
+<ul>
+<li><strong>CA01 — Acesso à tela de login</strong>
+    <strong>Dado que</strong> o usuário acesse o sistema, <strong>quando</strong> não estiver autenticado, <strong>então</strong> o sistema deve apresentar a tela de login.</li>
+<li><strong>CA02 — Autenticação com credenciais válidas</strong>
+    <strong>Dado que</strong> o usuário esteja na tela de login, <strong>quando</strong> informar e-mail e senha válidos, <strong>então</strong> o sistema deve autenticar o usuário e redirecioná-lo para a área interna.</li>
+<li><strong>CA03 — Validação de credenciais inválidas</strong>
+    <strong>Dado que</strong> o usuário esteja na tela de login, <strong>quando</strong> informar e-mail ou senha inválidos, <strong>então</strong> o sistema deve exibir uma mensagem de erro informando credenciais inválidas.</li>
+</ul>
+<p><strong>Contexto de Uso:</strong> Essa funcionalidade é utilizada por usuários previamente cadastrados no sistema para acessar a plataforma de forma segura, permitindo a utilização das funcionalidades disponíveis de acordo com seu perfil. O login é o ponto de entrada do sistema, sendo necessário para garantir controle de acesso e proteção das informações relacionadas às notificações e à gestão de incidentes.</p>
+<p><a id="us-3-2"></a></p>
+<h4 id="us-32-recuperar-senha-de-acesso">US-3.2 — Recuperar senha de acesso</h4>
+<p><strong>Épico:</strong> 3 — Autenticação e controle de acesso · <strong>Prioridade:</strong> Alta</p>
+<p><strong>COMO</strong> usuário previamente cadastrado no sistema
+<strong>QUERO</strong> realizar login utilizando meu e-mail e senha
+<strong>PARA</strong> acessar as funcionalidades do sistema de forma segura</p>
+<p><strong>Critérios de Aceite</strong></p>
+<ul>
+<li><strong>CA01 — Acesso à recuperação de senha</strong>
+    <strong>Dado que</strong> o usuário esteja na tela de login, <strong>quando</strong> selecionar a opção "Esqueci minha senha", <strong>então</strong> o sistema deve redirecionar para a tela de recuperação de senha.</li>
+<li><strong>CA02 — Solicitação de recuperação</strong>
+    <strong>Dado que</strong> o usuário esteja na tela de recuperação de senha, <strong>quando</strong> informar um e-mail válido cadastrado no sistema, <strong>então</strong> o sistema deve enviar um link de redefinição de senha para o e-mail informado.</li>
+<li><strong>CA03 — Acesso via link de redefinição</strong>
+    <strong>Dado que</strong> o usuário tenha recebido o e-mail de recuperação, <strong>quando</strong> acessar o link enviado, <strong>então</strong> o sistema deve redirecionar o usuário para a tela de redefinição de senha.</li>
+<li><strong>CA04 — Validade do link</strong>
+    <strong>Dado que</strong> o usuário acesse o link de redefinição, <strong>quando</strong> o link estiver expirado ou inválido, <strong>então</strong> o sistema deve exibir uma mensagem de erro e permitir a solicitação de um novo link.</li>
+<li><strong>CA05 — Redefinição de senha</strong>
+    <strong>Dado que</strong> o usuário esteja na tela de redefinição de senha, <strong>quando</strong> informar uma nova senha válida, <strong>então</strong> o sistema deve atualizar a senha do usuário com sucesso.</li>
+<li><strong>CA06 — Confirmação de alteração</strong>
+    <strong>Dado que</strong> o usuário redefiniu sua senha, <strong>quando</strong> a operação for concluída, <strong>então</strong> o sistema deve informar o sucesso da alteração e permitir que o usuário realize login.</li>
+<li><strong>CA07 — Segurança do link</strong>
+    <strong>Dado que</strong> o sistema gere o link de redefinição, <strong>quando</strong> o link for enviado ao usuário, <strong>então</strong> ele deve conter um identificador seguro (token) que permita validar a autenticidade da solicitação.</li>
+<li><strong>CA08 — Validade do link (expiração)</strong>
+    <strong>Dado que</strong> o usuário acesse o link de redefinição, <strong>quando</strong> o link tiver sido gerado há mais de 1 hora, <strong>então</strong> o sistema deve considerar o link expirado, exibir uma mensagem de erro e permitir a solicitação de um novo link.</li>
+</ul>
+<p><strong>Contexto de Uso:</strong> Essa funcionalidade é utilizada por usuários que esqueceram sua senha de acesso ao sistema, permitindo a recuperação do acesso de forma segura por meio do envio de um código de verificação para o e-mail cadastrado. Ela garante que o usuário consiga redefinir sua senha e voltar a utilizar o sistema sem a necessidade de intervenção manual, mantendo a segurança e a continuidade do uso da plataforma.</p>
+<p><a id="historias-54"></a></p>
+<h3 id="54-registro-de-analise-em-notificacao-de-incidentes">5.4 Registro de análise em notificação de incidentes</h3>
+<p><a id="us-4-1"></a></p>
+<h4 id="us-41-visualizar-notificacao-encaminhada-para-analise">US-4.1 — Visualizar notificação encaminhada para análise</h4>
+<p><strong>Épico:</strong> 4 — Registro de análise em notificação de incidentes · <strong>Prioridade:</strong> Alta</p>
+<p><strong>COMO</strong> Gestor da Área ou profissional do Núcleo de Segurança do Paciente
+<strong>QUERO</strong> visualizar uma notificação encaminhada para análise
+<strong>PARA</strong> ter acesso às informações necessárias para iniciar a investigação do incidente.</p>
+<p><strong>Regras de Negócio:</strong> RN-08</p>
+<p><strong>Critérios de Aceite</strong></p>
+<ul>
+<li><strong>CA01 — Acesso à notificação encaminhada</strong>
+    <strong>Dado que</strong> o usuário esteja autenticado e seja responsável pela análise da notificação, <strong>quando</strong> acessar uma notificação encaminhada para sua área, <strong>então</strong> o sistema deve apresentar os dados da notificação.</li>
+<li><strong>CA02 — Visualização das informações do incidente</strong>
+    <strong>Dado que</strong> o usuário esteja visualizando uma notificação encaminhada, <strong>quando</strong> acessar seus detalhes, <strong>então</strong> o sistema deve apresentar as informações registradas, incluindo os dados da notificação e sua classificação.</li>
+<li><strong>CA03 — Visualização da classificação</strong>
+    <strong>Dado que</strong> a notificação tenha sido classificada pelo NSP, <strong>quando</strong> o responsável acessar a notificação, <strong>então</strong> o sistema deve permitir visualizar a classificação, o grau do dano, o tipo de incidente e demais informações registradas na classificação.</li>
+<li><strong>CA03 — Restrição de acesso</strong>
+    <strong>Dado que</strong> o usuário não seja responsável pela notificação ou não possua permissão para acessá-la, <strong>quando</strong> tentar acessar a notificação, <strong>então</strong> o sistema deve impedir o acesso às informações.</li>
+</ul>
+<p><strong>Contexto de Uso:</strong> Essa funcionalidade permite que o responsável pela investigação tenha acesso às informações necessárias para compreender o incidente antes de iniciar a análise e registrar suas conclusões.</p>
+<p><a id="us-4-2"></a></p>
+<h4 id="us-42-registrar-analise-do-incidente">US-4.2 — Registrar análise do incidente</h4>
+<p><strong>Épico:</strong> 4 — Registro de análise em notificação de incidentes · <strong>Prioridade:</strong> Média</p>
+<p><strong>COMO</strong> Gestor da Área ou profissional do Núcleo de Segurança do Paciente
+<strong>QUERO</strong> registrar a análise realizada sobre o incidente
+<strong>PARA</strong> documentar as informações identificadas durante a investigação e contribuir para a definição das ações corretivas ou preventivas.</p>
+<p><strong>Regras de Negócio:</strong> RN-07, RN-08</p>
+<p><strong>Critérios de Aceite</strong></p>
+<ul>
+<li><strong>CA01 — Acesso à análise</strong>
+    <strong>Dado que</strong> a notificação tenha sido encaminhada para a área responsável, <strong>quando</strong> o responsável acessar a notificação, <strong>então</strong> o sistema deve disponibilizar a opção para registrar a análise do incidente.</li>
+<li><strong>CA02 — Registro das informações para análise</strong>
+    <strong>Dado que</strong> o responsável esteja realizando a investigação, <strong>quando</strong> registrar as informações da análise, <strong>então</strong> o sistema deve permitir o preenchimento dos campos definidos para documentar a investigação do incidente.</li>
+<li><strong>CA03 — Obrigatoriedade das informações</strong>
+    <strong>Dado que</strong> existam informações obrigatórias da análise não preenchidas, <strong>quando</strong> o responsável tentar salvar ou concluir a análise, <strong>então</strong> o sistema deve informar os campos pendentes e impedir a conclusão enquanto os campos obrigatórios não forem preenchidos.</li>
+<li><strong>CA04 — Salvamento da análise</strong>
+    <strong>Dado que</strong> as informações obrigatórias tenham sido preenchidas, <strong>quando</strong> o responsável salvar a análise, <strong>então</strong> o sistema deve registrar as informações associadas à notificação.</li>
+<li><strong>CA05 — Identificação do responsável</strong>
+    <strong>Dado que</strong> uma análise seja registrada, <strong>quando</strong> o sistema salvar a análise, <strong>então</strong> deve registrar o usuário responsável, a data e a hora da operação.</li>
+<li><strong>CA06 — Atualização do status</strong>
+    <strong>Dado que</strong> uma análise válida tenha sido registrada, <strong>quando</strong> a operação for concluída, <strong>então</strong> o sistema deve atualizar o status da notificação conforme o fluxo definido.</li>
+</ul>
+<p><strong>Contexto de Uso:</strong> A funcionalidade é utilizada durante a investigação do incidente para documentar as informações levantadas pelo gestor da área ou pelo profissional do NSP e manter o registro formal da análise realizada.</p>
+<p><a id="us-4-3"></a></p>
+<h4 id="us-43-acompanhar-plano-de-acao-e-prazos">US-4.3 — Acompanhar plano de ação e prazos</h4>
+<p><strong>Épico:</strong> 4 — Registro de análise em notificação de incidentes · <strong>Prioridade:</strong> Média</p>
+<p><strong>COMO</strong> Gestor da Área ou profissional do Núcleo de Segurança do Paciente
+<strong>QUERO</strong> acompanhar as ações definidas no plano de ação
+<strong>PARA</strong> monitorar sua execução e identificar ações pendentes ou próximas do prazo.</p>
+<p><strong>Critérios de Aceite</strong></p>
+<ul>
+<li><strong>CA01 — Visualização das ações</strong>
+    <strong>Dado que</strong> exista um plano de ação registrado, <strong>quando</strong> o responsável acessar a área de acompanhamento, <strong>então</strong> o sistema deve apresentar as ações vinculadas à notificação.</li>
+<li><strong>CA02 — Visualização dos responsáveis</strong>
+    <strong>Dado que</strong> existam ações registradas, <strong>quando</strong> o usuário visualizar o plano de ação, <strong>então</strong> o sistema deve apresentar o responsável definido para cada ação.</li>
+<li><strong>CA03 — Visualização dos prazos</strong>
+    <strong>Dado que</strong> uma ação possua prazo definido, <strong>quando</strong> o usuário visualizar o plano de ação, <strong>então</strong> o sistema deve apresentar a data prevista para conclusão.</li>
+<li><strong>CA04 — Prazo da ação</strong>
+    <strong>Dado que</strong> uma ação seja registrada, <strong>quando</strong> o responsável definir o prazo de execução, <strong>então</strong> o sistema deve armazenar a data prevista para conclusão da ação.</li>
+<li><strong>CA05 — Validação das informações obrigatórias</strong>
+    <strong>Dado que</strong> existam informações obrigatórias não preenchidas, <strong>quando</strong> o usuário tentar salvar o plano de ação, <strong>então</strong> o sistema deve impedir o registro e informar os campos pendentes.</li>
+<li><strong>CA04 — Identificação de ações pendentes</strong>
+    <strong>Dado que</strong> existam ações ainda não concluídas, <strong>quando</strong> o usuário consultar o plano de ação, <strong>então</strong> o sistema deve permitir identificar quais ações permanecem pendentes.</li>
+</ul>
+<p><strong>Contexto de Uso:</strong> A funcionalidade permite ao gestor e ao NSP acompanhar a execução das ações definidas durante a investigação e monitorar os respectivos prazos.</p>
+<p><a id="us-4-4"></a></p>
+<h4 id="us-44-concluir-investigacao-do-incidente">US-4.4 — Concluir investigação do incidente</h4>
+<p><strong>Épico:</strong> 4 — Registro de análise em notificação de incidentes · <strong>Prioridade:</strong> Alta</p>
+<p><strong>COMO</strong> Gestor da Área ou profissional do Núcleo de Segurança do Paciente
+<strong>QUERO</strong> concluir a investigação de um incidente
+<strong>PARA</strong> registrar formalmente o encerramento da etapa de análise e indicar que as informações necessárias para a tratativa foram registradas.</p>
+<p><strong>Critérios de Aceite</strong></p>
+<ul>
+<li><strong>CA01 — Disponibilidade da conclusão</strong>
+    <strong>Dado que</strong> o responsável tenha preenchido as informações obrigatórias da investigação, <strong>quando</strong> acessar as opções da notificação, <strong>então</strong> o sistema deve disponibilizar a opção de concluir a investigação.</li>
+<li><strong>CA02 — Validação antes da conclusão</strong>
+    <strong>Dado que</strong> existam informações obrigatórias pendentes, <strong>quando</strong> o responsável tentar concluir a investigação, <strong>então</strong> o sistema deve impedir a conclusão e informar as pendências.</li>
+<li><strong>CA03 — Registro da conclusão</strong>
+    <strong>Dado que</strong> todas as informações obrigatórias tenham sido preenchidas, <strong>quando</strong> o responsável confirmar a conclusão, <strong>então</strong> o sistema deve registrar a conclusão da investigação.</li>
+<li><strong>CA04 — Registro de data e responsável</strong>
+    <strong>Dado que</strong> a investigação seja concluída, <strong>quando</strong> a operação for realizada, <strong>então</strong> o sistema deve registrar a data, hora e usuário responsável pela conclusão.</li>
+<li><strong>CA05 — Atualização do status</strong>
+    <strong>Dado que</strong> a investigação tenha sido concluída, <strong>quando</strong> a operação for confirmada, <strong>então</strong> o sistema deve atualizar o status da notificação conforme o fluxo definido.</li>
+</ul>
+<p><a id="us-4-5"></a></p>
+<h4 id="us-45-consultar-historico-da-analise-e-das-acoes">US-4.5 — Consultar histórico da análise e das ações</h4>
+<p><strong>Épico:</strong> 4 — Registro de análise em notificação de incidentes · <strong>Prioridade:</strong> Média</p>
+<p><strong>COMO</strong> gestor da área ou profissional do Núcleo de Segurança do Paciente
+<strong>QUERO</strong> consultar o histórico das alterações realizadas durante a investigação
+<strong>PARA</strong> garantir rastreabilidade das informações, análises e ações registradas na notificação.</p>
+<p><strong>Critérios de Aceite</strong></p>
+<ul>
+<li><strong>CA01 — Acesso ao histórico</strong>
+    <strong>Dado que</strong> o usuário possua permissão para visualizar a notificação, <strong>quando</strong> acessar o histórico, <strong>então</strong> o sistema deve apresentar os registros de alterações relacionados à investigação.</li>
+<li><strong>CA02 — Identificação das alterações</strong>
+    <strong>Dado que</strong> existam alterações registradas, <strong>quando</strong> o usuário visualizar o histórico, <strong>então</strong> o sistema deve apresentar, no mínimo, a data, hora, usuário responsável e informação alterada.</li>
+<li><strong>CA03 — Histórico das ações</strong>
+    <strong>Dado que</strong> tenham sido registradas ações no plano de ação, <strong>quando</strong> o usuário consultar o histórico, <strong>então</strong> o sistema deve permitir identificar as alterações realizadas nas ações registradas.</li>
+<li><strong>CA04 — Preservação do histórico</strong>
+    <strong>Dado que</strong> uma alteração tenha sido registrada, <strong>quando</strong> o usuário consultar posteriormente a notificação, <strong>então</strong> o registro histórico deve permanecer disponível conforme as permissões de acesso definidas.</li>
+</ul>
+<p><a id="historias-55"></a></p>
+<h3 id="55-gestao-de-plano-de-acao">5.5 Gestão de plano de ação</h3>
+<p><a id="us-5-1"></a></p>
+<h4 id="us-51-acessar-e-preencher-o-plano-de-acao">US-5.1 — Acessar e preencher o plano de ação</h4>
+<p><strong>Épico:</strong> 5 — Gestão de plano de ação · <strong>Prioridade:</strong> Alta</p>
+<p><strong>COMO</strong> profissional responsável pela análise
+<strong>QUERO</strong> acessar e preencher o plano de ação relacionado ao problema identificado na análise
+<strong>PARA</strong> definir as ações necessárias para tratar o problema identificado.</p>
+<p><strong>Regras de Negócio:</strong> RN-07</p>
+<p><strong>Critérios de Aceite</strong></p>
+<ul>
+<li><strong>CA01 — Acessar plano de ação</strong>
+    <strong>Dado que</strong> o profissional tenha concluído a análise da notificação, <strong>quando</strong> acessar a funcionalidade de plano de ação, <strong>então</strong> o sistema deve apresentar a tela de preenchimento do plano de ação.</li>
+<li><strong>CA02 — Recuperação automática do problema</strong>
+    <strong>Dado que</strong> exista um problema identificado durante a análise, <strong>quando</strong> o profissional acessar o plano de ação, <strong>então</strong> o sistema deve apresentar automaticamente o problema identificado na análise.</li>
+<li><strong>CA03 — Preenchimento da ação</strong>
+    <strong>Dado que</strong> o profissional esteja preenchendo o plano de ação, <strong>quando</strong> informar os dados da ação, <strong>então</strong> o sistema deve permitir informar o que será feito, onde será feito, quem será responsável, previsão de início e previsão de conclusão.</li>
+<li><strong>CA04 — Necessidade de recurso</strong>
+    <strong>Dado que</strong> o profissional esteja preenchendo uma ação, <strong>quando</strong> informar se a ação necessita de recursos, <strong>então</strong> o sistema deve permitir indicar se necessita de recurso e, caso positivo, informar qual recurso é necessário e seu custo estimado.</li>
+<li><strong>CA05 — Aprovação da Alta Gestão</strong>
+    <strong>Dado que</strong> o profissional esteja preenchendo uma ação, <strong>quando</strong> informar se a ação depende de aprovação da Alta Gestão, <strong>então</strong> o sistema deve permitir indicar se necessita de aprovação e, caso positivo, informar qual aprovação é necessária.</li>
+<li><strong>CA06 — Comprovação da execução</strong>
+    <strong>Dado que</strong> o profissional esteja preenchendo uma ação, <strong>quando</strong> informar como a execução será comprovada, <strong>então</strong> o sistema deve permitir registrar a forma de comprovação da execução.</li>
+<li><strong>CA07 — Resultado esperado</strong>
+    <strong>Dado que</strong> o profissional esteja preenchendo uma ação, <strong>quando</strong> informar o resultado esperado, <strong>então</strong> o sistema deve permitir registrar qual resultado deverá ser alcançado.</li>
+<li><strong>CA08 — Verificação do resultado</strong>
+    <strong>Dado que</strong> o profissional esteja preenchendo uma ação, <strong>quando</strong> informar como será verificado o resultado, <strong>então</strong> o sistema deve permitir registrar o método de verificação e quando ela deverá ocorrer.</li>
+<li><strong>CA09 — Indicador de acompanhamento</strong>
+    <strong>Dado que</strong> o profissional esteja preenchendo uma ação, <strong>quando</strong> informar se a ação irá gerar um indicador de acompanhamento, <strong>então</strong> o sistema deve permitir selecionar entre "Sim" e "Não".</li>
+</ul>
+<p><strong>Contexto de Uso:</strong> Essa funcionalidade permite que o profissional responsável, após concluir a análise do incidente, registre o plano de ação a partir do problema identificado, definindo as informações necessárias para execução e posterior acompanhamento das ações.</p>
+<p><a id="us-5-2"></a></p>
+<h4 id="us-52-adicionar-acoes-ao-plano-de-acao">US-5.2 — Adicionar ações ao plano de ação</h4>
+<p><strong>Épico:</strong> 5 — Gestão de plano de ação · <strong>Prioridade:</strong> Alta</p>
+<p><strong>COMO</strong> profissional responsável pelo plano de ação
+<strong>QUERO</strong> adicionar uma ou mais ações relacionadas ao problema identificado
+<strong>PARA</strong> definir todas as medidas necessárias para sua tratativa.</p>
+<p><strong>Critérios de Aceite</strong></p>
+<ul>
+<li><strong>CA01 — Adicionar outra ação</strong>
+    <strong>Dado que</strong> o profissional tenha preenchido uma ação, <strong>quando</strong> selecionar "Adicionar outra ação", <strong>então</strong> o sistema deve disponibilizar uma nova estrutura para preenchimento de outra ação.</li>
+<li><strong>CA02 — Preservação das ações</strong>
+    <strong>Dado que</strong> exista uma ou mais ações preenchidas, <strong>quando</strong> o profissional adicionar uma nova ação, <strong>então</strong> o sistema deve preservar as informações das ações anteriormente preenchidas.</li>
+<li><strong>CA03 — Associação ao problema</strong>
+    <strong>Dado que</strong> existam múltiplas ações cadastradas, <strong>quando</strong> o plano for salvo, <strong>então</strong> todas as ações devem permanecer associadas ao problema identificado na análise.</li>
+<li><strong>CA04 — Identificação das ações</strong>
+    <strong>Dado que</strong> o profissional adicione mais de uma ação, <strong>quando</strong> as ações forem registradas, <strong>então</strong> o sistema deve identificar cada ação por uma numeração sequencial.</li>
+<li><strong>CA05 — Salvar plano</strong>
+    <strong>Dado que</strong> o profissional tenha preenchido uma ou mais ações, <strong>quando</strong> selecionar "Salvar Plano de Ação", <strong>então</strong> o sistema deve validar os campos obrigatórios e registrar o plano de ação.</li>
+</ul>
+<p><strong>Contexto de Uso:</strong> Essa funcionalidade permite que um mesmo problema identificado durante a análise seja tratado por meio de uma ou mais ações, mantendo todas elas vinculadas ao mesmo plano de ação.</p>
+<p><a id="us-5-3"></a></p>
+<h4 id="us-53-acompanhar-e-atualizar-o-andamento-das-acoes">US-5.3 — Acompanhar e atualizar o andamento das ações</h4>
+<p><strong>Épico:</strong> 5 — Gestão de plano de ação · <strong>Prioridade:</strong> Alta</p>
+<p><strong>COMO</strong> profissional responsável ou setor responsável pela execução
+<strong>QUERO</strong> acompanhar e atualizar o andamento das ações do plano
+<strong>PARA</strong> manter registrado o estado de execução e as evidências relacionadas a cada ação.</p>
+<p><strong>Critérios de Aceite</strong></p>
+<ul>
+<li><strong>CA01 — Geração da tabela de acompanhamento</strong>
+    <strong>Dado que</strong> o plano de ação tenha sido salvo, <strong>quando</strong> o sistema concluir o registro do plano, <strong>então</strong> deve gerar automaticamente uma tabela com as ações cadastradas.</li>
+<li><strong>CA02 — Informações da tabela</strong>
+    <strong>Dado que</strong> a tabela de acompanhamento tenha sido gerada, <strong>quando</strong> o usuário visualizá-la, <strong>então</strong> o sistema deve apresentar, no mínimo: número da ação, o que será feito, responsável, início, término, status, data atualizada e evidência.</li>
+<li><strong>CA03 — Atualização individual da ação</strong>
+    <strong>Dado que</strong> exista uma ação cadastrada, <strong>quando</strong> o usuário selecionar "Clique aqui para atualizar o andamento da ação", <strong>então</strong> o sistema deve abrir a tela de atualização da ação selecionada.</li>
+<li><strong>CA04 — Identificação automática da ação</strong>
+    <strong>Dado que</strong> o usuário tenha selecionado uma ação para atualização, <strong>quando</strong> a tela de atualização for aberta, <strong>então</strong> o sistema deve apresentar automaticamente a descrição da ação selecionada.</li>
+<li><strong>CA05 — Data real de início</strong>
+    <strong>Dado que</strong> o usuário esteja atualizando uma ação, <strong>quando</strong> informar a data real de início, <strong>então</strong> o sistema deve registrar a data informada.</li>
+<li><strong>CA06 — Ação concluída</strong>
+    <strong>Dado que</strong> o usuário selecione a situação "Concluída", <strong>quando</strong> informar a conclusão da ação, <strong>então</strong> o sistema deve permitir registrar a data de conclusão e a descrição do que foi realizado.</li>
+<li><strong>CA07 — Ação atrasada</strong>
+    <strong>Dado que</strong> o usuário selecione a situação "Atrasada", <strong>quando</strong> registrar a atualização, <strong>então</strong> o sistema deve exigir o motivo do atraso e uma nova previsão de finalização.</li>
+<li><strong>CA08 — Ação cancelada</strong>
+    <strong>Dado que</strong> o usuário selecione a situação "Cancelada", <strong>quando</strong> registrar a atualização, <strong>então</strong> o sistema deve exigir o motivo do cancelamento.</li>
+<li><strong>CA09 — Registro da evidência</strong>
+    <strong>Dado que</strong> o usuário esteja atualizando uma ação, <strong>quando</strong> informar onde a evidência está armazenada, <strong>então</strong> o sistema deve permitir registrar a localização ou descrição da evidência relacionada à execução da ação.</li>
+<li><strong>CA10 — Atualização da tabela</strong>
+    <strong>Dado que</strong> o usuário tenha salvo uma atualização, <strong>quando</strong> retornar ao acompanhamento do plano, <strong>então</strong> o sistema deve apresentar a situação e as informações atualizadas da ação.</li>
+<li><strong>CA11 — Cancelamento da atualização</strong>
+    <strong>Dado que</strong> o usuário esteja preenchendo uma atualização, <strong>quando</strong> selecionar "Cancelar", <strong>então</strong> o sistema deve retornar à tela anterior sem registrar as alterações realizadas.</li>
+</ul>
+<p><strong>Contexto de Uso:</strong> Essa funcionalidade permite o acompanhamento individual das ações cadastradas no plano, possibilitando que o profissional ou setor responsável registre o andamento, situação, prazos e evidências da execução.</p>
+<p><a id="us-5-4"></a></p>
+<h4 id="us-54-avaliar-a-efetividade-das-acoes">US-5.4 — Avaliar a efetividade das ações</h4>
+<p><strong>Épico:</strong> 5 — Gestão de plano de ação · <strong>Prioridade:</strong> Alta</p>
+<p><strong>COMO</strong> profissional responsável pela avaliação da ação
+<strong>QUERO</strong> registrar o resultado observado e avaliar sua efetividade
+<strong>PARA</strong> verificar se a ação executada produziu o resultado esperado para o problema identificado.</p>
+<p><strong>Critérios de Aceite</strong></p>
+<ul>
+<li><strong>CA01 — Resultado observado</strong>
+    <strong>Dado que</strong> o usuário esteja atualizando uma ação, <strong>quando</strong> informar o resultado observado, <strong>então</strong> o sistema deve permitir registrar o resultado obtido após a execução da ação.</li>
+<li><strong>CA02 — Avaliação da efetividade</strong>
+    <strong>Dado que</strong> o usuário esteja avaliando uma ação, <strong>quando</strong> informar sua efetividade, <strong>então</strong> o sistema deve disponibilizar as opções "Sim", "Parcialmente" e "Não".</li>
+<li><strong>CA03 — Efetividade parcial</strong>
+    <strong>Dado que</strong> o usuário selecione "Parcialmente", <strong>quando</strong> salvar a avaliação, <strong>então</strong> o sistema deve exigir o preenchimento do motivo da efetividade parcial.</li>
+<li><strong>CA04 — Ação não efetiva</strong>
+    <strong>Dado que</strong> o usuário selecione "Não", <strong>quando</strong> salvar a avaliação, <strong>então</strong> o sistema deve exigir o preenchimento do motivo pelo qual a ação não foi efetiva.</li>
+<li><strong>CA05 — Efetividade positiva</strong>
+    <strong>Dado que</strong> o usuário selecione "Sim", <strong>quando</strong> salvar a avaliação, <strong>então</strong> o sistema deve registrar a ação como efetiva.</li>
+<li><strong>CA06 — Independência entre situação e efetividade</strong>
+    <strong>Dado que</strong> uma ação possa estar concluída sem necessariamente solucionar o problema, <strong>quando</strong> o usuário avaliar sua efetividade, <strong>então</strong> o sistema deve permitir registrar uma efetividade diferente da situação da ação.</li>
+<li><strong>CA07 — Registro da avaliação</strong>
+    <strong>Dado que</strong> a avaliação tenha sido preenchida corretamente, <strong>quando</strong> o usuário selecionar "Salvar", <strong>então</strong> o sistema deve registrar o resultado observado e a avaliação de efetividade associados à ação.</li>
+</ul>
+<p><strong>Contexto de Uso:</strong> Essa funcionalidade permite avaliar se as ações executadas produziram o resultado esperado, diferenciando a conclusão da execução da ação de sua efetividade na resolução do problema identificado.</p>
+<hr />
+<p><a id="rnf"></a></p>
+<h2 id="6-requisitos-nao-funcionais">6. Requisitos Não-funcionais</h2>
+<p>Esta seção descreve os requisitos não funcionais do sistema NotificaSaúde, incluindo aspectos relacionados à disponibilidade, segurança, proteção de dados, desempenho e compatibilidade da solução. Esses requisitos definem características e restrições que o sistema deve atender para garantir seu funcionamento adequado e seguro em ambientes institucionais de saúde.</p>
+<p><a id="rnf-disponibilidade"></a></p>
+<h3 id="61-disponibilidade">6.1 Disponibilidade</h3>
+<ul>
+<li><strong>6.1.1</strong> O sistema deve manter disponibilidade mínima de 99,5% ao mês, desconsiderando períodos programados de manutenção previamente comunicados.</li>
+<li><strong>6.1.2</strong> O sistema deve permitir o registro de notificações 24 horas por dia, 7 dias por semana, considerando que incidentes podem ocorrer em diferentes turnos de atendimento.</li>
+</ul>
+<p><a id="rnf-seguranca"></a></p>
+<h3 id="62-seguranca-da-informacao">6.2 Segurança da Informação</h3>
+<ul>
+<li><strong>6.2.1</strong> O sistema deve exigir autenticação para acesso às funcionalidades internas e impedir acesso não autenticado a endpoints protegidos.</li>
+<li><strong>6.2.2</strong> O sistema deve garantir controle de acesso baseado em perfis de usuário, de acordo com a Matriz RBAC, impedindo acesso indevido mediante manipulação manual de URLs, rotas ou requisições HTTP.</li>
+<li><strong>6.2.3</strong> O sistema deve registrar histórico de modificações realizadas nas notificações.</li>
+<li><strong>6.2.4</strong> O sistema deve enviar ao usuário um link de redefinição por e-mail com validade máxima de 1 hora e utilização única, ao ser acionada a funcionalidade de recuperação de senha.</li>
+<li><strong>6.2.5</strong> O sistema deve bloquear temporariamente o acesso do usuário e do endereço IP por 60 segundos após 15 tentativas consecutivas de autenticação inválida realizadas em intervalo máximo de 5 minutos.</li>
+<li><strong>6.2.6</strong> O sistema deve estabelecer que a senha do usuário, ao ser criada ou redefinida, possua no mínimo: 8 caracteres; um número; uma letra maiúscula; uma letra minúscula; um caractere especial.</li>
+<li><strong>6.2.7</strong> O sistema não deve expor informações sensíveis em respostas HTTP, mensagens de erro, logs públicos ou stack traces.</li>
+<li><strong>6.2.8</strong> O sistema deve ter verificação via captcha, a fim de verificar se de fato é um humano a acessar o sistema.</li>
+</ul>
+<p><a id="rnf-lgpd"></a></p>
+<h3 id="63-protecao-de-dados-e-lgpd">6.3 Proteção de Dados e LGPD</h3>
+<ul>
+<li><strong>6.3.1</strong> O sistema deve permitir o registro de notificações de forma anônima, quando desejado pelo notificante.</li>
+<li><strong>6.3.2</strong> O sistema deve limitar o acesso às informações apenas aos usuários autorizados conforme suas permissões de acesso.</li>
+<li><strong>6.3.3</strong> O sistema deve garantir o isolamento de modo que cada instituição de saúde tenha acesso aos dados no âmbito de sua própria organização.</li>
+</ul>
+<p><a id="rnf-compatibilidade"></a></p>
+<h3 id="64-compatibilidade-e-acesso">6.4 Compatibilidade e Acesso</h3>
+<ul>
+<li><strong>6.4.1</strong> O sistema deve ser compatível com os navegadores Chrome, Safari e Microsoft Edge, possuindo as respectivas versões mínimas: 145.0.7632.45/46, 18.6 e 147.0.3912.98.</li>
+<li><strong>6.4.2</strong> A interface deve ser responsiva, permitindo o uso em smartphones, tablets e computadores, com seus respectivos viewports mínimos: 375 × 667 pixels, 744 × 1133 pixels e 1024 × 1366 pixels.</li>
+</ul>
+<p><a id="rnf-desempenho"></a></p>
+<h3 id="65-desempenho">6.5 Desempenho</h3>
+<ul>
+<li><strong>6.5.1</strong> O sistema deve garantir desempenho ao carregar as páginas e submeter os formulários, atendendo aos seguintes critérios:<ul>
+<li>O desempenho deve ser consistente para ambas as operações de navegação e submissão dos dados;</li>
+<li>A latência das respostas da API do sistema deve ser no máximo 500ms no percentil 95 (p95) sob carga de 50 requisições simultâneas.</li>
+</ul>
+</li>
+</ul>
+<p><a id="rnf-acessibilidade"></a></p>
+<h3 id="66-acessibilidade">6.6 Acessibilidade</h3>
+<ul>
+<li><strong>6.6.1</strong> A interface do sistema deve estar em conformidade com as diretrizes WCAG do nível AA.</li>
+</ul>
+<hr />
+<p><a id="regras-negocio"></a></p>
+<h2 id="7-regras-de-negocio">7. Regras de Negócio</h2>
+<p><strong>Acesso restrito</strong>
+Somente usuários previamente cadastrados e autorizados devem ter acesso às funcionalidades internas do sistema, como classificação de incidentes, análise, investigação, definição de plano de ação e geração de relatórios. O acesso deve ocorrer mediante autenticação (login e senha) e respeitar os perfis de usuário definidos.</p>
+<p><strong>Histórico de modificações</strong>
+Todas as alterações realizadas nas informações de uma notificação devem ser registradas e mantidas em histórico. O sistema deve permitir a visualização das modificações realizadas, incluindo informações como data da alteração, usuário responsável e conteúdo modificado, garantindo transparência e rastreabilidade do processo de gestão do incidente.</p>
+<p><strong>Obrigatoriedade de registro de incidentes</strong>
+Todo incidente relacionado ao cuidado em saúde deve ser passível de registro no sistema, independentemente de ter causado dano ao paciente. A notificação deve ser realizada mesmo em situações classificadas como near miss ou circunstância de risco, conforme diretrizes de segurança do paciente.</p>
+<p><strong>Possibilidade de notificação anônima</strong>
+O sistema deve permitir que notificações sejam registradas de forma anônima, sem a identificação do notificante, com o objetivo de incentivar o registro de incidentes e reduzir barreiras ao relato de ocorrências.</p>
+<p><strong>Classificação obrigatória do incidente</strong>
+Toda notificação registrada deve passar por uma etapa de classificação realizada por um profissional do Núcleo de Segurança do Paciente, que deverá categorizar o incidente conforme os critérios estabelecidos (tipo de incidente e grau de dano). Somente usuários do núcleo podem realizar classificação.</p>
+<p><strong>Encaminhamento para área responsável</strong>
+Após a classificação do incidente, a notificação deve ser encaminhada ao gestor do setor onde o incidente ocorreu, que será responsável pela investigação e pela definição das ações corretivas ou preventivas.</p>
+<p><strong>Registro de plano de ação</strong>
+Para incidentes que demandem tratativa, o gestor da área responsável deve registrar no sistema um plano de ação contendo as medidas a serem adotadas, os responsáveis pela execução e os prazos previstos. O núcleo também pode realizar esse registro.</p>
+<p><strong>Acompanhamento do status da notificação</strong>
+Cada notificação deve possuir um status que indique a etapa atual do fluxo de tratamento do incidente (por exemplo: registrada, classificada, em investigação, enviada para setor responsável ou arquivada), permitindo o monitoramento do processo ao longo do tempo.</p>
+<p><strong>Preservação e histórico dos registros</strong>
+As notificações registradas e as ações associadas não devem ser excluídas do sistema, garantindo a manutenção do histórico para fins de auditoria, monitoramento institucional e geração de relatórios. Em conformidade com a LGPD, o sistema deve apresentar aos usuários um Termo de Uso e Responsabilidade, com o objetivo de esclarecer a finalidade do tratamento dos dados, os direitos do titular e as condições de utilização da plataforma.</p>
+<p><strong>Identificador de notificações</strong>
+Toda notificação registrada no sistema deve possuir um identificador único, gerado automaticamente no momento do registro. Esse identificador deve permitir a rastreabilidade da notificação ao longo de todo o fluxo de tratamento do incidente, sendo utilizado para consulta, acompanhamento, classificação, investigação e geração de relatórios.</p>
+<hr />
+<p><a id="referencias"></a></p>
+<h2 id="8-referencias">8. Referências</h2>
+<ul>
+<li>PRESSMAN, Roger S.; MAXIM, Bruce R. <em>Engenharia de Software: Uma abordagem profissional</em>. 8 ed. Porto Alegre: Bookman, 2016.</li>
+<li>SOMMERVILLE, Ian. <em>Engenharia de Software</em>. 9 ed. São Paulo: Pearson, 2011.</li>
+<li>VALENTE, Marco Tulio. <em>Engenharia de Software Moderna: Princípios e Práticas para Desenvolvimento de Software com Produtividade</em>. Editora Independente, 2020.</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Última atualização">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="16 de agosto de 2026 23:35:44 -04">16 de agosto de 2026 23:35:44</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  <div class="md-footer-logo">
+    <img src="../../assets/grafo_facom.png" alt="FACOM">
+    <span>Facom | UFMS</span>
+  </div>
+  <div class="md-footer-logo">
+    <img src="../../assets/logo-nes.png" alt="NES">
+    <span>NES | UFMS</span>
+  </div>
+  
+  
+    <span class="md-footer-generator">
+      Made with
+      <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+        Material for MkDocs
+      </a>
+    </span>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
