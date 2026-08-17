@@ -30,35 +30,69 @@ O modelo de ramificação adotado no projeto Notifica Saúde é o **GitFlow**. T
 O diagrama abaixo representa o ciclo adotado pela equipe: as funcionalidades partem da `develop`, retornam a ela por Pull Request, são promovidas para uma branch de `release` para validação e, somente então, integradas à `main`. As correções emergenciais (*hotfix*) partem da `main` e retornam à `main` e à `develop`, conforme descrito em [Pull Requests não planejadas](pull-requests.md#nao-planejadas).
 
 ```mermaid
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "git0": "#5B8FB9",
+    "git1": "#C08552",
+    "git2": "#9B7EBD",
+    "git3": "#6FA97F",
+    "git4": "#C97B93",
+    "git5": "#B9A25B",
+    "gitBranchLabel0": "#FFFFFF",
+    "gitBranchLabel1": "#FFFFFF",
+    "gitBranchLabel2": "#FFFFFF",
+    "gitBranchLabel3": "#FFFFFF",
+    "gitBranchLabel4": "#FFFFFF",
+    "gitBranchLabel5": "#FFFFFF",
+    "gitInv0": "#FFFFFF",
+    "gitInv1": "#FFFFFF",
+    "gitInv2": "#FFFFFF",
+    "gitInv3": "#FFFFFF",
+    "gitInv4": "#FFFFFF",
+    "gitInv5": "#FFFFFF",
+    "commitLabelColor": "#1F2328",
+    "commitLabelBackground": "#FFFFFF",
+    "tagLabelColor": "#1F2328",
+    "tagLabelBackground": "#FBEFC3",
+    "tagLabelBorder": "#B9A25B",
+    "lineColor": "#8C959F"
+  }
+} }%%
 gitGraph
-    commit id: "versão inicial" tag: "v1.0.0"
+    commit id: "v1.0.0" tag: "v1.0.0"
 
-    branch hotfix/34/corrige-login order: 1
+    branch release/1.1.0 order: 1
     branch develop order: 2
     checkout develop
-    commit id: "integração"
+    commit id: "Integração"
 
     branch feat/12/registro-notificacao order: 3
     checkout feat/12/registro-notificacao
-    commit id: "feat: registro"
+    commit id: "Início da feature"
+
+    branch feat/13/notificacao-api order: 4
+    checkout feat/13/notificacao-api
+    commit id: "API de notificação"
+
+    checkout feat/12/registro-notificacao
+    merge feat/13/notificacao-api
+
+    branch feat/14/notificacao-formulario order: 5
+    checkout feat/14/notificacao-formulario
+    commit id: "Formulário de notificação"
+
+    checkout feat/12/registro-notificacao
+    merge feat/14/notificacao-formulario
 
     checkout develop
     merge feat/12/registro-notificacao
 
-    checkout hotfix/34/corrige-login
-    commit id: "fix: login"
-    checkout main
-    merge hotfix/34/corrige-login tag: "v1.0.1"
-    checkout develop
-    merge hotfix/34/corrige-login
-
-    branch release/1.1.0 order: 4
     checkout release/1.1.0
-    commit id: "ajustes de QA"
+    merge develop tag: "v1.1.0-rc.1"
 
     checkout main
     merge release/1.1.0 tag: "v1.1.0"
-
     checkout develop
     merge release/1.1.0
 ```
