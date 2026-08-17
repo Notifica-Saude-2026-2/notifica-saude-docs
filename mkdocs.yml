@@ -30,8 +30,17 @@ theme:
 
 markdown_extensions:
   - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 4
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
 plugins:
   - search
@@ -70,9 +79,18 @@ nav:
       - Relatórios: vvt/relatorios.md
       - Uso do SonarCloud: vvt/sonarcloud.md
       - Teste de Usabilidade: teste-usabilidade/index.md
+  - Gerência de Configuração:
+      - Visão geral: gcs/index.md
+      - Modelo de Ramificação: gcs/modelo-ramificacao.md
+      - Gerenciamento de Mudanças: gcs/gerenciamento-mudancas.md
+      - Gerenciamento de Pull Requests: gcs/pull-requests.md
+      - Padrão de Mensagens de Commit: gcs/padrao-commits.md
+      - Gerenciamento de Documentação: gcs/gerenciamento-documentacao.md
+      - Definição de Pronto (DoD e DoR): gcs/definicao-de-pronto.md
+      - Gerenciamento de Releases: gcs/gerenciamento-releases.md
+      - Pipelines de CI: gcs/pipelines-ci.md
   - Gestão do Projeto:
       - Visão geral: gerencia-projeto/index.md
-      - GCS: gcs/index.md
       - Sprints: sprints/index.md
       - Plano, Riscos e Decisões: gerencia-projeto/plano-riscos-decisoes.md
       - Atas de Reunião: gerencia-projeto/atas-de-reuniao.md
