@@ -28,6 +28,14 @@ theme:
     - search.suggest
     - content.code.copy
 
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: datetime
+      timezone: America/Campo_Grande
+      locale: pt
+      fallback_to_build_date: true
+
 extra_css:
   - stylesheets/extra.css
 
