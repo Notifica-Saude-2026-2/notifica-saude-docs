@@ -4,7 +4,7 @@
 
 <p align="center">Documento originalmente emitido em 04/05/2026 (versão 2.1)</p>
 
-<p align="center"><strong>Mantenedores:</strong> Luigi Gonçalves, Aline Lika Hirokawa, Pedro Soledade, Sophya Ribeiro, Lucas Gonçalves, Fábio Ramos</p>
+<p align="center"><strong>Mantenedores:</strong> Gustavo Henrique, Kauan Cardoso, Sophya Ribeiro, Brenno, Catarina, Eduardo</p>
 
 ??? note "Histórico de Alterações"
 
