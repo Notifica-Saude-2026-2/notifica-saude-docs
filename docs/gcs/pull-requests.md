@@ -1,6 +1,6 @@
 <h1 align="center">Gerenciamento de Pull Requests</h1>
 
-<p align="center"><strong>Documento de Gerência de Configuração de Software — Versão 2.2</strong></p>
+<p align="center"><strong>Documento de Gerência de Configuração de Software — Versão 2.3</strong></p>
 
 <p align="center">O histórico de alterações consolidado está na <a href="../">página inicial da seção de GCS</a>.</p>
 

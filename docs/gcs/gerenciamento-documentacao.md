@@ -1,6 +1,6 @@
 <h1 align="center">Gerenciamento de Documentação</h1>
 
-<p align="center"><strong>Documento de Gerência de Configuração de Software — Versão 2.2</strong></p>
+<p align="center"><strong>Documento de Gerência de Configuração de Software — Versão 2.3</strong></p>
 
 <p align="center">O histórico de alterações consolidado está na <a href="../">página inicial da seção de GCS</a>.</p>
 
@@ -258,7 +258,7 @@ Adicionalmente, a documentação deve passar por revisões periódicas para evit
 
 ??? danger "OLD — conteúdo anterior desta página (mantido apenas para validação)"
 
-    **Este bloco está obsoleto.** Reproduz o conteúdo da seção 3.5 do documento na versão 2.1, anterior à adoção do MkDocs, e é mantido apenas para conferência da equipe durante a validação da versão 2.2. **Não deve ser seguido como norma.** Após a validação, este bloco será removido.
+    **Este bloco está obsoleto.** Reproduz o conteúdo da seção 3.5 do documento na versão 2.1, anterior à adoção do MkDocs, e é mantido apenas para conferência da equipe durante a validação da versão 2.3. **Não deve ser seguido como norma.** Após a validação, este bloco será removido.
 
     **OLD — 1. Introdução**
 
