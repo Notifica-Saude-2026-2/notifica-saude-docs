@@ -61,28 +61,15 @@ O diagrama abaixo representa o ciclo adotado pela equipe: as funcionalidades par
 gitGraph
     commit id: "v1.0.0" tag: "v1.0.0"
 
-    branch release/1.1.0 order: 1
-    branch develop order: 2
+    branch release/1.1.0 order: 2
+    branch develop order: 3
     checkout develop
     commit id: "Integração"
 
-    branch feat/12/registro-notificacao order: 3
+    branch feat/12/registro-notificacao order: 4
     checkout feat/12/registro-notificacao
     commit id: "Início da feature"
-
-    branch feat/13/notificacao-api order: 4
-    checkout feat/13/notificacao-api
-    commit id: "API de notificação"
-
-    checkout feat/12/registro-notificacao
-    merge feat/13/notificacao-api
-
-    branch feat/14/notificacao-formulario order: 5
-    checkout feat/14/notificacao-formulario
-    commit id: "Formulário de notificação"
-
-    checkout feat/12/registro-notificacao
-    merge feat/14/notificacao-formulario
+    commit id: "Registro de notificação"
 
     checkout develop
     merge feat/12/registro-notificacao
@@ -94,6 +81,15 @@ gitGraph
     merge release/1.1.0 tag: "v1.1.0"
     checkout develop
     merge release/1.1.0
+
+    checkout main
+    branch hotfix/15/correcao-critica order: 1
+    commit id: "Correção emergencial"
+
+    checkout main
+    merge hotfix/15/correcao-critica tag: "v1.1.1"
+    checkout develop
+    merge hotfix/15/correcao-critica
 ```
 
 ---
