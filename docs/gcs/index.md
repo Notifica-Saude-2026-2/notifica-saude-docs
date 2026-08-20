@@ -1,7 +1,5 @@
 <h1 align="center">Gerência de Configuração de Software</h1>
 
-<p align="center"><strong>Documento de Gerência de Configuração de Software — Versão 2.3</strong></p>
-
 
 <p align="center"><strong>Mantenedores:</strong> Gustavo Henrique, Kauan Cardoso, Sophya Ribeiro, Brenno, Catarina, Eduardo</p>
 

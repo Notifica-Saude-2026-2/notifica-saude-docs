@@ -1,6 +1,5 @@
 <h1 align="center">Matriz RBAC</h1>
 
-<p align="center"><strong>Sistema Notifica Saúde</strong></p>
 
 Matriz de controle de acesso baseado em perfis (RBAC), definindo quais funcionalidades cada perfil de usuário pode executar no sistema.
 
