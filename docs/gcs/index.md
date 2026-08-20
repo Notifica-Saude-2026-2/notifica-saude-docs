@@ -48,11 +48,12 @@ O projeto é distribuído entre os repositórios listados abaixo, todos hospedad
 
 | Repositório | Finalidade | Endereço |
 | --- | --- | --- |
-| Front-end | Aplicação web do sistema | [notifica-saude-frontend](https://github.com/Notifica-Saude/notifica-saude-frontend) |
-| Back-end | API e regras de negócio | [notifica-saude-backend](https://github.com/Notifica-Saude/notifica-saude-backend) |
-| Protótipo | Protótipo funcional | [prototipo-funcional](https://github.com/Notifica-Saude/prototipo-funcional) |
-| Testes E2E | Testes de ponta a ponta | [notifica-saude-e2e](https://github.com/Notifica-Saude/notifica-saude-e2e) |
-| Deploy | Artefatos e scripts de implantação | [notifica-saude-deploy](https://github.com/Notifica-Saude/notifica-saude-deploy) |
+| Front-end | Aplicação web do sistema | [notifica-saude-frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend) |
+| Back-end | API e regras de negócio | [notifica-saude-backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend) |
+| Protótipo | Protótipo funcional | [notifica-saude-prototipo-funcional](https://github.com/Notifica-Saude-2026-2/notifica-saude-prototipo-funcional) |
+| Testes E2E | Testes de ponta a ponta | [notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e) |
+| Deploy | Artefatos e scripts de implantação | [notifica-saude-deploy](https://github.com/Notifica-Saude-2026-2/notifica-saude-deploy) |
+| Documentação | Documentos do projeto publicados via MkDocs | [notifica-saude-docs](https://github.com/Notifica-Saude-2026-2/notifica-saude-docs) |
 
 Além dos repositórios, a equipe utiliza o **GitHub Issues** e o **GitHub Projects** para o gerenciamento de mudanças, o **GitHub Actions** para as pipelines de integração contínua, o **Lefthook** como mecanismo local de verificação e o **Discord** para notificação automatizada de Pull Requests.
 
