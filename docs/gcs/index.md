@@ -16,6 +16,7 @@
     | 2.1 | 23/06/2026 | Definição da política de uso de pipelines de CI. | Luigi de Almeida |
     | 2.2 | 17/08/2026 | Migração do documento para o MkDocs, divisão em páginas temáticas e padronização de formatação. Padronização do exemplo de nomenclatura de branch para o prefixo `feat/` e explicitação da branch de release no fluxo de merge. | Eduardo Alves |
     | 2.3 | 18/08/2026 | Definição do modelo de ramificação próprio da documentação, com branches `docs/<descrição>` sem número de issue. Definição da issue como opcional para atualizações de rotina e obrigatória apenas para tarefas complexas. Inclusão do registro no histórico de alterações como etapa do fluxo. | Eduardo Alves |
+    | 2.4 | 19/08/2026 | Inclusão do fluxo de *hotfix* no diagrama de ramificação e na tabela de branches, e do modelo simplificado adotado nos repositórios de apoio. Atualização das referências dos repositórios, remoção da política de notificação via Discord. | Eduardo Alves |
 
 ## Sumário
 
