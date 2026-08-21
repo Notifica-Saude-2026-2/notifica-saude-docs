@@ -79,14 +79,14 @@ As três primeiras opções compartilham o passo de review (PR). MkDocs e Docusa
 %%{init: {
   "theme": "base",
   "themeVariables": {
-    "fontSize": "16px",
+    "fontSize": "15px",
     "lineColor": "#9AA0A6"
   },
   "flowchart": {
     "useMaxWidth": false,
-    "nodeSpacing": 40,
-    "rankSpacing": 45,
-    "padding": 14
+    "nodeSpacing": 30,
+    "rankSpacing": 20,
+    "padding": 10
   }
 } }%%
 flowchart TD
