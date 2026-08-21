@@ -99,6 +99,7 @@ nav:
           - Visão geral: uso-mkdocs/index.md
           - Decisão da Ferramenta: uso-mkdocs/decisao-da-ferramenta.md
           - Configuração e Manutenção: uso-mkdocs/configuracao-e-manutencao.md
+          - Guia de Atualização da Documentação: uso-mkdocs/guia-atualizacao-documentacao.md
   - Implantação e Entregas:
       - Implantação: implantacao/index.md
       - Guia de Ambiente — Frontend: implantacao/guia-ambiente-frontend.md
