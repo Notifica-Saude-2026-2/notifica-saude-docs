@@ -1,7 +1,7 @@
 site_name: Documentação Notifica Saúde
 site_description: Documentação do Sistema Notifica Saúde - Registro, Análise e Acompanhamento de Incidentes.
-repo_url: https://github.com/Notifica-Saude-2026-2/notifica-saude-documentation
-repo_name: Notifica-Saude-2026-2/notifica-saude-documentation
+repo_url: https://github.com/Notifica-Saude-2026-2/notifica-saude-docs
+repo_name: Notifica-Saude-2026-2/notifica-saude-docs
 
 theme:
   name: material
