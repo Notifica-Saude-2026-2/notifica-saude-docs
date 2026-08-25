@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <a href="https://notifica-saude-2026-2.github.io/notifica-saude-documentation/"><strong>🌐 Acessar o site publicado</strong></a>
+  <a href="https://notifica-saude-2026-2.github.io/notifica-saude-docs/"><strong>🌐 Acessar o site publicado</strong></a>
 </p>
 
 <p align="center">
