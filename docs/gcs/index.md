@@ -1,8 +1,5 @@
 <h1 align="center">Gerência de Configuração de Software</h1>
 
-<p align="center"><strong>Sistema Notifica Saúde — Versão 2.2</strong></p>
-
-<p align="center">Documento originalmente emitido em 04/05/2026 (versão 2.1)</p>
 
 <p align="center"><strong>Mantenedores:</strong> Gustavo Henrique, Kauan Cardoso, Sophya Ribeiro, Brenno, Catarina, Eduardo</p>
 
@@ -17,7 +14,9 @@
     | 1.3 | 13/04/2026 | Adição do tópico de gerenciamento de issues não planejadas. | Luigi de Almeida |
     | 2.0 | 30/04/2026 | Definição e implantação do Squash Merge no fluxo de desenvolvimento da equipe. | Luigi de Almeida |
     | 2.1 | 23/06/2026 | Definição da política de uso de pipelines de CI. | Luigi de Almeida |
-    | 2.2 | 17/08/2026 | Migração do documento para o MkDocs, divisão em páginas temáticas e padronização de formatação. Sem alteração normativa de conteúdo. | Eduardo Alves |
+    | 2.2 | 17/08/2026 | Migração do documento para o MkDocs, divisão em páginas temáticas e padronização de formatação. Padronização do exemplo de nomenclatura de branch para o prefixo `feat/` e explicitação da branch de release no fluxo de merge. | Eduardo Alves |
+    | 2.3 | 18/08/2026 | Definição do modelo de ramificação próprio da documentação, com branches `docs/<descrição>` sem número de issue. Definição da issue como opcional para atualizações de rotina e obrigatória apenas para tarefas complexas. Inclusão do registro no histórico de alterações como etapa do fluxo. | Eduardo Alves |
+    | 2.4 | 19/08/2026 | Inclusão do fluxo de *hotfix* no diagrama de ramificação e na tabela de branches, e do modelo simplificado adotado nos repositórios de apoio. Atualização das referências dos repositórios, remoção da política de notificação via Discord. | Eduardo Alves |
 
 ## Sumário
 
@@ -50,11 +49,12 @@ O projeto é distribuído entre os repositórios listados abaixo, todos hospedad
 
 | Repositório | Finalidade | Endereço |
 | --- | --- | --- |
-| Front-end | Aplicação web do sistema | [notifica-saude-frontend](https://github.com/Notifica-Saude/notifica-saude-frontend) |
-| Back-end | API e regras de negócio | [notifica-saude-backend](https://github.com/Notifica-Saude/notifica-saude-backend) |
-| Protótipo | Protótipo funcional | [prototipo-funcional](https://github.com/Notifica-Saude/prototipo-funcional) |
-| Testes E2E | Testes de ponta a ponta | [notifica-saude-e2e](https://github.com/Notifica-Saude/notifica-saude-e2e) |
-| Deploy | Artefatos e scripts de implantação | [notifica-saude-deploy](https://github.com/Notifica-Saude/notifica-saude-deploy) |
+| Front-end | Aplicação web do sistema | [notifica-saude-frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend) |
+| Back-end | API e regras de negócio | [notifica-saude-backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend) |
+| Protótipo | Protótipo funcional | [notifica-saude-prototipo-funcional](https://github.com/Notifica-Saude-2026-2/notifica-saude-prototipo-funcional) |
+| Testes E2E | Testes de ponta a ponta | [notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e) |
+| Deploy | Artefatos e scripts de implantação | [notifica-saude-deploy](https://github.com/Notifica-Saude-2026-2/notifica-saude-deploy) |
+| Documentação | Documentos do projeto publicados via MkDocs | [notifica-saude-docs](https://github.com/Notifica-Saude-2026-2/notifica-saude-docs) |
 
 Além dos repositórios, a equipe utiliza o **GitHub Issues** e o **GitHub Projects** para o gerenciamento de mudanças, o **GitHub Actions** para as pipelines de integração contínua, o **Lefthook** como mecanismo local de verificação e o **Discord** para notificação automatizada de Pull Requests.
 
@@ -70,7 +70,7 @@ Além dos repositórios, a equipe utiliza o **GitHub Issues** e o **GitHub Proje
 | [Gerenciamento de Mudanças](gerenciamento-mudancas.md) | Define o uso de issues como ponto de partida obrigatório de toda alteração e a composição padrão de uma issue. |
 | [Gerenciamento de Pull Requests](pull-requests.md) | Regras de revisão, aprovação e merge, comunicação via Discord, tratamento de demandas não planejadas e política de Squash Merge. |
 | [Padrão de Mensagens de Commit](padrao-commits.md) | Formato, tipos permitidos e regras de escrita das mensagens de commit. |
-| [Gerenciamento de Documentação](gerenciamento-documentacao.md) | Nomenclatura, versionamento, controle de versões, estrutura mínima e manutenção dos artefatos documentais. |
+| [Gerenciamento de Documentação](gerenciamento-documentacao.md) | Modelo de ramificação do repositório de documentação, quando abrir issue, fluxo de Pull Request e revisão, nomenclatura, versionamento e manutenção dos artefatos documentais. |
 | [Definição de Pronto (DoD) e de Pronto para Desenvolvimento (DoR)](definicao-de-pronto.md) | Critérios obrigatórios para iniciar uma tarefa e para considerá-la concluída. |
 | [Gerenciamento de Releases](gerenciamento-releases.md) | Ciclo de release adotado, do planejamento ao monitoramento pós-entrega. |
 | [Pipelines de CI](pipelines-ci.md) | Política de uso do GitHub Actions e do fallback local com Lefthook. |

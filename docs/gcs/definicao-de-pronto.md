@@ -1,6 +1,5 @@
 <h1 align="center">Definição de Pronto (DoD) e Definição de Pronto para Desenvolvimento (DoR)</h1>
 
-<p align="center"><strong>Documento de Gerência de Configuração de Software — Versão 2.2</strong></p>
 
 <p align="center">O histórico de alterações consolidado está na <a href="../">página inicial da seção de GCS</a>.</p>
 

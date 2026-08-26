@@ -1,6 +1,5 @@
 <h1 align="center">Modelo de Ramificação</h1>
 
-<p align="center"><strong>Documento de Gerência de Configuração de Software — Versão 2.2</strong></p>
 
 <p align="center">O histórico de alterações consolidado está na <a href="../">página inicial da seção de GCS</a>.</p>
 
@@ -12,6 +11,7 @@
 - [4. Branches](#branches)
 - [5. Como usar](#como-usar)
 - [6. Padronização da nomenclatura](#nomenclatura)
+- [7. Repositórios de apoio](#repositorios-apoio)
 
 ---
 
@@ -62,28 +62,15 @@ O diagrama abaixo representa o ciclo adotado pela equipe: as funcionalidades par
 gitGraph
     commit id: "v1.0.0" tag: "v1.0.0"
 
-    branch release/1.1.0 order: 1
-    branch develop order: 2
+    branch release/1.1.0 order: 2
+    branch develop order: 3
     checkout develop
     commit id: "Integração"
 
-    branch feat/12/registro-notificacao order: 3
+    branch feat/12/registro-notificacao order: 4
     checkout feat/12/registro-notificacao
     commit id: "Início da feature"
-
-    branch feat/13/notificacao-api order: 4
-    checkout feat/13/notificacao-api
-    commit id: "API de notificação"
-
-    checkout feat/12/registro-notificacao
-    merge feat/13/notificacao-api
-
-    branch feat/14/notificacao-formulario order: 5
-    checkout feat/14/notificacao-formulario
-    commit id: "Formulário de notificação"
-
-    checkout feat/12/registro-notificacao
-    merge feat/14/notificacao-formulario
+    commit id: "Registro de notificação"
 
     checkout develop
     merge feat/12/registro-notificacao
@@ -95,6 +82,15 @@ gitGraph
     merge release/1.1.0 tag: "v1.1.0"
     checkout develop
     merge release/1.1.0
+
+    checkout main
+    branch hotfix/15/correcao-critica order: 1
+    commit id: "Correção emergencial"
+
+    checkout main
+    merge hotfix/15/correcao-critica tag: "v1.1.1"
+    checkout develop
+    merge hotfix/15/correcao-critica
 ```
 
 ---
@@ -122,7 +118,8 @@ Guia rápido sobre as branches do modelo GitFlow no projeto:
 
 | Branch | Descrição |
 | --- | --- |
-| **`main`** | Branch principal do projeto. Deve sempre conter uma versão estável do sistema. Recebe integrações apenas a partir de branches de release provenientes da `develop`. |
+| **`main`** | Branch principal do projeto. Deve sempre conter uma versão estável do sistema. Recebe integrações apenas a partir de branches de release provenientes da `develop` ou de branches de *hotfix*. |
+| **`hotfix`** | Branch temporária criada a partir da `main` para corrigir falhas críticas em produção que não podem aguardar o ciclo normal de release. Após a aprovação do Pull Request, é mesclada na `main` e na `develop` simultaneamente, garantindo que a correção não se perca na próxima release, e pode ser removida. |
 | **`develop`** | Branch de integração contínua e testes. Reúne e valida coletivamente todas as novas funcionalidades e melhorias desenvolvidas nas *feature branches*, antes que sejam promovidas para a branch de release. |
 | **`release`** | Branch temporária utilizada para preparar o lançamento de uma nova versão de produção. Permite ao QA realizar testes em uma versão estável do sistema antes da integração com a `main`. |
 | ***feature branches*** | Branches temporárias criadas a partir da `develop` para desenvolver novas funcionalidades, melhorias ou correções de bugs. Após a conclusão do trabalho e a aprovação do Pull Request, são mescladas de volta na `develop` e podem ser removidas. |
@@ -165,5 +162,19 @@ O nome da ramificação deve conter apenas caracteres alfanuméricos em minúscu
 
 **Exemplo:** `feat/12/adiciona-header`
 
-!!! note "Nota de padronização"
-    Na versão 2.1 do documento, o exemplo desta seção utilizava o prefixo `feature/`, em conflito com a regra da própria seção, que exige o mesmo conjunto de tipos do padrão de commits (no qual o tipo é `feat`). O exemplo foi padronizado para `feat/` na versão 2.2, sem alteração da regra.
+---
+
+<a id="repositorios-apoio"></a>
+
+## 7. Repositórios de apoio
+
+O modelo GitFlow descrito nas seções anteriores aplica-se aos repositórios de aplicação (`notifica-saude-frontend` e `notifica-saude-backend`), que possuem ciclo de release e código em produção.
+
+Os repositórios de apoio — [notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e), [notifica-saude-deploy](https://github.com/Notifica-Saude-2026-2/notifica-saude-deploy), [notifica-saude-docs](https://github.com/Notifica-Saude-2026-2/notifica-saude-docs) e [notifica-saude-prototipo-funcional](https://github.com/Notifica-Saude-2026-2/notifica-saude-prototipo-funcional) — não seguem esse fluxo. Neles adota-se um modelo simplificado, composto apenas pela branch `main` e por *feature branches*:
+
+- a `main` é a única branch permanente e concentra a versão vigente do conteúdo;
+- cada alteração é feita em uma *feature branch* criada a partir da `main`;
+- a integração ocorre por Pull Request diretamente para a `main`, sujeito às mesmas regras de revisão descritas em [Gerenciamento de Pull Requests](pull-requests.md);
+- concluído o merge, a *feature branch* pode ser removida.
+
+Não existem branches de `develop`, `release` ou `hotfix` nesses repositórios, uma vez que não há ciclo de versionamento de produto a ser preparado. A [padronização da nomenclatura](#nomenclatura) e o [padrão de mensagens de commit](padrao-commits.md) permanecem obrigatórios.

@@ -1,6 +1,5 @@
 <h1 align="center">Gerenciamento de Mudanças</h1>
 
-<p align="center"><strong>Documento de Gerência de Configuração de Software — Versão 2.2</strong></p>
 
 <p align="center">O histórico de alterações consolidado está na <a href="../">página inicial da seção de GCS</a>.</p>
 
@@ -21,8 +20,7 @@ No fluxo de trabalho do GitHub com o **GitFlow**, toda nova alteração no proje
 
 As issues devem seguir um padrão que permita identificar o contexto da alteração, a necessidade que será atendida e as possíveis soluções dentro do contexto do projeto.
 
-!!! note "Vínculo obrigatório"
-    Nenhuma branch deve ser criada sem uma issue correspondente. O número da issue integra o nome da branch, conforme a [padronização da nomenclatura](modelo-ramificacao.md#nomenclatura), e é o elo de rastreabilidade entre a demanda, o código e o Pull Request.
+Esta regra aplica-se aos repositórios de código. As alterações na documentação seguem o fluxo próprio descrito em [Gerenciamento de Documentação](gerenciamento-documentacao.md#issue), no qual a issue é exigida apenas para tarefas complexas.
 
 ---
 

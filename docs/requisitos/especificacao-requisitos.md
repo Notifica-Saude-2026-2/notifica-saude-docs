@@ -1,6 +1,5 @@
 <h1 align="center">Especificação de Requisitos de Software</h1>
 
-<p align="center"><strong>Sistema Notifica Saúde — Versão 2.8</strong></p>
 
 <p align="center"><strong>Mantenedores:</strong> Gustavo Henrique, Kauan Cardoso, Sophya Ribeiro, Brenno, Catarina, Eduardo</p>
 
