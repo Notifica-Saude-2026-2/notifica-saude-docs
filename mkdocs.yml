@@ -89,6 +89,7 @@ nav:
       - Definição de Pronto (DoD e DoR): gcs/definicao-de-pronto.md
       - Gerenciamento de Releases: gcs/gerenciamento-releases.md
       - Pipelines de CI: gcs/pipelines-ci.md
+      - Uso do act (Execução Local da CI): gcs/uso-act.md
   - Gestão do Projeto:
       - Visão geral: gerencia-projeto/index.md
       - Sprints: sprints/index.md

@@ -17,6 +17,7 @@
     | 2.2 | 17/08/2026 | Migração do documento para o MkDocs, divisão em páginas temáticas e padronização de formatação. Padronização do exemplo de nomenclatura de branch para o prefixo `feat/` e explicitação da branch de release no fluxo de merge. | Eduardo Alves |
     | 2.3 | 18/08/2026 | Definição do modelo de ramificação próprio da documentação, com branches `docs/<descrição>` sem número de issue. Definição da issue como opcional para atualizações de rotina e obrigatória apenas para tarefas complexas. Inclusão do registro no histórico de alterações como etapa do fluxo. | Eduardo Alves |
     | 2.4 | 19/08/2026 | Inclusão do fluxo de *hotfix* no diagrama de ramificação e na tabela de branches, e do modelo simplificado adotado nos repositórios de apoio. Atualização das referências dos repositórios, remoção da política de notificação via Discord. | Eduardo Alves |
+    | 2.5 | 25/08/2026 | Adição do guia de uso do act, para execução local da esteira de CI no backend e no frontend, complementando a política de pipelines. | Kauan Cardoso |
 
 ## Sumário
 
@@ -74,6 +75,7 @@ Além dos repositórios, a equipe utiliza o **GitHub Issues** e o **GitHub Proje
 | [Definição de Pronto (DoD) e de Pronto para Desenvolvimento (DoR)](definicao-de-pronto.md) | Critérios obrigatórios para iniciar uma tarefa e para considerá-la concluída. |
 | [Gerenciamento de Releases](gerenciamento-releases.md) | Ciclo de release adotado, do planejamento ao monitoramento pós-entrega. |
 | [Pipelines de CI](pipelines-ci.md) | Política de uso do GitHub Actions e do fallback local com Lefthook. |
+| [Uso do act (Execução Local da CI)](uso-act.md) | Guia passo a passo para executar os workflows do GitHub Actions na máquina local, do zero à validação da esteira de backend e frontend. |
 
 ---
 
