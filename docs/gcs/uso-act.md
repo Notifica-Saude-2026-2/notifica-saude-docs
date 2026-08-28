@@ -30,10 +30,14 @@ Este documento é voltado a quem **nunca usou o act**. Não é preciso conhecer 
 
 A cada *push* ou *pull request*, o GitHub executa automaticamente uma sequência de verificações — lint, *type-check*, testes e build. Esse conjunto é a **esteira de CI**, descrita nos arquivos dentro de `.github/workflows/`. A política de uso das pipelines está em [Gerenciamento de Pipelines de CI](pipelines-ci.md).
 
-O problema do fluxo normal é o tempo de resposta:
+O problema do fluxo normal é o tempo de resposta e o limite de execução do Github:
 
 ```
 commit → push → abre PR → espera 4 min → ❌ falhou no lint → corrige → push → espera de novo...
+```
+```
+Para repositórios privados, cada conta GitHub recebe uma cota de 2.000 minutos por mês no plano gratuito
+2.000 GitHub Actions minutos por mês.
 ```
 
 O **act** ([nektos/act](https://github.com/nektos/act)) roda **os mesmos workflows na sua máquina**, dentro de containers Docker que imitam o runner do GitHub. A falha aparece em segundos, antes de abrir o PR. Isso também reduz o consumo dos minutos gratuitos do GitHub Actions.
