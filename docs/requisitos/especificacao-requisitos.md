@@ -23,6 +23,7 @@
     | 2.6 | 08/06/2026 | Edição e exclusão de requisitos não-funcionais. | Sophya Ribeiro |
     | 2.7 | 10/08/2026 | Adição do Épico 4, e das histórias de usuários | Gustavo Henrique |
     | 2.8 | 13/08/2026 | Adição do Épico 5, gestão do plano de ação | Gustavo Henrique |
+    | 3.0 | 06/09/2026 | Restrição do ator das US-4.2 e US-4.4 ao Gestor da Área, em conformidade com o glossário, a descrição dos atores e as regras de negócio. | Kauan Cardoso |
 
 ## Sumário
 
@@ -472,7 +473,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 
 **Épico:** 4 — Registro de análise em notificação de incidentes · **Prioridade:** Média
 
-**COMO** Gestor da Área ou profissional do Núcleo de Segurança do Paciente
+**COMO** Gestor da Área
 **QUERO** registrar a análise realizada sobre o incidente
 **PARA** documentar as informações identificadas durante a investigação e contribuir para a definição das ações corretivas ou preventivas.
 
@@ -528,7 +529,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 
 **Épico:** 4 — Registro de análise em notificação de incidentes · **Prioridade:** Alta
 
-**COMO** Gestor da Área ou profissional do Núcleo de Segurança do Paciente
+**COMO** Gestor da Área
 **QUERO** concluir a investigação de um incidente
 **PARA** registrar formalmente o encerramento da etapa de análise e indicar que as informações necessárias para a tratativa foram registradas.
 
