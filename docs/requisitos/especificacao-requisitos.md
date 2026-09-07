@@ -23,6 +23,7 @@
     | 2.6 | 08/06/2026 | Edição e exclusão de requisitos não-funcionais. | Sophya Ribeiro |
     | 2.7 | 10/08/2026 | Adição do Épico 4, e das histórias de usuários | Gustavo Henrique |
     | 2.8 | 13/08/2026 | Adição do Épico 5, gestão do plano de ação | Gustavo Henrique |
+    | 2.9 | 06/09/2026 | Numeração das regras de negócio (RN-01 a RN-10), inclusão da RN-06 nas regras da US-2.5 e correção dos identificadores duplicados de critérios de aceite nas US-4.1 e US-4.3. | Kauan Cardoso |
 
 ## Sumário
 
@@ -344,7 +345,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 **QUERO** encaminhar a notificação para o setor responsável
 **PARA** que a área realize a investigação do incidente.
 
-**Regras de Negócio:** RN-08
+**Regras de Negócio:** RN-06, RN-08
 
 **Critérios de Aceite**
 
@@ -461,7 +462,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
     **Dado que** o usuário esteja visualizando uma notificação encaminhada, **quando** acessar seus detalhes, **então** o sistema deve apresentar as informações registradas, incluindo os dados da notificação e sua classificação.
 - **CA03 — Visualização da classificação**
     **Dado que** a notificação tenha sido classificada pelo NSP, **quando** o responsável acessar a notificação, **então** o sistema deve permitir visualizar a classificação, o grau do dano, o tipo de incidente e demais informações registradas na classificação.
-- **CA03 — Restrição de acesso**
+- **CA04 — Restrição de acesso**
     **Dado que** o usuário não seja responsável pela notificação ou não possua permissão para acessá-la, **quando** tentar acessar a notificação, **então** o sistema deve impedir o acesso às informações.
 
 **Contexto de Uso:** Essa funcionalidade permite que o responsável pela investigação tenha acesso às informações necessárias para compreender o incidente antes de iniciar a análise e registrar suas conclusões.
@@ -517,7 +518,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
     **Dado que** uma ação seja registrada, **quando** o responsável definir o prazo de execução, **então** o sistema deve armazenar a data prevista para conclusão da ação.
 - **CA05 — Validação das informações obrigatórias**
     **Dado que** existam informações obrigatórias não preenchidas, **quando** o usuário tentar salvar o plano de ação, **então** o sistema deve impedir o registro e informar os campos pendentes.
-- **CA04 — Identificação de ações pendentes**
+- **CA06 — Identificação de ações pendentes**
     **Dado que** existam ações ainda não concluídas, **quando** o usuário consultar o plano de ação, **então** o sistema deve permitir identificar quais ações permanecem pendentes.
 
 **Contexto de Uso:** A funcionalidade permite ao gestor e ao NSP acompanhar a execução das ações definidas durante a investigação e monitorar os respectivos prazos.
@@ -759,34 +760,34 @@ Esta seção descreve os requisitos não funcionais do sistema NotificaSaúde, i
 
 ## 7. Regras de Negócio
 
-**Acesso restrito**
+**RN-01 — Acesso restrito**
 Somente usuários previamente cadastrados e autorizados devem ter acesso às funcionalidades internas do sistema, como classificação de incidentes, análise, investigação, definição de plano de ação e geração de relatórios. O acesso deve ocorrer mediante autenticação (login e senha) e respeitar os perfis de usuário definidos.
 
-**Histórico de modificações**
+**RN-02 — Histórico de modificações**
 Todas as alterações realizadas nas informações de uma notificação devem ser registradas e mantidas em histórico. O sistema deve permitir a visualização das modificações realizadas, incluindo informações como data da alteração, usuário responsável e conteúdo modificado, garantindo transparência e rastreabilidade do processo de gestão do incidente.
 
-**Obrigatoriedade de registro de incidentes**
+**RN-03 — Obrigatoriedade de registro de incidentes**
 Todo incidente relacionado ao cuidado em saúde deve ser passível de registro no sistema, independentemente de ter causado dano ao paciente. A notificação deve ser realizada mesmo em situações classificadas como near miss ou circunstância de risco, conforme diretrizes de segurança do paciente.
 
-**Possibilidade de notificação anônima**
+**RN-04 — Possibilidade de notificação anônima**
 O sistema deve permitir que notificações sejam registradas de forma anônima, sem a identificação do notificante, com o objetivo de incentivar o registro de incidentes e reduzir barreiras ao relato de ocorrências.
 
-**Classificação obrigatória do incidente**
+**RN-05 — Classificação obrigatória do incidente**
 Toda notificação registrada deve passar por uma etapa de classificação realizada por um profissional do Núcleo de Segurança do Paciente, que deverá categorizar o incidente conforme os critérios estabelecidos (tipo de incidente e grau de dano). Somente usuários do núcleo podem realizar classificação.
 
-**Encaminhamento para área responsável**
+**RN-06 — Encaminhamento para área responsável**
 Após a classificação do incidente, a notificação deve ser encaminhada ao gestor do setor onde o incidente ocorreu, que será responsável pela investigação e pela definição das ações corretivas ou preventivas.
 
-**Registro de plano de ação**
+**RN-07 — Registro de plano de ação**
 Para incidentes que demandem tratativa, o gestor da área responsável deve registrar no sistema um plano de ação contendo as medidas a serem adotadas, os responsáveis pela execução e os prazos previstos. O núcleo também pode realizar esse registro.
 
-**Acompanhamento do status da notificação**
+**RN-08 — Acompanhamento do status da notificação**
 Cada notificação deve possuir um status que indique a etapa atual do fluxo de tratamento do incidente (por exemplo: registrada, classificada, em investigação, enviada para setor responsável ou arquivada), permitindo o monitoramento do processo ao longo do tempo.
 
-**Preservação e histórico dos registros**
+**RN-09 — Preservação e histórico dos registros**
 As notificações registradas e as ações associadas não devem ser excluídas do sistema, garantindo a manutenção do histórico para fins de auditoria, monitoramento institucional e geração de relatórios. Em conformidade com a LGPD, o sistema deve apresentar aos usuários um Termo de Uso e Responsabilidade, com o objetivo de esclarecer a finalidade do tratamento dos dados, os direitos do titular e as condições de utilização da plataforma.
 
-**Identificador de notificações**
+**RN-10 — Identificador de notificações**
 Toda notificação registrada no sistema deve possuir um identificador único, gerado automaticamente no momento do registro. Esse identificador deve permitir a rastreabilidade da notificação ao longo de todo o fluxo de tratamento do incidente, sendo utilizado para consulta, acompanhamento, classificação, investigação e geração de relatórios.
 
 ---
