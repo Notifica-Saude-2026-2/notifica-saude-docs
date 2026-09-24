@@ -210,3 +210,21 @@
   --md-default-fg-color--lighter: hsla(var(--md-hue), 15%, 100%, 0.47);
   --md-default-fg-color--lightest: hsla(var(--md-hue), 15%, 100%, 0.21);
 }
+
+/* ---------------------------------------------------------------------------
+   Diagramas Mermaid
+
+   Por padrao o Mermaid encolhe o SVG para caber na largura do conteudo
+   (useMaxWidth), o que deixa o texto ilegivel em diagramas largos. Os
+   diagramas deste site desativam esse comportamento no proprio bloco
+   (%%{init: ... "flowchart": {"useMaxWidth": false}}%%), entao aqui garantimos
+   que o excesso role horizontalmente em vez de estourar a pagina.
+   --------------------------------------------------------------------------- */
+.md-typeset .mermaid {
+  overflow-x: auto;
+  text-align: center;
+}
+
+.md-typeset .mermaid svg {
+  height: auto;
+}
