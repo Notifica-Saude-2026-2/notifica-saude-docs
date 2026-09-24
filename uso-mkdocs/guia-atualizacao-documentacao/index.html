@@ -1,0 +1,3138 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação do NotificaSaúde — registro, análise e acompanhamento de incidentes de segurança do paciente.">
+      
+      
+      
+      
+        <link rel="prev" href="../configuracao-e-manutencao/">
+      
+      
+        <link rel="next" href="../../implantacao/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Guia de Atualização da Documentação - NotificaSaúde</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sumario" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="NotificaSaúde" class="md-header__button md-logo" aria-label="NotificaSaúde" data-md-component="logo">
+      
+  <img src="../../assets/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NotificaSaúde
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Guia de Atualização da Documentação
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Mudar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Notifica-Saude-2026-2/notifica-saude-docs" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Notifica-Saude-2026-2/notifica-saude-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Visão Geral
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../descoberta-produto/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Descoberta do Produto
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../requisitos/especificacao-requisitos/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Requisitos e Arquitetura
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../vvt/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Qualidade e Testes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../gcs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Gerência de Configuração
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../gerencia-projeto/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Gestão do Projeto
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../implantacao/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Implantação e Entregas
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="NotificaSaúde" class="md-nav__button md-logo" aria-label="NotificaSaúde" data-md-component="logo">
+      
+  <img src="../../assets/favicon.png" alt="logo">
+
+    </a>
+    NotificaSaúde
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Notifica-Saude-2026-2/notifica-saude-docs" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Notifica-Saude-2026-2/notifica-saude-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão Geral
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Visão Geral
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual-sistema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual do Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../descoberta-produto/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Descoberta do Produto
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Descoberta do Produto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../descoberta-produto/entrevistas-e-formularios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrevistas e Formulários
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../descoberta-produto/mapeamento-processos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mapeamento de Processos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requisitos e Arquitetura
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Requisitos e Arquitetura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requisitos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Requisitos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../requisitos/especificacao-requisitos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação de Requisitos de Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../requisitos/matriz-rbac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matriz RBAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitetura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/especificacao-arquitetura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação de Arquitetura de Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/brevo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brevo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Banco de Dados
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Banco de Dados
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/modelo-dominio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação do Modelo de Domínio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/modelo-logico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação do Modelo Lógico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../vvt/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualidade e Testes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Qualidade e Testes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vvt/plano-de-testes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plano de Testes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vvt/casos-de-teste/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Casos de Teste
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vvt/matriz-rastreabilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matriz de Rastreabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vvt/relatorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relatórios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vvt/sonarcloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uso do SonarCloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teste-usabilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teste de Usabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gcs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gerência de Configuração
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gerência de Configuração
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gcs/modelo-ramificacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo de Ramificação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gcs/gerenciamento-mudancas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gerenciamento de Mudanças
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gcs/pull-requests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gerenciamento de Pull Requests
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gcs/padrao-commits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Padrão de Mensagens de Commit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gcs/gerenciamento-documentacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gerenciamento de Documentação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gcs/definicao-de-pronto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definição de Pronto (DoD e DoR)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gcs/gerenciamento-releases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gerenciamento de Releases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gcs/pipelines-ci/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines de CI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gcs/uso-act/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uso do act (Execução Local da CI)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gerencia-projeto/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestão do Projeto
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestão do Projeto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sprints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gerencia-projeto/plano-riscos-decisoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plano, Riscos e Decisões
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gerencia-projeto/atas-de-reuniao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atas de Reunião
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../registros-ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registros de Uso de IA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uso do MkDocs
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Uso do MkDocs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../decisao-da-ferramenta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisão da Ferramenta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuracao-e-manutencao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuração e Manutenção
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia de Atualização da Documentação
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia de Atualização da Documentação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sumário
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-visao-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Visão Geral
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-premissas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Premissas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-fluxo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Fluxo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-passo-a-passo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Passo a Passo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Passo a Passo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-abrir-uma-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1. Abrir uma issue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-criar-uma-branch-a-partir-da-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2. Criar uma branch a partir da main
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-converter-ou-criar-o-arquivo-md" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3. Converter ou criar o arquivo .md
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-posicionar-o-arquivo-na-pasta-certa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4. Posicionar o arquivo na pasta certa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-manter-o-historico-de-versao-dentro-da-pagina" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5. Manter o histórico de versão dentro da página
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-registrar-a-pagina-no-nav-do-mkdocsyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6. Registrar a página no nav do mkdocs.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-testar-localmente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7. Testar localmente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-commit-segundo-o-padrao-gcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8. Commit segundo o padrão GCS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49-enviar-a-branch-e-abrir-o-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9. Enviar a branch e abrir o Pull Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#410-publicar-no-github-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10. Publicar no GitHub Pages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.10. Publicar no GitHub Pages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4101-publicacao-automatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10.1. Publicação automática
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4102-publicacao-manual-plano-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10.2. Publicação manual (plano B)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4103-por-que-existem-duas-formas-de-publicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10.3. Por que existem duas formas de publicar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4104-por-que-uma-branch-separada-e-nao-a-propria-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10.4. Por que uma branch separada, e não a própria main?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-conclusao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Conclusão
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../implantacao/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implantação e Entregas
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Implantação e Entregas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../implantacao/guia-ambiente-frontend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia de Ambiente — Frontend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entregas-nes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Apresentações NES
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sumário
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-visao-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Visão Geral
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-premissas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Premissas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-fluxo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Fluxo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-passo-a-passo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Passo a Passo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Passo a Passo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-abrir-uma-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1. Abrir uma issue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-criar-uma-branch-a-partir-da-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2. Criar uma branch a partir da main
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-converter-ou-criar-o-arquivo-md" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3. Converter ou criar o arquivo .md
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-posicionar-o-arquivo-na-pasta-certa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4. Posicionar o arquivo na pasta certa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-manter-o-historico-de-versao-dentro-da-pagina" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5. Manter o histórico de versão dentro da página
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-registrar-a-pagina-no-nav-do-mkdocsyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6. Registrar a página no nav do mkdocs.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-testar-localmente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7. Testar localmente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-commit-segundo-o-padrao-gcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8. Commit segundo o padrão GCS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49-enviar-a-branch-e-abrir-o-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9. Enviar a branch e abrir o Pull Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#410-publicar-no-github-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10. Publicar no GitHub Pages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.10. Publicar no GitHub Pages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4101-publicacao-automatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10.1. Publicação automática
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4102-publicacao-manual-plano-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10.2. Publicação manual (plano B)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4103-por-que-existem-duas-formas-de-publicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10.3. Por que existem duas formas de publicar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4104-por-que-uma-branch-separada-e-nao-a-propria-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10.4. Por que uma branch separada, e não a própria main?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-conclusao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Conclusão
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 align="center">Guia de Atualização da Documentação</h1>
+
+<p align="center"><strong>Sistema Notifica Saúde — Versão 1.3</strong></p>
+
+<p align="center"><strong>Mantenedores:</strong> Gustavo Henrique, Kauan Cardoso, Sophya Ribeiro, Brenno, Catarina, Eduardo</p>
+
+<details class="note">
+<summary>Histórico de Alterações</summary>
+<table>
+<thead>
+<tr>
+<th>Versão</th>
+<th>Data</th>
+<th>Justificativa</th>
+<th>Responsável</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>11/08/2026</td>
+<td>Inclusão da visão geral, das premissas e dos pré-requisitos do ambiente.</td>
+<td>Catarina Freisleben</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>12/08/2026</td>
+<td>Descrição do passo a passo para executar o ambiente.</td>
+<td>Catarina Freisleben</td>
+</tr>
+<tr>
+<td>1.2</td>
+<td>13/08/2026</td>
+<td>Detalhamento da publicação no GitHub Pages, incluindo o fluxo automático e o fluxo manual de contingência.</td>
+<td>Catarina Freisleben</td>
+</tr>
+<tr>
+<td>1.3</td>
+<td>20/08/2026</td>
+<td>Revisão geral do documento e migração para o site de documentação.</td>
+<td>Catarina Freisleben</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="sumario">Sumário<a class="headerlink" href="#sumario" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#visao-geral">1. Visão Geral</a></li>
+<li><a href="#premissas">2. Premissas</a></li>
+<li><a href="#fluxo">3. Fluxo</a></li>
+<li><a href="#passo-a-passo">4. Passo a Passo</a><ul>
+<li><a href="#passo-issue">4.1. Abrir uma issue</a></li>
+<li><a href="#passo-branch">4.2. Criar uma branch a partir da main</a></li>
+<li><a href="#passo-arquivo">4.3. Converter ou criar o arquivo .md</a></li>
+<li><a href="#passo-pasta">4.4. Posicionar o arquivo na pasta certa</a></li>
+<li><a href="#passo-historico">4.5. Manter o histórico de versão dentro da página</a></li>
+<li><a href="#passo-nav">4.6. Registrar a página no nav do mkdocs.yml</a></li>
+<li><a href="#passo-testar">4.7. Testar localmente</a></li>
+<li><a href="#passo-commit">4.8. Commit segundo o padrão GCS</a></li>
+<li><a href="#passo-pr">4.9. Enviar a branch e abrir o Pull Request</a></li>
+<li><a href="#passo-publicar">4.10. Publicar no GitHub Pages</a></li>
+</ul>
+</li>
+<li><a href="#conclusao">5. Conclusão</a></li>
+</ul>
+<hr />
+<p><a id="visao-geral"></a></p>
+<h2 id="1-visao-geral">1. Visão Geral<a class="headerlink" href="#1-visao-geral" title="Permanent link">&para;</a></h2>
+<p>Este documento descreve os passos necessários para incluir um documento no repositório <code>notifica-saude-docs</code>, seguindo o padrão de Gerência de Configuração de Software (GCS). O <code>notifica-saude-docs</code> concentra toda a documentação do projeto Notifica Saúde, estilizada como um site de documentação real usando MkDocs com o tema Material for MkDocs.</p>
+<hr />
+<p><a id="premissas"></a></p>
+<h2 id="2-premissas">2. Premissas<a class="headerlink" href="#2-premissas" title="Permanent link">&para;</a></h2>
+<p>Nesta seção, são descritas as premissas do documento. As premissas definem condições que devem ser satisfeitas para que a configuração do ambiente seja realmente exequível.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Premissa</td>
+<td>Conta no GitHub com acesso à organização <code>Notifica-Saude-2026-2</code></td>
+</tr>
+<tr>
+<td>Premissa</td>
+<td>Git instalado localmente e autenticado</td>
+</tr>
+<tr>
+<td>Premissa</td>
+<td>Ambiente local configurado e com acesso ao repositório <code>notifica-saude-docs</code>, como descrito no Guia de Configuração do Ambiente</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a id="fluxo"></a></p>
+<h2 id="3-fluxo">3. Fluxo<a class="headerlink" href="#3-fluxo" title="Permanent link">&para;</a></h2>
+<p>O processo descrito no plano de GCS define que toda alteração parte de uma issue, é feita numa branch separada localmente e é integrada à <code>main</code> via Pull Request revisado.</p>
+<pre class="mermaid"><code>%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryTextColor": "#FFFFFF",
+    "lineColor": "#9AA0A6",
+    "fontSize": "13px"
+  },
+  "flowchart": {
+    "useMaxWidth": false,
+    "nodeSpacing": 30,
+    "rankSpacing": 20,
+    "padding": 10
+  }
+} }%%
+flowchart TD
+    subgraph S1["Preparação"]
+        direction LR
+        A["1. Abrir issue"] --&gt; B["2. Criar branch"]
+    end
+
+    subgraph S2["Desenvolvimento"]
+        direction LR
+        C["3. Escrever&lt;br/&gt;o .md"] --&gt; D["4. Posicionar em&lt;br/&gt;docs/"] --&gt; E["5. Atualizar o nav&lt;br/&gt;(mkdocs.yml)"] --&gt; F["6. Testar&lt;br/&gt;(mkdocs serve)"]
+    end
+
+    subgraph S3["Revisão"]
+        direction LR
+        G["7. Commit"] --&gt; H["8. Push"] --&gt; I["9. Pull Request"] --&gt; J["10. Aprovação&lt;br/&gt;(≥1 membro)"]
+    end
+
+    subgraph S4["Publicação"]
+        direction LR
+        K["11. Squash Merge"] --&gt; L["12. GitHub Pages&lt;br/&gt;(automático via Actions)"]
+    end
+
+    S1 --&gt; S2 --&gt; S3 --&gt; S4
+
+    classDef prep fill:#5B8FB9,color:#fff,stroke:#3d6a8a
+    classDef dev fill:#C08552,color:#fff,stroke:#8a5c35
+    classDef review fill:#9B7EBD,color:#fff,stroke:#6d5788
+    classDef pub fill:#6FA97F,color:#fff,stroke:#4a7256
+
+    class A,B prep
+    class C,D,E,F dev
+    class G,H,I,J review
+    class K,L pub</code></pre>
+<hr />
+<p><a id="passo-a-passo"></a></p>
+<h2 id="4-passo-a-passo">4. Passo a Passo<a class="headerlink" href="#4-passo-a-passo" title="Permanent link">&para;</a></h2>
+<p>Dado que as premissas e os pré-requisitos estão configurados, para incluir uma alteração no site de documentação é necessário:</p>
+<p><a id="passo-issue"></a></p>
+<h3 id="41-abrir-uma-issue">4.1. Abrir uma issue<a class="headerlink" href="#41-abrir-uma-issue" title="Permanent link">&para;</a></h3>
+<p>Antes de iniciar qualquer alteração, é necessário registrar no GitHub o que será feito, por meio de issues. O motivo dessa política é a rastreabilidade, pois permite que a equipe acompanhe o que está sendo feito. Em seguida, o nome da branch utilizada para fazer a alteração deverá conter o número dessa issue.</p>
+<p><a id="passo-branch"></a></p>
+<h3 id="42-criar-uma-branch-a-partir-da-main">4.2. Criar uma branch a partir da main<a class="headerlink" href="#42-criar-uma-branch-a-partir-da-main" title="Permanent link">&para;</a></h3>
+<p>Execute os comandos a seguir para atualizar a <code>main</code> local:</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
+<span class="n">git</span> <span class="n">pull</span> <span class="n">origin</span> <span class="n">main</span>
+</code></pre></div>
+<p>Em seguida, execute o comando para criar a branch e mudar para ela:</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">checkout</span> <span class="n">-b</span> <span class="p">&lt;</span><span class="n">tipo</span><span class="p">&gt;/&lt;</span><span class="n">numero-da-issue</span><span class="p">&gt;/&lt;</span><span class="n">descricao-com-hifens</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Padrão de nome da branch: <code>&lt;tipo&gt;/&lt;número-da-issue&gt;/&lt;descrição-com-hífens&gt;</code>. Como este repositório é só documentação, o <code>&lt;tipo&gt;</code> normalmente será <code>docs</code>, mas, caso não seja, é necessário verificar qual tipo se aplica no documento de GCS.</p>
+<p><a id="passo-arquivo"></a></p>
+<h3 id="43-converter-ou-criar-o-arquivo-md">4.3. Converter ou criar o arquivo .md<a class="headerlink" href="#43-converter-ou-criar-o-arquivo-md" title="Permanent link">&para;</a></h3>
+<p>É necessário converter o documento de origem caso ele seja de um tipo diferente de <code>.md</code>. Caso seja um documento novo, crie o arquivo diretamente em Markdown.</p>
+<p><a id="passo-pasta"></a></p>
+<h3 id="44-posicionar-o-arquivo-na-pasta-certa">4.4. Posicionar o arquivo na pasta certa<a class="headerlink" href="#44-posicionar-o-arquivo-na-pasta-certa" title="Permanent link">&para;</a></h3>
+<p>Encontre a pasta correta (<code>docs/…</code>) para o posicionamento do arquivo. O local em que ele for armazenado será onde o arquivo será apresentado no site. É possível, no arquivo <code>mkdocs.yml</code>, verificar em qual parte do <code>nav</code> o arquivo se encaixa.</p>
+<p>Nomeie o arquivo em <code>kebab-case</code> minúsculo, descritivo do conteúdo (por exemplo, <code>especificacao-requisitos.md</code>, e não <code>DOC_Requisitos_v2.7.md</code>). O nome do arquivo vira parte da URL, por isso precisa ser legível e simples.</p>
+<p><a id="passo-historico"></a></p>
+<h3 id="45-manter-o-historico-de-versao-dentro-da-pagina">4.5. Manter o histórico de versão dentro da página<a class="headerlink" href="#45-manter-o-historico-de-versao-dentro-da-pagina" title="Permanent link">&para;</a></h3>
+<p>A GCS exige que todo documento tenha uma seção de histórico de alterações, que nunca deve ser removida. Por padrão adotado no site, essa seção fica em um bloco recolhível, posicionado logo após o título e antes do Sumário:</p>
+<div class="highlight"><pre><span></span><code>??? note &quot;Histórico de Alterações&quot;
+
+    | Versão | Data | Justificativa | Responsável |
+    | ------ | ---- | ------------- | ----------- |
+    | 2.7 | 15/08/2026 | Migração para o site de documentação MkDocs | Seu Nome |
+</code></pre></div>
+<p><a id="passo-nav"></a></p>
+<h3 id="46-registrar-a-pagina-no-nav-do-mkdocsyml">4.6. Registrar a página no nav do mkdocs.yml<a class="headerlink" href="#46-registrar-a-pagina-no-nav-do-mkdocsyml" title="Permanent link">&para;</a></h3>
+<p>Se foi criada uma página nova dentro de uma categoria que já existe no <code>nav</code>, edite o <code>mkdocs.yml</code> e adicione a entrada correspondente. Exemplo, adicionando uma subpágina dentro de "Requisitos":</p>
+<div class="highlight"><pre><span></span><code><span class="nt">nav</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Requisitos</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Visão geral</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">requisitos/index.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Especificação de Requisitos</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">requisitos/especificacao-requisitos.md</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Por que esse passo importa</p>
+<p>O MkDocs só mostra na navegação lateral os arquivos listados em <code>nav:</code>. Um arquivo <code>.md</code> dentro de <code>docs/</code> que não está no <code>nav</code> existe no site (fica acessível por URL direta), mas não aparece no menu.</p>
+</div>
+<p><a id="passo-testar"></a></p>
+<h3 id="47-testar-localmente">4.7. Testar localmente<a class="headerlink" href="#47-testar-localmente" title="Permanent link">&para;</a></h3>
+<p>Ative o ambiente virtual:</p>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">Activate</span><span class="p">.</span><span class="n">ps1</span>
+</code></pre></div>
+<p>E, para testar localmente:</p>
+<div class="highlight"><pre><span></span><code><span class="n">mkdocs</span> <span class="n">serve</span>
+</code></pre></div>
+<p>Abra <code>http://127.0.0.1:8000</code>, navegue até a página nova ou atualizada e confira o que foi alterado.</p>
+<p><a id="passo-commit"></a></p>
+<h3 id="48-commit-segundo-o-padrao-gcs">4.8. Commit segundo o padrão GCS<a class="headerlink" href="#48-commit-segundo-o-padrao-gcs" title="Permanent link">&para;</a></h3>
+<p>Formato <code>&lt;tipo&gt;: &lt;assunto&gt;</code>. Deve ser em minúsculo, com o assunto começando por um verbo no presente. É necessário verificar qual <code>&lt;tipo&gt;</code> se aplica antes de commitar. Exemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">add</span> <span class="p">.</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="n">-m</span> <span class="s2">&quot;docs: adiciona especificacao de requisitos v2.7&quot;</span>
+</code></pre></div>
+<p><a id="passo-pr"></a></p>
+<h3 id="49-enviar-a-branch-e-abrir-o-pull-request">4.9. Enviar a branch e abrir o Pull Request<a class="headerlink" href="#49-enviar-a-branch-e-abrir-o-pull-request" title="Permanent link">&para;</a></h3>
+<p>Envie a branch para o GitHub por meio do comando <code>git push</code>, por exemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">push</span> <span class="n">-u</span> <span class="n">origin</span> <span class="n">docs</span><span class="p">/</span><span class="n">7</span><span class="p">/</span><span class="n">adiciona-requisitos-v2</span><span class="p">.</span><span class="n">7</span>
+</code></pre></div>
+<p>O título do PR deve ser igual ao commit principal, e o corpo deve referenciar a issue com <code>Closes #&lt;número&gt;</code>, para que ela seja fechada automaticamente quando o PR for mesclado. Feito isso, abra o Pull Request para a <code>main</code>.</p>
+<p>A branch deve ser apagada após o merge. Depois do merge, atualize a cópia local da <code>main</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
+<span class="n">git</span> <span class="n">pull</span> <span class="n">origin</span> <span class="n">main</span>
+</code></pre></div>
+<p><a id="passo-publicar"></a></p>
+<h3 id="410-publicar-no-github-pages">4.10. Publicar no GitHub Pages<a class="headerlink" href="#410-publicar-no-github-pages" title="Permanent link">&para;</a></h3>
+<p>O GitHub Pages não interpreta <code>mkdocs.yml</code> nem <code>docs/*.md</code> diretamente — ele serve arquivos estáticos já prontos (HTML/CSS/JS). Esse HTML compilado fica na pasta <code>site/</code>, que está no <code>.gitignore</code> e por isso nunca vai para a branch <code>main</code>. Para publicar, o conteúdo de <code>site/</code> precisa ir para uma branch separada, chamada por convenção <code>gh-pages</code>, que é a que o GitHub Pages efetivamente serve. O MkDocs tem um comando pronto para isso, <code>mkdocs gh-deploy</code>, que builda o site e o envia diretamente para essa branch.</p>
+<p>Existem duas formas de realizar essa publicação: uma automática, que é o padrão adotado pelo projeto, e uma manual, usada apenas como contingência.</p>
+<h4 id="4101-publicacao-automatica">4.10.1. Publicação automática<a class="headerlink" href="#4101-publicacao-automatica" title="Permanent link">&para;</a></h4>
+<p>Assim que o Pull Request é mesclado (squash merge) na <code>main</code>, um workflow do GitHub Actions é disparado automaticamente: ele builda o site com o MkDocs e publica o resultado na branch <code>gh-pages</code>. <strong>Não é necessário executar nenhum comando</strong> — a publicação ocorre sozinha, poucos minutos após o merge.</p>
+<h4 id="4102-publicacao-manual-plano-b">4.10.2. Publicação manual (plano B)<a class="headerlink" href="#4102-publicacao-manual-plano-b" title="Permanent link">&para;</a></h4>
+<p>Caso o workflow automático falhe por algum motivo (por exemplo, uma instabilidade no GitHub Actions ou um erro de configuração), ou caso seja necessário testar uma publicação sem depender de um merge, é possível publicar manualmente com os mesmos comandos usados antes de a automação existir:</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
+<span class="n">git</span> <span class="n">pull</span> <span class="n">origin</span> <span class="n">main</span>
+<span class="p">.</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">Activate</span><span class="p">.</span><span class="n">ps1</span>
+<span class="n">mkdocs</span> <span class="n">gh-deploy</span>
+</code></pre></div>
+<p>Esse comando builda o site localmente e envia o resultado direto para a branch <code>gh-pages</code>, exatamente como o workflow automático faz — a diferença é que aqui a execução parte da sua máquina.</p>
+<h4 id="4103-por-que-existem-duas-formas-de-publicar">4.10.3. Por que existem duas formas de publicar<a class="headerlink" href="#4103-por-que-existem-duas-formas-de-publicar" title="Permanent link">&para;</a></h4>
+<p>A publicação automática é o fluxo padrão porque elimina o risco de alguém esquecer de publicar depois de aprovar e mesclar um PR — sem ela, o PR poderia ser aprovado e o site continuar desatualizado, sem nenhum aviso disso. Já a publicação manual continua existindo como plano B: é o mesmo comando de sempre, não depende de o GitHub Actions estar funcionando, e serve tanto para contornar uma falha pontual da automação quanto para publicar uma versão de teste sem precisar abrir e mesclar um Pull Request.</p>
+<h4 id="4104-por-que-uma-branch-separada-e-nao-a-propria-main">4.10.4. Por que uma branch separada, e não a própria main?<a class="headerlink" href="#4104-por-que-uma-branch-separada-e-nao-a-propria-main" title="Permanent link">&para;</a></h4>
+<p>A <code>main</code> tem o código-fonte, não o site pronto. Nela estão o <code>mkdocs.yml</code>, os arquivos <code>.md</code> em <code>docs/</code>, o <code>.venv</code>, entre outros — o navegador não consegue exibir isso diretamente. O GitHub Pages precisa de HTML/CSS/JS já compilados, que é justamente o que o <code>mkdocs build</code> gera dentro da pasta <code>site/</code> (a mesma que está no <code>.gitignore</code>).</p>
+<p>Seria possível commitar o <code>site/</code> também na <code>main</code>, mas isso não é recomendado: a cada <code>.md</code> editado, seria preciso gerar o build e commitar os dois (fonte e gerado) juntos na mesma branch, misturando "o que foi escrito" com "o que foi gerado automaticamente" no mesmo histórico. Isso polui o histórico de commits com diffs gigantes de HTML minificado a cada mudança, além de misturar duas responsabilidades diferentes.</p>
+<p>Por isso existe a <code>gh-pages</code>: uma branch que não guarda código-fonte, apenas o resultado do build (o conteúdo de <code>site/</code>), e que é substituída inteira a cada <code>mkdocs gh-deploy</code> (seja automático ou manual), por meio de um force-push. O GitHub Pages é configurado para servir arquivos estáticos justamente a partir dessa branch. Assim:</p>
+<ul>
+<li><code>main</code> = histórico limpo, só com o que foi realmente escrito;</li>
+<li><code>gh-pages</code> = apenas o "produto final" pronto para a internet, descartável e regenerável a qualquer momento a partir da <code>main</code>.</li>
+</ul>
+<hr />
+<p><a id="conclusao"></a></p>
+<h2 id="5-conclusao">5. Conclusão<a class="headerlink" href="#5-conclusao" title="Permanent link">&para;</a></h2>
+<p>A partir desse ponto, é possível editar ou criar arquivos <code>.md</code> na pasta <code>docs/</code>. Toda mudança enviada ao repositório deve seguir o fluxo de Gerência de Configuração de Software (GCS) do projeto (issue → branch → commits → Pull Request → aprovação → squash merge). O passo a passo completo está descrito na <a href="#passo-a-passo">Seção 4</a> deste documento.</p>
+<p>A publicação do site (GitHub Pages) é automática a partir do merge na <code>main</code>, conforme descrito na <a href="#passo-publicar">Seção 4.10</a>. Havendo qualquer falha nesse processo automático, a Seção 4.10.2 descreve o procedimento manual de contingência.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Última atualização">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="24 de setembro de 2026 19:08:53 -04">24 de setembro de 2026 19:08:53</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../configuracao-e-manutencao/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Configuração e Manutenção">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Configuração e Manutenção
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../implantacao/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Implantação">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Implantação
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  <div class="md-footer-logo">
+    <img src="../../assets/grafo_facom.png" alt="FACOM">
+    <span>Facom | UFMS</span>
+  </div>
+  <div class="md-footer-logo">
+    <img src="../../assets/logo-nes.png" alt="NES">
+    <span>NES | UFMS</span>
+  </div>
+  
+  
+    <span class="md-footer-generator">
+      Made with
+      <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+        Material for MkDocs
+      </a>
+    </span>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

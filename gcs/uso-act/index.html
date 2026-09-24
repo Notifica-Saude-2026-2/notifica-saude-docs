@@ -1,0 +1,3587 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação do NotificaSaúde — registro, análise e acompanhamento de incidentes de segurança do paciente.">
+      
+      
+      
+      
+        <link rel="prev" href="../pipelines-ci/">
+      
+      
+        <link rel="next" href="../../gerencia-projeto/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Uso do act (Execução Local da CI) - NotificaSaúde</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sumario" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="NotificaSaúde" class="md-header__button md-logo" aria-label="NotificaSaúde" data-md-component="logo">
+      
+  <img src="../../assets/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NotificaSaúde
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Uso do act (Execução Local da CI)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Mudar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Notifica-Saude-2026-2/notifica-saude-docs" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Notifica-Saude-2026-2/notifica-saude-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Visão Geral
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../descoberta-produto/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Descoberta do Produto
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../requisitos/especificacao-requisitos/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Requisitos e Arquitetura
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../vvt/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Qualidade e Testes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Gerência de Configuração
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../gerencia-projeto/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Gestão do Projeto
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../implantacao/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Implantação e Entregas
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="NotificaSaúde" class="md-nav__button md-logo" aria-label="NotificaSaúde" data-md-component="logo">
+      
+  <img src="../../assets/favicon.png" alt="logo">
+
+    </a>
+    NotificaSaúde
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Notifica-Saude-2026-2/notifica-saude-docs" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Notifica-Saude-2026-2/notifica-saude-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão Geral
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Visão Geral
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual-sistema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual do Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../descoberta-produto/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Descoberta do Produto
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Descoberta do Produto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../descoberta-produto/entrevistas-e-formularios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrevistas e Formulários
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../descoberta-produto/mapeamento-processos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mapeamento de Processos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requisitos e Arquitetura
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Requisitos e Arquitetura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requisitos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Requisitos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../requisitos/especificacao-requisitos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação de Requisitos de Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../requisitos/matriz-rbac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matriz RBAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitetura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/especificacao-arquitetura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação de Arquitetura de Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/brevo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brevo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Banco de Dados
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Banco de Dados
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/modelo-dominio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação do Modelo de Domínio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/modelo-logico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação do Modelo Lógico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../vvt/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualidade e Testes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Qualidade e Testes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vvt/plano-de-testes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plano de Testes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vvt/casos-de-teste/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Casos de Teste
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vvt/matriz-rastreabilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matriz de Rastreabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vvt/relatorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relatórios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vvt/sonarcloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uso do SonarCloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teste-usabilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teste de Usabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gerência de Configuração
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gerência de Configuração
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelo-ramificacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo de Ramificação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gerenciamento-mudancas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gerenciamento de Mudanças
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pull-requests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gerenciamento de Pull Requests
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../padrao-commits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Padrão de Mensagens de Commit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gerenciamento-documentacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gerenciamento de Documentação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../definicao-de-pronto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definição de Pronto (DoD e DoR)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gerenciamento-releases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gerenciamento de Releases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipelines-ci/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines de CI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uso do act (Execução Local da CI)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uso do act (Execução Local da CI)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sumário
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introdução
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introdução">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vocabulario-minimo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vocabulário mínimo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-pre-requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Pré-requisitos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-instalacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Instalação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Instalação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 macOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-validando-a-instalacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Validando a instalação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-configuracao-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Configuração inicial
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Configuração inicial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-o-que-cada-linha-faz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 O que cada linha faz
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-onde-rodar-o-act" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Onde rodar o act
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-listando-os-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Listando os jobs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-configurando-os-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Configurando os secrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-esteira-do-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Esteira do backend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Esteira do backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-qualidade-de-codigo-comece-por-aqui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Qualidade de código — comece por aqui
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-testes-unitarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Testes unitários
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-testes-de-integracao-nao-rode-pelo-act" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Testes de integração — não rode pelo act
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-sonarcloud-nao-rode-pelo-act" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 SonarCloud — não rode pelo act
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-esteira-do-frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Esteira do frontend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Esteira do frontend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-ci-lint-build-o-job-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 CI (lint + build) — o job principal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-lighthouse-nao-funciona-no-act" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Lighthouse — não funciona no act
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-o-job-que-nao-deve-ser-executado-localmente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. O job que não deve ser executado localmente
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-como-ler-a-saida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Como ler a saída
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-resolucao-de-problemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Resolução de problemas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-checklist-antes-de-abrir-um-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Checklist antes de abrir um Pull Request
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Referências
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gerencia-projeto/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestão do Projeto
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestão do Projeto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sprints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gerencia-projeto/plano-riscos-decisoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plano, Riscos e Decisões
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gerencia-projeto/atas-de-reuniao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atas de Reunião
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../registros-ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registros de Uso de IA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../uso-mkdocs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uso do MkDocs
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Uso do MkDocs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uso-mkdocs/decisao-da-ferramenta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisão da Ferramenta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uso-mkdocs/configuracao-e-manutencao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuração e Manutenção
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uso-mkdocs/guia-atualizacao-documentacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia de Atualização da Documentação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../implantacao/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implantação e Entregas
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Implantação e Entregas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../implantacao/guia-ambiente-frontend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia de Ambiente — Frontend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entregas-nes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Apresentações NES
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sumário
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introdução
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introdução">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vocabulario-minimo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vocabulário mínimo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-pre-requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Pré-requisitos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-instalacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Instalação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Instalação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 macOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-validando-a-instalacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Validando a instalação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-configuracao-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Configuração inicial
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Configuração inicial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-o-que-cada-linha-faz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 O que cada linha faz
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-onde-rodar-o-act" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Onde rodar o act
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-listando-os-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Listando os jobs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-configurando-os-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Configurando os secrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-esteira-do-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Esteira do backend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Esteira do backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-qualidade-de-codigo-comece-por-aqui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Qualidade de código — comece por aqui
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-testes-unitarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Testes unitários
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-testes-de-integracao-nao-rode-pelo-act" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Testes de integração — não rode pelo act
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-sonarcloud-nao-rode-pelo-act" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 SonarCloud — não rode pelo act
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-esteira-do-frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Esteira do frontend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Esteira do frontend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-ci-lint-build-o-job-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 CI (lint + build) — o job principal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-lighthouse-nao-funciona-no-act" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Lighthouse — não funciona no act
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-o-job-que-nao-deve-ser-executado-localmente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. O job que não deve ser executado localmente
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-como-ler-a-saida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Como ler a saída
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-resolucao-de-problemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Resolução de problemas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-checklist-antes-de-abrir-um-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Checklist antes de abrir um Pull Request
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Referências
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 align="center">Uso do act — Execução Local da Esteira de CI</h1>
+
+<p align="center">O histórico de alterações consolidado está na <a href="../">página inicial da seção de GCS</a>.</p>
+
+<h2 id="sumario">Sumário<a class="headerlink" href="#sumario" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#introducao">1. Introdução</a></li>
+<li><a href="#pre-requisitos">2. Pré-requisitos</a></li>
+<li><a href="#instalacao">3. Instalação</a></li>
+<li><a href="#configuracao">4. Configuração inicial</a></li>
+<li><a href="#onde-rodar">5. Onde rodar o act</a></li>
+<li><a href="#listando">6. Listando os jobs</a></li>
+<li><a href="#secrets">7. Configurando os secrets</a></li>
+<li><a href="#backend">8. Esteira do backend</a></li>
+<li><a href="#frontend">9. Esteira do frontend</a></li>
+<li><a href="#notify">10. O job que não deve ser executado localmente</a></li>
+<li><a href="#saida">11. Como ler a saída</a></li>
+<li><a href="#problemas">12. Resolução de problemas</a></li>
+<li><a href="#checklist">13. Checklist antes de abrir um Pull Request</a></li>
+<li><a href="#referencias">14. Referências</a></li>
+</ul>
+<hr />
+<p><a id="introducao"></a></p>
+<h2 id="1-introducao">1. Introdução<a class="headerlink" href="#1-introducao" title="Permanent link">&para;</a></h2>
+<p>Este documento é voltado a quem <strong>nunca usou o act</strong>. Não é preciso conhecer GitHub Actions a fundo — os conceitos necessários estão explicados no caminho.</p>
+<p>A cada <em>push</em> ou <em>pull request</em>, o GitHub executa automaticamente uma sequência de verificações — lint, <em>type-check</em>, testes e build. Esse conjunto é a <strong>esteira de CI</strong>, descrita nos arquivos dentro de <code>.github/workflows/</code>. A política de uso das pipelines está em <a href="../pipelines-ci/">Gerenciamento de Pipelines de CI</a>.</p>
+<p>O problema do fluxo normal é o tempo de resposta e o limite de execução do Github:</p>
+<p><div class="highlight"><pre><span></span><code>commit → push → abre PR → espera 4 min → ❌ falhou no lint → corrige → push → espera de novo...
+</code></pre></div><br />
+<div class="highlight"><pre><span></span><code>Para repositórios privados, cada conta GitHub recebe uma cota de 2.000 minutos por mês no plano gratuito
+2.000 GitHub Actions minutos por mês.
+</code></pre></div></p>
+<p>O <strong>act</strong> (<a href="https://github.com/nektos/act">nektos/act</a>) roda <strong>os mesmos workflows na sua máquina</strong>, dentro de containers Docker que imitam o runner do GitHub. A falha aparece em segundos, antes de abrir o PR. Isso também reduz o consumo dos minutos gratuitos do GitHub Actions.</p>
+<div class="admonition note">
+<p class="admonition-title">Validação deste documento</p>
+<p>Todos os comandos, mensagens de erro e saídas reproduzidas aqui foram obtidos executando a esteira de verdade em 25/08/2026 (act 0.2.89, Docker Engine 27.2.0, Windows 11). Não são exemplos genéricos. As exceções — três afirmações não verificadas — estão assinaladas no texto.</p>
+</div>
+<h3 id="vocabulario-minimo">Vocabulário mínimo<a class="headerlink" href="#vocabulario-minimo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Termo</th>
+<th>O que é</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Workflow</strong></td>
+<td>Um arquivo <code>.yml</code> em <code>.github/workflows/</code>. Ex.: <code>qualidade.yml</code></td>
+</tr>
+<tr>
+<td><strong>Job</strong></td>
+<td>Uma etapa independente dentro do workflow. Ex.: <code>qualidade</code>, <code>unit-tests</code></td>
+</tr>
+<tr>
+<td><strong>Step</strong></td>
+<td>Um comando dentro do job. Ex.: <code>npm ci</code>, <code>npm run lint</code></td>
+</tr>
+<tr>
+<td><strong>Event</strong></td>
+<td>O gatilho que dispara o workflow. Ex.: <code>pull_request</code>, <code>push</code></td>
+</tr>
+<tr>
+<td><strong>Secret</strong></td>
+<td>Valor sensível (token, senha) injetado pelo GitHub. Ex.: <code>DISCORD_WEBHOOK</code></td>
+</tr>
+<tr>
+<td><strong>Runner</strong></td>
+<td>A máquina que executa o job. No GitHub é o <code>ubuntu-latest</code>; no act é um container</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a id="pre-requisitos"></a></p>
+<h2 id="2-pre-requisitos">2. Pré-requisitos<a class="headerlink" href="#2-pre-requisitos" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Ferramenta</th>
+<th>Por que é necessária</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Docker Desktop</strong></td>
+<td>O act executa cada job dentro de um container. Sem Docker, o act não funciona</td>
+</tr>
+<tr>
+<td><strong>Git</strong></td>
+<td>Para clonar os repositórios</td>
+</tr>
+<tr>
+<td>~8 GB livres em disco</td>
+<td>A imagem do runner tem ~1,5 GB e as dependências são baixadas dentro dela</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">O Docker Desktop precisa estar aberto e rodando, não apenas instalado</p>
+<p>Esse é o erro mais comum de quem começa. Confirme com:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>info
+</code></pre></div>
+<p>Se aparecer a versão do servidor, está tudo certo. Se aparecer <code>error during connect: ... The system cannot find the file specified</code>, abra o Docker Desktop e espere o ícone da baleia ficar estável antes de continuar.</p>
+</div>
+<hr />
+<p><a id="instalacao"></a></p>
+<h2 id="3-instalacao">3. Instalação<a class="headerlink" href="#3-instalacao" title="Permanent link">&para;</a></h2>
+<h3 id="31-windows">3.1 Windows<a class="headerlink" href="#31-windows" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">winget</span> <span class="n">install</span> <span class="n">nektos</span><span class="p">.</span><span class="n">act</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">O comando <code>act</code> não vai funcionar imediatamente</p>
+<p>Depois de instalar, é muito comum ver:</p>
+<div class="highlight"><pre><span></span><code>act : O termo &#39;act&#39; não é reconhecido como nome de cmdlet, função...
+</code></pre></div>
+<p><strong>Isso não significa que a instalação falhou.</strong> O winget adiciona o act ao <code>PATH</code>, mas terminais que <strong>já estavam abertos</strong> continuam usando uma cópia antiga do ambiente — o Windows não atualiza processos em execução.</p>
+<p><strong>Solução definitiva:</strong> feche o VS Code por completo (não só a aba do terminal — terminais novos herdam o ambiente do VS Code, que também está desatualizado) e abra de novo.</p>
+<p><strong>Solução imediata, sem reiniciar</strong> — cole no PowerShell:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$env:PATH</span> <span class="p">=</span> <span class="no">[Environment]</span><span class="p">::</span><span class="n">GetEnvironmentVariable</span><span class="p">(</span><span class="s1">&#39;PATH&#39;</span><span class="p">,</span><span class="s1">&#39;Machine&#39;</span><span class="p">)</span> <span class="p">+</span> <span class="s1">&#39;;&#39;</span> <span class="p">+</span> <span class="no">[Environment]</span><span class="p">::</span><span class="n">GetEnvironmentVariable</span><span class="p">(</span><span class="s1">&#39;PATH&#39;</span><span class="p">,</span><span class="s1">&#39;User&#39;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h3 id="32-macos">3.2 macOS<a class="headerlink" href="#32-macos" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>act
+</code></pre></div>
+<p>Em Macs com chip Apple Silicon, acrescente <code>--container-architecture linux/amd64</code> a todos os comandos <code>act</code>, ou deixe isso fixo no <code>.actrc</code> (seção 4).</p>
+<h3 id="33-linux">3.3 Linux<a class="headerlink" href="#33-linux" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span>https://raw.githubusercontent.com/nektos/act/master/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>bash<span class="w"> </span>-s<span class="w"> </span>--<span class="w"> </span>-b<span class="w"> </span>/usr/local/bin
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Não verificado</p>
+<p>Os procedimentos de macOS e Linux não puderam ser testados — a validação foi feita em Windows.</p>
+</div>
+<h3 id="34-validando-a-instalacao">3.4 Validando a instalação<a class="headerlink" href="#34-validando-a-instalacao" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>act<span class="w"> </span>--version
+</code></pre></div>
+<p>Saída esperada (a versão pode ser mais nova):</p>
+<div class="highlight"><pre><span></span><code>act version 0.2.89
+</code></pre></div>
+<hr />
+<p><a id="configuracao"></a></p>
+<h2 id="4-configuracao-inicial">4. Configuração inicial<a class="headerlink" href="#4-configuracao-inicial" title="Permanent link">&para;</a></h2>
+<p>O <code>.actrc</code>, criado na pasta de usuário, guarda opções aplicadas a todas as execuções. No NotificaSaúde ele precisa de <strong>duas</strong> linhas:</p>
+<div class="highlight"><pre><span></span><code>-P ubuntu-latest=catthehacker/ubuntu:act-latest
+--env npm_config_ignore_scripts=true
+</code></pre></div>
+<p><strong>Windows (PowerShell):</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">@(</span><span class="s1">&#39;-P ubuntu-latest=catthehacker/ubuntu:act-latest&#39;</span><span class="p">,</span> <span class="s1">&#39;--env npm_config_ignore_scripts=true&#39;</span><span class="p">)</span> <span class="p">|</span> <span class="nb">Out-File</span> <span class="n">-Encoding</span> <span class="n">utf8</span> <span class="s2">&quot;$env:USERPROFILE\.actrc&quot;</span>
+</code></pre></div>
+<p><strong>macOS / Linux:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nb">printf</span><span class="w"> </span>--<span class="w"> </span><span class="s1">&#39;-P ubuntu-latest=catthehacker/ubuntu:act-latest\n--env npm_config_ignore_scripts=true\n&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>~/.actrc
+</code></pre></div>
+<p>Confira com <code>Get-Content "$env:USERPROFILE\.actrc"</code> (Windows) ou <code>cat ~/.actrc</code> — devem aparecer as duas linhas.</p>
+<h3 id="41-o-que-cada-linha-faz">4.1 O que cada linha faz<a class="headerlink" href="#41-o-que-cada-linha-faz" title="Permanent link">&para;</a></h3>
+<p><strong><code>-P ubuntu-latest=...</code></strong> define qual imagem usar onde o workflow pedir <code>ubuntu-latest</code>. A <code>catthehacker/ubuntu:act-latest</code> é a recomendada pelo projeto act e traz Node, Python, Git e utilitários. Sem essa linha, o act pergunta na primeira execução qual imagem usar (Micro/Medium/Large) — e a <strong>Micro</strong> não tem as ferramentas que os nossos workflows exigem.</p>
+<p><strong><code>--env npm_config_ignore_scripts=true</code></strong> é um <strong>ajuste obrigatório neste projeto</strong>. Sem ele, nenhum job roda.</p>
+<div class="admonition danger">
+<p class="admonition-title">Sem <code>npm_config_ignore_scripts</code>, todo job falha no <code>npm ci</code></p>
+<p>O erro é este, e não tem relação com o seu código:</p>
+<div class="highlight"><pre><span></span><code>&gt; notifica-saude-frontend@1.0.0 prepare
+&gt; lefthook install
+
+│  &gt; git rev-parse --path-format=absolute --show-toplevel --git-path hooks --git-path info --git-dir
+│    fatal: not a git repository: (null)
+
+npm error command failed
+npm error command sh -c lefthook install
+❌  Failure - Main Instalar dependências
+</code></pre></div>
+<p><strong>Por quê:</strong> backend e frontend têm <code>"prepare": "lefthook install"</code> no <code>package.json</code>, e o npm executa o <code>prepare</code> ao final de todo <code>npm ci</code>. O <code>lefthook install</code> exige um repositório Git — mas o <code>actions/checkout</code> <strong>não clona nada no act</strong>: ele copia os arquivos para dentro do container com <code>docker cp</code>. Como os nossos repositórios são submódulos, o <code>.git</code> deles é um <em>arquivo</em> apontando para <code>../.git/modules/...</code>, caminho que não existe dentro do container. No GitHub o problema não aparece porque lá o checkout faz um clone real.</p>
+<p><strong>É seguro pular os scripts?</strong> Sim, para validar a esteira. O <code>prepare</code> só instala <em>hooks</em> de Git locais — não afeta lint, build nem testes. Passos explícitos do workflow, como o <code>npx prisma generate</code>, continuam executando.</p>
+<p><strong>Uma variação que NÃO funciona:</strong> <code>--env LEFTHOOK=0</code> parece resolver, mas o lefthook 2.x ignora essa variável no <code>install</code>. Testado — o job falha do mesmo jeito.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Apple Silicon</p>
+<p>Acrescente uma terceira linha ao <code>.actrc</code>: <code>--container-architecture linux/amd64</code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Sobre o BOM no Windows</p>
+<p>O <code>Out-File -Encoding utf8</code> do Windows PowerShell grava um BOM no início do arquivo. Isso <strong>não atrapalha o act</strong> (testado).</p>
+</div>
+<p>Todos os comandos das seções 8 e 9 assumem esse <code>.actrc</code> configurado.</p>
+<hr />
+<p><a id="onde-rodar"></a></p>
+<h2 id="5-onde-rodar-o-act">5. Onde rodar o act<a class="headerlink" href="#5-onde-rodar-o-act" title="Permanent link">&para;</a></h2>
+<p>O act procura a pasta <code>.github/workflows/</code> <strong>no diretório atual</strong>. Rodando no lugar errado, ele não encontra nada.</p>
+<p>Backend e frontend são <strong>submódulos Git</strong> dentro de <code>notifica-saude-deploy</code>, e <strong>cada um tem a sua própria esteira</strong>:</p>
+<div class="highlight"><pre><span></span><code>notifica-saude-deploy/
+├── .github/                          ← workflows do repositório de deploy
+├── notifica-saude-backend/           ← submódulo, esteira PRÓPRIA
+│   └── .github/workflows/
+│       ├── main.yml                  (notificação no Discord)
+│       ├── qualidade.yml             (lint + type-check)
+│       └── testes.yml                (testes unitários, integração, Sonar)
+└── notifica-saude-frontend/          ← submódulo, esteira PRÓPRIA
+    └── .github/workflows/
+        ├── ci.yml                    (lint + build)
+        ├── lighthouse.yml            (performance)
+        └── main.yml                  (notificação no Discord)
+</code></pre></div>
+<p><strong>Regra prática:</strong> entre na pasta do repositório que quer validar.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>notifica-saude-deploy/notifica-saude-backend<span class="w">    </span><span class="c1"># para o backend</span>
+<span class="nb">cd</span><span class="w"> </span>notifica-saude-deploy/notifica-saude-frontend<span class="w">   </span><span class="c1"># para o frontend</span>
+</code></pre></div>
+<p>Rodando a partir de <code>notifica-saude-deploy/</code>, o act <strong>não</strong> enxerga os workflows dos submódulos.</p>
+<hr />
+<p><a id="listando"></a></p>
+<h2 id="6-listando-os-jobs">6. Listando os jobs<a class="headerlink" href="#6-listando-os-jobs" title="Permanent link">&para;</a></h2>
+<p>O comando mais seguro para começar é o <code>-l</code>, que <strong>não executa nada</strong>:</p>
+<div class="highlight"><pre><span></span><code>act<span class="w"> </span>-l
+</code></pre></div>
+<p><strong>Backend:</strong></p>
+<div class="highlight"><pre><span></span><code>Stage  Job ID             Job name                    Workflow name            Workflow file  Events
+0      notify             notify                      Discord PR Notification  main.yml       pull_request
+0      qualidade          Lint e Type-check           Qualidade de Código      qualidade.yml  pull_request
+0      unit-tests         🧩 Testes Unitários          🧪 Pipeline de Testes     testes.yml     push,pull_request
+0      integration-tests  🔗 Testes de Integração      🧪 Pipeline de Testes     testes.yml     push,pull_request
+1      sonarcloud         🔍 SonarCloud com Coverage   🧪 Pipeline de Testes     testes.yml     push,pull_request
+</code></pre></div>
+<p><strong>Frontend:</strong></p>
+<div class="highlight"><pre><span></span><code>Stage  Job ID      Job name    Workflow name            Workflow file   Events
+0      ci          ci          Frontend CI              ci.yml          push,pull_request
+0      lighthouse  lighthouse  Lighthouse CI            lighthouse.yml  pull_request
+0      notify      notify      Discord PR Notification  main.yml        pull_request
+</code></pre></div>
+<ul>
+<li><strong>Job ID</strong> — o nome usado no comando (<code>act -j qualidade</code>). Use sempre esta coluna, nunca a "Job name", que tem espaços e emojis.</li>
+<li><strong>Stage</strong> — a ordem. O <em>stage 0</em> roda em paralelo; o <em>stage 1</em> só começa depois. O <code>sonarcloud</code> está no 1 porque depende dos jobs de teste.</li>
+<li><strong>Events</strong> — o gatilho. Dá para filtrar: <code>act -l pull_request</code>.</li>
+</ul>
+<hr />
+<p><a id="secrets"></a></p>
+<h2 id="7-configurando-os-secrets">7. Configurando os secrets<a class="headerlink" href="#7-configurando-os-secrets" title="Permanent link">&para;</a></h2>
+<p>Crie um arquivo <code>.secrets</code> na raiz do repositório, no formato <code>CHAVE=valor</code>. O act o lê automaticamente.</p>
+<p><strong>Backend:</strong></p>
+<div class="highlight"><pre><span></span><code>DB_PASSWORD=notifica
+CODECOV_TOKEN=dummy
+SONAR_TOKEN=dummy
+</code></pre></div>
+<p><strong>Frontend:</strong></p>
+<div class="highlight"><pre><span></span><code>LHCI_GITHUB_APP_TOKEN=dummy
+</code></pre></div>
+<p>Valores fictícios bastam: os tokens de Codecov, Sonar e Lighthouse só servem para enviar relatórios a serviços externos e não influenciam lint, build ou testes. <strong>Nunca copie os secrets reais do GitHub para a sua máquina.</strong></p>
+<div class="admonition danger">
+<p class="admonition-title">Antes de criar o arquivo, proteja-o no <code>.gitignore</code></p>
+<p>O <code>.secrets</code> <strong>não está</strong> no <code>.gitignore</code> de nenhum dos dois repositórios. A forma mais segura é editar o arquivo à mão, acrescentando uma linha nova, no final, contendo apenas <code>.secrets</code>.</p>
+<p>Pelo terminal, use exatamente este comando:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;\n.secrets\n&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.gitignore
+</code></pre></div>
+<p><strong>Não use <code>echo ".secrets" &gt;&gt; .gitignore</code>.</strong> O <code>.gitignore</code> do backend <strong>não termina com quebra de linha</strong>, então o <code>echo</code> gruda o texto na última linha e produz <code>/my-skill.secrets</code>. O resultado é o pior possível: o <code>.secrets</code> continua desprotegido e a regra <code>/my-skill</code> é destruída — sem nenhum aviso. O <code>printf</code> acima começa com <code>\n</code> justamente para evitar isso.</p>
+<p>Confirme que funcionou:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>check-ignore<span class="w"> </span>-v<span class="w"> </span>.secrets
+</code></pre></div>
+<p>Se não imprimir nada, a entrada não está valendo — corrija antes de escrever qualquer token no arquivo.</p>
+</div>
+<hr />
+<p><a id="backend"></a></p>
+<h2 id="8-esteira-do-backend">8. Esteira do backend<a class="headerlink" href="#8-esteira-do-backend" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>notifica-saude-deploy/notifica-saude-backend
+</code></pre></div>
+<h3 id="81-qualidade-de-codigo-comece-por-aqui">8.1 Qualidade de código — comece por aqui<a class="headerlink" href="#81-qualidade-de-codigo-comece-por-aqui" title="Permanent link">&para;</a></h3>
+<p>É o job mais rápido e o que mais reprova PR na prática.</p>
+<div class="highlight"><pre><span></span><code>act<span class="w"> </span>pull_request<span class="w"> </span>-j<span class="w"> </span>qualidade
+</code></pre></div>
+<p>Instala as dependências, gera o cliente Prisma e roda <code>npm run type-check</code> e <code>npm run lint</code>. <strong>Passa integralmente no act:</strong></p>
+<div class="highlight"><pre><span></span><code>✅  Success - Main Type-check
+| Found 0 warnings and 0 errors.
+✅  Success - Main Lint
+🏁  Job succeeded
+</code></pre></div>
+<h3 id="82-testes-unitarios">8.2 Testes unitários<a class="headerlink" href="#82-testes-unitarios" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>act<span class="w"> </span>pull_request<span class="w"> </span>-j<span class="w"> </span>unit-tests
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Este job termina como <code>failed</code> mesmo quando os testes passam</p>
+<p>O que importa é o passo <code>🧩 Rodar Testes Unitários</code>, e ele funciona normalmente:</p>
+<div class="highlight"><pre><span></span><code>| Test Suites: 64 passed, 64 total
+| Tests:       472 passed, 472 total
+✅  Success - Main 🧩 Rodar Testes Unitários
+</code></pre></div>
+<p>Falham os <strong>dois passos seguintes</strong>, por limitação do ambiente local:</p>
+<p><strong>1. <code>📊 Upload coverage unit</code></strong> — o <code>actions/upload-artifact@v4</code> exige a infraestrutura de artefatos do GitHub:</p>
+<div class="highlight"><pre><span></span><code>❗ ::error::Unable to get the ACTIONS_RUNTIME_TOKEN env variable
+</code></pre></div>
+<p><strong>2. <code>☂️ Codecov upload</code></strong> — a action roda <code>git config --global --add safe.directory</code> e esbarra na mesma ausência de repositório Git da seção 4:</p>
+<div class="highlight"><pre><span></span><code>| fatal: not a git repository: (null)
+❌  Failure - Main Set safe directory
+</code></pre></div>
+<p><strong>Na prática:</strong> procure a linha <code>Tests: N passed</code> e o <code>✅ Success</code> do passo de testes. Se estiverem lá, sua alteração está aprovada — ignore o status final do job.</p>
+</div>
+<p>Para que o passo de artefato também passe, o act sabe simular o servidor:</p>
+<div class="highlight"><pre><span></span><code>act<span class="w"> </span>pull_request<span class="w"> </span>-j<span class="w"> </span>unit-tests<span class="w"> </span>--artifact-server-path<span class="w"> </span>/tmp/act-artifacts
+</code></pre></div>
+<p>O passo vira <code>✅ Success</code> e os arquivos ficam em <code>/tmp/act-artifacts</code>. <strong>O job ainda assim termina como <code>failed</code></strong>, porque o Codecov continua esbarrando no problema de Git. Para ler a cobertura, o caminho direto é <code>npm run report:coverage:unit</code>, sem act.</p>
+<h3 id="83-testes-de-integracao-nao-rode-pelo-act">8.3 Testes de integração — não rode pelo act<a class="headerlink" href="#83-testes-de-integracao-nao-rode-pelo-act" title="Permanent link">&para;</a></h3>
+<p>O job entra em <strong>loop infinito</strong> no passo <code>⏳ Aguardar Postgres</code>:</p>
+<div class="highlight"><pre><span></span><code>| /var/run/act/workflow/4: line 2: psql: command not found
+| Aguardando Postgres...
+| /var/run/act/workflow/4: line 2: psql: command not found
+| Aguardando Postgres...
+</code></pre></div>
+<p><strong>A causa é a ausência do cliente <code>psql</code> na imagem do runner.</strong> O workflow espera o banco ficar pronto executando <code>psql</code> num laço <code>until</code>; como o comando não existe, a condição nunca é satisfeita. É preciso interromper com <code>Ctrl+C</code> — o job não termina sozinho.</p>
+<div class="admonition note">
+<p class="admonition-title">Os services funcionam, ao contrário do que se costuma supor</p>
+<p>Postgres e Redis sobem normalmente no act (ficam <code>healthy</code>) e respondem em <code>localhost:5432</code> / <code>localhost:6379</code> de dentro do container do job, porque o act executa o job com <code>--network host</code>. O impedimento é só a falta do <code>psql</code>, não a rede.</p>
+</div>
+<p>Rode os testes de integração diretamente:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+npm<span class="w"> </span>run<span class="w"> </span>test:int
+</code></pre></div>
+<h3 id="84-sonarcloud-nao-rode-pelo-act">8.4 SonarCloud — não rode pelo act<a class="headerlink" href="#84-sonarcloud-nao-rode-pelo-act" title="Permanent link">&para;</a></h3>
+<p>O job baixa artefatos dos jobs anteriores e envia a análise para um serviço externo, com token real. A análise acontece no PR — veja <a href="../../vvt/sonarcloud/">Uso do SonarCloud</a>.</p>
+<hr />
+<p><a id="frontend"></a></p>
+<h2 id="9-esteira-do-frontend">9. Esteira do frontend<a class="headerlink" href="#9-esteira-do-frontend" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>notifica-saude-deploy/notifica-saude-frontend
+</code></pre></div>
+<h3 id="91-ci-lint-build-o-job-principal">9.1 CI (lint + build) — o job principal<a class="headerlink" href="#91-ci-lint-build-o-job-principal" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>act<span class="w"> </span>pull_request<span class="w"> </span>-j<span class="w"> </span>ci
+</code></pre></div>
+<p>Instala as dependências, roda <code>npm run lint</code> e <code>npm run build</code>. Se este job passa, o CI do frontend passa. <strong>Passa integralmente no act:</strong></p>
+<div class="highlight"><pre><span></span><code>✅  Success - Main Rodar ESLint
+| ✓ 660 modules transformed.
+| ✓ built in 583ms
+✅  Success - Main Buildar projeto
+🏁  Job succeeded
+</code></pre></div>
+<p>O aviso <code>Some chunks are larger than 500 kB</code> é do Vite e <strong>não reprova o job</strong>. O tempo de build varia conforme a máquina — o que importa é o <code>🏁 Job succeeded</code>.</p>
+<h3 id="92-lighthouse-nao-funciona-no-act">9.2 Lighthouse — não funciona no act<a class="headerlink" href="#92-lighthouse-nao-funciona-no-act" title="Permanent link">&para;</a></h3>
+<p>O <code>npm ci</code> e o build passam, mas o Lighthouse aborta na verificação inicial:</p>
+<div class="highlight"><pre><span></span><code>| ✅  .lighthouseci/ directory writable
+| ✅  Configuration file found
+| ❌  Chrome installation not found
+| ✅  GitHub token set
+| Healthcheck failed!
+❌  Failure - Main Rodar Lighthouse CI
+</code></pre></div>
+<p>A imagem <code>catthehacker/ubuntu:act-latest</code> não inclui o Chrome, e o Lighthouse depende dele para abrir as páginas. Os números de performance e acessibilidade só saem no PR.</p>
+<div class="admonition warning">
+<p class="admonition-title">Efeito colateral a conhecer antes de tentar consertar</p>
+<p>O <code>lighthouserc.json</code> usa <code>"target": "temporary-public-storage"</code>: o relatório, com capturas das telas <code>/</code>, <code>/login</code> e <code>/notificacao</code>, seria enviado a um armazenamento <strong>público</strong> do Google. Como o job falha antes disso, nenhum upload acontece ao rodar pelo act — mas tenha isso em mente antes de instalar o Chrome na imagem para "fazer o job passar".</p>
+</div>
+<hr />
+<p><a id="notify"></a></p>
+<h2 id="10-o-job-que-nao-deve-ser-executado-localmente">10. O job que não deve ser executado localmente<a class="headerlink" href="#10-o-job-que-nao-deve-ser-executado-localmente" title="Permanent link">&para;</a></h2>
+<p>Existe em <strong>ambos</strong> os repositórios um job <code>notify</code> (arquivo <code>main.yml</code>):</p>
+<div class="highlight"><pre><span></span><code>act<span class="w"> </span>pull_request<span class="w"> </span>-j<span class="w"> </span>notify<span class="w">        </span><span class="c1"># ❌ NÃO FAÇA ISSO</span>
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">O job <code>notify</code> posta no Discord de verdade</p>
+<p>Ele dispara um <code>curl</code> para o webhook do Discord da equipe. Com o <code>DISCORD_WEBHOOK</code> real no <code>.secrets</code>, a mensagem é publicada no canal do time, com dados vazios ou inventados do PR. Não há nada a validar nesse job.</p>
+</div>
+<p>Por isso o <code>.secrets</code> de exemplo da seção 7 <strong>não inclui</strong> <code>DISCORD_WEBHOOK</code>.</p>
+<hr />
+<p><a id="saida"></a></p>
+<h2 id="11-como-ler-a-saida">11. Como ler a saída<a class="headerlink" href="#11-como-ler-a-saida" title="Permanent link">&para;</a></h2>
+<p>O act imprime uma linha por passo, prefixada pelo nome do job. O bloco abaixo é um <strong>exemplo ilustrativo de falha</strong>, montado para mostrar os símbolos — não é saída real do projeto:</p>
+<div class="highlight"><pre><span></span><code>[Qualidade de Código/Lint e Type-check] 🚀  Start image=catthehacker/ubuntu:act-latest
+[Qualidade de Código/Lint e Type-check]   ✅  Success - Main Checkout
+[Qualidade de Código/Lint e Type-check]   ⭐ Run Main Instalar dependências
+[Qualidade de Código/Lint e Type-check]   ✅  Success - Main Instalar dependências
+[Qualidade de Código/Lint e Type-check]   ❌  Failure - Main Lint
+[Qualidade de Código/Lint e Type-check] exitcode &#39;1&#39;: failure
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Símbolo</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⭐ <code>Run Main</code></td>
+<td>O passo começou</td>
+</tr>
+<tr>
+<td>✅ <code>Success</code></td>
+<td>O passo passou</td>
+</tr>
+<tr>
+<td>❌ <code>Failure</code></td>
+<td>O passo falhou — <strong>é aqui que você olha</strong></td>
+</tr>
+<tr>
+<td>🏁 <code>Job succeeded</code></td>
+<td>O job inteiro passou</td>
+</tr>
+<tr>
+<td><code>exitcode '1'</code></td>
+<td>O job falhou</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Para depurar:</strong> ache a <strong>primeira</strong> linha <code>❌ Failure</code> e leia as linhas logo acima dela. Ali está a mensagem real do compilador, do linter ou do teste. Falhas posteriores costumam ser consequência da primeira.</p>
+<div class="highlight"><pre><span></span><code>act<span class="w"> </span>-l<span class="w">                             </span><span class="c1"># lista os jobs (não executa)</span>
+act<span class="w"> </span>pull_request<span class="w"> </span>-j<span class="w"> </span>ci<span class="w"> </span>--dryrun<span class="w">    </span><span class="c1"># mostra os passos sem executá-los</span>
+act<span class="w"> </span>pull_request<span class="w"> </span>-j<span class="w"> </span>ci<span class="w"> </span>-v<span class="w">          </span><span class="c1"># modo verboso, para investigar erros do próprio act</span>
+act<span class="w"> </span>push<span class="w"> </span>-j<span class="w"> </span>unit-tests<span class="w">             </span><span class="c1"># simula o evento de push</span>
+</code></pre></div>
+<hr />
+<p><a id="problemas"></a></p>
+<h2 id="12-resolucao-de-problemas">12. Resolução de problemas<a class="headerlink" href="#12-resolucao-de-problemas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Sintoma</th>
+<th>Causa</th>
+<th>Solução</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>'act' não é reconhecido...</code></td>
+<td>Terminal aberto antes da instalação</td>
+<td>Reinicie o VS Code por completo, ou aplique o comando de <code>PATH</code> da seção 3.1</td>
+</tr>
+<tr>
+<td><code>Couldn't get a valid docker connection</code></td>
+<td>Docker Desktop não está rodando</td>
+<td>Abra o Docker Desktop e aguarde inicializar</td>
+</tr>
+<tr>
+<td><code>fatal: not a git repository</code> no <code>lefthook install</code></td>
+<td>O <code>npm ci</code> executa o <code>prepare</code>, que exige Git</td>
+<td>Aplique o <code>npm_config_ignore_scripts=true</code> da seção 4</td>
+</tr>
+<tr>
+<td>Nada é listado com <code>act -l</code></td>
+<td>Pasta errada</td>
+<td><code>cd</code> para dentro do submódulo (seção 5)</td>
+</tr>
+<tr>
+<td>Primeiro <code>npm ci</code> demora bastante</td>
+<td>Ainda não há cache</td>
+<td>Normal. As execuções seguintes mostram <code>Cache restored successfully</code></td>
+</tr>
+<tr>
+<td><code>Unable to get the ACTIONS_RUNTIME_TOKEN</code></td>
+<td>Não existe servidor de artefatos fora do GitHub</td>
+<td>Esperado. Ignore ou use <code>--artifact-server-path</code> (seção 8.2)</td>
+</tr>
+<tr>
+<td><code>unit-tests</code> em <code>Job failed</code> com testes passando</td>
+<td>Codecov e artefato falham depois dos testes</td>
+<td>Normal. Valide pela linha <code>Tests: N passed</code> (seção 8.2)</td>
+</tr>
+<tr>
+<td><code>Aguardando Postgres...</code> em loop</td>
+<td><code>psql</code> não existe na imagem</td>
+<td><code>Ctrl+C</code>. Não rode <code>integration-tests</code> pelo act (seção 8.3)</td>
+</tr>
+<tr>
+<td><code>Chrome installation not found</code></td>
+<td>A imagem não inclui o Chrome</td>
+<td>Esperado (seção 9.2)</td>
+</tr>
+<tr>
+<td>Containers sobrando no Docker</td>
+<td>Em job que <strong>falha</strong>, o act não remove o container</td>
+<td><code>docker rm -f $(docker ps -aq --filter "name=act-")</code></td>
+</tr>
+<tr>
+<td>Disco enchendo</td>
+<td>Imagens acumuladas</td>
+<td><code>docker system prune -a</code></td>
+</tr>
+<tr>
+<td>Erro de arquitetura em Mac M1/M2/M3</td>
+<td>Imagem <code>amd64</code> em CPU ARM</td>
+<td>Acrescente <code>--container-architecture linux/amd64</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a id="checklist"></a></p>
+<h2 id="13-checklist-antes-de-abrir-um-pull-request">13. Checklist antes de abrir um Pull Request<a class="headerlink" href="#13-checklist-antes-de-abrir-um-pull-request" title="Permanent link">&para;</a></h2>
+<p><strong>Backend:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>notifica-saude-deploy/notifica-saude-backend
+act<span class="w"> </span>pull_request<span class="w"> </span>-j<span class="w"> </span>qualidade<span class="w">                </span><span class="c1"># lint + type-check</span>
+act<span class="w"> </span>pull_request<span class="w"> </span>-j<span class="w"> </span>unit-tests<span class="w">               </span><span class="c1"># testes unitários</span>
+docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>npm<span class="w"> </span>run<span class="w"> </span>test:int<span class="w">     </span><span class="c1"># integração (fora do act)</span>
+</code></pre></div>
+<p><strong>Frontend:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>notifica-saude-deploy/notifica-saude-frontend
+act<span class="w"> </span>pull_request<span class="w"> </span>-j<span class="w"> </span>ci<span class="w">                       </span><span class="c1"># lint + build</span>
+</code></pre></div>
+<ul>
+<li>[ ] Docker Desktop aberto</li>
+<li>[ ] <code>.actrc</code> com as duas linhas da seção 4</li>
+<li>[ ] <code>.secrets</code> criado <strong>e</strong> confirmado com <code>git check-ignore -v .secrets</code></li>
+<li>[ ] <code>qualidade</code> e <code>ci</code> com <code>🏁 Job succeeded</code></li>
+<li>[ ] <code>unit-tests</code> com <code>Tests: N passed</code> — o status final do job é irrelevante</li>
+<li>[ ] <code>notify</code> <strong>não</strong> foi executado</li>
+</ul>
+<p>Passando tudo isso, a chance de a esteira do GitHub reprovar o PR é pequena.</p>
+<hr />
+<p><a id="referencias"></a></p>
+<h2 id="14-referencias">14. Referências<a class="headerlink" href="#14-referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/nektos/act">Repositório oficial do act</a></li>
+<li><a href="https://nektosact.com/">Documentação do act</a></li>
+<li><a href="https://docs.github.com/pt/actions">Documentação do GitHub Actions</a></li>
+<li><a href="../pipelines-ci/">Gerenciamento de Pipelines de CI</a></li>
+<li><a href="../../vvt/sonarcloud/">Uso do SonarCloud</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Última atualização">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="24 de setembro de 2026 19:08:53 -04">24 de setembro de 2026 19:08:53</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../pipelines-ci/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Pipelines de CI">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Pipelines de CI
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../gerencia-projeto/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Visão geral">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Visão geral
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  <div class="md-footer-logo">
+    <img src="../../assets/grafo_facom.png" alt="FACOM">
+    <span>Facom | UFMS</span>
+  </div>
+  <div class="md-footer-logo">
+    <img src="../../assets/logo-nes.png" alt="NES">
+    <span>NES | UFMS</span>
+  </div>
+  
+  
+    <span class="md-footer-generator">
+      Made with
+      <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+        Material for MkDocs
+      </a>
+    </span>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
