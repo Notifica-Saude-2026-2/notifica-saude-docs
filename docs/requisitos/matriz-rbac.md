@@ -8,6 +8,7 @@ Matriz de controle de acesso baseado em perfis (RBAC), definindo quais funcional
 | Registrar notificação de incidente | ✅ | ✅ | ✅ | ✅ |
 | Visualizar notificações registradas para a instituição | ❌ | ✅ | ❌ | ✅ |
 | Visualizar notificações encaminhadas ao setor | ❌ | ✅ | ✅ | ✅ |
+| Visualizar a identificação do notificante (nome e celular/e-mail) | ❌ | ✅ | ❌ | ✅ |
 | Complementar ou corrigir informações da notificação | ❌ | ✅ | ❌ | ✅ |
 | Classificar incidente notificado | ❌ | ✅ | ❌ | ✅ |
 | Definir e gerenciar status do incidente | ❌ | ✅ | ❌ | ✅ |
