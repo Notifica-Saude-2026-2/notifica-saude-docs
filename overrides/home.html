@@ -1,0 +1,200 @@
+{#-
+  Página inicial da documentação (usada por docs/index.md via "template: home.html").
+  Toda a vitrine (hero, fluxo, perfis e cards de navegação) fica aqui, em HTML,
+  para ter controle total do layout. Estilos em docs/stylesheets/extra.css
+  (prefixo .ns-). Para trocar um card, edite a lista "docs" abaixo.
+-#}
+{% extends "main.html" %}
+
+{% set docs = [
+  {
+    "icon": "book-open-page-variant-outline",
+    "title": "Manual do sistema",
+    "text": "Como usar o NotificaSaúde no dia a dia, tela a tela, para cada perfil de usuário.",
+    "url": "manual-sistema/"
+  },
+  {
+    "icon": "clipboard-text-outline",
+    "title": "Requisitos",
+    "text": "Épicos, histórias de usuário, critérios de aceite, regras de negócio e matriz de permissões.",
+    "url": "requisitos/especificacao-requisitos/"
+  },
+  {
+    "icon": "sitemap-outline",
+    "title": "Arquitetura",
+    "text": "Visão da arquitetura, decisões técnicas (ADR), integrações e modelos de dados.",
+    "url": "arquitetura/especificacao-arquitetura/"
+  },
+  {
+    "icon": "compass-outline",
+    "title": "Descoberta do produto",
+    "text": "Entrevistas, formulários e o mapeamento dos processos que deram origem ao sistema.",
+    "url": "descoberta-produto/"
+  },
+  {
+    "icon": "check-decagram-outline",
+    "title": "Qualidade e testes",
+    "text": "Plano e casos de teste, rastreabilidade, relatórios, SonarCloud e testes de usabilidade.",
+    "url": "vvt/"
+  },
+  {
+    "icon": "source-branch",
+    "title": "Gerência de configuração",
+    "text": "Fluxo de branches, commits, pull requests, releases, pipelines de CI e definição de pronto.",
+    "url": "gcs/"
+  },
+  {
+    "icon": "chart-timeline-variant",
+    "title": "Gestão do projeto",
+    "text": "Sprints, planejamento, riscos, decisões, atas de reunião e registros de uso de IA.",
+    "url": "gerencia-projeto/"
+  },
+  {
+    "icon": "rocket-launch-outline",
+    "title": "Implantação e entregas",
+    "text": "Guias de ambiente e implantação e as apresentações institucionais do projeto.",
+    "url": "implantacao/"
+  }
+] %}
+
+{% set etapas = [
+  {"icon": "bullhorn-outline", "title": "Notificar", "text": "Qualquer pessoa registra o incidente, de forma identificada ou anônima."},
+  {"icon": "shield-check-outline", "title": "Classificar", "text": "O Núcleo de Segurança do Paciente classifica o incidente e define o grau do dano."},
+  {"icon": "magnify", "title": "Analisar", "text": "NSP ou setor investigam as causas e registram recomendações."},
+  {"icon": "clipboard-check-outline", "title": "Agir", "text": "As recomendações viram um plano de ação com responsáveis e prazos."},
+  {"icon": "timeline-check-outline", "title": "Concluir", "text": "Ações acompanhadas até a efetividade e o encerramento do incidente."}
+] %}
+
+{% set perfis = [
+  {"icon": "account-voice", "title": "Notificante", "text": "Profissional, paciente, acompanhante ou qualquer pessoa que presenciou o incidente."},
+  {"icon": "shield-account-outline", "title": "Núcleo de Segurança do Paciente", "text": "Classifica, encaminha, acompanha e conclui os incidentes da instituição."},
+  {"icon": "account-tie-outline", "title": "Gestor de área", "text": "Investiga os incidentes do seu setor e define o plano de ação."},
+  {"icon": "account-cog-outline", "title": "Administrador", "text": "Gerencia usuários, instituições e parâmetros gerais do sistema."}
+] %}
+
+{#- As abas vêm antes do hero (no tema, o bloco "hero" fica acima das abas). -#}
+{% block tabs %}
+{{ super() }}
+<section class="ns-hero">
+  <div class="ns-hero__inner md-grid">
+    <div class="ns-hero__text">
+      <span class="ns-eyebrow">Documentação oficial</span>
+      <h1 class="ns-hero__title">NotificaSaúde</h1>
+      <p class="ns-hero__lead">
+        Registro, análise e acompanhamento de incidentes de segurança do paciente —
+        do relato à ação corretiva, em um só lugar.
+      </p>
+      <div class="ns-hero__actions">
+        <a href="{{ 'requisitos/especificacao-requisitos/' | url }}" class="ns-btn ns-btn--light">
+          Explorar requisitos
+          <span class="ns-btn__icon">{% include ".icons/material/arrow-right.svg" %}</span>
+        </a>
+        <a href="{{ 'manual-sistema/' | url }}" class="ns-btn ns-btn--ghost">Manual do sistema</a>
+      </div>
+    </div>
+
+    <div class="ns-hero__panel" aria-hidden="true">
+      <div class="ns-panel">
+        <div class="ns-panel__head">
+          <img src="{{ 'assets/favicon.png' | url }}" alt="">
+          <span>Ciclo do incidente</span>
+        </div>
+        <ol class="ns-panel__steps">
+          {% for e in etapas %}
+          <li>
+            <span class="ns-panel__dot">{% include ".icons/material/" ~ e.icon ~ ".svg" %}</span>
+            <span class="ns-panel__label">{{ e.title }}</span>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<div class="ns-home">
+
+  <section class="ns-section ns-about">
+    <div class="ns-about__text">
+      <span class="ns-kicker">Sobre o produto</span>
+      <h2 class="ns-section__title">O que é o NotificaSaúde</h2>
+      <p>
+        O NotificaSaúde é uma plataforma web para a gestão de incidentes relacionados à
+        segurança do paciente em serviços de saúde. Ela substitui fichas em papel e planilhas
+        por um fluxo único e rastreável: o incidente é notificado, classificado pelo Núcleo de
+        Segurança do Paciente, analisado para encontrar suas causas e tratado por meio de um
+        plano de ação acompanhado até a conclusão.
+      </p>
+      <p>
+        Todo o histórico fica registrado, o acesso é controlado por perfil e as informações
+        são tratadas em conformidade com a LGPD — dando à instituição dados confiáveis para
+        monitorar, aprender com os erros e melhorar continuamente o cuidado.
+      </p>
+    </div>
+    <ul class="ns-highlights">
+      <li>
+        <span class="ns-icon">{% include ".icons/material/bullhorn-outline.svg" %}</span>
+        <div><strong>Notificação acessível</strong><span>Formulário eletrônico simples, com registro identificado ou anônimo.</span></div>
+      </li>
+      <li>
+        <span class="ns-icon">{% include ".icons/material/timeline-text-outline.svg" %}</span>
+        <div><strong>Rastreabilidade total</strong><span>Status, prazos e histórico de cada alteração em todas as etapas.</span></div>
+      </li>
+      <li>
+        <span class="ns-icon">{% include ".icons/material/shield-check-outline.svg" %}</span>
+        <div><strong>Cultura justa e segurança</strong><span>Foco nas falhas do sistema, não em culpados, com acesso restrito por perfil.</span></div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="ns-section">
+    <span class="ns-kicker">Como funciona</span>
+    <h2 class="ns-section__title">Do relato à melhoria, em cinco etapas</h2>
+    <ol class="ns-flow">
+      {% for e in etapas %}
+      <li class="ns-flow__step">
+        <span class="ns-flow__num">{{ loop.index }}</span>
+        <span class="ns-icon">{% include ".icons/material/" ~ e.icon ~ ".svg" %}</span>
+        <h3>{{ e.title }}</h3>
+        <p>{{ e.text }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section class="ns-section">
+    <span class="ns-kicker">Perfis de usuário</span>
+    <h2 class="ns-section__title">Para quem é o sistema</h2>
+    <div class="ns-roles">
+      {% for p in perfis %}
+      <div class="ns-role">
+        <span class="ns-icon ns-icon--soft">{% include ".icons/material/" ~ p.icon ~ ".svg" %}</span>
+        <div>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.text }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="ns-section">
+    <span class="ns-kicker">Documentação</span>
+    <h2 class="ns-section__title">Por onde começar</h2>
+    <p class="ns-section__lead">Escolha um tema para navegar pelos principais documentos do sistema.</p>
+    <div class="ns-cards">
+      {% for d in docs %}
+      <a class="ns-card" href="{{ d.url | url }}">
+        <span class="ns-icon">{% include ".icons/material/" ~ d.icon ~ ".svg" %}</span>
+        <h3>{{ d.title }}</h3>
+        <p>{{ d.text }}</p>
+        <span class="ns-card__more">Acessar {% include ".icons/material/arrow-right.svg" %}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+
+</div>
+{% endblock %}

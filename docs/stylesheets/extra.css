@@ -1,82 +1,134 @@
-/* Cor de marca do NotificaSaúde, reaproveitada do header do frontend real
-   (git_notifica_saude/notifica-saude-frontend/src/components/common/layout/Header/Header.module.css).
-   O header do app real NÃO é uma cor sólida — é um gradiente:
-   background: linear-gradient(90deg, #2f4fff 0%, #1d2fd6 100%);
-   Por isso as tentativas anteriores com cor sólida nunca bateram exatamente.
-   Os valores abaixo (flat, ponta clara do gradiente) seguem usados pra
-   elementos pontuais do tema (links, destaques) onde gradiente não cabe. */
+/* ==========================================================================
+   NotificaSaúde — tema da documentação (Material for MkDocs)
+   --------------------------------------------------------------------------
+   Segue o design system do sistema (notifica-saude-prototipo-funcional,
+   src/index.css): azul primário #183eff, tons "wash" para fundos de destaque,
+   bordas #e5e4e7 e títulos quase pretos. Visual limpo, com cabeçalho branco
+   e o gradiente da marca reservado para a vitrine da página inicial.
+
+   Tipografia:
+   - Texto: Inter (definida em mkdocs.yml -> theme.font.text)
+   - Destaque: Raleway (fonte da marca no sistema), SOMENTE nos títulos
+     principais (h1 das páginas e títulos da página inicial)
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600;700;800&display=swap");
+
+/* ---------- Tokens ---------- */
 :root {
-  --md-primary-fg-color: #2f4fff;
-  --md-primary-fg-color--light: #5a72ff;
-  --md-primary-fg-color--dark: #1d2fd6;
+  --ns-primary: #183eff;
+  --ns-primary-dark: #122fc4;
+  --ns-primary-wash: #eef1ff;
+  --ns-primary-wash-border: #c9d3ff;
+  --ns-navy: #0f1747;
+  --ns-text-h: #0b0a12;
+  --ns-text: #2d2a35;
+  --ns-muted: #6b6375;
+  --ns-border: #e5e4e7;
+  --ns-surface: #f7f8fb;
+  --ns-card: #ffffff;
+  --ns-radius: 14px;
+  --ns-shadow: 0 1px 2px rgba(16, 24, 64, 0.04), 0 4px 16px rgba(16, 24, 64, 0.06);
+  --ns-shadow-hover: 0 2px 4px rgba(16, 24, 64, 0.06), 0 12px 32px rgba(24, 62, 255, 0.14);
+  --ns-font-display: "Raleway", "Inter", system-ui, sans-serif;
+}
+
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--ns-primary);
+  --md-primary-fg-color--light: #4f6bff;
+  --md-primary-fg-color--dark: var(--ns-primary-dark);
   --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: var(--ns-primary-dark);
+  --md-accent-fg-color--transparent: rgba(24, 62, 255, 0.08);
+  --md-default-bg-color: #ffffff;
+  --md-default-fg-color: var(--ns-text-h);
+  --md-default-fg-color--light: var(--ns-muted);
+  --md-default-fg-color--lighter: #a8a3b1;
+  --md-default-fg-color--lightest: var(--ns-border);
+  --md-typeset-color: var(--ns-text);
+  --md-typeset-a-color: var(--ns-primary);
+  --md-code-bg-color: #f5f6fa;
+  --md-code-fg-color: #2d2a35;
+  --md-typeset-table-color: var(--ns-border);
+  --md-footer-bg-color: var(--ns-navy);
+  --md-footer-bg-color--dark: #0a1036;
 }
 
-/* Header, rodapé (nav anterior/próxima) e faixa "Made with Material for MkDocs":
-   aplicamos o MESMO gradiente exato do header do app real, em vez de cor
-   sólida — assim os três ficam idênticos ao original. Sobrescreve
-   diretamente o "background" (não só a variável de cor), então funciona
-   independente de qual seletor o Material usa internamente pra cada um. */
-.md-header,
-.md-tabs,
-.md-footer,
-.md-footer-meta {
-  background: linear-gradient(90deg, #667cf8 0%, #1d2fd6 40%);
+[data-md-color-scheme="slate"] {
+  --md-hue: 232;
+  --ns-text-h: #f3f4ff;
+  --ns-text: #d7d9e8;
+  --ns-muted: #9a9fb8;
+  --ns-border: #262a3d;
+  --ns-surface: #151827;
+  --ns-card: #161a2b;
+  --ns-primary-wash: rgba(96, 120, 255, 0.14);
+  --ns-primary-wash-border: rgba(120, 140, 255, 0.35);
+  --ns-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --ns-shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.45);
+  --md-primary-fg-color: #7b8cff;
+  --md-primary-fg-color--light: #9aa8ff;
+  --md-primary-fg-color--dark: #5a6ff5;
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: #a3b0ff;
+  --md-default-bg-color: #0e1020;
+  --md-default-fg-color: var(--ns-text-h);
+  --md-default-fg-color--light: var(--ns-muted);
+  --md-default-fg-color--lightest: var(--ns-border);
+  --md-typeset-color: var(--ns-text);
+  --md-typeset-a-color: #8e9cff;
+  --md-code-bg-color: #151827;
+  --md-footer-bg-color: #0a0c18;
+  --md-footer-bg-color--dark: #07080f;
 }
 
-/* No modo escuro, escurece o mesmo gradiente em vez de trocar de cor —
-   mantém a identidade visual, só fica mais confortável ao lado do fundo
-   escuro. Ajustável só mexendo no valor do brightness(). */
-[data-md-color-scheme="slate"] .md-header,
-[data-md-color-scheme="slate"] .md-tabs,
-[data-md-color-scheme="slate"] .md-footer,
-[data-md-color-scheme="slate"] .md-footer-meta {
-  filter: brightness(0.93);
+/* ---------- Base ---------- */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Centraliza os itens da barra de navegação (tabs) no header */
-.md-tabs__list {
-  justify-content: center;
-  width: 100%;
+.md-typeset {
+  font-size: 0.8rem;
+  line-height: 1.7;
 }
 
-/* Ao rolar a página, só o header original (logo, busca, ícones) deve ficar
-   fixo no topo — a barra de abas (tabs) não deve "grudar" junto, senão o
-   topo fica comprido demais. O Material controla o comportamento de
-   esconder/fixar a barra de abas via JavaScript (aplicado inline no
-   elemento), que tem prioridade sobre CSS normal — por isso o !important
-   aqui é necessário pra realmente sobrepor. */
+/* ---------- Cabeçalho ---------- */
 .md-header {
   position: sticky !important;
   top: 0 !important;
+  background: var(--md-default-bg-color);
+  color: var(--ns-text-h);
+  box-shadow: none;
+  border-bottom: 1px solid var(--ns-border);
 }
 
-.md-tabs {
-  position: static !important;
-  transform: none !important;
+.md-header--shadow {
+  box-shadow: 0 4px 20px rgba(16, 24, 64, 0.06);
 }
 
-/* Alinha o campo de busca com a logo/título: no desktop, o Material posiciona
-   a busca com "float" (pra animação de expandir), então ela não acompanha o
-   align-items:center que centraliza os outros itens do header. Empurra pra
-   baixo manualmente pra bater com o centro vertical da logo/título. */
-.md-search__inner {
-  margin-top: 0.4rem;
+.md-header__title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
 }
 
-/* Logo maior no header (padrão do Material é pequeno demais pra ficar legível).
-   Usa transform:scale() em vez de aumentar a height — scale() não ocupa mais
-   espaço no layout, então a barra do header não cresce junto com a logo. */
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
-  height: 1.9rem;
+  height: 1.55rem;
   width: auto;
-  transform: scale(1.3);
 }
 
-/* Link do GitHub no header: mantém só o ícone, esconde o nome do repositório.
-   O Material reserva 11.7rem de largura fixa pro texto do repositório — sem
-   o texto, sobrava um espaço vazio enorme empurrando os ícones pra longe. */
+.md-header__button:not(.md-logo) {
+  color: var(--ns-muted);
+}
+
+.md-header__button:hover {
+  opacity: 1;
+  color: var(--md-primary-fg-color);
+}
+
+/* Link do GitHub: só o ícone */
 .md-source__repository {
   display: none;
 }
@@ -84,17 +136,11 @@
 .md-header__source {
   width: auto;
   max-width: none;
-  margin-left: 0.1rem;
-  margin-right: 0.1rem;
+  margin: 0 0.2rem;
+  color: var(--ns-muted);
 }
 
-/* Aproxima ainda mais o alternador de tema do ícone do GitHub */
-.md-header__inner > [data-md-component="palette"] .md-header__button {
-  margin-right: -1.5rem;
-}
-
-/* Reordena os controles do header: busca -> alternador claro/escuro -> github
-   (a ordem padrão do Material é alternador -> busca -> github) */
+/* Ordem dos controles: busca -> tema -> GitHub */
 .md-header__inner > label[for="__search"],
 .md-header__inner > [data-md-component="search"] {
   order: 1;
@@ -108,123 +154,815 @@
   order: 3;
 }
 
-/* Busca mais clean: fundo translúcido em vez da caixa branca sólida padrão,
-   que destoava muito do azul do header */
+/* ---------- Busca ---------- */
 .md-search__form {
-  background-color: rgba(255, 255, 255, 0.15);
-  border-radius: 1.2rem;
+  background-color: var(--ns-surface);
+  border: 1px solid var(--ns-border);
+  border-radius: 999px;
   box-shadow: none;
+  transition: border-color 0.2s, background-color 0.2s;
 }
 
 .md-search__form:hover {
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: var(--md-default-bg-color);
+  border-color: var(--ns-primary-wash-border);
 }
 
-.md-search__input,
+.md-search__input {
+  color: var(--ns-text-h);
+  font-size: 0.72rem;
+}
+
+.md-search__input::placeholder,
 .md-search__icon {
-  color: #ffffff;
+  color: var(--ns-muted);
 }
 
-.md-search__input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-/* O Material troca a busca pra um card branco opaco com cantos quadrados
-   quando ativa/focada, usando um seletor mais específico do que o de cima
-   ([data-md-toggle=search]:checked ~ .md-header .md-search__form) — repetimos
-   o mesmo seletor aqui pra manter o visual translúcido também nesse estado */
 [data-md-toggle="search"]:checked ~ .md-header .md-search__form {
-  background-color: rgba(255, 255, 255, 0.15);
-  border-radius: 1.2rem;
-  box-shadow: none;
-  color: #ffffff;
+  background-color: var(--md-default-bg-color);
+  border-color: var(--md-primary-fg-color);
+  border-radius: 0.8rem 0.8rem 0 0;
+  box-shadow: 0 0 0 3px var(--ns-primary-wash);
 }
 
 [data-md-toggle="search"]:checked ~ .md-header .md-search__input + .md-search__icon {
-  color: #ffffff;
+  color: var(--ns-muted);
 }
 
-/* Remove a mensagem "Digite para iniciar a busca" (placeholder de estado vazio)
-   que aparecia no dropdown de resultados antes de digitar qualquer coisa */
+.md-search__output {
+  border-radius: 0 0 0.8rem 0.8rem;
+}
+
 .md-search-result__meta {
   display: none;
 }
 
-/* Logos institucionais no rodapé (FACOM + NES), inseridos via
-   overrides/partials/copyright.html. Centraliza tudo: a faixa inteira
-   do rodapé e a linha com os dois logos + "Made with Material for MkDocs". */
+/* ---------- Abas de navegação ---------- */
+.md-tabs {
+  position: static !important;
+  transform: none !important;
+  background: var(--md-default-bg-color);
+  color: var(--ns-muted);
+  border-bottom: 1px solid var(--ns-border);
+}
+
+.md-tabs__list {
+  justify-content: center;
+  width: 100%;
+}
+
+.md-tabs__item {
+  height: 2.6rem;
+  padding: 0 0.1rem;
+}
+
+.md-tabs__link {
+  margin-top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 0.6rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  opacity: 1;
+  color: var(--ns-muted);
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.md-tabs__link:hover,
+.md-tabs__link:focus {
+  color: var(--md-primary-fg-color);
+}
+
+.md-tabs__item--active .md-tabs__link {
+  color: var(--md-primary-fg-color);
+  font-weight: 600;
+  border-bottom-color: var(--md-primary-fg-color);
+}
+
+/* ---------- Menu lateral e sumário ---------- */
+.md-nav {
+  font-size: 0.7rem;
+}
+
+.md-nav__title {
+  color: var(--ns-text-h);
+  font-weight: 700;
+}
+
+.md-nav__link {
+  color: var(--ns-text);
+  transition: color 0.15s;
+}
+
+.md-nav__link--active,
+.md-nav__item .md-nav__link--active {
+  color: var(--md-primary-fg-color);
+  font-weight: 600;
+}
+
+.md-nav--secondary .md-nav__title {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ns-muted);
+  box-shadow: none;
+  background: var(--md-default-bg-color);
+}
+
+/* ---------- Tipografia do conteúdo ---------- */
+.md-typeset h1 {
+  font-family: var(--ns-font-display);
+  font-weight: 800;
+  font-size: 2.1em;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--ns-text-h);
+  margin-bottom: 0.8em;
+}
+
+.md-typeset h2 {
+  font-weight: 700;
+  font-size: 1.45em;
+  letter-spacing: -0.015em;
+  color: var(--ns-text-h);
+  margin-top: 2.2em;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid var(--ns-border);
+}
+
+.md-typeset h3 {
+  font-weight: 650;
+  font-size: 1.18em;
+  color: var(--ns-text-h);
+}
+
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  font-weight: 600;
+  color: var(--ns-text-h);
+}
+
+.md-typeset a {
+  text-underline-offset: 3px;
+}
+
+.md-typeset a:hover {
+  text-decoration: underline;
+}
+
+.md-typeset .headerlink {
+  color: var(--ns-primary-wash-border);
+}
+
+.md-typeset hr {
+  border-bottom-color: var(--ns-border);
+  margin: 2em 0;
+}
+
+.md-typeset blockquote {
+  border-left: 3px solid var(--md-primary-fg-color);
+  background: var(--ns-primary-wash);
+  color: var(--ns-text);
+  border-radius: 0 10px 10px 0;
+  padding: 0.6em 1em;
+}
+
+.md-typeset code {
+  border-radius: 6px;
+  padding: 0.1em 0.35em;
+}
+
+.md-typeset pre {
+  border: 1px solid var(--ns-border);
+  border-radius: 10px;
+}
+
+.md-typeset pre > code {
+  border-radius: 10px;
+}
+
+/* Com o nl2br, uma linha em branco entre dois blocos de código pode gerar um <br>
+   solto entre eles — esconde para não criar espaço extra. */
+.md-typeset .highlight + br {
+  display: none;
+}
+
+/* ---------- Tabelas ---------- */
+.md-typeset table:not([class]) {
+  border: 1px solid var(--ns-border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: none;
+  font-size: 0.72rem;
+}
+
+.md-typeset table:not([class]) th {
+  background: var(--ns-surface);
+  color: var(--ns-text-h);
+  font-weight: 600;
+  border-bottom: 1px solid var(--ns-border);
+}
+
+.md-typeset table:not([class]) td {
+  border-top: 1px solid var(--ns-border);
+  vertical-align: top;
+}
+
+.md-typeset table:not([class]) tbody tr:hover {
+  background: var(--ns-primary-wash);
+  box-shadow: none;
+}
+
+/* ---------- Avisos (admonitions) e blocos recolhíveis ---------- */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 12px;
+  border-width: 1px;
+  border-left-width: 4px;
+  box-shadow: none;
+  font-size: 0.74rem;
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+  font-weight: 600;
+}
+
+/* ---------- Rodapé ---------- */
+.md-footer {
+  background: var(--md-footer-bg-color);
+}
+
+.md-footer-meta {
+  background: var(--md-footer-bg-color--dark);
+}
+
 .md-footer-meta__inner {
   justify-content: center;
 }
 
+/* Logos institucionais (overrides/partials/copyright.html) */
 .md-copyright {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0.74rem;
+  gap: 0.9rem;
   width: 100%;
-  padding: 0.51rem 0;
+  padding: 0.6rem 0;
 }
 
 .md-footer-logo {
   display: flex;
   align-items: center;
-  gap: 0.24rem;
+  gap: 0.3rem;
 }
 
 .md-footer-logo img {
-  height: 1.09rem;
+  height: 1.1rem;
   width: auto;
 }
 
 .md-footer-logo span {
-  font-size: 0.45rem;
-  font-weight: 400;
-  color: #ffffff;
+  font-size: 0.55rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
   white-space: nowrap;
 }
 
 .md-footer-generator {
   white-space: nowrap;
+  color: rgba(255, 255, 255, 0.6);
 }
 
-/* Modo escuro 50% mais escuro: o Material usa hsl(hue, 15%, 14%) como fundo
-   da página no modo slate — reduzimos a luminosidade pela metade (14% -> 7%),
-   e o mesmo pros blocos de código (18% -> 9%). Repete o seletor
-   "[data-md-color-scheme=slate]" (não só :root) pelo mesmo motivo do rodapé:
-   o Material aplica esse atributo direto na <body> via JS. */
-[data-md-color-scheme="slate"] {
-  --md-default-bg-color: hsla(var(--md-hue), 15%, 7%, 1);
-  --md-default-bg-color--light: hsla(var(--md-hue), 15%, 7%, 0.54);
-  --md-default-bg-color--lighter: hsla(var(--md-hue), 15%, 7%, 0.26);
-  --md-default-bg-color--lightest: hsla(var(--md-hue), 15%, 7%, 0.07);
-  --md-code-bg-color: hsla(var(--md-hue), 15%, 9%, 1);
-  --md-code-bg-color--light: hsla(var(--md-hue), 15%, 9%, 0.9);
-  --md-code-bg-color--lighter: hsla(var(--md-hue), 15%, 9%, 0.54);
+/* ==========================================================================
+   Página inicial (overrides/home.html)
+   ========================================================================== */
 
-  /* Texto mais claro e menos "acinzentado": aumenta luminosidade (90% -> 97%)
-     e opacidade (0.82 -> 0.95) do texto padrão no modo escuro. */
-  --md-default-fg-color: hsla(var(--md-hue), 15%, 100%, 1);
-  --md-default-fg-color--light: hsla(var(--md-hue), 15%, 100%, 0.74);
-  --md-default-fg-color--lighter: hsla(var(--md-hue), 15%, 100%, 0.47);
-  --md-default-fg-color--lightest: hsla(var(--md-hue), 15%, 100%, 0.21);
+/* Hero em largura total com o gradiente da marca */
+.ns-hero {
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  background:
+    radial-gradient(900px 420px at 85% -10%, rgba(120, 150, 255, 0.55), transparent 60%),
+    radial-gradient(700px 360px at -10% 110%, rgba(10, 20, 110, 0.55), transparent 60%),
+    linear-gradient(135deg, #1c37cb 0%, #183eff 55%, #2f4fff 100%);
 }
 
-/* ---------------------------------------------------------------------------
-   Diagramas Mermaid
-
-   Por padrao o Mermaid encolhe o SVG para caber na largura do conteudo
-   (useMaxWidth), o que deixa o texto ilegivel em diagramas largos. Os
-   diagramas deste site desativam esse comportamento no proprio bloco
-   (%%{init: ... "flowchart": {"useMaxWidth": false}}%%), entao aqui garantimos
-   que o excesso role horizontalmente em vez de estourar a pagina.
-   --------------------------------------------------------------------------- */
-.md-typeset .mermaid {
-  overflow-x: auto;
-  text-align: center;
+.ns-hero::after {
+  /* textura sutil de pontos */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 85%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 85%);
+  pointer-events: none;
 }
 
-.md-typeset .mermaid svg {
-  height: auto;
+.ns-hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 3.6rem 0.8rem 3.8rem;
+}
+
+.ns-eyebrow {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ns-hero__title {
+  font-family: var(--ns-font-display);
+  font-weight: 800;
+  font-size: 2.9rem;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0.9rem 0 0.8rem;
+  color: #ffffff;
+}
+
+.ns-hero__lead {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 34rem;
+  margin: 0 0 1.6rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ns-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.ns-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.ns-btn:hover {
+  transform: translateY(-1px);
+}
+
+.ns-btn--light,
+.ns-btn--light:hover {
+  background: #ffffff;
+  color: #183eff;
+  box-shadow: 0 6px 20px rgba(8, 16, 80, 0.25);
+}
+
+.ns-btn--ghost,
+.ns-btn--ghost:hover {
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.ns-btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.ns-btn__icon svg {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+  display: block;
+}
+
+/* Painel "ciclo do incidente" à direita do hero */
+.ns-panel {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 18px;
+  padding: 1.1rem 1.2rem 1.2rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 20px 50px rgba(6, 12, 70, 0.3);
+  max-width: 20rem;
+  margin-left: auto;
+}
+
+.ns-panel__head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  padding-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.ns-panel__head img {
+  width: 1.4rem;
+  height: 1.4rem;
+  padding: 0.2rem;
+  background: #ffffff;
+  border-radius: 7px;
+  object-fit: contain;
+}
+
+.ns-panel__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ns-panel__steps li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.45rem 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.ns-panel__steps li:not(:last-child)::after {
+  /* linha que liga as etapas */
+  content: "";
+  position: absolute;
+  left: calc(0.85rem - 1px);
+  top: calc(50% + 0.85rem);
+  height: calc(100% - 1.7rem);
+  width: 2px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ns-panel__dot {
+  flex: 0 0 auto;
+  width: 1.7rem;
+  height: 1.7rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #183eff;
+}
+
+.ns-panel__dot svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  fill: currentColor;
+}
+
+/* Conteúdo da página inicial */
+.md-content:has(.ns-home) .md-content__inner {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.md-content:has(.ns-home) .md-content__inner::before {
+  display: none;
+}
+
+.ns-home {
+  padding-bottom: 2rem;
+}
+
+.ns-section {
+  margin-top: 3.4rem;
+}
+
+.ns-section:first-child {
+  margin-top: 2.6rem;
+}
+
+.ns-kicker {
+  display: block;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--md-primary-fg-color);
+  margin-bottom: 0.35rem;
+}
+
+.md-typeset .ns-section__title {
+  font-family: var(--ns-font-display);
+  font-weight: 800;
+  font-size: 1.75rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--ns-text-h);
+  margin: 0 0 0.6rem;
+  padding: 0;
+  border: 0;
+}
+
+.md-typeset .ns-home p.ns-section__lead {
+  color: var(--ns-muted);
+  margin: 0 0 1.4rem;
+  font-size: 0.85rem;
+}
+
+.md-typeset .ns-home h3 {
+  font-size: 0.9rem;
+  font-weight: 650;
+  margin: 0 0 0.3rem;
+  color: var(--ns-text-h);
+}
+
+.md-typeset .ns-home p {
+  margin: 0;
+}
+
+/* Ícone em quadrado arredondado */
+.ns-icon {
+  flex: 0 0 auto;
+  display: inline-grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 11px;
+  background: var(--ns-primary-wash);
+  color: var(--md-primary-fg-color);
+  border: 1px solid var(--ns-primary-wash-border);
+}
+
+.ns-icon svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: currentColor;
+}
+
+/* Sobre o produto */
+.ns-about {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2.4rem;
+  align-items: start;
+}
+
+.md-typeset .ns-about__text p {
+  font-size: 0.86rem;
+  line-height: 1.75;
+  color: var(--ns-text);
+}
+
+.md-typeset .ns-about__text p + p {
+  margin-top: 0.9rem;
+}
+
+.md-typeset ul.ns-highlights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.md-typeset ul.ns-highlights > li {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0.9rem 1rem;
+  background: var(--ns-surface);
+  border: 1px solid var(--ns-border);
+  border-radius: var(--ns-radius);
+}
+
+.ns-highlights strong {
+  display: block;
+  color: var(--ns-text-h);
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.ns-highlights div > span {
+  display: block;
+  color: var(--ns-muted);
+  font-size: 0.74rem;
+  line-height: 1.5;
+}
+
+/* Fluxo em 5 etapas */
+.md-typeset ol.ns-flow {
+  list-style: none;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.8rem;
+}
+
+.md-typeset ol.ns-flow > li.ns-flow__step {
+  position: relative;
+  margin: 0;
+  padding: 1.1rem 1rem 1.2rem;
+  background: var(--ns-card);
+  border: 1px solid var(--ns-border);
+  border-radius: var(--ns-radius);
+  box-shadow: var(--ns-shadow);
+}
+
+.md-typeset ol.ns-flow > li.ns-flow__step:not(:last-child)::after {
+  /* seta entre as etapas */
+  content: "";
+  position: absolute;
+  top: 2rem;
+  right: -0.58rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-top: 2px solid var(--ns-primary-wash-border);
+  border-right: 2px solid var(--ns-primary-wash-border);
+  transform: rotate(45deg);
+}
+
+.ns-flow__num {
+  position: absolute;
+  top: 0.9rem;
+  right: 1rem;
+  font-family: var(--ns-font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--ns-primary-wash-border);
+}
+
+.ns-flow__step .ns-icon {
+  margin-bottom: 0.8rem;
+}
+
+.md-typeset .ns-flow__step p {
+  font-size: 0.72rem;
+  line-height: 1.55;
+  color: var(--ns-muted);
+}
+
+/* Cards de navegação */
+.ns-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.9rem;
+}
+
+.md-typeset a.ns-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1.2rem 1.15rem 1.1rem;
+  background: var(--ns-card);
+  border: 1px solid var(--ns-border);
+  border-radius: var(--ns-radius);
+  box-shadow: var(--ns-shadow);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.md-typeset a.ns-card:hover,
+.md-typeset a.ns-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--ns-primary-wash-border);
+  box-shadow: var(--ns-shadow-hover);
+  text-decoration: none;
+}
+
+.ns-card .ns-icon {
+  margin-bottom: 0.7rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.md-typeset a.ns-card:hover .ns-icon {
+  background: var(--md-primary-fg-color);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.md-typeset .ns-card p {
+  font-size: 0.72rem;
+  line-height: 1.55;
+  color: var(--ns-muted);
+  flex: 1;
+}
+
+.ns-card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.9rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--md-primary-fg-color);
+}
+
+.ns-card__more svg {
+  width: 0.85rem;
+  height: 0.85rem;
+  fill: currentColor;
+  transition: transform 0.2s;
+}
+
+.md-typeset a.ns-card:hover .ns-card__more svg {
+  transform: translateX(3px);
+}
+
+/* Perfis */
+.ns-roles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.ns-role {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--ns-border);
+  border-radius: var(--ns-radius);
+  background: var(--ns-surface);
+}
+
+.md-typeset .ns-role p {
+  font-size: 0.74rem;
+  line-height: 1.55;
+  color: var(--ns-muted);
+}
+
+/* ---------- Responsivo ---------- */
+@media screen and (max-width: 76.1875em) {
+  .ns-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .md-typeset ol.ns-flow {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .md-typeset ol.ns-flow > li.ns-flow__step:not(:last-child)::after {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 60em) {
+  .ns-hero__inner,
+  .ns-about {
+    grid-template-columns: 1fr;
+  }
+
+  .ns-hero__panel {
+    display: none;
+  }
+
+  .ns-hero__inner {
+    padding: 2.6rem 0.8rem 2.8rem;
+  }
+
+  .ns-hero__title {
+    font-size: 2.2rem;
+  }
+
+  .md-typeset ol.ns-flow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 36em) {
+  .ns-cards,
+  .ns-roles,
+  .md-typeset ol.ns-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .ns-hero__lead {
+    font-size: 0.9rem;
+  }
+
+  .ns-section,
+  .ns-section:first-child {
+    margin-top: 2.2rem;
+  }
+
+  .md-typeset .ns-section__title {
+    font-size: 1.45rem;
+  }
 }

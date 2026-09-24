@@ -1,5 +1,5 @@
-site_name: Documentação Notifica Saúde
-site_description: Documentação do Sistema Notifica Saúde - Registro, Análise e Acompanhamento de Incidentes.
+site_name: NotificaSaúde
+site_description: Documentação do NotificaSaúde — registro, análise e acompanhamento de incidentes de segurança do paciente.
 repo_url: https://github.com/Notifica-Saude-2026-2/notifica-saude-docs
 repo_name: Notifica-Saude-2026-2/notifica-saude-docs
 
@@ -9,26 +9,41 @@ theme:
   language: pt-BR
   logo: assets/favicon.png
   favicon: assets/favicon.png
+  # Fonte principal dos textos: Inter. A fonte de destaque (Raleway, a mesma da marca
+  # no sistema) é usada só nos títulos principais — ver docs/stylesheets/extra.css.
+  font:
+    text: Inter
+    code: JetBrains Mono
+  # Modo claro é o padrão (primeira paleta). O usuário pode alternar para o escuro,
+  # e a escolha fica salva no navegador.
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      toggle:
-        icon: material/weather-sunny
-        name: Mudar para modo escuro
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+    - scheme: default
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-night
+        name: Mudar para modo escuro
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
         name: Mudar para modo claro
   features:
     - navigation.tabs
     - navigation.indexes
     - navigation.top
+    - navigation.footer
+    - toc.follow
     - search.highlight
     - search.suggest
     - content.code.copy
 
 markdown_extensions:
+  # nl2br: uma quebra de linha simples no Markdown vira quebra de linha na página
+  # (como no GitHub). Os documentos são escritos assim — ex.: título do critério de
+  # aceite numa linha e "Dado que... quando... então..." na linha seguinte.
+  - nl2br
   - admonition
   - attr_list
   - md_in_html
@@ -36,6 +51,9 @@ markdown_extensions:
       permalink: true
       toc_depth: 4
   - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -75,7 +93,8 @@ nav:
   - Qualidade e Testes:
       - Visão geral: vvt/index.md
       - Plano de Testes: vvt/plano-de-testes.md
-      - Casos de Teste e Matriz de Rastreabilidade: vvt/casos-de-teste.md
+      - Casos de Teste: vvt/casos-de-teste.md
+      - Matriz de Rastreabilidade: vvt/matriz-rastreabilidade.md
       - Relatórios: vvt/relatorios.md
       - Uso do SonarCloud: vvt/sonarcloud.md
       - Teste de Usabilidade: teste-usabilidade/index.md
