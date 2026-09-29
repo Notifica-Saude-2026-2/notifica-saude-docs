@@ -966,3 +966,556 @@ body {
     font-size: 1.45rem;
   }
 }
+/* ==========================================================================
+   Diário de Decisões (docs/gerencia-projeto/diario-de-decisoes.md)
+   ========================================================================== */
+
+/* Etiquetas de categoria (também reutilizáveis em outras páginas) */
+.md-typeset .ns-tag {
+  display: inline-block;
+  padding: 0.15em 0.6em;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.ns-tag--produto { background: #eef1ff; color: #1c37cb; border-color: #c9d3ff !important; }
+.ns-tag--requisitos { background: #ecfdf3; color: #067647; border-color: #abefc6 !important; }
+.ns-tag--arquitetura { background: #f4f3ff; color: #5925dc; border-color: #d9d6fe !important; }
+.ns-tag--metodologia { background: #fff6ed; color: #b93815; border-color: #f9dbaf !important; }
+.ns-tag--infra { background: #eff8ff; color: #175cd3; border-color: #b2ddff !important; }
+.ns-tag--equipe { background: #fdf2fa; color: #c11574; border-color: #fcceee !important; }
+.ns-tag--outro { background: #f2f4f7; color: #344054; border-color: #d0d5dd !important; }
+
+[data-md-color-scheme="slate"] .ns-tag--produto { background: rgba(96, 120, 255, 0.16); color: #a9b6ff; border-color: rgba(120, 140, 255, 0.35) !important; }
+[data-md-color-scheme="slate"] .ns-tag--requisitos { background: rgba(18, 183, 106, 0.14); color: #75e0a7; border-color: rgba(18, 183, 106, 0.35) !important; }
+[data-md-color-scheme="slate"] .ns-tag--arquitetura { background: rgba(122, 90, 248, 0.16); color: #bdb4fe; border-color: rgba(122, 90, 248, 0.35) !important; }
+[data-md-color-scheme="slate"] .ns-tag--metodologia { background: rgba(247, 144, 9, 0.14); color: #fdb022; border-color: rgba(247, 144, 9, 0.35) !important; }
+[data-md-color-scheme="slate"] .ns-tag--infra { background: rgba(46, 144, 250, 0.14); color: #84caff; border-color: rgba(46, 144, 250, 0.35) !important; }
+[data-md-color-scheme="slate"] .ns-tag--equipe { background: rgba(238, 70, 188, 0.14); color: #faa7e0; border-color: rgba(238, 70, 188, 0.35) !important; }
+[data-md-color-scheme="slate"] .ns-tag--outro { background: rgba(152, 162, 179, 0.14); color: #d0d5dd; border-color: rgba(152, 162, 179, 0.35) !important; }
+
+/* Resumo no topo */
+.ns-dec-resumo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 1.2rem 0 0.4rem;
+}
+
+.ns-dec-stat {
+  flex: 1 1 9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--ns-border);
+  border-radius: 12px;
+  background: var(--ns-surface);
+}
+
+.ns-dec-stat > strong {
+  font-family: var(--ns-font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ns-text-h);
+}
+
+.ns-dec-stat > span {
+  font-size: 0.68rem;
+  color: var(--ns-muted);
+}
+
+/* Tabela de decisões */
+.ns-dec-tabela .md-typeset__table {
+  width: 100%;
+}
+
+.md-typeset .ns-dec-tabela table:not([class]) {
+  display: table;
+  width: 100%;
+  font-size: 0.7rem;
+  line-height: 1.6;
+}
+
+.md-typeset .ns-dec-tabela table:not([class]) th {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ns-muted);
+}
+
+.md-typeset .ns-dec-tabela table:not([class]) td {
+  padding: 0.9em 0.75em;
+}
+
+.md-typeset .ns-dec-tabela table:not([class]) {
+  table-layout: fixed;
+}
+
+.md-typeset .ns-dec-tabela th:nth-child(1) { width: 3.2rem; text-align: center; }
+.md-typeset .ns-dec-tabela th:nth-child(2) { width: 6.6rem; }
+.md-typeset .ns-dec-tabela th:nth-child(3) { width: auto; }
+.md-typeset .ns-dec-tabela th:nth-child(4) { width: auto; }
+.md-typeset .ns-dec-tabela th:nth-child(5) { width: 10rem; }
+.md-typeset .ns-dec-tabela td:nth-child(5) .ns-tag { margin-bottom: 0.2rem; }
+.md-typeset .ns-dec-tabela td:nth-child(1) { text-align: center; }
+
+.ns-dec-rotulo {
+  display: inline-block;
+  margin-top: 0.15rem;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ns-muted);
+}
+
+.ns-dec-rotulo ~ .ns-dec-rotulo {
+  margin-top: 0.6rem;
+}
+
+.ns-dec-ctx {
+  color: var(--ns-muted);
+}
+
+.ns-dec-decisao {
+  color: var(--ns-text-h);
+  font-weight: 500;
+}
+
+.ns-dec-num {
+  display: inline-grid;
+  place-items: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 8px;
+  background: var(--ns-primary-wash);
+  color: var(--md-primary-fg-color);
+  font-weight: 700;
+  font-size: 0.66rem;
+}
+
+.ns-dec-dia {
+  font-size: 0.62rem;
+  color: var(--ns-muted);
+}
+
+/* No celular, cada decisão vira um bloco empilhado */
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .ns-dec-tabela table:not([class]) {
+    table-layout: auto;
+  }
+
+  .md-typeset .ns-dec-tabela table:not([class]),
+  .md-typeset .ns-dec-tabela tbody,
+  .md-typeset .ns-dec-tabela tr,
+  .md-typeset .ns-dec-tabela td {
+    display: block;
+    width: 100% !important;
+  }
+
+  .md-typeset .ns-dec-tabela thead {
+    display: none;
+  }
+
+  .md-typeset .ns-dec-tabela tr {
+    border-bottom: 1px solid var(--ns-border);
+    padding: 0.6rem 0;
+  }
+
+  .md-typeset .ns-dec-tabela td:nth-child(4)::before {
+    content: "Justificativa";
+    display: block;
+    font-size: 0.56rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ns-muted);
+  }
+
+  .md-typeset .ns-dec-tabela table:not([class]) td {
+    border-top: 0;
+    padding: 0.3em 0.9em;
+    text-align: left !important;
+    white-space: normal;
+  }
+}
+
+/* ==========================================================================
+   Responsabilidades (docs/gerencia-projeto/responsabilidades.md)
+   ========================================================================== */
+
+.md-typeset .ns-papel {
+  display: inline-block;
+  padding: 0.12em 0.6em;
+  margin: 0 0.25rem 0.3rem 0;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.ns-papel--primaria {
+  background: var(--md-primary-fg-color);
+  color: #ffffff;
+}
+
+.ns-papel--secundaria {
+  background: transparent;
+  color: var(--md-primary-fg-color);
+  box-shadow: inset 0 0 0 1px var(--ns-primary-wash-border);
+}
+
+.ns-legenda {
+  font-size: 0.68rem;
+  color: var(--ns-muted);
+  margin-bottom: 0.8rem;
+}
+
+.ns-legenda .ns-papel {
+  margin-left: 0.4rem;
+}
+
+.ns-legenda .ns-papel:first-child {
+  margin-left: 0;
+}
+
+.ns-pessoas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 0.4rem 0 1.6rem;
+}
+
+.ns-pessoa {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  padding: 1rem;
+  border: 1px solid var(--ns-border);
+  border-radius: 14px;
+  background: var(--ns-card);
+  box-shadow: var(--ns-shadow);
+}
+
+.ns-avatar {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  background: var(--ns-primary-wash);
+  color: var(--md-primary-fg-color);
+  font-family: var(--ns-font-display);
+  font-weight: 800;
+  font-size: 0.95rem;
+  border: 1px solid var(--ns-primary-wash-border);
+}
+
+.ns-pessoa__info {
+  min-width: 0;
+}
+
+.ns-pessoa__info strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ns-text-h);
+  margin-bottom: 0.35rem;
+}
+
+@media screen and (max-width: 36em) {
+  .ns-pessoas {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   Riscos do Projeto (docs/gerencia-projeto/riscos.md)
+   ========================================================================== */
+
+.md-typeset .ns-nivel,
+.md-typeset .ns-status {
+  display: inline-block;
+  padding: 0.12em 0.6em;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.ns-nivel--alta { background: #fef3f2; color: #b42318; box-shadow: inset 0 0 0 1px #fecdca; }
+.ns-nivel--media { background: #fffaeb; color: #b54708; box-shadow: inset 0 0 0 1px #fedf89; }
+.ns-nivel--baixa { background: #ecfdf3; color: #067647; box-shadow: inset 0 0 0 1px #abefc6; }
+
+.ns-status::before {
+  content: "";
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-right: 0.35rem;
+  border-radius: 50%;
+  background: currentColor;
+  vertical-align: 0.05rem;
+}
+
+.ns-status--aberto { background: #fef3f2; color: #b42318; }
+.ns-status--analise { background: #eff8ff; color: #175cd3; }
+.ns-status--mitigacao { background: #fffaeb; color: #b54708; }
+.ns-status--monitorado { background: #f4f3ff; color: #5925dc; }
+.ns-status--mitigado { background: #ecfdf3; color: #067647; }
+.ns-status--encerrado { background: #f2f4f7; color: #475467; }
+
+[data-md-color-scheme="slate"] .ns-nivel--alta,
+[data-md-color-scheme="slate"] .ns-status--aberto { background: rgba(240, 68, 56, 0.15); color: #fda29b; box-shadow: none; }
+[data-md-color-scheme="slate"] .ns-nivel--media,
+[data-md-color-scheme="slate"] .ns-status--mitigacao { background: rgba(247, 144, 9, 0.15); color: #fec84b; box-shadow: none; }
+[data-md-color-scheme="slate"] .ns-nivel--baixa,
+[data-md-color-scheme="slate"] .ns-status--mitigado { background: rgba(18, 183, 106, 0.15); color: #75e0a7; box-shadow: none; }
+[data-md-color-scheme="slate"] .ns-status--analise { background: rgba(46, 144, 250, 0.15); color: #84caff; }
+[data-md-color-scheme="slate"] .ns-status--monitorado { background: rgba(122, 90, 248, 0.16); color: #bdb4fe; }
+[data-md-color-scheme="slate"] .ns-status--encerrado { background: rgba(152, 162, 179, 0.15); color: #d0d5dd; }
+
+.ns-risco-tabela .md-typeset__table {
+  width: 100%;
+}
+
+.md-typeset .ns-risco-tabela table:not([class]) {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  font-size: 0.7rem;
+  line-height: 1.6;
+}
+
+.md-typeset .ns-risco-tabela table:not([class]) th {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ns-muted);
+}
+
+.md-typeset .ns-risco-tabela table:not([class]) td {
+  padding: 0.9em 0.75em;
+}
+
+.md-typeset .ns-risco-tabela th:nth-child(1) { width: 5rem; }
+.md-typeset .ns-risco-tabela th:nth-child(2) { width: auto; }
+.md-typeset .ns-risco-tabela th:nth-child(3) { width: 7.5rem; }
+.md-typeset .ns-risco-tabela th:nth-child(4) { width: 10rem; }
+.md-typeset .ns-risco-tabela th:nth-child(5) { width: 6.5rem; }
+
+.ns-risco-id {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border-radius: 7px;
+  background: var(--ns-primary-wash);
+  color: var(--md-primary-fg-color);
+  font-weight: 700;
+  font-size: 0.64rem;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .ns-risco-tabela table:not([class]) { table-layout: auto; }
+
+  .md-typeset .ns-risco-tabela table:not([class]),
+  .md-typeset .ns-risco-tabela tbody,
+  .md-typeset .ns-risco-tabela tr,
+  .md-typeset .ns-risco-tabela td {
+    display: block;
+    width: 100% !important;
+  }
+
+  .md-typeset .ns-risco-tabela thead { display: none; }
+
+  .md-typeset .ns-risco-tabela tr {
+    border-bottom: 1px solid var(--ns-border);
+    padding: 0.6rem 0;
+  }
+
+  .md-typeset .ns-risco-tabela table:not([class]) td {
+    border-top: 0;
+    padding: 0.3em 0.9em;
+  }
+}
+
+/* Menu lateral esquerdo sem rolagem interna: no desktop ele acompanha a altura
+   do conteúdo e cresce o quanto for preciso (a página inteira rola). */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary {
+    position: static;
+    height: auto !important;
+    align-self: flex-start;
+  }
+
+  .md-sidebar--primary .md-sidebar__scrollwrap {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}
+
+/* ==========================================================================
+   Cronograma (docs/gerencia-projeto/cronograma.md)
+   ========================================================================== */
+
+.md-typeset .ns-mod,
+.md-typeset .ns-naoletivo {
+  display: inline-block;
+  padding: 0.1em 0.55em;
+  border-radius: 999px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.ns-mod--p { background: var(--ns-primary-wash); color: var(--md-primary-fg-color); box-shadow: inset 0 0 0 1px var(--ns-primary-wash-border); }
+.ns-mod--h { background: #fdf2fa; color: #c11574; box-shadow: inset 0 0 0 1px #fcceee; }
+.ns-mod--ps { background: transparent; color: var(--md-primary-fg-color); box-shadow: inset 0 0 0 1px var(--ns-primary-wash-border); }
+.ns-naoletivo { background: #f2f4f7; color: #475467; box-shadow: inset 0 0 0 1px #d0d5dd; margin-right: 0.3rem; }
+
+[data-md-color-scheme="slate"] .ns-mod--h { background: rgba(238, 70, 188, 0.14); color: #faa7e0; box-shadow: none; }
+[data-md-color-scheme="slate"] .ns-naoletivo { background: rgba(152, 162, 179, 0.15); color: #d0d5dd; box-shadow: none; }
+
+.ns-legenda .ns-mod,
+.ns-legenda .ns-naoletivo {
+  margin-left: 0.25rem;
+}
+
+.ns-crono-geral .md-typeset__table { width: 100%; }
+.md-typeset .ns-crono-geral table:not([class]) { display: table; width: 100%; }
+.md-typeset .ns-crono-geral td:nth-child(2) { white-space: nowrap; }
+
+.ns-dec-stat--texto > strong {
+  font-size: 1.15rem;
+  white-space: nowrap;
+  padding: 0.18rem 0;
+}
+
+/* Legenda de tabela ("Tabela N – …"), usada no Plano de Projeto */
+.md-typeset .ns-legenda-tabela {
+  margin-top: -0.4rem;
+  font-size: 0.66rem;
+  color: var(--ns-muted);
+  text-align: left;
+}
+
+/* Botão "Baixar em PDF" (ex.: Plano de Projeto) */
+.ns-pdf-botao {
+  display: flex;
+  justify-content: center;
+  margin: 0.4rem 0 1rem;
+}
+
+.md-typeset .ns-pdf-botao .md-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 10px;
+  font-size: 0.72rem;
+}
+
+.md-typeset .ns-pdf-botao .md-button .twemoji svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+/* Na versão impressa/PDF, o botão e os elementos de navegação não aparecem */
+@media print {
+  .ns-pdf-botao,
+  .md-source-file {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   Matriz de Rastreabilidade (docs/vvt/matriz-rastreabilidade.md)
+   ========================================================================== */
+
+.md-typeset .ns-rast {
+  display: inline-block;
+  padding: 0.1em 0.55em;
+  margin: 0.05rem 0.15rem 0.05rem 0;
+  border-radius: 999px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.ns-rast--doc { background: var(--ns-primary-wash); color: var(--md-primary-fg-color); }
+.ns-rast--auto { background: #ecfdf3; color: #067647; }
+.ns-rast--emauto { background: #fffaeb; color: #b54708; }
+.ns-rast--pronto { background: #f4f3ff; color: #5925dc; }
+.ns-rast--naodoc { background: #fef3f2; color: #b42318; }
+.ns-rast--naoauto { background: #f2f4f7; color: #475467; }
+.ns-rast--naoimpl { background: #f2f4f7; color: #475467; box-shadow: inset 0 0 0 1px #d0d5dd; }
+.ns-rast--naoloc { background: transparent; color: #b42318; box-shadow: inset 0 0 0 1px #fecdca; }
+
+[data-md-color-scheme="slate"] .ns-rast--auto { background: rgba(18, 183, 106, 0.15); color: #75e0a7; }
+[data-md-color-scheme="slate"] .ns-rast--emauto { background: rgba(247, 144, 9, 0.15); color: #fec84b; }
+[data-md-color-scheme="slate"] .ns-rast--pronto { background: rgba(122, 90, 248, 0.16); color: #bdb4fe; }
+[data-md-color-scheme="slate"] .ns-rast--naodoc { background: rgba(240, 68, 56, 0.15); color: #fda29b; }
+[data-md-color-scheme="slate"] .ns-rast--naoauto,
+[data-md-color-scheme="slate"] .ns-rast--naoimpl { background: rgba(152, 162, 179, 0.15); color: #d0d5dd; box-shadow: none; }
+[data-md-color-scheme="slate"] .ns-rast--naoloc { color: #fda29b; box-shadow: inset 0 0 0 1px rgba(240, 68, 56, 0.4); }
+
+.ns-rast-tabela .md-typeset__table { width: 100%; }
+.md-typeset .ns-rast-tabela table:not([class]) { display: table; width: 100%; }
+.md-typeset .ns-rast-tabela td:nth-child(1),
+.md-typeset .ns-rast-tabela td:nth-child(2),
+.md-typeset .ns-rast-tabela td:nth-child(3) { white-space: nowrap; }
+
+/* Severidade "Informativa" (Relatório de Testes Não-Funcionais) */
+.ns-nivel--info { background: #eff8ff; color: #175cd3; box-shadow: inset 0 0 0 1px #b2ddff; }
+[data-md-color-scheme="slate"] .ns-nivel--info { background: rgba(46, 144, 250, 0.15); color: #84caff; box-shadow: none; }
+
+/* Imagens de evidência com borda suave */
+.md-typeset img[src*="relatorio-nao-funcionais"] {
+  border: 1px solid var(--ns-border);
+  border-radius: 8px;
+}
+
+/* ===== Relatório de Bugs ===== */
+.md-typeset .ns-bug-tabela table:not([class]) { display: table; width: 100%; table-layout: fixed; }
+.md-typeset .ns-bug-tabela th:nth-child(1) { width: 16%; }
+.md-typeset .ns-bug-tabela th:nth-child(2) { width: 8%; }
+.md-typeset .ns-bug-tabela th:nth-child(3) { width: 35%; }
+.md-typeset .ns-bug-tabela th:nth-child(4) { width: 12%; }
+.md-typeset .ns-bug-tabela th:nth-child(5) { width: 11%; }
+.md-typeset .ns-bug-tabela th:nth-child(6) { width: 17%; }
+.md-typeset .ns-bug-tabela .ns-bug-dest { color: var(--md-default-fg-color--light); }
+.md-typeset .ns-bug-tabela td:first-child a { font-weight: 600; white-space: nowrap; }
+.md-typeset .ns-bug-tabela td:nth-child(6) { font-size: 0.95em; }
+.md-typeset .ns-bug-meta {
+  display: flex; flex-wrap: wrap; gap: 0.6rem 1.8rem;
+  padding: 0.7rem 0.9rem; margin: 0.8rem 0 1rem;
+  background: var(--md-code-bg-color); border-radius: 0.5rem;
+}
+.md-typeset .ns-bug-meta > span, .md-typeset .ns-bug-meta > p > span { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 0.25rem; margin-right: 1.8rem; }
+.md-typeset .ns-bug-meta > p { margin: 0; display: flex; flex-wrap: wrap; row-gap: 0.6rem; }
+.md-typeset .ns-bug-meta .ns-dec-rotulo { margin: 0; }
+.md-typeset details.bug img { display: block; max-width: 100%; margin: 0.6rem 0; border-radius: 0.4rem; box-shadow: 0 0 0 1px var(--md-default-fg-color--lightest); }
+.md-typeset details.bug pre > code { white-space: pre-wrap; word-break: break-all; }
+@media screen and (min-width: 60em) {
+  .md-typeset .grid.ns-sev-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.md-typeset .ns-sev-cards .ns-nivel { font-size: 0.8rem; }
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .ns-bug-tabela table:not([class]) { table-layout: auto; }
+}
+.md-typeset .ns-bug-tabela th:not(:last-child) { white-space: nowrap; }
+.md-typeset details.bug { border-color: var(--md-default-fg-color--lightest); border-left: 0.2rem solid #f04438; box-shadow: none; }
+.md-typeset details.bug > summary { background: var(--md-code-bg-color); font-weight: 600; }
+.md-typeset details.bug[open] > summary { border-bottom: 1px solid var(--md-default-fg-color--lightest); }

@@ -38,15 +38,17 @@ O **NotificaSaúde** é um sistema voltado ao registro, análise e monitoramento
 
 ## Conteúdo do site
 
-A navegação é organizada em 6 blocos temáticos, para orientar quem está chegando agora no projeto:
+A navegação é organizada em 8 blocos temáticos, para orientar quem está chegando agora no projeto:
 
 | Bloco | O que traz |
 | --- | --- |
 | **Visão Geral** | Introdução ao produto e manual do sistema |
 | **Descoberta do Produto** | Entrevistas, formulários e mapeamento de processos (BPMN) |
-| **Requisitos e Arquitetura** | Especificação de requisitos, RBAC, C4, ADRs, modelagem |
-| **Qualidade e Testes** | Plano de testes, casos de teste, relatórios, SonarCloud, usabilidade |
-| **Gestão do Projeto** | GCS, sprints, riscos, atas de reunião, uso de IA generativa |
+| **Requisitos** | Especificação de requisitos e matriz RBAC |
+| **Desenvolvimento** | Arquitetura (C4, ADRs, integrações) e modelagem do banco de dados |
+| **Qualidade e Testes** | Plano de testes, casos de teste, matriz de rastreabilidade, relatórios, SonarCloud, usabilidade |
+| **Gerência de Configuração** | Ramificação, commits, pull requests, releases, pipelines de CI e definição de pronto |
+| **Gestão do Projeto** | Responsabilidades, riscos, diário de decisões e uso do MkDocs |
 | **Implantação e Entregas** | Guia de implantação e apresentações institucionais |
 
 ---
