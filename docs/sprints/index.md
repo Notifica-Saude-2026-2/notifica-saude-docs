@@ -1,3 +1,0 @@
-﻿# Sprints
-
-> Conteúdo em construção.

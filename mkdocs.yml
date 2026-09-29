@@ -51,6 +51,11 @@ markdown_extensions:
       permalink: true
       toc_depth: 4
   - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -79,25 +84,30 @@ nav:
       - Visão geral: descoberta-produto/index.md
       - Entrevistas e Formulários: descoberta-produto/entrevistas-e-formularios.md
       - Mapeamento de Processos: descoberta-produto/mapeamento-processos.md
-  - Requisitos e Arquitetura:
-      - Requisitos:
-          - Especificação de Requisitos de Software: requisitos/especificacao-requisitos.md
-          - Matriz RBAC: requisitos/matriz-rbac.md
+  - Requisitos:
+      - Especificação de Requisitos de Software: requisitos/especificacao-requisitos.md
+      - Matriz RBAC: requisitos/matriz-rbac.md
+  - Desenvolvimento:
       - Arquitetura:
-          - Especificação de Arquitetura de Software: arquitetura/especificacao-arquitetura.md
-          - ADR: arquitetura/adr.md
-          - Brevo: arquitetura/brevo.md
+          - Especificação de Arquitetura de Software: desenvolvimento/arquitetura/especificacao-arquitetura.md
+          - ADR: desenvolvimento/arquitetura/adr.md
+          - Brevo: desenvolvimento/arquitetura/brevo.md
       - Banco de Dados:
-          - Especificação do Modelo de Domínio: arquitetura/modelo-dominio.md
-          - Especificação do Modelo Lógico: arquitetura/modelo-logico.md
+          - Especificação do Modelo de Domínio: desenvolvimento/banco-de-dados/modelo-dominio.md
+          - Especificação do Modelo Lógico: desenvolvimento/banco-de-dados/modelo-logico.md
   - Qualidade e Testes:
       - Visão geral: vvt/index.md
       - Plano de Testes: vvt/plano-de-testes.md
       - Casos de Teste: vvt/casos-de-teste.md
       - Matriz de Rastreabilidade: vvt/matriz-rastreabilidade.md
-      - Relatórios: vvt/relatorios.md
-      - Uso do SonarCloud: vvt/sonarcloud.md
-      - Teste de Usabilidade: teste-usabilidade/index.md
+      - Relatórios:
+          - Testes Não-Funcionais: vvt/relatorio-nao-funcionais.md
+          - Bugs: vvt/relatorio-bugs.md
+      - Teste de Usabilidade:
+          - Visão geral: vvt/teste-usabilidade/index.md
+          - Roteiro de Teste: vvt/teste-usabilidade/plano-de-teste.md
+          - Ata do Teste: vvt/teste-usabilidade/ata.md
+          - Relatório: vvt/teste-usabilidade/relatorio.md
   - Gerência de Configuração:
       - Visão geral: gcs/index.md
       - Modelo de Ramificação: gcs/modelo-ramificacao.md
@@ -110,16 +120,16 @@ nav:
       - Pipelines de CI: gcs/pipelines-ci.md
       - Uso do act (Execução Local da CI): gcs/uso-act.md
   - Gestão do Projeto:
-      - Visão geral: gerencia-projeto/index.md
-      - Sprints: sprints/index.md
-      - Plano, Riscos e Decisões: gerencia-projeto/plano-riscos-decisoes.md
-      - Atas de Reunião: gerencia-projeto/atas-de-reuniao.md
-      - Registros de Uso de IA: registros-ia/index.md
+      - Plano de Projeto: gerencia-projeto/plano-projeto.md
+      - Cronograma: gerencia-projeto/cronograma.md
+      - Responsabilidades: gerencia-projeto/responsabilidades.md
+      - Riscos do Projeto: gerencia-projeto/riscos.md
+      - Diário de Decisões: gerencia-projeto/diario-de-decisoes.md
       - Uso do MkDocs:
-          - Visão geral: uso-mkdocs/index.md
-          - Decisão da Ferramenta: uso-mkdocs/decisao-da-ferramenta.md
-          - Configuração e Manutenção: uso-mkdocs/configuracao-e-manutencao.md
-          - Guia de Atualização da Documentação: uso-mkdocs/guia-atualizacao-documentacao.md
+          - Visão geral: gerencia-projeto/uso-mkdocs/index.md
+          - Decisão da Ferramenta: gerencia-projeto/uso-mkdocs/decisao-da-ferramenta.md
+          - Configuração e Manutenção: gerencia-projeto/uso-mkdocs/configuracao-e-manutencao.md
+          - Guia de Atualização da Documentação: gerencia-projeto/uso-mkdocs/guia-atualizacao-documentacao.md
   - Implantação e Entregas:
       - Implantação: implantacao/index.md
       - Guia de Ambiente — Frontend: implantacao/guia-ambiente-frontend.md

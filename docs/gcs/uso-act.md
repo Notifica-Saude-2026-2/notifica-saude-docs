@@ -412,7 +412,7 @@ npm run test:int
 
 ### 8.4 SonarCloud — não rode pelo act
 
-O job baixa artefatos dos jobs anteriores e envia a análise para um serviço externo, com token real. A análise acontece no PR — veja [Uso do SonarCloud](../vvt/sonarcloud.md).
+O job baixa artefatos dos jobs anteriores e envia a análise para um serviço externo, com token real. A análise acontece no PR.
 
 ---
 
@@ -575,4 +575,3 @@ Passando tudo isso, a chance de a esteira do GitHub reprovar o PR é pequena.
 - [Documentação do act](https://nektosact.com/)
 - [Documentação do GitHub Actions](https://docs.github.com/pt/actions)
 - [Gerenciamento de Pipelines de CI](pipelines-ci.md)
-- [Uso do SonarCloud](../vvt/sonarcloud.md)
