@@ -32,6 +32,7 @@
     | 3.6 | 23/09/2026 | Sigilo da identificação do notificante para o gestor da área: novo critério de aceite CA05 na US 4.1, ajuste da Seção 1 da análise (US 4.3), nova RN-27 e novo requisito não-funcional 6.3.4. | Sophya Ribeiro |
     | 3.7 | 23/09/2026 | Autoria exclusiva da análise em andamento, para tratar acessos simultâneos: somente quem iniciou a análise pode continuá-la e concluí-la; os demais usuários veem "Análise em andamento. Aguarde a finalização para visualizar os detalhes."; início simultâneo resolvido pelo primeiro salvamento no servidor (US 4.2, CA02 a CA04, e nova RN-28). | Sophya Ribeiro |
     | 3.8 | 23/09/2026 | Limites dos anexos de evidência das ações: no máximo 10 anexos por ação e 10 MB por arquivo (novo CA12 da US 5.6 e RN-25). | Sophya Ribeiro |
+    | 3.9 | 29/09/2026 | Ajustes do formulário de análise e do plano de ação validados com as proponentes no protótipo funcional: Guia de investigação antes da Seção 1 (US 4.2, CA16 a CA18); explicações das seções em caixas com parágrafos e blocos recolhíveis que lembram a escolha do usuário (US 4.2, CA11 e CA19; 6.7.12 e 6.7.13); Seção 3 com nova orientação, "Como preencher", exemplo da cronologia em mini tabela, conferência "Antes de seguir, confira" e aviso de fatos em análise, remoção da pergunta "Foi identificado algum PPC?" e nova tabela de PPC (US 4.5 reescrita); Seções 4 e 4A unificadas em "Seção 4 — Fatores contribuintes", com um cartão por PPC, análise aberta na própria linha, novos campos do fator, 5 Porquês sempre visível e inclusão de PPC na própria seção, deixando de analisar fatos da cronologia (US 4.6 reescrita); Seção 5 com novos textos, diagrama de Ishikawa agrupado por PPC, somente as respostas do 5 Porquês, exportação em PNG e recomendações em linhas (US 4.7 reescrita); botão "Finalizar análise" (US 4.2 e 4.8); plano de ação exibido em tabela (US 5.2, 5.3, 5.5 e 5.6); "Onde será feito?" com seleção de um ou mais setores (US 5.1, CA04 e CA14; RN-24); limite de 200 caracteres nos textos da atualização de andamento (US 5.6, CA16); glossário atualizado (PPC, fatores contribuintes, 5 Porquês, Diagrama de Ishikawa, Guia de investigação). | Sophya Ribeiro |
 
 ## Sumário
 
@@ -92,7 +93,7 @@ Além disso, o sistema possibilita o acompanhamento do status das notificações
 | Responsável pelo Incidente | Profissional do Núcleo de Segurança do Paciente que registrou a classificação finalizada do incidente. É definido automaticamente nesse momento e se mantém o mesmo até o fim do fluxo (conclusão ou arquivamento), mesmo que o incidente seja encaminhado ao setor. Serve como referência de quem iniciou o tratamento do incidente e não concede nem restringe permissões: qualquer profissional do NSP pode atuar sobre o incidente. Não se confunde com os responsáveis pelas ações do plano de ação. |
 | Investigação de Incidente | Processo de análise conduzido pelo setor onde o incidente ocorreu (quando encaminhado pelo NSP) ou pelo Núcleo de Segurança do Paciente para identificar as causas que levaram à ocorrência do incidente. No sistema, corresponde ao preenchimento do formulário de análise, organizado em seções sequenciais. |
 | Análise de Causa Raiz | Método estruturado de investigação utilizado para identificar as causas fundamentais que contribuíram para a ocorrência de um incidente. No sistema, a análise é registrada pelas seções do formulário de análise, que já incorporam essas técnicas. |
-| Diagrama de Ishikawa | Ferramenta de análise utilizada na investigação de incidentes para identificar e organizar possíveis causas do problema, também conhecida como diagrama de causa e efeito ou espinha de peixe. No sistema, é gerado automaticamente a partir dos fatores contribuintes registrados na análise. |
+| Diagrama de Ishikawa | Ferramenta de análise utilizada na investigação de incidentes para identificar e organizar possíveis causas do problema, também conhecida como diagrama de causa e efeito ou espinha de peixe. No sistema, é gerado automaticamente a partir dos fatores contribuintes registrados na análise: cada categoria reúne os fatores agrupados pelo PPC a que se referem e, quando houver aprofundamento, as respostas do 5 Porquês. Pode ser exportado como imagem PNG. |
 | Plano de Ação | Conjunto de ações corretivas e preventivas definidas após a investigação de um incidente, com responsáveis e prazos estabelecidos para evitar recorrência. Cada ação segue o modelo SMART (específica, mensurável, atingível, relevante e com prazo). |
 | Ação Corretiva | Medida adotada para corrigir uma falha identificada e reduzir a probabilidade de repetição do incidente. |
 | Prazo de Tratativa | Período definido para que o incidente seja analisado (pelo NSP ou pelo setor a que foi encaminhado) e as ações ou respostas sejam registradas no sistema. |
@@ -104,10 +105,11 @@ Além disso, o sistema possibilita o acompanhamento do status das notificações
 | Incidente em Investigação | Descrição curta (até 100 caracteres), escrita por quem realiza a análise, do incidente que está sendo investigado. É exibida no topo das seções do formulário de análise e na "cabeça" do Diagrama de Ishikawa. |
 | Condutor da Análise | Profissional que conduz a análise do incidente. É registrado com nome, formação, função e setor, junto dos demais membros participantes, para documentar a autoria de forma rastreável. |
 | Cronologia do Incidente | Linha do tempo com os fatos relacionados ao incidente, em ordem cronológica, cada um com data, hora, fonte da informação e status de confirmação (Confirmado, Provável ou Em análise). |
-| Problema na Prestação do Cuidado (PPC) | Ação ou omissão da equipe que se desviou do esperado e contribuiu para o incidente (ex.: falha em monitorar, observar ou agir; falha na comunicação; decisão incorreta). Cada PPC registra o que ocorreu, o que era esperado e a fonte/evidência. |
-| Fatores Contribuintes | Condições que favoreceram a ocorrência do incidente, organizadas em oito categorias fixas: fatores do paciente; fatores individuais dos profissionais; fatores das tarefas; fatores da equipe; fatores do ambiente de trabalho; tecnologia e sistemas eletrônicos de informação; fatores organizacionais, gerenciais e culturais; e fatores do contexto institucional — além de uma categoria livre ("Outro / não mapeado"). |
-| 5 Porquês | Técnica de aprofundamento que consiste em perguntar "por quê?" repetidamente a partir de um achado, para ir além do sintoma e chegar à falha de processo ou sistema (causa raiz). No sistema, é opcional e pode ser usada em cada categoria de fator contribuinte marcada, com até 15 níveis. |
+| Problema na Prestação do Cuidado (PPC) | Ação, omissão, decisão ou falha no processo de cuidado que foi diferente do que deveria ter acontecido e que teve importância na sequência do incidente. Nem sempre é um erro de alguém: também conta quando um equipamento, sistema ou processo falhou durante o cuidado (ex.: administração de medicamento diferente do prescrito; falha de equipamento durante o cuidado). Não se confunde com os fatores contribuintes (ex.: falta de pessoal, sobrecarga de trabalho), que são as condições que favoreceram o PPC. Cada PPC registra a descrição do problema, o que deveria ter acontecido e o que aconteceu de diferente. |
+| Fatores Contribuintes | Condições que estavam presentes e podem ter favorecido a ocorrência de um PPC. São identificadas para cada PPC e organizadas nas oito categorias do Protocolo de Londres 2024: fatores do paciente; fatores individuais dos profissionais; fatores das tarefas; fatores da equipe; fatores do ambiente de trabalho; tecnologia e sistemas eletrônicos de informação; fatores organizacionais, gerenciais e culturais; e fatores do contexto institucional. |
+| 5 Porquês | Técnica de aprofundamento que consiste em perguntar "por quê?" repetidamente a partir de um fator identificado, usando cada resposta para formular o próximo "por quê?", até chegar a uma causa capaz de orientar uma ação de melhoria. Não é necessário chegar exatamente a cinco perguntas. No sistema, é opcional e pode ser usado em cada fator contribuinte registrado, com até 15 níveis. |
 | Recomendação | Ação sugerida ao final da análise para tratar as causas identificadas e evitar que o incidente se repita. Ao concluir a análise, cada recomendação dá origem a uma ação no plano de ação da notificação. |
+| Guia de Investigação | Tela de apresentação exibida ao abrir o formulário de análise, antes da Seção 1, que mostra o percurso completo da investigação (Seções 1 a 5 e o Plano de Ação como próximo passo). Não é uma seção do formulário: não possui campos nem entra na contagem de etapas. |
 | Cultura Justa | Princípio que orienta a análise: a investigação não busca punir individualmente profissionais da ponta assistencial, e sim identificar vulnerabilidades e barreiras do sistema. |
 | Ação Pendente de Preenchimento | Ação do plano de ação criada automaticamente a partir de uma recomendação da análise, que ainda não possui todos os campos obrigatórios preenchidos. Não pode ter o andamento atualizado até ser completada. |
 | Efetividade da Ação | Avaliação de se a ação executada produziu o resultado esperado (Sim, Parcialmente ou Não), registrada na atualização do andamento da ação. |
@@ -179,7 +181,7 @@ Nesta seção são apresentados os épicos do sistema NotificaSaúde, organizado
 - [US 4.3 — Identificar o incidente em investigação (Seção 1)](#us-4-3)
 - [US 4.4 — Registrar equipe, fontes e entrevistas da análise (Seção 2)](#us-4-4)
 - [US 4.5 — Registrar cronologia e problemas na prestação do cuidado (Seção 3)](#us-4-5)
-- [US 4.6 — Analisar fatores contribuintes e aprofundar com os 5 Porquês (Seções 4 e 4A)](#us-4-6)
+- [US 4.6 — Analisar fatores contribuintes de cada PPC e aprofundar com os 5 Porquês (Seção 4)](#us-4-6)
 - [US 4.7 — Revisar o Diagrama de Ishikawa e registrar recomendações (Seção 5)](#us-4-7)
 - [US 4.8 — Concluir investigação do incidente](#us-4-8)
 - [US 4.9 — Decidir o encaminhamento do resultado da análise ao setor](#us-4-9)
@@ -552,19 +554,19 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 - **CA04 — Início simultâneo**
     **Dado que** dois usuários abram o formulário de análise do mesmo incidente ao mesmo tempo, **quando** ambos tentarem salvar a primeira seção, **então** o sistema deve aceitar apenas o primeiro salvamento, que define o autor da análise, e recusar o do segundo usuário, exibindo a mensagem "Esta análise já foi iniciada por outro usuário. Aguarde a finalização para visualizar os detalhes." sem gravar o que ele preencheu. A verificação deve ser feita no servidor, e não apenas na tela.
 - **CA05 — Seções do formulário**
-    **Dado que** o usuário esteja registrando a análise, **quando** navegar pelo formulário, **então** o sistema deve apresentar as seções, nesta ordem: **Seção 1 — Informações da notificação** (US-4.3); **Seção 2 — Informações da análise** (US-4.4); **Seção 3 — Cronologia do incidente** (US-4.5); **Seção 4 — Análise dos fatores contribuintes** e **Seção 4A — Fatores contribuintes por item selecionado** (US-4.6); **Seção 5 — Resultado** (US-4.7).
+    **Dado que** o usuário esteja registrando a análise, **quando** navegar pelo formulário, **então** o sistema deve apresentar cinco seções, nesta ordem, com uma barra de progresso de cinco etapas: **Seção 1 — Informações da notificação** (US-4.3); **Seção 2 — Informações da análise** (US-4.4); **Seção 3 — Cronologia do incidente** (US-4.5); **Seção 4 — Fatores contribuintes** (US-4.6); **Seção 5 — Resultado (Ishikawa + Recomendações)** (US-4.7). O Guia de investigação (CA16) é exibido antes da Seção 1 e não conta como etapa.
 - **CA06 — Navegação entre seções**
-    **Dado que** o usuário esteja em uma seção, **quando** selecionar "Próximo", **então** o sistema deve validar a seção atual e avançar para a seguinte; "Voltar" retorna à seção anterior sem perder o que foi preenchido. Na última seção, o botão de avanço passa a ser "Concluir investigação".
+    **Dado que** o usuário esteja em uma seção, **quando** selecionar "Próximo", **então** o sistema deve validar a seção atual e avançar para a seguinte; "Voltar" retorna à seção anterior sem perder o que foi preenchido — na Seção 1, "Voltar" retorna ao Guia de investigação (ou ao detalhe da notificação, se o guia estiver oculto — CA17). Na última seção, o botão de avanço passa a ser "Finalizar análise".
 - **CA07 — Salvamento automático do rascunho**
     **Dado que** o usuário avance de seção, **quando** a seção for validada, **então** o sistema deve salvar automaticamente o rascunho da análise e exibir a confirmação "Rascunho salvo"; o rascunho pode ser retomado depois, somente pelo autor da análise, pela opção "Continuar análise".
 - **CA08 — Validação e indicação das pendências**
-    **Dado que** existam informações obrigatórias não preenchidas ou textos acima do limite na seção atual, **quando** o usuário selecionar "Próximo" ou "Concluir investigação", **então** o sistema deve impedir o avanço e, conforme o padrão de validação do sistema (6.7.6): destacar em vermelho cada campo com problema (em tabelas, apenas as células pendentes); exibir abaixo de cada campo uma mensagem específica do que falta; exibir um aviso de atenção — com uma pendência, indicando qual é; com várias, "Corrija os N itens destacados para continuar." —; e rolar a tela até o primeiro campo pendente. O botão "Próximo" permanece sempre clicável.
+    **Dado que** existam informações obrigatórias não preenchidas ou textos acima do limite na seção atual, **quando** o usuário selecionar "Próximo" ou "Finalizar análise", **então** o sistema deve impedir o avanço e, conforme o padrão de validação do sistema (6.7.6): destacar em vermelho cada campo com problema (em tabelas, apenas as células pendentes); exibir abaixo de cada campo uma mensagem específica do que falta; exibir um aviso de atenção — com uma pendência, indicando qual é; com várias, "Corrija os N itens destacados para continuar." —; e rolar a tela até o primeiro campo pendente. O botão "Próximo" permanece sempre clicável.
 - **CA09 — Destaque somente após tentar avançar**
     **Dado que** o usuário esteja preenchendo uma seção, **quando** ainda não tiver tentado avançar, **então** o sistema não deve destacar campos em vermelho; após a tentativa, os destaques valem para o que estava pendente naquele clique e somem à medida que cada campo é corrigido — itens criados depois (ex.: uma nova linha em uma tabela) não são destacados enquanto a pessoa preenche.
 - **CA10 — Limites de caracteres**
     **Dado que** um campo de texto possua limite de caracteres, **quando** o usuário digitar, **então** o sistema deve exibir um contador "N/limite" abaixo do campo, que fica vermelho ao ultrapassar; no momento em que o limite for ultrapassado, o sistema deve exibir um aviso de atenção (ex.: "“Informe o incidente em investigação” deve ter no máximo 100 caracteres (atual: 112)."); o texto não é cortado automaticamente e o avanço fica bloqueado até que seja reduzido.
 - **CA11 — Orientações visíveis e exemplos**
-    **Dado que** o usuário esteja preenchendo o formulário, **quando** visualizar uma seção ou campo, **então** o sistema deve exibir a explicação da seção e as orientações dos campos em caixas de informação visíveis (fundo azul claro com ícone ⓘ), e não escondidas em ícones de ajuda; todo campo de texto vazio deve exibir um exemplo ou instrução (placeholder), menus de seleção começam com "Selecione..." e campos obrigatórios são marcados com asterisco (*).
+    **Dado que** o usuário esteja preenchendo o formulário, **quando** visualizar uma seção ou campo, **então** o sistema deve exibir a explicação da seção e as orientações dos campos em caixas de informação visíveis (fundo azul claro com ícone ⓘ), e não escondidas em ícones de ajuda — a explicação pode ter mais de um parágrafo, um por ideia, com os trechos principais em negrito; todo campo de texto vazio deve exibir um exemplo ou instrução (placeholder), menus de seleção começam com "Selecione..." e campos obrigatórios são marcados com asterisco (*).
 - **CA12 — Aviso de cultura justa**
     **Dado que** o usuário esteja registrando a análise, **quando** o formulário for exibido, **então** o sistema deve apresentar o aviso fixo: "Cultura justa, não punitiva: a investigação retrospectiva nunca deve buscar punir individualmente profissionais da ponta assistencial. Foco em vulnerabilidades latentes e barreiras do sistema."
 - **CA13 — Opção "Outro" nos menus de seleção**
@@ -573,6 +575,18 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
     **Dado que** uma análise seja registrada, **quando** o sistema salvar a análise, **então** deve registrar o usuário que a registrou, a data e a hora da operação.
 - **CA15 — Atualização do status**
     **Dado que** o primeiro rascunho da análise seja salvo, **quando** a operação for concluída, **então** o sistema deve atualizar o status da notificação de "Classificado" ou "Encaminhado" para "Em análise" (ver US-6.2).
+- **CA16 — Guia de investigação**
+    **Dado que** o usuário abra o formulário de análise, **quando** a tela for exibida, **então** o sistema deve apresentar, antes da Seção 1 e no lugar do formulário, o "Guia de investigação", com:
+    - o texto de abertura: "Nesta investigação, você irá **reconstruir o que aconteceu**, identificar os **problemas na prestação do cuidado** e entender os **fatores que contribuíram** para o incidente, com o objetivo de aprender com o que aconteceu e fortalecer a segurança do cuidado.";
+    - uma caixa de aviso (fundo laranja suave, sem borda) com três parágrafos: "O percurso da investigação é o mesmo, mas a equipe pode realizá-lo de forma mais rápida ou de maneira completa e detalhada. Para essa decisão, considere a gravidade das possíveis consequências, a probabilidade de repetição do evento e o potencial de aprendizagem do incidente."; "Mesmo sem dano grave, o incidente pode exigir maior aprofundamento quando revelar falhas importantes do processo, risco de recorrência ou oportunidade relevante de melhoria."; e "Nesta investigação, o sistema utiliza as categorias de fatores contribuintes do **Protocolo de Londres 2024**. Durante a análise, quando necessário, os fatores identificados podem ser aprofundados com os **5 Porquês**. Ao final, os resultados são apresentados no **Diagrama de Ishikawa**." (termos em negrito na cor azul do sistema);
+    - o bloco "Seu caminho na análise", com as etapas numeradas e ligadas por uma linha vertical, cada uma em um cartão (fundo azul bem claro, sem borda) com selo, título e descrição: 1 · Seção 1 · Dados gerais — "Confira as informações do incidente e defina claramente o que será investigado."; 2 · Seção 2 · Entendimento inicial — "Registre os participantes da análise, as fontes consultadas e, quando necessário, as entrevistas realizadas."; 3 · Seção 3 · Cronologia e PPC — "Organize os fatos em ordem e identifique os Problemas na Prestação do Cuidado (PPC)."; 4 · Seção 4 · Fatores contribuintes — "Para cada PPC, identifique as condições que contribuíram para sua ocorrência. Se necessário, aprofunde um fator com os 5 Porquês."; 5 · Seção 5 · Resultado da análise — "Revise os fatores identificados no Diagrama de Ishikawa e registre as recomendações de melhoria."; 6 · Próximo passo · Plano de Ação — "Transforme as recomendações em ações, definindo responsáveis, prazos e acompanhamento." (esta última em cinza, por estar fora da análise);
+    - a opção "Não mostrar novamente" e o botão "Começar a análise →", que leva à Seção 1.
+- **CA17 — Não mostrar novamente o guia**
+    **Dado que** o usuário marque "Não mostrar novamente" no Guia de investigação, **quando** selecionar "Começar a análise", **então** o sistema deve guardar essa preferência e, nas próximas análises, abrir o formulário diretamente na Seção 1; sem a opção marcada, o guia volta a ser exibido sempre que o formulário for aberto.
+- **CA18 — Guia fora das etapas**
+    **Dado que** o Guia de investigação esteja sendo exibido, **quando** o usuário visualizar a tela, **então** o sistema não deve apresentar campos, validação nem barra de progresso; o guia apenas descreve o percurso e não altera o status da notificação.
+- **CA19 — Orientações e exemplos recolhíveis**
+    **Dado que** uma seção apresente um passo a passo ("Como preencher", "Como identificar um PPC") ou exemplos, **quando** a seção for exibida, **então** o sistema deve apresentá-los em blocos com uma seta que permite recolhê-los e expandi-los, abertos na primeira vez; se o usuário recolher um bloco, o sistema deve lembrar essa escolha e exibi-lo recolhido nas próximas análises, para que usuários que já conhecem o formulário não precisem vê-lo novamente. Esses blocos usam tons neutros (fundo cinza claro, sem borda, textos em cinza escuro), sem competir com os campos do formulário.
 
 **Contexto de Uso:** A funcionalidade é utilizada durante a investigação do incidente para documentar as informações levantadas pelo gestor da área ou pelo profissional do NSP e manter o registro formal da análise realizada. O formulário é autoexplicativo e guia o usuário seção a seção, apontando exatamente o que precisa ser corrigido para avançar.
 
@@ -641,65 +655,89 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 
 **COMO** Gestor da Área ou profissional do Núcleo de Segurança do Paciente
 **QUERO** registrar a linha do tempo do incidente e os problemas na prestação do cuidado identificados
-**PARA** reconstruir o que aconteceu com base em fontes e identificar os desvios que contribuíram para o incidente.
+**PARA** reconstruir o que aconteceu com base em fontes e identificar os desvios que tiveram importância na sequência do incidente.
 
 **Critérios de Aceite**
 
-- **CA01 — Cronologia obrigatória**
-    **Dado que** o usuário esteja na Seção 3, **quando** tentar avançar, **então** o sistema deve exigir ao menos 1 evento na cronologia, com todos os campos preenchidos (Data, Hora, Fato, Fonte e Status — incluindo o texto de "Outro" na Fonte). A tabela já abre com um evento em branco; se todos forem removidos, o sistema deve exibir "Adicione pelo menos 1 evento.".
-- **CA02 — Exibição da cronologia em linha do tempo**
-    **Dado que** existam eventos na cronologia, **quando** a tabela for exibida, **então** o sistema deve apresentar um evento por linha, com os campos lado a lado na ordem Data · Hora · Fato · Fonte · Status (com rolagem horizontal se não couber na tela) e o botão "+ Adicionar evento".
-- **CA03 — Campos da cronologia**
-    **Dado que** o usuário esteja registrando um evento, **quando** preencher os campos, **então** o sistema deve oferecer: Fato — texto de até 500 caracteres; Fonte — Prontuário, Inspeção no local, Entrevista ou Outro (texto de até 30 caracteres); Status — Confirmado (fonte documental direta), Provável (relato/entrevista sem confirmação documental) ou Em análise (informação pendente de validação, inclusive divergência entre fontes, registrando as duas versões, uma por linha), com a legenda dos status visível na seção.
-- **CA04 — Orientação da cronologia**
-    **Dado que** o usuário esteja preenchendo a cronologia, **quando** a seção for exibida, **então** o sistema deve apresentar a orientação "Nunca registrar fatos baseados em suposições — sempre indicar a fonte.".
-- **CA05 — Pergunta sobre PPC**
-    **Dado que** o usuário esteja na Seção 3, **quando** tentar avançar, **então** o sistema deve exigir a resposta a "Foi identificado algum Problema na Prestação do Cuidado (PPC)?" (Sim ou Não), exibindo a orientação "Considere se houve alguma ação ou omissão da equipe que tenha contribuído para o incidente" e a lista de exemplos de PPC: não ouvir as preocupações dos pacientes e familiares; avaliação inadequada dos riscos; falha em monitorizar, observar ou agir; decisão incorreta; planejamento incorreto, erro de diagnóstico; não procurar ajuda quando necessário, pouca cooperação; falha na comunicação, não passar plantão; violar prática de segurança por pressão ou conclusão de tarefa; violar prática de segurança por não ter consciência do risco ou não acreditar na sua efetividade.
-- **CA06 — Registro de PPC**
-    **Dado que** o usuário tenha respondido "Sim", **quando** a tabela "Problemas na prestação do cuidado" for exibida (já com uma linha, um PPC por linha, com o botão "+ Adicionar PPC"), **então** o sistema deve exigir ao menos 1 PPC com todos os campos preenchidos: O que ocorreu (desvio observável) — até 500 caracteres; O esperado — até 500 caracteres; Fonte / evidência — Prontuário, Inspeção no local, Entrevista ou Outro (texto de até 30 caracteres). Com "Não", a tabela não é exibida nem exigida.
-- **CA07 — Numeração automática dos PPCs**
-    **Dado que** existam PPCs registrados, **quando** a tabela for exibida, **então** o sistema deve numerá-los automaticamente em ordem crescente a partir de 1 ("PPC nº"), pela posição da linha, sem permitir edição do número e renumerando os seguintes quando um PPC for removido.
+- **CA01 — Explicação da seção**
+    **Dado que** o usuário esteja na Seção 3, **quando** a seção for exibida, **então** o sistema deve apresentar, com o título "Seção 3 — Cronologia do incidente", a caixa de informação: "**Construa a cronologia do incidente** em ordem, mostrando os fatos que antecederam o evento, o momento em que ele aconteceu e o que foi feito depois. Registre um fato por linha, sempre com a fonte."
+- **CA02 — Como preencher a cronologia**
+    **Dado que** a caixa de informação da Seção 3 seja exibida, **quando** o usuário visualizar o bloco "Como preencher" (recolhível — US-4.2, CA19), **então** o sistema deve apresentar os passos numerados: 1. **Um fato por linha:** uma ação, um acontecimento ou uma mudança no estado do paciente. 2. **Descreva sem julgar:** identifique as pessoas pela função, não pelo nome, e evite palavras como "erro", "falha" ou "esqueceu". 3. **Cruze as fontes:** compare prontuário, documentos e entrevistas. Se não conferirem, registre cada versão em uma linha e marque "Em análise".
+- **CA03 — Exemplo de registro da cronologia**
+    **Dado que** o usuário esteja preenchendo a cronologia, **quando** o campo "Cronologia" for exibido, **então** o sistema deve apresentar, acima da tabela, o bloco recolhível "Exemplo de registro da cronologia" em formato de mini tabela, com as mesmas colunas da tabela real (Data · Hora · Fato · Fonte · Status) e as linhas:
 
-**Contexto de Uso:** A cronologia e os PPCs formam a base factual da análise: a partir deles, quem realiza a análise escolhe o que será aprofundado na análise dos fatores contribuintes.
+    | Data | Hora | Fato | Fonte | Status |
+    | --- | --- | --- | --- | --- |
+    | 14/04/2025 | 08:00 | Médico plantonista prescreve ceftriaxona 1 g EV. | Prontuário | Confirmado |
+    | 14/04/2025 | 08:20 | Técnica de enfermagem separa ampola de cefazolina 1 g para administração. | Entrevista | Em análise |
+    | 14/04/2025 | 08:30 | Cefazolina 1 g EV é administrada ao paciente. | Prontuário | Confirmado |
+    | 14/04/2025 | 09:10 | Durante conferência da prescrição, enfermeira identifica que o medicamento prescrito era ceftriaxona 1 g EV. | Prontuário | Confirmado |
+    | 14/04/2025 | 09:20 | Médico assistente é comunicado e paciente permanece em observação. | Prontuário | Confirmado |
+
+- **CA04 — Cronologia obrigatória**
+    **Dado que** o usuário esteja na Seção 3, **quando** tentar avançar, **então** o sistema deve exigir ao menos 1 evento na cronologia, com todos os campos preenchidos (Data, Hora, Fato, Fonte e Status — incluindo o texto de "Outro" na Fonte). A tabela já abre com um evento em branco; se todos forem removidos, o sistema deve exibir "Adicione pelo menos 1 evento.".
+- **CA05 — Exibição da cronologia em linha do tempo**
+    **Dado que** existam eventos na cronologia, **quando** a tabela for exibida, **então** o sistema deve apresentar um evento por linha, com os campos lado a lado na ordem Data · Hora · Fato · Fonte · Status (com rolagem horizontal se não couber na tela) e o botão "+ Adicionar evento".
+- **CA06 — Campos da cronologia**
+    **Dado que** o usuário esteja registrando um evento, **quando** preencher os campos, **então** o sistema deve oferecer: Fato — texto de até 500 caracteres; Fonte — Prontuário, Inspeção no local, Entrevista ou Outro (texto de até 30 caracteres); Status — Confirmado (fonte documental direta), Provável (relato/entrevista sem confirmação documental) ou Em análise (informação pendente de validação, inclusive divergência entre fontes, registrando as duas versões, uma por linha), com a legenda dos status disponível no cabeçalho da coluna.
+- **CA07 — Conferência antes de seguir**
+    **Dado que** o usuário esteja preenchendo a cronologia, **quando** a tabela for exibida, **então** o sistema deve apresentar logo abaixo dela o bloco "Antes de seguir, confira", com os itens (em duas colunas, cada um com um ícone de verificação): "A sequência começa antes do incidente"; "Inclui o momento em que ele foi percebido e o que foi feito depois"; "Os fatos estão descritos sem julgamento"; "As divergências entre fontes estão registradas". O bloco é apenas uma orientação e não bloqueia o avanço.
+- **CA08 — Aviso de fatos em análise**
+    **Dado que** algum evento da cronologia esteja com o status "Em análise", **quando** a tabela for exibida, **então** o sistema deve apresentar, ao lado do bloco "Antes de seguir, confira", o aviso "Há 1 fato em análise." (ou "Há N fatos em análise.", conforme a quantidade), seguido de "Confirme se a divergência foi registrada."; sem eventos "Em análise", o aviso não é exibido. O aviso não bloqueia o avanço.
+- **CA09 — Explicação dos PPCs**
+    **Dado que** o usuário esteja na Seção 3, **quando** o campo "Problemas na Prestação do Cuidado (PPC)" for exibido, **então** o sistema deve apresentar a caixa de informação: "Com base na cronologia acima, identifique se houve alguma ação, omissão, decisão ou **falha no processo de cuidado** que foi diferente do que deveria ter acontecido e que teve importância na sequência do incidente. Pode haver mais de um PPC no mesmo incidente." O sistema não deve mais perguntar "Foi identificado algum Problema na Prestação do Cuidado (PPC)?": a tabela de PPC é sempre exibida.
+- **CA10 — Como identificar um PPC**
+    **Dado que** o campo de PPC seja exibido, **quando** o usuário visualizar o bloco recolhível "Como identificar um PPC" (US-4.2, CA19), **então** o sistema deve apresentar três colunas (empilhadas em telas estreitas):
+    - passos numerados: 1. Reveja a cronologia e pergunte: "O que aconteceu no cuidado que foi diferente do que deveria ter acontecido?" 2. Registre apenas a ação, omissão ou decisão específica. 3. O PPC nem sempre é um erro de alguém. Também conta quando um equipamento, sistema ou processo falhou durante o cuidado. *Ex.: a bomba de infusão infundiu mais rápido do que o programado.* 4. Não registre aqui as causas do problema; elas serão analisadas na etapa de fatores contribuintes.
+    - "Exemplos de PPC" (ícone ✓ verde): administração de medicamento diferente do prescrito; não realizar avaliação ou monitorização prevista; falha de comunicação durante o cuidado (ex.: informação clínica relevante não foi passada no plantão); decisão clínica inadequada; não seguir protocolo de segurança; falha de equipamento durante o cuidado (ex.: bomba de infusão).
+    - "Não são PPC (são fatores contribuintes, analisados depois)" (ícone ✗ vermelho): falta de pessoal; sobrecarga de trabalho; ausência de rotina de comunicação entre setores; falta de treinamento; condições de infraestrutura inadequadas; problemas organizacionais.
+- **CA11 — Registro de PPC**
+    **Dado que** o usuário identifique um PPC, **quando** preencher a tabela "Problemas na Prestação do Cuidado (PPC)" (um PPC por linha, com o botão "+ Adicionar PPC"), **então** o sistema deve apresentar as colunas Nº · Descreva o problema na prestação do cuidado (PPC) · O que deveria ter acontecido? · O que aconteceu de diferente?, todas de texto com até 500 caracteres e contador. Na Seção 3 a tabela é opcional (pode ficar sem PPC), mas todo PPC adicionado deve ter as três colunas preenchidas; a exigência de ao menos 1 PPC é feita na Seção 4 (US-4.6, CA10).
+- **CA12 — Numeração automática dos PPCs**
+    **Dado que** existam PPCs registrados, **quando** a tabela for exibida, **então** o sistema deve numerá-los automaticamente em ordem crescente a partir de 1 (coluna "Nº"), pela posição da linha, sem permitir edição do número e renumerando os seguintes quando um PPC for removido.
+- **CA13 — Legibilidade da tabela de PPC**
+    **Dado que** a tabela de PPC seja exibida, **quando** os títulos das colunas forem longos, **então** o sistema deve quebrá-los em mais de uma linha, sem sobrepor a coluna vizinha; os campos de texto da tabela começam com altura de três linhas, que é também a altura mínima (podem ser aumentados arrastando o canto, mas não reduzidos abaixo dela).
+
+**Contexto de Uso:** A cronologia e os PPCs formam a base factual da análise: a cronologia reconstrói o que aconteceu, e cada PPC registrado na Seção 3 é analisado na Seção 4, onde são identificados os fatores que contribuíram para ele.
 
 <a id="us-4-6"></a>
 
-#### US-4.6 — Analisar fatores contribuintes e aprofundar com os 5 Porquês (Seções 4 e 4A)
+#### US-4.6 — Analisar fatores contribuintes de cada PPC e aprofundar com os 5 Porquês (Seção 4)
 
 **Épico:** 4 — Registro de análise em notificação de incidentes · **Prioridade:** Alta
 
 **COMO** Gestor da Área ou profissional do Núcleo de Segurança do Paciente
-**QUERO** selecionar os fatos e PPCs a aprofundar e registrar os fatores contribuintes de cada um
-**PARA** identificar as condições que favoreceram o incidente e chegar às suas causas raiz.
-
-**Regras de Negócio:** RN-24
+**QUERO** analisar, um de cada vez, os problemas na prestação do cuidado e registrar os fatores que contribuíram para cada um
+**PARA** entender por que cada PPC aconteceu e, quando necessário, aprofundar a causa até um ponto capaz de orientar uma ação de melhoria.
 
 **Critérios de Aceite**
 
-- **CA01 — Seleção dos itens a aprofundar (Seção 4)**
-    **Dado que** o usuário esteja na Seção 4, **quando** a seção for exibida, **então** o sistema deve listar em cartões selecionáveis os fatos da cronologia ("Evento N") e os PPCs registrados ("PPC N"), com o respectivo texto, permitindo marcar quais terão os fatores contribuintes analisados. Não é obrigatório marcar todos.
-- **CA02 — Um bloco por item selecionado (Seção 4A)**
-    **Dado que** o usuário tenha marcado itens na Seção 4, **quando** acessar a Seção 4A, **então** o sistema deve apresentar um bloco "Item em análise: Evento N / PPC N" para cada item marcado, com o texto do fato ou PPC; se nenhum item tiver sido marcado, o sistema deve informar que é preciso voltar e selecionar ao menos um fato da cronologia ou PPC, se aplicável.
-- **CA03 — Itens em análise colapsáveis**
-    **Dado que** existam itens em análise na Seção 4A, **quando** a seção for exibida, **então** cada item deve ser um bloco que abre e fecha clicando no cabeçalho (seta), exibindo no cabeçalho o nome do item, o texto do fato/PPC em uma linha e um resumo ("N fatores marcados" ou "Nenhum fator marcado"); por padrão apenas o primeiro item vem aberto e, com mais de um item, o sistema deve oferecer os atalhos "Expandir todos" e "Recolher todos".
-- **CA04 — Categorias de fatores contribuintes**
-    **Dado que** o usuário esteja analisando um item, **quando** visualizar o bloco do item, **então** o sistema deve apresentar as oito categorias fixas, cada uma com exemplos — fatores do paciente; fatores individuais dos profissionais; fatores das tarefas; fatores da equipe; fatores do ambiente de trabalho; tecnologia e sistemas eletrônicos de informação; fatores organizacionais, gerenciais e culturais; fatores do contexto institucional — e a categoria "Outro / não mapeado nas categorias acima".
-- **CA05 — Ao menos um fator por item**
-    **Dado que** o usuário tente avançar, **quando** algum item em análise não tiver nenhuma categoria marcada, **então** o sistema deve destacar o bloco inteiro com a mensagem "Marque ao menos um fator contribuinte.".
-- **CA06 — Campos da categoria marcada**
-    **Dado que** o usuário marque uma categoria, **quando** ela for aberta, **então** o sistema deve exigir "O que foi identificado / achado" e "Fonte / evidência"; na categoria "Outro / não mapeado", também a descrição da categoria, com até 30 caracteres.
-- **CA07 — 5 Porquês opcional**
-    **Dado que** uma categoria esteja marcada, **quando** o usuário selecionar "Por que isso aconteceu? (5 Porquês)", **então** o sistema deve abrir o bloco 5 Porquês alinhado aos campos da categoria, com uma explicação breve do método (perguntar "por quê?" repetidamente, em geral até umas 5 vezes, no máximo 15 níveis, para ir além do sintoma e chegar à falha de processo ou sistema) e a primeira pergunta sugerida a partir do achado ("Por que <achado>?"), editável.
-- **CA08 — Níveis do 5 Porquês**
-    **Dado que** o 5 Porquês esteja aberto, **quando** o usuário registrar os níveis, **então** o sistema deve apresentá-los em tabela, um por linha — Nível (numerado automaticamente) · Por que aconteceu? · Resposta —, exigir as duas colunas em todo nível criado, limitar cada texto a 100 caracteres e sugerir a pergunta do nível seguinte a partir da resposta anterior.
-- **CA09 — Quantidade de níveis**
-    **Dado que** o 5 Porquês esteja aberto, **quando** o usuário adicionar ou remover níveis, **então** o sistema deve manter no mínimo 1 e no máximo 15 níveis: o último nível restante não possui a opção "Remover"; ao lado de "+ Adicionar porquê" é exibido o contador (ex.: 3/15); ao atingir 15, o botão é desabilitado e o sistema informa "Limite de 15 porquês atingido.".
-- **CA10 — Remover o 5 Porquês**
-    **Dado que** o 5 Porquês esteja aberto, **quando** o usuário selecionar "Remover 5 Porquês", **então** o sistema deve apagar os níveis daquela categoria e fechar o bloco; se houver algo preenchido, deve antes pedir confirmação ("Remover o 5 Porquês desta categoria? Tudo o que foi preenchido nele será apagado." — Cancelar / Remover).
-- **CA11 — Pendências por item**
-    **Dado que** o usuário tente avançar com pendências na Seção 4A, **quando** a validação for exibida, **então** o sistema deve abrir automaticamente os itens com pendência, exibir no cabeçalho deles o resumo "Pendências" em vermelho e destacar exatamente os campos pendentes de cada item (ex.: "Preencha Fonte / evidência e 5 Porquês — Resposta.").
+- **CA01 — Explicação da seção**
+    **Dado que** o usuário esteja na Seção 4, **quando** a seção for exibida, **então** o sistema deve apresentar, com o título "Seção 4 — Fatores contribuintes", a caixa de informação com um parágrafo por linha: "**Nesta seção, vamos investigar por que cada Problema na Prestação do Cuidado (PPC) aconteceu.**"; "Para cada PPC identificado, procure entender quais condições estavam presentes e podem ter favorecido sua ocorrência. Essas condições são chamadas de fatores contribuintes e podem estar relacionadas ao paciente, aos profissionais, às tarefas, à equipe, ao ambiente de trabalho, à tecnologia, à organização ou ao contexto institucional."; "**Analise um PPC por vez e registre apenas os fatores que realmente tiveram relação com ele.**"; "Clique em um problema abaixo para iniciar a análise."
+- **CA02 — Um cartão por PPC**
+    **Dado que** existam PPCs registrados na Seção 3, **quando** a Seção 4 for exibida, **então** o sistema deve listar, sob o título "Problemas na Prestação do Cuidado (PPC) identificados neste incidente", um cartão por PPC com: o número do PPC em destaque circular; a descrição do problema como título (sem o prefixo "PPC N"); "**Deveria:** …" (o que deveria ter acontecido) e "**Aconteceu:** …" (o que aconteceu de diferente); a dica "Clique para identificar quais condições podem ter contribuído para a ocorrência deste PPC."; o botão "Identificar fatores contribuintes"; e uma seta para abrir e fechar. Os fatos da cronologia não são mais analisados nesta seção.
+- **CA03 — Análise aberta na própria linha**
+    **Dado que** o usuário selecione "Identificar fatores contribuintes" (ou a seta) em um PPC, **quando** a análise for aberta, **então** o sistema deve exibi-la dentro do próprio cartão, abaixo dos dados do PPC, com o selo "Em análise" acima do título e a pergunta "Quais condições podem ter contribuído para a ocorrência deste PPC?". Apenas um PPC fica aberto por vez: abrir outro fecha o anterior.
+- **CA04 — Resumo do PPC analisado**
+    **Dado que** um PPC tenha fatores registrados, **quando** o cartão estiver fechado, **então** o sistema deve exibir ao lado do botão o resumo "1 fator registrado" ou "N fatores registrados".
+- **CA05 — Categorias de fatores contribuintes**
+    **Dado que** a análise de um PPC esteja aberta, **quando** o usuário visualizar as categorias, **então** o sistema deve apresentar as oito categorias do Protocolo de Londres 2024, uma abaixo da outra, cada uma com caixa de seleção, título, exemplo e seta: Fatores do paciente (Ex.: doença/complexidade, barreira de comunicação, aspectos sociais); Fatores individuais dos profissionais (Ex.: conhecimento/habilidades, saúde física ou mental, valores profissionais); Fatores das tarefas (Ex.: clareza do processo, protocolo disponível, acesso à informação necessária); Fatores da equipe (Ex.: comunicação verbal/escrita, supervisão, liderança, apoio mútuo); Fatores do ambiente de trabalho (Ex.: dimensionamento de pessoal, carga de trabalho, equipamentos, ambiente físico); Tecnologia e sistemas eletrônicos de informação (Ex.: hardware/software, suporte a decisão, interface, integração de fluxo); Fatores organizacionais, gerenciais e culturais (Ex.: recursos, treinamento, políticas e metas, cultura de segurança); Fatores do contexto institucional (Ex.: contexto regulatório, políticas públicas de saúde, rede externa). Não há categoria "Outro / não mapeado".
+- **CA06 — Registro do fator**
+    **Dado que** o usuário marque uma categoria (pela caixa de seleção ou clicando na linha), **quando** ela for aberta, **então** o sistema deve apresentar: "Descreva o fator identificado e como ele contribuiu para este PPC" — texto obrigatório (*); "Fonte/evidência (opcional)" — caixas de seleção, permitindo marcar várias, entre Prontuário, Entrevista, Observação, Protocolo/documento, Sistema eletrônico e Outro; e o botão "Salvar fator". Desmarcar a categoria fecha e descarta o fator do registro de categorias marcadas.
+- **CA07 — Salvar fator**
+    **Dado que** o usuário tenha descrito o fator, **quando** selecionar "Salvar fator", **então** o sistema deve recolher a categoria, mantendo-a marcada e exibindo abaixo do título um resumo do texto do fator. O fator continua editável ao abrir a categoria novamente; o rascunho da análise é salvo ao avançar de seção (US-4.2, CA07).
+- **CA08 — 5 Porquês do fator**
+    **Dado que** uma categoria esteja aberta, **quando** o usuário visualizar o bloco "5 Porquês", **então** o sistema deve apresentá-lo sempre visível, abaixo do fator, com a caixa de informação: "Comece pelo fator identificado e pergunte: "Por que isso aconteceu?". Use cada resposta para formular o próximo "por quê?"." e "Não é necessário chegar exatamente a cinco perguntas. Continue enquanto as respostas ajudarem a aprofundar a causa do fator identificado e encerre a análise quando considerar que chegou a uma causa capaz de orientar uma ação de melhoria."
+- **CA09 — Níveis do 5 Porquês**
+    **Dado que** o usuário registre o 5 Porquês, **quando** preencher os níveis, **então** o sistema deve apresentar um nível por linha, com o rótulo "1º por quê?", "2º por quê?"…, e os campos "Pergunta" e "Resposta" lado a lado, cada um com até 100 caracteres; o botão "+ Adicionar outro "por quê?"" cria um novo nível já com a pergunta sugerida a partir da resposta anterior ("Por que <resposta>?"), editável; cada nível, exceto o único restante, pode ser removido (ícone ✕); o limite é de 15 níveis. O 5 Porquês é opcional: níveis totalmente em branco são ignorados, mas todo nível começado deve ter pergunta e resposta.
+- **CA10 — Validação da seção**
+    **Dado que** o usuário tente avançar da Seção 4, **quando** a validação for executada, **então** o sistema deve exigir: ao menos 1 PPC registrado ("Adicione pelo menos 1 PPC."); ao menos um fator contribuinte em **cada** PPC ("Marque ao menos um fator contribuinte."); a descrição de todo fator marcado; e pergunta e resposta em todo nível do 5 Porquês começado. O PPC com pendência exibe o selo "Pendências" em vermelho e borda vermelha, e o sistema abre automaticamente o primeiro PPC e as categorias com pendência, destacando exatamente os campos que faltam (ex.: "Preencha Descreva o fator identificado e como ele contribuiu para este PPC e 5 Porquês — Resposta.").
+- **CA11 — Incluir PPC na Seção 4**
+    **Dado que** o usuário perceba, ao analisar os fatores, que um problema na prestação do cuidado não foi registrado, **quando** visualizar o final da lista de PPCs, **então** o sistema deve apresentar o bloco "Faltou algum problema na prestação do cuidado?" com o texto "Se, ao iniciar esta etapa, você perceber que um problema na prestação do cuidado ainda não foi registrado, é possível adicioná-lo aqui." e o botão "+ Adicionar PPC". Ao selecioná-lo, o sistema deve abrir, no próprio bloco, os campos do PPC (os mesmos da Seção 3 — US-4.5, CA11, todos obrigatórios), com os botões "Cancelar" e "Adicionar PPC"; com campos vazios, exibe "Preencha todos os campos do PPC.". O PPC adicionado entra na mesma tabela de PPC da Seção 3 e é aberto em seguida para a análise dos fatores.
+- **CA12 — Sem PPC registrado**
+    **Dado que** nenhum PPC tenha sido registrado, **quando** a Seção 4 for exibida, **então** o sistema deve informar "Nenhum PPC registrado na Seção 3. Adicione abaixo o problema na prestação do cuidado que será analisado." e oferecer o bloco de inclusão de PPC (CA11).
 
-**Contexto de Uso:** Esta etapa aprofunda os fatos e problemas escolhidos, organizando as causas por categoria e, quando útil, descendo até a causa raiz pelos 5 Porquês. É o conteúdo que alimenta automaticamente o Diagrama de Ishikawa.
+**Contexto de Uso:** A Seção 4 aprofunda cada problema na prestação do cuidado, um por vez, organizando os fatores contribuintes nas categorias do Protocolo de Londres 2024 e, quando útil, descendo até a causa pelos 5 Porquês. É o conteúdo que alimenta automaticamente o Diagrama de Ishikawa.
 
 <a id="us-4-7"></a>
 
@@ -708,27 +746,31 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 **Épico:** 4 — Registro de análise em notificação de incidentes · **Prioridade:** Alta
 
 **COMO** Gestor da Área ou profissional do Núcleo de Segurança do Paciente
-**QUERO** visualizar os fatores contribuintes organizados em um Diagrama de Ishikawa e registrar recomendações
+**QUERO** visualizar os fatores contribuintes organizados em um Diagrama de Ishikawa e registrar recomendações de melhoria
 **PARA** enxergar o quadro completo das causas e definir o que precisa ser feito para evitar que o incidente se repita.
 
 **Regras de Negócio:** RN-19
 
 **Critérios de Aceite**
 
-- **CA01 — Explicação do diagrama**
-    **Dado que** o usuário esteja na Seção 5, **quando** a seção for exibida, **então** o sistema deve apresentar, abaixo do título "Diagrama de Ishikawa (espinha de peixe)", uma caixa de informação explicando o que é o diagrama (os fatores contribuintes da Seção 4A agrupados por categoria, convergindo para o incidente, montado automaticamente) e por que ele é útil (enxergar o quadro completo, identificar quais áreas mais contribuíram e onde concentrar a melhoria, apresentar o resultado à equipe e à gestão e embasar as recomendações).
+- **CA01 — Explicação do resultado**
+    **Dado que** o usuário esteja na Seção 5, **quando** a seção for exibida, **então** o sistema deve apresentar, com o título "Seção 5 — Resultado (Ishikawa + Recomendações)", a caixa de informação: "O resultado da análise está apresentado no Diagrama de Ishikawa abaixo. O diagrama reúne os fatores contribuintes identificados na investigação e os organiza por categoria. Cada fator está vinculado ao respectivo problema na prestação do cuidado ao qual se relaciona. Quando um fator tiver sido aprofundado com os 5 Porquês, o diagrama também apresenta as causas identificadas nesse aprofundamento, preservando a relação entre o fator inicial e as causas subsequentes."
 - **CA02 — Geração automática do diagrama**
-    **Dado que** existam fatores contribuintes registrados, **quando** a Seção 5 for exibida, **então** o sistema deve gerar automaticamente um único diagrama: eixo central horizontal com cauda à esquerda e "cabeça" à direita contendo o incidente em investigação; cada categoria marcada é um "osso", exibido como texto (título + marcadores), alternando acima e abaixo do eixo, com linhas diagonais que se encontram no eixo. A cabeça cresce conforme o tamanho do texto e o diagrama cresce horizontalmente, com rolagem, conforme a quantidade de categorias.
+    **Dado que** existam fatores contribuintes registrados, **quando** a Seção 5 for exibida, **então** o sistema deve gerar automaticamente um único diagrama, com o título "Diagrama de Ishikawa (espinha de peixe)": eixo central horizontal com cauda à esquerda e "cabeça" à direita contendo o incidente em investigação; cada categoria com fatores é um "osso", exibido como um cartão (fundo branco, borda fina, título na cor do diagrama), alternando acima e abaixo do eixo, com linhas diagonais que se encontram no eixo. A cabeça cresce conforme o tamanho do texto e o diagrama cresce horizontalmente, com rolagem, conforme a quantidade de categorias.
 - **CA03 — Conteúdo de cada categoria no diagrama**
-    **Dado que** uma categoria tenha sido marcada em um ou mais itens, **quando** o diagrama for gerado, **então** o sistema deve exibir nela o achado ("O que foi identificado") de cada item e, logo abaixo, os níveis do 5 Porquês ("Por que …? — resposta") em fonte menor e cor mais suave; quando houver mais de um item em análise, cada achado deve vir prefixado com o nome do item (ex.: "Evento 1: …"). A fonte/evidência não é exibida no diagrama.
+    **Dado que** uma categoria tenha fatores registrados, **quando** o diagrama for gerado, **então** o sistema deve exibir nela os fatores agrupados pelo PPC a que se referem: uma etiqueta (fundo laranja suave) com a descrição do PPC e, abaixo, cada fator com o texto exatamente como informado pelo usuário. Quando o fator tiver sido aprofundado pelos 5 Porquês, o sistema deve exibir logo abaixo dele **somente as respostas** de cada nível, na ordem, precedidas de "—" e em fonte menor (as perguntas não são exibidas). Quando o mesmo tipo de fator estiver relacionado a mais de um PPC, ele aparece na categoria sob cada um dos respectivos PPCs. A fonte/evidência não é exibida no diagrama.
 - **CA04 — Diagrama sem fatores**
-    **Dado que** nenhum fator contribuinte tenha sido marcado, **quando** a Seção 5 for exibida, **então** o sistema deve informar que é preciso marcar ao menos um fator contribuinte na Seção 4A para gerar o diagrama.
-- **CA05 — Explicação das recomendações**
-    **Dado que** o usuário esteja registrando recomendações, **quando** a seção for exibida, **então** o sistema deve apresentar uma caixa de informação orientando a registrar o que precisa ser feito para tratar as causas e evitar que o incidente se repita, uma recomendação por vez, de forma concreta, e informando que, ao concluir a análise, cada recomendação vira uma ação no plano de ação da notificação (já com o "O que será feito?" preenchido), onde ganha responsável, prazo e acompanhamento.
-- **CA06 — Registro de recomendações**
-    **Dado que** o usuário esteja na Seção 5, **quando** registrar recomendações, **então** o sistema deve apresentar cada uma como um cartão "Recomendação #N" com um campo de texto (sem rótulo repetido), com o botão "+ Adicionar recomendação" e a opção "Remover". A seção começa com um cartão; as recomendações são opcionais, mas toda recomendação adicionada deve ser preenchida (título com asterisco) e ter no máximo 300 caracteres.
+    **Dado que** nenhum fator contribuinte tenha sido registrado, **quando** a Seção 5 for exibida, **então** o sistema deve informar "Registre ao menos um fator contribuinte na Seção 4 para gerar o diagrama de Ishikawa (espinha de peixe) do resultado final.".
+- **CA05 — Exportar o diagrama**
+    **Dado que** o diagrama tenha sido gerado, **quando** o usuário selecionar "Exportar diagrama" (botão no canto superior direito do diagrama), **então** o sistema deve baixar o diagrama completo — inclusive a parte fora da área visível — como imagem PNG ("diagrama-ishikawa.png"), com fundo branco e resolução adequada para apresentação; durante a geração o botão exibe "Exportando..." e fica desabilitado; em caso de falha, o sistema informa que não foi possível exportar o diagrama. A opção também está disponível na visualização da análise concluída (US-4.8, CA08).
+- **CA06 — Explicação das recomendações**
+    **Dado que** o usuário esteja registrando recomendações, **quando** o campo "Recomendações de melhoria" for exibido, **então** o sistema deve apresentar a caixa de informação: "As recomendações devem ter relação clara com os fatores contribuintes identificados e estar direcionadas à redução das fragilidades do processo ou do sistema encontradas na investigação. Após o registro das recomendações, o próximo passo é a elaboração do Plano de Ação. Quando houver mais de uma recomendação, a equipe deve considerar sua priorização, definindo quais medidas exigem implementação imediata e quais poderão ser executadas em prazos maiores."
+- **CA07 — Registro de recomendações**
+    **Dado que** o usuário esteja na Seção 5, **quando** registrar recomendações, **então** o sistema deve apresentar uma recomendação por linha, com o rótulo "Recomendação N", o campo de texto (placeholder "Descreva a recomendação de melhoria...", até 300 caracteres, com contador) e o ícone de lixeira para remover, além do botão "+ Adicionar recomendação". A seção começa com uma linha; as recomendações são opcionais, mas toda recomendação adicionada deve ser preenchida.
+- **CA08 — Navegação da última seção**
+    **Dado que** o usuário esteja na Seção 5, **quando** visualizar os botões de navegação, **então** o sistema deve apresentar "Voltar" e "Finalizar análise" (US-4.8).
 
-**Contexto de Uso:** A Seção 5 consolida a investigação: o diagrama sintetiza as causas identificadas e as recomendações transformam essas conclusões em ações a serem executadas no plano de ação.
+**Contexto de Uso:** A Seção 5 consolida a investigação: o diagrama sintetiza, por categoria e por PPC, as causas identificadas, e as recomendações transformam essas conclusões em ações a serem executadas no plano de ação.
 
 <a id="us-4-8"></a>
 
@@ -745,7 +787,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 **Critérios de Aceite**
 
 - **CA01 — Disponibilidade da conclusão**
-    **Dado que** o usuário esteja na última seção do formulário de análise (Seção 5 — Resultado), **quando** visualizar as opções de navegação, **então** o sistema deve disponibilizar o botão "Concluir investigação".
+    **Dado que** o usuário esteja na última seção do formulário de análise (Seção 5 — Resultado), **quando** visualizar as opções de navegação, **então** o sistema deve disponibilizar o botão "Finalizar análise".
 - **CA02 — Validação antes da conclusão**
     **Dado que** existam informações obrigatórias pendentes, **quando** o usuário tentar concluir a investigação, **então** o sistema deve impedir a conclusão e informar as pendências conforme o padrão de validação (US-4.2, CA08).
 - **CA03 — Registro da conclusão**
@@ -759,7 +801,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 - **CA07 — Criação das ações a partir das recomendações**
     **Dado que** a análise possua recomendações registradas, **quando** a conclusão for confirmada, **então** o sistema deve criar automaticamente, no plano de ação da notificação, uma ação por recomendação, com o campo "O que será feito?" preenchido com o texto da recomendação e vínculo com a recomendação de origem (US-5.3), registrando no histórico a quantidade de ações pré-criadas.
 - **CA08 — Visualização da análise concluída**
-    **Dado que** a análise tenha sido concluída, **quando** o usuário acessar a seção "Análise" do detalhe da notificação, **então** o sistema deve exibi-la em modo somente leitura, organizada pelas mesmas seções do formulário, incluindo o Diagrama de Ishikawa.
+    **Dado que** a análise tenha sido concluída, **quando** o usuário acessar a seção "Análise" do detalhe da notificação, **então** o sistema deve exibi-la em modo somente leitura, organizada pelas mesmas seções do formulário, incluindo o Diagrama de Ishikawa com a opção "Exportar diagrama" (US-4.7, CA05). Os blocos de orientação e exemplos não são exibidos nessa visualização.
 
 **Contexto de Uso:** A conclusão encerra a etapa de investigação. A partir dela, as recomendações passam a existir como ações do plano de ação e, no caso de análise feita pelo NSP, o núcleo decide se o resultado será compartilhado com o setor.
 
@@ -813,7 +855,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 - **CA03 — O que será feito**
     **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "1. O que será feito?", **então** o sistema deve exigir o campo, aceitando até 500 caracteres.
 - **CA04 — Onde será feito**
-    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "2. Onde será feito?", **então** o sistema deve apresentar um menu de seleção com os setores da instituição (Qualidade e Segurança do Paciente, Clínica Médica, Farmácia Hospitalar, Centro Cirúrgico, UTI, Pronto-Socorro, Enfermagem, Administrativo) e a opção "Outro", que abre um campo de texto obrigatório de até 50 caracteres.
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "2. Onde será feito?", **então** o sistema deve apresentar a lista dos setores da instituição (Qualidade e Segurança do Paciente, Clínica Médica, Farmácia Hospitalar, Centro Cirúrgico, UTI, Pronto-Socorro, Enfermagem, Administrativo), um abaixo do outro, cada um com uma caixa de seleção, e por último a opção "Outro", permitindo marcar um ou mais. É obrigatório marcar ao menos uma opção; "Outro" abre um campo de texto obrigatório de até 50 caracteres ("Especifique onde a ação será feita"), que pode ser combinado com os setores marcados. Os locais selecionados são exibidos juntos, separados por ponto e vírgula (ex.: "Farmácia Hospitalar; UTI").
 - **CA05 — Responsável(eis)**
     **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "3. Quem será o(s) responsável(eis)?", **então** o sistema deve apresentar uma tabela com ao menos um responsável e o botão "+ Adicionar responsável"; cada linha contém Nome (até 50 caracteres), Função e Setor (menus com "Outro", texto de até 30 caracteres), todos obrigatórios — mesma lógica do condutor da análise. A primeira linha não pode ser removida.
 - **CA06 — Previsões de início e conclusão**
@@ -833,7 +875,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 - **CA13 — Indicador de acompanhamento**
     **Dado que** o profissional esteja preenchendo uma ação, **quando** responder "12. Esta ação irá gerar um indicador de acompanhamento?", **então** o sistema deve permitir selecionar entre "Sim" e "Não" e, com "Sim", exigir qual indicador, com até 100 caracteres.
 - **CA14 — Textos explicativos**
-    **Dado que** o profissional esteja preenchendo uma ação, **quando** visualizar cada pergunta, **então** o sistema deve exibir logo abaixo dela uma caixa de informação (fundo azul claro com ícone ⓘ) explicando o sentido do preenchimento, com exemplos: o que será feito (a ação concreta, e não só o objetivo); onde (setor ou local de execução); responsável(eis) (quem garante que a ação aconteça); previsões (acompanhar andamento e identificar atrasos); recurso (gasto necessário, com item e custo estimado, para a gestão prever e aprovar o orçamento — exibida antes mesmo de responder); aprovação da Alta Gestão; comprovação (a evidência da execução); resultado esperado (base da avaliação de eficácia); como saber se funcionou (forma de medição); quando verificar (dar tempo para a ação surtir efeito); e indicador.
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** visualizar cada pergunta, **então** o sistema deve exibir logo abaixo dela uma caixa de informação (fundo azul claro com ícone ⓘ) explicando o sentido do preenchimento, com exemplos: o que será feito (a ação concreta, e não só o objetivo); onde ("Indique o(s) setor(es) ou local(is) em que a ação será executada. Marque um ou mais — se a ação envolver vários setores, selecione todos. Isso ajuda a saber quem precisa ser envolvido e onde acompanhar a execução."); responsável(eis) (quem garante que a ação aconteça); previsões (acompanhar andamento e identificar atrasos); recurso (gasto necessário, com item e custo estimado, para a gestão prever e aprovar o orçamento — exibida antes mesmo de responder); aprovação da Alta Gestão; comprovação (a evidência da execução); resultado esperado (base da avaliação de eficácia); como saber se funcionou (forma de medição); quando verificar (dar tempo para a ação surtir efeito); e indicador.
 - **CA15 — Limites e campos longos**
     **Dado que** um campo possua limite de caracteres, **quando** o profissional digitar, **então** o sistema deve exibir o contador "N/limite", destacar o campo em vermelho ao ultrapassar e impedir o salvamento; campos de texto longo têm altura máxima e, a partir dela, o conteúdo rola dentro do campo.
 - **CA16 — Validação ao salvar**
@@ -864,7 +906,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 - **CA03 — Associação ao problema**
     **Dado que** existam múltiplas ações cadastradas, **quando** o plano for salvo, **então** todas as ações devem permanecer associadas à notificação e ao problema identificado na análise; ações originadas de recomendações mantêm o vínculo com a recomendação de origem.
 - **CA04 — Identificação das ações**
-    **Dado que** o profissional adicione mais de uma ação, **quando** as ações forem exibidas, **então** o sistema deve identificar cada ação por uma numeração sequencial ("Ação 1", "Ação 2"...).
+    **Dado que** o profissional adicione mais de uma ação, **quando** as ações forem exibidas, **então** o sistema deve exibir cada ação em uma linha da tabela do plano de ação (US-5.6, CA01), na ordem em que foram registradas.
 - **CA05 — Salvar plano**
     **Dado que** o profissional tenha preenchido a ação, **quando** selecionar "Salvar plano de ação", **então** o sistema deve validar os campos obrigatórios (US-5.1, CA16), registrar a ação, registrar o evento no histórico e, se o incidente estiver "Analisado", atualizar o status para "Em ação".
 - **CA06 — Cancelar o registro**
@@ -889,11 +931,11 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 - **CA01 — Criação a partir das recomendações**
     **Dado que** a análise tenha sido concluída com recomendações, **quando** o usuário acessar a seção "Plano de ação", **então** o sistema deve exibir uma ação para cada recomendação, com apenas o "O que será feito?" preenchido e a indicação "Veio de uma recomendação da análise". O plano de ação não é cadastrado dentro do formulário de análise, que exige apenas o texto da recomendação.
 - **CA02 — Identificação da ação pendente de preenchimento**
-    **Dado que** uma ação ainda não tenha todos os campos obrigatórios preenchidos, **quando** o cartão for exibido, **então** o sistema não deve exibir selo de status, deve destacar o cartão com borda laranja e exibir o aviso "Faltam N campos obrigatórios para essa ação poder ser acompanhada", com o botão "Completar preenchimento".
+    **Dado que** uma ação ainda não tenha todos os campos obrigatórios preenchidos, **quando** a linha da ação for exibida na tabela do plano de ação, **então** o sistema deve exibir na coluna "Status", no lugar do status da ação, o selo laranja "Preenchimento pendente" (ao passar o mouse: "Faltam N campo(s) obrigatório(s) para essa ação poder ser acompanhada."); nos detalhes da ação (olho), o sistema deve exibir o aviso "Faltam N campos obrigatórios para essa ação poder ser acompanhada.".
 - **CA03 — Bloqueio do acompanhamento**
-    **Dado que** uma ação esteja pendente de preenchimento, **quando** o usuário visualizar o cartão, **então** o sistema não deve oferecer a opção "Atualizar andamento da ação" até que a ação seja completada.
+    **Dado que** uma ação esteja pendente de preenchimento, **quando** o usuário visualizar a linha da ação, **então** o sistema não deve oferecer a opção "Atualizar andamento da ação" até que a ação seja completada.
 - **CA04 — Completar preenchimento**
-    **Dado que** o usuário selecione "Completar preenchimento" ou o botão Editar de uma ação pendente, **quando** o formulário for aberto, **então** o sistema deve exibir o título "Completar plano de ação", a explicação "Esta ação foi criada a partir de uma recomendação da análise e ainda não está completa. Preencha os demais campos para que ela possa ser acompanhada." e os dados já existentes, exigindo todos os campos obrigatórios (US-5.1).
+    **Dado que** o usuário selecione o botão Editar (lápis) de uma ação pendente — que exibe a dica "Completar preenchimento" —, **quando** o formulário for aberto, **então** o sistema deve exibir o título "Completar plano de ação", a explicação "Esta ação foi criada a partir de uma recomendação da análise e ainda não está completa. Preencha os demais campos para que ela possa ser acompanhada." e os dados já existentes, exigindo todos os campos obrigatórios (US-5.1).
 - **CA05 — Ação completada**
     **Dado que** todos os campos obrigatórios tenham sido preenchidos, **quando** o usuário salvar, **então** o sistema deve passar a exibir o status normal da ação ("Em andamento"), liberar a atualização de andamento, registrar "plano de ação completado" no histórico e, se o incidente estiver "Analisado", atualizar o status para "Em ação".
 - **CA06 — Disponibilidade**
@@ -945,11 +987,11 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 **Critérios de Aceite**
 
 - **CA01 — Visualização das ações**
-    **Dado que** exista um plano de ação registrado, **quando** o usuário acessar a seção "Plano de ação" do detalhe da notificação, **então** o sistema deve apresentar as ações vinculadas à notificação em cartões numerados ("Ação 1", "Ação 2"...).
+    **Dado que** exista um plano de ação registrado, **quando** o usuário acessar a seção "Plano de ação" do detalhe da notificação, **então** o sistema deve apresentar as ações vinculadas à notificação em uma tabela, uma ação por linha (US-5.6, CA01).
 - **CA02 — Visualização dos responsáveis**
     **Dado que** existam ações registradas, **quando** o usuário visualizar o plano de ação, **então** o sistema deve apresentar o(s) responsável(eis) definido(s) para cada ação.
 - **CA03 — Visualização dos prazos**
-    **Dado que** uma ação possua prazos definidos, **quando** o usuário visualizar o plano de ação, **então** o sistema deve apresentar a previsão de início e a previsão de conclusão ("Início: dd/mm/aaaa · Fim: dd/mm/aaaa") e a data da última atualização da ação.
+    **Dado que** uma ação possua prazos definidos, **quando** o usuário visualizar o plano de ação, **então** o sistema deve apresentar a previsão de início (coluna "Início") e a previsão de conclusão (coluna "Prazo"), no formato dd/mm/aaaa; para ação "Atrasada" com nova previsão de finalização, a coluna "Prazo" exibe também, logo abaixo e em vermelho, "Nova: dd/mm/aaaa". A data e a hora da última atualização da ação são exibidas nos detalhes (olho).
 - **CA04 — Prazo da ação**
     **Dado que** uma ação seja registrada, **quando** o usuário definir o prazo de execução, **então** o sistema deve armazenar a data prevista para conclusão da ação, que não pode ser anterior à previsão de início.
 - **CA05 — Validação das informações obrigatórias**
@@ -957,7 +999,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 - **CA06 — Identificação de ações pendentes**
     **Dado que** existam ações ainda não concluídas, **quando** o usuário consultar o plano de ação, **então** o sistema deve permitir identificar quais ações permanecem pendentes — pelo status de cada ação (Em andamento, Parcialmente concluído, Atrasada) e, para ações pendentes de preenchimento, pelo aviso "Faltam N campos obrigatórios para essa ação poder ser acompanhada" (US-5.3).
 - **CA07 — Informação não preenchida**
-    **Dado que** algum campo de uma ação não tenha sido preenchido, **quando** o cartão ou os detalhes da ação forem exibidos, **então** o sistema deve apresentar "Não informado" no lugar do valor, nunca um espaço em branco.
+    **Dado que** algum campo de uma ação não tenha sido preenchido, **quando** a tabela ou os detalhes da ação forem exibidos, **então** o sistema deve apresentar "—" nas células da tabela e "Não informado" nos detalhes, nunca um espaço em branco.
 
 **Contexto de Uso:** A funcionalidade permite ao gestor e ao NSP acompanhar a execução das ações definidas durante a investigação e monitorar os respectivos prazos.
 
@@ -975,12 +1017,21 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 
 **Critérios de Aceite**
 
-- **CA01 — Cartões de acompanhamento**
-    **Dado que** existam ações registradas, **quando** o usuário acessar a seção "Plano de ação", **então** o sistema deve exibir um cartão por ação, lado a lado, com: número da ação; status (Em andamento, Parcialmente concluído, Concluído, Atrasada ou Cancelada, cada um com cor própria); indicação "Veio de uma recomendação da análise", quando for o caso; o que será feito; responsável(eis); início e fim previstos; e data/hora da última atualização.
-- **CA02 — Ações do cartão**
-    **Dado que** o usuário esteja visualizando um cartão, **quando** o incidente não estiver concluído, **então** o sistema deve oferecer os botões Editar (lápis — US-5.4), Atualizar andamento (setas circulares), Visualizar detalhes (olho) e Excluir (lixeira — US-5.4). O título "Ação N" nunca deve quebrar de linha; se não houver espaço, o status e os botões passam para a linha de baixo.
+- **CA01 — Tabela de acompanhamento**
+    **Dado que** existam ações registradas, **quando** o usuário acessar a seção "Plano de ação", **então** o sistema deve exibir as ações em uma tabela, uma ação por linha, com as colunas:
+    - **Ação** — o que será feito;
+    - **Recomendação** — texto da recomendação da análise que originou a ação, ou "—";
+    - **Responsável** — nome(s) do(s) responsável(eis);
+    - **Início** e **Prazo** — previsões de início e de conclusão (US-5.5, CA03);
+    - **Status** — selo com bolinha colorida: Em andamento, Parcialmente concluído, Concluído, Atrasada ou Cancelada, cada um com cor própria, ou "Preenchimento pendente" (US-5.3, CA02);
+    - **Acompanhamento** — a última informação de andamento conforme a situação: resultado observado (Em andamento e Parcialmente concluído), o que foi realizado (Concluído), motivo do atraso (Atrasada) ou motivo do cancelamento (Cancelada); "—" se ainda não houver;
+    - **Ações** — botões da linha (CA02).
+
+    O cabeçalho usa fundo cinza claro, como as demais tabelas do sistema. Em telas estreitas, a tabela rola na horizontal.
+- **CA02 — Ações da linha**
+    **Dado que** o usuário esteja visualizando a tabela, **quando** o incidente não estiver concluído, **então** o sistema deve oferecer, na coluna "Ações", os botões Editar (lápis — US-5.4; em ação pendente, "Completar preenchimento" — US-5.3), Atualizar andamento (setas circulares — somente em ações completas), Visualizar detalhes (olho) e Excluir (lixeira — US-5.4). Os botões devem ficar sempre lado a lado, sem quebrar de linha: se necessário, o sistema usa botões e fonte menores na tabela.
 - **CA03 — Detalhes da ação**
-    **Dado que** o usuário selecione "Visualizar detalhes", **quando** os detalhes forem exibidos, **então** o sistema deve apresentar: onde será feito, comprovação, resultado esperado, como verificar, quando verificar, resultado observado e os anexos (com opção de download), exibindo "Não informado" para campos vazios.
+    **Dado que** o usuário selecione "Visualizar detalhes" (olho), **quando** os detalhes forem exibidos, **então** o sistema deve abrir, logo abaixo da linha da ação e ocupando toda a largura da tabela, os campos: onde será feito, comprovação, resultado esperado, como verificar, quando verificar, resultado observado e os anexos (com opção de download), exibindo "Não informado" para campos vazios, além da data/hora da última atualização; o botão passa a "Ocultar detalhes".
 - **CA04 — Atualização individual da ação**
     **Dado que** exista uma ação com todos os campos obrigatórios preenchidos, **quando** o usuário selecionar "Atualizar andamento da ação", **então** o sistema deve abrir a tela "Atualizar andamento da ação" da ação selecionada. Ações pendentes de preenchimento não podem ter o andamento atualizado (US-5.3).
 - **CA05 — Identificação automática da ação**
@@ -996,15 +1047,17 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 - **CA10 — Registro da evidência**
     **Dado que** o usuário esteja atualizando uma ação, **quando** informar onde a evidência está armazenada, **então** o sistema deve permitir registrar a localização ou descrição da evidência (ex.: pasta compartilhada, protocolo ou link), exibindo na caixa de informação a comprovação definida no plano para aquela ação.
 - **CA11 — Anexos de evidência**
-    **Dado que** o usuário esteja atualizando uma ação, **quando** selecionar "Escolher arquivos", **então** o sistema deve aceitar somente arquivos PDF, DOCX, PNG e JPG/JPEG — a janela de seleção já filtra esses formatos, e qualquer outro arquivo escolhido não é anexado, com o aviso "O arquivo “X” não foi anexado: só são aceitos PDF, DOCX, PNG e JPG/JPEG." —; os anexos devem aparecer em lista, cada um com a opção de remover antes de salvar.
+    **Dado que** o usuário esteja atualizando uma ação, **quando** selecionar "Escolher arquivos", **então** o sistema deve aceitar somente arquivos PDF, DOCX, PNG e JPG/JPEG — a janela de seleção já filtra esses formatos, e qualquer outro arquivo escolhido não é anexado, com o aviso "O arquivo “X” não foi anexado: só são aceitos PDF, DOCX, PNG e JPG/JPEG." —; os anexos devem aparecer em lista, cada um com a opção de remover antes de salvar. A caixa de informação do campo "Anexar arquivos" deve informar os formatos aceitos, o limite de 10 MB por arquivo e o máximo de 10 anexos por ação, e o texto ao lado do botão exibe "PDF, DOCX, PNG e JPG/JPEG · até 10 MB por arquivo".
 - **CA12 — Quantidade e tamanho dos anexos**
     **Dado que** o usuário esteja anexando evidências a uma ação, **quando** selecionar os arquivos, **então** o sistema deve aceitar no máximo 10 anexos por ação (somando os já anexados em atualizações anteriores) e no máximo 10 MB por arquivo. O arquivo que ultrapassar o tamanho não é anexado, com o aviso "O arquivo “X” não foi anexado: o tamanho máximo é 10 MB."; ao atingir 10 anexos, a opção "Escolher arquivos" deve ser desabilitada, com a informação "Limite de 10 anexos por ação atingido.". A lista de anexos deve exibir o contador (ex.: 3/10) e o tamanho de cada arquivo.
 - **CA13 — Validação da atualização**
     **Dado que** existam campos obrigatórios não preenchidos, **quando** o usuário selecionar "Salvar atualização", **então** o sistema deve impedir o salvamento, destacar em vermelho cada campo obrigatório vazio com a mensagem "Campo obrigatório." logo abaixo, listar no aviso final os campos que faltam e rolar a tela até o primeiro campo pendente; o destaque some conforme o campo é preenchido.
-- **CA14 — Atualização do cartão**
-    **Dado que** o usuário tenha salvo uma atualização, **quando** retornar ao acompanhamento do plano, **então** o sistema deve apresentar a situação e as informações atualizadas da ação e registrar a atualização no histórico.
+- **CA14 — Atualização da linha da ação**
+    **Dado que** o usuário tenha salvo uma atualização, **quando** retornar ao acompanhamento do plano, **então** o sistema deve apresentar a situação e as informações atualizadas da ação na tabela (inclusive a coluna "Acompanhamento") e registrar a atualização no histórico.
 - **CA15 — Cancelamento da atualização**
     **Dado que** o usuário esteja preenchendo uma atualização, **quando** selecionar "Cancelar", **então** o sistema deve retornar à tela anterior sem registrar as alterações realizadas.
+- **CA16 — Limite dos textos da atualização**
+    **Dado que** o usuário esteja preenchendo a atualização de andamento, **quando** digitar nos campos de texto — Resultado observado, justificativa do efeito ("Por que o efeito foi parcial?" / "Por que a ação não foi efetiva?"), O que foi realizado?, Motivo do atraso, Motivo do cancelamento e Onde está armazenada a evidência? —, **então** o sistema deve limitar cada um a 200 caracteres, exibindo o contador "N/200" abaixo do campo, que fica vermelho junto com a borda ao ultrapassar; o texto não é cortado, mas ao selecionar "Salvar atualização" o sistema impede o salvamento, informa "Textos acima do limite de 200 caracteres: …" com os campos visíveis que excederam e rola a tela até o primeiro deles. Campos de data e o campo travado "Ação selecionada" não têm esse limite.
 
 **Contexto de Uso:** Essa funcionalidade permite o acompanhamento individual das ações cadastradas no plano, possibilitando que o NSP ou o gestor da área registre o andamento, situação, prazos e evidências da execução.
 
@@ -1293,9 +1346,10 @@ Esta seção descreve os requisitos não funcionais do sistema NotificaSaúde, i
 - **6.7.7** Em todos os menus de seleção do sistema com a opção "Outro", o texto especificado deve ter no máximo 30 caracteres, com contador "N/30" — exceto o "Onde será feito?" do plano de ação, que aceita até 50 caracteres (RN-24).
 - **6.7.8** Caixas de texto longo devem ter altura limitada: o usuário pode aumentá-las arrastando o canto até um limite (menor dentro de tabelas) e, a partir dele, o texto rola dentro da própria caixa, sem deformar a tela.
 - **6.7.9** Campos somente leitura exibidos em formulários (ex.: "Ação selecionada" na atualização de andamento) devem ter aparência de bloqueado — fundo cinza, texto esmaecido, borda contínua, ícone de cadeado e cursor de não permitido —, para não serem confundidos com campos editáveis.
-- **6.7.10** Informações não preenchidas devem ser exibidas como "Não informado", nunca como espaço em branco.
+- **6.7.10** Informações não preenchidas devem ser exibidas como "Não informado" (ou "—" em células de tabelas de consulta, como a do plano de ação), nunca como espaço em branco.
 - **6.7.11** Formulários devem manter espaçamento padronizado entre perguntas e posicionar campos relacionados lado a lado quando houver espaço (ex.: previsão de início e de conclusão; situação da ação e data real de início), empilhando-os em telas de celular. Tabelas de preenchimento devem ocupar a largura disponível e, no celular, podem exibir cada linha como um bloco empilhado.
-- **6.7.12** Listas extensas de itens dentro de um formulário (ex.: itens em análise na Seção 4A) devem poder ser recolhidas e expandidas, individualmente ou todas de uma vez, abrindo automaticamente os itens que contenham pendências.
+- **6.7.12** Listas extensas de itens dentro de um formulário (ex.: os PPCs e as categorias de fatores contribuintes na Seção 4 da análise) devem poder ser recolhidas e expandidas, abrindo automaticamente os itens que contenham pendências.
+- **6.7.13** Orientações longas e exemplos exibidos para apoiar usuários novos (ex.: "Como preencher", "Como identificar um PPC", exemplo da cronologia) devem usar tons neutros, com poucas cores, e poder ser recolhidos por uma seta; o sistema deve lembrar, no navegador do usuário, os blocos que ele recolheu, para não exibi-los abertos novamente a quem já conhece o formulário.
 
 ---
 
@@ -1361,7 +1415,7 @@ Quando a análise é realizada pelo NSP, ao concluí-la o incidente permanece "E
 Ao concluir a análise, cada recomendação registrada gera automaticamente uma ação no plano de ação, com o "O que será feito?" preenchido com o texto da recomendação e vínculo com a recomendação de origem. O plano de ação não é cadastrado dentro da análise.
 
 **RN-20 — Ações incompletas não são acompanhadas**
-Uma ação sem todos os campos obrigatórios preenchidos (ex.: criada a partir de uma recomendação) fica pendente de preenchimento: não exibe status e não pode ter o andamento atualizado até ser completada. Ao ser completada com o incidente "Analisado", o status do incidente passa a "Em ação".
+Uma ação sem todos os campos obrigatórios preenchidos (ex.: criada a partir de uma recomendação) fica pendente de preenchimento: em vez do status da ação, exibe o selo "Preenchimento pendente" e não pode ter o andamento atualizado até ser completada. Ao ser completada com o incidente "Analisado", o status do incidente passa a "Em ação".
 
 **RN-21 — Efetividade da ação**
 A atualização do andamento de uma ação exige a avaliação da efetividade ("A ação produziu o efeito esperado?"). A resposta "Sim" marca a ação automaticamente como "Concluído"; as respostas "Parcialmente" e "Não" exigem justificativa e mantêm a situação escolhida pelo usuário.
@@ -1373,7 +1427,7 @@ O incidente pode ser concluído pelo NSP, com status "Analisado" ou "Em ação",
 Ao salvar a atualização de uma ação com status "Concluído", se todas as ações do incidente estiverem finalizadas, o sistema sugere concluir o incidente. Uma ação "Cancelada" conta como finalizada para essa verificação, mas salvar a última ação como "Cancelada" não dispara a sugestão.
 
 **RN-24 — Especificação da opção "Outro"**
-Em todos os menus de seleção com a opção "Outro", ao escolhê-la o usuário deve especificar a opção em texto de no máximo 30 caracteres. A única exceção é o local de execução de uma ação do plano de ação ("Onde será feito?"), cujo texto de "Outro" aceita até 50 caracteres.
+Em todos os menus de seleção com a opção "Outro", ao escolhê-la o usuário deve especificar a opção em texto de no máximo 30 caracteres. A única exceção é o local de execução de uma ação do plano de ação ("Onde será feito?"), cujo texto de "Outro" aceita até 50 caracteres; nesse campo, "Outro" é uma das opções de uma lista em que é possível marcar um ou mais setores.
 
 **RN-25 — Anexos de evidência**
 Os anexos de evidência das ações aceitam somente arquivos nos formatos PDF, DOCX, PNG e JPG/JPEG, com no máximo 10 anexos por ação e 10 MB por arquivo. O limite deve ser validado também no servidor.
