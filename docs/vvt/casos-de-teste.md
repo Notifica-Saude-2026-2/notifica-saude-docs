@@ -28,6 +28,7 @@
     | 4.5 | 08/09/2026 | Adição do CT-E2E-018 na seção de Testes E2E e nos Critérios de Teste | Catarina Freisleben |
     | 4.6 | 09/09/2026 | Adição do CT-NF-010 na seção de Testes Não-Funcionais | Catarina Freisleben |
     | 4.7 | 23/09/2026 | Migração do documento (Google Docs/PDF) para o MkDocs. A matriz de rastreabilidade gerada a partir dos casos de teste foi publicada em documento próprio. | Sophya Ribeiro |
+    | 4.8 | 29/09/2026 | Adição dos casos de teste da US-4.1 (CT-FUN-041 a CT-FUN-046 e CT-E2E-019 a CT-E2E-020) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Catarina Freisleben |
 
 ## Sumário
 
@@ -42,6 +43,8 @@
         - [3.2.3. História 2.3 - Classificar incidente notificado](#testes-us-2-3)
         - [3.2.4. História 2.4 - Definir e gerenciar status do incidente](#testes-us-2-4)
         - [3.2.5. História 2.5 - Encaminhar notificação para área responsável](#testes-us-2-5)
+    - [3.3. Épico 4 - Registro de análise em notificação de incidentes](#testes-funcionais-epico-4)
+        - [3.3.1. História 4.1 - Visualizar incidentes para análise](#testes-us-4-1)
 - [4. Testes End-to-End](#testes-e2e)
 - [5. Testes Não-Funcionais](#testes-nao-funcionais)
 - [6. Critérios de Teste](#criterios-teste)
@@ -1838,6 +1841,281 @@ Validar que informações gerais e classificação da notificação não podem s
 - O sistema impede novo encaminhamento da notificação.
 - Nenhuma alteração é salva no sistema.
 
+### 3.3. Épico 4 - Registro de análise em notificação de incidentes { #testes-funcionais-epico-4 }
+
+#### 3.3.1. História 4.1 - Visualizar incidentes para análise { #testes-us-4-1 }
+
+##### CT-FUN-041 — Exibição somente dos incidentes encaminhados ao setor na fila do gestor { #ct-fun-041 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.1 | CA01 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que a fila do gestor da área apresenta somente os incidentes do seu setor que o NSP encaminhou a ele, antes da análise ou depois da análise feita pelo NSP, e que incidentes de outros setores e incidentes não encaminhados não aparecem.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de Gestor da Área vinculado ao Setor A
+- Existir a notificação N1, do Setor A, encaminhada pelo NSP ao setor antes da análise
+- Existir a notificação N2, do Setor A, analisada pelo NSP e com o resultado da análise encaminhado ao setor
+- Existir a notificação N3, do Setor B, encaminhada pelo NSP ao Setor B
+- Existir a notificação N4, do Setor A, classificada e não encaminhada
+
+**Dados de entrada**
+
+- **\*Setor A:** setor do Gestor da Área autenticado
+- **\*Setor B:** setor diferente do Setor A
+- **\*\*Identificadores:** identificadores das notificações N1, N2, N3 e N4
+
+\* Os setores variam conforme a instituição.
+
+\*\* Os identificadores variam conforme as notificações registradas.
+
+**Procedimentos**
+
+*Tela Todos Incidentes*
+1\. Verificar os incidentes listados.
+2\. Informar o identificador de cada notificação (N1, N2, N3 e N4) na barra de pesquisa e executar a busca.
+
+**Resultado esperado**
+
+- O sistema exibe a notificação N1, com status "Encaminhado".
+- O sistema exibe a notificação N2, com status "Analisado".
+- O sistema não exibe a notificação N3, de outro setor.
+- O sistema não exibe a notificação N4, não encaminhada.
+- A pesquisa pelos identificadores de N3 e N4 não retorna resultados.
+
+##### CT-FUN-042 — Exibição das informações do incidente para o gestor { #ct-fun-042 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.1 | CA03 | Fluxo principal |
+
+**Objetivo**
+
+Validar que o gestor da área visualiza as informações registradas do incidente a que tem acesso, incluindo os dados da notificação e a sua classificação.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de Gestor da Área
+- Existir uma notificação do setor do gestor, que envolva o paciente, classificada e encaminhada pelo NSP ao setor
+
+**Dados de entrada**
+
+- **\*Notificação:** notificação encaminhada ao setor do gestor
+
+\* As notificações variam conforme o encaminhamento realizado pelo NSP.
+
+**Procedimentos**
+
+*Tela Todos Incidentes*
+1\. Selecionar a notificação.
+*Tela Geral Notificação*
+2\. Verificar o cabeçalho da notificação.
+3\. Expandir a seção "Informações gerais".
+4\. Verificar os campos apresentados.
+5\. Expandir a seção "Classificação".
+
+**Resultado esperado**
+
+- O cabeçalho apresenta:
+    - Identificador
+    - **Criado em:**
+    - **Ocorrido em:**
+    - **Status:**
+- A seção "Informações gerais" apresenta:
+    - Descrição
+    - Data do incidente
+    - Horário
+    - Turno
+    - Instituição
+    - Setor
+    - Faixa etária
+    - Sexo
+- A seção "Classificação" apresenta a classificação registrada pelo NSP.
+
+##### CT-FUN-043 — Exibição da classificação, do prazo para análise e do responsável pelo incidente { #ct-fun-043 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.1 | CA04 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que o sistema apresenta a classificação do incidente, o grau do dano, o tipo de incidente ou o tipo específico de Never Event, os envolvidos, as observações do NSP, o prazo para análise e o responsável pelo incidente, conforme a classificação registrada e o status do incidente.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de Gestor da Área
+- Existir a notificação C1, do setor do gestor, classificada como Evento adverso com grau de dano Leve e encaminhada ao setor
+- Existir a notificação C2, do setor do gestor, classificada como Never Event e encaminhada ao setor
+- Existir a notificação C3, do setor do gestor, com status "Analisado"
+- As classificações foram finalizadas por um profissional do NSP
+
+**Dados de entrada**
+
+- **Classificação C1:** Evento adverso; Grau do dano: Leve; Tipo de incidente: Queda; Envolve: Paciente; Observações do NSP: Paciente avaliado pela equipe.
+- **Classificação C2:** Evento adverso; Grau do dano: Never Event; Tipo específico: Troca de bebês; Envolve: Paciente.
+- **\*Responsável:** nome do profissional do NSP que finalizou a classificação
+
+\* O nome varia conforme o usuário do NSP que classificou o incidente.
+
+**Procedimentos**
+
+1\. Repetir para as notificações C1, C2 e C3:
+*Tela Todos Incidentes*
+2\. Selecionar a notificação.
+*Tela Geral Notificação*
+3\. Verificar o campo "Responsável" no cabeçalho.
+4\. Expandir a seção "Classificação".
+5\. Verificar os campos e o prazo apresentados.
+
+**Resultado esperado**
+
+- **Notificação C1:**
+    - O cabeçalho apresenta **Responsável:** nome do profissional do NSP que finalizou a classificação
+    - A seção "Classificação" apresenta Classificação, Grau do dano, Tipo de incidente, Envolve e Observações do NSP
+    - O sistema exibe "Prazo para análise:" com a data-limite calculada para o grau de dano Leve
+- **Notificação C2:**
+    - O cabeçalho apresenta **Responsável:** nome do profissional do NSP que finalizou a classificação
+    - A seção "Classificação" apresenta o campo "Tipo específico (Never Event)" no lugar de "Tipo de incidente"
+    - O sistema exibe "Prazo para análise:" com a data-limite calculada para Never Event
+- **Notificação C3:**
+    - O cabeçalho apresenta **Responsável:** nome do profissional do NSP que finalizou a classificação
+    - O sistema não exibe o prazo para análise
+
+##### CT-FUN-044 — Ocultação da identificação do notificante para o gestor { #ct-fun-044 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.1 | CA05 | Partição por equivalência |
+
+**Objetivo**
+
+Garantir que o sistema omite do gestor da área os campos de identificação do notificante (nome e celular/e-mail) em todas as telas, sem indicar se a notificação foi identificada ou anônima, e que esses dados não são enviados ao navegador do gestor.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de Gestor da Área e com credenciais de profissional do NSP
+- Existir a notificação I1, identificada (com nome e celular/e-mail do notificante), do setor do gestor e encaminhada ao setor
+- Existir a notificação I2, anônima, do setor do gestor e encaminhada ao setor
+
+**Dados de entrada**
+
+- **Notificante da notificação I1:** Maria da Silva; maria@exemplo.com
+
+**Procedimentos**
+
+1\. Com o Gestor da Área autenticado, repetir para as notificações I1 e I2:
+*Tela Todos Incidentes*
+2\. Selecionar a notificação.
+*Tela Geral Notificação*
+3\. Expandir a seção "Informações gerais" e verificar os campos apresentados.
+4\. Verificar, nas ferramentas do desenvolvedor do navegador (aba Rede), a resposta do servidor ao carregar a notificação.
+5\. Na seção "Análise", selecionar "Registrar análise".
+*Tela Análise*
+6\. Verificar o "Resumo do Incidente" da Seção 1, sem salvar.
+7\. Com o profissional do NSP autenticado, abrir a notificação I1 e expandir a seção "Informações gerais".
+
+**Resultado esperado**
+
+- **Notificações I1 e I2, vistas pelo gestor:**
+    - A seção "Informações gerais" não apresenta os campos "Nome do notificante" e "Celular/E-mail", nem campo vazio ou "Não informado" no lugar deles
+    - O "Resumo do Incidente" da Seção 1 não apresenta os campos de identificação do notificante nem a indicação "Notificação anônima"
+    - A resposta do servidor não contém o nome nem o celular/e-mail do notificante
+    - As telas das notificações I1 e I2 não permitem distinguir a notificação identificada da anônima
+- **Notificação I1, vista pelo NSP:**
+    - A seção "Informações gerais" apresenta **Nome do notificante:** Maria da Silva e **Celular/E-mail:** maria@exemplo.com
+
+##### CT-FUN-045 — Bloqueio de acesso do gestor a incidente de outro setor ou não encaminhado { #ct-fun-045 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.1 | CA06 | Partição por equivalência |
+
+**Objetivo**
+
+Garantir que o sistema impede o gestor da área de acessar, por link direto ou pelo identificador, as informações e a análise de incidentes de outro setor ou não encaminhados ao seu setor pelo NSP.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de Gestor da Área vinculado ao Setor A
+- Existir a notificação A1, do Setor A, encaminhada pelo NSP ao setor
+- Existir a notificação A2, do Setor B, encaminhada pelo NSP ao Setor B
+- Existir a notificação A3, do Setor A, classificada e não encaminhada
+- Endereços da tela de detalhe das notificações A1, A2 e A3 obtidos por um profissional do NSP
+
+**Dados de entrada**
+
+- **\*Setor A:** setor do Gestor da Área autenticado
+- **\*Setor B:** setor diferente do Setor A
+- **\*\*Endereços:** endereço da tela de detalhe de cada notificação (A1, A2 e A3)
+
+\* Os setores variam conforme a instituição.
+
+\*\* Os endereços variam conforme o identificador de cada notificação.
+
+**Procedimentos**
+
+1\. Repetir para as notificações A1, A2 e A3:
+2\. Acessar diretamente, no navegador, o endereço da tela de detalhe da notificação.
+3\. Verificar as informações apresentadas.
+4\. Verificar, nas ferramentas do desenvolvedor do navegador (aba Rede), a resposta do servidor.
+*Tela Todos Incidentes*
+5\. Informar o identificador da notificação na barra de pesquisa e executar a busca.
+
+**Resultado esperado**
+
+- **Notificação A1 (Setor A, encaminhada):**
+    - O sistema exibe a Tela Geral Notificação com as informações do incidente
+    - A pesquisa pelo identificador retorna a notificação
+- **Notificações A2 (Setor B) e A3 (não encaminhada):**
+    - O sistema impede o acesso e não exibe nenhuma informação do incidente nem da análise
+    - A resposta do servidor não contém os dados do incidente
+    - A pesquisa pelo identificador não retorna resultados
+
+##### CT-FUN-046 — Exibição de todos os incidentes da instituição para o NSP { #ct-fun-046 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.1 | CA08 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que o profissional do NSP visualiza todos os incidentes da instituição, independentemente de encaminhamento ou de quem seja o responsável pelo incidente.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais do profissional do NSP 1
+- Existir a notificação T1, sem classificação
+- Existir a notificação T2, classificada pelo profissional do NSP 1 e não encaminhada
+- Existir a notificação T3, classificada pelo profissional do NSP 2 e não encaminhada
+- Existir a notificação T4, encaminhada ao Setor A
+- Existir a notificação T5, encaminhada ao Setor B
+
+**Dados de entrada**
+
+- **\*Identificadores:** identificadores das notificações T1, T2, T3, T4 e T5
+
+\* Os identificadores variam conforme as notificações registradas.
+
+**Procedimentos**
+
+*Tela Todos Incidentes*
+1\. Verificar os incidentes listados.
+2\. Informar o identificador de cada notificação (T1 a T5) na barra de pesquisa e executar a busca.
+3\. Verificar o campo "Responsável" de cada notificação.
+
+**Resultado esperado**
+
+- O sistema exibe as notificações T1, T2, T3, T4 e T5.
+- A pesquisa pelo identificador de cada notificação retorna a notificação correspondente.
+- A notificação T1 apresenta **Responsável:** —
+- A notificação T2 apresenta **Responsável:** nome do profissional do NSP 1
+- A notificação T3 apresenta **Responsável:** nome do profissional do NSP 2
+
 ---
 
 ## 4. Testes End-to-End { #testes-e2e }
@@ -2602,6 +2880,117 @@ Validar que o sistema impede o encaminhamento ao setor responsável de notifica�
     - Sistema realiza o encaminhamento
     - Sistema altera o status para "Encaminhado"
 
+### CT-E2E-019 — Permanência do incidente na fila do gestor ao longo do fluxo { #ct-e2e-019 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.1 | CA02 | Fluxo principal e fluxo alternativo |
+
+**Objetivo**
+
+Validar que o incidente encaminhado ao setor permanece na fila do gestor da área enquanto o seu status avança (Em análise, Analisado, Em ação, Concluído ou Arquivado), mantendo o acesso do gestor até o fim do fluxo.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP e com credenciais de Gestor da Área vinculado ao Setor A
+- Existir a notificação E1, do Setor A, classificada
+- Existir a notificação E2, do Setor A, classificada
+
+**Dados de entrada**
+
+- **\*Setor A:** setor do Gestor da Área
+- **\*\*Identificadores:** identificadores das notificações E1 e E2
+
+\* Os setores variam conforme a instituição.
+
+\*\* Os identificadores variam conforme as notificações registradas.
+
+**Procedimentos**
+
+*Tela Geral Notificação (profissional do NSP)*
+1\. Abrir a notificação E1 e selecionar "Encaminhar para o setor analisar".
+*Modal Encaminhamento*
+2\. Selecionar "Enviar".
+*Tela Todos Incidentes (Gestor da Área)*
+3\. Verificar a notificação E1 na fila, com status "Encaminhado".
+*Tela Análise (Gestor da Área)*
+4\. Abrir a notificação E1, selecionar "Registrar análise" e salvar a primeira seção.
+*Tela Todos Incidentes (Gestor da Área)*
+5\. Verificar a notificação E1 na fila, com status "Em análise".
+*Tela Análise (Gestor da Área)*
+6\. Preencher as seções restantes com uma recomendação e concluir a análise.
+*Tela Todos Incidentes (Gestor da Área)*
+7\. Verificar a notificação E1 na fila, com status "Analisado".
+*Tela Geral Notificação (Gestor da Área)*
+8\. Na seção "Plano de ação", completar a ação originada da recomendação.
+*Tela Todos Incidentes (Gestor da Área)*
+9\. Verificar a notificação E1 na fila, com status "Em ação".
+*Tela Geral Notificação (profissional do NSP)*
+10\. Abrir a notificação E1, selecionar "Concluir incidente" no menu de opções do status e confirmar.
+*Tela Todos Incidentes (Gestor da Área)*
+11\. Verificar a notificação E1 na fila, com status "Concluído", e abrir o seu detalhe.
+*Tela Geral Notificação (profissional do NSP)*
+12\. Encaminhar a notificação E2 ao Setor A, selecionar "Arquivar notificação" no menu de opções do status e confirmar.
+*Tela Todos Incidentes (Gestor da Área)*
+13\. Verificar a notificação E2 na fila, com status "Arquivado", e abrir o seu detalhe.
+
+**Resultado esperado**
+
+- A notificação E1 permanece na fila do gestor em cada etapa, com os status "Encaminhado", "Em análise", "Analisado", "Em ação" e "Concluído".
+- A notificação E2 permanece na fila do gestor após o arquivamento, com status "Arquivado".
+- O gestor acessa o detalhe das notificações E1 e E2 após a conclusão e o arquivamento.
+
+### CT-E2E-020 — Acesso do gestor ao resultado da análise realizada pelo NSP { #ct-e2e-020 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.1 | CA07 | Fluxo alternativo |
+
+**Objetivo**
+
+Validar que, quando a análise é realizada pelo NSP sem encaminhamento prévio, o gestor da área só acessa o incidente e as informações da análise se o NSP decidir encaminhar o resultado ao setor.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP e com credenciais de Gestor da Área vinculado ao Setor A
+- Existir a notificação R1, do Setor A, classificada
+- Existir a notificação R2, do Setor A, classificada
+
+**Dados de entrada**
+
+- **Justificativa de não encaminhamento (R2):** Incidente restrito ao núcleo.
+- **\*Identificadores:** identificadores das notificações R1 e R2
+
+\* Os identificadores variam conforme as notificações registradas.
+
+**Procedimentos**
+
+1\. Repetir para as notificações R1 e R2:
+*Tela Geral Notificação (profissional do NSP)*
+2\. Na seção "Análise", selecionar "Registrar análise".
+*Tela Análise (profissional do NSP)*
+3\. Preencher as seções com uma recomendação e concluir a análise.
+*Tela Todos Incidentes (Gestor da Área)*
+4\. Verificar que a notificação não aparece na fila.
+*Tela Geral Notificação (profissional do NSP)*
+5\. Para R1, selecionar "Encaminhar ao setor" e, no *Modal Encaminhamento*, selecionar "Enviar".
+6\. Para R2, selecionar "Não encaminhar / justificar", informar a justificativa e selecionar "Confirmar".
+*Tela Todos Incidentes (Gestor da Área)*
+7\. Verificar as notificações R1 e R2 na fila.
+8\. Abrir a notificação R1 e expandir a seção "Análise".
+9\. Acessar diretamente, no navegador, o endereço da tela de detalhe da notificação R2.
+
+**Resultado esperado**
+
+- Antes da decisão do NSP, as notificações R1 e R2 não aparecem na fila do gestor.
+- **Notificação R1 (resultado encaminhado):**
+    - A notificação aparece na fila do gestor, com status "Analisado"
+    - A seção "Análise" apresenta "A análise deste incidente foi concluída." e as informações da análise, incluindo as recomendações geradas
+- **Notificação R2 (resultado não encaminhado):**
+    - A notificação não aparece na fila do gestor
+    - O sistema impede o acesso direto e não exibe nenhuma informação do incidente nem da análise
+    - O histórico da notificação, visto pelo NSP, registra a decisão de não encaminhar com a justificativa
+
 ---
 
 ## 5. Testes Não-Funcionais { #testes-nao-funcionais }
@@ -2879,6 +3268,20 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Padrão | Encaminhar notificação classificada com grau de dano permitido | Sistema encaminha ao setor responsável e altera o status para "Encaminhado" |
 | Alternativo | Tentar encaminhar notificação classificada como Óbito ou Never Event | Sistema não realiza o encaminhamento, informa o motivo e mantém o status "Classificada" |
 
+**[CT-E2E-019](#ct-e2e-019)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Incidente encaminhado avança por Em análise, Analisado, Em ação e Concluído | Sistema mantém o incidente na fila do gestor em todos os status |
+| Alternativo | NSP arquiva o incidente encaminhado | Sistema mantém o incidente na fila do gestor com status "Arquivado" |
+
+**[CT-E2E-020](#ct-e2e-020)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | NSP conclui a análise e encaminha o resultado ao setor | Sistema passa a exibir o incidente e a análise ao gestor |
+| Alternativo | NSP conclui a análise e não encaminha o resultado, com justificativa | Sistema não exibe o incidente ao gestor e impede o acesso direto |
+
 ### 6.2 Partição por Equivalência { #criterios-particao }
 
 **[CT-AUTH-002](#ct-auth-002) e [CT-AUTH-003](#ct-auth-003)**
@@ -2964,6 +3367,49 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Válido | Grau de dano Leve, Moderado ou Grave | Sistema realiza o encaminhamento |
 | Inválido | Grau de dano Óbito | Sistema impede o encaminhamento e informa o motivo |
 | Inválido | Classificação como Never Event | Sistema impede o encaminhamento e informa o motivo |
+
+**[CT-FUN-041](#ct-fun-041)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Incidente do setor do gestor encaminhado antes da análise | Sistema exibe o incidente na fila do gestor |
+| Válido | Incidente do setor do gestor analisado pelo NSP com resultado encaminhado | Sistema exibe o incidente na fila do gestor |
+| Inválido | Incidente de outro setor | Sistema não exibe o incidente na fila do gestor |
+| Inválido | Incidente do setor do gestor não encaminhado | Sistema não exibe o incidente na fila do gestor |
+
+**[CT-FUN-043](#ct-fun-043)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Evento adverso com grau de dano | Sistema exibe Grau do dano e Tipo de incidente |
+| Válido | Evento adverso classificado como Never Event | Sistema exibe Tipo específico (Never Event) no lugar de Tipo de incidente |
+| Válido | Incidente com status "Encaminhado" ou "Em análise" | Sistema exibe o prazo para análise |
+| Válido | Incidente com status "Analisado" | Sistema não exibe o prazo para análise |
+
+**[CT-FUN-044](#ct-fun-044)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Notificação identificada visualizada pelo gestor | Sistema omite nome e celular/e-mail do notificante na tela e na resposta do servidor |
+| Válido | Notificação anônima visualizada pelo gestor | Sistema apresenta a mesma tela da notificação identificada, sem indicar que é anônima |
+| Válido | Notificação identificada visualizada pelo NSP | Sistema exibe nome e celular/e-mail do notificante |
+
+**[CT-FUN-045](#ct-fun-045)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Acesso direto a incidente do setor do gestor encaminhado | Sistema exibe as informações do incidente |
+| Inválido | Acesso direto a incidente de outro setor | Sistema impede o acesso às informações do incidente e da análise |
+| Inválido | Acesso direto a incidente do setor do gestor não encaminhado | Sistema impede o acesso às informações do incidente e da análise |
+
+**[CT-FUN-046](#ct-fun-046)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Incidente sem classificação | Sistema exibe o incidente ao NSP |
+| Válido | Incidente classificado e não encaminhado | Sistema exibe o incidente ao NSP |
+| Válido | Incidente encaminhado a um setor | Sistema exibe o incidente ao NSP |
+| Válido | Incidente classificado por outro profissional do NSP | Sistema exibe o incidente ao NSP, com o outro profissional como responsável |
 
 ### 6.3 Análise de Valor Limite { #criterios-valor-limite }
 

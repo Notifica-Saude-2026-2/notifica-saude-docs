@@ -8,6 +8,7 @@
     | Versão | Data | Justificativa | Responsável |
     | --- | --- | --- | --- |
     | 1.0 | 23/09/2026 | Criação do documento a partir das informações de identificação dos casos de teste (versão 4.7 do documento de Casos de Teste). | Sophya Ribeiro |
+    | 1.1 | 29/09/2026 | Inclusão dos casos de teste da US-4.1 e da ligação dos RNF 6.2.2 e 6.3.4 aos casos de teste CT-FUN-045 e CT-FUN-044. | Catarina Freisleben |
 
 ## Sumário
 
@@ -79,6 +80,14 @@ Relação entre as histórias de usuário (e seus critérios de aceite), os requ
 | US-3.2 | CA04 + CA08 | [CT-AUTH-007](casos-de-teste.md#ct-auth-007) |
 | US-3.2 | CA05 | [CT-AUTH-008](casos-de-teste.md#ct-auth-008) |
 | US-3.2 | CA07 | [CT-AUTH-009](casos-de-teste.md#ct-auth-009) |
+| US-4.1 | CA01 | [CT-FUN-041](casos-de-teste.md#ct-fun-041) |
+| US-4.1 | CA02 | [CT-E2E-019](casos-de-teste.md#ct-e2e-019) |
+| US-4.1 | CA03 | [CT-FUN-042](casos-de-teste.md#ct-fun-042) |
+| US-4.1 | CA04 | [CT-FUN-043](casos-de-teste.md#ct-fun-043) |
+| US-4.1 | CA05 | [CT-FUN-044](casos-de-teste.md#ct-fun-044) |
+| US-4.1 | CA06 | [CT-FUN-045](casos-de-teste.md#ct-fun-045) |
+| US-4.1 | CA07 | [CT-E2E-020](casos-de-teste.md#ct-e2e-020) |
+| US-4.1 | CA08 | [CT-FUN-046](casos-de-teste.md#ct-fun-046) |
 
 
 ---
@@ -88,8 +97,10 @@ Relação entre as histórias de usuário (e seus critérios de aceite), os requ
 | Requisito não-funcional | Casos de teste |
 | --- | --- |
 | RNF 6.1.3 | [CT-NF-002](casos-de-teste.md#ct-nf-002) |
+| RNF 6.2.2 | [CT-FUN-045](casos-de-teste.md#ct-fun-045) |
 | RNF 6.2.5 | [CT-NF-003](casos-de-teste.md#ct-nf-003) |
 | RNF 6.2.6 | [CT-NF-004](casos-de-teste.md#ct-nf-004) |
+| RNF 6.3.4 | [CT-FUN-044](casos-de-teste.md#ct-fun-044) |
 | RNF 6.4.1 | [CT-NF-005](casos-de-teste.md#ct-nf-005) |
 | RNF 6.4.2 | [CT-NF-006](casos-de-teste.md#ct-nf-006) |
 | RNF 6.5.1 | [CT-NF-001](casos-de-teste.md#ct-nf-001), [CT-NF-007](casos-de-teste.md#ct-nf-007), [CT-NF-008](casos-de-teste.md#ct-nf-008) |
