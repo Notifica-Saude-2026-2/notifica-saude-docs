@@ -18,6 +18,7 @@
     | 2.3 | 18/08/2026 | Definição do modelo de ramificação próprio da documentação, com branches `docs/<descrição>` sem número de issue. Definição da issue como opcional para atualizações de rotina e obrigatória apenas para tarefas complexas. Inclusão do registro no histórico de alterações como etapa do fluxo. | Eduardo Alves |
     | 2.4 | 19/08/2026 | Inclusão do fluxo de *hotfix* no diagrama de ramificação e na tabela de branches, e do modelo simplificado adotado nos repositórios de apoio. Atualização das referências dos repositórios, remoção da política de notificação via Discord. | Eduardo Alves |
     | 2.5 | 25/08/2026 | Adição do guia de uso do act, para execução local da esteira de CI no backend e no frontend, complementando a política de pipelines. | Kauan Cardoso |
+    | 2.6 | 02/10/2026 | Inclusão dos relatórios de testes unitários, de integração e E2E como critério da Definição de Pronto (DoD) na seção de testes. | Brenno Ostemberg |
 
 ## Sumário
 
