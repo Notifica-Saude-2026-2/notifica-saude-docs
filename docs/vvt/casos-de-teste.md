@@ -30,6 +30,7 @@
     | 4.7 | 23/09/2026 | Migração do documento (Google Docs/PDF) para o MkDocs. A matriz de rastreabilidade gerada a partir dos casos de teste foi publicada em documento próprio. | Sophya Ribeiro |
     | 4.8 | 29/09/2026 | Adição dos casos de teste da US-4.1 (CT-FUN-041 a CT-FUN-046 e CT-E2E-019 a CT-E2E-020) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Catarina Freisleben |
     | 4.9 | 29/09/2026 | Adição dos casos de teste da US-4.2 (CT-FUN-047 a CT-FUN-052 e CT-E2E-021) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Catarina Freisleben |
+    | 4.10 | 05/10/2026 | Adição e revisão dos casos de teste da US-4.3 (CT-FUN-053 a CT-FUN-063 e CT-E2E-022 a CT-E2E-023) e da US-4.4 (CT-FUN-064 a CT-FUN-075 e CT-E2E-024 a CT-E2E-025), com atualização dos Critérios de Teste | Catarina Freisleben |
 
 ## Sumário
 
@@ -47,6 +48,8 @@
     - [3.3. Épico 4 - Registro de análise em notificação de incidentes](#testes-funcionais-epico-4)
         - [3.3.1. História 4.1 - Visualizar incidentes para análise](#testes-us-4-1)
         - [3.3.2. História 4.2 - Registrar análise do incidente](#testes-us-4-2)
+        - [3.3.3. História 4.3 - Identificar o incidente em investigação](#testes-us-4-3)
+        - [3.3.4. História 4.4 - Registrar equipe, fontes e entrevistas da análise](#testes-us-4-4)
 - [4. Testes End-to-End](#testes-e2e)
 - [5. Testes Não-Funcionais](#testes-nao-funcionais)
 - [6. Critérios de Teste](#criterios-teste)
@@ -2420,9 +2423,8 @@ Validar que o sistema apresenta, na Seção 1 da análise, o resumo da notifica�
 - **Sexo:** Feminino.
 - **Notificante:** [TESTE] Mariana Souza.
 - **Classificação:** Incidente sem dano.
-- **Grau do dano:** Sem dano.
 - **Tipo de incidente:** Erro de medicação.
-- **Envolvidos:** Equipe de enfermagem.
+- **Envolvidos:** Profissional de saúde.
 - **Data da classificação:** Data válida.
 - **Observações do NSP:** [TESTE] Classificação realizada após análise do relato.
 
@@ -2443,11 +2445,10 @@ Validar que o sistema apresenta, na Seção 1 da análise, o resumo da notifica�
 11. Verificar o notificante.
 12. Verificar o resumo da classificação.
 13. Verificar a classificação.
-14. Verificar o grau do dano.
-15. Verificar o tipo de incidente.
-16. Verificar os envolvidos.
-17. Verificar a data da classificação.
-18. Verificar as observações do NSP.
+14. Verificar o tipo de incidente.
+15. Verificar os envolvidos.
+16. Verificar a data da classificação.
+17. Verificar as observações do NSP.
 
 **Resultado esperado**
 
@@ -2558,7 +2559,7 @@ Garantir que o preenchimento do campo "Informe o incidente em investigação" se
 - Sistema bloqueia o avanço enquanto o campo não estiver preenchido.
 
 
-##### CT-FUN-057 — Validação do limite de 100 caracteres do incidente em investigação { #ct-fun-058 }
+##### CT-FUN-057 — Validação do limite de 100 caracteres do incidente em investigação { #ct-fun-057 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -2593,7 +2594,7 @@ Validar o comportamento do sistema no limite máximo permitido de 100 caracteres
 - Sistema permite o avanço para a próxima seção.
 
 
-##### CT-FUN-059 — Bloqueio do avanço ao ultrapassar 100 caracteres { #ct-fun-060 }
+##### CT-FUN-059 — Bloqueio do avanço ao ultrapassar 100 caracteres { #ct-fun-059 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -2662,7 +2663,7 @@ Validar que o sistema permite o avanço após o texto do incidente ser reduzido 
 - Sistema permite o avanço para a próxima seção.
 
 
-##### CT-FUN-062 — Exibição do incidente em investigação nas demais seções { #ct-fun-048 }
+##### CT-FUN-062 — Exibição do incidente em investigação nas demais seções { #ct-fun-062 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -2865,12 +2866,17 @@ Validar o limite máximo de 50 caracteres para o campo Nome do condutor da anál
 2. Preencher o campo **Nome** com exatamente 50 caracteres.
 3. Verificar o campo.
 4. Substituir o conteúdo por um texto com mais de 50 caracteres.
-5. Verificar o comportamento do campo.
+5. Verificar o contador de caracteres.
+6. Verificar o aviso apresentado.
+7. Tentar avançar.
 
 **Resultado esperado**
 
 - Sistema permite o preenchimento do Nome com até 50 caracteres.
-- Sistema impede que o campo ultrapasse o limite de 50 caracteres.
+- Contador de caracteres é exibido em vermelho.
+- Sistema apresenta o aviso **"Nome deve ter no máximo 50 caracteres (atual: N)."**
+- Sistema bloqueia o avanço.
+- Sistema não corta automaticamente o texto informado.
 
 
 ##### CT-FUN-067 — Inclusão e remoção de membros participantes { #ct-fun-067 }
@@ -2893,6 +2899,7 @@ Validar a inclusão e remoção de membros participantes da análise.
 **Dados de entrada**
 
 - **Nome:** [TESTE] João Silva.
+- **Nome excedente:** texto contendo mais de 50 caracteres.
 - **Formação:** Medicina.
 - **Função:** Médico(a).
 - **Setor:** Clínica Médica.
@@ -2909,12 +2916,19 @@ Validar a inclusão e remoção de membros participantes da análise.
 6. Selecionar a Função.
 7. Selecionar o Setor.
 8. Verificar os dados preenchidos.
-9. Remover o membro adicionado.
+9. Substituir o Nome por um texto com mais de 50 caracteres.
+10. Verificar o contador de caracteres.
+11. Verificar o aviso apresentado.
+12. Tentar avançar.
+13. Reduzir o Nome para no máximo 50 caracteres.
+14. Remover o membro adicionado.
 
 **Resultado esperado**
 
 - Sistema inclui uma nova linha contendo Nome, Formação, Função e Setor.
 - Sistema permite o preenchimento dos campos do membro.
+- Ao ultrapassar 50 caracteres no Nome do membro, o contador fica vermelho, o sistema apresenta o aviso **"Nome deve ter no máximo 50 caracteres (atual: N)."**, bloqueia o avanço e não corta o texto informado.
+- Após reduzir o Nome para no máximo 50 caracteres, o sistema deixa de indicar o excesso.
 - Sistema permite remover o membro adicionado.
 
 
@@ -3120,13 +3134,13 @@ Validar que, ao selecionar "Sim", o sistema exibe o registro de entrevistas e ex
 2. Verificar a exibição da tabela **"Registro de cada entrevista"**.
 3. Verificar a existência de uma linha em branco.
 4. Tentar avançar sem preencher uma entrevista.
-5. Clicar em **"+ Adicionar entrevista"**.
-6. Preencher os campos da entrevista.
+5. Preencher os campos da linha em branco da entrevista.
 
 **Resultado esperado**
 
 - Sistema exibe a tabela **"Registro de cada entrevista"**.
 - Sistema apresenta uma linha em branco.
+- Ao tentar avançar sem preencher a entrevista, o sistema destaca as células pendentes e apresenta a mensagem **"Adicione pelo menos 1 entrevista."**.
 - Sistema exige pelo menos uma entrevista.
 - Sistema disponibiliza o botão **"+ Adicionar entrevista"**.
 - Após preencher uma entrevista válida, o sistema permite o avanço.
@@ -3176,9 +3190,7 @@ Validar os campos obrigatórios e os limites definidos para o registro de uma en
 **Resultado esperado**
 
 - Sistema exige o preenchimento de Data, Nome, Função, Relato / fatos relevantes e Problemas ou condições percebidos.
-- O campo Nome possui limite máximo de 50 caracteres.
-- O campo Relato / fatos relevantes possui limite máximo de 500 caracteres.
-- O campo Problemas ou condições percebidos possui limite máximo de 500 caracteres.
+- Ao ultrapassar o limite do Nome, do Relato / fatos relevantes ou de Problemas ou condições percebidos, o contador correspondente fica vermelho, o sistema apresenta o aviso de limite, bloqueia o avanço e não corta o texto informado.
 - Sistema permite a opção **"Outro"** no campo Função.
 
 
@@ -4257,7 +4269,7 @@ Validar o comportamento completo da Seção 1 quando o incidente em investigaç�
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Sim | US-4.4 | CA01 até CA05 e CA07 | Fluxo principal |
+| Sim | US-4.4 | CA01 + CA03 + CA04 + CA05 | Fluxo principal |
 
 **Objetivo**
 
@@ -4327,7 +4339,7 @@ Validar o fluxo completo de preenchimento da equipe responsável pela análise, 
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Sim | US-4.4 | CA01 até CA07 | Fluxo alternativo |
+| Sim | US-4.4 | CA01 + CA04 + CA05 + CA06 | Fluxo alternativo |
 
 **Objetivo**
 
@@ -4373,22 +4385,20 @@ Validar o fluxo completo de registro da equipe, fontes consultadas e entrevistas
 8. Selecionar **"Sim"** em **"Alguém precisa ser ouvido?"**.
 9. Verificar a exibição da tabela **"Registro de cada entrevista"**.
 10. Verificar a existência de uma linha em branco.
-11. Clicar em **"+ Adicionar entrevista"**.
-12. Preencher a Data.
-13. Preencher o Nome.
-14. Selecionar a Função.
-15. Preencher **Relato / fatos relevantes**.
-16. Preencher **Problemas ou condições percebidos**.
-17. Verificar os dados preenchidos.
-18. Avançar para a próxima seção.
+11. Preencher a Data da linha em branco.
+12. Preencher o Nome da linha em branco.
+13. Selecionar a Função da linha em branco.
+14. Preencher **Relato / fatos relevantes**.
+15. Preencher **Problemas ou condições percebidos**.
+16. Verificar os dados preenchidos.
+17. Avançar para a próxima seção.
 
 **Resultado esperado**
 
 - O sistema permite registrar o condutor da análise.
 - O sistema permite selecionar as fontes consultadas.
 - Ao selecionar **"Sim"**, o sistema exibe a tabela **"Registro de cada entrevista"**.
-- O sistema exige pelo menos uma entrevista.
-- O sistema permite adicionar uma entrevista.
+- O sistema exige pelo menos uma entrevista, validada no CT-FUN-073.
 - O sistema permite preencher Data, Nome, Função, Relato / fatos relevantes e Problemas ou condições percebidos.
 - O sistema permite avançar após o preenchimento completo da entrevista.
 - Os dados registrados permanecem disponíveis na análise após o avanço para a próxima seção.
@@ -4708,7 +4718,7 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Alternativo | Selecionar "Próximo" com pendências | Sistema não avança, destaca os campos pendentes e exibe as mensagens e o aviso |
 | Alternativo | Corrigir um campo destacado | Sistema remove o destaque do campo corrigido |
 
-**[CT-FUN-050](#ct-fun-050)**
+**[CT-FUN-057](#ct-fun-057), [CT-FUN-059](#ct-fun-059)**
 
 | Fluxo | Descrição | Resultado esperado |
 | --- | --- | --- |
@@ -4728,6 +4738,25 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | --- | --- | --- |
 | Padrão | Abrir o formulário sem marcar "Não mostrar novamente" | Sistema exibe o Guia de investigação antes da Seção 1 |
 | Alternativo | Marcar "Não mostrar novamente" e abrir o formulário de outra análise | Sistema abre o formulário diretamente na Seção 1 |
+
+**[CT-FUN-054](#ct-fun-054), [CT-FUN-055](#ct-fun-055), [CT-FUN-061](#ct-fun-061), [CT-FUN-063](#ct-fun-063), [CT-E2E-022](#ct-e2e-022)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Visualizar o resumo, informar o incidente e avançar pelas seções | Sistema exibe os dados do resumo, permite o avanço e mantém o incidente no topo das seções seguintes |
+| Alternativo | Acessar uma notificação sem paciente ou anônima | Sistema exibe a informação alternativa correspondente |
+| Alternativo | Reduzir o incidente para até 100 caracteres | Sistema remove o aviso de limite e permite o avanço |
+| Alternativo | Acessar a Seção 1 como Gestor da Área | Sistema omite a identificação do notificante |
+| Alternativo | Avançar pelas seções após informar o incidente | Sistema não repete o resumo completo nas seções seguintes |
+
+**[CT-FUN-067](#ct-fun-067), [CT-FUN-071](#ct-fun-071), [CT-FUN-072](#ct-fun-072), [CT-E2E-024](#ct-e2e-024), [CT-E2E-025](#ct-e2e-025)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Adicionar membro, selecionar fontes e responder à necessidade de entrevistas | Sistema mantém os dados válidos e as seleções realizadas |
+| Alternativo | Selecionar "Outro" em fonte consultada | Sistema exibe e exige o campo de especificação |
+| Alternativo | Responder "Não" à necessidade de entrevistas | Sistema não exibe nem exige a tabela de entrevistas |
+| Alternativo | Responder "Sim" e preencher a linha inicial da entrevista | Sistema exibe e mantém o registro preenchido |
 
 ### 6.2 Partição por Equivalência { #criterios-particao }
 
@@ -4882,6 +4911,17 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Inválido | Várias pendências | Sistema exibe o aviso "Corrija os N itens destacados para continuar." |
 | Inválido | Pendência em tabela | Sistema destaca apenas as células pendentes |
 
+**[CT-FUN-056](#ct-fun-056), [CT-FUN-068](#ct-fun-068), [CT-FUN-069](#ct-fun-069), [CT-FUN-073](#ct-fun-073), [CT-FUN-075](#ct-fun-075), [CT-E2E-023](#ct-e2e-023)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Inválido | Incidente em investigação não preenchido | Sistema exige o campo e bloqueia o avanço |
+| Inválido | Campos obrigatórios de membro não preenchidos | Sistema destaca as pendências e bloqueia o avanço |
+| Inválido | Nenhuma fonte consultada selecionada | Sistema exige ao menos uma fonte |
+| Inválido | Entrevista não preenchida após responder "Sim" | Sistema destaca as células pendentes, exibe "Adicione pelo menos 1 entrevista." e bloqueia o avanço |
+| Inválido | Pendências diversas na Seção 2 | Sistema exibe as mensagens correspondentes e bloqueia o avanço |
+| Inválido | Incidente vazio ou acima do limite | Sistema exibe a pendência ou o aviso de limite e bloqueia o avanço |
+
 ### 6.3 Análise de Valor Limite { #criterios-valor-limite }
 
 **[CT-FUN-003](#ct-fun-003)**
@@ -4906,6 +4946,15 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Limite superior inválido | Incidente em investigação com 101 caracteres | Sistema exibe o contador em vermelho e o aviso de limite e bloqueia o avanço, sem cortar o texto |
 | Último valor válido | Especificação de "Outro" com 30 caracteres | Sistema aceita a especificação |
 | Limite superior inválido | Especificação de "Outro" com 31 caracteres | Sistema exibe o aviso de limite e bloqueia o avanço |
+
+**[CT-FUN-057](#ct-fun-057), [CT-FUN-059](#ct-fun-059), [CT-FUN-066](#ct-fun-066), [CT-FUN-074](#ct-fun-074), [CT-E2E-023](#ct-e2e-023)**
+
+| Tipo de Valor | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Último valor válido | Nome ou texto preenchido no limite máximo | Sistema permite o preenchimento e o avanço |
+| Limite superior inválido | Incidente com mais de 100 caracteres | Contador fica vermelho, sistema exibe o aviso, bloqueia o avanço e não corta o texto |
+| Limite superior inválido | Nome com mais de 50 caracteres | Contador fica vermelho, sistema exibe o aviso, bloqueia o avanço e não corta o texto |
+| Limite superior inválido | Relato ou problemas com mais de 500 caracteres | Contador fica vermelho, sistema exibe o aviso, bloqueia o avanço e não corta o texto |
 
 ---
 
