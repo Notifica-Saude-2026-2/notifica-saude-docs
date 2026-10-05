@@ -49,10 +49,27 @@ Uma tarefa somente será considerada pronta quando **todos** os critérios descr
 
 ### 1.3 Testes
 
-- Testes devem ser implementados quando aplicável.
+Uma história ou tarefa somente é considerada pronta quando, além de testada e validada, possui os relatórios de testes que comprovam essa validação.
+
+**Execução e validação**
+
+- Testes devem ser implementados quando aplicável, nos níveis unitário, de integração e *end-to-end* (E2E).
 - Todos os testes devem ser executados com sucesso.
+- A cobertura de código deve respeitar as metas definidas no [Plano de Testes](../vvt/plano-de-testes.md#cobertura).
 - A funcionalidade deve ser validada manualmente.
 - Casos de erro devem ser tratados adequadamente.
+
+**Relatórios de testes**
+
+- Devem ser entregues, em PDF, os relatórios de testes unitários, de integração e E2E referentes à história ou tarefa.
+- Cada relatório deve abranger o front-end e o back-end e conter:
+    - o resultado da execução dos testes (quantidade de testes executados, aprovados e com falha);
+    - a cobertura de código obtida, tanto da funcionalidade entregue quanto do projeto como um todo, quando aplicável;
+    - a contextualização do que foi testado, explicando quais testes foram adicionados ou alterados e quais cenários eles cobrem;
+    - as verificações manuais realizadas, quando não houver testes automatizados para alguma parte da entrega;
+    - as pendências identificadas, como cenários sem cobertura ou automações recomendadas;
+    - as referências aos artefatos relacionados, como Pull Requests e arquivos de teste.
+- Os relatórios fazem parte da entrega e são requisito para o encerramento da sprint.
 
 <a id="dod-integracao"></a>
 
