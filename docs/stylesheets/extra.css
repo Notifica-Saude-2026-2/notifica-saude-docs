@@ -1519,3 +1519,460 @@ body {
 .md-typeset details.bug { border-color: var(--md-default-fg-color--lightest); border-left: 0.2rem solid #f04438; box-shadow: none; }
 .md-typeset details.bug > summary { background: var(--md-code-bg-color); font-weight: 600; }
 .md-typeset details.bug[open] > summary { border-bottom: 1px solid var(--md-default-fg-color--lightest); }
+
+/* ==========================================================================
+   Relatórios de testes (vvt/relatorios-testes/)
+   Cabeçalho com o gradiente da marca, uma seção por cartão, placares de
+   execução, barras de cobertura com a meta do Plano de Testes e avisos.
+   O mesmo HTML gera o PDF entregue na DoD (ver index da seção).
+   ========================================================================== */
+.ns-rel {
+  --rel-ok: #12a150;
+  --rel-ok-wash: #ecfdf3;
+  --rel-ok-border: #abefc6;
+  --rel-warn: #dc8a12;
+  --rel-warn-ink: #93530b;
+  --rel-warn-wash: #fffaeb;
+  --rel-warn-border: #fedf89;
+  --rel-head: var(--ns-primary-wash);
+  --rel-track: #eceef5;
+}
+
+[data-md-color-scheme="slate"] .ns-rel {
+  --rel-ok: #3ccb7f;
+  --rel-ok-wash: rgba(18, 183, 106, 0.12);
+  --rel-ok-border: rgba(18, 183, 106, 0.35);
+  --rel-warn: #f5a524;
+  --rel-warn-ink: #fec84b;
+  --rel-warn-wash: rgba(247, 144, 9, 0.12);
+  --rel-warn-border: rgba(247, 144, 9, 0.35);
+  --rel-track: #262a3d;
+}
+
+/* Cabeçalho */
+.md-typeset .ns-rel-hero {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 1.4rem;
+  padding: 1.6rem 1.6rem 1.4rem;
+  border-radius: var(--ns-radius);
+  color: #ffffff;
+  background:
+    radial-gradient(520px 260px at 90% -20%, rgba(140, 165, 255, 0.55), transparent 60%),
+    linear-gradient(135deg, #1c37cb 0%, #183eff 60%, #3d5bff 100%);
+}
+
+.md-typeset .ns-rel-hero__marca {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.1rem;
+  font-size: 0.6rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.06em;
+}
+
+.md-typeset .ns-rel-hero__marca p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  color: #ffffff;
+  font-size: inherit;
+}
+
+.md-typeset .ns-rel-hero__marca img {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.35rem;
+  background: #ffffff;
+  padding: 0.12rem;
+}
+
+.md-typeset .ns-rel-hero h1 {
+  margin: 0 0 0.3rem;
+  color: #ffffff;
+  font-size: 1.55rem;
+  text-align: left;
+}
+
+.md-typeset .ns-rel-hero h1 .headerlink {
+  display: none;
+}
+
+.md-typeset .ns-rel-hero p {
+  margin: 0 0 1rem;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.78rem;
+}
+
+.md-typeset .ns-rel-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.md-typeset .ns-rel-pills span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.22rem 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+.md-typeset .ns-rel-pills code {
+  padding: 0.05rem 0.4rem;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 0.58rem;
+  font-weight: 400;
+}
+
+.md-typeset .ns-rel-pills em {
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* Cartão de seção: o h2 vira a faixa do cabeçalho */
+.md-typeset .ns-rel-card {
+  margin: 0 0 1.2rem;
+  padding: 0 1.1rem 1rem;
+  border: 1px solid var(--ns-border);
+  border-radius: var(--ns-radius);
+  background: var(--ns-card);
+  overflow: hidden;
+}
+
+.md-typeset .ns-rel-card > h2 {
+  margin: 0 -1.1rem 1rem;
+  padding: 0.7rem 1.1rem;
+  border-bottom: 1px solid var(--ns-primary-wash-border);
+  background: var(--rel-head);
+  color: var(--ns-text-h);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.md-typeset .ns-rel-card > h3 {
+  margin: 1.2rem 0 0.6rem;
+  font-size: 0.8rem;
+}
+
+.md-typeset .ns-rel-meta {
+  margin: 0 0 0.8rem;
+  color: var(--ns-muted);
+  font-size: 0.64rem;
+  font-style: italic;
+}
+
+/* Situação por parte do sistema */
+.md-typeset .ns-rel-situacao {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 0.8rem 0;
+}
+
+.md-typeset .ns-rel-situacao > div {
+  padding: 1rem 0.9rem;
+  border: 1px solid var(--rel-ok-border);
+  border-radius: 0.6rem;
+  background: var(--rel-ok-wash);
+  text-align: center;
+}
+
+.md-typeset .ns-rel-situacao > div.ns-rel--warn {
+  border-color: var(--rel-warn-border);
+  background: var(--rel-warn-wash);
+}
+
+.md-typeset .ns-rel-situacao > div.ns-rel--neutro {
+  border-color: var(--ns-border);
+  background: var(--ns-surface);
+}
+
+.md-typeset .ns-rel-situacao strong {
+  display: block;
+  margin: 0.5rem 0 0.2rem;
+  color: var(--ns-text-h);
+  font-size: 0.75rem;
+}
+
+.md-typeset .ns-rel-situacao > div > span:not(.ns-rel-icone) {
+  display: block;
+  color: var(--ns-muted);
+  font-size: 0.62rem;
+  line-height: 1.5;
+}
+
+.md-typeset .ns-rel-icone {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--rel-ok);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.md-typeset .ns-rel--warn .ns-rel-icone,
+.md-typeset .ns-rel-icone.ns-rel--warn {
+  background: var(--rel-warn);
+}
+
+.md-typeset .ns-rel--neutro .ns-rel-icone {
+  background: var(--ns-muted);
+}
+
+/* Placar de execução */
+.md-typeset .ns-rel-placar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin: 0 0 1rem;
+}
+
+.md-typeset .ns-rel-placar > div {
+  padding: 0.8rem 0.5rem;
+  border-radius: 0.6rem;
+  background: var(--ns-surface);
+  text-align: center;
+}
+
+.md-typeset .ns-rel-placar strong {
+  display: block;
+  color: var(--rel-ok);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.md-typeset .ns-rel-placar span {
+  color: var(--ns-muted);
+  font-size: 0.62rem;
+}
+
+/* Itens verificados */
+.md-typeset ul.ns-rel-checks {
+  margin: 0.4rem 0 0.8rem;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset ul.ns-rel-checks > li {
+  position: relative;
+  margin: 0 0 0.5rem;
+  padding: 0.6rem 0.8rem 0.6rem 2.4rem;
+  border: 1px solid var(--rel-ok-border);
+  border-radius: 0.55rem;
+  background: var(--rel-ok-wash);
+  font-size: 0.68rem;
+  line-height: 1.55;
+}
+
+.md-typeset ul.ns-rel-checks > li::before {
+  content: "✓";
+  position: absolute;
+  top: 0.6rem;
+  left: 0.7rem;
+  display: grid;
+  place-items: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background: var(--rel-ok);
+  color: #ffffff;
+  font-size: 0.6rem;
+  font-weight: 800;
+}
+
+.md-typeset ul.ns-rel-checks > li > ul {
+  margin: 0.3rem 0 0;
+}
+
+.md-typeset ul.ns-rel-checks > li > ul > li {
+  margin: 0.1rem 0;
+}
+
+.md-typeset ul.ns-rel-checks code {
+  font-size: 0.85em;
+}
+
+/* Barras de cobertura: --v é o valor medido e --meta, a meta da métrica */
+.md-typeset .ns-rel-barra {
+  margin: 0 0 0.75rem;
+}
+
+.md-typeset .ns-rel-barra > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+  color: var(--ns-text-h);
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+
+.md-typeset .ns-rel-barra > div:first-child b {
+  color: var(--rel-ok);
+}
+
+.md-typeset .ns-rel-barra.ns-rel--warn > div:first-child b {
+  color: var(--rel-warn-ink);
+}
+
+.md-typeset .ns-rel-barra__trilho {
+  position: relative;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--rel-track);
+}
+
+.md-typeset .ns-rel-barra__trilho::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--v);
+  border-radius: 999px;
+  background: linear-gradient(90deg, #1f9d55, var(--rel-ok));
+}
+
+.md-typeset .ns-rel--warn .ns-rel-barra__trilho::before {
+  background: linear-gradient(90deg, #c27407, var(--rel-warn));
+}
+
+.md-typeset .ns-rel-barra__trilho::after {
+  content: "";
+  position: absolute;
+  top: -0.15rem;
+  bottom: -0.15rem;
+  left: var(--meta);
+  width: 2px;
+  background: var(--ns-muted);
+  opacity: 0.75;
+}
+
+.md-typeset .ns-rel-legenda {
+  margin: -0.2rem 0 0.8rem;
+  color: var(--ns-muted);
+  font-size: 0.6rem;
+}
+
+/* Avisos */
+.md-typeset .ns-rel-aviso,
+.md-typeset .ns-rel-info,
+.md-typeset .ns-rel-citacao {
+  margin: 0.8rem 0 0.2rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.55rem;
+  font-size: 0.65rem;
+  line-height: 1.6;
+}
+
+.md-typeset .ns-rel-aviso {
+  border: 1px solid var(--rel-warn-border);
+  background: var(--rel-warn-wash);
+  color: var(--rel-warn-ink);
+}
+
+.md-typeset .ns-rel-info {
+  border: 1px solid var(--ns-primary-wash-border);
+  background: var(--ns-primary-wash);
+  color: var(--ns-text);
+}
+
+.md-typeset .ns-rel-citacao {
+  border-left: 3px solid var(--ns-primary);
+  background: var(--ns-surface);
+  color: var(--ns-muted);
+  font-style: italic;
+}
+
+.md-typeset .ns-rel-aviso p,
+.md-typeset .ns-rel-info p,
+.md-typeset .ns-rel-citacao p {
+  margin: 0;
+}
+
+.md-typeset .ns-rel-aviso p + p,
+.md-typeset .ns-rel-info p + p {
+  margin-top: 0.4rem;
+}
+
+/* Tabelas dentro do relatório */
+.md-typeset .ns-rel-card .md-typeset__table {
+  display: block;
+  margin: 0.4rem 0;
+}
+
+.md-typeset .ns-rel-card table:not([class]) {
+  display: table;
+  width: 100%;
+  font-size: 0.64rem;
+}
+
+.md-typeset .ns-rel-card table:not([class]) th {
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.md-typeset .ns-rel-card td.ns-rel-num,
+.md-typeset .ns-rel-card th.ns-rel-num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.md-typeset .ns-rel-baixo {
+  color: var(--rel-warn-ink);
+  font-weight: 700;
+}
+
+.md-typeset .ns-rel-rodape {
+  margin: 0.8rem 0 0;
+  color: var(--ns-muted);
+  font-size: 0.6rem;
+  text-align: center;
+}
+
+.md-typeset .ns-rel-baixar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.2rem;
+}
+
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .ns-rel code {
+    word-break: break-all;
+  }
+
+  .md-typeset .ns-rel-pills span {
+    flex-wrap: wrap;
+  }
+
+  .md-typeset .ns-rel-situacao,
+  .md-typeset .ns-rel-placar {
+    grid-template-columns: 1fr;
+  }
+
+  .md-typeset .ns-rel-hero {
+    padding: 1.2rem 1rem;
+  }
+
+  .md-typeset .ns-rel-hero h1 {
+    font-size: 1.25rem;
+  }
+
+  .md-typeset .ns-rel-card table:not([class]) {
+    display: block;
+    overflow-x: auto;
+  }
+}
