@@ -101,6 +101,16 @@ nav:
       - Casos de Teste: vvt/casos-de-teste.md
       - Matriz de Rastreabilidade: vvt/matriz-rastreabilidade.md
       - Relatórios:
+          - Relatórios de Testes:
+              - Visão geral: vvt/relatorios-testes/index.md
+              - Cobertura de Código - Semestre 2026.1 - Unitário: vvt/relatorios-testes/cobertura-unitario.md
+              - Cobertura de Código - Semestre 2026.1 - Integração: vvt/relatorios-testes/cobertura-integracao.md
+              - Épico 1 - Verificação de Captcha - Unitário: vvt/relatorios-testes/issue-12-captcha-unitario.md
+              - Épico 1 - Verificação de Captcha - Integração: vvt/relatorios-testes/issue-12-captcha-integracao.md
+              - Épico 2 - Bloqueio de Encaminhamento - Unitário: vvt/relatorios-testes/us-2-3-bloqueio-encaminhamento-unitario.md
+              - Épico 2 - Bloqueio de Encaminhamento - Integração: vvt/relatorios-testes/us-2-3-bloqueio-encaminhamento-integracao.md
+              - Épico 4 - Análise do Incidente - Unitário: vvt/relatorios-testes/analise-secoes-1-2-unitario.md
+              - Épico 4 - Análise do Incidente - Integração: vvt/relatorios-testes/analise-secoes-1-2-integracao.md
           - Testes Não-Funcionais: vvt/relatorio-nao-funcionais.md
           - Bugs: vvt/relatorio-bugs.md
       - Teste de Usabilidade:
