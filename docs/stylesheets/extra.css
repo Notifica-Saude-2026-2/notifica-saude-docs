@@ -1535,6 +1535,8 @@ body {
   --rel-warn-wash: #fffaeb;
   --rel-warn-border: #fedf89;
   --rel-head: var(--ns-primary-wash);
+  --rel-erro: #e5484d;
+  --rel-erro-ink: #b42318;
   --rel-track: #eceef5;
 }
 
@@ -1547,6 +1549,8 @@ body {
   --rel-warn-wash: rgba(247, 144, 9, 0.12);
   --rel-warn-border: rgba(247, 144, 9, 0.35);
   --rel-track: #262a3d;
+  --rel-erro: #f97066;
+  --rel-erro-ink: #fda29b;
 }
 
 /* Cabeçalho */
@@ -1865,6 +1869,54 @@ body {
   font-size: 0.6rem;
 }
 
+/* Cobertura por módulo: barra compacta com a meta do módulo */
+.md-typeset .ns-rel-modulos {
+  margin: 0.4rem 0 0.8rem;
+}
+
+.md-typeset .ns-rel-modulo {
+  display: grid;
+  grid-template-columns: minmax(7rem, 30%) 1fr 3rem;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.22rem 0;
+  font-size: 0.64rem;
+}
+
+.md-typeset .ns-rel-modulo > span {
+  overflow-wrap: anywhere;
+}
+
+.md-typeset .ns-rel-modulo > b {
+  text-align: right;
+}
+
+.md-typeset .ns-rel-modulo > i {
+  display: block;
+}
+
+.md-typeset .ns-rel-card td:first-child code {
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.md-typeset .ns-rel--erro .ns-rel-barra__trilho::before {
+  background: linear-gradient(90deg, #b42318, var(--rel-erro));
+}
+
+.md-typeset .ns-rel-erro {
+  color: var(--rel-erro-ink);
+  font-weight: 700;
+}
+
+.md-typeset .ns-rel-cor--ok { color: var(--rel-ok); font-weight: 700; }
+.md-typeset .ns-rel-cor--warn { color: var(--rel-warn-ink); font-weight: 700; }
+.md-typeset .ns-rel-cor--erro { color: var(--rel-erro-ink); font-weight: 700; }
+
+.md-typeset .ns-rel-card td small {
+  color: var(--ns-muted);
+}
+
 /* Alerta centralizado: parte do sistema sem teste automatizado */
 .md-typeset .ns-rel-alerta {
   margin: 0.4rem 0 1rem;
@@ -1982,6 +2034,16 @@ body {
 
   .md-typeset .ns-rel-hero h1 {
     font-size: 1.25rem;
+  }
+
+  .md-typeset .ns-rel-modulo {
+    grid-template-columns: 1fr 3rem;
+    gap: 0.2rem 0.6rem;
+  }
+
+  .md-typeset .ns-rel-modulo > .ns-rel-barra__trilho {
+    grid-column: 1 / -1;
+    grid-row: 2;
   }
 
   .md-typeset .ns-rel-card table:not([class]) {
