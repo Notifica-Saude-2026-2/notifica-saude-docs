@@ -136,7 +136,7 @@ Duas frentes recomendadas para substituir o teste manual por algo automático e 
 | `tests/integration/.../encaminhamento.regras.routes.spec.ts` | Casos de teste de integração CT-INT-090-E e CT-INT-090-F (backend) |
 | `EncaminhamentoModal.tsx` | Ponto de tratamento do erro `GRAU_DANO_BLOQUEADO` (frontend) |
 | `notifica-saude-e2e` | Repositório de testes *end-to-end* sugerido para automatizar o fluxo completo |
-| `REL_Cobertura_Integracao_v1_0` | Relatório de cobertura de código da suíte de integração do backend |
+| [REL_Cobertura_Integracao_v1_0](cobertura-integracao.md) | Relatório de cobertura de código da suíte de integração do backend |
 | [Relatório unitário](us-2-3-bloqueio-encaminhamento-unitario.md) | `REL_Testes_Unit_CA06_v1_0` |
 
 <p class="ns-rel-rodape">REL_Testes_Int_CA06_v1_0 — compilado a partir dos relatórios de execução de testes de integração de backend e frontend do repositório Notifica-Saude-2026-2, em 09/09/2026.</p>

@@ -133,7 +133,7 @@ Criar um teste automático para a tela, cobrindo o seguinte comportamento: quand
 | [PR frontend #3](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/3) | Tratamento do bloqueio na tela de encaminhamento |
 | `tests/unit/.../encaminhamento.service.spec.ts` | Casos de teste unitários CT-UNI-007 e CT-UNI-008 (backend) |
 | `EncaminhamentoModal.tsx` | Ponto de tratamento do erro `GRAU_DANO_BLOQUEADO` (frontend) |
-| `REL_Cobertura_Unitario_v1_0` | Relatório de cobertura de código da suíte unitária do backend |
+| [REL_Cobertura_Unitario_v1_0](cobertura-unitario.md) | Relatório de cobertura de código da suíte unitária do backend |
 | [Relatório de integração](us-2-3-bloqueio-encaminhamento-integracao.md) | `REL_Testes_Int_CA06_v1_0` |
 
 <p class="ns-rel-rodape">REL_Testes_Unit_CA06_v1_0 — compilado a partir dos relatórios de execução de testes unitários de backend e frontend do repositório Notifica-Saude-2026-2, em 09/09/2026.</p>

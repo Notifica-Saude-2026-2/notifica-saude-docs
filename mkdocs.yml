@@ -103,6 +103,8 @@ nav:
       - Relatórios:
           - Relatórios de Testes:
               - Visão geral: vvt/relatorios-testes/index.md
+              - Cobertura de Código - Semestre 2026.1 - Unitário: vvt/relatorios-testes/cobertura-unitario.md
+              - Cobertura de Código - Semestre 2026.1 - Integração: vvt/relatorios-testes/cobertura-integracao.md
               - Épico 1 - Verificação de Captcha - Unitário: vvt/relatorios-testes/issue-12-captcha-unitario.md
               - Épico 1 - Verificação de Captcha - Integração: vvt/relatorios-testes/issue-12-captcha-integracao.md
               - Épico 2 - Bloqueio de Encaminhamento - Unitário: vvt/relatorios-testes/us-2-3-bloqueio-encaminhamento-unitario.md
