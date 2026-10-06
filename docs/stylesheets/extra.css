@@ -1865,6 +1865,19 @@ body {
   font-size: 0.6rem;
 }
 
+/* Alerta centralizado: parte do sistema sem teste automatizado */
+.md-typeset .ns-rel-alerta {
+  margin: 0.4rem 0 1rem;
+  text-align: center;
+}
+
+.md-typeset .ns-rel-alerta strong {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--rel-warn-ink);
+  font-size: 0.7rem;
+}
+
 /* Avisos */
 .md-typeset .ns-rel-aviso,
 .md-typeset .ns-rel-info,
