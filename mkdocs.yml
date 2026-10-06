@@ -101,6 +101,10 @@ nav:
       - Casos de Teste: vvt/casos-de-teste.md
       - Matriz de Rastreabilidade: vvt/matriz-rastreabilidade.md
       - Relatórios:
+          - Relatórios de Testes:
+              - Visão geral: vvt/relatorios-testes/index.md
+              - Épico 4 - Análise do Incidente - Unitário: vvt/relatorios-testes/analise-secoes-1-2-unitario.md
+              - Épico 4 - Análise do Incidente - Integração: vvt/relatorios-testes/analise-secoes-1-2-integracao.md
           - Testes Não-Funcionais: vvt/relatorio-nao-funcionais.md
           - Bugs: vvt/relatorio-bugs.md
       - Teste de Usabilidade:
