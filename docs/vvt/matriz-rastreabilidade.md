@@ -16,6 +16,7 @@ hide:
     | 3.1 | 25/09/2026 | Migração da planilha (versão 3.0) para o MkDocs, substituindo a matriz gerada automaticamente a partir dos casos de teste. | Sophya Ribeiro |
     | 3.2 | 29/09/2026 | Inclusão dos casos de teste da US-4.1 (CA01 a CA08) no Épico 4, ligação dos casos de teste CT-FUN-045 e CT-FUN-044 aos RNF 6.2.2 e 6.3.4 e atualização do resumo. | Catarina Freisleben |
     | 3.3 | 29/09/2026 | Inclusão dos casos de teste da US-4.2 (CA01 a CA19) no Épico 4, ligação dos seus casos de teste aos RNF 6.7.2, 6.7.4, 6.7.5, 6.7.6 e 6.7.7 e atualização do resumo. | Catarina Freisleben |
+    | 3.4 | 05/10/2026 | Inclusão dos casos de teste da US-4.3 (CA01 a CA04) e da US-4.4 (CA01 a CA07) no Épico 4 e atualização do resumo da rastreabilidade. | Gustavo Henrique |
 
 ## Sumário
 
@@ -179,8 +180,17 @@ Esta matriz relaciona cada critério de aceite das histórias de usuário aos ca
 |  | CA17 | [CT-FUN-052](casos-de-teste.md#ct-fun-052) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
 |  | CA18 | [CT-FUN-052](casos-de-teste.md#ct-fun-052) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
 |  | CA19 | [CT-FUN-051](casos-de-teste.md#ct-fun-051) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
-| **US-4.3** | CA01 a CA06 | — | <span class="ns-rast ns-rast--naodoc">Não documentado</span> | — |
-| **US-4.4** | CA01 a CA05 | — | <span class="ns-rast ns-rast--naodoc">Não documentado</span> | — |
+| **US-4.3** | CA01 | [CT-FUN-053](casos-de-teste.md#ct-fun-053), [CT-FUN-054](casos-de-teste.md#ct-fun-054), [CT-FUN-055](casos-de-teste.md#ct-fun-055) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
+|  | CA02 | [CT-FUN-056](casos-de-teste.md#ct-fun-056) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
+|  | CA03 | [CT-FUN-057](casos-de-teste.md#ct-fun-057), [CT-FUN-059](casos-de-teste.md#ct-fun-059), [CT-FUN-061](casos-de-teste.md#ct-fun-061), [CT-E2E-023](casos-de-teste.md#ct-e2e-023) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
+|  | CA04 | [CT-FUN-062](casos-de-teste.md#ct-fun-062), [CT-FUN-063](casos-de-teste.md#ct-fun-063), [CT-E2E-022](casos-de-teste.md#ct-e2e-022) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
+| **US-4.4** | CA01 | [CT-FUN-064](casos-de-teste.md#ct-fun-064), [CT-FUN-066](casos-de-teste.md#ct-fun-066), [CT-E2E-024](casos-de-teste.md#ct-e2e-024), [CT-E2E-025](casos-de-teste.md#ct-e2e-025) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
+|  | CA02 | [CT-FUN-065](casos-de-teste.md#ct-fun-065) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
+|  | CA03 | [CT-FUN-067](casos-de-teste.md#ct-fun-067), [CT-FUN-068](casos-de-teste.md#ct-fun-068), [CT-E2E-024](casos-de-teste.md#ct-e2e-024) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
+|  | CA04 | [CT-FUN-069](casos-de-teste.md#ct-fun-069), [CT-FUN-070](casos-de-teste.md#ct-fun-070), [CT-FUN-071](casos-de-teste.md#ct-fun-071), [CT-E2E-024](casos-de-teste.md#ct-e2e-024), [CT-E2E-025](casos-de-teste.md#ct-e2e-025) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
+|  | CA05 | [CT-FUN-072](casos-de-teste.md#ct-fun-072), [CT-E2E-024](casos-de-teste.md#ct-e2e-024), [CT-E2E-025](casos-de-teste.md#ct-e2e-025) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
+|  | CA06 | [CT-FUN-073](casos-de-teste.md#ct-fun-073), [CT-FUN-074](casos-de-teste.md#ct-fun-074), [CT-E2E-025](casos-de-teste.md#ct-e2e-025) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
+|  | CA07 | [CT-FUN-075](casos-de-teste.md#ct-fun-075) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
 | **US-4.5** | CA01 a CA04 | — | <span class="ns-rast ns-rast--naodoc">Não documentado</span> | — |
 
 </div>

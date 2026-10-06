@@ -30,6 +30,7 @@
     | 4.7 | 23/09/2026 | Migração do documento (Google Docs/PDF) para o MkDocs. A matriz de rastreabilidade gerada a partir dos casos de teste foi publicada em documento próprio. | Sophya Ribeiro |
     | 4.8 | 29/09/2026 | Adição dos casos de teste da US-4.1 (CT-FUN-041 a CT-FUN-046 e CT-E2E-019 a CT-E2E-020) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Catarina Freisleben |
     | 4.9 | 29/09/2026 | Adição dos casos de teste da US-4.2 (CT-FUN-047 a CT-FUN-052 e CT-E2E-021) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Catarina Freisleben |
+    | 4.10 | 05/10/2026 | Adição e revisão dos casos de teste da US-4.3 (CT-FUN-053 a CT-FUN-063 e CT-E2E-022 a CT-E2E-023) e da US-4.4 (CT-FUN-064 a CT-FUN-075 e CT-E2E-024 a CT-E2E-025), com atualização dos Critérios de Teste | Catarina Freisleben |
 
 ## Sumário
 
@@ -47,6 +48,8 @@
     - [3.3. Épico 4 - Registro de análise em notificação de incidentes](#testes-funcionais-epico-4)
         - [3.3.1. História 4.1 - Visualizar incidentes para análise](#testes-us-4-1)
         - [3.3.2. História 4.2 - Registrar análise do incidente](#testes-us-4-2)
+        - [3.3.3. História 4.3 - Identificar o incidente em investigação](#testes-us-4-3)
+        - [3.3.4. História 4.4 - Registrar equipe, fontes e entrevistas da análise](#testes-us-4-4)
 - [4. Testes End-to-End](#testes-e2e)
 - [5. Testes Não-Funcionais](#testes-nao-funcionais)
 - [6. Critérios de Teste](#criterios-teste)
@@ -2391,6 +2394,847 @@ Validar que o Guia de investigação é exibido antes da Seção 1, com o conte�
 
 ---
 
+#### 3.3.3. História 4.3 - Identificar o incidente em investigação { #testes-us-4-3 }
+
+##### CT-FUN-053 — Exibição do resumo da notificação e classificação { #ct-fun-053 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.3 | CA01 | Fluxo principal |
+
+**Objetivo**
+
+Validar que o sistema apresenta, na Seção 1 da análise, o resumo da notificação e da classificação em modo somente leitura.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado como profissional do Núcleo de Segurança do Paciente.
+- Existência de uma notificação disponível para análise.
+- Notificação classificada.
+
+**Dados de entrada**
+
+- **Descrição:** [TESTE] Durante a conferência de rotina, foi identificada uma divergência no medicamento preparado antes da administração ao paciente.
+- **Data do incidente:** Data válida.
+- **Horário:** 10:30.
+- **Turno:** Manhã (7h-13h).
+- **Faixa etária:** 18-59 anos.
+- **Sexo:** Feminino.
+- **Notificante:** [TESTE] Mariana Souza.
+- **Classificação:** Incidente sem dano.
+- **Tipo de incidente:** Erro de medicação.
+- **Envolvidos:** Profissional de saúde.
+- **Data da classificação:** Data válida.
+- **Observações do NSP:** [TESTE] Classificação realizada após análise do relato.
+
+**Procedimentos**
+
+*Seção 1*
+
+1. Acessar o sistema.
+2. Acessar uma notificação disponível para análise.
+3. Acessar a Seção 1 da análise.
+4. Verificar o resumo da notificação.
+5. Verificar a descrição.
+6. Verificar a data do incidente.
+7. Verificar o horário.
+8. Verificar o turno.
+9. Verificar a faixa etária.
+10. Verificar o sexo do paciente.
+11. Verificar o notificante.
+12. Verificar o resumo da classificação.
+13. Verificar a classificação.
+14. Verificar o tipo de incidente.
+15. Verificar os envolvidos.
+16. Verificar a data da classificação.
+17. Verificar as observações do NSP.
+
+**Resultado esperado**
+
+- Sistema apresenta o resumo da notificação.
+- Sistema apresenta os dados previstos no CA01.
+- Sistema apresenta o resumo da classificação.
+- Os dados são apresentados em modo somente leitura.
+
+
+##### CT-FUN-054 — Exibição das informações alternativas do resumo { #ct-fun-054 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.3 | CA01 | Fluxo alternativo |
+
+**Objetivo**
+
+Validar a exibição das informações alternativas previstas no resumo da notificação.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Existência de uma notificação que não envolve paciente.
+- Existência de uma notificação anônima.
+
+**Procedimentos**
+
+*Seção 1 — Notificação sem paciente*
+
+1. Acessar uma notificação que não envolve paciente.
+2. Acessar a Seção 1 da análise.
+3. Verificar a informação referente ao paciente.
+
+*Seção 1 — Notificação anônima*
+
+4. Acessar uma notificação registrada como anônima.
+5. Acessar a Seção 1 da análise.
+6. Verificar a informação referente ao notificante.
+
+**Resultado esperado**
+
+- Para uma notificação que não envolve paciente, sistema apresenta **"Não envolve o paciente"**.
+- Para uma notificação anônima, sistema apresenta **"Notificação anônima"**.
+
+
+##### CT-FUN-055 — Omissão da identificação do notificante para o Gestor da Área { #ct-fun-055 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.3 | CA01 | Regra de negócio |
+
+**Objetivo**
+
+Validar que a identificação do notificante é omitida para o Gestor da Área, conforme RN-27.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado como Gestor da Área.
+- Existência de uma notificação disponível para análise.
+- Notificação possui notificante identificado.
+
+**Dados de entrada**
+
+- **Notificante:** [TESTE] Mariana Souza.
+
+**Procedimentos**
+
+1. Acessar o sistema como Gestor da Área.
+2. Acessar uma notificação disponível para análise.
+3. Acessar a Seção 1.
+4. Verificar o resumo da notificação.
+5. Verificar a informação referente ao notificante.
+
+**Resultado esperado**
+
+- Sistema apresenta o resumo da notificação.
+- Sistema omite a identificação do notificante para o Gestor da Área.
+- Os demais dados previstos no CA01 são apresentados.
+
+
+##### CT-FUN-056 — Validação da obrigatoriedade do incidente em investigação { #ct-fun-056 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.3 | CA02 | Fluxo negativo |
+
+**Objetivo**
+
+Garantir que o preenchimento do campo "Informe o incidente em investigação" seja obrigatório para avançar da Seção 1.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Usuário na Seção 1 da análise.
+
+**Procedimentos**
+
+1. Acessar a Seção 1.
+2. Não preencher o campo **"Informe o incidente em investigação"**.
+3. Tentar avançar para a próxima seção.
+
+**Resultado esperado**
+
+- Sistema exige o preenchimento do campo **"Informe o incidente em investigação"**.
+- Sistema bloqueia o avanço enquanto o campo não estiver preenchido.
+
+
+##### CT-FUN-057 — Validação do limite de 100 caracteres do incidente em investigação { #ct-fun-057 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.3 | CA03 | Análise de valor limite |
+
+**Objetivo**
+
+Validar o comportamento do sistema no limite máximo permitido de 100 caracteres para o incidente em investigação.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Usuário na Seção 1 da análise.
+
+**Dados de entrada**
+
+- **Incidente em investigação:** texto contendo exatamente 100 caracteres.
+
+**Procedimentos**
+
+1. Acessar a Seção 1.
+2. Preencher o campo **"Informe o incidente em investigação"** com exatamente 100 caracteres.
+3. Verificar o contador de caracteres.
+4. Tentar avançar.
+
+**Resultado esperado**
+
+- Sistema permite o preenchimento com exatamente 100 caracteres.
+- Contador apresenta **100**.
+- Sistema não apresenta o aviso de limite excedido.
+- Sistema permite o avanço para a próxima seção.
+
+
+##### CT-FUN-058 — Bloqueio do avanço ao ultrapassar 100 caracteres { #ct-fun-058 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.3 | CA03 | Análise de valor limite |
+
+**Objetivo**
+
+Validar que o sistema bloqueia o avanço quando o texto do incidente em investigação ultrapassa 100 caracteres.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Usuário na Seção 1 da análise.
+
+**Dados de entrada**
+
+- **Incidente em investigação:** texto contendo mais de 100 caracteres.
+
+**Procedimentos**
+
+1. Acessar a Seção 1.
+2. Preencher o campo **"Informe o incidente em investigação"** com mais de 100 caracteres.
+3. Verificar o contador de caracteres.
+4. Verificar o aviso apresentado.
+5. Tentar avançar.
+
+**Resultado esperado**
+
+- Contador de caracteres é exibido em vermelho.
+- Sistema apresenta o aviso **"“Informe o incidente em investigação” deve ter no máximo 100 caracteres (atual: N)."**
+- Sistema bloqueia o avanço.
+- Sistema não corta automaticamente o texto informado.
+
+
+##### CT-FUN-059 — Liberação do avanço após redução do texto { #ct-fun-059 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.3 | CA03 | Fluxo alternativo |
+
+**Objetivo**
+
+Validar que o sistema permite o avanço após o texto do incidente ser reduzido para no máximo 100 caracteres.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Usuário na Seção 1.
+- Campo preenchido com mais de 100 caracteres.
+
+**Procedimentos**
+
+1. Preencher o campo com mais de 100 caracteres.
+2. Verificar o contador em vermelho.
+3. Verificar o aviso de limite.
+4. Reduzir o texto para 100 caracteres ou menos.
+5. Verificar o contador.
+6. Tentar avançar.
+
+**Resultado esperado**
+
+- O contador deixa de indicar excesso de caracteres.
+- O aviso de limite deixa de ser apresentado.
+- Sistema permite o avanço para a próxima seção.
+
+
+##### CT-FUN-060 — Exibição do incidente em investigação nas demais seções { #ct-fun-060 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.3 | CA04 | Fluxo principal |
+
+**Objetivo**
+
+Validar que o incidente informado na Seção 1 é apresentado no topo das Seções 2 em diante.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Usuário na Seção 1.
+- Incidente em investigação informado corretamente.
+
+**Dados de entrada**
+
+- **Incidente em investigação:** Administração incorreta de medicamento.
+
+**Procedimentos**
+
+1. Acessar a Seção 1.
+2. Preencher o campo **"Informe o incidente em investigação"**.
+3. Avançar para a Seção 2.
+4. Verificar o topo da Seção 2.
+5. Avançar para as demais seções.
+6. Verificar o topo de cada seção.
+
+**Resultado esperado**
+
+- O topo da Seção 2 apresenta **"Incidente em investigação: Administração incorreta de medicamento."**
+- As Seções 3 em diante também apresentam o texto no topo.
+- O texto corresponde ao incidente informado na Seção 1.
+
+
+##### CT-FUN-061 — Não repetição do resumo da notificação nas demais seções { #ct-fun-061 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.3 | CA04 | Regra de negócio |
+
+**Objetivo**
+
+Validar que as Seções 2 em diante apresentam apenas o destaque do incidente em investigação, sem repetir o resumo completo da notificação.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Incidente em investigação informado na Seção 1.
+- Usuário avançou para a Seção 2 ou posterior.
+
+**Procedimentos**
+
+1. Acessar a Seção 2.
+2. Verificar as informações apresentadas no topo.
+3. Acessar as demais seções.
+4. Verificar as informações apresentadas no topo de cada seção.
+
+**Resultado esperado**
+
+- Sistema apresenta somente o texto **"Incidente em investigação: …"**.
+- Sistema não repete o resumo completo da notificação nas Seções 2 em diante.
+
+#### 3.3.4. História 4.4 - Registrar equipe, fontes e entrevistas da análise (Seção 2) { #testes-us-4-4 }
+
+##### CT-FUN-062 — Validação do preenchimento do condutor da análise { #ct-fun-062 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.4 | CA01 | Fluxo principal |
+
+**Objetivo**
+
+Validar que o sistema exige o preenchimento de todos os campos do condutor da análise.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado como Gestor da Área ou profissional do Núcleo de Segurança do Paciente.
+- Usuário na Seção 2 da análise.
+
+**Dados de entrada**
+
+- **Nome:** [TESTE] Mariana Souza.
+- **Formação:** Enfermagem.
+- **Função:** Enfermeiro(a).
+- **Setor:** Enfermagem.
+
+**Procedimentos**
+
+*Seção 2*
+
+1. Acessar a Seção 2 da análise.
+2. Localizar o campo de condutor da análise.
+3. Preencher o Nome.
+4. Preencher a Formação.
+5. Preencher a Função.
+6. Preencher o Setor.
+7. Verificar a orientação apresentada.
+
+**Resultado esperado**
+
+- Sistema permite o preenchimento dos campos do condutor.
+- Sistema apresenta a orientação: **"Informe o condutor da análise e, abaixo, os demais membros participantes. Documentar a autoria de forma rastreável evita investigações conduzidas por uma única pessoa."**
+- Todos os campos do condutor são preenchidos corretamente.
+
+
+##### CT-FUN-063 — Validação das opções dos menus da equipe { #ct-fun-063 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.4 | CA02 | Fluxo principal |
+
+**Objetivo**
+
+Validar que os menus de Formação, Função e Setor apresentam todas as opções especificadas na história de usuário.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Usuário na Seção 2 da análise.
+
+**Procedimentos**
+
+*Seção 2*
+
+1. Acessar o menu **Formação**.
+2. Verificar as opções apresentadas.
+3. Acessar o menu **Função**.
+4. Verificar as opções apresentadas.
+5. Acessar o menu **Setor**.
+6. Verificar as opções apresentadas.
+7. Selecionar a opção **"Outro"**.
+
+**Resultado esperado**
+
+- O menu **Formação** apresenta:
+  - Enfermagem;
+  - Medicina;
+  - Farmácia;
+  - Fisioterapia;
+  - Nutrição;
+  - Odontologia;
+  - Psicologia;
+  - Serviço Social;
+  - Administração;
+  - Outro.
+- O menu **Função** apresenta:
+  - Enfermeiro(a);
+  - Técnico(a) de Enfermagem;
+  - Médico(a);
+  - Farmacêutico(a);
+  - Fisioterapeuta;
+  - Nutricionista;
+  - Coordenador(a);
+  - Gestor(a) de Qualidade e Segurança;
+  - Analista de Qualidade;
+  - Outro.
+- O menu **Setor** apresenta:
+  - Qualidade e Segurança do Paciente;
+  - Clínica Médica;
+  - Farmácia Hospitalar;
+  - Centro Cirúrgico;
+  - UTI;
+  - Pronto-Socorro;
+  - Enfermagem;
+  - Administrativo;
+  - Outro.
+- Ao selecionar **"Outro"**, o sistema disponibiliza o campo para especificação.
+
+##### CT-FUN-064 — Validação do limite do nome do condutor da análise { #ct-fun-064 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.4 | CA01 | Análise de valor limite |
+
+**Objetivo**
+
+Validar o limite máximo de 50 caracteres para o campo Nome do condutor da análise.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Usuário na Seção 2 da análise.
+
+**Dados de entrada**
+
+- **Nome:** texto contendo exatamente 50 caracteres.
+- **Nome excedente:** texto contendo mais de 50 caracteres.
+
+**Procedimentos**
+
+*Seção 2*
+
+1. Acessar a Seção 2 da análise.
+2. Preencher o campo **Nome** com exatamente 50 caracteres.
+3. Verificar o campo.
+4. Substituir o conteúdo por um texto com mais de 50 caracteres.
+5. Verificar o contador de caracteres.
+6. Verificar o aviso apresentado.
+7. Tentar avançar.
+
+**Resultado esperado**
+
+- Sistema permite o preenchimento do Nome com até 50 caracteres.
+- Contador de caracteres é exibido em vermelho.
+- Sistema apresenta o aviso **"Nome deve ter no máximo 50 caracteres (atual: N)."**
+- Sistema bloqueia o avanço.
+- Sistema não corta automaticamente o texto informado.
+
+
+##### CT-FUN-065 — Inclusão e remoção de membros participantes { #ct-fun-065 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.4 | CA03 | Fluxo alternativo |
+
+**Objetivo**
+
+Validar a inclusão e remoção de membros participantes da análise.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Usuário na Seção 2 da análise.
+- Condutor da análise preenchido.
+
+**Dados de entrada**
+
+- **Nome:** [TESTE] João Silva.
+- **Nome excedente:** texto contendo mais de 50 caracteres.
+- **Formação:** Medicina.
+- **Função:** Médico(a).
+- **Setor:** Clínica Médica.
+
+**Procedimentos**
+
+*Seção 2*
+
+1. Acessar a Seção 2 da análise.
+2. Clicar em **"+ Adicionar membro"**.
+3. Verificar a inclusão de uma nova linha.
+4. Preencher o Nome.
+5. Selecionar a Formação.
+6. Selecionar a Função.
+7. Selecionar o Setor.
+8. Verificar os dados preenchidos.
+9. Substituir o Nome por um texto com mais de 50 caracteres.
+10. Verificar o contador de caracteres.
+11. Verificar o aviso apresentado.
+12. Tentar avançar.
+13. Reduzir o Nome para no máximo 50 caracteres.
+14. Remover o membro adicionado.
+
+**Resultado esperado**
+
+- Sistema inclui uma nova linha contendo Nome, Formação, Função e Setor.
+- Sistema permite o preenchimento dos campos do membro.
+- Ao ultrapassar 50 caracteres no Nome do membro, o contador fica vermelho, o sistema apresenta o aviso **"Nome deve ter no máximo 50 caracteres (atual: N)."**, bloqueia o avanço e não corta o texto informado.
+- Após reduzir o Nome para no máximo 50 caracteres, o sistema deixa de indicar o excesso.
+- Sistema permite remover o membro adicionado.
+
+
+##### CT-FUN-066 — Validação da obrigatoriedade dos campos dos membros participantes { #ct-fun-066 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.4 | CA03 | Fluxo negativo |
+
+**Objetivo**
+
+Validar que todos os campos de um membro participante adicionado são obrigatórios.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Usuário na Seção 2 da análise.
+- Condutor da análise preenchido.
+
+**Procedimentos**
+
+*Seção 2*
+
+1. Clicar em **"+ Adicionar membro"**.
+2. Não preencher um ou mais campos do membro.
+3. Tentar avançar.
+4. Verificar as pendências apresentadas.
+5. Preencher os campos pendentes.
+6. Selecionar **"Outro"** em um dos menus.
+7. Não preencher a especificação de **"Outro"**.
+8. Tentar avançar.
+
+**Resultado esperado**
+
+- Sistema exige o preenchimento de Nome, Formação, Função e Setor.
+- Sistema bloqueia o avanço enquanto existirem campos pendentes.
+- Ao selecionar **"Outro"**, sistema exige a especificação da opção.
+- O membro não pode ser considerado válido enquanto houver campos pendentes.
+
+
+##### CT-FUN-067 — Validação das fontes consultadas { #ct-fun-067 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.4 | CA04 | Fluxo negativo |
+
+**Objetivo**
+
+Validar que o sistema exige a seleção de pelo menos uma fonte consultada.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Usuário na Seção 2 da análise.
+
+**Procedimentos**
+
+*Seção 2*
+
+1. Acessar a área de fontes consultadas.
+2. Não selecionar nenhuma opção.
+3. Tentar avançar.
+4. Selecionar a opção **Prontuário**.
+5. Verificar a seleção realizada.
+
+**Resultado esperado**
+
+- Sistema bloqueia o avanço quando nenhuma fonte é selecionada.
+- Sistema exige ao menos uma opção.
+- Após selecionar **Prontuário**, a pendência referente à ausência de fonte é eliminada.
+- Sistema apresenta a orientação: **"Selecione as fontes de informação utilizadas na análise. Você pode selecionar uma ou mais opções."**
+
+
+##### CT-FUN-068 — Validação da seleção múltipla de fontes consultadas { #ct-fun-068 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.4 | CA04 | Fluxo principal |
+
+**Objetivo**
+
+Validar que o sistema permite selecionar uma ou mais fontes de informação utilizadas na análise.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Usuário na Seção 2 da análise.
+
+**Procedimentos**
+
+*Seção 2*
+
+1. Acessar a área de fontes consultadas.
+2. Selecionar **Prontuário**.
+3. Selecionar **Protocolo/POP**.
+4. Selecionar **Relato da equipe**.
+5. Selecionar **Paciente/família**.
+6. Verificar as opções selecionadas.
+
+**Resultado esperado**
+
+- Sistema permite selecionar múltiplas fontes.
+- Todas as opções selecionadas permanecem identificadas como selecionadas.
+
+
+##### CT-FUN-069 — Validação da opção "Outro" nas fontes consultadas { #ct-fun-069 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.4 | CA04 | Fluxo alternativo |
+
+**Objetivo**
+
+Validar o preenchimento da opção **"Outro"** nas fontes consultadas.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Usuário na Seção 2 da análise.
+
+**Dados de entrada**
+
+- **Outro:** [TESTE] Documento institucional.
+
+**Procedimentos**
+
+*Seção 2*
+
+1. Acessar a área de fontes consultadas.
+2. Selecionar **"Outro"**.
+3. Verificar a exibição do campo de especificação.
+4. Tentar avançar sem preencher a especificação.
+5. Preencher a especificação com até 30 caracteres.
+6. Tentar avançar.
+
+**Resultado esperado**
+
+- Ao selecionar **"Outro"**, sistema exige a especificação.
+- Sistema apresenta mensagem de pendência caso a especificação não seja preenchida.
+- Sistema permite preencher a especificação com até 30 caracteres.
+- Após preencher a especificação, a pendência é eliminada.
+
+
+##### CT-FUN-070 — Validação da necessidade de entrevistas { #ct-fun-070 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.4 | CA05 | Fluxo alternativo |
+
+**Objetivo**
+
+Validar que o sistema exige uma resposta para a pergunta **"Alguém precisa ser ouvido?"** e que a opção "Não" não exige entrevistas.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Usuário na Seção 2 da análise.
+
+**Procedimentos**
+
+*Seção 2*
+
+1. Localizar a pergunta **"Alguém precisa ser ouvido?"**.
+2. Não selecionar nenhuma opção.
+3. Tentar avançar.
+4. Selecionar **"Não"**.
+5. Verificar a área de entrevistas.
+
+**Resultado esperado**
+
+- Sistema exige uma resposta para a pergunta.
+- Sistema apresenta as opções **Sim** e **Não**.
+- Ao selecionar **"Não"**, a tabela de entrevistas não é exibida.
+- Ao selecionar **"Não"**, o preenchimento de entrevistas não é exigido.
+
+
+##### CT-FUN-071 — Exibição e obrigatoriedade do registro de entrevistas { #ct-fun-071 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.4 | CA06 | Fluxo principal |
+
+**Objetivo**
+
+Validar que, ao selecionar "Sim", o sistema exibe o registro de entrevistas e exige pelo menos uma entrevista.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Usuário na Seção 2 da análise.
+
+**Procedimentos**
+
+*Seção 2*
+
+1. Selecionar **"Sim"** em **"Alguém precisa ser ouvido?"**.
+2. Verificar a exibição da tabela **"Registro de cada entrevista"**.
+3. Verificar a existência de uma linha em branco.
+4. Tentar avançar sem preencher uma entrevista.
+5. Preencher os campos da linha em branco da entrevista.
+
+**Resultado esperado**
+
+- Sistema exibe a tabela **"Registro de cada entrevista"**.
+- Sistema apresenta uma linha em branco.
+- Ao tentar avançar sem preencher a entrevista, o sistema destaca as células pendentes e apresenta a mensagem **"Adicione pelo menos 1 entrevista."**.
+- Sistema exige pelo menos uma entrevista.
+- Sistema disponibiliza o botão **"+ Adicionar entrevista"**.
+- Após preencher uma entrevista válida, o sistema permite o avanço.
+
+
+##### CT-FUN-072 — Validação dos campos do registro de entrevista { #ct-fun-072 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.4 | CA06 | Análise de valor limite |
+
+**Objetivo**
+
+Validar os campos obrigatórios e os limites definidos para o registro de uma entrevista.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Usuário na Seção 2 da análise.
+- Opção **"Sim"** selecionada em **"Alguém precisa ser ouvido?"**.
+
+**Dados de entrada**
+
+- **Data:** Data válida.
+- **Nome:** [TESTE] João Silva.
+- **Função:** Médico(a).
+- **Relato / fatos relevantes:** [TESTE] Entrevistado relatou os fatos relacionados ao incidente.
+- **Problemas ou condições percebidos:** [TESTE] Foi identificada falha no processo de comunicação entre os profissionais.
+
+**Procedimentos**
+
+*Seção 2*
+
+1. Clicar em **"+ Adicionar entrevista"**.
+2. Preencher a Data.
+3. Preencher o Nome.
+4. Selecionar a Função.
+5. Preencher o campo **Relato / fatos relevantes**.
+6. Preencher o campo **Problemas ou condições percebidos**.
+7. Tentar avançar.
+8. Alterar o Nome para um texto com mais de 50 caracteres.
+9. Alterar o Relato / fatos relevantes para um texto com mais de 500 caracteres.
+10. Alterar Problemas ou condições percebidos para um texto com mais de 500 caracteres.
+11. Tentar avançar.
+
+**Resultado esperado**
+
+- Sistema exige o preenchimento de Data, Nome, Função, Relato / fatos relevantes e Problemas ou condições percebidos.
+- Ao ultrapassar o limite do Nome, do Relato / fatos relevantes ou de Problemas ou condições percebidos, o contador correspondente fica vermelho, o sistema apresenta o aviso de limite, bloqueia o avanço e não corta o texto informado.
+- Sistema permite a opção **"Outro"** no campo Função.
+
+
+##### CT-FUN-073 — Validação das mensagens de pendência da Seção 2 { #ct-fun-073 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Sim | US-4.4 | CA07 | Fluxo negativo |
+
+**Objetivo**
+
+Validar que o sistema apresenta mensagens indicando as pendências existentes na Seção 2 e destaca apenas as células pendentes nas tabelas.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Usuário na Seção 2 da análise.
+
+**Procedimentos**
+
+*Seção 2*
+
+1. Deixar os campos Formação, Função e Setor do condutor sem preenchimento.
+2. Tentar avançar.
+3. Adicionar um membro e deixar campos obrigatórios sem preenchimento.
+4. Tentar avançar.
+5. Não selecionar nenhuma fonte consultada.
+6. Tentar avançar.
+7. Selecionar **"Outro"** sem preencher sua especificação.
+8. Tentar avançar.
+9. Selecionar **"Sim"** em **"Alguém precisa ser ouvido?"**.
+10. Não adicionar uma entrevista.
+11. Tentar avançar.
+
+**Resultado esperado**
+
+- Sistema apresenta mensagem indicando os campos pendentes do condutor, como **"Preencha Formação, Função e Setor."**
+- Sistema apresenta a mensagem **"Selecione ao menos uma opção."** quando nenhuma fonte for selecionada.
+- Sistema apresenta a mensagem **"Especifique a opção “Outro”."** quando a opção "Outro" não for especificada.
+- Sistema apresenta a mensagem **"Adicione pelo menos 1 entrevista."** quando nenhuma entrevista for adicionada após selecionar "Sim".
+- Nas tabelas, somente as células pendentes são destacadas.
+- Sistema bloqueia o avanço enquanto existirem pendências.
+
 ## 4. Testes End-to-End { #testes-e2e }
 
 ### CT-E2E-001 — Registro completo de notificação com paciente { #ct-e2e-001 }
@@ -3312,6 +4156,254 @@ Validar o percurso de registro da análise: a disponibilização da opção "Reg
     - **CA14:** o sistema registra o usuário que salvou a análise e a data e a hora da operação
     - **CA02:** a seção "Análise" apresenta a opção "Continuar análise" ao autor, e o formulário é retomado na Seção 3, seção seguinte à última salva, com os dados das Seções 1 e 2 preservados
 
+### CT-E2E-022 — Fluxo completo de identificação do incidente em investigação { #ct-e2e-022 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Sim | US-4.3 | CA01 até CA04 | Fluxo principal |
+
+**Objetivo**
+
+Validar o fluxo completo da Seção 1 da análise, desde a visualização do resumo da notificação até a definição do incidente em investigação e sua apresentação nas seções seguintes.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002)
+- Existência de uma notificação classificada e disponível para análise.
+- Usuário autenticado como profissional do Núcleo de Segurança do Paciente.
+
+**Dados de entrada**
+
+- **Incidente em investigação:** Administração incorreta de medicamento identificada antes da administração ao paciente.
+
+**Procedimentos**
+
+*Tela Todos Incidentes*
+
+1. Abrir uma notificação classificada disponível para análise.
+
+*Seção 1 — Identificação do incidente em investigação*
+
+2. Verificar o resumo da notificação.
+3. Verificar o resumo da classificação.
+4. Verificar que as informações apresentadas estão disponíveis somente para leitura.
+5. Preencher o campo **"Informe o incidente em investigação"**.
+6. Verificar o texto informado.
+7. Avançar para a Seção 2.
+
+*Seção 2*
+
+8. Verificar o texto apresentado no topo da seção.
+9. Verificar se o resumo completo da notificação não é apresentado novamente.
+
+*Demais seções da análise*
+
+10. Avançar pelas demais seções.
+11. Verificar o texto apresentado no topo de cada seção.
+
+**Resultado esperado**
+
+- O sistema apresenta o resumo da notificação e da classificação na Seção 1.
+- As informações do resumo são exibidas em modo somente leitura.
+- O sistema permite informar o incidente em investigação.
+- O sistema permite avançar após o preenchimento válido do incidente.
+- As Seções 2 em diante apresentam no topo o texto **"Incidente em investigação: Administração incorreta de medicamento identificada antes da administração ao paciente."**
+- O resumo completo da notificação não é repetido nas demais seções.
+
+
+### CT-E2E-023 — Bloqueio e validação do limite do incidente em investigação { #ct-e2e-023 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Sim | US-4.3 | CA02 + CA03 | Fluxo negativo e análise de valor limite |
+
+**Objetivo**
+
+Validar o comportamento completo da Seção 1 quando o incidente em investigação não é preenchido ou ultrapassa o limite máximo de 100 caracteres.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002)
+- Existência de uma notificação classificada e disponível para análise.
+- Usuário autenticado como profissional do Núcleo de Segurança do Paciente.
+
+**Dados de entrada**
+
+- **Incidente vazio:** sem preenchimento.
+- **Incidente com 100 caracteres:** texto contendo exatamente 100 caracteres.
+- **Incidente com mais de 100 caracteres:** texto contendo mais de 100 caracteres.
+
+**Procedimentos**
+
+*Tela Todos Incidentes*
+
+1. Abrir uma notificação classificada disponível para análise.
+
+*Seção 1 — Identificação do incidente em investigação*
+
+2. Não preencher o campo **"Informe o incidente em investigação"**.
+3. Tentar avançar.
+4. Preencher o campo com exatamente 100 caracteres.
+5. Verificar o contador.
+6. Tentar avançar.
+7. Retornar à Seção 1.
+8. Substituir o conteúdo por um texto com mais de 100 caracteres.
+9. Verificar o contador de caracteres.
+10. Verificar a mensagem de validação.
+11. Tentar avançar.
+
+**Resultado esperado**
+
+- O sistema bloqueia o avanço quando o campo está vazio.
+- O sistema exige o preenchimento do campo **"Informe o incidente em investigação"**.
+- O sistema permite o preenchimento com exatamente 100 caracteres.
+- O contador apresenta **100** caracteres.
+- O sistema permite o avanço quando o texto possui até 100 caracteres.
+- Ao ultrapassar 100 caracteres, o contador é apresentado em vermelho.
+- O sistema apresenta a mensagem **"“Informe o incidente em investigação” deve ter no máximo 100 caracteres (atual: N)."**
+- O sistema bloqueia o avanço enquanto o texto ultrapassar 100 caracteres.
+- O sistema não corta automaticamente o texto informado.
+
+
+### CT-E2E-024 — Fluxo completo de registro da equipe e fontes da análise { #ct-e2e-024 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Sim | US-4.4 | CA01 + CA03 + CA04 + CA05 | Fluxo principal |
+
+**Objetivo**
+
+Validar o fluxo completo de preenchimento da equipe responsável pela análise, participantes, fontes consultadas e resposta sobre a necessidade de entrevistas.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002)
+- [CT-E2E-019](#ct-e2e-019)
+- Usuário na Seção 2 da análise.
+
+**Dados de entrada**
+
+- **Condutor — Nome:** [TESTE] Mariana Souza.
+- **Condutor — Formação:** Enfermagem.
+- **Condutor — Função:** Enfermeiro(a).
+- **Condutor — Setor:** Enfermagem.
+- **Membro — Nome:** [TESTE] João Silva.
+- **Membro — Formação:** Medicina.
+- **Membro — Função:** Médico(a).
+- **Membro — Setor:** Clínica Médica.
+- **Fontes:** Prontuário; Protocolo/POP; Relato da equipe.
+- **Alguém precisa ser ouvido?:** Não.
+
+**Procedimentos**
+
+*Seção 2 — Equipe da análise*
+
+1. Acessar a Seção 2.
+2. Preencher o Nome do condutor.
+3. Selecionar a Formação.
+4. Selecionar a Função.
+5. Selecionar o Setor.
+6. Clicar em **"+ Adicionar membro"**.
+7. Preencher o Nome do participante.
+8. Selecionar a Formação.
+9. Selecionar a Função.
+10. Selecionar o Setor.
+
+*Fontes consultadas*
+
+11. Selecionar **Prontuário**.
+12. Selecionar **Protocolo/POP**.
+13. Selecionar **Relato da equipe**.
+14. Verificar as opções selecionadas.
+
+*Entrevistas*
+
+15. Selecionar **"Não"** em **"Alguém precisa ser ouvido?"**.
+16. Verificar a área de entrevistas.
+17. Avançar para a próxima seção.
+
+**Resultado esperado**
+
+- O sistema permite registrar o condutor com Nome, Formação, Função e Setor.
+- O sistema permite adicionar um membro participante.
+- O sistema permite preencher todos os dados do membro.
+- O sistema permite selecionar múltiplas fontes consultadas.
+- O sistema mantém as fontes selecionadas.
+- O sistema aceita a resposta **"Não"** para a necessidade de entrevistas.
+- A tabela de entrevistas não é exibida.
+- O registro de entrevistas não é exigido.
+- O sistema permite o avanço para a próxima seção.
+
+
+### CT-E2E-025 — Fluxo completo de registro de entrevistas da análise { #ct-e2e-025 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Sim | US-4.4 | CA01 + CA04 + CA05 + CA06 | Fluxo alternativo |
+
+**Objetivo**
+
+Validar o fluxo completo de registro da equipe, fontes consultadas e entrevistas quando houver necessidade de ouvir participantes da investigação.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002)
+- [CT-E2E-019](#ct-e2e-019)
+- Usuário na Seção 2 da análise.
+
+**Dados de entrada**
+
+- **Condutor — Nome:** [TESTE] Mariana Souza.
+- **Condutor — Formação:** Enfermagem.
+- **Condutor — Função:** Enfermeiro(a).
+- **Condutor — Setor:** Enfermagem.
+- **Fontes:** Prontuário; Relato da equipe.
+- **Alguém precisa ser ouvido?:** Sim.
+- **Data da entrevista:** Data atual.
+- **Nome do entrevistado:** [TESTE] João Silva.
+- **Função:** Médico(a).
+- **Relato / fatos relevantes:** [TESTE] Entrevistado relatou os fatos relacionados ao incidente e descreveu as etapas realizadas durante o atendimento.
+- **Problemas ou condições percebidos:** [TESTE] Foi identificada falha na comunicação entre os profissionais durante o processo.
+
+**Procedimentos**
+
+*Seção 2 — Equipe da análise*
+
+1. Acessar a Seção 2.
+2. Preencher o Nome do condutor.
+3. Selecionar a Formação.
+4. Selecionar a Função.
+5. Selecionar o Setor.
+
+*Fontes consultadas*
+
+6. Selecionar **Prontuário**.
+7. Selecionar **Relato da equipe**.
+
+*Entrevistas*
+
+8. Selecionar **"Sim"** em **"Alguém precisa ser ouvido?"**.
+9. Verificar a exibição da tabela **"Registro de cada entrevista"**.
+10. Verificar a existência de uma linha em branco.
+11. Preencher a Data da linha em branco.
+12. Preencher o Nome da linha em branco.
+13. Selecionar a Função da linha em branco.
+14. Preencher **Relato / fatos relevantes**.
+15. Preencher **Problemas ou condições percebidos**.
+16. Verificar os dados preenchidos.
+17. Avançar para a próxima seção.
+
+**Resultado esperado**
+
+- O sistema permite registrar o condutor da análise.
+- O sistema permite selecionar as fontes consultadas.
+- Ao selecionar **"Sim"**, o sistema exibe a tabela **"Registro de cada entrevista"**.
+- O sistema exige pelo menos uma entrevista, validada no CT-FUN-073.
+- O sistema permite preencher Data, Nome, Função, Relato / fatos relevantes e Problemas ou condições percebidos.
+- O sistema permite avançar após o preenchimento completo da entrevista.
+- Os dados registrados permanecem disponíveis na análise após o avanço para a próxima seção.
+- O topo da próxima seção continua apresentando o texto **"Incidente em investigação: ..."** definido na Seção 1.
+
 ---
 
 ## 5. Testes Não-Funcionais { #testes-nao-funcionais }
@@ -3647,6 +4739,25 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Padrão | Abrir o formulário sem marcar "Não mostrar novamente" | Sistema exibe o Guia de investigação antes da Seção 1 |
 | Alternativo | Marcar "Não mostrar novamente" e abrir o formulário de outra análise | Sistema abre o formulário diretamente na Seção 1 |
 
+**[CT-FUN-054](#ct-fun-054), [CT-FUN-055](#ct-fun-055), [CT-FUN-061](#ct-fun-061), [CT-FUN-063](#ct-fun-063), [CT-E2E-022](#ct-e2e-022)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Visualizar o resumo, informar o incidente e avançar pelas seções | Sistema exibe os dados do resumo, permite o avanço e mantém o incidente no topo das seções seguintes |
+| Alternativo | Acessar uma notificação sem paciente ou anônima | Sistema exibe a informação alternativa correspondente |
+| Alternativo | Reduzir o incidente para até 100 caracteres | Sistema remove o aviso de limite e permite o avanço |
+| Alternativo | Acessar a Seção 1 como Gestor da Área | Sistema omite a identificação do notificante |
+| Alternativo | Avançar pelas seções após informar o incidente | Sistema não repete o resumo completo nas seções seguintes |
+
+**[CT-FUN-067](#ct-fun-067), [CT-FUN-071](#ct-fun-071), [CT-FUN-072](#ct-fun-072), [CT-E2E-024](#ct-e2e-024), [CT-E2E-025](#ct-e2e-025)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Adicionar membro, selecionar fontes e responder à necessidade de entrevistas | Sistema mantém os dados válidos e as seleções realizadas |
+| Alternativo | Selecionar "Outro" em fonte consultada | Sistema exibe e exige o campo de especificação |
+| Alternativo | Responder "Não" à necessidade de entrevistas | Sistema não exibe nem exige a tabela de entrevistas |
+| Alternativo | Responder "Sim" e preencher a linha inicial da entrevista | Sistema exibe e mantém o registro preenchido |
+
 ### 6.2 Partição por Equivalência { #criterios-particao }
 
 **[CT-AUTH-002](#ct-auth-002) e [CT-AUTH-003](#ct-auth-003)**
@@ -3800,6 +4911,17 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Inválido | Várias pendências | Sistema exibe o aviso "Corrija os N itens destacados para continuar." |
 | Inválido | Pendência em tabela | Sistema destaca apenas as células pendentes |
 
+**[CT-FUN-056](#ct-fun-056), [CT-FUN-068](#ct-fun-068), [CT-FUN-069](#ct-fun-069), [CT-FUN-073](#ct-fun-073), [CT-FUN-075](#ct-fun-075), [CT-E2E-023](#ct-e2e-023)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Inválido | Incidente em investigação não preenchido | Sistema exige o campo e bloqueia o avanço |
+| Inválido | Campos obrigatórios de membro não preenchidos | Sistema destaca as pendências e bloqueia o avanço |
+| Inválido | Nenhuma fonte consultada selecionada | Sistema exige ao menos uma fonte |
+| Inválido | Entrevista não preenchida após responder "Sim" | Sistema destaca as células pendentes, exibe "Adicione pelo menos 1 entrevista." e bloqueia o avanço |
+| Inválido | Pendências diversas na Seção 2 | Sistema exibe as mensagens correspondentes e bloqueia o avanço |
+| Inválido | Incidente vazio ou acima do limite | Sistema exibe a pendência ou o aviso de limite e bloqueia o avanço |
+
 ### 6.3 Análise de Valor Limite { #criterios-valor-limite }
 
 **[CT-FUN-003](#ct-fun-003)**
@@ -3824,6 +4946,15 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Limite superior inválido | Incidente em investigação com 101 caracteres | Sistema exibe o contador em vermelho e o aviso de limite e bloqueia o avanço, sem cortar o texto |
 | Último valor válido | Especificação de "Outro" com 30 caracteres | Sistema aceita a especificação |
 | Limite superior inválido | Especificação de "Outro" com 31 caracteres | Sistema exibe o aviso de limite e bloqueia o avanço |
+
+**[CT-FUN-057](#ct-fun-057), [CT-FUN-050](#ct-fun-059), [CT-FUN-066](#ct-fun-066), [CT-FUN-074](#ct-fun-074), [CT-E2E-023](#ct-e2e-023)**
+
+| Tipo de Valor | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Último valor válido | Nome ou texto preenchido no limite máximo | Sistema permite o preenchimento e o avanço |
+| Limite superior inválido | Incidente com mais de 100 caracteres | Contador fica vermelho, sistema exibe o aviso, bloqueia o avanço e não corta o texto |
+| Limite superior inválido | Nome com mais de 50 caracteres | Contador fica vermelho, sistema exibe o aviso, bloqueia o avanço e não corta o texto |
+| Limite superior inválido | Relato ou problemas com mais de 500 caracteres | Contador fica vermelho, sistema exibe o aviso, bloqueia o avanço e não corta o texto |
 
 ---
 
