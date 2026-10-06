@@ -2594,7 +2594,7 @@ Validar o comportamento do sistema no limite máximo permitido de 100 caracteres
 - Sistema permite o avanço para a próxima seção.
 
 
-##### CT-FUN-059 — Bloqueio do avanço ao ultrapassar 100 caracteres { #ct-fun-059 }
+##### CT-FUN-058 — Bloqueio do avanço ao ultrapassar 100 caracteres { #ct-fun-058 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -2630,7 +2630,7 @@ Validar que o sistema bloqueia o avanço quando o texto do incidente em investig
 - Sistema não corta automaticamente o texto informado.
 
 
-##### CT-FUN-061 — Liberação do avanço após redução do texto { #ct-fun-061 }
+##### CT-FUN-059 — Liberação do avanço após redução do texto { #ct-fun-059 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -2663,7 +2663,7 @@ Validar que o sistema permite o avanço após o texto do incidente ser reduzido 
 - Sistema permite o avanço para a próxima seção.
 
 
-##### CT-FUN-062 — Exibição do incidente em investigação nas demais seções { #ct-fun-062 }
+##### CT-FUN-060 — Exibição do incidente em investigação nas demais seções { #ct-fun-060 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -2700,7 +2700,7 @@ Validar que o incidente informado na Seção 1 é apresentado no topo das Seçõ
 - O texto corresponde ao incidente informado na Seção 1.
 
 
-##### CT-FUN-063 — Não repetição do resumo da notificação nas demais seções { #ct-fun-063 }
+##### CT-FUN-061 — Não repetição do resumo da notificação nas demais seções { #ct-fun-061 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -2731,7 +2731,7 @@ Validar que as Seções 2 em diante apresentam apenas o destaque do incidente em
 
 #### 3.3.4. História 4.4 - Registrar equipe, fontes e entrevistas da análise (Seção 2) { #testes-us-4-4 }
 
-##### CT-FUN-064 — Validação do preenchimento do condutor da análise { #ct-fun-064 }
+##### CT-FUN-062 — Validação do preenchimento do condutor da análise { #ct-fun-062 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -2773,7 +2773,7 @@ Validar que o sistema exige o preenchimento de todos os campos do condutor da an
 - Todos os campos do condutor são preenchidos corretamente.
 
 
-##### CT-FUN-065 — Validação das opções dos menus da equipe { #ct-fun-065 }
+##### CT-FUN-063 — Validação das opções dos menus da equipe { #ct-fun-063 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -2837,7 +2837,7 @@ Validar que os menus de Formação, Função e Setor apresentam todas as opçõe
   - Outro.
 - Ao selecionar **"Outro"**, o sistema disponibiliza o campo para especificação.
 
-##### CT-FUN-066 — Validação do limite do nome do condutor da análise { #ct-fun-066 }
+##### CT-FUN-064 — Validação do limite do nome do condutor da análise { #ct-fun-064 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -2879,7 +2879,7 @@ Validar o limite máximo de 50 caracteres para o campo Nome do condutor da anál
 - Sistema não corta automaticamente o texto informado.
 
 
-##### CT-FUN-067 — Inclusão e remoção de membros participantes { #ct-fun-067 }
+##### CT-FUN-065 — Inclusão e remoção de membros participantes { #ct-fun-065 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -2932,7 +2932,7 @@ Validar a inclusão e remoção de membros participantes da análise.
 - Sistema permite remover o membro adicionado.
 
 
-##### CT-FUN-068 — Validação da obrigatoriedade dos campos dos membros participantes { #ct-fun-068 }
+##### CT-FUN-066 — Validação da obrigatoriedade dos campos dos membros participantes { #ct-fun-066 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -2970,7 +2970,7 @@ Validar que todos os campos de um membro participante adicionado são obrigatór
 - O membro não pode ser considerado válido enquanto houver campos pendentes.
 
 
-##### CT-FUN-069 — Validação das fontes consultadas { #ct-fun-069 }
+##### CT-FUN-067 — Validação das fontes consultadas { #ct-fun-067 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -3004,7 +3004,7 @@ Validar que o sistema exige a seleção de pelo menos uma fonte consultada.
 - Sistema apresenta a orientação: **"Selecione as fontes de informação utilizadas na análise. Você pode selecionar uma ou mais opções."**
 
 
-##### CT-FUN-070 — Validação da seleção múltipla de fontes consultadas { #ct-fun-070 }
+##### CT-FUN-068 — Validação da seleção múltipla de fontes consultadas { #ct-fun-068 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -3037,7 +3037,7 @@ Validar que o sistema permite selecionar uma ou mais fontes de informação util
 - Todas as opções selecionadas permanecem identificadas como selecionadas.
 
 
-##### CT-FUN-071 — Validação da opção "Outro" nas fontes consultadas { #ct-fun-071 }
+##### CT-FUN-069 — Validação da opção "Outro" nas fontes consultadas { #ct-fun-069 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -3076,7 +3076,7 @@ Validar o preenchimento da opção **"Outro"** nas fontes consultadas.
 - Após preencher a especificação, a pendência é eliminada.
 
 
-##### CT-FUN-072 — Validação da necessidade de entrevistas { #ct-fun-072 }
+##### CT-FUN-070 — Validação da necessidade de entrevistas { #ct-fun-070 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -3110,7 +3110,7 @@ Validar que o sistema exige uma resposta para a pergunta **"Alguém precisa ser 
 - Ao selecionar **"Não"**, o preenchimento de entrevistas não é exigido.
 
 
-##### CT-FUN-073 — Exibição e obrigatoriedade do registro de entrevistas { #ct-fun-073 }
+##### CT-FUN-071 — Exibição e obrigatoriedade do registro de entrevistas { #ct-fun-071 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -3146,7 +3146,7 @@ Validar que, ao selecionar "Sim", o sistema exibe o registro de entrevistas e ex
 - Após preencher uma entrevista válida, o sistema permite o avanço.
 
 
-##### CT-FUN-074 — Validação dos campos do registro de entrevista { #ct-fun-074 }
+##### CT-FUN-072 — Validação dos campos do registro de entrevista { #ct-fun-072 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -3194,7 +3194,7 @@ Validar os campos obrigatórios e os limites definidos para o registro de uma en
 - Sistema permite a opção **"Outro"** no campo Função.
 
 
-##### CT-FUN-075 — Validação das mensagens de pendência da Seção 2 { #ct-fun-075 }
+##### CT-FUN-073 — Validação das mensagens de pendência da Seção 2 { #ct-fun-073 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
@@ -4718,7 +4718,7 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Alternativo | Selecionar "Próximo" com pendências | Sistema não avança, destaca os campos pendentes e exibe as mensagens e o aviso |
 | Alternativo | Corrigir um campo destacado | Sistema remove o destaque do campo corrigido |
 
-**[CT-FUN-057](#ct-fun-057), [CT-FUN-059](#ct-fun-059)**
+**[CT-FUN-050](#ct-fun-050)**
 
 | Fluxo | Descrição | Resultado esperado |
 | --- | --- | --- |
@@ -4947,7 +4947,7 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Último valor válido | Especificação de "Outro" com 30 caracteres | Sistema aceita a especificação |
 | Limite superior inválido | Especificação de "Outro" com 31 caracteres | Sistema exibe o aviso de limite e bloqueia o avanço |
 
-**[CT-FUN-057](#ct-fun-057), [CT-FUN-059](#ct-fun-059), [CT-FUN-066](#ct-fun-066), [CT-FUN-074](#ct-fun-074), [CT-E2E-023](#ct-e2e-023)**
+**[CT-FUN-057](#ct-fun-057), [CT-FUN-050](#ct-fun-059), [CT-FUN-066](#ct-fun-066), [CT-FUN-074](#ct-fun-074), [CT-E2E-023](#ct-e2e-023)**
 
 | Tipo de Valor | Descrição | Resultado esperado |
 | --- | --- | --- |
