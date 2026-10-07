@@ -135,6 +135,10 @@ nav:
       - Responsabilidades: gerencia-projeto/responsabilidades.md
       - Riscos do Projeto: gerencia-projeto/riscos.md
       - Diário de Decisões: gerencia-projeto/diario-de-decisoes.md
+      - Sprints:
+          - Visão geral: gerencia-projeto/sprints/index.md
+          - Sprint 0: gerencia-projeto/sprints/sprint-0.md
+          - Sprint 1: gerencia-projeto/sprints/sprint-1.md
       - Uso do MkDocs:
           - Visão geral: gerencia-projeto/uso-mkdocs/index.md
           - Decisão da Ferramenta: gerencia-projeto/uso-mkdocs/decisao-da-ferramenta.md

@@ -156,7 +156,7 @@ Os dados do projeto estão organizados em múltiplos repositórios na [organiza�
 | `notifica-saude-prototipo-funcional` | Protótipo funcional de alta fidelidade, desenvolvido em React com TypeScript com *vibe coding*, usado para validar fluxos, fazer testes de usabilidade e experimentar as funcionalidades previstas até o escopo do MVP. |
 | `notifica-saude-deploy` | Configurações de infraestrutura e scripts de implantação, incluindo arquivos Docker e Docker Compose. |
 | `notifica-saude-e2e` | Testes end-to-end do sistema. |
-| `docs` | Documentação do projeto, incluindo artefatos acadêmicos, decisões arquiteturais (ADRs) e materiais de apoio. |
+| `notifica-saude-docs` | Documentação do projeto, incluindo artefatos acadêmicos, decisões arquiteturais (ADRs) e materiais de apoio. |
 | `issues` | Padronização e gerenciamento dos templates de issues do projeto. |
 
 ---
@@ -166,7 +166,7 @@ Os dados do projeto estão organizados em múltiplos repositórios na [organiza�
 O acompanhamento do projeto é feito por meio das seguintes atividades:
 
 - **Acompanhamento diário** (*stand-up meetings* do Scrum), todos os dias;
-- **Relato de status semanal** para a supervisora, Professora Maria Istela.
+- **Relato de status semanal** para o supervisor, Marcelo Turine.
 
 O projeto deve ser **replanejado** se algum dos critérios a seguir for satisfeito:
 
