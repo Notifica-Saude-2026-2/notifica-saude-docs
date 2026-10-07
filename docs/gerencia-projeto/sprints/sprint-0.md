@@ -1,7 +1,7 @@
 ﻿<h1 align="center">Relatório de Acompanhamento: Sprint 0</h1>
 
 
-<p align="center"><strong>Mantenedores:</strong> Sophya Ribeiro</p>
+<p align="center"><strong>Mantenedores:</strong> Gustavo Henrique, Kauan Cardoso, Sophya Ribeiro, Brenno, Catarina, Eduardo</p>
 
 ??? note "Histórico de Alterações"
 

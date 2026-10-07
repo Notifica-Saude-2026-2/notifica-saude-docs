@@ -1,7 +1,7 @@
 ﻿<h1 align="center">Plano de Testes</h1>
 
 
-<p align="center"><strong>Mantenedores:</strong> Aline Lika Hirokawa, Pedro Silva Soledade, Sophya Ribeiro, Lucas Gonçalves, Fábio Ramos, Luigi Gonçalves</p>
+<p align="center"><strong>Mantenedores:</strong> Gustavo Henrique, Kauan Cardoso, Sophya Ribeiro, Brenno, Catarina, Eduardo</p>
 
 ??? note "Histórico de Alterações"
 

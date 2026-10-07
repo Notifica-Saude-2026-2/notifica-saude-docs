@@ -82,8 +82,8 @@ nav:
       - Manual do Sistema: manual-sistema/index.md
   - Descoberta do Produto:
       - Visão geral: descoberta-produto/index.md
-      - Entrevistas e Formulários: descoberta-produto/entrevistas-e-formularios.md
-      - Mapeamento de Processos: descoberta-produto/mapeamento-processos.md
+      - Lean Inception: descoberta-produto/lean-inception/index.md
+      - Documentos das Proponentes: descoberta-produto/documentos-proponentes.md
   - Requisitos:
       - Especificação de Requisitos de Software: requisitos/especificacao-requisitos.md
       - Matriz RBAC: requisitos/matriz-rbac.md
