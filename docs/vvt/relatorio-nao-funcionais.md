@@ -6,7 +6,7 @@ hide:
 <h1 align="center">Relatório de Testes Não-Funcionais</h1>
 
 
-<p align="center"><strong>Mantenedores:</strong> Pedro Silva Soledade</p>
+<p align="center"><strong>Mantenedores:</strong> Gustavo Henrique, Kauan Cardoso, Sophya Ribeiro, Brenno, Catarina, Eduardo</p>
 
 ??? note "Histórico de Alterações"
 

@@ -1,6 +1,6 @@
 ﻿<h1 align="center">Casos de Teste</h1>
 
-<p align="center"><strong>Mantenedores:</strong> Aline Hirokawa, Pedro Soledade, Fabio Ramos, Catarina Freisleben</p>
+<p align="center"><strong>Mantenedores:</strong> Gustavo Henrique, Kauan Cardoso, Sophya Ribeiro, Brenno, Catarina, Eduardo</p>
 
 ??? note "Histórico de Alterações"
 

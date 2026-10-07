@@ -1,6 +1,6 @@
 <h1 align="center">Relatórios de Testes</h1>
 
-<p align="center"><strong>Mantenedores:</strong> Brenno Ostemberg</p>
+<p align="center"><strong>Mantenedores:</strong> Gustavo Henrique, Kauan Cardoso, Sophya Ribeiro, Brenno, Catarina, Eduardo</p>
 
 ??? note "Histórico de Alterações"
 
