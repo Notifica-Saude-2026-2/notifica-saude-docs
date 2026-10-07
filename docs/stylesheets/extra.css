@@ -2051,3 +2051,12 @@ body {
     overflow-x: auto;
   }
 }
+
+/* ===== Relatórios de acompanhamento das sprints ===== */
+.md-typeset .ns-acomp-tabela table:not([class]) { display: table; width: 100%; }
+.md-typeset .ns-acomp-tabela td:first-child { white-space: nowrap; }
+.md-typeset .ns-acomp-tabela td:last-child .ns-nivel,
+.md-typeset .ns-acomp-tabela td:last-child .ns-tag { white-space: nowrap; }
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .ns-acomp-tabela td:first-child { white-space: normal; }
+}
