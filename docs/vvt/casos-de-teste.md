@@ -31,6 +31,7 @@
     | 4.8 | 29/09/2026 | Adição dos casos de teste da US-4.1 (CT-FUN-041 a CT-FUN-046 e CT-E2E-019 a CT-E2E-020) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Catarina Freisleben |
     | 4.9 | 29/09/2026 | Adição dos casos de teste da US-4.2 (CT-FUN-047 a CT-FUN-052 e CT-E2E-021) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Catarina Freisleben |
     | 4.10 | 05/10/2026 | Adição e revisão dos casos de teste da US-4.3 (CT-FUN-053 a CT-FUN-063 e CT-E2E-022 a CT-E2E-023) e da US-4.4 (CT-FUN-064 a CT-FUN-075 e CT-E2E-024 a CT-E2E-025), com atualização dos Critérios de Teste | Catarina Freisleben |
+    | 4.12 | 08/10/2026 | Retirada da sugestão de protocolo de investigação dos casos de teste CT-FUN-028, CT-E2E-007, CT-E2E-008, CT-E2E-009, CT-E2E-010 e CT-E2E-018, porque a etapa saiu do modal de classificação ([PR #12 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/12)), com renumeração dos passos | Catarina Freisleben |
 
 ## Sumário
 
@@ -1395,7 +1396,6 @@ Validar a alteração automática do status após classificação do incidente.
     - Profissional de saúde;
     - Equipamento médico
 - **Observações do NSP:** vazio
-- **Sugestão de protocolo de investigação:** Investigação Direta - ACR + Ishikawa + 5 Porquês + SMART — Para circunstâncias notificáveis, near misses, incidentes sem dano e incidentes com dano leve
 
 **Procedimentos**
 
@@ -1404,8 +1404,7 @@ Validar a alteração automática do status após classificação do incidente.
 2\. Preencher classificação
 3\. Preencher tipo
 4\. Preencher quem está envolvido
-5\. Preencher sugestão de protocolo
-6\. Clicar em “Salvar classificação”
+5\. Clicar em “Salvar classificação”
 
 **Resultado esperado**
 
@@ -3553,7 +3552,6 @@ Validar o fluxo completo de classificação de um incidente do tipo Never Event,
 - **Grau do dano:** Never Event
 - **Never Event:** Procedimento cirúrgico realizado no lado errado do corpo
 - **Envolvidos no incidente:** Profissional de saúde; Paciente
-- **Protocolo de investigação:** Investigação Sistêmica Profunda (Protocolo de Londres + SMART)
 
 **Procedimentos**
 
@@ -3581,7 +3579,7 @@ Validar o fluxo completo de classificação de um incidente do tipo Never Event,
 
 **Objetivo**
 
-Validar o fluxo completo de classificação de um incidente como Circunstância notificável, incluindo a exibição sem Grau do dano, seleção do protocolo de investigação e a atualização do status ao finalizar.
+Validar o fluxo completo de classificação de um incidente como Circunstância notificável, incluindo a exibição sem Grau do dano e a atualização do status ao finalizar.
 
 **Pré-condições**
 
@@ -3594,7 +3592,6 @@ Validar o fluxo completo de classificação de um incidente como Circunstância 
 - **Tipo de incidente:** Comunicação
 - **Envolvidos no incidente:** Profissional de saúde
 - **Observações do NSP:** Identificado durante a checagem.
-- **Protocolo de investigação:** Investigação Direta (ACR + Ishikawa + 5 Porquês + SMART)
 
 **Procedimentos**
 
@@ -3606,8 +3603,7 @@ Validar o fluxo completo de classificação de um incidente como Circunstância 
 4\. Selecionar tipo de incidente.
 5\. Selecionar envolvidos no incidente.
 6\. Adicionar observações do NSP.
-7\. Adicionar protocolo de investigação.
-8\. Salvar classificação.
+7\. Salvar classificação.
 
 **Resultado esperado**
 
@@ -3623,7 +3619,7 @@ Validar o fluxo completo de classificação de um incidente como Circunstância 
 
 **Objetivo**
 
-Validar o fluxo completo de classificação de um incidente como Evento Adverso, incluindo a exibição das condicionais de campos, seleção do protocolo de investigação, a atualização do status ao finalizar, e a atribuição automática dos prazos.
+Validar o fluxo completo de classificação de um incidente como Evento Adverso, incluindo a exibição das condicionais de campos, a atualização do status ao finalizar, e a atribuição automática dos prazos.
 
 **Pré-condições**
 
@@ -3636,7 +3632,6 @@ Validar o fluxo completo de classificação de um incidente como Evento Adverso,
 - **Grau do dano:** Grave
 - **Tipo de incidente:** Lesão por pressão
 - **Envolvidos no incidente:** Profissional de saúde; Paciente
-- **Protocolo de investigação:** Investigação Sistêmica Profunda (Protocolo de Londres + SMART)
 
 **Procedimentos**
 
@@ -3649,8 +3644,7 @@ Validar o fluxo completo de classificação de um incidente como Evento Adverso,
 5\. Selecionar tipo de incidente.
 6\. Selecionar envolvidos no incidente.
 7\. Adicionar observações do NSP.
-8\. Adicionar protocolo de investigação.
-9\. Salvar classificação.
+8\. Salvar classificação.
 
 **Resultado esperado**
 
@@ -3681,7 +3675,6 @@ Validar o fluxo completo de classificação de um incidente como com o tipo de i
 - **Especificação de tipo:** Descarte inadequado de resíduo
 - **Envolvidos no incidente:** Profissional de saúde; Outro
 - **Especificação do envolvido:** Fornecedor externo
-- **Protocolo de investigação:** Investigação Direta (ACR + Ishikawa + 5 Porquês + SMART)
 
 **Procedimentos**
 
@@ -3694,8 +3687,7 @@ Validar o fluxo completo de classificação de um incidente como com o tipo de i
 5\. Preencher a especificação de tipo.
 6\. Selecionar envolvidos no incidente.
 7\. Preencher a especificação de envolvidos.
-8\. Adicionar protocolo de investigação.
-9\. Salvar classificação.
+8\. Salvar classificação.
 
 **Resultado esperado**
 
@@ -3970,7 +3962,7 @@ Validar que o sistema impede o encaminhamento ao setor responsável de notifica�
 
 **Dados de entrada**
 
-- **Classificação A:** Evento adverso; Grau do dano: Óbito; Tipo de incidente: Queda; Envolvidos: Paciente; Protocolo: Investigação Sistêmica Profunda.
+- **Classificação A:** Evento adverso; Grau do dano: Óbito; Tipo de incidente: Queda; Envolvidos: Paciente.
 - **Classificação B:** Evento adverso; Grau do dano: Never Event; Tipo específico: Cirurgia em local/lado errado; Envolvidos: Paciente.
 - **Classificação C:** Evento adverso; Grau do dano: Grave; Tipo de incidente: Queda; Envolvidos: Paciente.
 
