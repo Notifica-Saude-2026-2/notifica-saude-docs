@@ -31,6 +31,7 @@
     | 4.8 | 29/09/2026 | Adição dos casos de teste da US-4.1 (CT-FUN-041 a CT-FUN-046 e CT-E2E-019 a CT-E2E-020) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Catarina Freisleben |
     | 4.9 | 29/09/2026 | Adição dos casos de teste da US-4.2 (CT-FUN-047 a CT-FUN-052 e CT-E2E-021) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Catarina Freisleben |
     | 4.10 | 05/10/2026 | Adição e revisão dos casos de teste da US-4.3 (CT-FUN-053 a CT-FUN-063 e CT-E2E-022 a CT-E2E-023) e da US-4.4 (CT-FUN-064 a CT-FUN-075 e CT-E2E-024 a CT-E2E-025), com atualização dos Critérios de Teste | Catarina Freisleben |
+    | 4.11 | 08/10/2026 | Campo "Automatizado" como "Sim" nos casos de teste CT-FUN-048, CT-FUN-049, CT-FUN-050 e CT-FUN-052 (US-4.2), automatizados na [PR #17 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/17). CT-E2E-021, CT-FUN-047 e CT-FUN-051 seguem como "Não — Não implementado", porque parte deles depende das Seções 3 a 5 | Catarina Freisleben |
 
 ## Sumário
 
@@ -2170,7 +2171,7 @@ Validar que o formulário de análise apresenta as cinco seções na ordem defin
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.2 | CA03 + CA04 | Partição por equivalência e fluxo alternativo |
+| Sim | US-4.2 | CA03 + CA04 | Partição por equivalência e fluxo alternativo |
 
 **Objetivo**
 
@@ -2217,7 +2218,7 @@ Garantir que somente o usuário que iniciou a análise pode continuá-la, que os
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.2 | CA08 + CA09 | Fluxo alternativo e partição por equivalência |
+| Sim | US-4.2 | CA08 + CA09 | Fluxo alternativo e partição por equivalência |
 
 **Objetivo**
 
@@ -2263,7 +2264,7 @@ Validar que o sistema impede o avanço de uma seção com pendências, indicando
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.2 | CA10 + CA13 | Análise de valor limite e fluxo alternativo |
+| Sim | US-4.2 | CA10 + CA13 | Análise de valor limite e fluxo alternativo |
 
 **Objetivo**
 
@@ -2354,7 +2355,7 @@ Validar que o formulário de análise apresenta o aviso fixo de cultura justa, a
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.2 | CA16 + CA17 + CA18 | Fluxo alternativo |
+| Sim | US-4.2 | CA16 + CA17 + CA18 | Fluxo alternativo |
 
 **Objetivo**
 

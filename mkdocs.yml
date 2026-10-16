@@ -111,6 +111,7 @@ nav:
               - Épico 2 - Bloqueio de Encaminhamento - Integração: vvt/relatorios-testes/us-2-3-bloqueio-encaminhamento-integracao.md
               - Épico 4 - Análise do Incidente - Unitário: vvt/relatorios-testes/analise-secoes-1-2-unitario.md
               - Épico 4 - Análise do Incidente - Integração: vvt/relatorios-testes/analise-secoes-1-2-integracao.md
+              - Épico 4 - Análise do Incidente - End-to-End (US-4.2): vvt/relatorios-testes/analise-us-4-2-e2e.md
           - Testes Não-Funcionais: vvt/relatorio-nao-funcionais.md
           - Bugs: vvt/relatorio-bugs.md
       - Teste de Usabilidade:
