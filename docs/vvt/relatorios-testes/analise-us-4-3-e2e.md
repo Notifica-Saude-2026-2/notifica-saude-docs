@@ -33,7 +33,7 @@ A US-4.3 é a **Seção 1 da análise do incidente**: antes de investigar, quem 
 <div class="ns-rel--warn"><span class="ns-rel-icone">!</span><strong>Um defeito encontrado</strong><span>Registrado como falha conhecida: o resumo não mostra o horário do incidente, porque o sistema não coleta esse dado (#20).</span></div>
 </div>
 
-Em resumo: **a Seção 1 funciona do jeito que a história pede nas partes que já existem**, incluindo o sigilo do notificante para o Gestor da Área, conferido também na resposta do servidor. O defeito não impede o uso, porque o turno já informa o período do incidente. As Seções 3 em diante ainda não existem no sistema, e os testes delas ficaram reservados como pendentes. Na rodada nos três navegadores, um teste falhou no Firefox por um defeito do próprio teste, e não do sistema (seção 5).
+Em resumo: **a Seção 1 funciona do jeito que a história pede nas partes que já existem**, incluindo o sigilo do notificante para o Gestor da Área, conferido também na resposta do servidor. O defeito não impede o uso, porque o turno já informa o período do incidente. As Seções 3 em diante ainda não existem no sistema, e os testes delas ficaram reservados como pendentes. Na rodada nos três navegadores, um teste falhou no Firefox por um defeito do próprio teste, e não do sistema, já corrigido (seção 5).
 
 </div>
 
@@ -49,7 +49,7 @@ Em resumo: **a Seção 1 funciona do jeito que a história pede nas partes que j
 <div><strong>1</strong><span>falha conhecida</span></div>
 </div>
 
-<p class="ns-rel-legenda">Os outros 3 testes estão pendentes: conferem o topo das Seções 3 em diante, que ainda não existem. O resultado é o mesmo no Chromium e no WebKit. No Firefox, um dos 13 aprovados falhou por um defeito do próprio teste, explicado na seção 5.</p>
+<p class="ns-rel-legenda">Os outros 3 testes estão pendentes: conferem o topo das Seções 3 em diante, que ainda não existem. O resultado é o mesmo no Chromium e no WebKit. No Firefox, um dos 13 aprovados falhou por um defeito do próprio teste, já corrigido; a explicação está na seção 5.</p>
 
 ### Os onze casos de teste, por assunto
 
@@ -109,6 +109,8 @@ Em resumo: **a Seção 1 funciona do jeito que a história pede nas partes que j
 
 Comparada à execução da main antes desta entrega (12/10, depois da PR #18), o Chromium passou de 122 para 136 aprovados e de 8 para 11 pendentes: são os 17 testes da US-4.3. Nenhum teste que passava antes deixou de passar, e as instabilidades do Firefox já existiam (eram 6 e agora são 2, todas em testes de outras histórias).
 
+Depois da correção do CT-FUN-055, a [CI da main de 15/10](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/actions/runs/38838025945) terminou com 136 testes aprovados em cada navegador. A única falha restante é a do CT-E2E-004, que no Chromium passou na segunda tentativa.
+
 </div>
 
 <div class="ns-rel-card" markdown>
@@ -123,7 +125,7 @@ Comparada à execução da main antes desta entrega (12/10, depois da PR #18), o
 <li><strong>"Nada enviado ao servidor":</strong> quando o bloqueio dos 101 caracteres foi tirado do frontend, o servidor também recusou o texto e devolveu o mesmo aviso, e a tela continuou na Seção 1. Quem acusou a quebra foi a conferência de que o clique em "Próximo" não pode enviar a seção.</li>
 <li><strong>Falha conhecida avisa quando o defeito for corrigido:</strong> com um horário colocado de propósito no resumo, a ferramenta acusou "deveria falhar, mas passou".</li>
 <li><strong>Esteira da PR:</strong> a <a href="https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/actions/runs/38299643967">execução da CI da PR #21</a>, no Chromium e sobre o último commit (9b58af3), terminou com 136 testes aprovados e 1 com falha. Todos os testes da US-4.3 tiveram o resultado esperado. A falha é a do CT-E2E-004, que já existia.</li>
-<li><strong>Três navegadores e um defeito no próprio teste:</strong> depois do merge, a <a href="https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/actions/runs/38575526587">CI da main</a> rodou a suíte no Chromium, no Firefox e no WebKit. No Firefox, o teste que confere a resposta do servidor no CT-FUN-055 falhou. O sistema está correto: ao abrir a análise, o Firefox reaproveita a cópia da notificação que já tinha baixado no detalhe, e o servidor responde só "não mudou" (código 304), sem conteúdo; o teste tentava ler o conteúdo dessa resposta. Os outros dois navegadores baixam a notificação de novo. A correção (<a href="https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/29">e2e#29</a>, <a href="https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/30">PR #30</a>) confere toda resposta com conteúdo, desde o detalhe. Ela passou nos três navegadores e, com a sessão do NSP, reprovou nos três, como deve.</li>
+<li><strong>Três navegadores e um defeito no próprio teste:</strong> depois do merge, a <a href="https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/actions/runs/38575526587">CI da main</a> rodou a suíte no Chromium, no Firefox e no WebKit. No Firefox, o teste que confere a resposta do servidor no CT-FUN-055 falhou. O sistema está correto: ao abrir a análise, o Firefox reaproveita a cópia da notificação que já tinha baixado no detalhe, e o servidor responde só "não mudou" (código 304), sem conteúdo; o teste tentava ler o conteúdo dessa resposta. Os outros dois navegadores baixam a notificação de novo. A correção (<a href="https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/29">e2e#29</a>, <a href="https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/30">PR #30</a>) confere toda resposta com conteúdo, desde o detalhe. Ela passou nos três navegadores e, com a sessão do NSP, reprovou nos três, como deve. Depois do merge, na <a href="https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/actions/runs/38838025945">CI da main de 15/10</a>, o CT-FUN-055 passou nos três navegadores.</li>
 </ul>
 
 <div class="ns-rel-citacao">Partes decididas só pelo servidor (a omissão do notificante na resposta e a recusa de um incidente acima de 100 caracteres) não tiveram quebra pelo frontend: exigiriam alterar e reconstruir o backend. Elas são cobertas pelos relatórios unitário e de integração.</div>
@@ -136,7 +138,6 @@ Comparada à execução da main antes desta entrega (12/10, depois da PR #18), o
 
 - **Seções 3 em diante:** os 3 testes pendentes devem ser completados quando essas seções forem entregues (CA04).
 - **Defeito [#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20) (backend, BUG-BACK-010):** o formulário público não pergunta o horário do incidente, e o banco guarda a data sem a hora. A correção prevista é incluir a pergunta no formulário, guardar a hora no banco e mostrá-la no detalhe da notificação e no resumo da análise.
-- **CT-FUN-055 no Firefox ([e2e#29](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/29)):** a correção do teste, já validada nos três navegadores, está na [PR e2e#30](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/30) e aguarda revisão.
 - **Grau do dano e tipo específico (Never Event):** o CA01 pede esses dois dados no resumo, mas nenhuma ficha da US-4.3 os confere, e os testes seguem as fichas. Fica a sugestão de incluí-los na ficha do CT-FUN-053.
 
 </div>
@@ -160,7 +161,7 @@ Comparada à execução da main antes desta entrega (12/10, depois da PR #18), o
 | [Relatório end-to-end da US-4.2](analise-us-4-2-e2e.md) | `REL_Testes_E2E_Analise_US42_v1_0` |
 | [Relatório de integração](analise-secoes-1-2-integracao.md) | `REL_Testes_Int_Analise_S1S2_v1_0` |
 
-<p class="ns-rel-rodape">REL_Testes_E2E_Analise_US43_v1_0 — compilado a partir das execuções da suíte end-to-end (Playwright) da branch test/19/automatiza-cts-us-4-3 e da main do repositório Notifica-Saude-2026-2/notifica-saude-e2e, em 12 e 14/10/2026.</p>
+<p class="ns-rel-rodape">REL_Testes_E2E_Analise_US43_v1_0 — compilado a partir das execuções da suíte end-to-end (Playwright) da branch test/19/automatiza-cts-us-4-3 e da main do repositório Notifica-Saude-2026-2/notifica-saude-e2e, em 12, 14 e 15/10/2026.</p>
 
 </div>
 
