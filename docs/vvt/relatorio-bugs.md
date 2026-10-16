@@ -15,12 +15,15 @@ hide:
     | 1.1 | 23/04/2026 | Adição retroativa dos bugs 1 ao 5. | Pedro Silva Soledade |
     | 1.2 | 24/04/2026 | Melhoria dos relatos dos bugs 1 ao 5. | Pedro Silva Soledade |
     | 1.3 | 24/09/2026 | Migração do documento (Google Docs) para o MkDocs; renumeração dos IDs duplicados e remoção de um registro repetido e de um registro de modelo não preenchido. | Sophya Ribeiro |
+    | 1.4 | 08/10/2026 | Registro dos bugs BUG-FRONT-019 ([e2e#14](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/14)) e BUG-BACK-009 ([e2e#15](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/15)), encontrados na automação dos casos de teste da US-4.2. | Catarina Freisleben |
 
 <div class="ns-dec-resumo" markdown>
-<div class="ns-dec-stat"><strong>27</strong><span>bugs registrados</span></div>
+<div class="ns-dec-stat"><strong>29</strong><span>bugs registrados</span></div>
 <div class="ns-dec-stat"><strong>27</strong><span>com status <span class="ns-status ns-status--encerrado">Fechado</span></span></div>
+<div class="ns-dec-stat"><strong>2</strong><span>com status <span class="ns-status ns-status--aberto">Aberto</span></span></div>
 <div class="ns-dec-stat"><strong>4</strong><span>de severidade <span class="ns-nivel ns-nivel--alta">Alta</span></span></div>
-<div class="ns-dec-stat"><strong>23</strong><span>de severidade <span class="ns-nivel ns-nivel--media">Média</span></span></div>
+<div class="ns-dec-stat"><strong>24</strong><span>de severidade <span class="ns-nivel ns-nivel--media">Média</span></span></div>
+<div class="ns-dec-stat"><strong>1</strong><span>de severidade <span class="ns-nivel ns-nivel--baixa">Baixa</span></span></div>
 </div>
 
 ## Sumário
@@ -135,6 +138,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 | [BUG-FRONT-016](#bug-front-016) | #57 | Campo "Especifique" não é validado ao selecionar "Outro" no setor da notificação de incidente | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Pedro Silva Soledade<br><span class="ns-bug-dest">→ Luigi Almeida</span> |
 | [BUG-FRONT-017](#bug-front-017) | #58 | Filtro "Never Event" não retorna notificações classificadas no grau de dano em Evento Adverso | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Pedro Silva Soledade<br><span class="ns-bug-dest">→ Luigi Almeida</span> |
 | [BUG-FRONT-018](#bug-front-018) | #59 | Botão "Salvar" finaliza classificação de notificação indevidamente | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Pedro Silva Soledade<br><span class="ns-bug-dest">→ Luigi Almeida</span> |
+| [BUG-FRONT-019](#bug-front-019) | [e2e#14](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/14) | CT-FUN-051: orientação do campo "Informe o incidente em investigação" fica escondida num ícone de ajuda | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ A definir</span> |
 
 </div>
 
@@ -809,6 +813,66 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 
     ![Evidência](../assets/vvt/relatorio-bugs/image15.png){ loading=lazy }
 
+<a id="bug-front-019"></a>
+
+??? bug "BUG-FRONT-019 · e2e#14 · CT-FUN-051: orientação do campo &quot;Informe o incidente em investigação&quot; fica escondida num ícone de ajuda"
+
+    <div class="ns-bug-meta" markdown>
+    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--aberto">Aberto</span></span>
+    <span><span class="ns-dec-rotulo">Severidade</span><span class="ns-nivel ns-nivel--baixa">Baixa</span></span>
+    <span><span class="ns-dec-rotulo">Reportado por</span>Catarina Freisleben</span>
+    <span><span class="ns-dec-rotulo">Designado para</span>A definir</span>
+    </div>
+
+    **Justificativa da severidade:** A orientação existe e pode ser lida passando o mouse, e o preenchimento não fica bloqueado. Mas quem não passa o mouse no ícone não a vê, e o CA11 existe justamente para evitar isso.
+
+    **Resumo**
+
+    Na Seção 1 do formulário de análise, a orientação do campo **"Informe o incidente em investigação"** só aparece quando se passa o mouse sobre o ícone ⓘ ao lado do rótulo. O CA11 da US-4.2 pede o contrário: orientações dos campos em caixas de informação visíveis, "e não escondidas em ícones de ajuda".
+
+    As outras partes do CA11 nas Seções 1 e 2 estão certas: explicação da seção em caixa azul, exemplo nos campos de texto, menus começando com "Selecione..." e obrigatórios com asterisco.
+
+    **Passos para reprodução**
+
+    1. Subir o stack (`npm run stack:up`).
+    2. Entrar como `nsp.b@notificasaude.br` (NSP do Hospital B).
+    3. Abrir uma notificação com status **Classificada** e clicar em **Registrar análise**.
+    4. No guia de investigação, clicar em **Começar a análise**.
+    5. Na Seção 1, olhar o campo "Informe o incidente em investigação" **sem passar o mouse** em nada.
+    6. Passar o mouse sobre o ícone ⓘ ao lado do rótulo do campo.
+
+    Pelo teste automatizado ([PR e2e#17](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/17)): `npx playwright test tests/funcionais/ct-fun-051.spec.ts --project=chromium`. O teste "CA11 — a orientação do campo … fica em caixa visível, não em ícone de ajuda" está marcado como falha conhecida (`test.fail`) com o ID deste bug.
+
+    **Resultado esperado**
+
+    Logo abaixo do rótulo, sem nenhuma interação, uma caixa de informação (fundo azul claro com ícone ⓘ) com o texto: "Campo preenchido manualmente por quem está analisando. O texto informado aqui é exibido no topo das próximas seções."
+
+    Texto do CA11 (Especificação de Requisitos, US-4.2): "o sistema deve exibir a explicação da seção e as orientações dos campos em caixas de informação visíveis (fundo azul claro com ícone ⓘ), e não escondidas em ícones de ajuda". O requisito não funcional 6.7.4 diz o mesmo.
+
+    **Resultado obtido**
+
+    O campo mostra só o rótulo, o asterisco e um ícone ⓘ. O texto da orientação fica num balão escuro que aparece ao passar o mouse sobre o ícone e some ao tirar o mouse.
+
+    **Observações**
+
+    - **Onde está no código (front `925a72b`):** `src/components/analise/Secao1.tsx:50` passa a orientação pela prop `dica` do `CampoAnalise`, que a desenha como `InfoTooltip`, o balão do ícone (`CampoAnalise.tsx:45-49`). O mesmo componente já tem a prop `ajuda`, que desenha a caixa azul (`InfoBox`) pedida pelo CA11 (`CampoAnalise.tsx:71-75`). Hoje só esse campo usa `dica`.
+    - Encontrado na automação do CT-FUN-051 ([e2e#13](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/13)).
+
+    **Versões afetadas**
+
+    - Frontend `925a72b` (`develop` de 07/10/2026), backend `6099726`
+    - Navegador: Chromium, em 1280 × 900
+
+    **Evidência**
+
+    Sem passar o mouse, a orientação não aparece:
+
+    ![Seção 1 sem passar o mouse: o campo mostra só o rótulo, o asterisco e o ícone ⓘ](../assets/vvt/relatorio-bugs/bug-front-019-sem-hover.png){ loading=lazy }
+
+    Com o mouse sobre o ícone ⓘ, a orientação aparece num balão:
+
+    ![Seção 1 com o mouse sobre o ícone: a orientação aparece num balão escuro](../assets/vvt/relatorio-bugs/bug-front-019-com-hover.png){ loading=lazy }
+
 ### 3.2 Back-end { #back-end }
 
 <div class="ns-bug-tabela" markdown>
@@ -823,6 +887,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 | [BUG-BACK-006](#bug-back-006) | #52 | Validar complexidade de senha no schema de criação de usuário | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Fábio Ramos<br><span class="ns-bug-dest">→ Fábio Ramos</span> |
 | [BUG-BACK-007](#bug-back-007) | #63 | PUT /api/notificacoes/{id} Não atualiza o valor textual de "Outro" no campo sexo | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Lucas Gonçalves<br><span class="ns-bug-dest">→ Lucas Gonçalves</span> |
 | [BUG-BACK-008](#bug-back-008) | #97 | Corrige porta fixa no healthcheck do Dockerfile | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Fábio Ramos<br><span class="ns-bug-dest">→ Fábio Ramos</span> |
+| [BUG-BACK-009](#bug-back-009) | [e2e#15](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/15) | CT-E2E-021: data do último salvamento da análise sai 4 h antes da data de início | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ A definir</span> |
 
 </div>
 
@@ -1210,6 +1275,89 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
     **Evidência**
 
     *Não informado.*
+
+<a id="bug-back-009"></a>
+
+??? bug "BUG-BACK-009 · e2e#15 · CT-E2E-021: data do último salvamento da análise sai 4 h antes da data de início"
+
+    <div class="ns-bug-meta" markdown>
+    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--aberto">Aberto</span></span>
+    <span><span class="ns-dec-rotulo">Severidade</span><span class="ns-nivel ns-nivel--media">Média</span></span>
+    <span><span class="ns-dec-rotulo">Reportado por</span>Catarina Freisleben</span>
+    <span><span class="ns-dec-rotulo">Designado para</span>A definir</span>
+    </div>
+
+    **Justificativa da severidade:** Não bloqueia o preenchimento, mas o sistema registra errado a hora de uma operação que o CA14 manda registrar, e a análise é um registro de auditoria do incidente.
+
+    **Resumo**
+
+    Ao salvar uma seção do formulário de análise, a API devolve a data e a hora do último salvamento (`updated_at`) **4 horas antes da hora real**. Ela fica antes até da data de início da própria análise (`data_inicio`), o que é impossível. Já o `data_inicio` e o `created_at` saem certos. Isso fere o CA14 da US-4.2: "quando o sistema salvar a análise, então deve registrar o usuário que a registrou, a data e a hora da operação".
+
+    **Passos para reprodução**
+
+    1. Subir o stack (`npm run stack:up`).
+    2. Entrar como `nsp.b@notificasaude.br` (NSP do Hospital B), abrir uma notificação **Classificada**, clicar em **Registrar análise** e depois em **Começar a análise**.
+    3. Preencher a Seção 1 e clicar em **Próximo**. Preencher a Seção 2 e clicar em **Próximo**.
+    4. Ler a análise pela API: `GET /api/notificacoes/{id}/investigacao`.
+    5. Comparar `data_inicio` com `updated_at`.
+
+    Pelo teste automatizado ([PR e2e#17](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/17)): `npx playwright test tests/e2e/ct-e2e-021.spec.ts --project=chromium`. O teste "CA14 — registra a data e a hora do último salvamento" está marcado como falha conhecida (`test.fail`) com o ID deste bug e falha nas duas rodadas do CT: NSP com notificação Classificada e Gestor da Área com notificação Encaminhada.
+
+    **Resultado esperado**
+
+    `updated_at` igual à hora real do último salvamento, ou seja, alguns segundos depois do `data_inicio`.
+
+    **Resultado obtido**
+
+    Execução de 08/10/2026. A hora real foi medida na máquina dos testes, antes do primeiro e depois do último salvamento:
+
+    ```
+    hora real dos salvamentos   2026-10-08T18:39:55Z  a  18:39:57Z
+    data_inicio (API)           2026-10-08T18:39:55.230Z   certo
+    created_at  (API)           2026-10-08T18:39:55.230Z   certo
+    updated_at  (API)           2026-10-08T14:39:57.881Z   4 h antes, e antes do próprio início
+    ```
+
+    **Observações**
+
+    - **Causa provável:** o salvamento de seção, `gravarSecao` em `src/modules/investigacao/investigacao.repository.ts:93-102`, grava `updated_at = now()` direto no SQL (`$queryRaw`). As outras datas da análise são geradas pelo Prisma. Com o Postgres num fuso diferente de UTC, os dois caminhos não batem.
+    - **O que o banco guarda** (consulta direta, fuso da sessão `America/Campo_Grande`, UTC−4): o `updated_at` está certo no banco (`14:39:57-04` = 18:39:57 UTC), e o `data_inicio` e o `created_at` estão 4 h adiantados (`18:39:55-04` = 22:39:55 UTC). Ou seja, o Prisma grava e lê ignorando o fuso do banco: as datas que ele mesmo gravou "voltam certas" pela API, e a do `now()` volta errada. Isso foi conferido só na tabela `investigacao`; as demais tabelas provavelmente estão iguais.
+    - **De onde vem o fuso:** `TZ: "America/Campo_Grande"` no serviço `postgres` do `docker-compose.yml` do próprio backend e no `.env.example`. O compose do e2e repete a configuração. O ambiente de implantação não foi conferido.
+    - A tela da análise ainda não mostra o `updated_at`. O usuário não vê o erro hoje, mas a API devolve a data errada, e qualquer tela ou relatório futuro que use essa data herda o problema.
+    - Correções possíveis, a decidir no backend: gerar a data no código e passá-la como parâmetro no SQL, pelo mesmo caminho do Prisma; ou deixar a sessão do Postgres em UTC, o que muda a leitura das datas já gravadas.
+    - Encontrado na automação do CT-E2E-021 ([e2e#13](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/13)).
+
+    **Versões afetadas**
+
+    - Backend `6099726` (`develop` de 07/10/2026), frontend `925a72b`
+    - Postgres 18 com `TZ=America/Campo_Grande`
+
+    **Evidência**
+
+    Resposta da API (`GET /api/notificacoes/3cafa9dc-5b85-4104-87c6-7284ac90bb10/investigacao`) e hora real dos salvamentos:
+
+    ```json
+    {
+      "notificacao_id": "3cafa9dc-5b85-4104-87c6-7284ac90bb10",
+      "hora_real_antes_dos_salvamentos_utc": "2026-10-08T18:39:55.095Z",
+      "hora_real_depois_dos_salvamentos_utc": "2026-10-08T18:39:57.921Z",
+      "api_data_inicio": "2026-10-08T18:39:55.230Z",
+      "api_created_at": "2026-10-08T18:39:55.230Z",
+      "api_updated_at": "2026-10-08T14:39:57.881Z"
+    }
+    ```
+
+    A mesma análise, consultada direto no banco cerca de um minuto depois (`agora_no_banco` é a hora do banco no momento da consulta):
+
+    ```
+           TimeZone
+    ----------------------
+     America/Campo_Grande
+
+            data_inicio        |        created_at         |          updated_at           |        agora_no_banco
+    ---------------------------+---------------------------+-------------------------------+-------------------------------
+     2026-10-08 18:39:55.23-04 | 2026-10-08 18:39:55.23-04 | 2026-10-08 14:39:57.881938-04 | 2026-10-08 14:41:08.304713-04
+    ```
 
 ### 3.3 End-to-End { #end-to-end }
 

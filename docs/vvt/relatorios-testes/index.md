@@ -9,6 +9,7 @@
     | 1.0 | 06/10/2026 | Criação da seção, com os relatórios unitário e de integração da análise do incidente (Seções 1 e 2). | Brenno Ostemberg |
     | 1.1 | 06/10/2026 | Migração dos relatórios em PDF da verificação de captcha (Issue #12) e do bloqueio de encaminhamento (US-2.3 / Issue #11) para o modelo padronizado. | Brenno Ostemberg |
     | 1.2 | 06/10/2026 | Migração dos relatórios de cobertura de código do backend (unitário e integração, v1.0) e nova seção de cobertura do projeto. | Brenno Ostemberg |
+    | 1.3 | 08/10/2026 | Inclusão da coluna End-to-End e do relatório end-to-end da US-4.2 (análise do incidente). | Catarina Freisleben |
 
 Conforme a [Definição de Pronto](../../gcs/definicao-de-pronto.md#dod-testes), uma história ou tarefa só é considerada pronta quando tem os relatórios de testes que comprovam sua validação. Esta seção reúne esses relatórios, um por entrega e por nível de teste. Cada página também pode ser baixada em PDF, o formato exigido na entrega.
 
@@ -35,8 +36,8 @@ Relatórios da cobertura do backend como um todo, por módulo, comparada às met
 
 ## Relatórios por entrega
 
-| Entrega | Branch | Unitário | Integração |
-| --- | --- | --- | --- |
-| Épico 1 - Verificação de Captcha · Cloudflare Turnstile (Issue #12) | `feat/12/implementa-captcha-cloudflare` | [Página](issue-12-captcha-unitario.md) · [PDF](../../assets/vvt/relatorios-testes/REL_Testes_Unit_Captcha_v1_0.pdf) | [Página](issue-12-captcha-integracao.md) · [PDF](../../assets/vvt/relatorios-testes/REL_Testes_Int_Captcha_v1_0.pdf) |
-| Épico 2 - Bloqueio de Encaminhamento · Óbito / Never Event (US-2.3 / Issue #11) | `refactor/11/ajusta-encaminhamento-dos-incidentes` | [Página](us-2-3-bloqueio-encaminhamento-unitario.md) · [PDF](../../assets/vvt/relatorios-testes/REL_Testes_Unit_CA06_v1_0.pdf) | [Página](us-2-3-bloqueio-encaminhamento-integracao.md) · [PDF](../../assets/vvt/relatorios-testes/REL_Testes_Int_CA06_v1_0.pdf) |
-| Épico 4 - Análise do Incidente · Seções 1 e 2 (US-4.1 a US-4.4, US-6.2) | `feat/56/implementa-analise-secao-1-e-2` | [Página](analise-secoes-1-2-unitario.md) · [PDF](../../assets/vvt/relatorios-testes/REL_Testes_Unit_Analise_S1S2_v1_0.pdf) | [Página](analise-secoes-1-2-integracao.md) · [PDF](../../assets/vvt/relatorios-testes/REL_Testes_Int_Analise_S1S2_v1_0.pdf) |
+| Entrega | Branch | Unitário | Integração | End-to-End |
+| --- | --- | --- | --- | --- |
+| Épico 1 - Verificação de Captcha · Cloudflare Turnstile (Issue #12) | `feat/12/implementa-captcha-cloudflare` | [Página](issue-12-captcha-unitario.md) · [PDF](../../assets/vvt/relatorios-testes/REL_Testes_Unit_Captcha_v1_0.pdf) | [Página](issue-12-captcha-integracao.md) · [PDF](../../assets/vvt/relatorios-testes/REL_Testes_Int_Captcha_v1_0.pdf) | — |
+| Épico 2 - Bloqueio de Encaminhamento · Óbito / Never Event (US-2.3 / Issue #11) | `refactor/11/ajusta-encaminhamento-dos-incidentes` | [Página](us-2-3-bloqueio-encaminhamento-unitario.md) · [PDF](../../assets/vvt/relatorios-testes/REL_Testes_Unit_CA06_v1_0.pdf) | [Página](us-2-3-bloqueio-encaminhamento-integracao.md) · [PDF](../../assets/vvt/relatorios-testes/REL_Testes_Int_CA06_v1_0.pdf) | — |
+| Épico 4 - Análise do Incidente · Seções 1 e 2 (US-4.1 a US-4.4, US-6.2) | `feat/56/implementa-analise-secao-1-e-2` | [Página](analise-secoes-1-2-unitario.md) · [PDF](../../assets/vvt/relatorios-testes/REL_Testes_Unit_Analise_S1S2_v1_0.pdf) | [Página](analise-secoes-1-2-integracao.md) · [PDF](../../assets/vvt/relatorios-testes/REL_Testes_Int_Analise_S1S2_v1_0.pdf) | US-4.2: [Página](analise-us-4-2-e2e.md) · [PDF](../../assets/vvt/relatorios-testes/REL_Testes_E2E_Analise_US42_v1_0.pdf) |
