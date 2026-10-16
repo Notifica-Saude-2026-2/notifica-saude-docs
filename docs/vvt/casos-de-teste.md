@@ -33,6 +33,7 @@
     | 4.10 | 05/10/2026 | Adição e revisão dos casos de teste da US-4.3 (CT-FUN-053 a CT-FUN-063 e CT-E2E-022 a CT-E2E-023) e da US-4.4 (CT-FUN-064 a CT-FUN-075 e CT-E2E-024 a CT-E2E-025), com atualização dos Critérios de Teste | Catarina Freisleben |
     | 4.11 | 08/10/2026 | Campo "Automatizado" como "Sim" nos casos de teste CT-FUN-048, CT-FUN-049, CT-FUN-050 e CT-FUN-052 (US-4.2), automatizados na [PR #17 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/17). CT-E2E-021, CT-FUN-047 e CT-FUN-051 seguem como "Não — Não implementado", porque parte deles depende das Seções 3 a 5 | Catarina Freisleben |
     | 4.12 | 08/10/2026 | Retirada da sugestão de protocolo de investigação dos casos de teste CT-FUN-028, CT-E2E-007, CT-E2E-008, CT-E2E-009, CT-E2E-010 e CT-E2E-018, porque a etapa saiu do modal de classificação ([PR #12 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/12)), com renumeração dos passos | Catarina Freisleben |
+    | 4.13 | 15/10/2026 | Campo "Automatizado" dos casos de teste da US-4.3, automatizados na [PR #21 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/21): CT-FUN-053 a CT-FUN-059 e CT-E2E-023 seguem como "Sim"; CT-FUN-060, CT-FUN-061 e CT-E2E-022 passam a "Não — Não implementado", porque parte deles depende das Seções 3 em diante. Correção das referências da US-4.3 nos Critérios de Teste. Os intervalos citados na versão 4.10 ficam corrigidos: a US-4.3 tem os casos CT-FUN-053 a CT-FUN-061, e a US-4.4, CT-FUN-062 a CT-FUN-073 | Catarina Freisleben |
 
 ## Sumário
 
@@ -2667,7 +2668,7 @@ Validar que o sistema permite o avanço após o texto do incidente ser reduzido 
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
-| Sim | US-4.3 | CA04 | Fluxo principal |
+| Não — Não implementado | US-4.3 | CA04 | Fluxo principal |
 
 **Objetivo**
 
@@ -2704,7 +2705,7 @@ Validar que o incidente informado na Seção 1 é apresentado no topo das Seçõ
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
-| Sim | US-4.3 | CA04 | Regra de negócio |
+| Não — Não implementado | US-4.3 | CA04 | Regra de negócio |
 
 **Objetivo**
 
@@ -4153,7 +4154,7 @@ Validar o percurso de registro da análise: a disponibilização da opção "Reg
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Sim | US-4.3 | CA01 até CA04 | Fluxo principal |
+| Não — Não implementado | US-4.3 | CA01 até CA04 | Fluxo principal |
 
 **Objetivo**
 
@@ -4732,7 +4733,7 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Padrão | Abrir o formulário sem marcar "Não mostrar novamente" | Sistema exibe o Guia de investigação antes da Seção 1 |
 | Alternativo | Marcar "Não mostrar novamente" e abrir o formulário de outra análise | Sistema abre o formulário diretamente na Seção 1 |
 
-**[CT-FUN-054](#ct-fun-054), [CT-FUN-055](#ct-fun-055), [CT-FUN-061](#ct-fun-061), [CT-FUN-063](#ct-fun-063), [CT-E2E-022](#ct-e2e-022)**
+**[CT-FUN-053](#ct-fun-053), [CT-FUN-054](#ct-fun-054), [CT-FUN-055](#ct-fun-055), [CT-FUN-059](#ct-fun-059), [CT-FUN-060](#ct-fun-060), [CT-FUN-061](#ct-fun-061), [CT-E2E-022](#ct-e2e-022)**
 
 | Fluxo | Descrição | Resultado esperado |
 | --- | --- | --- |
@@ -4940,7 +4941,7 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Último valor válido | Especificação de "Outro" com 30 caracteres | Sistema aceita a especificação |
 | Limite superior inválido | Especificação de "Outro" com 31 caracteres | Sistema exibe o aviso de limite e bloqueia o avanço |
 
-**[CT-FUN-057](#ct-fun-057), [CT-FUN-050](#ct-fun-059), [CT-FUN-066](#ct-fun-066), [CT-FUN-074](#ct-fun-074), [CT-E2E-023](#ct-e2e-023)**
+**[CT-FUN-057](#ct-fun-057), [CT-FUN-058](#ct-fun-058), [CT-FUN-066](#ct-fun-066), [CT-FUN-074](#ct-fun-074), [CT-E2E-023](#ct-e2e-023)**
 
 | Tipo de Valor | Descrição | Resultado esperado |
 | --- | --- | --- |

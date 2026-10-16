@@ -18,6 +18,7 @@ hide:
     | 3.3 | 29/09/2026 | Inclusão dos casos de teste da US-4.2 (CA01 a CA19) no Épico 4, ligação dos seus casos de teste aos RNF 6.7.2, 6.7.4, 6.7.5, 6.7.6 e 6.7.7 e atualização do resumo. | Catarina Freisleben |
     | 3.4 | 05/10/2026 | Inclusão dos casos de teste da US-4.3 (CA01 a CA04) e da US-4.4 (CA01 a CA07) no Épico 4 e atualização do resumo da rastreabilidade. | Gustavo Henrique |
     | 3.5 | 08/10/2026 | Status de automação da US-4.2 (CA01 a CA18) e dos RNF 6.7.2, 6.7.4, 6.7.5, 6.7.6 e 6.7.7, conforme a [PR #17 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/17): "Automatizado", com "Não implementado" ao lado onde parte do critério depende das Seções 3 a 5. Resumo: 29 casos de teste automatizados. | Catarina Freisleben |
+    | 3.6 | 15/10/2026 | Status de automação da US-4.3 (CA01 a CA04), conforme a [PR #21 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/21): "Automatizado", com "Não implementado" ao lado no CA04, cuja parte das Seções 3 em diante ainda não existe. Correção dos casos de teste ligados aos critérios da US-4.3, conforme as fichas, e inclusão da RN-27, citada no CA01. Resumo: 37 casos de teste automatizados. | Catarina Freisleben |
 
 ## Sumário
 
@@ -41,7 +42,7 @@ Esta matriz relaciona cada critério de aceite das histórias de usuário aos ca
 <div class="ns-dec-stat"><strong>119</strong><span>critérios de aceite mapeados</span></div>
 <div class="ns-dec-stat"><strong>61%</strong><span>com caso de teste (72 de 119)</span></div>
 <div class="ns-dec-stat"><strong>81</strong><span>casos de teste de histórias</span></div>
-<div class="ns-dec-stat"><strong>29</strong><span>casos de teste automatizados</span></div>
+<div class="ns-dec-stat"><strong>37</strong><span>casos de teste automatizados</span></div>
 </div>
 
 <div class="ns-legenda"><strong>Status:</strong> <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> <span class="ns-rast ns-rast--pronto">Pronto para automatizar</span> <span class="ns-rast ns-rast--naodoc">Não documentado</span> <span class="ns-rast ns-rast--naoauto">Não automatizado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> <span class="ns-rast ns-rast--naoloc">Requisito não localizado nos requisitos</span></div>
@@ -181,10 +182,10 @@ Esta matriz relaciona cada critério de aceite das histórias de usuário aos ca
 |  | CA17 | [CT-FUN-052](casos-de-teste.md#ct-fun-052) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 |  | CA18 | [CT-FUN-052](casos-de-teste.md#ct-fun-052) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 |  | CA19 | [CT-FUN-051](casos-de-teste.md#ct-fun-051) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
-| **US-4.3** | CA01 | [CT-FUN-053](casos-de-teste.md#ct-fun-053), [CT-FUN-054](casos-de-teste.md#ct-fun-054), [CT-FUN-055](casos-de-teste.md#ct-fun-055) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
-|  | CA02 | [CT-FUN-056](casos-de-teste.md#ct-fun-056) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
-|  | CA03 | [CT-FUN-057](casos-de-teste.md#ct-fun-057), [CT-FUN-059](casos-de-teste.md#ct-fun-059), [CT-FUN-061](casos-de-teste.md#ct-fun-061), [CT-E2E-023](casos-de-teste.md#ct-e2e-023) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
-|  | CA04 | [CT-FUN-062](casos-de-teste.md#ct-fun-062), [CT-FUN-063](casos-de-teste.md#ct-fun-063), [CT-E2E-022](casos-de-teste.md#ct-e2e-022) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
+| **US-4.3** | CA01 | [CT-FUN-053](casos-de-teste.md#ct-fun-053), [CT-FUN-054](casos-de-teste.md#ct-fun-054), [CT-FUN-055](casos-de-teste.md#ct-fun-055), [CT-E2E-022](casos-de-teste.md#ct-e2e-022) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Gustavo Henrique |
+|  | CA02 | [CT-FUN-056](casos-de-teste.md#ct-fun-056), [CT-E2E-022](casos-de-teste.md#ct-e2e-022), [CT-E2E-023](casos-de-teste.md#ct-e2e-023) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Gustavo Henrique |
+|  | CA03 | [CT-FUN-057](casos-de-teste.md#ct-fun-057), [CT-FUN-058](casos-de-teste.md#ct-fun-058), [CT-FUN-059](casos-de-teste.md#ct-fun-059), [CT-E2E-022](casos-de-teste.md#ct-e2e-022), [CT-E2E-023](casos-de-teste.md#ct-e2e-023) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Gustavo Henrique |
+|  | CA04 | [CT-FUN-060](casos-de-teste.md#ct-fun-060), [CT-FUN-061](casos-de-teste.md#ct-fun-061), [CT-E2E-022](casos-de-teste.md#ct-e2e-022) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
 | **US-4.4** | CA01 | [CT-FUN-064](casos-de-teste.md#ct-fun-064), [CT-FUN-066](casos-de-teste.md#ct-fun-066), [CT-E2E-024](casos-de-teste.md#ct-e2e-024), [CT-E2E-025](casos-de-teste.md#ct-e2e-025) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
 |  | CA02 | [CT-FUN-065](casos-de-teste.md#ct-fun-065) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
 |  | CA03 | [CT-FUN-067](casos-de-teste.md#ct-fun-067), [CT-FUN-068](casos-de-teste.md#ct-fun-068), [CT-E2E-024](casos-de-teste.md#ct-e2e-024) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
@@ -225,7 +226,7 @@ Esta matriz relaciona cada critério de aceite das histórias de usuário aos ca
 |  | US-3.2 | <span class="ns-dec-ctx">Nenhuma regra associada</span> |
 | **Épico 4** | US-4.1 | RN-08 |
 |  | US-4.2 | RN-07, RN-08 |
-|  | US-4.3 | <span class="ns-dec-ctx">Nenhuma regra associada</span> |
+|  | US-4.3 | RN-27 |
 |  | US-4.4 | <span class="ns-dec-ctx">Nenhuma regra associada</span> |
 |  | US-4.5 | <span class="ns-dec-ctx">Nenhuma regra associada</span> |
 | **Épico 5** | US-5.1 | RN-07 |
