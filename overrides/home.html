@@ -6,6 +6,36 @@
 -#}
 {% extends "main.html" %}
 
+{#- Ambientes do sistema exibidos na seção "Acesse o sistema" (logo abaixo do hero). -#}
+{% set ambientes = [
+  {
+    "icon": "flask-outline",
+    "tag": "Protótipo · GitHub Pages",
+    "tag_class": "ns-tag--arquitetura",
+    "title": "Protótipo funcional",
+    "text": "Versão navegável com o core completo do sistema: notificação, classificação, encaminhamento, análise do incidente e plano de ação. É onde as funcionalidades são desenhadas e validadas com as proponentes antes de entrarem no desenvolvimento.",
+    "itens": [
+      {"icon": "check-circle-outline", "text": "Ideal para conhecer o fluxo completo, do relato à conclusão."},
+      {"icon": "information-outline", "text": "Os dados ficam salvos apenas no seu navegador — nada é enviado a um servidor."}
+    ],
+    "botao": "Abrir protótipo",
+    "url": "https://notifica-saude-2026-2.github.io/notifica-saude-prototipo-funcional/"
+  },
+  {
+    "icon": "server-outline",
+    "tag": "Homologação · Servidor do NES",
+    "tag_class": "ns-tag--requisitos",
+    "title": "Sistema em homologação",
+    "text": "Versão real do NotificaSaúde, com backend e banco de dados, publicada no servidor do NES ao fim de cada sprint com as funcionalidades já desenvolvidas e testadas.",
+    "itens": [
+      {"icon": "check-circle-outline", "text": "Mostra o que já está implementado de verdade."},
+      {"icon": "information-outline", "text": "Algumas funcionalidades do protótipo ainda estão em desenvolvimento nesta versão."}
+    ],
+    "botao": "Abrir sistema",
+    "url": "https://nes-server.equipe7.front.facom.ufms.br/"
+  }
+] %}
+
 {% set docs = [
   {
     "icon": "book-open-page-variant-outline",
@@ -51,9 +81,9 @@
   },
   {
     "icon": "rocket-launch-outline",
-    "title": "Implantação e entregas",
-    "text": "Guias de ambiente e implantação e as apresentações institucionais do projeto.",
-    "url": "implantacao/"
+    "title": "Implantação",
+    "text": "Ambientes do sistema: o protótipo funcional e a homologação no servidor do NES, e como cada um é atualizado.",
+    "url": "desenvolvimento/implantacao/"
   }
 ] %}
 
@@ -85,9 +115,9 @@
         do relato à ação corretiva, em um só lugar.
       </p>
       <div class="ns-hero__actions">
-        <a href="{{ 'requisitos/especificacao-requisitos/' | url }}" class="ns-btn ns-btn--light">
-          Explorar requisitos
-          <span class="ns-btn__icon">{% include ".icons/material/arrow-right.svg" %}</span>
+        <a href="#acesse-o-sistema" class="ns-btn ns-btn--light">
+          Acessar o sistema
+          <span class="ns-btn__icon">{% include ".icons/material/arrow-down.svg" %}</span>
         </a>
         <a href="{{ 'manual-sistema/' | url }}" class="ns-btn ns-btn--ghost">Manual do sistema</a>
       </div>
@@ -109,6 +139,41 @@
         </ol>
       </div>
     </div>
+  </div>
+</section>
+
+{#- Faixa "Acesse o sistema": fica fora do conteúdo para o fundo ocupar a largura toda. -#}
+<section class="ns-access" id="acesse-o-sistema">
+  <div class="md-grid md-typeset ns-access__inner">
+  <div class="ns-home">
+    <span class="ns-kicker">Acesse o sistema</span>
+    <h2 class="ns-section__title">Duas formas de conhecer o NotificaSaúde</h2>
+    <p class="ns-section__lead">O protótipo mostra o sistema completo; a homologação mostra o que já está implementado de verdade.</p>
+    <div class="ns-access__grid">
+      {% for a in ambientes %}
+      <div class="ns-access__card">
+        <div class="ns-access__head">
+          <span class="ns-icon">{% include ".icons/material/" ~ a.icon ~ ".svg" %}</span>
+          <span class="ns-tag {{ a.tag_class }}">{{ a.tag }}</span>
+        </div>
+        <h3>{{ a.title }}</h3>
+        <p>{{ a.text }}</p>
+        <ul class="ns-access__list">
+          {% for i in a.itens %}
+          <li>
+            <span class="ns-access__li-icon">{% include ".icons/material/" ~ i.icon ~ ".svg" %}</span>
+            <span>{{ i.text }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+        <a href="{{ a.url }}" class="ns-btn ns-btn--primary" target="_blank" rel="noopener">
+          {{ a.botao }}
+          <span class="ns-btn__icon">{% include ".icons/material/open-in-new.svg" %}</span>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
   </div>
 </section>
 {% endblock %}

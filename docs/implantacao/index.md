@@ -1,3 +1,0 @@
-﻿# Implantação
-
-> Conteúdo em construção.
