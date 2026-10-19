@@ -61,4 +61,4 @@ Os cenários executáveis da US-4.1 passaram na suíte completa. Não houve falh
 - [Casos de Teste — seção de testes end-to-end](../casos-de-teste.md#testes-e2e).
 - [Matriz de Rastreabilidade — Épico 4](../matriz-rastreabilidade.md#epico-4).
 
-**Registro da execução:** a data e o commit executado não foram informados.
+**Registro da execução:** 16/10/2026.
