@@ -8,6 +8,7 @@
     | Versão | Data | Justificativa | Responsável |
     | --- | --- | --- | --- |
     | 1.0 | 29/09/2026 | Documentação da configuração do site, da execução local e das rotinas de manutenção. | Sophya Ribeiro |
+    | 1.1 | 18/10/2026 | Remoção da aba "Implantação e Entregas" da tabela de pastas; a implantação passou a ficar em Desenvolvimento. | Sophya Ribeiro |
 
 ## Sumário
 
@@ -66,11 +67,10 @@ Cada página fica dentro da pasta da aba em que aparece no menu, seguindo o mesm
 | Visão Geral | `docs/index.md` e `docs/manual-sistema/` |
 | Descoberta do Produto | `docs/descoberta-produto/` |
 | Requisitos | `docs/requisitos/` |
-| Desenvolvimento | `docs/desenvolvimento/` (subpastas `arquitetura/` e `banco-de-dados/`) |
+| Desenvolvimento | `docs/desenvolvimento/` (subpastas `arquitetura/`, `banco-de-dados/`, `frontend/`, `backend/` e `implantacao/`) |
 | Qualidade e Testes | `docs/vvt/` (subpasta `teste-usabilidade/`) |
 | Gerência de Configuração | `docs/gcs/` |
 | Gestão do Projeto | `docs/gerencia-projeto/` (subpasta `uso-mkdocs/`) |
-| Implantação e Entregas | `docs/implantacao/` e `docs/entregas-nes/` |
 
 As imagens de uma página ficam em `docs/assets/<aba>/<nome-da-pagina>/`, e arquivos para download (como o `.docx` do Plano de Projeto) em `docs/assets/docs/`.
 
