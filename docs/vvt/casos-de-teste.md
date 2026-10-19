@@ -33,6 +33,7 @@
     | 4.10 | 05/10/2026 | Adição e revisão dos casos de teste da US-4.3 (CT-FUN-053 a CT-FUN-063 e CT-E2E-022 a CT-E2E-023) e da US-4.4 (CT-FUN-064 a CT-FUN-075 e CT-E2E-024 a CT-E2E-025), com atualização dos Critérios de Teste | Catarina Freisleben |
     | 4.11 | 08/10/2026 | Campo "Automatizado" como "Sim" nos casos de teste CT-FUN-048, CT-FUN-049, CT-FUN-050 e CT-FUN-052 (US-4.2), automatizados na [PR #17 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/17). CT-E2E-021, CT-FUN-047 e CT-FUN-051 seguem como "Não — Não implementado", porque parte deles depende das Seções 3 a 5 | Catarina Freisleben |
     | 4.12 | 08/10/2026 | Retirada da sugestão de protocolo de investigação dos casos de teste CT-FUN-028, CT-E2E-007, CT-E2E-008, CT-E2E-009, CT-E2E-010 e CT-E2E-018, porque a etapa saiu do modal de classificação ([PR #12 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/12)), com renumeração dos passos | Catarina Freisleben |
+    | 4.13 | 18/10/2026 | Correção das referências aos casos de teste das US-4.3 e US-4.4 nos Critérios de Teste e no CT-E2E-025, que ainda usavam a numeração anterior à revisão (CT-FUN-074 e CT-FUN-075 não existem mais). | Sophya Ribeiro |
 
 ## Sumário
 
@@ -4391,7 +4392,7 @@ Validar o fluxo completo de registro da equipe, fontes consultadas e entrevistas
 - O sistema permite registrar o condutor da análise.
 - O sistema permite selecionar as fontes consultadas.
 - Ao selecionar **"Sim"**, o sistema exibe a tabela **"Registro de cada entrevista"**.
-- O sistema exige pelo menos uma entrevista, validada no CT-FUN-073.
+- O sistema exige pelo menos uma entrevista, validada no CT-FUN-071.
 - O sistema permite preencher Data, Nome, Função, Relato / fatos relevantes e Problemas ou condições percebidos.
 - O sistema permite avançar após o preenchimento completo da entrevista.
 - Os dados registrados permanecem disponíveis na análise após o avanço para a próxima seção.
@@ -4732,7 +4733,7 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Padrão | Abrir o formulário sem marcar "Não mostrar novamente" | Sistema exibe o Guia de investigação antes da Seção 1 |
 | Alternativo | Marcar "Não mostrar novamente" e abrir o formulário de outra análise | Sistema abre o formulário diretamente na Seção 1 |
 
-**[CT-FUN-054](#ct-fun-054), [CT-FUN-055](#ct-fun-055), [CT-FUN-061](#ct-fun-061), [CT-FUN-063](#ct-fun-063), [CT-E2E-022](#ct-e2e-022)**
+**[CT-FUN-054](#ct-fun-054), [CT-FUN-055](#ct-fun-055), [CT-FUN-059](#ct-fun-059), [CT-FUN-061](#ct-fun-061), [CT-E2E-022](#ct-e2e-022)**
 
 | Fluxo | Descrição | Resultado esperado |
 | --- | --- | --- |
@@ -4742,7 +4743,7 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Alternativo | Acessar a Seção 1 como Gestor da Área | Sistema omite a identificação do notificante |
 | Alternativo | Avançar pelas seções após informar o incidente | Sistema não repete o resumo completo nas seções seguintes |
 
-**[CT-FUN-067](#ct-fun-067), [CT-FUN-071](#ct-fun-071), [CT-FUN-072](#ct-fun-072), [CT-E2E-024](#ct-e2e-024), [CT-E2E-025](#ct-e2e-025)**
+**[CT-FUN-065](#ct-fun-065), [CT-FUN-069](#ct-fun-069), [CT-FUN-070](#ct-fun-070), [CT-FUN-071](#ct-fun-071), [CT-E2E-024](#ct-e2e-024), [CT-E2E-025](#ct-e2e-025)**
 
 | Fluxo | Descrição | Resultado esperado |
 | --- | --- | --- |
@@ -4904,7 +4905,7 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Inválido | Várias pendências | Sistema exibe o aviso "Corrija os N itens destacados para continuar." |
 | Inválido | Pendência em tabela | Sistema destaca apenas as células pendentes |
 
-**[CT-FUN-056](#ct-fun-056), [CT-FUN-068](#ct-fun-068), [CT-FUN-069](#ct-fun-069), [CT-FUN-073](#ct-fun-073), [CT-FUN-075](#ct-fun-075), [CT-E2E-023](#ct-e2e-023)**
+**[CT-FUN-056](#ct-fun-056), [CT-FUN-066](#ct-fun-066), [CT-FUN-067](#ct-fun-067), [CT-FUN-071](#ct-fun-071), [CT-FUN-073](#ct-fun-073), [CT-E2E-023](#ct-e2e-023)**
 
 | Cenário | Descrição | Resultado esperado |
 | --- | --- | --- |
@@ -4940,7 +4941,7 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Último valor válido | Especificação de "Outro" com 30 caracteres | Sistema aceita a especificação |
 | Limite superior inválido | Especificação de "Outro" com 31 caracteres | Sistema exibe o aviso de limite e bloqueia o avanço |
 
-**[CT-FUN-057](#ct-fun-057), [CT-FUN-050](#ct-fun-059), [CT-FUN-066](#ct-fun-066), [CT-FUN-074](#ct-fun-074), [CT-E2E-023](#ct-e2e-023)**
+**[CT-FUN-057](#ct-fun-057), [CT-FUN-059](#ct-fun-059), [CT-FUN-064](#ct-fun-064), [CT-FUN-072](#ct-fun-072), [CT-E2E-023](#ct-e2e-023)**
 
 | Tipo de Valor | Descrição | Resultado esperado |
 | --- | --- | --- |

@@ -908,6 +908,123 @@ body {
   color: var(--ns-muted);
 }
 
+/* Acesse o sistema (protótipo funcional e homologação) */
+.ns-access {
+  scroll-margin-top: 2.4rem;
+  background: linear-gradient(180deg, #f5f7ff 0%, #eef1ff 100%);
+  border-bottom: 1px solid #e3e8ff;
+}
+
+[data-md-color-scheme="slate"] .ns-access {
+  background: linear-gradient(180deg, rgba(96, 120, 255, 0.07) 0%, rgba(96, 120, 255, 0.11) 100%);
+  border-bottom-color: var(--ns-border);
+}
+
+.ns-access__inner {
+  padding: 3rem 0.8rem 3.4rem;
+}
+
+.md-typeset.ns-access__inner {
+  font-size: 0.8rem;
+}
+
+.ns-access .ns-home {
+  padding-bottom: 0;
+}
+
+[data-md-color-scheme="slate"] .ns-access__card {
+  border-color: var(--ns-border);
+}
+
+.ns-access__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.ns-access__card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem 1.4rem 1.3rem;
+  background: var(--ns-card);
+  border: 1px solid #e3e8ff;
+  border-radius: var(--ns-radius);
+  box-shadow: var(--ns-shadow);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.ns-access__card:hover {
+  border-color: var(--ns-primary-wash-border);
+  box-shadow: var(--ns-shadow-hover);
+}
+
+.ns-access__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.9rem;
+}
+
+.md-typeset .ns-home .ns-access__card h3 {
+  font-size: 1.05rem;
+}
+
+.md-typeset .ns-access__card > p {
+  font-size: 0.74rem;
+  line-height: 1.6;
+  color: var(--ns-muted);
+}
+
+.md-typeset ul.ns-access__list {
+  list-style: none;
+  margin: 0.9rem 0 1.2rem;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+  flex: 1;
+  align-content: start;
+}
+
+.md-typeset ul.ns-access__list > li {
+  display: flex;
+  gap: 0.45rem;
+  align-items: flex-start;
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: var(--ns-text);
+}
+
+.ns-access__li-icon {
+  flex: 0 0 auto;
+}
+
+.ns-access__li-icon svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  margin-top: 0.1rem;
+  fill: var(--md-primary-fg-color);
+  display: block;
+}
+
+.md-typeset a.ns-btn--primary,
+.md-typeset a.ns-btn--primary:hover {
+  align-self: flex-start;
+  background: var(--ns-primary);
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(24, 62, 255, 0.25);
+}
+
+.md-typeset a.ns-btn--primary:hover {
+  background: var(--ns-primary-dark);
+}
+
+[data-md-color-scheme="slate"] .md-typeset a.ns-btn--primary,
+[data-md-color-scheme="slate"] .md-typeset a.ns-btn--primary:hover {
+  box-shadow: none;
+}
+
 /* ---------- Responsivo ---------- */
 @media screen and (max-width: 76.1875em) {
   .ns-cards {
@@ -925,7 +1042,8 @@ body {
 
 @media screen and (max-width: 60em) {
   .ns-hero__inner,
-  .ns-about {
+  .ns-about,
+  .ns-access__grid {
     grid-template-columns: 1fr;
   }
 
@@ -960,6 +1078,10 @@ body {
   .ns-section,
   .ns-section:first-child {
     margin-top: 2.2rem;
+  }
+
+  .ns-access__inner {
+    padding: 2.2rem 0.8rem 2.4rem;
   }
 
   .md-typeset .ns-section__title {
@@ -2146,3 +2268,15 @@ body {
   .md-typeset .ns-li-trilha, .md-typeset .ns-li-persona, .md-typeset .ns-li-quad, .md-typeset .ns-li-onda, .md-typeset .ns-li-bloco { break-inside: avoid; }
   .md-typeset .ns-li-cel, .ns-bpmn-task, .ns-li-m, .md-typeset .ns-li-onda__n, .md-typeset .ns-li-visao { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+
+/* ─── Arquitetura: ADRs e diagramas C4 ─── */
+.md-typeset .ns-adr-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.9rem; font-size: 0.68rem; color: var(--md-default-fg-color--light); margin: 0 0 1.2rem; }
+.md-typeset .ns-adr-meta .ns-tag { font-size: 0.66rem; }
+.md-typeset .ns-adr-meta a { margin-left: auto; }
+.md-typeset .ns-diagrama { margin: 1.2rem 0; padding: 0.8rem; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 12px; background: #fff; }
+.md-typeset .ns-diagrama img { display: block; width: 100%; height: auto; }
+.md-typeset .ns-diagrama .ns-diagrama__legenda { max-width: 420px; margin: 0.6rem auto 0; }
+
+/* Código na primeira coluna das tabelas não quebra no meio da palavra */
+.md-typeset table:not([class]) td:first-child > code { white-space: nowrap; }

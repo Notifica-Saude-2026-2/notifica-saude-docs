@@ -87,14 +87,45 @@ nav:
   - Requisitos:
       - Especificação de Requisitos de Software: requisitos/especificacao-requisitos.md
       - Matriz RBAC: requisitos/matriz-rbac.md
+      - Reuniões:
+          - Visão geral: requisitos/reunioes/index.md
+          - Atas:
+              - Reunião Inicial (06/08/2026): requisitos/reunioes/atas/reuniao-inicial.md
+          - Relatórios:
+              - Visita Técnica: requisitos/reunioes/relatorios/visita-tecnica.md
   - Desenvolvimento:
       - Arquitetura:
           - Especificação de Arquitetura de Software: desenvolvimento/arquitetura/especificacao-arquitetura.md
-          - ADR: desenvolvimento/arquitetura/adr.md
+          - ADR:
+              - Visão geral: desenvolvimento/arquitetura/adr/index.md
+              - "ADR-0001: Registrar decisões de arquitetura": desenvolvimento/arquitetura/adr/0001-registro-de-decisoes-de-arquitetura.md
+              - "ADR-0002: Adotar aplicação web responsiva para o NotificaSaúde": desenvolvimento/arquitetura/adr/0002-adotar-aplicacao-web-responsiva.md
+              - "ADR-0003: Adotar arquitetura monolítica para o backend do NotificaSaúde": desenvolvimento/arquitetura/adr/0003-adotar-arquitetura-monolitica.md
+              - "ADR-0004: Utilizar SQLite na fase inicial do NotificaSaúde": desenvolvimento/arquitetura/adr/0004-usar-sqlite-na-fase-inicial.md
+              - "ADR-0005: Utilizar React com TypeScript no frontend do NotificaSaúde": desenvolvimento/arquitetura/adr/0005-usar-react-typescript-no-frontend.md
+              - "ADR-0006: Adotar arquitetura cliente-servidor usando REST": desenvolvimento/arquitetura/adr/0006-adotar-arquitetura-cliente-servidor-rest.md
+              - "ADR-0007: Usar Docker para a implantação": desenvolvimento/arquitetura/adr/0007-adotar-docker-para-deploy.md
+              - "ADR-0008: Adotar Arquitetura Centralizada": desenvolvimento/arquitetura/adr/0008-adotar-arquitetura-centralizada.md
+              - "ADR-0009: Adotar multi-tenancy com PostgreSQL": desenvolvimento/arquitetura/adr/0009-adotar-multitenancy-com-postgresql.md
+              - "ADR-0010: Adotar backend com Express.js": desenvolvimento/arquitetura/adr/0010-adotar-backend-expressjs.md
+              - "ADR-0011: Adotar ORM Prisma": desenvolvimento/arquitetura/adr/0011-adotar-orm-prisma.md
+              - "ADR-0012: Adotar Swagger para documentação da API": desenvolvimento/arquitetura/adr/0012-adotar-swagger.md
+              - "ADR-0013: Adotar Logger Estruturado com Pino no Backend": desenvolvimento/arquitetura/adr/0013-adotar-logger-estruturado-backend.md
+              - "ADR-0014: Adotar Métricas de DevOps SRE": desenvolvimento/arquitetura/adr/0014-adotar-metricas-sre.md
+              - "ADR-0015: Adotar Brevo para envio de e-mails transacionais": desenvolvimento/arquitetura/adr/0015-adotar-brevo-para-envio-de-emails.md
+              - "ADR-0016: Usar arquitetura multi-tenancy": desenvolvimento/arquitetura/adr/0016-adotar-multitenancy.md
+              - "ADR-0017: Usar SGBD PostgreSQL para dados de negócio": desenvolvimento/arquitetura/adr/0017-adotar-postgresql-como-sgbd.md
+              - "ADR-0018: Usar Redis para armazenar dados de autenticação": desenvolvimento/arquitetura/adr/0018-adotar-redis-para-dados-de-autenticacao.md
+              - "ADR-0019: Adotar porta MailerService com factory de providers para envio de e-mail": desenvolvimento/arquitetura/adr/0019-adotar-mailer-service-com-factory-de-providers.md
+              - "ADR-0020: Adotar fila BullMQ + worker dedicado para envio de e-mails": desenvolvimento/arquitetura/adr/0020-adotar-fila-bullmq-para-envio-de-emails.md
+              - "ADR-0021: Adotar PostgreSQL como SGBD relacional único com suporte a multitenancy": desenvolvimento/arquitetura/adr/0021-adotar-postgresql-como-sgbd-com-multitenancy.md
           - Brevo: desenvolvimento/arquitetura/brevo.md
       - Banco de Dados:
           - Especificação do Modelo de Domínio: desenvolvimento/banco-de-dados/modelo-dominio.md
           - Especificação do Modelo Lógico: desenvolvimento/banco-de-dados/modelo-logico.md
+      - Frontend: desenvolvimento/frontend/repositorio.md
+      - Backend: desenvolvimento/backend/repositorio.md
+      - Implantação: desenvolvimento/implantacao/index.md
   - Qualidade e Testes:
       - Visão geral: vvt/index.md
       - Plano de Testes: vvt/plano-de-testes.md
@@ -113,6 +144,7 @@ nav:
               - Épico 4 - Análise do Incidente - Integração: vvt/relatorios-testes/analise-secoes-1-2-integracao.md
               - Épico 4 - Análise do Incidente - End-to-End (US-4.1): vvt/relatorios-testes/analise-us-4-1-e2e.md
               - Épico 4 - Análise do Incidente - End-to-End (US-4.2): vvt/relatorios-testes/analise-us-4-2-e2e.md
+              - Épico 4 - Análise do Incidente - End-to-End (US-4.4): vvt/relatorios-testes/analise-us-4-4-e2e.md
           - Testes Não-Funcionais: vvt/relatorio-nao-funcionais.md
           - Bugs: vvt/relatorio-bugs.md
       - Teste de Usabilidade:
@@ -146,7 +178,3 @@ nav:
           - Decisão da Ferramenta: gerencia-projeto/uso-mkdocs/decisao-da-ferramenta.md
           - Configuração e Manutenção: gerencia-projeto/uso-mkdocs/configuracao-e-manutencao.md
           - Guia de Atualização da Documentação: gerencia-projeto/uso-mkdocs/guia-atualizacao-documentacao.md
-  - Implantação e Entregas:
-      - Implantação: implantacao/index.md
-      - Guia de Ambiente — Frontend: implantacao/guia-ambiente-frontend.md
-      - Apresentações NES: entregas-nes/index.md
