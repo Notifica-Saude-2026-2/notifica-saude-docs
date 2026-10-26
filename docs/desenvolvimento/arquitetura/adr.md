@@ -1,3 +1,0 @@
-﻿# ADR
-
-> Conteúdo em construção.

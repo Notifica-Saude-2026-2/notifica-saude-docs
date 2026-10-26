@@ -16,14 +16,15 @@ hide:
     | 1.2 | 24/04/2026 | Melhoria dos relatos dos bugs 1 ao 5. | Pedro Silva Soledade |
     | 1.3 | 24/09/2026 | Migração do documento (Google Docs) para o MkDocs; renumeração dos IDs duplicados e remoção de um registro repetido e de um registro de modelo não preenchido. | Sophya Ribeiro |
     | 1.4 | 08/10/2026 | Registro dos bugs BUG-FRONT-019 ([e2e#14](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/14)) e BUG-BACK-009 ([e2e#15](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/15)), encontrados na automação dos casos de teste da US-4.2. | Catarina Freisleben |
+    | 1.5 | 15/10/2026 | Registro do bug BUG-BACK-010 ([e2e#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20)), encontrado na automação dos casos de teste da US-4.3. | Catarina Freisleben |
 
 <div class="ns-dec-resumo" markdown>
-<div class="ns-dec-stat"><strong>29</strong><span>bugs registrados</span></div>
+<div class="ns-dec-stat"><strong>30</strong><span>bugs registrados</span></div>
 <div class="ns-dec-stat"><strong>27</strong><span>com status <span class="ns-status ns-status--encerrado">Fechado</span></span></div>
-<div class="ns-dec-stat"><strong>2</strong><span>com status <span class="ns-status ns-status--aberto">Aberto</span></span></div>
+<div class="ns-dec-stat"><strong>3</strong><span>com status <span class="ns-status ns-status--aberto">Aberto</span></span></div>
 <div class="ns-dec-stat"><strong>4</strong><span>de severidade <span class="ns-nivel ns-nivel--alta">Alta</span></span></div>
 <div class="ns-dec-stat"><strong>24</strong><span>de severidade <span class="ns-nivel ns-nivel--media">Média</span></span></div>
-<div class="ns-dec-stat"><strong>1</strong><span>de severidade <span class="ns-nivel ns-nivel--baixa">Baixa</span></span></div>
+<div class="ns-dec-stat"><strong>2</strong><span>de severidade <span class="ns-nivel ns-nivel--baixa">Baixa</span></span></div>
 </div>
 
 ## Sumário
@@ -888,6 +889,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 | [BUG-BACK-007](#bug-back-007) | #63 | PUT /api/notificacoes/{id} Não atualiza o valor textual de "Outro" no campo sexo | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Lucas Gonçalves<br><span class="ns-bug-dest">→ Lucas Gonçalves</span> |
 | [BUG-BACK-008](#bug-back-008) | #97 | Corrige porta fixa no healthcheck do Dockerfile | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Fábio Ramos<br><span class="ns-bug-dest">→ Fábio Ramos</span> |
 | [BUG-BACK-009](#bug-back-009) | [e2e#15](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/15) | CT-E2E-021: data do último salvamento da análise sai 4 h antes da data de início | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ A definir</span> |
+| [BUG-BACK-010](#bug-back-010) | [e2e#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20) | CT-FUN-053: horário do incidente não é coletado nem aparece no resumo da análise | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
 
 </div>
 
@@ -1358,6 +1360,69 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
     ---------------------------+---------------------------+-------------------------------+-------------------------------
      2026-10-08 18:39:55.23-04 | 2026-10-08 18:39:55.23-04 | 2026-10-08 14:39:57.881938-04 | 2026-10-08 14:41:08.304713-04
     ```
+
+<a id="bug-back-010"></a>
+
+??? bug "BUG-BACK-010 · e2e#20 · CT-FUN-053: horário do incidente não é coletado nem aparece no resumo da análise"
+
+    <div class="ns-bug-meta" markdown>
+    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--aberto">Aberto</span></span>
+    <span><span class="ns-dec-rotulo">Severidade</span><span class="ns-nivel ns-nivel--baixa">Baixa</span></span>
+    <span><span class="ns-dec-rotulo">Reportado por</span>Catarina Freisleben</span>
+    <span><span class="ns-dec-rotulo">Designado para</span>Brenno Ostemberg</span>
+    </div>
+
+    **Justificativa da severidade:** Não bloqueia a análise, e o turno já informa o período do incidente. Mas o resumo fica sem um dado que o CA01 pede.
+
+    **Resumo**
+
+    O resumo da notificação, na Seção 1 da análise, não mostra o **horário do incidente**, que o CA01 da US-4.3 pede: "o resumo da notificação — descrição, data do incidente, **horário**, turno, …".
+
+    O resumo não esqueceu de mostrar o horário: esse dado não existe no sistema. O formulário público pergunta a data e o turno, mas não o horário, e o banco guarda a data do incidente sem a hora.
+
+    **Passos para reprodução**
+
+    1. Subir o stack (`npm run stack:up`).
+    2. Abrir o formulário público (`/notificacao`) e chegar à tela "Momento e local do incidente". As perguntas são "Em que data que ocorreu o incidente?", "Em qual Turno ocorreu o incidente?" e "Em qual Setor ocorreu o incidente?". Não há pergunta de horário.
+    3. Enviar a notificação e classificá-la.
+    4. Entrar como `nsp.b@notificasaude.br` (NSP do Hospital B), abrir a notificação, clicar em **Registrar análise** e depois em **Começar a análise**.
+    5. Ver o resumo da Seção 1: aparecem "Data do incidente" e "Turno", sem o horário.
+
+    Pelo teste automatizado ([PR e2e#21](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/21)): `npx playwright test tests/funcionais/ct-fun-053.spec.ts --project=chromium`. O teste "CA01 — apresenta o horário do incidente no resumo" está marcado como falha conhecida (`test.fail`) com o ID deste bug.
+
+    **Resultado esperado**
+
+    O resumo da Seção 1 apresenta o horário do incidente, junto da data e do turno (CA01 da US-4.3; dado de entrada do CT-FUN-053: "Horário: 10:30").
+
+    **Resultado obtido**
+
+    O resumo mostra "Data do incidente: 09/10/2026" e "Turno: Manhã (07h-13h)". O único horário que aparece no resumo é o da classificação ("Data da classificação: 09/10/2026 - 08:49:49"), que não é o do incidente.
+
+    **Observações**
+
+    - **Onde falta o dado:**
+        - **Formulário público:** as perguntas ficam em `prisma/seed/formulario.ts`, linhas 88–113 do backend. A "Tela 3 - Momento e Local do Incidente" tem só data, turno e setor.
+        - **Banco:** `prisma/schema.prisma:330`, `data_incidente DateTime @db.Date`. O `@db.Date` guarda só dia, mês e ano.
+        - **Resumo da Seção 1:** `src/components/analise/ResumoNotificacao.tsx`, linhas 57–60 do frontend, mostra Descrição, Data do incidente e Turno.
+    - **No documento de requisitos**, o horário aparece só no CA01 da US-4.3.
+    - **Correção prevista:** incluir a pergunta do horário no formulário público, guardar a hora no banco e mostrá-la no detalhe da notificação e no resumo da análise.
+    - Encontrado na automação do CT-FUN-053 ([e2e#19](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/19)).
+
+    **Versões afetadas**
+
+    - Backend `6099726` (`develop` de 07/10/2026), frontend `925a72b`
+    - `notifica-saude-backend/prisma/seed/formulario.ts`, `notifica-saude-backend/prisma/schema.prisma:330`
+    - `notifica-saude-frontend/src/components/analise/ResumoNotificacao.tsx`
+
+    **Evidência**
+
+    A tela "Momento e local do incidente" do formulário público pergunta a data, o turno e o setor, mas não o horário:
+
+    ![Formulário público, tela "Momento e local do incidente": perguntas de data, turno e setor, sem horário](../assets/vvt/relatorio-bugs/bug-back-010-formulario.png){ loading=lazy }
+
+    O resumo da Seção 1 mostra a data do incidente e o turno, sem o horário:
+
+    ![Resumo da Seção 1: data do incidente 09/10/2026 e turno Manhã (07h-13h), sem horário](../assets/vvt/relatorio-bugs/bug-back-010-resumo.png){ loading=lazy }
 
 ### 3.3 End-to-End { #end-to-end }
 
