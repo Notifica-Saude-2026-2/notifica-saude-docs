@@ -79,7 +79,16 @@ extra_css:
 nav:
   - Visão Geral:
       - Início: index.md
-      - Manual do Sistema: manual-sistema/index.md
+      - Manual do Sistema:
+          - Visão geral: manual-sistema/index.md
+          - Primeiros passos: manual-sistema/primeiros-passos.md
+          - Registrar uma notificação: manual-sistema/registrar-notificacao.md
+          - Classificar e encaminhar: manual-sistema/classificar-e-encaminhar.md
+          - Registrar a análise: manual-sistema/registrar-analise.md
+          - Plano de ação: manual-sistema/plano-de-acao.md
+          - Concluir e arquivar: manual-sistema/concluir-e-arquivar.md
+          - Gestor da área: manual-sistema/gestor-da-area.md
+          - Dúvidas frequentes: manual-sistema/duvidas-frequentes.md
   - Descoberta do Produto:
       - Visão geral: descoberta-produto/index.md
       - Lean Inception: descoberta-produto/lean-inception/index.md

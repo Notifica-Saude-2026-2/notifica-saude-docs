@@ -391,6 +391,31 @@ body {
   font-weight: 600;
 }
 
+/* O fundo do título acompanha as bordas arredondadas da caixa */
+.md-typeset .admonition,
+.md-typeset details {
+  overflow: hidden;
+}
+
+/* Tabelas dentro de avisos e blocos recolhíveis (ex.: Histórico de Alterações) ocupam toda a largura */
+.md-typeset .admonition .md-typeset__scrollwrap,
+.md-typeset details .md-typeset__scrollwrap {
+  margin: 0.8em 0;
+}
+
+.md-typeset .admonition .md-typeset__table,
+.md-typeset details .md-typeset__table {
+  display: block;
+  width: 100%;
+  padding: 0;
+}
+
+.md-typeset .admonition .md-typeset__table table:not([class]),
+.md-typeset details .md-typeset__table table:not([class]) {
+  display: table;
+  width: 100%;
+}
+
 /* ---------- Rodapé ---------- */
 .md-footer {
   background: var(--md-footer-bg-color);
@@ -2280,3 +2305,106 @@ body {
 
 /* Código na primeira coluna das tabelas não quebra no meio da palavra */
 .md-typeset table:not([class]) td:first-child > code { white-space: nowrap; }
+
+/* ==========================================================================
+   Manual do Sistema (docs/manual-sistema/)
+   ========================================================================== */
+
+/* Prints das telas: borda, cantos e sombra leves, sempre do tamanho do conteúdo */
+.md-typeset img.ns-print {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0.4rem auto 0.8rem;
+  border: 1px solid var(--ns-border);
+  border-radius: 10px;
+  box-shadow: var(--ns-shadow);
+  background: #ffffff;
+}
+
+.md-typeset img.ns-print--estreito {
+  max-width: min(100%, 26rem);
+}
+
+.md-typeset img.ns-print--celular {
+  max-width: min(100%, 17rem);
+  border-radius: 16px;
+}
+
+.md-typeset a:has(> img.ns-print) {
+  display: block;
+}
+
+/* Imagens ou imagem + texto lado a lado (empilham no celular) */
+.md-typeset .ns-lado-a-lado {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.md-typeset .ns-lado-a-lado > * {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .ns-lado-a-lado {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Selo "quem pode fazer isso" */
+.md-typeset .ns-perfil {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.2em 0.75em;
+  border-radius: 999px;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+  vertical-align: middle;
+}
+
+.md-typeset .ns-perfil::before {
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.md-typeset .ns-perfil--nsp { background: #eef1ff; color: #1c37cb; border-color: #c9d3ff; }
+.md-typeset .ns-perfil--gestor { background: #ecfdf3; color: #067647; border-color: #abefc6; }
+.md-typeset .ns-perfil--notificante { background: #fff6ed; color: #b93815; border-color: #f9dbaf; }
+.md-typeset .ns-perfil--todos { background: #f2f4f7; color: #344054; border-color: #d0d5dd; }
+
+[data-md-color-scheme="slate"] .md-typeset .ns-perfil--nsp { background: rgba(96, 120, 255, 0.16); color: #a9b6ff; border-color: rgba(120, 140, 255, 0.35); }
+[data-md-color-scheme="slate"] .md-typeset .ns-perfil--gestor { background: rgba(18, 183, 106, 0.14); color: #75e0a7; border-color: rgba(18, 183, 106, 0.35); }
+[data-md-color-scheme="slate"] .md-typeset .ns-perfil--notificante { background: rgba(247, 144, 9, 0.14); color: #fdb022; border-color: rgba(247, 144, 9, 0.35); }
+[data-md-color-scheme="slate"] .md-typeset .ns-perfil--todos { background: rgba(152, 162, 179, 0.14); color: #d0d5dd; border-color: rgba(152, 162, 179, 0.35); }
+
+/* Perguntas recolhíveis (??? question): azul bem claro no lugar do verde padrão do tema */
+.md-typeset .admonition.question,
+.md-typeset details.question {
+  border-color: var(--ns-primary-wash-border);
+}
+
+.md-typeset .question > .admonition-title,
+.md-typeset .question > summary {
+  background-color: var(--ns-primary-wash);
+}
+
+.md-typeset .question > .admonition-title::before,
+.md-typeset .question > summary::before {
+  background-color: var(--md-primary-fg-color);
+}
+
+.md-typeset .question > summary::after {
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset details.question:focus-within {
+  box-shadow: 0 0 0 0.05rem var(--ns-primary-wash-border);
+}
