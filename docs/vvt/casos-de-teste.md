@@ -35,6 +35,8 @@
     | 4.12 | 08/10/2026 | Retirada da sugestão de protocolo de investigação dos casos de teste CT-FUN-028, CT-E2E-007, CT-E2E-008, CT-E2E-009, CT-E2E-010 e CT-E2E-018, porque a etapa saiu do modal de classificação ([PR #12 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/12)), com renumeração dos passos | Catarina Freisleben |
     | 4.13 | 18/10/2026 | Correção das referências aos casos de teste das US-4.3 e US-4.4 nos Critérios de Teste e no CT-E2E-025, que ainda usavam a numeração anterior à revisão (CT-FUN-074 e CT-FUN-075 não existem mais). | Sophya Ribeiro |
     | 4.14 | 26/10/2026 | Campo "Automatizado" dos casos de teste da US-4.3, automatizados na [PR #21 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/21): CT-FUN-053 a CT-FUN-059 e CT-E2E-023 seguem como "Sim"; CT-FUN-060, CT-FUN-061 e CT-E2E-022 passam a "Não — Não implementado", porque parte deles depende das Seções 3 em diante. Na Análise de Valor Limite, a referência ao CT-FUN-059 passa ao CT-FUN-058, que é o caso de valor limite do bloqueio acima de 100 caracteres. Os intervalos citados na versão 4.10 ficam corrigidos: a US-4.3 tem os casos CT-FUN-053 a CT-FUN-061, e a US-4.4, CT-FUN-062 a CT-FUN-073 | Catarina Freisleben |
+    | 4.15 | 26/10/2026 | Adição dos casos de teste da US-4.5 (CT-FUN-074 a CT-FUN-080 e CT-E2E-026) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste. Os números CT-FUN-074 e CT-FUN-075, citados na versão 4.13 como inexistentes, passam a identificar casos novos da US-4.5 | Catarina Freisleben |
+    | 4.16 | 26/10/2026 | Adição dos casos de teste da US-4.6 (CT-FUN-081 a CT-FUN-086 e CT-E2E-027) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste. No 5 Porquês, o CT-FUN-084 segue o protótipo funcional, em que o bloco começa fechado, com o botão "Usar os 5 Porquês"; o CA08 da US-4.6 será ajustado na especificação de requisitos | Catarina Freisleben |
 
 ## Sumário
 
@@ -54,6 +56,8 @@
         - [3.3.2. História 4.2 - Registrar análise do incidente](#testes-us-4-2)
         - [3.3.3. História 4.3 - Identificar o incidente em investigação](#testes-us-4-3)
         - [3.3.4. História 4.4 - Registrar equipe, fontes e entrevistas da análise](#testes-us-4-4)
+        - [3.3.5. História 4.5 - Registrar cronologia e problemas na prestação do cuidado](#testes-us-4-5)
+        - [3.3.6. História 4.6 - Analisar fatores contribuintes de cada PPC e aprofundar com os 5 Porquês](#testes-us-4-6)
 - [4. Testes End-to-End](#testes-e2e)
 - [5. Testes Não-Funcionais](#testes-nao-funcionais)
 - [6. Critérios de Teste](#criterios-teste)
@@ -3237,6 +3241,629 @@ Validar que o sistema apresenta mensagens indicando as pendências existentes na
 - Nas tabelas, somente as células pendentes são destacadas.
 - Sistema bloqueia o avanço enquanto existirem pendências.
 
+---
+
+#### 3.3.5. História 4.5 - Registrar cronologia e problemas na prestação do cuidado (Seção 3) { #testes-us-4-5 }
+
+##### CT-FUN-074 — Orientações da cronologia { #ct-fun-074 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.5 | CA01 + CA02 + CA03 | Fluxo principal |
+
+**Objetivo**
+
+Validar que a Seção 3 apresenta o título, a caixa de informação com a explicação da seção, o passo a passo "Como preencher" e o exemplo de registro da cronologia em mini tabela, com os textos definidos.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação classificada, com a análise iniciada pelo usuário e as Seções 1 e 2 preenchidas
+- Blocos recolhíveis da Seção 3 ainda não recolhidos pelo usuário
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Na seção "Análise", selecionar "Continuar análise" e chegar à Seção 3.
+*Tela Análise*
+2\. Verificar o título da seção e a caixa de informação.
+3\. Verificar o bloco "Como preencher".
+4\. Verificar o bloco exibido acima da tabela do campo "Cronologia".
+
+**Resultado esperado**
+
+- **CA01:**
+    - O sistema apresenta o título "Seção 3 — Cronologia do incidente"
+    - A caixa de informação apresenta o texto "Construa a cronologia do incidente em ordem, mostrando os fatos que antecederam o evento, o momento em que ele aconteceu e o que foi feito depois. Registre um fato por linha, sempre com a fonte.", com o trecho "Construa a cronologia do incidente" em negrito
+- **CA02:**
+    - O bloco recolhível "Como preencher" apresenta os passos numerados: 1. **Um fato por linha:** uma ação, um acontecimento ou uma mudança no estado do paciente. 2. **Descreva sem julgar:** identifique as pessoas pela função, não pelo nome, e evite palavras como "erro", "falha" ou "esqueceu". 3. **Cruze as fontes:** compare prontuário, documentos e entrevistas. Se não conferirem, registre cada versão em uma linha e marque "Em análise".
+- **CA03:**
+    - Acima da tabela, o sistema apresenta o bloco recolhível "Exemplo de registro da cronologia", em mini tabela com as mesmas colunas da tabela real: Data · Hora · Fato · Fonte · Status
+    - A mini tabela apresenta as linhas:
+        - 14/04/2025 · 08:00 · Médico plantonista prescreve ceftriaxona 1 g EV. · Prontuário · Confirmado
+        - 14/04/2025 · 08:20 · Técnica de enfermagem separa ampola de cefazolina 1 g para administração. · Entrevista · Em análise
+        - 14/04/2025 · 08:30 · Cefazolina 1 g EV é administrada ao paciente. · Prontuário · Confirmado
+        - 14/04/2025 · 09:10 · Durante conferência da prescrição, enfermeira identifica que o medicamento prescrito era ceftriaxona 1 g EV. · Prontuário · Confirmado
+        - 14/04/2025 · 09:20 · Médico assistente é comunicado e paciente permanece em observação. · Prontuário · Confirmado
+
+##### CT-FUN-075 — Exibição e campos da tabela de cronologia { #ct-fun-075 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.5 | CA05 + CA06 | Partição por equivalência e análise de valor limite |
+
+**Objetivo**
+
+Validar que a cronologia é exibida como uma linha do tempo, com um evento por linha e os campos na ordem definida, e que cada campo oferece as opções e respeita os limites de caracteres definidos, sem cortar o texto.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação classificada, com a análise iniciada pelo usuário e as Seções 1 e 2 preenchidas
+
+**Dados de entrada**
+
+- **Evento 1:** 14/10/2026; 08:00; Médico prescreve ceftriaxona 1 g EV.; Prontuário; Confirmado
+- **Evento 2:** 14/10/2026; 08:20; Técnica de enfermagem separa ampola de cefazolina 1 g.; Outro — Registro da farmácia; Provável
+- **Fato — limite válido:** texto com 500 caracteres
+- **Fato — acima do limite:** texto com 501 caracteres
+- **Especificação de "Outro" na Fonte — limite válido:** texto com 30 caracteres
+- **Especificação de "Outro" na Fonte — acima do limite:** texto com 31 caracteres
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Na seção "Análise", selecionar "Continuar análise" e chegar à Seção 3.
+*Tela Análise*
+2\. Verificar a tabela do campo "Cronologia" e os campos do evento em branco.
+3\. Abrir os menus "Fonte" e "Status" e verificar as opções e a legenda do cabeçalho da coluna "Status".
+4\. Preencher o evento 1 e selecionar "+ Adicionar evento".
+5\. Preencher o evento 2, selecionando "Outro" em "Fonte" e especificando a opção.
+6\. Reduzir a largura da janela do navegador para a de um celular, verificar a tabela e restaurar a largura.
+7\. Informar o Fato do evento 2 com 501 caracteres e selecionar "Próximo".
+8\. Reduzir o Fato para 500 caracteres.
+9\. Informar a especificação de "Outro" com 31 caracteres e selecionar "Próximo".
+10\. Reduzir a especificação para 30 caracteres e selecionar "Próximo".
+
+**Resultado esperado**
+
+- **CA05:**
+    - A tabela apresenta um evento por linha, com os campos lado a lado na ordem Data · Hora · Fato · Fonte · Status
+    - O sistema apresenta o botão "+ Adicionar evento", que inclui uma nova linha abaixo das existentes
+    - Em uma janela estreita, a tabela mantém os campos lado a lado e pode ser rolada horizontalmente
+- **CA06:**
+    - O menu "Fonte" apresenta as opções Prontuário, Inspeção no local, Entrevista e Outro; ao selecionar "Outro", o sistema exibe o campo "Especifique a opção"
+    - O menu "Status" apresenta as opções Confirmado, Provável e Em análise
+    - O cabeçalho da coluna "Status" disponibiliza a legenda: Confirmado — fonte documental direta; Provável — relato/entrevista sem confirmação documental; Em análise — informação pendente de validação, inclusive divergência entre fontes, registrando as duas versões, uma por linha
+    - O campo "Fato" exibe o contador "N/500"; com 501 caracteres, o contador fica vermelho, o sistema exibe o aviso de limite e não avança, sem cortar o texto
+    - A especificação de "Outro" exibe o contador "N/30"; com 31 caracteres, o sistema exibe o aviso de limite e não avança, sem cortar o texto
+    - Com o Fato em 500 caracteres e a especificação em 30, o sistema avança para a Seção 4
+
+##### CT-FUN-076 — Obrigatoriedade da cronologia { #ct-fun-076 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.5 | CA04 | Fluxo alternativo e partição por equivalência |
+
+**Objetivo**
+
+Validar que o sistema exige ao menos um evento na cronologia, com todos os campos preenchidos, inclusive o texto de "Outro" na Fonte, e que informa a pendência quando todos os eventos são removidos.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação classificada, com a análise iniciada pelo usuário e as Seções 1 e 2 preenchidas
+
+**Dados de entrada**
+
+- **Evento completo:** 14/10/2026; 08:00; Médico prescreve ceftriaxona 1 g EV.; Prontuário; Confirmado
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Na seção "Análise", selecionar "Continuar análise" e chegar à Seção 3.
+*Tela Análise*
+2\. Verificar a tabela do campo "Cronologia".
+3\. Preencher somente a Data e o Fato do evento em branco e selecionar "Próximo".
+4\. Preencher a Hora e o Status, selecionar "Outro" em "Fonte" sem especificar a opção e selecionar "Próximo".
+5\. Remover o evento e selecionar "Próximo".
+6\. Selecionar "+ Adicionar evento", preencher o evento completo e selecionar "Próximo".
+
+**Resultado esperado**
+
+- **CA04 — tabela ao abrir:**
+    - A tabela da cronologia já abre com um evento em branco
+- **CA04 — evento com campos vazios:**
+    - O sistema não avança e destaca apenas as células vazias (Hora, Fonte e Status)
+    - O sistema indica abaixo da tabela os campos que faltam
+- **CA04 — Fonte "Outro" sem especificação:**
+    - O sistema não avança e destaca a especificação da Fonte como pendente
+- **CA04 — nenhum evento:**
+    - O sistema não avança e exibe "Adicione pelo menos 1 evento."
+- **CA04 — evento completo:**
+    - O sistema avança para a Seção 4
+
+##### CT-FUN-077 — Conferência da cronologia e aviso de fatos em análise { #ct-fun-077 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.5 | CA07 + CA08 | Partição por equivalência e fluxo alternativo |
+
+**Objetivo**
+
+Validar que o sistema apresenta, abaixo da cronologia, o bloco "Antes de seguir, confira" e, ao lado dele, o aviso com a quantidade de fatos "Em análise", e que nenhum dos dois impede o avanço.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação classificada, com a análise iniciada pelo usuário e as Seções 1 e 2 preenchidas
+
+**Dados de entrada**
+
+- **Evento 1:** 14/10/2026; 08:00; Médico prescreve ceftriaxona 1 g EV.; Prontuário; Confirmado
+- **Evento 2:** 14/10/2026; 08:20; Técnica de enfermagem separa ampola de cefazolina 1 g.; Entrevista; Em análise
+- **Evento 3:** 14/10/2026; 08:20; Técnica de enfermagem separa ampola de ceftriaxona 1 g.; Prontuário; Em análise\*
+
+\* Os eventos 2 e 3 registram as duas versões de uma divergência entre fontes.
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Na seção "Análise", selecionar "Continuar análise" e chegar à Seção 3.
+*Tela Análise*
+2\. Preencher o evento 1 e verificar a área abaixo da tabela.
+3\. Adicionar e preencher o evento 2 e verificar a área abaixo da tabela.
+4\. Adicionar e preencher o evento 3 e verificar a área abaixo da tabela.
+5\. Selecionar "Próximo".
+
+**Resultado esperado**
+
+- **CA07:**
+    - Logo abaixo da tabela, o sistema apresenta o bloco "Antes de seguir, confira", com os itens em duas colunas, cada um com um ícone de verificação: "A sequência começa antes do incidente"; "Inclui o momento em que ele foi percebido e o que foi feito depois"; "Os fatos estão descritos sem julgamento"; "As divergências entre fontes estão registradas"
+- **CA08:**
+    - Sem eventos "Em análise", o aviso não é exibido
+    - Com um evento "Em análise", o sistema exibe, ao lado do bloco, "Há 1 fato em análise." seguido de "Confirme se a divergência foi registrada."
+    - Com dois eventos "Em análise", o sistema exibe "Há 2 fatos em análise." seguido de "Confirme se a divergência foi registrada."
+- **CA07 e CA08:**
+    - Com o bloco e o aviso exibidos, o sistema avança para a Seção 4
+
+##### CT-FUN-078 — Orientações dos Problemas na Prestação do Cuidado (PPC) { #ct-fun-078 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.5 | CA09 + CA10 | Fluxo principal e fluxo alternativo |
+
+**Objetivo**
+
+Validar que a Seção 3 apresenta a explicação dos Problemas na Prestação do Cuidado (PPC) e o bloco "Como identificar um PPC", com os textos definidos, e que a tabela de PPC é sempre exibida, sem a pergunta "Foi identificado algum PPC?".
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação classificada, com a análise iniciada pelo usuário e as Seções 1 e 2 preenchidas
+- Blocos recolhíveis da Seção 3 ainda não recolhidos pelo usuário
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Na seção "Análise", selecionar "Continuar análise" e chegar à Seção 3.
+*Tela Análise*
+2\. Verificar a caixa de informação do campo "Problemas na Prestação do Cuidado (PPC)" e a tabela de PPC.
+3\. Verificar o bloco "Como identificar um PPC".
+4\. Reduzir a largura da janela do navegador para a de um celular e verificar o bloco "Como identificar um PPC".
+
+**Resultado esperado**
+
+- **CA09:**
+    - A caixa de informação apresenta o texto "Com base na cronologia acima, identifique se houve alguma ação, omissão, decisão ou falha no processo de cuidado que foi diferente do que deveria ter acontecido e que teve importância na sequência do incidente. Pode haver mais de um PPC no mesmo incidente.", com o trecho "falha no processo de cuidado" em negrito
+    - O sistema não apresenta a pergunta "Foi identificado algum Problema na Prestação do Cuidado (PPC)?"
+    - A tabela de PPC é exibida
+- **CA10:**
+    - O bloco recolhível "Como identificar um PPC" apresenta três colunas:
+        - os passos numerados: 1. Reveja a cronologia e pergunte: "O que aconteceu no cuidado que foi diferente do que deveria ter acontecido?" 2. Registre apenas a ação, omissão ou decisão específica. 3. O PPC nem sempre é um erro de alguém. Também conta quando um equipamento, sistema ou processo falhou durante o cuidado. *Ex.: a bomba de infusão infundiu mais rápido do que o programado.* 4. Não registre aqui as causas do problema; elas serão analisadas na etapa de fatores contribuintes.
+        - "Exemplos de PPC", com ícone ✓ verde: administração de medicamento diferente do prescrito; não realizar avaliação ou monitorização prevista; falha de comunicação durante o cuidado (ex.: informação clínica relevante não foi passada no plantão); decisão clínica inadequada; não seguir protocolo de segurança; falha de equipamento durante o cuidado (ex.: bomba de infusão).
+        - "Não são PPC (são fatores contribuintes, analisados depois)", com ícone ✗ vermelho: falta de pessoal; sobrecarga de trabalho; ausência de rotina de comunicação entre setores; falta de treinamento; condições de infraestrutura inadequadas; problemas organizacionais.
+    - Em uma janela estreita, as três colunas são exibidas empilhadas
+
+##### CT-FUN-079 — Registro de Problemas na Prestação do Cuidado (PPC) { #ct-fun-079 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.5 | CA11 | Partição por equivalência e análise de valor limite |
+
+**Objetivo**
+
+Validar que a tabela de PPC apresenta as colunas definidas, com limite de 500 caracteres e contador, que ela é opcional na Seção 3 e que todo PPC adicionado precisa ter as três colunas preenchidas.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação classificada, com a análise iniciada pelo usuário e as Seções 1 e 2 preenchidas
+
+**Dados de entrada**
+
+- **Evento da cronologia:** 14/10/2026; 08:30; Cefazolina 1 g EV é administrada ao paciente.; Prontuário; Confirmado
+- **PPC — Descreva o problema na prestação do cuidado (PPC):** Administração de cefazolina no lugar da ceftriaxona prescrita
+- **PPC — O que deveria ter acontecido?:** Administrar ceftriaxona 1 g EV, conforme a prescrição
+- **PPC — O que aconteceu de diferente?:** Foi administrada cefazolina 1 g EV
+- **Texto — limite válido:** texto com 500 caracteres
+- **Texto — acima do limite:** texto com 501 caracteres
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Na seção "Análise", selecionar "Continuar análise" e chegar à Seção 3.
+*Tela Análise*
+2\. Preencher o evento da cronologia.
+3\. Verificar a tabela de PPC e selecionar "Próximo" sem adicionar PPC.
+4\. Na Seção 4, selecionar "Voltar".
+5\. Selecionar "+ Adicionar PPC", preencher somente a descrição do problema e selecionar "Próximo".
+6\. Informar "O que deveria ter acontecido?" com 501 caracteres e "O que aconteceu de diferente?", e selecionar "Próximo".
+7\. Reduzir "O que deveria ter acontecido?" para 500 caracteres e selecionar "Próximo".
+
+**Resultado esperado**
+
+- **CA11 — estrutura:**
+    - A tabela "Problemas na Prestação do Cuidado (PPC)" apresenta as colunas Nº · Descreva o problema na prestação do cuidado (PPC) · O que deveria ter acontecido? · O que aconteceu de diferente? e o botão "+ Adicionar PPC", com um PPC por linha
+    - Cada coluna de texto exibe o contador "N/500"
+- **CA11 — sem PPC:**
+    - O sistema avança para a Seção 4
+- **CA11 — PPC incompleto:**
+    - O sistema não avança e destaca apenas as células vazias do PPC
+- **CA11 — texto acima do limite:**
+    - Com 501 caracteres, o contador fica vermelho, o sistema exibe o aviso de limite e não avança, sem cortar o texto
+- **CA11 — PPC completo:**
+    - Com o texto em 500 caracteres, o sistema avança para a Seção 4
+
+##### CT-FUN-080 — Numeração e legibilidade da tabela de PPC { #ct-fun-080 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.5 | CA12 + CA13 | Fluxo alternativo |
+
+**Objetivo**
+
+Validar que os PPCs são numerados automaticamente pela posição, sem edição do número e com renumeração ao remover um PPC, e que os títulos das colunas e os campos de texto da tabela mantêm a legibilidade.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação classificada, com a análise iniciada pelo usuário e as Seções 1 e 2 preenchidas
+
+**Dados de entrada**
+
+- **PPC 1:** Administração de cefazolina no lugar da ceftriaxona prescrita; Administrar ceftriaxona 1 g EV, conforme a prescrição; Foi administrada cefazolina 1 g EV
+- **PPC 2:** Conferência da prescrição feita depois da administração; Conferir a prescrição antes de preparar o medicamento; A prescrição foi conferida 40 minutos depois da administração
+- **PPC 3:** Paciente sem monitorização após a administração; Monitorar sinais de reação por 30 minutos; O paciente ficou 50 minutos sem monitorização
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Na seção "Análise", selecionar "Continuar análise" e chegar à Seção 3.
+*Tela Análise*
+2\. Adicionar e preencher os PPCs 1, 2 e 3.
+3\. Verificar a coluna "Nº" e tentar editar o número de um PPC.
+4\. Remover o PPC 2 e verificar a coluna "Nº".
+5\. Verificar os títulos das colunas da tabela.
+6\. Verificar a altura dos campos de texto de um PPC e tentar reduzi-la e aumentá-la arrastando o canto.
+
+**Resultado esperado**
+
+- **CA12:**
+    - Os PPCs são numerados 1, 2 e 3, na ordem das linhas
+    - O número não pode ser editado
+    - Após a remoção do PPC 2, o PPC 3 passa a ser o número 2
+- **CA13:**
+    - Os títulos longos das colunas são quebrados em mais de uma linha, sem sobrepor a coluna vizinha
+    - Os campos de texto começam com altura de três linhas e não podem ser reduzidos abaixo dela
+    - Os campos de texto podem ser aumentados arrastando o canto
+
+---
+
+#### 3.3.6. História 4.6 - Analisar fatores contribuintes de cada PPC e aprofundar com os 5 Porquês (Seção 4) { #testes-us-4-6 }
+
+##### CT-FUN-081 — Exibição da Seção 4 com um cartão por PPC { #ct-fun-081 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.6 | CA01 + CA02 | Fluxo principal |
+
+**Objetivo**
+
+Validar que a Seção 4 apresenta o título e a explicação da seção e lista um cartão para cada PPC registrado na Seção 3, com os dados do PPC e as opções para iniciar a análise.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação classificada, com a análise iniciada pelo usuário, as Seções 1 e 2 preenchidas e a Seção 3 preenchida com os PPCs 1 e 2
+
+**Dados de entrada**
+
+- **PPC 1:** Administração de cefazolina no lugar da ceftriaxona prescrita; Administrar ceftriaxona 1 g EV, conforme a prescrição; Foi administrada cefazolina 1 g EV
+- **PPC 2:** Conferência da prescrição feita depois da administração; Conferir a prescrição antes de preparar o medicamento; A prescrição foi conferida 40 minutos depois da administração
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Na seção "Análise", selecionar "Continuar análise" e chegar à Seção 4.
+*Tela Análise*
+2\. Verificar o título e a caixa de informação da seção.
+3\. Verificar a lista de PPCs e o conteúdo de cada cartão.
+
+**Resultado esperado**
+
+- **CA01:**
+    - O sistema apresenta o título "Seção 4 — Fatores contribuintes"
+    - A caixa de informação apresenta, um parágrafo por linha: "Nesta seção, vamos investigar por que cada Problema na Prestação do Cuidado (PPC) aconteceu.", em negrito; "Para cada PPC identificado, procure entender quais condições estavam presentes e podem ter favorecido sua ocorrência. Essas condições são chamadas de fatores contribuintes e podem estar relacionadas ao paciente, aos profissionais, às tarefas, à equipe, ao ambiente de trabalho, à tecnologia, à organização ou ao contexto institucional."; "Analise um PPC por vez e registre apenas os fatores que realmente tiveram relação com ele.", em negrito; e "Clique em um problema abaixo para iniciar a análise."
+- **CA02:**
+    - Sob o título "Problemas na Prestação do Cuidado (PPC) identificados neste incidente", o sistema lista um cartão para cada PPC registrado na Seção 3
+    - Cada cartão apresenta: o número do PPC em destaque circular; a descrição do problema como título, sem o prefixo "PPC N"; "Deveria:" seguido do que deveria ter acontecido; "Aconteceu:" seguido do que aconteceu de diferente; a dica "Clique para identificar quais condições podem ter contribuído para a ocorrência deste PPC."; o botão "Identificar fatores contribuintes"; e uma seta para abrir e fechar
+    - Os fatos da cronologia não são apresentados para análise na seção
+
+##### CT-FUN-082 — Abertura da análise do PPC e resumo dos fatores registrados { #ct-fun-082 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.6 | CA03 + CA04 | Fluxo alternativo e partição por equivalência |
+
+**Objetivo**
+
+Validar que a análise de um PPC é aberta dentro do próprio cartão, com apenas um PPC aberto por vez, e que o cartão fechado apresenta o resumo da quantidade de fatores registrados.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação classificada, com a análise iniciada pelo usuário, as Seções 1 e 2 preenchidas e a Seção 3 preenchida com os PPCs 1 e 2
+
+**Dados de entrada**
+
+- **Fator do PPC 1 — Fatores do ambiente de trabalho:** Ampolas de cefazolina e ceftriaxona armazenadas lado a lado, com embalagens parecidas
+- **Fator do PPC 1 — Fatores das tarefas:** Ausência de dupla checagem antes da administração de antibióticos
+- **Fator do PPC 2 — Fatores da equipe:** Passagem de plantão sem conferência conjunta das prescrições
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Na seção "Análise", selecionar "Continuar análise" e chegar à Seção 4.
+*Tela Análise*
+2\. No PPC 1, selecionar "Identificar fatores contribuintes" e verificar o cartão do PPC 1 e o cartão fechado do PPC 2.
+3\. Marcar "Fatores do ambiente de trabalho", descrever o fator e selecionar "Salvar fator".
+4\. No PPC 2, selecionar a seta do cartão e verificar os dois cartões.
+5\. Marcar "Fatores da equipe", descrever o fator, selecionar "Salvar fator" e fechar o PPC 2 pela seta.
+6\. Verificar o resumo dos dois cartões.
+7\. Abrir o PPC 1, marcar "Fatores das tarefas", descrever o fator, selecionar "Salvar fator" e fechar o PPC 1 pela seta.
+8\. Verificar o resumo do PPC 1.
+
+**Resultado esperado**
+
+- **CA03:**
+    - Ao selecionar "Identificar fatores contribuintes", a análise do PPC 1 é aberta dentro do próprio cartão, abaixo dos dados do PPC, com o selo "Em análise" acima do título e a pergunta "Quais condições podem ter contribuído para a ocorrência deste PPC?"
+    - Ao abrir o PPC 2 pela seta, a análise do PPC 2 é aberta e a do PPC 1 é fechada
+- **CA04:**
+    - Sem fator registrado, o cartão fechado não apresenta resumo
+    - Com um fator registrado, o cartão fechado apresenta, ao lado do botão, "1 fator registrado"
+    - Com dois fatores registrados, o cartão fechado apresenta "2 fatores registrados"
+
+##### CT-FUN-083 — Registro e salvamento dos fatores contribuintes { #ct-fun-083 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.6 | CA05 + CA06 + CA07 | Fluxo principal e fluxo alternativo |
+
+**Objetivo**
+
+Validar que a análise de um PPC apresenta as oito categorias de fatores contribuintes do Protocolo de Londres 2024 e que o usuário consegue marcar uma categoria, descrever o fator, indicar as fontes, salvar, editar e descartar o fator.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação classificada, com a análise iniciada pelo usuário, as Seções 1 e 2 preenchidas e a Seção 3 preenchida com o PPC 1
+
+**Dados de entrada**
+
+- **PPC 1:** Administração de cefazolina no lugar da ceftriaxona prescrita; Administrar ceftriaxona 1 g EV, conforme a prescrição; Foi administrada cefazolina 1 g EV
+- **Fator — Fatores do ambiente de trabalho:** Ampolas de cefazolina e ceftriaxona armazenadas lado a lado, com embalagens parecidas
+- **Fonte/evidência:** Observação; Entrevista
+- **Fator editado:** Ampolas de cefazolina e ceftriaxona armazenadas lado a lado, com embalagens e rótulos parecidos
+- **Fator — Fatores do paciente:** Paciente sedado, sem condições de questionar o medicamento recebido
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Na seção "Análise", selecionar "Continuar análise" e chegar à Seção 4.
+*Tela Análise*
+2\. No PPC 1, selecionar "Identificar fatores contribuintes" e verificar as categorias apresentadas.
+3\. Marcar a caixa de seleção de "Fatores do ambiente de trabalho" e verificar os campos apresentados.
+4\. Descrever o fator, marcar as fontes "Observação" e "Entrevista" e selecionar "Salvar fator".
+5\. Abrir novamente a categoria, editar a descrição e selecionar "Salvar fator".
+6\. Clicar na linha de "Fatores do paciente", fora da caixa de seleção, descrever o fator e selecionar "Salvar fator".
+7\. Desmarcar "Fatores do paciente" e fechar o PPC 1 pela seta.
+8\. Selecionar "Próximo" e, na Seção 5, selecionar "Voltar".
+9\. Abrir o PPC 1 e verificar as categorias.
+
+**Resultado esperado**
+
+- **CA05:**
+    - O sistema apresenta as oito categorias, uma abaixo da outra, cada uma com caixa de seleção, título, exemplo e seta:
+        - Fatores do paciente (Ex.: doença/complexidade, barreira de comunicação, aspectos sociais)
+        - Fatores individuais dos profissionais (Ex.: conhecimento/habilidades, saúde física ou mental, valores profissionais)
+        - Fatores das tarefas (Ex.: clareza do processo, protocolo disponível, acesso à informação necessária)
+        - Fatores da equipe (Ex.: comunicação verbal/escrita, supervisão, liderança, apoio mútuo)
+        - Fatores do ambiente de trabalho (Ex.: dimensionamento de pessoal, carga de trabalho, equipamentos, ambiente físico)
+        - Tecnologia e sistemas eletrônicos de informação (Ex.: hardware/software, suporte a decisão, interface, integração de fluxo)
+        - Fatores organizacionais, gerenciais e culturais (Ex.: recursos, treinamento, políticas e metas, cultura de segurança)
+        - Fatores do contexto institucional (Ex.: contexto regulatório, políticas públicas de saúde, rede externa)
+    - Não há categoria "Outro / não mapeado"
+- **CA06:**
+    - Ao marcar a categoria, pela caixa de seleção ou clicando na linha, ela é aberta com: "Descreva o fator identificado e como ele contribuiu para este PPC", obrigatório (\*); "Fonte/evidência (opcional)", com caixas de seleção para Prontuário, Entrevista, Observação, Protocolo/documento, Sistema eletrônico e Outro, permitindo marcar várias; e o botão "Salvar fator"
+    - Ao desmarcar a categoria, ela é fechada e o fator é descartado: o resumo do PPC volta a "1 fator registrado"
+- **CA07:**
+    - Ao selecionar "Salvar fator", a categoria é recolhida, continua marcada e exibe, abaixo do título, um resumo do texto do fator
+    - Ao abrir a categoria novamente, o fator pode ser editado, e o resumo passa a exibir o texto editado
+    - Após avançar de seção e voltar, "Fatores do ambiente de trabalho" continua marcada, com o texto editado e as fontes marcadas, e "Fatores do paciente" continua desmarcada
+
+##### CT-FUN-084 — 5 Porquês do fator { #ct-fun-084 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.6 | CA08 + CA09 | Análise de valor limite e fluxo alternativo |
+
+**Objetivo**
+
+Validar que o 5 Porquês é uma ferramenta opcional de cada fator, aberta pelo botão "Usar os 5 Porquês", com os níveis de pergunta e resposta, a sugestão da próxima pergunta, a remoção de níveis e os limites de 100 caracteres e de 15 níveis.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação classificada, com a análise iniciada pelo usuário, as Seções 1 e 2 preenchidas e a Seção 3 preenchida com o PPC 1
+
+**Dados de entrada**
+
+- **Fator — Fatores do ambiente de trabalho:** Ampolas de cefazolina e ceftriaxona armazenadas lado a lado, com embalagens parecidas
+- **1º por quê — Pergunta:** Por que as ampolas estavam lado a lado?
+- **1º por quê — Resposta:** o estoque é organizado em ordem alfabética
+- **Pergunta e resposta — limite válido:** texto com 100 caracteres
+- **Pergunta e resposta — acima do limite:** texto com 101 caracteres
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Na seção "Análise", selecionar "Continuar análise" e chegar à Seção 4.
+*Tela Análise*
+2\. No PPC 1, selecionar "Identificar fatores contribuintes", marcar "Fatores do ambiente de trabalho", descrever o fator e verificar a área abaixo do fator.
+3\. Selecionar "Usar os 5 Porquês" e verificar o bloco apresentado.
+4\. Selecionar "Não usar os 5 Porquês".
+5\. Selecionar "Usar os 5 Porquês", preencher o 1º por quê e selecionar "+ Adicionar outro "por quê?"".
+6\. Substituir a pergunta do 2º por quê por um texto com 101 caracteres, informar a resposta com 101 caracteres e selecionar "Próximo".
+7\. Reduzir a pergunta e a resposta do 2º por quê para 100 caracteres.
+8\. Remover o 2º por quê pelo ícone ✕.
+9\. Selecionar "+ Adicionar outro "por quê?"" até que existam 15 níveis.
+10\. Selecionar "Próximo".
+11\. Remover o 2º por quê e selecionar "Próximo".
+12\. Na Seção 5, selecionar "Voltar", abrir o PPC 1 e a categoria "Fatores do ambiente de trabalho".
+13\. Selecionar "Remover 5 Porquês" e, na confirmação, selecionar "Cancelar".
+14\. Selecionar "Remover 5 Porquês" e, na confirmação, selecionar "Remover".
+
+**Resultado esperado**
+
+- **CA08:**
+    - Abaixo do fator, o 5 Porquês aparece fechado, com o convite "Se você quiser entender melhor por que esse fator existia ou aconteceu, utilize os 5 Porquês. Essa ferramenta ajuda a aprofundar a análise de um fator contribuinte já identificado." e o botão "Usar os 5 Porquês"
+    - Ao selecionar "Usar os 5 Porquês", o sistema exibe o bloco "5 Porquês" abaixo do fator, com a caixa de informação: "Comece pelo fator identificado e pergunte: "Por que isso aconteceu?". Use cada resposta para formular o próximo "por quê?"." e "Não é necessário chegar exatamente a cinco perguntas. Continue enquanto as respostas ajudarem a aprofundar a causa do fator identificado e encerre a análise quando considerar que chegou a uma causa capaz de orientar uma ação de melhoria."
+    - Com o bloco vazio, "Não usar os 5 Porquês" fecha o bloco e volta ao convite
+    - O fator com níveis preenchidos é reaberto com o bloco "5 Porquês" já aberto
+    - Com níveis preenchidos, "Remover 5 Porquês" pede a confirmação "Remover o 5 Porquês deste fator? Tudo o que foi preenchido nele será apagado."; "Cancelar" mantém os níveis, e "Remover" apaga os níveis e volta ao convite
+- **CA09:**
+    - Cada nível é exibido em uma linha, com o rótulo "1º por quê?", "2º por quê?"…, e os campos "Pergunta" e "Resposta" lado a lado
+    - Com um único nível, ele não pode ser removido
+    - "+ Adicionar outro "por quê?"" cria um novo nível com a pergunta "Por que o estoque é organizado em ordem alfabética?", que pode ser editada
+    - Com 101 caracteres na pergunta e na resposta, o sistema exibe o aviso de limite e não avança, sem cortar o texto; com 100 caracteres, o aviso deixa de ser exibido
+    - O nível removido pelo ícone ✕ deixa de ser exibido
+    - Com 15 níveis, o sistema não permite adicionar outro nível
+    - Um nível começado, com a pergunta e sem a resposta, impede o avanço
+    - Níveis totalmente em branco são ignorados, e o sistema avança para a Seção 5
+
+##### CT-FUN-085 — Validação da Seção 4 { #ct-fun-085 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.6 | CA10 | Partição por equivalência e fluxo alternativo |
+
+**Objetivo**
+
+Validar que o sistema exige ao menos um PPC e impede o avanço da Seção 4 enquanto houver PPC sem fator contribuinte, fator sem descrição ou nível do 5 Porquês começado e incompleto, indicando o PPC, a categoria e os campos pendentes.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir a notificação F1, classificada, com a análise iniciada pelo usuário, as Seções 1 e 2 preenchidas e a Seção 3 preenchida com os PPCs 1 e 2
+- Existir a notificação F2, classificada, com a análise iniciada pelo usuário, as Seções 1 e 2 preenchidas e a Seção 3 preenchida sem PPC
+
+**Dados de entrada**
+
+- **Fator do PPC 1 — Fatores do ambiente de trabalho:** Ampolas de cefazolina e ceftriaxona armazenadas lado a lado, com embalagens parecidas
+- **1º por quê do fator — Pergunta:** Por que as ampolas estavam lado a lado?
+- **1º por quê do fator — Resposta:** o estoque é organizado em ordem alfabética
+- **Fator do PPC 2 — Fatores da equipe:** Passagem de plantão sem conferência conjunta das prescrições
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Abrir a notificação F2 e, na seção "Análise", selecionar "Continuar análise" e chegar à Seção 4.
+*Tela Análise*
+2\. Selecionar "Próximo".
+*Tela Geral Notificação*
+3\. Abrir a notificação F1 e, na seção "Análise", selecionar "Continuar análise" e chegar à Seção 4.
+*Tela Análise*
+4\. Selecionar "Próximo" sem registrar fatores.
+5\. No PPC 1, marcar "Fatores do ambiente de trabalho" sem descrever o fator, selecionar "Usar os 5 Porquês", preencher somente a pergunta do 1º por quê, fechar o PPC 1 pela seta e selecionar "Próximo".
+6\. Preencher a descrição do fator e a resposta do 1º por quê.
+7\. No PPC 2, marcar "Fatores da equipe", descrever o fator e selecionar "Próximo".
+
+**Resultado esperado**
+
+- **CA10 — nenhum PPC (notificação F2):**
+    - O sistema não avança e exibe "Adicione pelo menos 1 PPC."
+- **CA10 — PPCs sem fator contribuinte:**
+    - O sistema não avança e exibe "Marque ao menos um fator contribuinte." nos PPCs 1 e 2
+    - Os cartões dos PPCs 1 e 2 exibem o selo "Pendências" em vermelho e borda vermelha
+- **CA10 — fator sem descrição e nível do 5 Porquês sem resposta:**
+    - O sistema não avança e abre automaticamente o PPC 1, o primeiro com pendência, e a categoria "Fatores do ambiente de trabalho"
+    - O sistema destaca a descrição do fator e a resposta do 1º por quê e exibe "Preencha Descreva o fator identificado e como ele contribuiu para este PPC e 5 Porquês — Resposta."
+    - O cartão do PPC 2, ainda sem fator, continua com o selo "Pendências"
+- **CA10 — todos os PPCs analisados:**
+    - O sistema avança para a Seção 5
+
+##### CT-FUN-086 — Inclusão de PPC na Seção 4 { #ct-fun-086 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.6 | CA11 + CA12 | Partição por equivalência e fluxo alternativo |
+
+**Objetivo**
+
+Validar que a Seção 4 permite incluir um PPC que não foi registrado na Seção 3, com os campos obrigatórios do PPC, e que, sem PPC registrado, a seção informa a ausência e oferece a inclusão.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir a notificação P1, classificada, com a análise iniciada pelo usuário, as Seções 1 e 2 preenchidas e a Seção 3 preenchida com o PPC 1
+- Existir a notificação P2, classificada, com a análise iniciada pelo usuário, as Seções 1 e 2 preenchidas e a Seção 3 preenchida sem PPC
+
+**Dados de entrada**
+
+- **PPC incluído — Descreva o problema na prestação do cuidado (PPC):** Conferência da prescrição feita depois da administração
+- **PPC incluído — O que deveria ter acontecido?:** Conferir a prescrição antes de preparar o medicamento
+- **PPC incluído — O que aconteceu de diferente?:** A prescrição foi conferida 40 minutos depois da administração
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Abrir a notificação P2 e, na seção "Análise", selecionar "Continuar análise" e chegar à Seção 4.
+*Tela Análise*
+2\. Verificar a seção.
+3\. Selecionar "+ Adicionar PPC" e, em seguida, "Cancelar".
+4\. Selecionar "+ Adicionar PPC" e selecionar "Adicionar PPC" com os campos vazios.
+5\. Preencher os campos do PPC e selecionar "Adicionar PPC".
+6\. Selecionar "Voltar" e verificar a tabela de PPC da Seção 3.
+*Tela Geral Notificação*
+7\. Abrir a notificação P1 e, na seção "Análise", selecionar "Continuar análise" e chegar à Seção 4.
+*Tela Análise*
+8\. Verificar o final da lista de PPCs.
+
+**Resultado esperado**
+
+- **CA12 (notificação P2, sem PPC):**
+    - O sistema informa "Nenhum PPC registrado na Seção 3. Adicione abaixo o problema na prestação do cuidado que será analisado." e apresenta o bloco de inclusão de PPC
+- **CA11 (notificação P2):**
+    - O bloco apresenta "Faltou algum problema na prestação do cuidado?", o texto "Se, ao iniciar esta etapa, você perceber que um problema na prestação do cuidado ainda não foi registrado, é possível adicioná-lo aqui." e o botão "+ Adicionar PPC"
+    - Ao selecionar "+ Adicionar PPC", o sistema abre no próprio bloco os campos "Descreva o problema na prestação do cuidado (PPC)", "O que deveria ter acontecido?" e "O que aconteceu de diferente?", todos obrigatórios, e os botões "Cancelar" e "Adicionar PPC"
+    - "Cancelar" fecha os campos sem incluir PPC
+    - Com os campos vazios, o sistema exibe "Preencha todos os campos do PPC." e não inclui o PPC
+    - Com os campos preenchidos, o PPC é incluído e aberto em seguida para a análise dos fatores
+    - O PPC incluído aparece na tabela de PPC da Seção 3, com o número 1
+- **CA11 (notificação P1, com PPC):**
+    - O bloco "Faltou algum problema na prestação do cuidado?" é exibido no final da lista de PPCs
+
 ## 4. Testes End-to-End { #testes-e2e }
 
 ### CT-E2E-001 — Registro completo de notificação com paciente { #ct-e2e-001 }
@@ -4399,6 +5026,109 @@ Validar o fluxo completo de registro da equipe, fontes consultadas e entrevistas
 - Os dados registrados permanecem disponíveis na análise após o avanço para a próxima seção.
 - O topo da próxima seção continua apresentando o texto **"Incidente em investigação: ..."** definido na Seção 1.
 
+### CT-E2E-026 — Registro da cronologia e dos PPCs até a Seção 4 { #ct-e2e-026 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.5 | CA04 + CA11 | Fluxo principal e fluxo alternativo |
+
+**Objetivo**
+
+Validar o percurso da Seção 3 até a Seção 4: a cronologia e os PPCs registrados são salvos no rascunho, chegam à Seção 4 como um cartão por PPC e continuam preenchidos ao retomar a análise; e, sem PPC na Seção 3, a Seção 3 avança, mas a Seção 4 exige ao menos um PPC.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir a notificação C1, classificada, com a análise iniciada pelo usuário e as Seções 1 e 2 preenchidas
+- Existir a notificação C2, classificada, com a análise iniciada pelo usuário e as Seções 1 e 2 preenchidas
+
+**Dados de entrada**
+
+- **Evento 1:** 14/10/2026; 08:00; Médico prescreve ceftriaxona 1 g EV.; Prontuário; Confirmado
+- **Evento 2:** 14/10/2026; 08:20; Técnica de enfermagem separa ampola de cefazolina 1 g.; Entrevista; Em análise
+- **Evento 3:** 14/10/2026; 08:30; Cefazolina 1 g EV é administrada ao paciente.; Prontuário; Confirmado
+- **PPC 1:** Administração de cefazolina no lugar da ceftriaxona prescrita; Administrar ceftriaxona 1 g EV, conforme a prescrição; Foi administrada cefazolina 1 g EV
+- **PPC 2:** Conferência da prescrição feita depois da administração; Conferir a prescrição antes de preparar o medicamento; A prescrição foi conferida 40 minutos depois da administração
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Abrir a notificação C1 e, na seção "Análise", selecionar "Continuar análise" e chegar à Seção 3.
+*Tela Análise*
+2\. Preencher os eventos 1, 2 e 3 da cronologia e os PPCs 1 e 2, e selecionar "Próximo".
+3\. Verificar os cartões da Seção 4.
+4\. Selecionar "Voltar para a notificação".
+*Tela Geral Notificação*
+5\. Selecionar "Continuar análise".
+*Tela Análise*
+6\. Verificar a seção apresentada, selecionar "Voltar" e verificar a cronologia e a tabela de PPC da Seção 3.
+*Tela Geral Notificação*
+7\. Abrir a notificação C2 e, na seção "Análise", selecionar "Continuar análise" e chegar à Seção 3.
+*Tela Análise*
+8\. Preencher os eventos 1, 2 e 3 da cronologia, sem adicionar PPC, e selecionar "Próximo".
+9\. Na Seção 4, selecionar "Próximo".
+
+**Resultado esperado**
+
+- **Notificação C1 (com PPC):**
+    - **CA04 e CA11:** com a cronologia e os PPCs completos, o sistema avança para a Seção 4 e exibe a confirmação "Rascunho salvo"
+    - **CA11:** a Seção 4 apresenta um cartão para cada PPC registrado na Seção 3, com a descrição, o que deveria ter acontecido e o que aconteceu de diferente informados
+    - **CA04 e CA11:** ao retomar, o formulário abre na Seção 4, e a Seção 3 mantém os três eventos, com a fonte e o status de cada um, e os dois PPCs, numerados 1 e 2
+- **Notificação C2 (sem PPC):**
+    - **CA11:** a Seção 3 avança sem PPC, porque a tabela é opcional nesta seção
+    - **CA11:** a Seção 4 não avança e exibe "Adicione pelo menos 1 PPC."
+
+### CT-E2E-027 — Análise dos fatores contribuintes com salvamento e retomada { #ct-e2e-027 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.6 | CA02 + CA04 + CA07 + CA11 | Fluxo principal e fluxo alternativo |
+
+**Objetivo**
+
+Validar o percurso da Seção 3 à Seção 5: os PPCs registrados na Seção 3 aparecem como cartões na Seção 4, e os fatores registrados em cada PPC e o PPC incluído na própria Seção 4 são salvos no rascunho ao avançar e continuam disponíveis e editáveis ao retomar a análise.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação classificada, com a análise iniciada pelo usuário e as Seções 1 e 2 preenchidas
+
+**Dados de entrada**
+
+- **Evento da cronologia:** 14/10/2026; 08:30; Cefazolina 1 g EV é administrada ao paciente.; Prontuário; Confirmado
+- **PPC 1 (Seção 3):** Administração de cefazolina no lugar da ceftriaxona prescrita; Administrar ceftriaxona 1 g EV, conforme a prescrição; Foi administrada cefazolina 1 g EV
+- **PPC 2 (Seção 3):** Conferência da prescrição feita depois da administração; Conferir a prescrição antes de preparar o medicamento; A prescrição foi conferida 40 minutos depois da administração
+- **PPC 3 (incluído na Seção 4):** Paciente sem monitorização após a administração; Monitorar sinais de reação por 30 minutos; O paciente ficou 50 minutos sem monitorização
+- **Fatores do PPC 1:** Fatores do ambiente de trabalho — Ampolas de cefazolina e ceftriaxona armazenadas lado a lado, com embalagens parecidas; Fatores das tarefas — Ausência de dupla checagem antes da administração de antibióticos
+- **Fator do PPC 2:** Fatores da equipe — Passagem de plantão sem conferência conjunta das prescrições
+- **Fator do PPC 3:** Fatores organizacionais, gerenciais e culturais — Rotina de monitorização após antibióticos não implantada no setor
+- **Fator editado (PPC 1, Fatores das tarefas):** Ausência de dupla checagem antes da administração de antibióticos endovenosos
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Na seção "Análise", selecionar "Continuar análise" e chegar à Seção 3.
+*Tela Análise*
+2\. Preencher o evento da cronologia e os PPCs 1 e 2 e selecionar "Próximo".
+3\. Verificar os cartões da Seção 4.
+4\. Registrar os fatores do PPC 1 e do PPC 2, selecionando "Salvar fator" em cada um.
+5\. No bloco "Faltou algum problema na prestação do cuidado?", incluir o PPC 3 e registrar o fator dele.
+6\. Selecionar "Próximo".
+7\. Selecionar "Voltar para a notificação".
+*Tela Geral Notificação*
+8\. Selecionar "Continuar análise".
+*Tela Análise*
+9\. Verificar a seção apresentada, selecionar "Voltar" e verificar os cartões da Seção 4.
+10\. Abrir o PPC 1 e a categoria "Fatores das tarefas", editar a descrição e selecionar "Salvar fator".
+11\. Selecionar "Voltar" e verificar a tabela de PPC da Seção 3.
+
+**Resultado esperado**
+
+- **CA02:** a Seção 4 apresenta um cartão para cada PPC registrado na Seção 3, com a descrição, "Deveria:" e "Aconteceu:" conforme informados
+- **CA11:** o PPC 3, incluído na Seção 4, é aberto para a análise dos fatores e passa a constar na tabela de PPC da Seção 3, com o número 3, também depois da retomada
+- **CA07:** ao avançar, o sistema salva o rascunho e exibe a confirmação "Rascunho salvo"; ao retomar, o formulário abre na Seção 5, e os fatores registrados continuam marcados na Seção 4, com o resumo do texto, e podem ser editados
+- **CA04:** ao retomar, os cartões fechados apresentam "2 fatores registrados" (PPC 1), "1 fator registrado" (PPC 2) e "1 fator registrado" (PPC 3)
+
 ---
 
 ## 5. Testes Não-Funcionais { #testes-nao-funcionais }
@@ -4753,6 +5483,89 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Alternativo | Responder "Não" à necessidade de entrevistas | Sistema não exibe nem exige a tabela de entrevistas |
 | Alternativo | Responder "Sim" e preencher a linha inicial da entrevista | Sistema exibe e mantém o registro preenchido |
 
+**[CT-FUN-076](#ct-fun-076)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Preencher todos os campos do evento e selecionar "Próximo" | Sistema avança para a Seção 4 |
+| Alternativo | Selecionar "Próximo" com campos do evento vazios | Sistema não avança e destaca apenas as células vazias |
+| Alternativo | Remover todos os eventos e selecionar "Próximo" | Sistema não avança e exibe "Adicione pelo menos 1 evento." |
+
+**[CT-FUN-077](#ct-fun-077)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Registrar eventos sem status "Em análise" | Sistema exibe o bloco "Antes de seguir, confira", sem o aviso de fatos em análise |
+| Alternativo | Registrar eventos com status "Em análise" e selecionar "Próximo" | Sistema exibe o aviso com a quantidade de fatos em análise e avança para a Seção 4 |
+
+**[CT-FUN-078](#ct-fun-078)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Visualizar a Seção 3 em tela larga | Sistema exibe o bloco "Como identificar um PPC" em três colunas lado a lado |
+| Alternativo | Visualizar a Seção 3 em tela estreita | Sistema exibe as três colunas empilhadas |
+
+**[CT-FUN-080](#ct-fun-080)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Adicionar PPCs | Sistema numera os PPCs em ordem crescente a partir de 1 |
+| Alternativo | Remover um PPC do meio da tabela | Sistema renumera os PPCs seguintes |
+
+**[CT-FUN-082](#ct-fun-082)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Selecionar "Identificar fatores contribuintes" em um PPC | Sistema abre a análise dentro do cartão do PPC |
+| Alternativo | Abrir outro PPC com um PPC aberto | Sistema abre o novo PPC e fecha o anterior |
+
+**[CT-FUN-083](#ct-fun-083)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Marcar a categoria pela caixa de seleção, descrever o fator e selecionar "Salvar fator" | Sistema recolhe a categoria, mantém a marcação e exibe o resumo do fator |
+| Alternativo | Marcar a categoria clicando na linha | Sistema abre a categoria com os campos do fator |
+| Alternativo | Abrir a categoria salva e editar o fator | Sistema exibe o resumo com o texto editado |
+| Alternativo | Desmarcar a categoria | Sistema fecha a categoria e descarta o fator |
+
+**[CT-FUN-084](#ct-fun-084)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Registrar o fator sem usar o 5 Porquês | Sistema mantém o 5 Porquês fechado, com o botão "Usar os 5 Porquês" |
+| Alternativo | Selecionar "Usar os 5 Porquês" | Sistema exibe o bloco com a caixa de informação e o 1º por quê |
+| Alternativo | Selecionar "+ Adicionar outro "por quê?"" | Sistema cria o nível seguinte com a pergunta sugerida a partir da resposta anterior |
+| Alternativo | Selecionar "Remover 5 Porquês" com níveis preenchidos | Sistema pede confirmação e, ao confirmar, apaga os níveis |
+
+**[CT-FUN-085](#ct-fun-085)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Selecionar "Próximo" com todos os PPCs analisados | Sistema avança para a Seção 5 |
+| Alternativo | Selecionar "Próximo" com pendências nos PPCs | Sistema não avança, destaca os PPCs pendentes e abre automaticamente o primeiro PPC e as categorias com pendência |
+
+**[CT-FUN-086](#ct-fun-086)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Selecionar "+ Adicionar PPC", preencher os campos e selecionar "Adicionar PPC" | Sistema inclui o PPC na tabela da Seção 3 e abre a análise dele |
+| Alternativo | Selecionar "Cancelar" | Sistema fecha os campos sem incluir o PPC |
+| Alternativo | Selecionar "Adicionar PPC" com os campos vazios | Sistema exibe "Preencha todos os campos do PPC." e não inclui o PPC |
+
+**[CT-E2E-026](#ct-e2e-026)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Registrar a cronologia e os PPCs e avançar | Sistema salva o rascunho e exibe um cartão por PPC na Seção 4 |
+| Alternativo | Registrar a cronologia sem PPC e avançar | Sistema avança da Seção 3, e a Seção 4 exige ao menos 1 PPC |
+
+**[CT-E2E-027](#ct-e2e-027)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Registrar os fatores dos PPCs da Seção 3, avançar e retomar a análise | Sistema mantém os fatores e o resumo de cada PPC |
+| Alternativo | Incluir um PPC na Seção 4 | Sistema inclui o PPC na tabela da Seção 3 e o mantém ao retomar a análise |
+
 ### 6.2 Partição por Equivalência { #criterios-particao }
 
 **[CT-AUTH-002](#ct-auth-002) e [CT-AUTH-003](#ct-auth-003)**
@@ -4917,6 +5730,64 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Inválido | Pendências diversas na Seção 2 | Sistema exibe as mensagens correspondentes e bloqueia o avanço |
 | Inválido | Incidente vazio ou acima do limite | Sistema exibe a pendência ou o aviso de limite e bloqueia o avanço |
 
+**[CT-FUN-075](#ct-fun-075)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Fonte Prontuário, Inspeção no local ou Entrevista | Sistema aceita a fonte |
+| Válido | Fonte "Outro" com a opção especificada | Sistema aceita a fonte especificada |
+| Válido | Status Confirmado, Provável ou Em análise | Sistema aceita o status |
+
+**[CT-FUN-076](#ct-fun-076)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Ao menos um evento com todos os campos preenchidos | Sistema avança para a Seção 4 |
+| Inválido | Evento com campos vazios | Sistema destaca as células vazias e bloqueia o avanço |
+| Inválido | Fonte "Outro" sem especificação | Sistema destaca a pendência e bloqueia o avanço |
+| Inválido | Nenhum evento | Sistema exibe "Adicione pelo menos 1 evento." e bloqueia o avanço |
+
+**[CT-FUN-077](#ct-fun-077)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Nenhum fato "Em análise" | Sistema não exibe o aviso |
+| Válido | Um fato "Em análise" | Sistema exibe "Há 1 fato em análise." |
+| Válido | Vários fatos "Em análise" | Sistema exibe "Há N fatos em análise." |
+
+**[CT-FUN-079](#ct-fun-079)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Nenhum PPC na Seção 3 | Sistema avança para a Seção 4 |
+| Válido | PPC com as três colunas preenchidas | Sistema avança para a Seção 4 |
+| Inválido | PPC com colunas vazias | Sistema destaca as células vazias e bloqueia o avanço |
+
+**[CT-FUN-082](#ct-fun-082)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | PPC sem fator registrado | Sistema não exibe resumo no cartão fechado |
+| Válido | PPC com um fator registrado | Sistema exibe "1 fator registrado" |
+| Válido | PPC com vários fatores registrados | Sistema exibe "N fatores registrados" |
+
+**[CT-FUN-085](#ct-fun-085)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Todos os PPCs com fator descrito e níveis do 5 Porquês completos ou em branco | Sistema avança para a Seção 5 |
+| Inválido | Nenhum PPC | Sistema exibe "Adicione pelo menos 1 PPC." e bloqueia o avanço |
+| Inválido | PPC sem fator contribuinte | Sistema exibe "Marque ao menos um fator contribuinte." e bloqueia o avanço |
+| Inválido | Fator sem descrição | Sistema destaca a descrição do fator e bloqueia o avanço |
+| Inválido | Nível do 5 Porquês com pergunta e sem resposta | Sistema destaca a resposta do nível e bloqueia o avanço |
+
+**[CT-FUN-086](#ct-fun-086)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Seção 3 com PPC registrado | Sistema exibe os cartões e, no final da lista, o bloco de inclusão de PPC |
+| Válido | Seção 3 sem PPC registrado | Sistema informa que nenhum PPC foi registrado e exibe o bloco de inclusão de PPC |
+
 ### 6.3 Análise de Valor Limite { #criterios-valor-limite }
 
 **[CT-FUN-003](#ct-fun-003)**
@@ -4950,6 +5821,31 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Limite superior inválido | Incidente com mais de 100 caracteres | Contador fica vermelho, sistema exibe o aviso, bloqueia o avanço e não corta o texto |
 | Limite superior inválido | Nome com mais de 50 caracteres | Contador fica vermelho, sistema exibe o aviso, bloqueia o avanço e não corta o texto |
 | Limite superior inválido | Relato ou problemas com mais de 500 caracteres | Contador fica vermelho, sistema exibe o aviso, bloqueia o avanço e não corta o texto |
+
+**[CT-FUN-075](#ct-fun-075)**
+
+| Tipo de Valor | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Último valor válido | Fato com 500 caracteres | Sistema aceita o fato |
+| Limite superior inválido | Fato com 501 caracteres | Sistema exibe o contador em vermelho e o aviso de limite e bloqueia o avanço, sem cortar o texto |
+| Último valor válido | Especificação de "Outro" na Fonte com 30 caracteres | Sistema aceita a especificação |
+| Limite superior inválido | Especificação de "Outro" na Fonte com 31 caracteres | Sistema exibe o aviso de limite e bloqueia o avanço, sem cortar o texto |
+
+**[CT-FUN-079](#ct-fun-079)**
+
+| Tipo de Valor | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Último valor válido | Coluna do PPC com 500 caracteres | Sistema permite o avanço |
+| Limite superior inválido | Coluna do PPC com 501 caracteres | Sistema exibe o contador em vermelho e o aviso de limite e bloqueia o avanço, sem cortar o texto |
+
+**[CT-FUN-084](#ct-fun-084)**
+
+| Tipo de Valor | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Último valor válido | Pergunta e resposta do 5 Porquês com 100 caracteres | Sistema aceita o nível |
+| Limite superior inválido | Pergunta e resposta do 5 Porquês com 101 caracteres | Sistema exibe o aviso de limite e bloqueia o avanço, sem cortar o texto |
+| Último valor válido | 5 Porquês com 15 níveis | Sistema mantém os níveis |
+| Limite superior inválido | Tentativa de adicionar o 16º nível | Sistema não permite adicionar o nível |
 
 ---
 
