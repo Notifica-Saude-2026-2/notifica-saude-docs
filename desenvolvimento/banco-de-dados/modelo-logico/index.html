@@ -1,0 +1,6990 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação do NotificaSaúde — registro, análise e acompanhamento de incidentes de segurança do paciente.">
+      
+      
+      
+      
+        <link rel="prev" href="../modelo-dominio/">
+      
+      
+        <link rel="next" href="../../frontend/repositorio/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Especificação do Modelo Lógico - NotificaSaúde</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#visao-geral" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="NotificaSaúde" class="md-header__button md-logo" aria-label="NotificaSaúde" data-md-component="logo">
+      
+  <img src="../../../assets/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NotificaSaúde
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Especificação do Modelo Lógico
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Mudar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Notifica-Saude-2026-2/notifica-saude-docs" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Notifica-Saude-2026-2/notifica-saude-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Visão Geral
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../descoberta-produto/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Descoberta do Produto
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../requisitos/especificacao-requisitos/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Requisitos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../arquitetura/especificacao-arquitetura/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Desenvolvimento
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../vvt/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Qualidade e Testes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../gcs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Gerência de Configuração
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../gerencia-projeto/plano-projeto/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Gestão do Projeto
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="NotificaSaúde" class="md-nav__button md-logo" aria-label="NotificaSaúde" data-md-component="logo">
+      
+  <img src="../../../assets/favicon.png" alt="logo">
+
+    </a>
+    NotificaSaúde
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Notifica-Saude-2026-2/notifica-saude-docs" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Notifica-Saude-2026-2/notifica-saude-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão Geral
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Visão Geral
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../manual-sistema/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual do Sistema
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Manual do Sistema
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../manual-sistema/primeiros-passos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Primeiros passos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../manual-sistema/registrar-notificacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registrar uma notificação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../manual-sistema/classificar-e-encaminhar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classificar e encaminhar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../manual-sistema/registrar-analise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registrar a análise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../manual-sistema/plano-de-acao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plano de ação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../manual-sistema/concluir-e-arquivar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concluir e arquivar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../manual-sistema/gestor-da-area/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestor da área
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../manual-sistema/duvidas-frequentes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dúvidas frequentes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../descoberta-produto/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Descoberta do Produto
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Descoberta do Produto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../descoberta-produto/lean-inception/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lean Inception
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../descoberta-produto/documentos-proponentes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentos das Proponentes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requisitos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Requisitos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../requisitos/especificacao-requisitos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação de Requisitos de Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../requisitos/matriz-rbac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matriz RBAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../requisitos/reunioes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reuniões
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reuniões
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Atas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../requisitos/reunioes/atas/reuniao-inicial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reunião Inicial (06/08/2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relatórios
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Relatórios
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../requisitos/reunioes/relatorios/visita-tecnica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visita Técnica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../implantacao/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Desenvolvimento
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Desenvolvimento
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitetura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/especificacao-arquitetura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação de Arquitetura de Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../arquitetura/adr/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1_2" id="__nav_4_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADR
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0001-registro-de-decisoes-de-arquitetura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0001: Registrar decisões de arquitetura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0002-adotar-aplicacao-web-responsiva/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0002: Adotar aplicação web responsiva para o NotificaSaúde
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0003-adotar-arquitetura-monolitica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0003: Adotar arquitetura monolítica para o backend do NotificaSaúde
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0004-usar-sqlite-na-fase-inicial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0004: Utilizar SQLite na fase inicial do NotificaSaúde
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0005-usar-react-typescript-no-frontend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0005: Utilizar React com TypeScript no frontend do NotificaSaúde
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0006-adotar-arquitetura-cliente-servidor-rest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0006: Adotar arquitetura cliente-servidor usando REST
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0007-adotar-docker-para-deploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0007: Usar Docker para a implantação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0008-adotar-arquitetura-centralizada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0008: Adotar Arquitetura Centralizada
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0009-adotar-multitenancy-com-postgresql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0009: Adotar multi-tenancy com PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0010-adotar-backend-expressjs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0010: Adotar backend com Express.js
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0011-adotar-orm-prisma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0011: Adotar ORM Prisma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0012-adotar-swagger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0012: Adotar Swagger para documentação da API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0013-adotar-logger-estruturado-backend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0013: Adotar Logger Estruturado com Pino no Backend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0014-adotar-metricas-sre/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0014: Adotar Métricas de DevOps SRE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0015-adotar-brevo-para-envio-de-emails/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0015: Adotar Brevo para envio de e-mails transacionais
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0016-adotar-multitenancy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0016: Usar arquitetura multi-tenancy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0017-adotar-postgresql-como-sgbd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0017: Usar SGBD PostgreSQL para dados de negócio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0018-adotar-redis-para-dados-de-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0018: Usar Redis para armazenar dados de autenticação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0019-adotar-mailer-service-com-factory-de-providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0019: Adotar porta MailerService com factory de providers para envio de e-mail
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0020-adotar-fila-bullmq-para-envio-de-emails/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0020: Adotar fila BullMQ + worker dedicado para envio de e-mails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/adr/0021-adotar-postgresql-como-sgbd-com-multitenancy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0021: Adotar PostgreSQL como SGBD relacional único com suporte a multitenancy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/brevo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brevo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Banco de Dados
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Banco de Dados
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelo-dominio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação do Modelo de Domínio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação do Modelo Lógico
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação do Modelo Lógico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#visao-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visão Geral
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrama-logico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama Lógico
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status-da-notificacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status da notificação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regras-de-persistencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regras de Persistência
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regras de Persistência">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#campos-dinamicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Campos dinâmicos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analise-do-incidente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Análise do incidente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plano-de-acao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plano de ação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regras-arquiteturais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regras Arquiteturais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regras Arquiteturais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-tenancy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-tenancy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auditoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auditoria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclusao-de-notificacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exclusão de notificações
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dicionario-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dicionário de dados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dicionário de dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#localizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Localização
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Localização">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ESTADO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#municipio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MUNICIPIO
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-tenancy_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-tenancy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-tenancy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unidade_saude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UNIDADE_SAUDE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SETOR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identidade-e-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identidade e acesso
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Identidade e acesso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        USUARIO
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formulario-dinamico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formulário dinâmico
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Formulário dinâmico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#campo_formulario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CAMPO_FORMULARIO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opcao_campo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OPCAO_CAMPO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resposta_campo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RESPOSTA_CAMPO
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nucleo-do-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Núcleo do domínio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Núcleo do domínio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notificacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NOTIFICACAO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classificacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLASSIFICACAO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encaminhamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ENCAMINHAMENTO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INVESTIGACAO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plano_acao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PLANO_ACAO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acao_corretiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACAO_CORRETIVA
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auditoria_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auditoria
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Auditoria">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#historico_modificacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HISTORICO_MODIFICACAO
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumeracoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enumerações
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decisoes-arquiteturais-relacionadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisões Arquiteturais Relacionadas
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/repositorio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backend/repositorio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../vvt/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualidade e Testes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Qualidade e Testes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/plano-de-testes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plano de Testes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/casos-de-teste/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Casos de Teste
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/matriz-rastreabilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matriz de Rastreabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relatórios
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Relatórios
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../vvt/relatorios-testes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relatórios de Testes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_5_1" id="__nav_5_5_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Relatórios de Testes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/relatorios-testes/cobertura-unitario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cobertura de Código - Semestre 2026.1 - Unitário
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/relatorios-testes/cobertura-integracao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cobertura de Código - Semestre 2026.1 - Integração
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/relatorios-testes/issue-12-captcha-unitario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Épico 1 - Verificação de Captcha - Unitário
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/relatorios-testes/issue-12-captcha-integracao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Épico 1 - Verificação de Captcha - Integração
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/relatorios-testes/us-2-3-bloqueio-encaminhamento-unitario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Épico 2 - Bloqueio de Encaminhamento - Unitário
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/relatorios-testes/us-2-3-bloqueio-encaminhamento-integracao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Épico 2 - Bloqueio de Encaminhamento - Integração
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/relatorios-testes/analise-secoes-1-2-unitario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Épico 4 - Análise do Incidente - Unitário
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/relatorios-testes/analise-secoes-1-2-integracao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Épico 4 - Análise do Incidente - Integração
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/relatorios-testes/analise-us-4-1-e2e/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Épico 4 - Análise do Incidente - End-to-End (US-4.1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/relatorios-testes/analise-us-4-2-e2e/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Épico 4 - Análise do Incidente - End-to-End (US-4.2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/relatorios-testes/analise-us-4-3-e2e/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Épico 4 - Análise do Incidente - End-to-End (US-4.3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/relatorios-testes/analise-us-4-4-e2e/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Épico 4 - Análise do Incidente - End-to-End (US-4.4)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/relatorio-nao-funcionais/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testes Não-Funcionais
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/relatorio-bugs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bugs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../vvt/teste-usabilidade/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teste de Usabilidade
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Teste de Usabilidade
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/teste-usabilidade/plano-de-teste/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roteiro de Teste
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/teste-usabilidade/ata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ata do Teste
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vvt/teste-usabilidade/relatorio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relatório
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../gcs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gerência de Configuração
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gerência de Configuração
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gcs/modelo-ramificacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo de Ramificação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gcs/gerenciamento-mudancas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gerenciamento de Mudanças
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gcs/pull-requests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gerenciamento de Pull Requests
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gcs/padrao-commits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Padrão de Mensagens de Commit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gcs/gerenciamento-documentacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gerenciamento de Documentação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gcs/definicao-de-pronto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definição de Pronto (DoD e DoR)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gcs/gerenciamento-releases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gerenciamento de Releases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gcs/pipelines-ci/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines de CI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gcs/uso-act/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uso do act (Execução Local da CI)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestão do Projeto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestão do Projeto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gerencia-projeto/plano-projeto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plano de Projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gerencia-projeto/cronograma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cronograma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gerencia-projeto/responsabilidades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Responsabilidades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gerencia-projeto/riscos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Riscos do Projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gerencia-projeto/diario-de-decisoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diário de Decisões
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../gerencia-projeto/sprints/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprints
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_6" id="__nav_7_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sprints
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gerencia-projeto/sprints/sprint-0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gerencia-projeto/sprints/sprint-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../gerencia-projeto/uso-mkdocs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uso do MkDocs
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_7" id="__nav_7_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Uso do MkDocs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gerencia-projeto/uso-mkdocs/decisao-da-ferramenta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisão da Ferramenta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gerencia-projeto/uso-mkdocs/configuracao-e-manutencao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuração e Manutenção
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gerencia-projeto/uso-mkdocs/guia-atualizacao-documentacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia de Atualização da Documentação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#visao-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visão Geral
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrama-logico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama Lógico
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status-da-notificacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status da notificação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regras-de-persistencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regras de Persistência
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regras de Persistência">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#campos-dinamicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Campos dinâmicos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analise-do-incidente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Análise do incidente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plano-de-acao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plano de ação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regras-arquiteturais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regras Arquiteturais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regras Arquiteturais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-tenancy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-tenancy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auditoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auditoria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclusao-de-notificacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exclusão de notificações
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dicionario-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dicionário de dados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dicionário de dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#localizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Localização
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Localização">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ESTADO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#municipio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MUNICIPIO
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-tenancy_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-tenancy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-tenancy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unidade_saude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UNIDADE_SAUDE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SETOR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identidade-e-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identidade e acesso
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Identidade e acesso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        USUARIO
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formulario-dinamico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formulário dinâmico
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Formulário dinâmico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#campo_formulario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CAMPO_FORMULARIO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opcao_campo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OPCAO_CAMPO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resposta_campo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RESPOSTA_CAMPO
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nucleo-do-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Núcleo do domínio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Núcleo do domínio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notificacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NOTIFICACAO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classificacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLASSIFICACAO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encaminhamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ENCAMINHAMENTO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INVESTIGACAO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plano_acao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PLANO_ACAO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acao_corretiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACAO_CORRETIVA
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auditoria_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auditoria
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Auditoria">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#historico_modificacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HISTORICO_MODIFICACAO
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumeracoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enumerações
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decisoes-arquiteturais-relacionadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisões Arquiteturais Relacionadas
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 align="center">Especificação do Modelo Lógico</h1>
+
+<p align="center"><strong>Mantenedores:</strong> Gustavo Henrique, Kauan Cardoso, Sophya Ribeiro, Brenno, Catarina, Eduardo</p>
+
+<details class="note">
+<summary>Histórico de Alterações</summary>
+<table>
+<thead>
+<tr>
+<th>Versão</th>
+<th>Data</th>
+<th>Justificativa</th>
+<th>Responsável</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2.2</td>
+<td>08/06/2026</td>
+<td>Atualização do modelo com as alterações da Sprint 3 (código sequencial da notificação, campos relacionais e expansão da classificação).</td>
+<td>Fabio Ramos</td>
+</tr>
+<tr>
+<td>2.3</td>
+<td>22/06/2026</td>
+<td>Renomeação de "DER" para "Diagrama Lógico / Modelo Lógico", conforme solicitado na banca.</td>
+<td>Fabio Ramos</td>
+</tr>
+<tr>
+<td>2.4</td>
+<td>18/10/2026</td>
+<td>Migração do documento do repositório de documentação descontinuado para o MkDocs.</td>
+<td>Sophya Ribeiro</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>18/10/2026</td>
+<td>Atualização conforme o <code>schema.prisma</code> mais recente do backend (branch <code>develop</code>): oito status da notificação (RN-08), análise com conteúdo em JSONB, ações do plano de ação (US-5.1 e US-5.2), marca de dado do notificante (RN-27) e dicionário de dados completo.</td>
+<td>Sophya Ribeiro</td>
+</tr>
+</tbody>
+</table>
+</details>
+<table>
+<thead>
+<tr>
+<th>Baseado em</th>
+<th>Banco</th>
+<th>ORM</th>
+<th>Decisões de arquitetura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema.prisma</code></td>
+<td>PostgreSQL</td>
+<td>Prisma</td>
+<td><a href="../../arquitetura/adr/0008-adotar-arquitetura-centralizada/">ADR-0008</a> · <a href="../../arquitetura/adr/0016-adotar-multitenancy/">ADR-0016</a> · <a href="../../arquitetura/adr/0021-adotar-postgresql-como-sgbd-com-multitenancy/">ADR-0021</a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Fonte</p>
+<p>Gerado a partir do <code>prisma/schema.prisma</code> da branch <code>develop</code> do repositório <code>notifica-saude-backend</code> (última alteração do schema em 01/10/2026, commit <code>faa5224</code>).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">O que o schema ainda não cobre</p>
+<p>O backend ainda não tem persistência para o andamento e a efetividade das ações nem para os anexos de evidência (US-5.3 a US-5.7). Cada ação guarda um único responsável (nome e setor), e o status da ação segue o enum <code>StatusAcaoCorretiva</code> (<code>PENDENTE</code>, <code>EM_ANDAMENTO</code>, <code>CONCLUIDA</code>, <code>CANCELADA</code>), diferente das situações previstas na <a href="../../../requisitos/especificacao-requisitos/">Especificação de Requisitos</a> (Em andamento, Parcialmente concluído, Concluído, Atrasada e Cancelada).</p>
+</div>
+<details class="info">
+<summary>Notas de versão</summary>
+<p><strong>Versão 3.0 (schema de 01/10/2026)</strong></p>
+<ul>
+<li><code>StatusNotificacao</code>: inclusão de <code>EM_ANALISE</code>, <code>EM_ACAO</code> e <code>CONCLUIDA</code>, completando os oito status da RN-08.</li>
+<li><code>CampoFormulario</code>: inclusão de <code>dado_notificante</code>, que marca os campos de identificação do notificante (RN-27).</li>
+<li><code>Investigacao</code>: <code>gestor_area_id</code> passa a <code>autor_id</code> (quem iniciou a análise, RN-28); <code>analise</code> e <code>causa_raiz</code> dão lugar a <code>conteudo</code> (JSONB) com o formulário de análise; datas passam a <code>timestamptz</code>.</li>
+<li><code>PlanoAcao</code>: <code>descricao</code> e <code>prazo</code> passam a ser opcionais e sem uso (container das ações).</li>
+<li><code>AcaoCorretiva</code>: reestruturada com os campos da US-5.1 e da US-5.2 (número sequencial, rascunho, local, responsável, previsões, recurso e custo, aprovação, comprovação, resultado esperado, verificação e indicador) e relação com <code>Setor</code>.</li>
+</ul>
+<p><strong>Versão 2.3 e anteriores</strong></p>
+<ul>
+<li>Enums da classificação (<code>TipoNeverEvent</code>, <code>EnvolvidoIncidente</code>, <code>CategoriaIncidente</code>, <code>ProtocoloInvestigacao</code>), status do plano e da ação e <code>EntidadeRelacional</code>.</li>
+<li>Código sequencial da notificação por unidade (<code>codigo</code> e <code>ultimo_codigo_notificacao</code>).</li>
+<li>Campos relacionais no formulário dinâmico (<code>entidade_relacional</code>, <code>valor_entidade_id</code>, <code>valor_entidade_label</code>).</li>
+<li>Entidades <code>Estado</code> e <code>Municipio</code>, seções do formulário, <code>tooltip</code> nas opções e <code>label_original</code> nas respostas.</li>
+</ul>
+</details>
+<h2 id="visao-geral">Visão Geral<a class="headerlink" href="#visao-geral" title="Permanent link">&para;</a></h2>
+<p>O <strong>NotificaSaúde</strong> utiliza uma arquitetura <strong>multi-tenant com isolamento lógico por unidade de saúde</strong>: cada unidade de saúde funciona como um tenant do sistema.</p>
+<p>Relacionamentos principais:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>UNIDADE_SAUDE
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a> ├── SETOR
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a> │     └── USUARIO
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a> │
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a> └── NOTIFICACAO
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        ├── RESPOSTA_CAMPO
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        ├── CLASSIFICACAO
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        ├── ENCAMINHAMENTO
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        ├── INVESTIGACAO
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        │     └── PLANO_ACAO
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        │           └── ACAO_CORRETIVA
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        └── HISTORICO_MODIFICACAO
+</code></pre></div>
+<p>O registro das notificações usa um <strong>formulário dinâmico configurável</strong> (<code>CAMPO_FORMULARIO</code>, <code>OPCAO_CAMPO</code> e <code>RESPOSTA_CAMPO</code>), de escopo global, sem <code>tenant_id</code>.</p>
+<h2 id="diagrama-logico">Diagrama Lógico<a class="headerlink" href="#diagrama-logico" title="Permanent link">&para;</a></h2>
+<p>Os rótulos das relações indicam a coluna de chave estrangeira. Colunas marcadas como "opcional" aceitam nulo.</p>
+<pre class="mermaid"><code>erDiagram
+
+    UNIDADE_SAUDE {
+        uuid id PK
+        int codigo UK
+        int ultimo_codigo_notificacao
+        string nome
+        string cnpj UK
+        boolean ativa
+        int estado_id FK
+        int municipio_id FK
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    SETOR {
+        uuid id PK
+        uuid unidade_id FK
+        string nome
+        boolean ativo
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    USUARIO {
+        uuid id PK
+        uuid tenant_id FK
+        uuid unidade_id FK
+        uuid setor_id FK "opcional"
+        string nome
+        string email UK
+        string senha_hash
+        enum perfil "PerfilUsuario"
+        boolean ativo
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    CAMPO_FORMULARIO {
+        uuid id PK
+        string secao
+        string label
+        enum tipo "TipoCampo"
+        enum entidade_relacional "EntidadeRelacional · opcional"
+        boolean obrigatorio
+        int ordem
+        boolean ativo
+        string placeholder "opcional"
+        boolean dado_notificante
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    OPCAO_CAMPO {
+        uuid id PK
+        uuid campo_id FK
+        string valor
+        string tooltip "opcional"
+        int ordem
+    }
+
+    RESPOSTA_CAMPO {
+        uuid id PK
+        uuid notificacao_id FK
+        uuid campo_id FK
+        string label_original
+        text valor_texto "opcional"
+        uuid valor_opcao_id FK "opcional"
+        uuid valor_entidade_id "opcional"
+        text valor_entidade_label "opcional"
+        timestamptz created_at
+    }
+
+    NOTIFICACAO {
+        uuid id PK
+        int codigo
+        uuid tenant_id FK
+        uuid unidade_id FK
+        uuid setor_id FK
+        uuid notificante_id FK "opcional"
+        date data_incidente
+        timestamptz data_registro
+        text descricao "opcional"
+        boolean anonima
+        enum status "StatusNotificacao"
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    CLASSIFICACAO {
+        uuid id PK
+        uuid notificacao_id FK, UK
+        uuid profissional_nsp_id FK
+        enum tipo_incidente "TipoIncidente · opcional"
+        enum tipo_especifico "TipoNeverEvent · opcional"
+        enum tipos_incidentes "CategoriaIncidente · lista"
+        enum envolvidos "EnvolvidoIncidente · lista"
+        enum grau_dano "GrauDano · opcional"
+        text observacoes "opcional"
+        string outro_envolvido "opcional"
+        string outro_tipo_incidente "opcional"
+        enum protocolo_investigacao "ProtocoloInvestigacao · opcional"
+        boolean rascunho
+        timestamptz data_classificacao
+        timestamptz data_validade "opcional"
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    ENCAMINHAMENTO {
+        uuid id PK
+        uuid notificacao_id FK, UK
+        uuid setor_destino_id FK
+        uuid responsavel_nsp_id FK
+        text mensagem "opcional"
+        timestamptz data_envio
+        timestamptz created_at
+    }
+
+    INVESTIGACAO {
+        uuid id PK
+        uuid notificacao_id FK, UK
+        uuid autor_id FK
+        timestamptz data_inicio
+        timestamptz data_conclusao "opcional"
+        jsonb conteudo
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    PLANO_ACAO {
+        uuid id PK
+        uuid investigacao_id FK, UK
+        text descricao "opcional"
+        date prazo "opcional"
+        enum status "StatusPlanoAcao"
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    ACAO_CORRETIVA {
+        uuid id PK
+        uuid plano_acao_id FK
+        int numero
+        boolean rascunho
+        text descricao "opcional"
+        string local "opcional"
+        uuid responsavel_setor_id FK "opcional"
+        string responsavel_nome "opcional"
+        date previsao_inicio "opcional"
+        date previsao_conclusao "opcional"
+        boolean necessita_recurso
+        text recurso_descricao "opcional"
+        decimal custo_estimado "opcional"
+        boolean necessita_aprovacao
+        text aprovacao_descricao "opcional"
+        text forma_comprovacao "opcional"
+        text resultado_esperado "opcional"
+        text metodo_verificacao "opcional"
+        date data_verificacao "opcional"
+        boolean gera_indicador
+        text indicador_descricao "opcional"
+        enum status "StatusAcaoCorretiva"
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    HISTORICO_MODIFICACAO {
+        uuid id PK
+        uuid notificacao_id FK
+        uuid usuario_id FK
+        string campo_alterado
+        text valor_anterior "opcional"
+        text valor_novo "opcional"
+        timestamptz data_alteracao
+    }
+
+    ESTADO {
+        int id PK
+        string nome
+        varchar uf UK
+    }
+
+    MUNICIPIO {
+        int id PK
+        int estado_id FK
+        string nome
+    }
+
+    ESTADO ||--o{ UNIDADE_SAUDE : "estado_id"
+    MUNICIPIO ||--o{ UNIDADE_SAUDE : "municipio_id"
+    UNIDADE_SAUDE ||--o{ SETOR : "unidade_id"
+    UNIDADE_SAUDE ||--o{ USUARIO : "unidade_id"
+    SETOR |o--o{ USUARIO : "setor_id"
+    CAMPO_FORMULARIO ||--o{ OPCAO_CAMPO : "campo_id"
+    NOTIFICACAO ||--o{ RESPOSTA_CAMPO : "notificacao_id"
+    CAMPO_FORMULARIO ||--o{ RESPOSTA_CAMPO : "campo_id"
+    OPCAO_CAMPO |o--o{ RESPOSTA_CAMPO : "valor_opcao_id"
+    UNIDADE_SAUDE ||--o{ NOTIFICACAO : "unidade_id"
+    SETOR ||--o{ NOTIFICACAO : "setor_id"
+    USUARIO |o--o{ NOTIFICACAO : "notificante_id"
+    NOTIFICACAO ||--o| CLASSIFICACAO : "notificacao_id"
+    USUARIO ||--o{ CLASSIFICACAO : "profissional_nsp_id"
+    NOTIFICACAO ||--o| ENCAMINHAMENTO : "notificacao_id"
+    SETOR ||--o{ ENCAMINHAMENTO : "setor_destino_id"
+    USUARIO ||--o{ ENCAMINHAMENTO : "responsavel_nsp_id"
+    NOTIFICACAO ||--o| INVESTIGACAO : "notificacao_id"
+    USUARIO ||--o{ INVESTIGACAO : "autor_id"
+    INVESTIGACAO ||--o| PLANO_ACAO : "investigacao_id"
+    PLANO_ACAO ||--o{ ACAO_CORRETIVA : "plano_acao_id"
+    SETOR |o--o{ ACAO_CORRETIVA : "responsavel_setor_id"
+    NOTIFICACAO ||--o{ HISTORICO_MODIFICACAO : "notificacao_id"
+    USUARIO ||--o{ HISTORICO_MODIFICACAO : "usuario_id"
+    ESTADO ||--o{ MUNICIPIO : "estado_id"</code></pre>
+<h2 id="status-da-notificacao">Status da notificação<a class="headerlink" href="#status-da-notificacao" title="Permanent link">&para;</a></h2>
+<p>A coluna <code>notificacao.status</code> usa o enum <code>StatusNotificacao</code>, com os oito status do ciclo de vida do incidente (RN-08 e <a href="../../../requisitos/especificacao-requisitos/">épico 6</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Valor no banco</th>
+<th>Status exibido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NOVA</code></td>
+<td>Novo</td>
+</tr>
+<tr>
+<td><code>CLASSIFICADA</code></td>
+<td>Classificado</td>
+</tr>
+<tr>
+<td><code>ENCAMINHADA_SETOR</code></td>
+<td>Encaminhado</td>
+</tr>
+<tr>
+<td><code>EM_ANALISE</code></td>
+<td>Em análise</td>
+</tr>
+<tr>
+<td><code>ANALISADA</code></td>
+<td>Analisado</td>
+</tr>
+<tr>
+<td><code>EM_ACAO</code></td>
+<td>Em ação</td>
+</tr>
+<tr>
+<td><code>CONCLUIDA</code></td>
+<td>Concluído</td>
+</tr>
+<tr>
+<td><code>ARQUIVADA</code></td>
+<td>Arquivado</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Ordem dos valores</p>
+<p>A ordem física do enum no banco não segue o fluxo, porque <code>EM_ANALISE</code>, <code>EM_ACAO</code> e <code>CONCLUIDA</code> foram acrescentados depois. Nunca ordene consultas pela coluna <code>status</code>.</p>
+</div>
+<h2 id="regras-de-persistencia">Regras de Persistência<a class="headerlink" href="#regras-de-persistencia" title="Permanent link">&para;</a></h2>
+<h3 id="campos-dinamicos">Campos dinâmicos<a class="headerlink" href="#campos-dinamicos" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TEXTO / NUMERO / DATA / AREA / EMAIL / TELEFONE / BOOLEAN
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>→ valor_texto
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>SELECT / RADIO
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>→ valor_opcao_id
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>MULTISELECT / CHECKBOX
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>→ múltiplos registros em RESPOSTA_CAMPO (um por opção selecionada)
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>ENTIDADE RELACIONAL (campo com entidade_relacional definido)
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>→ valor_entidade_id + valor_entidade_label (snapshot do nome no envio)
+</code></pre></div>
+<ul>
+<li><code>label_original</code> guarda o rótulo do campo no momento do preenchimento. As notificações históricas devem ser exibidas com esse valor, nunca com o rótulo atual do campo.</li>
+<li>Campos cujo <code>entidade_relacional</code> aponta para <code>ESTADO</code>, <code>MUNICIPIO</code>, <code>SETOR</code> ou <code>UnidadeSaude</code> carregam suas opções das tabelas do domínio.</li>
+<li><code>dado_notificante = true</code> marca os campos de identificação do notificante (nome e contato). O sigilo da RN-27 filtra por essa coluna, e não pelo texto da seção, que pode ser renomeado.</li>
+<li>Campos do formulário nunca são excluídos: são ocultados com <code>ativo = false</code>, preservando as respostas já registradas (RN-09).</li>
+</ul>
+<h3 id="analise-do-incidente">Análise do incidente<a class="headerlink" href="#analise-do-incidente" title="Permanent link">&para;</a></h3>
+<p>A tabela <code>INVESTIGACAO</code> guarda apenas o que o sistema consulta ou autoriza: a notificação (relação 1 para 0..1), o autor da análise (<code>autor_id</code>, que garante a autoria exclusiva enquanto ela está em andamento, RN-28) e as datas de início e conclusão. O conteúdo do formulário de análise fica na coluna <code>conteudo</code> (JSONB), cuja estrutura é validada pelo backend.</p>
+<h3 id="plano-de-acao">Plano de ação<a class="headerlink" href="#plano-de-acao" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>PLANO_ACAO</code> é um container das ações, ligado à análise (1 para 0..1). As colunas <code>descricao</code> e <code>prazo</code> são resquício da versão 2.1 e não são usadas.</li>
+<li>Cada linha de <code>ACAO_CORRETIVA</code> é uma ação do plano, com <code>numero</code> sequencial por plano (<code>@@unique([plano_acao_id, numero])</code>).</li>
+<li><code>rascunho = true</code> indica uma ação ainda não especificada por completo, como as criadas a partir das recomendações da análise. Por isso as colunas obrigatórias aceitam nulo no banco, e a obrigatoriedade é garantida pelo backend quando <code>rascunho = false</code>.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Grupo (US-5.1)</th>
+<th>Colunas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O que, onde e quem (CA03)</td>
+<td><code>descricao</code>, <code>local</code>, <code>responsavel_setor_id</code>, <code>responsavel_nome</code>, <code>previsao_inicio</code>, <code>previsao_conclusao</code></td>
+</tr>
+<tr>
+<td>Recurso (CA04)</td>
+<td><code>necessita_recurso</code>, <code>recurso_descricao</code>, <code>custo_estimado</code></td>
+</tr>
+<tr>
+<td>Aprovação (CA05)</td>
+<td><code>necessita_aprovacao</code>, <code>aprovacao_descricao</code></td>
+</tr>
+<tr>
+<td>Comprovação e verificação (CA06 a CA08)</td>
+<td><code>forma_comprovacao</code>, <code>resultado_esperado</code>, <code>metodo_verificacao</code>, <code>data_verificacao</code></td>
+</tr>
+<tr>
+<td>Indicador (CA09)</td>
+<td><code>gera_indicador</code>, <code>indicador_descricao</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="regras-arquiteturais">Regras Arquiteturais<a class="headerlink" href="#regras-arquiteturais" title="Permanent link">&para;</a></h2>
+<h3 id="multi-tenancy">Multi-tenancy<a class="headerlink" href="#multi-tenancy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>tenant_id = unidade_id
+</code></pre></div>
+<p>O <code>tenant_id</code> é mantido explícito em <code>USUARIO</code> e <code>NOTIFICACAO</code> para a segurança das consultas, o desempenho dos índices e o isolamento lógico entre unidades.</p>
+<h3 id="auditoria">Auditoria<a class="headerlink" href="#auditoria" title="Permanent link">&para;</a></h3>
+<p><code>HISTORICO_MODIFICACAO</code> é imutável: não tem <code>updated_at</code> e nunca é excluído (RN-02). Alterações em campos dinâmicos usam a convenção:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>campo_alterado = &quot;resposta_campo:&lt;label_original&gt;&quot;
+</code></pre></div>
+<p>Exemplo: <code>resposta_campo:Setor onde ocorreu</code>.</p>
+<h3 id="exclusao-de-notificacoes">Exclusão de notificações<a class="headerlink" href="#exclusao-de-notificacoes" title="Permanent link">&para;</a></h3>
+<p>Notificações nunca são excluídas fisicamente; o encerramento sem tratamento usa o status <code>ARQUIVADA</code> (RN-09).</p>
+<h2 id="dicionario-de-dados">Dicionário de dados<a class="headerlink" href="#dicionario-de-dados" title="Permanent link">&para;</a></h2>
+<h3 id="localizacao">Localização<a class="headerlink" href="#localizacao" title="Permanent link">&para;</a></h3>
+<h4 id="estado"><code>ESTADO</code><a class="headerlink" href="#estado" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Chave</th>
+<th style="text-align: center;">Obrigatória</th>
+<th>Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>int</td>
+<td>PK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>nome</code></td>
+<td>string</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>uf</code></td>
+<td>varchar</td>
+<td>UK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4 id="municipio"><code>MUNICIPIO</code><a class="headerlink" href="#municipio" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Chave</th>
+<th style="text-align: center;">Obrigatória</th>
+<th>Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>int</td>
+<td>PK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>estado_id</code></td>
+<td>int</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>nome</code></td>
+<td>string</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="multi-tenancy_1">Multi-tenancy<a class="headerlink" href="#multi-tenancy_1" title="Permanent link">&para;</a></h3>
+<h4 id="unidade_saude"><code>UNIDADE_SAUDE</code><a class="headerlink" href="#unidade_saude" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Chave</th>
+<th style="text-align: center;">Obrigatória</th>
+<th>Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>uuid</td>
+<td>PK</td>
+<td style="text-align: center;">Sim</td>
+<td><code>uuid()</code></td>
+</tr>
+<tr>
+<td><code>codigo</code></td>
+<td>int</td>
+<td>UK</td>
+<td style="text-align: center;">Sim</td>
+<td><code>autoincrement()</code></td>
+</tr>
+<tr>
+<td><code>ultimo_codigo_notificacao</code></td>
+<td>int</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>nome</code></td>
+<td>string</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>cnpj</code></td>
+<td>string</td>
+<td>UK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>ativa</code></td>
+<td>boolean</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>estado_id</code></td>
+<td>int</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>municipio_id</code></td>
+<td>int</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>now()</code></td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4 id="setor"><code>SETOR</code><a class="headerlink" href="#setor" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Chave</th>
+<th style="text-align: center;">Obrigatória</th>
+<th>Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>uuid</td>
+<td>PK</td>
+<td style="text-align: center;">Sim</td>
+<td><code>uuid()</code></td>
+</tr>
+<tr>
+<td><code>unidade_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>nome</code></td>
+<td>string</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>ativo</code></td>
+<td>boolean</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>now()</code></td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Unicidade composta: <code>(unidade_id, nome)</code>.</p>
+<h3 id="identidade-e-acesso">Identidade e acesso<a class="headerlink" href="#identidade-e-acesso" title="Permanent link">&para;</a></h3>
+<h4 id="usuario"><code>USUARIO</code><a class="headerlink" href="#usuario" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Chave</th>
+<th style="text-align: center;">Obrigatória</th>
+<th>Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>uuid</td>
+<td>PK</td>
+<td style="text-align: center;">Sim</td>
+<td><code>uuid()</code></td>
+</tr>
+<tr>
+<td><code>tenant_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>unidade_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>setor_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>nome</code></td>
+<td>string</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>UK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>senha_hash</code></td>
+<td>string</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>perfil</code></td>
+<td>enum <code>PerfilUsuario</code></td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>ativo</code></td>
+<td>boolean</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>now()</code></td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="formulario-dinamico">Formulário dinâmico<a class="headerlink" href="#formulario-dinamico" title="Permanent link">&para;</a></h3>
+<h4 id="campo_formulario"><code>CAMPO_FORMULARIO</code><a class="headerlink" href="#campo_formulario" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Chave</th>
+<th style="text-align: center;">Obrigatória</th>
+<th>Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>uuid</td>
+<td>PK</td>
+<td style="text-align: center;">Sim</td>
+<td><code>uuid()</code></td>
+</tr>
+<tr>
+<td><code>secao</code></td>
+<td>string</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>"GERAL"</code></td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td>string</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>tipo</code></td>
+<td>enum <code>TipoCampo</code></td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>entidade_relacional</code></td>
+<td>enum <code>EntidadeRelacional</code></td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>obrigatorio</code></td>
+<td>boolean</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>ordem</code></td>
+<td>int</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>ativo</code></td>
+<td>boolean</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>placeholder</code></td>
+<td>string</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>dado_notificante</code></td>
+<td>boolean</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>now()</code></td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4 id="opcao_campo"><code>OPCAO_CAMPO</code><a class="headerlink" href="#opcao_campo" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Chave</th>
+<th style="text-align: center;">Obrigatória</th>
+<th>Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>uuid</td>
+<td>PK</td>
+<td style="text-align: center;">Sim</td>
+<td><code>uuid()</code></td>
+</tr>
+<tr>
+<td><code>campo_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>valor</code></td>
+<td>string</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>tooltip</code></td>
+<td>string</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>ordem</code></td>
+<td>int</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4 id="resposta_campo"><code>RESPOSTA_CAMPO</code><a class="headerlink" href="#resposta_campo" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Chave</th>
+<th style="text-align: center;">Obrigatória</th>
+<th>Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>uuid</td>
+<td>PK</td>
+<td style="text-align: center;">Sim</td>
+<td><code>uuid()</code></td>
+</tr>
+<tr>
+<td><code>notificacao_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>campo_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>label_original</code></td>
+<td>string</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>valor_texto</code></td>
+<td>text</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>valor_opcao_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>valor_entidade_id</code></td>
+<td>uuid</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>valor_entidade_label</code></td>
+<td>text</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>now()</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="nucleo-do-dominio">Núcleo do domínio<a class="headerlink" href="#nucleo-do-dominio" title="Permanent link">&para;</a></h3>
+<h4 id="notificacao"><code>NOTIFICACAO</code><a class="headerlink" href="#notificacao" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Chave</th>
+<th style="text-align: center;">Obrigatória</th>
+<th>Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>uuid</td>
+<td>PK</td>
+<td style="text-align: center;">Sim</td>
+<td><code>uuid()</code></td>
+</tr>
+<tr>
+<td><code>codigo</code></td>
+<td>int</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>tenant_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>unidade_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>setor_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>notificante_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>data_incidente</code></td>
+<td>date</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>data_registro</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>now()</code></td>
+</tr>
+<tr>
+<td><code>descricao</code></td>
+<td>text</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>anonima</code></td>
+<td>boolean</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>enum <code>StatusNotificacao</code></td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>NOVA</code></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>now()</code></td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Unicidade composta: <code>(unidade_id, codigo)</code>.</p>
+<h4 id="classificacao"><code>CLASSIFICACAO</code><a class="headerlink" href="#classificacao" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Chave</th>
+<th style="text-align: center;">Obrigatória</th>
+<th>Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>uuid</td>
+<td>PK</td>
+<td style="text-align: center;">Sim</td>
+<td><code>uuid()</code></td>
+</tr>
+<tr>
+<td><code>notificacao_id</code></td>
+<td>uuid</td>
+<td>FK, UK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>profissional_nsp_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>tipo_incidente</code></td>
+<td>enum <code>TipoIncidente</code></td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>tipo_especifico</code></td>
+<td>enum <code>TipoNeverEvent</code></td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>tipos_incidentes</code></td>
+<td>enum <code>CategoriaIncidente</code>[]</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>envolvidos</code></td>
+<td>enum <code>EnvolvidoIncidente</code>[]</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>grau_dano</code></td>
+<td>enum <code>GrauDano</code></td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>observacoes</code></td>
+<td>text</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>outro_envolvido</code></td>
+<td>string</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>outro_tipo_incidente</code></td>
+<td>string</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>protocolo_investigacao</code></td>
+<td>enum <code>ProtocoloInvestigacao</code></td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>rascunho</code></td>
+<td>boolean</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>data_classificacao</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>now()</code></td>
+</tr>
+<tr>
+<td><code>data_validade</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>now()</code></td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4 id="encaminhamento"><code>ENCAMINHAMENTO</code><a class="headerlink" href="#encaminhamento" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Chave</th>
+<th style="text-align: center;">Obrigatória</th>
+<th>Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>uuid</td>
+<td>PK</td>
+<td style="text-align: center;">Sim</td>
+<td><code>uuid()</code></td>
+</tr>
+<tr>
+<td><code>notificacao_id</code></td>
+<td>uuid</td>
+<td>FK, UK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>setor_destino_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>responsavel_nsp_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>mensagem</code></td>
+<td>text</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>data_envio</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>now()</code></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>now()</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="investigacao"><code>INVESTIGACAO</code><a class="headerlink" href="#investigacao" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Chave</th>
+<th style="text-align: center;">Obrigatória</th>
+<th>Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>uuid</td>
+<td>PK</td>
+<td style="text-align: center;">Sim</td>
+<td><code>uuid()</code></td>
+</tr>
+<tr>
+<td><code>notificacao_id</code></td>
+<td>uuid</td>
+<td>FK, UK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>autor_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>data_inicio</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>now()</code></td>
+</tr>
+<tr>
+<td><code>data_conclusao</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>conteudo</code></td>
+<td>jsonb</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>"{}"</code></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>now()</code></td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4 id="plano_acao"><code>PLANO_ACAO</code><a class="headerlink" href="#plano_acao" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Chave</th>
+<th style="text-align: center;">Obrigatória</th>
+<th>Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>uuid</td>
+<td>PK</td>
+<td style="text-align: center;">Sim</td>
+<td><code>uuid()</code></td>
+</tr>
+<tr>
+<td><code>investigacao_id</code></td>
+<td>uuid</td>
+<td>FK, UK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>descricao</code></td>
+<td>text</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>prazo</code></td>
+<td>date</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>enum <code>StatusPlanoAcao</code></td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>PENDENTE</code></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>now()</code></td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4 id="acao_corretiva"><code>ACAO_CORRETIVA</code><a class="headerlink" href="#acao_corretiva" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Chave</th>
+<th style="text-align: center;">Obrigatória</th>
+<th>Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>uuid</td>
+<td>PK</td>
+<td style="text-align: center;">Sim</td>
+<td><code>uuid()</code></td>
+</tr>
+<tr>
+<td><code>plano_acao_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>numero</code></td>
+<td>int</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>rascunho</code></td>
+<td>boolean</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>descricao</code></td>
+<td>text</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>local</code></td>
+<td>string</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>responsavel_setor_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>responsavel_nome</code></td>
+<td>string</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>previsao_inicio</code></td>
+<td>date</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>previsao_conclusao</code></td>
+<td>date</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>necessita_recurso</code></td>
+<td>boolean</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>recurso_descricao</code></td>
+<td>text</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>custo_estimado</code></td>
+<td>decimal</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>necessita_aprovacao</code></td>
+<td>boolean</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>aprovacao_descricao</code></td>
+<td>text</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>forma_comprovacao</code></td>
+<td>text</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>resultado_esperado</code></td>
+<td>text</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>metodo_verificacao</code></td>
+<td>text</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>data_verificacao</code></td>
+<td>date</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>gera_indicador</code></td>
+<td>boolean</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>indicador_descricao</code></td>
+<td>text</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>enum <code>StatusAcaoCorretiva</code></td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>PENDENTE</code></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>now()</code></td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Unicidade composta: <code>(plano_acao_id, numero)</code>.</p>
+<h3 id="auditoria_1">Auditoria<a class="headerlink" href="#auditoria_1" title="Permanent link">&para;</a></h3>
+<h4 id="historico_modificacao"><code>HISTORICO_MODIFICACAO</code><a class="headerlink" href="#historico_modificacao" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Chave</th>
+<th style="text-align: center;">Obrigatória</th>
+<th>Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>uuid</td>
+<td>PK</td>
+<td style="text-align: center;">Sim</td>
+<td><code>uuid()</code></td>
+</tr>
+<tr>
+<td><code>notificacao_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>usuario_id</code></td>
+<td>uuid</td>
+<td>FK</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>campo_alterado</code></td>
+<td>string</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>valor_anterior</code></td>
+<td>text</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>valor_novo</code></td>
+<td>text</td>
+<td>—</td>
+<td style="text-align: center;">Não</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>data_alteracao</code></td>
+<td>timestamptz</td>
+<td>—</td>
+<td style="text-align: center;">Sim</td>
+<td><code>now()</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="enumeracoes">Enumerações<a class="headerlink" href="#enumeracoes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Enumeração</th>
+<th>Valores</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PerfilUsuario</code></td>
+<td><code>NOTIFICANTE</code>, <code>NSP</code>, <code>GESTOR_AREA</code>, <code>ADMINISTRADOR</code></td>
+</tr>
+<tr>
+<td><code>StatusNotificacao</code></td>
+<td><code>NOVA</code>, <code>CLASSIFICADA</code>, <code>ANALISADA</code>, <code>ENCAMINHADA_SETOR</code>, <code>ARQUIVADA</code>, <code>EM_ANALISE</code>, <code>EM_ACAO</code>, <code>CONCLUIDA</code></td>
+</tr>
+<tr>
+<td><code>TipoIncidente</code></td>
+<td><code>NEAR_MISS</code>, <code>CIRCUNSTANCIA_NOTIFICAVEL</code>, <code>EVENTO_ADVERSO</code>, <code>INCIDENTE_SEM_DANO</code></td>
+</tr>
+<tr>
+<td><code>TipoNeverEvent</code></td>
+<td><code>ALTA_LIBERACAO_PACIENTE_INCAPAZ_PESSOA_NAO_AUTORIZADA</code>, <code>CONTAMINACAO_O2_GASES_MEDICINAIS</code>, <code>DESAPARECIMENTO_CORPO_RECEM_NASCIDO_OBITO</code>, <code>EXODONTIA_DENTE_ERRADO</code>, <code>GAS_ERRADO_O2_GASES_MEDICINAIS</code>, <code>INSEMINACAO_FERTILIZACAO_ESPERMA_OVULO_ERRADO</code>, <code>LESAO_GRAVE_QUEDA_DURANTE_CUIDADOS</code>, <code>LESAO_PRESSAO_ESTAGIO_3</code>, <code>LESAO_PRESSAO_ESTAGIO_4</code>, <code>LESAO_PRESSAO_NAO_CLASSIFICAVEL</code>, <code>OBITO_QUEDA_DURANTE_CUIDADOS</code>, <code>OBITO_INTRAOPERATORIO_POS_OPERATORIO_ASA_CLASSE_1</code>, <code>OBITO_LESAO_GRAVE_FUGA_PACIENTE</code>, <code>OBITO_LESAO_GRAVE_CHOQUE_ELETRICO</code>, <code>OBITO_LESAO_GRAVE_OBJETO_METALICO_RESSONANCIA_MAGNETICA</code>, <code>OBITO_LESAO_GRAVE_CONTENCAO_FISICA_GRADES</code>, <code>OBITO_LESAO_GRAVE_QUEIMADURA</code>, <code>OBITO_LESAO_GRAVE_PERDA_AMOSTRA_BIOLOGICA</code>, <code>OBITO_LESAO_GRAVE_RECEM_NASCIDO_PARTO_BAIXO_RISCO</code>, <code>OBITO_LESAO_GRAVE_FALHA_EXAMES_LABORATORIAIS</code>, <code>OBITO_LESAO_GRAVE_FALHA_EXAMES_RADIOLOGICOS</code>, <code>OBITO_LESAO_MATERNA_PARTO_BAIXO_RISCO</code>, <code>PROCEDIMENTO_CIRURGICO_LOCAL_ERRADO</code>, <code>PROCEDIMENTO_CIRURGICO_LADO_ERRADO</code>, <code>PROCEDIMENTO_CIRURGICO_PACIENTE_ERRADO</code>, <code>QUEDA_RECEM_NASCIDO_PARTO</code>, <code>CIRURGIA_ERRADA_PACIENTE</code>, <code>RETENCAO_CORPO_ESTRANHO_APOS_CIRURGIA</code>, <code>SUICIDIO_TENTATIVA_DANO_AUTO_INFLIGIDO</code>, <code>TROCA_BEBES</code></td>
+</tr>
+<tr>
+<td><code>EnvolvidoIncidente</code></td>
+<td><code>PROFISSIONAL_SAUDE</code>, <code>PACIENTE</code>, <code>FAMILIAR_ACOMPANHANTE</code>, <code>EQUIPAMENTO</code>, <code>DISPOSITIVO_MEDICO</code>, <code>MEDICAMENTO</code>, <code>SISTEMA</code>, <code>AMBIENTE_FISICO</code>, <code>OUTRO</code></td>
+</tr>
+<tr>
+<td><code>CategoriaIncidente</code></td>
+<td><code>ERRO_MEDICACAO</code>, <code>FALHA_IDENTIFICACAO</code>, <code>QUEDA</code>, <code>LESAO_PRESSAO</code>, <code>INFECCAO_ASSISTENCIA</code>, <code>PROCEDIMENTO_CIRURGICO</code>, <code>EQUIPAMENTO_DISPOSITIVO</code>, <code>FALHA_DIAGNOSTICO</code>, <code>COMUNICACAO</code>, <code>TRANSFUSAO_SANGUINEA</code>, <code>DOCUMENTACAO_PRONTUARIO</code>, <code>OUTRO</code></td>
+</tr>
+<tr>
+<td><code>GrauDano</code></td>
+<td><code>LEVE</code>, <code>MODERADO</code>, <code>GRAVE</code>, <code>OBITO</code>, <code>NEVER_EVENT</code></td>
+</tr>
+<tr>
+<td><code>ProtocoloInvestigacao</code></td>
+<td><code>INVESTIGACAO_DIRETA</code>, <code>INVESTIGACAO_SISTEMICA_PROFUNDA</code></td>
+</tr>
+<tr>
+<td><code>StatusPlanoAcao</code></td>
+<td><code>PENDENTE</code>, <code>EM_ANDAMENTO</code>, <code>CONCLUIDO</code>, <code>CANCELADO</code></td>
+</tr>
+<tr>
+<td><code>StatusAcaoCorretiva</code></td>
+<td><code>PENDENTE</code>, <code>EM_ANDAMENTO</code>, <code>CONCLUIDA</code>, <code>CANCELADA</code></td>
+</tr>
+<tr>
+<td><code>TipoCampo</code></td>
+<td><code>TEXTO</code>, <code>NUMERO</code>, <code>DATA</code>, <code>AREA</code>, <code>EMAIL</code>, <code>TELEFONE</code>, <code>ARQUIVO</code>, <code>BOOLEAN</code>, <code>SELECT</code>, <code>MULTISELECT</code>, <code>RADIO</code>, <code>CHECKBOX</code></td>
+</tr>
+<tr>
+<td><code>EntidadeRelacional</code></td>
+<td><code>ESTADO</code>, <code>MUNICIPIO</code>, <code>SETOR</code>, <code>UnidadeSaude</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="decisoes-arquiteturais-relacionadas">Decisões Arquiteturais Relacionadas<a class="headerlink" href="#decisoes-arquiteturais-relacionadas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ADR</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../arquitetura/adr/0008-adotar-arquitetura-centralizada/">ADR-0008</a></td>
+<td>Arquitetura centralizada</td>
+</tr>
+<tr>
+<td><a href="../../arquitetura/adr/0011-adotar-orm-prisma/">ADR-0011</a></td>
+<td>ORM Prisma</td>
+</tr>
+<tr>
+<td><a href="../../arquitetura/adr/0016-adotar-multitenancy/">ADR-0016</a></td>
+<td>Arquitetura multi-tenancy</td>
+</tr>
+<tr>
+<td><a href="../../arquitetura/adr/0021-adotar-postgresql-como-sgbd-com-multitenancy/">ADR-0021</a></td>
+<td>PostgreSQL como SGBD com suporte a multitenancy</td>
+</tr>
+</tbody>
+</table>
+<p>O repositório do backend também tem decisões próprias sobre o modelo, registradas em <code>docs/adr/</code>: o plano de ação como container das ações (ADR-0001) e o acesso do gestor da área escopado por setor (ADR-0002). O schema cita ainda uma ADR-0003, sobre o conteúdo da análise em JSONB, que não está nessa pasta.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Última atualização">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="28 de outubro de 2026 19:43:40 -04">28 de outubro de 2026 19:43:40</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../modelo-dominio/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Especificação do Modelo de Domínio">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Especificação do Modelo de Domínio
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../frontend/repositorio/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Frontend">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Frontend
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  <div class="md-footer-logo">
+    <img src="../../../assets/grafo_facom.png" alt="FACOM">
+    <span>Facom | UFMS</span>
+  </div>
+  <div class="md-footer-logo">
+    <img src="../../../assets/logo-nes.png" alt="NES">
+    <span>NES | UFMS</span>
+  </div>
+  
+  
+    <span class="md-footer-generator">
+      Made with
+      <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+        Material for MkDocs
+      </a>
+    </span>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
