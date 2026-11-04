@@ -7,11 +7,14 @@
     | Versão | Data | Justificativa | Responsável |
     | --- | --- | --- | --- |
     | 2.0 | 07/10/2026 | Atualização da matriz conforme a versão atual da Especificação de Requisitos: inclusão das permissões de análise, plano de ação, histórico e ciclo de vida do incidente (épicos 4, 5 e 6), do acesso restrito do gestor da área (RN-26), da restrição do Administrador do Sistema, que não acessa nem altera incidentes das instituições, e das referências às histórias de usuário e regras de negócio. | Sophya Ribeiro |
+    | 2.1 | 03/11/2026 | Inclusão das permissões de exportação do relatório de incidentes (épico 7, US-7.1 e US-7.2) e renumeração da seção de administração do sistema. | Sophya Ribeiro |
+    | 2.2 | 03/11/2026 | Inclusão da visualização e da exportação do número do prontuário ou do atendimento do paciente (US-1.1, CA06; RN-31). | Sophya Ribeiro |
+    | 2.3 | 03/11/2026 | Análise em andamento visível a todos os membros do NSP, que podem assumir a sua condução (US-4.2, CA03 e CA04; RN-28). | Sophya Ribeiro |
 
 Matriz de controle de acesso baseado em perfis (RBAC), definindo quais funcionalidades cada perfil de usuário pode executar no sistema. As permissões seguem as histórias de usuário e as regras de negócio da [Especificação de Requisitos de Software](especificacao-requisitos.md), indicadas na coluna **Referência**.
 
 !!! info "Legenda"
-    ✅ Permitido · ❌ Não permitido · ✅ ¹ Permitido somente nos incidentes do próprio setor que o NSP encaminhou ao gestor, antes ou depois da análise (RN-26) · 🕒 Previsto para uma versão futura, em interface própria de administração
+    ✅ Permitido · ❌ Não permitido · ✅ ¹ Permitido somente nos incidentes do próprio setor que o NSP encaminhou ao gestor, antes ou depois da análise (RN-26) · ✅ ² Permitido somente quando o gestor conduz a análise do incidente, encaminhado ao seu setor para análise (RN-31) · 🕒 Previsto para uma versão futura, em interface própria de administração
 
 ## 1. Registro de notificações
 
@@ -26,6 +29,7 @@ Matriz de controle de acesso baseado em perfis (RBAC), definindo quais funcional
 | Visualizar todas as notificações da instituição | ❌ | ✅ | ❌ | ❌ | US-2.1, RN-26 |
 | Visualizar notificações encaminhadas ao seu setor | ❌ | ✅ | ✅ ¹ | ❌ | US-4.1, RN-26 |
 | Visualizar a identificação do notificante (nome e celular/e-mail) | ❌ | ✅ | ❌ | ❌ | US-4.1, RN-27 |
+| Visualizar o número do prontuário ou do atendimento do paciente (cada consulta é registrada no histórico) | ❌ | ✅ | ✅ ² | ❌ | US-1.1 (CA06), RN-31 |
 | Complementar ou corrigir informações da notificação | ❌ | ✅ | ❌ | ❌ | US-2.2 |
 | Classificar incidente notificado | ❌ | ✅ | ❌ | ❌ | US-2.3 |
 | Encaminhar notificação para o setor | ❌ | ✅ | ❌ | ❌ | US-2.4 |
@@ -44,6 +48,7 @@ Matriz de controle de acesso baseado em perfis (RBAC), definindo quais funcional
 | --- | :---: | :---: | :---: | :---: | --- |
 | Registrar e concluir a análise de incidente não encaminhado ao setor | ❌ | ✅ | ❌ | ❌ | US-4.2 a US-4.8, RN-16 |
 | Registrar e concluir a análise de incidente encaminhado ao setor | ❌ | ✅ | ✅ ¹ | ❌ | US-4.2 a US-4.8, RN-16, RN-28 |
+| Visualizar a análise em andamento conduzida por outra pessoa e assumir a sua condução | ❌ | ✅ | ❌ | ❌ | US-4.2 (CA03 e CA04), RN-28 |
 | Consultar análise concluída | ❌ | ✅ | ✅ ¹ | ❌ | US-4.8, RN-18, RN-28 |
 | Decidir o encaminhamento do resultado da análise ao setor | ❌ | ✅ | ❌ | ❌ | US-4.9, RN-18 |
 
@@ -64,7 +69,16 @@ Matriz de controle de acesso baseado em perfis (RBAC), definindo quais funcional
 | Arquivar incidente | ❌ | ✅ | ❌ | ❌ | US-6.3 |
 | Concluir incidente | ❌ | ✅ | ❌ | ❌ | US-6.4, RN-22 |
 
-## 7. Administração do sistema
+## 7. Exportação de relatório de incidentes
+
+| Funcionalidade | Notificante | Núcleo de Segurança do Paciente (NSP) | Gestor da Área | Administrador do Sistema | Referência |
+| --- | :---: | :---: | :---: | :---: | --- |
+| Exportar relatório XLSX de todos os incidentes da instituição | ❌ | ✅ | ❌ | ❌ | US-7.1, RN-30 |
+| Exportar relatório XLSX dos incidentes encaminhados ao seu setor | ❌ | ✅ | ✅ ¹ | ❌ | US-7.2, RN-26, RN-30 |
+| Exportar a identificação do notificante (nome e celular/e-mail) | ❌ | ❌ | ❌ | ❌ | RN-29 |
+| Exportar o número do prontuário ou do atendimento do paciente | ❌ | ❌ | ❌ | ❌ | RN-31 |
+
+## 8. Administração do sistema
 
 | Funcionalidade | Notificante | Núcleo de Segurança do Paciente (NSP) | Gestor da Área | Administrador do Sistema | Referência |
 | --- | :---: | :---: | :---: | :---: | --- |
@@ -77,7 +91,7 @@ Matriz de controle de acesso baseado em perfis (RBAC), definindo quais funcional
 
 - **Notificante:** não possui login. Qualquer pessoa pode registrar uma notificação pelo formulário público, de forma identificada ou anônima, inclusive os usuários dos demais perfis.
 - **Gestor da área:** acessa apenas os incidentes do seu setor encaminhados pelo NSP. Incidentes de outros setores ou não encaminhados não aparecem na sua fila e não podem ser acessados nem por link direto (RN-26). Os dados de identificação do notificante são omitidos em todas as telas e não são enviados ao seu navegador (RN-27).
-- **Análise em andamento:** enquanto a análise não for concluída, somente quem a iniciou pode continuá-la e concluí-la; os demais usuários com acesso ao incidente veem apenas o aviso de análise em andamento (RN-28).
+- **Análise em andamento:** enquanto a análise não for concluída, somente o condutor atual (quem a iniciou ou quem assumiu a condução) pode continuá-la e concluí-la. A análise em andamento é visível, em modo somente leitura, a todos os profissionais do NSP, e qualquer um deles pode assumir a sua condução, com registro no histórico; os demais usuários com acesso ao incidente veem apenas o aviso de análise em andamento (RN-28).
 - **Status:** nenhum perfil altera o status manualmente. Ele muda somente pelas ações do fluxo (US-6.2) e pelo arquivamento ou conclusão do incidente.
 - **Incidentes concluídos ou arquivados:** ficam somente leitura para todos os perfis (US-6.1, CA06).
 - **Administrador do sistema:** não visualiza nem interfere nos incidentes das instituições (notificações, classificação, análise, plano de ação e status), para preservar o sigilo e a segurança das informações. Suas permissões se limitam à administração do sistema e serão disponibilizadas futuramente, em uma interface própria, separada da interface de gestão de incidentes; por isso aparecem como previstas (🕒).

@@ -34,6 +34,8 @@
     | 3.8 | 23/09/2026 | Limites dos anexos de evidência das ações: no máximo 10 anexos por ação e 10 MB por arquivo (novo CA12 da US 5.6 e RN-25). | Sophya Ribeiro |
     | 3.9 | 29/09/2026 | Ajustes do formulário de análise e do plano de ação validados com as proponentes no protótipo funcional: Guia de investigação antes da Seção 1 (US 4.2, CA16 a CA18); explicações das seções em caixas com parágrafos e blocos recolhíveis que lembram a escolha do usuário (US 4.2, CA11 e CA19; 6.7.12 e 6.7.13); Seção 3 com nova orientação, "Como preencher", exemplo da cronologia em mini tabela, conferência "Antes de seguir, confira" e aviso de fatos em análise, remoção da pergunta "Foi identificado algum PPC?" e nova tabela de PPC (US 4.5 reescrita); Seções 4 e 4A unificadas em "Seção 4 — Fatores contribuintes", com um cartão por PPC, análise aberta na própria linha, novos campos do fator, 5 Porquês sempre visível e inclusão de PPC na própria seção, deixando de analisar fatos da cronologia (US 4.6 reescrita); Seção 5 com novos textos, diagrama de Ishikawa agrupado por PPC, somente as respostas do 5 Porquês, exportação em PNG e recomendações em linhas (US 4.7 reescrita); botão "Finalizar análise" (US 4.2 e 4.8); plano de ação exibido em tabela (US 5.2, 5.3, 5.5 e 5.6); "Onde será feito?" com seleção de um ou mais setores (US 5.1, CA04 e CA14; RN-24); limite de 200 caracteres nos textos da atualização de andamento (US 5.6, CA16); glossário atualizado (PPC, fatores contribuintes, 5 Porquês, Diagrama de Ishikawa, Guia de investigação). | Sophya Ribeiro |
     | 3.10 | 26/10/2026 | 5 Porquês fechado por padrão: o fator exibe o convite e o botão "Usar os 5 Porquês", que abre o bloco; opções "Não usar os 5 Porquês" e "Remover 5 Porquês" com confirmação (US 4.6, CA08). | Sophya Ribeiro |
+    | 3.11 | 03/11/2026 | Criação do épico 7 — Exportação de relatório de incidentes, validado com as proponentes no protótipo funcional: exportação em XLSX de todos os incidentes do escopo do perfil, sem considerar filtros (US 7.1 para o NSP e US 7.2 para o gestor da área); novas RN-29 (sigilo do notificante nos relatórios) e RN-30 (escopo do relatório); novo requisito não-funcional 6.3.5; descrição dos atores atualizada. | Sophya Ribeiro |
+    | 3.12 | 03/11/2026 | Ajustes pontuais validados com as proponentes: apresentação do sistema na tela inicial, com a abrangência dos serviços de saúde atendidos (US 1.1, CA05); número do prontuário ou do atendimento como primeiro campo da seção do paciente, visível só ao NSP e a quem conduz a análise, fora de relatórios e com acesso registrado no histórico (US 1.1, CA06; US 2.2, CA05; US 2.5, CA03; US 4.3, CA01; US 7.1 e 7.2, CA03; nova RN-31 e requisito não-funcional 6.3.6); faixa etária do paciente em campo aberto (US 1.1, CA07); novo campo opcional de medidas adotadas imediatamente após o incidente (US 1.1, CA08; US 4.3, CA01; US 7.1, CA06); "Papel do notificante" substituído por "Quem está fazendo esta notificação?", com novas opções (US 1.1, CA09; US 7.1, CA06); Terapia Ocupacional e Fonoaudiologia na lista "Formação" da equipe da análise (US 4.4, CA02); análise em andamento visível a todos os membros do NSP, que podem assumir a sua condução com registro no histórico, e aviso "Atualize a página e tente novamente" em salvamento concorrente (US 4.2, CA02 a CA04, CA07 e nova CA20; US 2.5, CA03; RN-28 reescrita); novo campo obrigatório "Como a ação será realizada?", com caixa de informação e exemplo, após "O que será feito?" (US 5.1, nova CA18 e CA14, com as perguntas renumeradas; US 5.6, CA03; US 7.1, CA07); situação do plano como um todo, por cor, acima da tabela — Em dia, Com ação atrasada ou Concluído (US 5.5, nova CA08). | Sophya Ribeiro |
 
 ## Sumário
 
@@ -48,6 +50,7 @@
     - [5.4 Registro de análise em notificação de incidentes](#historias-54)
     - [5.5 Gestão de plano de ação](#historias-55)
     - [5.6 Status e ciclo de vida do incidente](#historias-56)
+    - [5.7 Exportação de relatório de incidentes](#historias-57)
 - [6. Requisitos Não-funcionais](#rnf)
     - [6.1 Disponibilidade](#rnf-disponibilidade)
     - [6.2 Segurança da Informação](#rnf-seguranca)
@@ -124,8 +127,8 @@ Além disso, o sistema possibilita o acompanhamento do status das notificações
 | Ator | Descrição |
 | --- | --- |
 | Notificante | Usuário responsável por registrar uma notificação de incidente no sistema. Pode ser um profissional de saúde, paciente, acompanhante ou qualquer pessoa que tenha conhecimento do ocorrido. A notificação pode ser realizada de forma identificada ou anônima. |
-| Profissional do Núcleo de Segurança do Paciente (NSP) | Usuário responsável por acessar as notificações registradas, realizar a análise inicial e classificar o incidente conforme critérios estabelecidos. Também acompanha o andamento das notificações. Responsável por gerenciar os usuários vinculados à sua instituição, incluindo cadastro, edição e definição de perfis de acesso. Pode gerar relatórios com base em filtros. |
-| Gestor de Área | Usuário responsável pela gestão de um setor da instituição. Acessa somente os incidentes do seu setor que o Núcleo de Segurança do Paciente encaminhou a ele: antes da análise, para realizar a investigação e registrar a análise das causas; ou depois da análise feita pelo NSP, quando o núcleo decide encaminhar o resultado ao setor. Nos incidentes a que tem acesso, define e acompanha o plano de ação com medidas corretivas ou preventivas. Pode gerar relatórios do seu setor/área com base em filtros. |
+| Profissional do Núcleo de Segurança do Paciente (NSP) | Usuário responsável por acessar as notificações registradas, realizar a análise inicial e classificar o incidente conforme critérios estabelecidos. Também acompanha o andamento das notificações. Responsável por gerenciar os usuários vinculados à sua instituição, incluindo cadastro, edição e definição de perfis de acesso. Pode exportar o relatório de todos os incidentes da instituição (épico 7). |
+| Gestor de Área | Usuário responsável pela gestão de um setor da instituição. Acessa somente os incidentes do seu setor que o Núcleo de Segurança do Paciente encaminhou a ele: antes da análise, para realizar a investigação e registrar a análise das causas; ou depois da análise feita pelo NSP, quando o núcleo decide encaminhar o resultado ao setor. Nos incidentes a que tem acesso, define e acompanha o plano de ação com medidas corretivas ou preventivas. Pode exportar o relatório dos incidentes do seu setor a que tem acesso (épico 7). |
 | Administrador do Sistema | Usuário responsável pela administração global do sistema, com acesso irrestrito a todas as instituições cadastradas. Pode gerenciar usuários em nível sistêmico, configurar parâmetros gerais da aplicação, supervisionar o uso do sistema e garantir seu correto funcionamento em todos os contextos institucionais. |
 
 ---
@@ -216,6 +219,17 @@ Nesta seção são apresentados os épicos do sistema NotificaSaúde, organizado
 - [US 6.3 — Arquivar incidente](#us-6-3)
 - [US 6.4 — Concluir incidente](#us-6-4)
 
+### Épico 7 — Exportação de relatório de incidentes
+
+**COMO** profissional do Núcleo de Segurança do Paciente ou gestor da área
+**QUERO** exportar, em formato XLSX, um relatório com todos os incidentes a que tenho acesso e seus respectivos dados
+**PARA** compartilhar, analisar e armazenar os dados dos incidentes fora da plataforma, sem expor a identificação dos notificantes.
+
+**Histórias de usuário:**
+
+- [US 7.1 — Exportar relatório de incidentes da instituição](#us-7-1)
+- [US 7.2 — Exportar relatório de incidentes do setor](#us-7-2)
+
 ---
 
 <a id="historias-usuario"></a>
@@ -238,7 +252,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 **QUERO** registrar uma notificação de incidente no sistema
 **PARA** que a ocorrência seja analisada e tratada pela instituição, contribuindo para melhoria da segurança do paciente
 
-**Regras de Negócio:** RN-04
+**Regras de Negócio:** RN-04, RN-24, RN-31
 
 **Critérios de Aceite**
 
@@ -250,6 +264,16 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
     **Dado que** o usuário preencheu o formulário de notificação, **quando** confirmar o envio, **então** o sistema deve registrar a notificação e atribuir o status "Novo".
 - **CA04 — Proteção contra envios em massa**
     **Dado que** uma mesma origem envie notificações acima do limite permitido ou o envio não passe na verificação de que é feito por uma pessoa (captcha), **quando** confirmar o envio, **então** o sistema não deve registrar a notificação e deve exibir a mensagem "Não foi possível enviar a notificação agora. Aguarde alguns minutos e tente novamente.", conforme o requisito não-funcional 6.2.9.
+- **CA05 — Apresentação do sistema na tela inicial**
+    **Dado que** um usuário acesse a tela inicial do sistema, **quando** a tela for exibida, **então** o sistema deve apresentar, acima das opções de acesso ("Registrar incidente" e "Acessar área profissional"), a seção "Sobre" com os textos: "O Notifica Saúde é um sistema destinado ao registro de incidentes e eventos adversos relacionados à assistência à saúde e ao uso de tecnologias como medicamentos e produtos médico-hospitalares (de todos os níveis de atenção, que possuam Núcleo de Segurança do Paciente (NSP) ou equipe equivalente)." e "Você pode contribuir informando situações que causaram ou poderiam causar danos à saúde, ajudando a melhorar a qualidade e a segurança dos serviços de saúde no país."
+- **CA06 — Número do prontuário ou do atendimento**
+    **Dado que** o incidente envolva paciente, **quando** o usuário preencher a seção "Informações sobre o paciente envolvido", **então** o sistema deve apresentar, como primeiro campo, "Informe o número do prontuário do paciente ou o número do atendimento:", com a orientação "Caso não saiba, escreva “Não sei informar”.", e exigir o preenchimento. O número é sigiloso (RN-31): é exibido normalmente no detalhe da notificação e no resumo da análise, mas somente para o NSP e para quem conduz a análise; não aparece em relatórios nem em exportações; e cada acesso a uma tela que o exibe é registrado no histórico da notificação.
+- **CA07 — Faixa etária do paciente**
+    **Dado que** o incidente envolva paciente, **quando** o usuário preencher a faixa etária do paciente, **então** o sistema deve apresentar um campo de texto aberto (ex.: "3 meses", "8 anos", "45 anos"), e não uma lista de opções, e exigir o preenchimento.
+- **CA08 — Medidas adotadas imediatamente**
+    **Dado que** o usuário esteja na seção "Descrição do incidente", **quando** a seção for exibida, **então** o sistema deve apresentar, logo após o campo "Descreva o incidente", o campo de texto não obrigatório "Quais medidas foram adotadas imediatamente após a identificação do incidente?", com o texto de ajuda exibido logo abaixo da pergunta e acima do campo, na caixa de informação padrão do sistema (fundo azul claro com ícone ⓘ): "Informe as medidas de que você tem conhecimento, como atendimento ao paciente, interrupção de procedimento ou comunicação à equipe responsável. Não é necessário ter realizado pessoalmente essas medidas.". Quando não for preenchido, o detalhe da notificação exibe "Não informado".
+- **CA09 — Quem está fazendo a notificação**
+    **Dado que** o usuário esteja na seção "Descrição do incidente", **quando** informar quem está notificando, **então** o sistema deve apresentar a pergunta obrigatória "Quem está fazendo esta notificação?" (que substitui "Papel do notificante"), com as opções: Paciente; Familiar ou responsável pelo paciente; Acompanhante; Profissional de saúde; Outro profissional do serviço; e Outro. A opção "Outro" abre um campo de texto obrigatório para especificar (RN-24).
 
 **Contexto de Uso:** Esta funcionalidade pode ser utilizada por qualquer pessoa que tenha conhecimento do incidente, incluindo profissionais de saúde, pacientes, acompanhantes ou terceiros. Por ser de acesso público, o formulário é protegido contra envios automatizados em massa (6.2.9).
 
@@ -298,7 +322,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 **QUERO** complementar ou corrigir informações da notificação registrada
 **PARA** garantir que os dados necessários para análise e encaminhamento do incidente estejam corretos.
 
-**Regras de Negócio:** RN-02, RN-09
+**Regras de Negócio:** RN-02, RN-09, RN-31
 
 **Critérios de Aceite**
 
@@ -310,6 +334,8 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
     **Dado que** existe um incidente, **quando** o incidente for editado, **então** o sistema não deve permitir editar a descrição.
 - **CA04 — Registro das alterações**
     **Dado que** o profissional do Núcleo de Segurança do Paciente realize alterações nas informações da notificação, **quando** salvar as modificações, **então** o sistema deve registrar essas alterações no histórico de modificações, incluindo data, hora, autor e quais campos foram alterados.
+- **CA05 — Prontuário e faixa etária na edição**
+    **Dado que** o incidente envolva paciente, **quando** o profissional abrir a edição das informações, **então** o sistema deve apresentar o número do prontuário ou do atendimento e a faixa etária como campos de texto obrigatórios (US-1.1, CA06 e CA07).
 
 **Contexto de Uso:** Essa funcionalidade permite que o Núcleo de Segurança do Paciente complemente ou corrija informações da notificação quando os dados registrados inicialmente estiverem incompletos ou incorretos, garantindo maior qualidade das informações utilizadas na análise do incidente.
 
@@ -422,7 +448,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 **QUERO** consultar o histórico das alterações realizadas na notificação
 **PARA** garantir rastreabilidade das informações, da classificação, da análise e das ações registradas na notificação.
 
-**Regras de Negócio:** RN-02, RN-09
+**Regras de Negócio:** RN-02, RN-09, RN-28, RN-31
 
 **Critérios de Aceite**
 
@@ -431,7 +457,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 - **CA02 — Identificação das alterações**
     **Dado que** existam alterações registradas, **quando** o usuário visualizar o histórico, **então** o sistema deve apresentar, no mínimo, a data, hora, usuário que realizou a alteração e informação alterada.
 - **CA03 — Eventos registrados**
-    **Dado que** ocorra uma ação relevante no fluxo, **quando** ela for concluída, **então** o sistema deve incluir um registro no histórico, no mínimo para: classificação; encaminhamento ao setor (com o setor de destino e a mensagem, se informada); conclusão da análise; criação das ações a partir das recomendações; decisão pós-análise (encaminhar o resultado ou não encaminhar, com a justificativa); ação registrada, completada, atualizada (com o status) ou excluída; arquivamento; e conclusão do incidente.
+    **Dado que** ocorra uma ação relevante no fluxo, **quando** ela for concluída, **então** o sistema deve incluir um registro no histórico, no mínimo para: classificação; encaminhamento ao setor (com o setor de destino e a mensagem, se informada); conclusão da análise; criação das ações a partir das recomendações; decisão pós-análise (encaminhar o resultado ou não encaminhar, com a justificativa); ação registrada, completada, atualizada (com o status) ou excluída; arquivamento; conclusão do incidente; assunção da condução da análise por outro profissional do NSP (RN-28); e cada consulta ao número do prontuário ou do atendimento do paciente (RN-31).
 - **CA04 — Histórico das ações**
     **Dado que** tenham sido registradas ações no plano de ação, **quando** o usuário consultar o histórico, **então** o sistema deve permitir identificar as alterações realizadas nas ações registradas.
 - **CA05 — Preservação do histórico**
@@ -548,18 +574,18 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 
 - **CA01 — Acesso à análise**
     **Dado que** o incidente esteja "Classificado" (análise pelo NSP) ou "Encaminhado" (análise pelo setor) e nenhuma análise tenha sido iniciada, **quando** qualquer profissional do NSP (incidente "Classificado") ou o gestor da área do setor a que o incidente foi encaminhado (incidente "Encaminhado") acessar a seção "Análise" do detalhe da notificação, **então** o sistema deve disponibilizar a opção "Registrar análise" — não é necessário ser o responsável pelo incidente.
-- **CA02 — Análise exclusiva de quem a iniciou**
-    **Dado que** um usuário tenha iniciado a análise (salvo a primeira seção), **quando** esse mesmo usuário acessar a seção "Análise", **então** o sistema deve exibir a opção "Continuar análise", retomando o preenchimento de onde parou. Somente quem iniciou a análise pode continuá-la e concluí-la (RN-28).
-- **CA03 — Análise em andamento por outro usuário**
-    **Dado que** a análise tenha sido iniciada por outro usuário e ainda não tenha sido concluída, **quando** o usuário acessar a seção "Análise" do incidente, **então** o sistema não deve exibir as opções "Registrar análise" ou "Continuar análise" nem o conteúdo do rascunho, e deve apresentar a mensagem "Análise em andamento. Aguarde a finalização para visualizar os detalhes.".
-- **CA04 — Início simultâneo**
-    **Dado que** dois usuários abram o formulário de análise do mesmo incidente ao mesmo tempo, **quando** ambos tentarem salvar a primeira seção, **então** o sistema deve aceitar apenas o primeiro salvamento, que define o autor da análise, e recusar o do segundo usuário, exibindo a mensagem "Esta análise já foi iniciada por outro usuário. Aguarde a finalização para visualizar os detalhes." sem gravar o que ele preencheu. A verificação deve ser feita no servidor, e não apenas na tela.
+- **CA02 — Continuar a análise**
+    **Dado que** o usuário seja o condutor atual da análise — quem a iniciou (salvou a primeira seção) ou quem assumiu a sua condução (CA04) —, **quando** acessar a seção "Análise", **então** o sistema deve exibir a opção "Continuar análise", retomando o preenchimento de onde parou. Somente o condutor atual pode continuar e concluir a análise (RN-28).
+- **CA03 — Análise em andamento visível ao NSP**
+    **Dado que** a análise esteja em andamento e o usuário seja profissional do NSP que não é o condutor atual, **quando** acessar a seção "Análise" do incidente, **então** o sistema deve exibir o aviso "Análise em andamento, conduzida por <nome do condutor>.", permitir visualizar o rascunho em modo somente leitura e oferecer a opção "Assumir condução". Para os demais usuários com acesso ao incidente que não sejam do NSP nem o condutor (ex.: gestor da área), o sistema não deve exibir o conteúdo do rascunho e deve apresentar a mensagem "Análise em andamento. Aguarde a finalização para visualizar os detalhes.".
+- **CA04 — Assumir a condução da análise**
+    **Dado que** o profissional do NSP selecione "Assumir condução", **quando** confirmar a pergunta "Deseja assumir a condução desta análise? <nome do condutor> deixará de poder editá-la, e a mudança ficará registrada no histórico." (Não / Sim), **então** o sistema deve torná-lo o condutor atual, permitir que continue a análise de onde parou e registrar no histórico "assumiu a condução da análise (antes conduzida por <nome>)", com data, hora e usuário; o condutor anterior passa a ver a análise como os demais membros do NSP. Com "Não", nada muda.
 - **CA05 — Seções do formulário**
     **Dado que** o usuário esteja registrando a análise, **quando** navegar pelo formulário, **então** o sistema deve apresentar cinco seções, nesta ordem, com uma barra de progresso de cinco etapas: **Seção 1 — Informações da notificação** (US-4.3); **Seção 2 — Informações da análise** (US-4.4); **Seção 3 — Cronologia do incidente** (US-4.5); **Seção 4 — Fatores contribuintes** (US-4.6); **Seção 5 — Resultado (Ishikawa + Recomendações)** (US-4.7). O Guia de investigação (CA16) é exibido antes da Seção 1 e não conta como etapa.
 - **CA06 — Navegação entre seções**
     **Dado que** o usuário esteja em uma seção, **quando** selecionar "Próximo", **então** o sistema deve validar a seção atual e avançar para a seguinte; "Voltar" retorna à seção anterior sem perder o que foi preenchido — na Seção 1, "Voltar" retorna ao Guia de investigação (ou ao detalhe da notificação, se o guia estiver oculto — CA17). Na última seção, o botão de avanço passa a ser "Finalizar análise".
 - **CA07 — Salvamento automático do rascunho**
-    **Dado que** o usuário avance de seção, **quando** a seção for validada, **então** o sistema deve salvar automaticamente o rascunho da análise e exibir a confirmação "Rascunho salvo"; o rascunho pode ser retomado depois, somente pelo autor da análise, pela opção "Continuar análise".
+    **Dado que** o usuário avance de seção, **quando** a seção for validada, **então** o sistema deve salvar automaticamente o rascunho da análise e exibir a confirmação "Rascunho salvo"; o rascunho pode ser retomado depois, somente pelo condutor atual da análise, pela opção "Continuar análise".
 - **CA08 — Validação e indicação das pendências**
     **Dado que** existam informações obrigatórias não preenchidas ou textos acima do limite na seção atual, **quando** o usuário selecionar "Próximo" ou "Finalizar análise", **então** o sistema deve impedir o avanço e, conforme o padrão de validação do sistema (6.7.6): destacar em vermelho cada campo com problema (em tabelas, apenas as células pendentes); exibir abaixo de cada campo uma mensagem específica do que falta; exibir um aviso de atenção — com uma pendência, indicando qual é; com várias, "Corrija os N itens destacados para continuar." —; e rolar a tela até o primeiro campo pendente. O botão "Próximo" permanece sempre clicável.
 - **CA09 — Destaque somente após tentar avançar**
@@ -588,6 +614,8 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
     **Dado que** o Guia de investigação esteja sendo exibido, **quando** o usuário visualizar a tela, **então** o sistema não deve apresentar campos, validação nem barra de progresso; o guia apenas descreve o percurso e não altera o status da notificação.
 - **CA19 — Orientações e exemplos recolhíveis**
     **Dado que** uma seção apresente um passo a passo ("Como preencher", "Como identificar um PPC") ou exemplos, **quando** a seção for exibida, **então** o sistema deve apresentá-los em blocos com uma seta que permite recolhê-los e expandi-los, abertos na primeira vez; se o usuário recolher um bloco, o sistema deve lembrar essa escolha e exibi-lo recolhido nas próximas análises, para que usuários que já conhecem o formulário não precisem vê-lo novamente. Esses blocos usam tons neutros (fundo cinza claro, sem borda, textos em cinza escuro), sem competir com os campos do formulário.
+- **CA20 — Salvamento concorrente**
+    **Dado que** dois usuários tentem salvar a mesma análise — por exemplo, dois inícios simultâneos da análise ou um salvamento do condutor anterior depois que outro profissional do NSP assumiu a condução —, **quando** o servidor identificar que a análise foi alterada depois que a página foi carregada, **então** o sistema deve recusar o salvamento, sem gravar o que foi preenchido, e exibir o aviso de erro (toast) "Não foi possível salvar. Atualize a página e tente novamente." A verificação deve ser feita no servidor, e não apenas na tela (RN-28).
 
 **Contexto de Uso:** A funcionalidade é utilizada durante a investigação do incidente para documentar as informações levantadas pelo gestor da área ou pelo profissional do NSP e manter o registro formal da análise realizada. O formulário é autoexplicativo e guia o usuário seção a seção, apontando exatamente o que precisa ser corrigido para avançar.
 
@@ -604,7 +632,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 **Critérios de Aceite**
 
 - **CA01 — Resumo da notificação**
-    **Dado que** o usuário esteja na Seção 1 da análise, **quando** a seção for exibida, **então** o sistema deve apresentar, em modo somente leitura, o resumo da notificação — descrição, data do incidente, horário, turno, faixa etária e sexo do paciente (ou "Não envolve o paciente"), notificante (ou "Notificação anônima"; para o gestor da área, a identificação do notificante é omitida — RN-27) — e da classificação — classificação, grau do dano, tipo específico (Never Event) ou tipo de incidente, envolvidos, data da classificação e observações do NSP.
+    **Dado que** o usuário esteja na Seção 1 da análise, **quando** a seção for exibida, **então** o sistema deve apresentar, em modo somente leitura, o resumo da notificação — descrição, data do incidente, horário, turno, número do prontuário ou do atendimento (com o acesso registrado no histórico — RN-31), faixa etária e sexo do paciente (ou "Não envolve o paciente"), notificante (ou "Notificação anônima"; para o gestor da área, a identificação do notificante é omitida — RN-27) — e as medidas adotadas imediatamente após o incidente (ou "Não informado") — e da classificação — classificação, grau do dano, tipo específico (Never Event) ou tipo de incidente, envolvidos, data da classificação e observações do NSP.
 - **CA02 — Incidente em investigação obrigatório**
     **Dado que** o usuário esteja na Seção 1, **quando** tentar avançar, **então** o sistema deve exigir o preenchimento do campo "Informe o incidente em investigação".
 - **CA03 — Limite do incidente em investigação**
@@ -624,7 +652,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 **QUERO** registrar quem conduz a análise, os demais participantes, as fontes consultadas e as entrevistas realizadas
 **PARA** documentar a autoria da investigação de forma rastreável e as fontes que sustentam suas conclusões.
 
-**Regras de Negócio:** RN-24
+**Regras de Negócio:** RN-24, RN-31
 
 **Critérios de Aceite**
 
@@ -632,7 +660,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
     **Dado que** o usuário esteja na Seção 2, **quando** preencher o "Condutor da análise", **então** o sistema deve exigir todos os campos: Nome (máximo de 50 caracteres), Formação, Função e Setor. A seção deve exibir a orientação: "Informe o condutor da análise e, abaixo, os demais membros participantes. Documentar a autoria de forma rastreável evita investigações conduzidas por uma única pessoa."
 - **CA02 — Opções dos menus da equipe**
     **Dado que** o usuário esteja preenchendo a equipe, **quando** abrir os menus de seleção, **então** o sistema deve apresentar, além da opção "Outro" (texto obrigatório de até 30 caracteres):
-    - **Formação:** Enfermagem, Medicina, Farmácia, Fisioterapia, Nutrição, Odontologia, Psicologia, Serviço Social, Administração;
+    - **Formação:** Enfermagem, Medicina, Farmácia, Fisioterapia, Nutrição, Odontologia, Psicologia, Serviço Social, Terapia Ocupacional, Fonoaudiologia, Administração;
     - **Função:** Enfermeiro(a), Técnico(a) de Enfermagem, Médico(a), Farmacêutico(a), Fisioterapeuta, Nutricionista, Coordenador(a), Gestor(a) de Qualidade e Segurança, Analista de Qualidade;
     - **Setor:** Qualidade e Segurança do Paciente, Clínica Médica, Farmácia Hospitalar, Centro Cirúrgico, UTI, Pronto-Socorro, Enfermagem, Administrativo.
 - **CA03 — Demais membros participantes**
@@ -856,33 +884,35 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 - **CA03 — O que será feito**
     **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "1. O que será feito?", **então** o sistema deve exigir o campo, aceitando até 500 caracteres.
 - **CA04 — Onde será feito**
-    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "2. Onde será feito?", **então** o sistema deve apresentar a lista dos setores da instituição (Qualidade e Segurança do Paciente, Clínica Médica, Farmácia Hospitalar, Centro Cirúrgico, UTI, Pronto-Socorro, Enfermagem, Administrativo), um abaixo do outro, cada um com uma caixa de seleção, e por último a opção "Outro", permitindo marcar um ou mais. É obrigatório marcar ao menos uma opção; "Outro" abre um campo de texto obrigatório de até 50 caracteres ("Especifique onde a ação será feita"), que pode ser combinado com os setores marcados. Os locais selecionados são exibidos juntos, separados por ponto e vírgula (ex.: "Farmácia Hospitalar; UTI").
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "3. Onde será feito?", **então** o sistema deve apresentar a lista dos setores da instituição (Qualidade e Segurança do Paciente, Clínica Médica, Farmácia Hospitalar, Centro Cirúrgico, UTI, Pronto-Socorro, Enfermagem, Administrativo), um abaixo do outro, cada um com uma caixa de seleção, e por último a opção "Outro", permitindo marcar um ou mais. É obrigatório marcar ao menos uma opção; "Outro" abre um campo de texto obrigatório de até 50 caracteres ("Especifique onde a ação será feita"), que pode ser combinado com os setores marcados. Os locais selecionados são exibidos juntos, separados por ponto e vírgula (ex.: "Farmácia Hospitalar; UTI").
 - **CA05 — Responsável(eis)**
-    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "3. Quem será o(s) responsável(eis)?", **então** o sistema deve apresentar uma tabela com ao menos um responsável e o botão "+ Adicionar responsável"; cada linha contém Nome (até 50 caracteres), Função e Setor (menus com "Outro", texto de até 30 caracteres), todos obrigatórios — mesma lógica do condutor da análise. A primeira linha não pode ser removida.
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "4. Quem será o(s) responsável(eis)?", **então** o sistema deve apresentar uma tabela com ao menos um responsável e o botão "+ Adicionar responsável"; cada linha contém Nome (até 50 caracteres), Função e Setor (menus com "Outro", texto de até 30 caracteres), todos obrigatórios — mesma lógica do condutor da análise. A primeira linha não pode ser removida.
 - **CA06 — Previsões de início e conclusão**
-    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "4. Previsão de início" e "5. Previsão de conclusão", **então** o sistema deve exigir as duas datas e impedir que a previsão de início seja posterior à previsão de conclusão: o calendário limita as datas possíveis e, se o intervalo ficar inválido, os dois campos ficam em vermelho com o aviso "A previsão de início não pode ser posterior à previsão de conclusão." e o salvamento é bloqueado.
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "5. Previsão de início" e "6. Previsão de conclusão", **então** o sistema deve exigir as duas datas e impedir que a previsão de início seja posterior à previsão de conclusão: o calendário limita as datas possíveis e, se o intervalo ficar inválido, os dois campos ficam em vermelho com o aviso "A previsão de início não pode ser posterior à previsão de conclusão." e o salvamento é bloqueado.
 - **CA07 — Situação inicial**
     **Dado que** o profissional esteja registrando uma nova ação, **quando** o formulário for exibido, **então** o sistema deve apresentar o campo "Situação da ação" com o valor padrão "Em andamento".
 - **CA08 — Necessidade de recurso**
-    **Dado que** o profissional esteja preenchendo uma ação, **quando** responder "6. Precisa de recurso para executar essa ação?" com "Sim", **então** o sistema deve exibir a tabela "Se sim, qual e quanto irá custar?", já com a primeira linha, e o botão "+ Adicionar recurso"; deve haver ao menos um item, e todo item adicionado deve ter Pedido/item (até 100 caracteres) e Preço estimado (em reais) preenchidos.
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** responder "7. Precisa de recurso para executar essa ação?" com "Sim", **então** o sistema deve exibir a tabela "Se sim, qual e quanto irá custar?", já com a primeira linha, e o botão "+ Adicionar recurso"; deve haver ao menos um item, e todo item adicionado deve ter Pedido/item (até 100 caracteres) e Preço estimado (em reais) preenchidos.
 - **CA09 — Aprovação da Alta Gestão**
-    **Dado que** o profissional esteja preenchendo uma ação, **quando** responder "7. Depende da aprovação da Alta Gestão?" com "Sim", **então** o sistema deve exigir a informação de qual aprovação é necessária, com até 100 caracteres.
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** responder "8. Depende da aprovação da Alta Gestão?" com "Sim", **então** o sistema deve exigir a informação de qual aprovação é necessária, com até 100 caracteres.
 - **CA10 — Comprovação da execução**
-    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "8. Como vamos comprovar que foi feito?", **então** o sistema deve exigir o campo, aceitando até 500 caracteres.
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "9. Como vamos comprovar que foi feito?", **então** o sistema deve exigir o campo, aceitando até 500 caracteres.
 - **CA11 — Resultado esperado**
-    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "9. Qual resultado esperamos?", **então** o sistema deve exigir o campo, aceitando até 500 caracteres.
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "10. Qual resultado esperamos?", **então** o sistema deve exigir o campo, aceitando até 500 caracteres.
 - **CA12 — Verificação do resultado**
-    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "10. Como vamos saber se funcionou?" e "11. Quando verificar o resultado?", **então** o sistema deve exigir os dois campos, aceitando até 500 e até 100 caracteres, respectivamente.
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "11. Como vamos saber se funcionou?" e "12. Quando verificar o resultado?", **então** o sistema deve exigir os dois campos, aceitando até 500 e até 100 caracteres, respectivamente.
 - **CA13 — Indicador de acompanhamento**
-    **Dado que** o profissional esteja preenchendo uma ação, **quando** responder "12. Esta ação irá gerar um indicador de acompanhamento?", **então** o sistema deve permitir selecionar entre "Sim" e "Não" e, com "Sim", exigir qual indicador, com até 100 caracteres.
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** responder "13. Esta ação irá gerar um indicador de acompanhamento?", **então** o sistema deve permitir selecionar entre "Sim" e "Não" e, com "Sim", exigir qual indicador, com até 100 caracteres.
 - **CA14 — Textos explicativos**
-    **Dado que** o profissional esteja preenchendo uma ação, **quando** visualizar cada pergunta, **então** o sistema deve exibir logo abaixo dela uma caixa de informação (fundo azul claro com ícone ⓘ) explicando o sentido do preenchimento, com exemplos: o que será feito (a ação concreta, e não só o objetivo); onde ("Indique o(s) setor(es) ou local(is) em que a ação será executada. Marque um ou mais — se a ação envolver vários setores, selecione todos. Isso ajuda a saber quem precisa ser envolvido e onde acompanhar a execução."); responsável(eis) (quem garante que a ação aconteça); previsões (acompanhar andamento e identificar atrasos); recurso (gasto necessário, com item e custo estimado, para a gestão prever e aprovar o orçamento — exibida antes mesmo de responder); aprovação da Alta Gestão; comprovação (a evidência da execução); resultado esperado (base da avaliação de eficácia); como saber se funcionou (forma de medição); quando verificar (dar tempo para a ação surtir efeito); e indicador.
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** visualizar cada pergunta, **então** o sistema deve exibir logo abaixo dela uma caixa de informação (fundo azul claro com ícone ⓘ) explicando o sentido do preenchimento, com exemplos: o que será feito (a ação concreta, e não só o objetivo); como a ação será realizada (os principais passos, com exemplo — CA18); onde ("Indique o(s) setor(es) ou local(is) em que a ação será executada. Marque um ou mais — se a ação envolver vários setores, selecione todos. Isso ajuda a saber quem precisa ser envolvido e onde acompanhar a execução."); responsável(eis) (quem garante que a ação aconteça); previsões (acompanhar andamento e identificar atrasos); recurso (gasto necessário, com item e custo estimado, para a gestão prever e aprovar o orçamento — exibida antes mesmo de responder); aprovação da Alta Gestão; comprovação (a evidência da execução); resultado esperado (base da avaliação de eficácia); como saber se funcionou (forma de medição); quando verificar (dar tempo para a ação surtir efeito); e indicador.
 - **CA15 — Limites e campos longos**
     **Dado que** um campo possua limite de caracteres, **quando** o profissional digitar, **então** o sistema deve exibir o contador "N/limite", destacar o campo em vermelho ao ultrapassar e impedir o salvamento; campos de texto longo têm altura máxima e, a partir dela, o conteúdo rola dentro do campo.
 - **CA16 — Validação ao salvar**
     **Dado que** existam pendências, **quando** o profissional selecionar "Salvar plano de ação", **então** o sistema deve impedir o salvamento, destacar em vermelho os campos vazios (inclusive as células das tabelas) e exibir um aviso listando os campos que faltam, os textos acima do limite e se as datas estão inválidas.
 - **CA17 — Tabelas responsivas**
     **Dado que** o formulário seja acessado em diferentes dispositivos, **quando** as tabelas de responsáveis e de recursos forem exibidas, **então** devem ocupar toda a largura disponível; a coluna "Remover" só aparece quando há linha que pode ser removida; e, em telas de celular, cada linha deve ser exibida como um bloco empilhado, com o rótulo acima de cada campo.
+- **CA18 — Como a ação será realizada**
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "2. Como a ação será realizada?", logo após "1. O que será feito?", **então** o sistema deve exigir o campo, aceitando até 500 caracteres, e exibir abaixo da pergunta a caixa de informação: "Explique os principais passos para colocar a ação em prática, sem apenas repetir o que será feito. Exemplo: para a ação “Instalar sinalização de piso molhado nos corredores”: “Verificar a quantidade de placas necessárias, providenciar sua aquisição e orientar a equipe de limpeza a posicioná-las antes de iniciar a lavagem, mantendo-as no local até que o piso esteja seco.”". As demais perguntas do formulário são renumeradas a partir de 3.
 
 **Contexto de Uso:** Essa funcionalidade permite que o NSP ou o gestor da área a que o incidente foi encaminhado, após a conclusão da análise, registre o plano de ação a partir do problema identificado, definindo as informações necessárias para execução e posterior acompanhamento das ações.
 
@@ -1002,6 +1032,8 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 - **CA07 — Informação não preenchida**
     **Dado que** algum campo de uma ação não tenha sido preenchido, **quando** a tabela ou os detalhes da ação forem exibidos, **então** o sistema deve apresentar "—" nas células da tabela e "Não informado" nos detalhes, nunca um espaço em branco.
 
+- **CA08 — Situação do plano de ação**
+    **Dado que** o incidente tenha ao menos uma ação no plano, **quando** o usuário acessar a seção "Plano de ação", **então** o sistema deve exibir, acima da tabela do plano, "Situação do plano:" com um selo colorido que resume o plano como um todo: **Em dia** (verde) — nenhuma ação atrasada e ao menos uma ação ainda não finalizada, inclusive as pendentes de preenchimento; **Com ação atrasada** (vermelho) — ao menos uma ação com a situação "Atrasada"; **Concluído** (azul) — todas as ações finalizadas, com a situação "Concluído" ou "Cancelada". Sem ações registradas, a situação não é exibida.
 **Contexto de Uso:** A funcionalidade permite ao gestor e ao NSP acompanhar a execução das ações definidas durante a investigação e monitorar os respectivos prazos.
 
 <a id="us-5-6"></a>
@@ -1032,7 +1064,7 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
 - **CA02 — Ações da linha**
     **Dado que** o usuário esteja visualizando a tabela, **quando** o incidente não estiver concluído, **então** o sistema deve oferecer, na coluna "Ações", os botões Editar (lápis — US-5.4; em ação pendente, "Completar preenchimento" — US-5.3), Atualizar andamento (setas circulares — somente em ações completas), Visualizar detalhes (olho) e Excluir (lixeira — US-5.4). Os botões devem ficar sempre lado a lado, sem quebrar de linha: se necessário, o sistema usa botões e fonte menores na tabela.
 - **CA03 — Detalhes da ação**
-    **Dado que** o usuário selecione "Visualizar detalhes" (olho), **quando** os detalhes forem exibidos, **então** o sistema deve abrir, logo abaixo da linha da ação e ocupando toda a largura da tabela, os campos: onde será feito, comprovação, resultado esperado, como verificar, quando verificar, resultado observado e os anexos (com opção de download), exibindo "Não informado" para campos vazios, além da data/hora da última atualização; o botão passa a "Ocultar detalhes".
+    **Dado que** o usuário selecione "Visualizar detalhes" (olho), **quando** os detalhes forem exibidos, **então** o sistema deve abrir, logo abaixo da linha da ação e ocupando toda a largura da tabela, os campos: como será realizada, onde será feito, comprovação, resultado esperado, como verificar, quando verificar, resultado observado e os anexos (com opção de download), exibindo "Não informado" para campos vazios, além da data/hora da última atualização; o botão passa a "Ocultar detalhes".
 - **CA04 — Atualização individual da ação**
     **Dado que** exista uma ação com todos os campos obrigatórios preenchidos, **quando** o usuário selecionar "Atualizar andamento da ação", **então** o sistema deve abrir a tela "Atualizar andamento da ação" da ação selecionada. Ações pendentes de preenchimento não podem ter o andamento atualizado (US-5.3).
 - **CA05 — Identificação automática da ação**
@@ -1263,6 +1295,74 @@ O quadro abaixo reúne todas as ações do usuário que alteram o status do inci
 
 **Contexto de Uso:** A conclusão encerra o ciclo de tratamento do incidente, pelo menu de opções do status ou a partir da sugestão exibida quando todas as ações terminam. Por ser irreversível, é sempre confirmada, e o sistema alerta quando ainda há ações em andamento.
 
+<a id="historias-57"></a>
+
+### 5.7 Exportação de relatório de incidentes
+
+<a id="us-7-1"></a>
+
+#### US-7.1 — Exportar relatório de incidentes da instituição
+
+**Épico:** 7 — Exportação de relatório de incidentes · **Prioridade:** Média
+
+**COMO** profissional do Núcleo de Segurança do Paciente
+**QUERO** exportar, em formato XLSX, um relatório com todos os incidentes da instituição e seus respectivos dados
+**PARA** compartilhar, analisar e armazenar os dados dos incidentes fora da plataforma.
+
+**Regras de Negócio:** RN-01, RN-08, RN-10, RN-29, RN-30, RN-31
+
+**Critérios de Aceite**
+
+- **CA01 — Botão de exportação**
+    **Dado que** o profissional do NSP esteja em qualquer lista de incidentes (Todos incidentes, Novos, Classificados, Encaminhados, Em análise, Em ação, Concluídos e Arquivados), **quando** visualizar a barra de filtros, **então** o sistema deve exibir o botão azul "Extrair dados", com ícone de download, à direita do campo "Ordenar por" e com a mesma altura dos campos, e a dica "Extrair xlsx" ao passar o mouse. Quando os filtros não couberem em uma linha, eles quebram em grupos, sem separar "Ordenar por" do seu campo e do botão; no celular, o botão ocupa a linha inteira abaixo dos filtros.
+- **CA02 — Escopo do relatório**
+    **Dado que** o profissional selecione "Extrair dados", **quando** o arquivo for gerado, **então** ele deve conter todos os incidentes da instituição, em todos os status, independentemente da lista aberta, da busca, dos filtros e da ordenação selecionados na tela (RN-30).
+- **CA03 — Sigilo do notificante**
+    **Dado que** o relatório seja gerado, **quando** o arquivo for aberto, **então** nenhuma aba deve conter o nome nem o celular/e-mail do notificante, nem o número do prontuário ou do atendimento do paciente, nem em colunas ocultas, mesmo que o NSP visualize esses dados na plataforma (RN-29 e RN-31).
+- **CA04 — Arquivo gerado**
+    **Dado que** a geração seja concluída, **quando** o download for iniciado, **então** o arquivo deve se chamar `notificasaude-incidentes-instituicao-AAAA-MM-DD.xlsx` (data da geração) e conter três abas: Resumo, Incidentes e Plano de ação.
+- **CA05 — Aba Resumo**
+    **Dado que** o usuário abra a aba Resumo, **quando** ela for exibida, **então** deve apresentar a instituição, o escopo ("Todos os setores da instituição"), a data e a hora da geração, o usuário que gerou e o total de incidentes e, abaixo, três tabelas lado a lado com a quantidade e o percentual de incidentes por status (os oito status — RN-08), por setor e por grau do dano (Sem dano, Leve, Moderado, Grave, Óbito, Never Event e "Ainda não classificado"), sem título ou aviso no topo.
+- **CA06 — Aba Incidentes**
+    **Dado que** o usuário abra a aba Incidentes, **quando** ela for exibida, **então** deve apresentar uma linha por incidente, do mais recente para o mais antigo, com as colunas: Incidente (identificador, ex.: #1006 — RN-10), Status, Data do incidente, Turno, Horário, Registrado em, Instituição, Setor, Descrição, Medidas imediatas, Envolve paciente, Faixa etária, Sexo, Quem notificou (com o texto especificado, quando "Outro"), Anônima, Classificação, Never Event, Tipo de incidente, Envolvidos, Grau do dano, Classificado em, Prazo para análise, Responsável, Análise, Quem analisou, Incidente investigado, Análise concluída em, Recomendações, Ações no plano, Ações concluídas e Última atualização.
+- **CA07 — Aba Plano de ação**
+    **Dado que** o usuário abra a aba Plano de ação, **quando** ela for exibida, **então** deve apresentar uma linha por ação dos incidentes do relatório, com as colunas: Incidente, Nº, O que será feito, Como será realizada, Onde, Responsáveis, Previsão de início, Previsão de conclusão, Situação (ou "Preenchimento pendente" — RN-20), Início real, Conclusão real, Efetividade, Como comprovar, Resultado esperado e Recomendação de origem. Sem ações, a aba exibe "Nenhuma ação registrada nos incidentes deste relatório.".
+- **CA08 — Formatação da planilha**
+    **Dado que** o arquivo seja aberto em um editor de planilhas, **quando** as abas forem exibidas, **então** devem apresentar: cabeçalho azul (#183EFF) com texto branco, em uma linha, com largura suficiente para o título inteiro e o botão de filtro; filtros no cabeçalho; primeira linha e primeira coluna congeladas; linhas alternadas; quebra de texto nas colunas longas; datas no formato dd/mm/aaaa, no horário local; status e grau do dano com as mesmas cores do sistema; e impressão em paisagem, com o cabeçalho repetido em cada página.
+- **CA09 — Retorno ao usuário**
+    **Dado que** o usuário selecione "Extrair dados", **quando** a geração estiver em andamento, **então** o botão deve exibir "Gerando..." e ficar desabilitado; ao concluir, o sistema deve exibir o aviso de sucesso "Relatório gerado com N incidentes." ("1 incidente", no singular) e, em caso de falha, o aviso de erro "Não foi possível gerar o relatório. Tente novamente." (6.7.1 e 6.7.3).
+- **CA10 — Perfis sem exportação**
+    **Dado que** o usuário seja Administrador do Sistema, **quando** acessar o sistema, **então** o botão "Extrair dados" não deve ser exibido e a exportação deve ser recusada pelo servidor, pois o Administrador não acessa os incidentes das instituições (Matriz RBAC).
+
+**Contexto de Uso:** O relatório permite que o NSP leve os dados de todos os incidentes da instituição para fora da plataforma, para compartilhar com a gestão, fazer análises próprias e manter um registro. Por isso ele é sempre completo, sem depender do que está filtrado na tela, e nunca carrega a identificação de quem notificou.
+
+<a id="us-7-2"></a>
+
+#### US-7.2 — Exportar relatório de incidentes do setor
+
+**Épico:** 7 — Exportação de relatório de incidentes · **Prioridade:** Média
+
+**COMO** gestor da área
+**QUERO** exportar, em formato XLSX, um relatório com os incidentes do meu setor a que tenho acesso e seus respectivos dados
+**PARA** compartilhar, analisar e armazenar os dados dos incidentes do setor fora da plataforma.
+
+**Regras de Negócio:** RN-01, RN-26, RN-27, RN-29, RN-30, RN-31
+
+**Critérios de Aceite**
+
+- **CA01 — Botão de exportação**
+    **Dado que** o gestor da área esteja na sua lista de incidentes, **quando** visualizar a barra de filtros, **então** o sistema deve exibir o botão "Extrair dados" nas mesmas condições da US-7.1 (CA01).
+- **CA02 — Escopo do relatório**
+    **Dado que** o gestor selecione "Extrair dados", **quando** o arquivo for gerado, **então** ele deve conter somente os incidentes da sua fila — os do seu setor que o NSP encaminhou a ele, antes ou depois da análise (RN-26) —, em todos os status, independentemente da lista aberta, da busca, dos filtros e da ordenação selecionados na tela (RN-30). Incidentes de outros setores ou não encaminhados nunca entram no relatório.
+- **CA03 — Sigilo do notificante**
+    **Dado que** o relatório do gestor seja gerado, **quando** o arquivo for aberto, **então** nenhuma aba deve conter o nome nem o celular/e-mail do notificante, nem o número do prontuário ou do atendimento do paciente, e a coluna "Anônima" não deve existir, sem qualquer indicação de que a notificação foi identificada ou anônima (RN-27, RN-29 e RN-31).
+- **CA04 — Arquivo gerado**
+    **Dado que** a geração seja concluída, **quando** o download for iniciado, **então** o arquivo deve se chamar `notificasaude-incidentes-<setor>-AAAA-MM-DD.xlsx` e seguir as mesmas abas e a mesma formatação da US-7.1 (CA04 a CA08), com o escopo "Setor <nome do setor> (incidentes encaminhados)" na aba Resumo.
+- **CA05 — Retorno ao usuário**
+    **Dado que** o gestor selecione "Extrair dados", **quando** a geração estiver em andamento, concluir ou falhar, **então** o sistema deve dar o mesmo retorno da US-7.1 (CA09).
+
+**Contexto de Uso:** O gestor exporta apenas o que já pode ver na plataforma, para acompanhar os incidentes do seu setor fora dela. As mesmas restrições de acesso e de sigilo do notificante valem para o arquivo.
+
 ---
 
 <a id="rnf"></a>
@@ -1305,6 +1405,8 @@ Esta seção descreve os requisitos não funcionais do sistema NotificaSaúde, i
 - **6.3.2** O sistema deve limitar o acesso às informações apenas aos usuários autorizados conforme suas permissões de acesso.
 - **6.3.3** O sistema deve garantir o isolamento de modo que cada instituição de saúde tenha acesso aos dados no âmbito de sua própria organização.
 - **6.3.4** O sistema deve restringir os dados de identificação do notificante (nome e celular/e-mail) ao NSP e ao Administrador: para o gestor da área, esses dados devem ser omitidos já na resposta do servidor (API), e não apenas escondidos na tela (RN-27).
+- **6.3.5** O relatório de incidentes exportado (épico 7) deve conter somente os incidentes do escopo do perfil autenticado, com o escopo garantido no servidor, e nunca deve conter os dados de identificação do notificante (nome e celular/e-mail) — nem em colunas ou abas ocultas, nem nos metadados do arquivo (RN-29 e RN-30).
+- **6.3.6** O sistema deve restringir o número do prontuário ou do atendimento do paciente ao NSP e a quem conduz a análise, omitindo-o já na resposta do servidor (API) para os demais perfis; nunca deve incluí-lo em relatórios ou exportações; e deve registrar no histórico da notificação cada acesso a uma tela que exiba esse número, com data, hora e usuário (RN-31).
 
 <a id="rnf-compatibilidade"></a>
 
@@ -1439,8 +1541,17 @@ O gestor da área só tem acesso aos incidentes do seu setor que o NSP encaminho
 **RN-27 — Sigilo da identificação do notificante**
 Os dados de identificação do notificante (nome e celular/e-mail) só podem ser visualizados pelo Núcleo de Segurança do Paciente e pelo Administrador. Para o gestor da área, esses campos são omitidos em todas as telas — sem campo vazio, "Não informado" ou indicação de notificação identificada ou anônima — e não são enviados ao seu navegador, preservando o notificante e incentivando o relato de incidentes.
 
-**RN-28 — Autoria exclusiva da análise em andamento**
-A análise pertence a quem a iniciou, a partir do salvamento da primeira seção. Enquanto não for concluída, somente o autor pode continuá-la e concluí-la; os demais usuários com acesso ao incidente veem apenas a mensagem "Análise em andamento. Aguarde a finalização para visualizar os detalhes.", sem acesso ao rascunho. Se dois usuários tentarem iniciar a análise ao mesmo tempo, vale o primeiro salvamento registrado no servidor, e o segundo é recusado sem gravar dados. Após a conclusão, a análise fica disponível para consulta de todos que têm acesso ao incidente.
+**RN-28 — Condução da análise em andamento**
+A análise em andamento tem um condutor: inicialmente, quem a iniciou, a partir do salvamento da primeira seção. Enquanto ela não for concluída, somente o condutor atual pode continuá-la e concluí-la. A análise em andamento é visível, em modo somente leitura, a todos os profissionais do Núcleo de Segurança do Paciente, e qualquer um deles pode assumir a sua condução, com confirmação e registro no histórico (data, hora, usuário e condutor anterior); a partir daí, o condutor anterior deixa de poder editá-la. Os demais usuários com acesso ao incidente que não sejam do NSP veem apenas a mensagem "Análise em andamento. Aguarde a finalização para visualizar os detalhes.", sem acesso ao rascunho. Salvamentos concorrentes são resolvidos no servidor: o salvamento feito sobre uma versão desatualizada da análise é recusado sem gravar dados, com o aviso "Não foi possível salvar. Atualize a página e tente novamente." Após a conclusão, a análise fica disponível para consulta de todos que têm acesso ao incidente.
+
+**RN-29 — Sigilo do notificante nos relatórios**
+Os dados de identificação do notificante (nome e celular/e-mail) nunca são exportados em relatórios, para nenhum perfil, inclusive o Núcleo de Segurança do Paciente, que os visualiza na plataforma. Esses dados não podem constar no arquivo de nenhuma forma (colunas, abas ou campos ocultos e metadados). No relatório do gestor da área, também não é exportada a indicação de notificação identificada ou anônima (RN-27). O objetivo é proteger o notificante quando o arquivo for compartilhado ou armazenado fora da plataforma.
+
+**RN-30 — Escopo do relatório de incidentes**
+O relatório exportado sempre contém todos os incidentes a que o perfil tem acesso, em todos os status: a instituição inteira para o Núcleo de Segurança do Paciente e a fila do setor para o gestor da área (RN-26). A lista aberta, a busca, os filtros e a ordenação selecionados na tela não alteram o conteúdo do relatório.
+
+**RN-31 — Sigilo do número do prontuário ou do atendimento**
+O número do prontuário ou do atendimento do paciente, informado no registro da notificação, só pode ser visualizado pelo Núcleo de Segurança do Paciente e por quem conduz a análise do incidente (o gestor da área, quando o incidente lhe foi encaminhado para análise). Para esses usuários, o número é exibido normalmente no detalhe da notificação e no resumo da análise; cada acesso a uma tela que o exibe é registrado no histórico da notificação (data, hora e usuário); e ele nunca é incluído em relatórios ou exportações.
 
 ---
 
@@ -1450,4 +1561,4 @@ A análise pertence a quem a iniciou, a partir do salvamento da primeira seção
 
 - PRESSMAN, Roger S.; MAXIM, Bruce R. *Engenharia de Software: Uma abordagem profissional*. 8 ed. Porto Alegre: Bookman, 2016.
 - SOMMERVILLE, Ian. *Engenharia de Software*. 9 ed. São Paulo: Pearson, 2011.
-- VALENTE, Marco Tulio. *Engenharia de Software Moderna: Princípios e Práticas para Desenvolvimento de Software com Produtividade*. Editora Independente, 2020.
+- VALENTE, Marco Tulio. *Engenharia de Software Moderna: Princípios e Práticas para Desenvolvimento de Software com Produtividade*. Editora Independente, 2020.
