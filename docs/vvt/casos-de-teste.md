@@ -37,6 +37,8 @@
     | 4.14 | 26/10/2026 | Campo "Automatizado" dos casos de teste da US-4.3, automatizados na [PR #21 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/21): CT-FUN-053 a CT-FUN-059 e CT-E2E-023 seguem como "Sim"; CT-FUN-060, CT-FUN-061 e CT-E2E-022 passam a "Não — Não implementado", porque parte deles depende das Seções 3 em diante. Na Análise de Valor Limite, a referência ao CT-FUN-059 passa ao CT-FUN-058, que é o caso de valor limite do bloqueio acima de 100 caracteres. Os intervalos citados na versão 4.10 ficam corrigidos: a US-4.3 tem os casos CT-FUN-053 a CT-FUN-061, e a US-4.4, CT-FUN-062 a CT-FUN-073 | Catarina Freisleben |
     | 4.15 | 26/10/2026 | Adição dos casos de teste da US-4.5 (CT-FUN-074 a CT-FUN-080 e CT-E2E-026) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste. Os números CT-FUN-074 e CT-FUN-075, citados na versão 4.13 como inexistentes, passam a identificar casos novos da US-4.5 | Catarina Freisleben |
     | 4.16 | 26/10/2026 | Adição dos casos de teste da US-4.6 (CT-FUN-081 a CT-FUN-086 e CT-E2E-027) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste. No 5 Porquês, o CT-FUN-084 segue o protótipo funcional, em que o bloco começa fechado, com o botão "Usar os 5 Porquês"; o CA08 da US-4.6 será ajustado na especificação de requisitos | Catarina Freisleben |
+    | 4.17 | 03/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-4.5 (CT-FUN-074 a CT-FUN-080 e CT-E2E-026), automatizados na [PR #34 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/34) | Catarina Freisleben |
+    | 4.18 | 03/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-4.6 (CT-FUN-081 a CT-FUN-086 e CT-E2E-027), automatizados na [PR #34 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/34). No CT-FUN-085, os procedimentos e o resultado esperado passam a seguir o comportamento conferido na automação: com mais de uma pendência, o sistema exibe "Corrija os N itens destacados para continuar." e indica cada PPC, e a mensagem com os campos que faltam aparece quando o PPC é a única pendência | Catarina Freisleben |
 
 ## Sumário
 
@@ -3249,7 +3251,7 @@ Validar que o sistema apresenta mensagens indicando as pendências existentes na
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.5 | CA01 + CA02 + CA03 | Fluxo principal |
+| Sim | US-4.5 | CA01 + CA02 + CA03 | Fluxo principal |
 
 **Objetivo**
 
@@ -3290,7 +3292,7 @@ Validar que a Seção 3 apresenta o título, a caixa de informação com a expli
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.5 | CA05 + CA06 | Partição por equivalência e análise de valor limite |
+| Sim | US-4.5 | CA05 + CA06 | Partição por equivalência e análise de valor limite |
 
 **Objetivo**
 
@@ -3343,7 +3345,7 @@ Validar que a cronologia é exibida como uma linha do tempo, com um evento por l
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.5 | CA04 | Fluxo alternativo e partição por equivalência |
+| Sim | US-4.5 | CA04 | Fluxo alternativo e partição por equivalência |
 
 **Objetivo**
 
@@ -3387,7 +3389,7 @@ Validar que o sistema exige ao menos um evento na cronologia, com todos os campo
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.5 | CA07 + CA08 | Partição por equivalência e fluxo alternativo |
+| Sim | US-4.5 | CA07 + CA08 | Partição por equivalência e fluxo alternativo |
 
 **Objetivo**
 
@@ -3431,7 +3433,7 @@ Validar que o sistema apresenta, abaixo da cronologia, o bloco "Antes de seguir,
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.5 | CA09 + CA10 | Fluxo principal e fluxo alternativo |
+| Sim | US-4.5 | CA09 + CA10 | Fluxo principal e fluxo alternativo |
 
 **Objetivo**
 
@@ -3469,7 +3471,7 @@ Validar que a Seção 3 apresenta a explicação dos Problemas na Prestação do
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.5 | CA11 | Partição por equivalência e análise de valor limite |
+| Sim | US-4.5 | CA11 | Partição por equivalência e análise de valor limite |
 
 **Objetivo**
 
@@ -3519,7 +3521,7 @@ Validar que a tabela de PPC apresenta as colunas definidas, com limite de 500 ca
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.5 | CA12 + CA13 | Fluxo alternativo |
+| Sim | US-4.5 | CA12 + CA13 | Fluxo alternativo |
 
 **Objetivo**
 
@@ -3566,7 +3568,7 @@ Validar que os PPCs são numerados automaticamente pela posição, sem edição 
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.6 | CA01 + CA02 | Fluxo principal |
+| Sim | US-4.6 | CA01 + CA02 | Fluxo principal |
 
 **Objetivo**
 
@@ -3604,7 +3606,7 @@ Validar que a Seção 4 apresenta o título e a explicação da seção e lista 
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.6 | CA03 + CA04 | Fluxo alternativo e partição por equivalência |
+| Sim | US-4.6 | CA03 + CA04 | Fluxo alternativo e partição por equivalência |
 
 **Objetivo**
 
@@ -3648,7 +3650,7 @@ Validar que a análise de um PPC é aberta dentro do próprio cartão, com apena
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.6 | CA05 + CA06 + CA07 | Fluxo principal e fluxo alternativo |
+| Sim | US-4.6 | CA05 + CA06 + CA07 | Fluxo principal e fluxo alternativo |
 
 **Objetivo**
 
@@ -3706,7 +3708,7 @@ Validar que a análise de um PPC apresenta as oito categorias de fatores contrib
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.6 | CA08 + CA09 | Análise de valor limite e fluxo alternativo |
+| Sim | US-4.6 | CA08 + CA09 | Análise de valor limite e fluxo alternativo |
 
 **Objetivo**
 
@@ -3766,7 +3768,7 @@ Validar que o 5 Porquês é uma ferramenta opcional de cada fator, aberta pelo b
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.6 | CA10 | Partição por equivalência e fluxo alternativo |
+| Sim | US-4.6 | CA10 | Partição por equivalência e fluxo alternativo |
 
 **Objetivo**
 
@@ -3796,20 +3798,23 @@ Validar que o sistema exige ao menos um PPC e impede o avanço da Seção 4 enqu
 *Tela Análise*
 4\. Selecionar "Próximo" sem registrar fatores.
 5\. No PPC 1, marcar "Fatores do ambiente de trabalho" sem descrever o fator, selecionar "Usar os 5 Porquês", preencher somente a pergunta do 1º por quê, fechar o PPC 1 pela seta e selecionar "Próximo".
-6\. Preencher a descrição do fator e a resposta do 1º por quê.
-7\. No PPC 2, marcar "Fatores da equipe", descrever o fator e selecionar "Próximo".
+6\. No PPC 2, marcar "Fatores da equipe", descrever o fator e selecionar "Próximo".
+7\. No PPC 1, preencher a descrição do fator e a resposta do 1º por quê e selecionar "Próximo".
 
 **Resultado esperado**
 
 - **CA10 — nenhum PPC (notificação F2):**
     - O sistema não avança e exibe "Adicione pelo menos 1 PPC."
 - **CA10 — PPCs sem fator contribuinte:**
-    - O sistema não avança e exibe "Marque ao menos um fator contribuinte." nos PPCs 1 e 2
-    - Os cartões dos PPCs 1 e 2 exibem o selo "Pendências" em vermelho e borda vermelha
+    - O sistema não avança e exibe "Corrija os 2 itens destacados para continuar."
+    - O sistema abre automaticamente o PPC 1, o primeiro com pendência, que exibe "Marque ao menos um fator contribuinte."; aberto, o PPC 2 exibe a mesma mensagem
+    - Os cartões dos PPCs 1 e 2 exibem o selo "Pendências" em vermelho e, fechados, a borda vermelha
 - **CA10 — fator sem descrição e nível do 5 Porquês sem resposta:**
-    - O sistema não avança e abre automaticamente o PPC 1, o primeiro com pendência, e a categoria "Fatores do ambiente de trabalho"
-    - O sistema destaca a descrição do fator e a resposta do 1º por quê e exibe "Preencha Descreva o fator identificado e como ele contribuiu para este PPC e 5 Porquês — Resposta."
+    - O sistema não avança, exibe "Corrija os 2 itens destacados para continuar." e abre automaticamente o PPC 1, o primeiro com pendência, e a categoria "Fatores do ambiente de trabalho"
+    - O sistema destaca a descrição do fator e a resposta do 1º por quê, sem destacar a pergunta já preenchida
     - O cartão do PPC 2, ainda sem fator, continua com o selo "Pendências"
+- **CA10 — só o PPC 1 com pendência:**
+    - O sistema não avança e exibe "PPC 1: Preencha Descreva o fator identificado e como ele contribuiu para este PPC e 5 Porquês — Resposta."
 - **CA10 — todos os PPCs analisados:**
     - O sistema avança para a Seção 5
 
@@ -3817,7 +3822,7 @@ Validar que o sistema exige ao menos um PPC e impede o avanço da Seção 4 enqu
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.6 | CA11 + CA12 | Partição por equivalência e fluxo alternativo |
+| Sim | US-4.6 | CA11 + CA12 | Partição por equivalência e fluxo alternativo |
 
 **Objetivo**
 
@@ -5030,7 +5035,7 @@ Validar o fluxo completo de registro da equipe, fontes consultadas e entrevistas
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.5 | CA04 + CA11 | Fluxo principal e fluxo alternativo |
+| Sim | US-4.5 | CA04 + CA11 | Fluxo principal e fluxo alternativo |
 
 **Objetivo**
 
@@ -5082,7 +5087,7 @@ Validar o percurso da Seção 3 até a Seção 4: a cronologia e os PPCs registr
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.6 | CA02 + CA04 + CA07 + CA11 | Fluxo principal e fluxo alternativo |
+| Sim | US-4.6 | CA02 + CA04 + CA07 + CA11 | Fluxo principal e fluxo alternativo |
 
 **Objetivo**
 
