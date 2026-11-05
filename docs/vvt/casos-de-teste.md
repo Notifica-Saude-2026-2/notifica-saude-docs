@@ -40,6 +40,9 @@
     | 4.17 | 03/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-4.5 (CT-FUN-074 a CT-FUN-080 e CT-E2E-026), automatizados na [PR #34 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/34) | Catarina Freisleben |
     | 4.18 | 03/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-4.6 (CT-FUN-081 a CT-FUN-086 e CT-E2E-027), automatizados na [PR #34 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/34). No CT-FUN-085, os procedimentos e o resultado esperado passam a seguir o comportamento conferido na automação: com mais de uma pendência, o sistema exibe "Corrija os N itens destacados para continuar." e indica cada PPC, e a mensagem com os campos que faltam aparece quando o PPC é a única pendência | Catarina Freisleben |
 
+    | 4.17 | 28/10/2026 | Adição dos casos de teste da US-4.7 (CT-FUN-087 a CT-FUN-092 e CT-E2E-028) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
+    | 4.18 | 28/10/2026 | Adição dos casos de teste da US-4.8 (CT-FUN-093 a CT-FUN-097 e CT-E2E-029) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
+    | 4.19 | 28/10/2026 | Adição dos casos de teste da US-4.9 (CT-FUN-098 a CT-FUN-102 e CT-E2E-030) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
 ## Sumário
 
 - [1. Introdução](#introducao)
@@ -60,6 +63,9 @@
         - [3.3.4. História 4.4 - Registrar equipe, fontes e entrevistas da análise](#testes-us-4-4)
         - [3.3.5. História 4.5 - Registrar cronologia e problemas na prestação do cuidado](#testes-us-4-5)
         - [3.3.6. História 4.6 - Analisar fatores contribuintes de cada PPC e aprofundar com os 5 Porquês](#testes-us-4-6)
+        - [3.3.7. História 4.7 - Revisar o Diagrama de Ishikawa e registrar recomendações](#testes-us-4-7)
+        - [3.3.8. História 4.8 - Concluir investigação do incidente](#testes-us-4-8)
+        - [3.3.9. História 4.9 - Decidir o encaminhamento do resultado da análise ao setor](#testes-us-4-9)
 - [4. Testes End-to-End](#testes-e2e)
 - [5. Testes Não-Funcionais](#testes-nao-funcionais)
 - [6. Critérios de Teste](#criterios-teste)
@@ -3869,6 +3875,497 @@ Validar que a Seção 4 permite incluir um PPC que não foi registrado na Seçã
 - **CA11 (notificação P1, com PPC):**
     - O bloco "Faltou algum problema na prestação do cuidado?" é exibido no final da lista de PPCs
 
+#### 3.3.7. História 4.7 - Revisar o Diagrama de Ishikawa e registrar recomendações (Seção 5) { #testes-us-4-7 }
+
+##### CT-FUN-087 — Exibição da explicação e estado sem fatores da Seção 5 { #ct-fun-087 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Não — Não implementado | US-4.7 | CA01 + CA04 | Fluxo principal e alternativo |
+
+**Objetivo**
+
+Validar a explicação da Seção 5 e a mensagem apresentada quando não existem fatores contribuintes.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado como Gestor da Área ou profissional do Núcleo de Segurança do Paciente.
+- Análise aberta na Seção 5, sem fatores contribuintes registrados na Seção 4.
+
+**Procedimentos**
+
+1. Acessar a Seção 5.
+
+**Resultado esperado**
+
+- **CA01:** Sistema apresenta o título **"Seção 5 — Resultado (Ishikawa + Recomendações)"** e a caixa de informação: **"O resultado da análise está apresentado no Diagrama de Ishikawa abaixo. O diagrama reúne os fatores contribuintes identificados na investigação e os organiza por categoria. Cada fator está vinculado ao respectivo problema na prestação do cuidado ao qual se relaciona. Quando um fator tiver sido aprofundado com os 5 Porquês, o diagrama também apresenta as causas identificadas nesse aprofundamento, preservando a relação entre o fator inicial e as causas subsequentes."**
+- **CA04:** Sem fatores contribuintes na Seção 4, sistema informa **"Registre ao menos um fator contribuinte na Seção 4 para gerar o diagrama de Ishikawa (espinha de peixe) do resultado final."** e não apresenta um diagrama vazio.
+
+##### CT-FUN-088 — Geração e organização do Diagrama de Ishikawa { #ct-fun-088 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Não — Não implementado | US-4.7 | CA02 + CA03 | Fluxo principal |
+
+**Objetivo**
+
+Validar que o diagrama é gerado automaticamente e organiza categorias, fatores, PPCs e respostas dos 5 Porquês conforme os dados registrados.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado como Gestor da Área ou profissional do Núcleo de Segurança do Paciente.
+- Análise com incidente em investigação e fatores registrados na Seção 4 em pelo menos duas categorias, associados a PPCs.
+- Ao menos um fator aprofundado com os 5 Porquês, com perguntas e respostas, e um tipo de fator relacionado a mais de um PPC.
+- As fontes ou evidências dos fatores estão preenchidas.
+
+**Procedimentos**
+
+1. Acessar a Seção 5 da análise.
+2. Inspecionar o diagrama completo, incluindo a área que exige rolagem horizontal.
+
+**Resultado esperado**
+
+- **CA02:** Sistema gera um diagrama intitulado **"Diagrama de Ishikawa (espinha de peixe)"**, com eixo central horizontal, cauda à esquerda e cabeça à direita contendo o incidente em investigação.
+- **CA02:** Cada categoria com fatores aparece como um osso em cartão de fundo branco, borda fina e título na cor do diagrama; os cartões alternam acima e abaixo do eixo e suas linhas diagonais encontram o eixo.
+- **CA02:** O diagrama se expande horizontalmente conforme o número de categorias e permite rolagem para visualizar seu conteúdo completo.
+- **CA03:** Em cada categoria, fatores aparecem agrupados sob cada PPC relacionado, com etiqueta contendo a descrição do PPC, e cada fator mantém o texto informado pelo usuário.
+- **CA03:** Para fator aprofundado pelos 5 Porquês, somente as respostas aparecem logo abaixo do fator, na ordem, precedidas por **"—"**; as perguntas não aparecem.
+- **CA03:** O mesmo tipo de fator relacionado a mais de um PPC aparece sob cada PPC correspondente, e fonte ou evidência não é apresentada no diagrama.
+
+##### CT-FUN-089 — Exibição das recomendações e navegação da Seção 5 { #ct-fun-089 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Não — Não implementado | US-4.7 | CA06 + CA07 + CA08 | Fluxo principal |
+
+**Objetivo**
+
+Validar a orientação, os campos opcionais de recomendações e os controles de navegação da última seção.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado como Gestor da Área ou profissional do Núcleo de Segurança do Paciente.
+- Análise aberta na Seção 5.
+
+**Procedimentos**
+
+1. Acessar a área **"Recomendações de melhoria"**.
+2. Verificar a caixa de informação, a linha inicial e os controles apresentados.
+3. Preencher a recomendação inicial com um texto de até 300 caracteres.
+4. Selecionar **"+ Adicionar recomendação"**.
+5. Verificar a nova linha e tentar finalizar a análise sem preenchê-la.
+6. Preencher a nova recomendação e remover uma linha pelo ícone de lixeira.
+7. Verificar os botões de navegação da seção.
+
+**Resultado esperado**
+
+- **CA06:** Sistema apresenta a caixa de informação: **"As recomendações devem ter relação clara com os fatores contribuintes identificados e estar direcionadas à redução das fragilidades do processo ou do sistema encontradas na investigação. Após o registro das recomendações, o próximo passo é a elaboração do Plano de Ação. Quando houver mais de uma recomendação, a equipe deve considerar sua priorização, definindo quais medidas exigem implementação imediata e quais poderão ser executadas em prazos maiores."**
+- **CA07:** Campo apresenta uma linha inicial com rótulo **"Recomendação 1"**, placeholder **"Descreva a recomendação de melhoria..."**, limite de 300 caracteres, contador e ícone de lixeira; o botão **"+ Adicionar recomendação"** também é exibido. Linhas removidas podem ficar vazias, mas qualquer linha adicionada deve ser preenchida para finalizar.
+- **CA07:** Selecionar **"+ Adicionar recomendação"** cria uma linha identificada como **"Recomendação 2"**, com os mesmos controles; a linha preenchida pode ser removida pelo ícone de lixeira.
+- **CA08:** Sistema apresenta os botões **"Voltar"** e **"Finalizar análise"**.
+
+##### CT-FUN-090 — Exportação do diagrama na Seção 5 { #ct-fun-090 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Não — Não implementado | US-4.7 | CA05 | Fluxo principal e alternativo |
+
+**Objetivo**
+
+Validar a exportação completa do diagrama como imagem PNG e o tratamento de falha.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado e análise aberta na Seção 5.
+- Diagrama gerado com conteúdo que excede a área visível horizontalmente.
+
+**Procedimentos**
+
+1. Selecionar **"Exportar diagrama"** no canto superior direito do diagrama.
+2. Durante a geração, verificar o estado do botão.
+3. Aguardar o término da exportação e verificar o arquivo baixado.
+4. Simular uma falha na geração da imagem e verificar a resposta do sistema.
+
+**Resultado esperado**
+
+- Durante a geração, botão exibe **"Exportando..."** e fica desabilitado.
+- Em caso de sucesso, sistema baixa **"diagrama-ishikawa.png"**, com fundo branco, resolução adequada para apresentação e conteúdo completo do diagrama, inclusive a parte fora da área visível.
+- Em caso de falha, sistema informa que não foi possível exportar o diagrama.
+
+##### CT-FUN-091 — Campo de recomendação no limite de caracteres { #ct-fun-091 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Não — Não implementado | US-4.7 | CA07 | Análise de valor limite |
+
+**Objetivo**
+
+Validar o limite de 300 caracteres do campo de recomendação.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado e posicionado na área **"Recomendações de melhoria"** da Seção 5.
+
+**Dados de entrada**
+
+- Texto de recomendação com 300 caracteres.
+- Texto de recomendação com 301 caracteres.
+
+**Procedimentos**
+
+1. Inserir o texto com 300 caracteres e verificar o contador.
+2. Substituir pelo texto com 301 caracteres e verificar o contador e o conteúdo do campo.
+
+**Resultado esperado**
+
+- Com 300 caracteres, o texto é aceito e o contador indica o limite atingido sem sinalizar excesso.
+- Com 301 caracteres, o sistema sinaliza que o limite foi ultrapassado, sem cortar o texto informado; a análise não pode ser finalizada enquanto a recomendação exceder o limite.
+
+##### CT-FUN-092 — Persistência e validação de recomendações { #ct-fun-092 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Não — Não implementado | US-4.7 | CA07 | Fluxo alternativo |
+
+**Objetivo**
+
+Validar que recomendações são opcionais, mas cada recomendação adicionada deve estar preenchida para concluir a análise, e que recomendações preenchidas são mantidas.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado.
+- Duas notificações de teste com análises válidas abertas na Seção 5.
+
+**Procedimentos**
+
+1. Na primeira análise, remover a linha inicial de recomendação sem registrar nenhuma recomendação.
+2. Finalizar a análise.
+3. Na segunda análise, adicionar uma recomendação e deixá-la vazia.
+4. Tentar finalizar a análise.
+5. Preencher a recomendação e finalizar a análise.
+6. Abrir a visualização da análise concluída.
+
+**Resultado esperado**
+
+- **CA07:** Sistema permite finalizar sem recomendações registradas.
+- **CA07:** Sistema impede a finalização enquanto houver uma linha de recomendação adicionada e não preenchida, indicando a pendência.
+- **CA07:** Sistema permite finalizar depois de preencher a recomendação e exibe o texto salvo na análise concluída.
+
+#### 3.3.8. História 4.8 - Concluir investigação do incidente { #testes-us-4-8 }
+
+##### CT-FUN-093 — Disponibilidade do botão e bloqueio da conclusão por pendências { #ct-fun-093 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Não — Não implementado | US-4.8 | CA01 + CA02 | Fluxo principal e negativo |
+
+**Objetivo**
+
+Validar que a última seção disponibiliza **"Finalizar análise"** e que informações obrigatórias pendentes impedem a conclusão.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário autenticado como Gestor da Área ou profissional do Núcleo de Segurança do Paciente.
+- Análise aberta na Seção 5.
+
+**Procedimentos**
+
+1. Acessar a Seção 5 e verificar os botões de navegação.
+2. Adicionar uma recomendação e deixá-la sem preenchimento.
+3. Selecionar **"Finalizar análise"**.
+4. Preencher ou remover a recomendação pendente e tentar concluir novamente.
+
+**Resultado esperado**
+
+- **CA01:** Sistema apresenta os botões **"Voltar"** e **"Finalizar análise"**.
+- **CA02:** Com uma recomendação adicionada e sem preenchimento, sistema impede a conclusão, informa a pendência conforme o padrão de validação da US-4.2 CA08 e mantém a análise aberta.
+- **CA02:** Depois de preencher ou remover a recomendação pendente, sistema permite prosseguir com a conclusão.
+
+##### CT-FUN-094 — Conclusão da análise realizada pelo setor { #ct-fun-094 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Não — Não implementado | US-4.8 | CA03 + CA04 + CA05 | Fluxo principal |
+
+**Objetivo**
+
+Validar o registro da conclusão, do usuário e da data/hora, o histórico e a atualização do status quando a análise foi realizada pelo setor.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário Gestor da Área autenticado e vinculado ao setor responsável.
+- Incidente encaminhado ao setor, com análise preenchida sem pendências obrigatórias até a Seção 5.
+
+**Procedimentos**
+
+1. Na Seção 5, selecionar **"Finalizar análise"**.
+2. Verificar o retorno direto ao detalhe da notificação, sem etapa de confirmação.
+3. Consultar o status e o histórico da notificação.
+
+**Resultado esperado**
+
+- **CA03:** Sistema registra a conclusão e retorna diretamente ao detalhe da notificação, sem solicitar confirmação.
+- **CA04:** Sistema registra a data, a hora e o usuário responsável pela conclusão, e o histórico contém o registro **"análise concluída"**.
+- **CA05:** Status da notificação passa diretamente para **"Analisado"**.
+
+##### CT-FUN-095 — Conclusão da análise realizada pelo NSP { #ct-fun-095 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Não — Não implementado | US-4.8 | CA03 + CA04 + CA06 | Fluxo principal |
+
+**Objetivo**
+
+Validar o registro da conclusão da análise feita pelo NSP, sem alterar o status antes da decisão de encaminhamento do resultado.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Profissional do Núcleo de Segurança do Paciente autenticado.
+- Incidente em análise pelo NSP, sem encaminhamento prévio ao setor, com informações obrigatórias preenchidas até a Seção 5.
+
+**Procedimentos**
+
+1. Na Seção 5, selecionar **"Finalizar análise"**.
+2. Verificar o retorno direto ao detalhe da notificação, sem etapa de confirmação.
+3. Consultar o status e o histórico da notificação.
+
+**Resultado esperado**
+
+- **CA03:** Sistema registra a conclusão e retorna diretamente ao detalhe da notificação, sem solicitar confirmação.
+- **CA04:** Sistema registra a data, a hora e o usuário responsável pela conclusão, e o histórico contém o registro **"análise concluída"**.
+- **CA06:** Status permanece **"Em análise"** até o NSP decidir encaminhar ou não o resultado ao setor.
+
+##### CT-FUN-096 — Criação de ações a partir das recomendações { #ct-fun-096 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Não — Não implementado | US-4.8 | CA07 | Fluxo principal |
+
+**Objetivo**
+
+Validar que a conclusão gera uma ação no plano de ação para cada recomendação registrada.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Análise válida com pelo menos duas recomendações preenchidas.
+- Usuário autorizado a concluir a análise.
+
+**Dados de entrada**
+
+- **Recomendação 1:** [TESTE] Implantar conferência dos horários dos medicamentos em cada turno.
+- **Recomendação 2:** [TESTE] Revisar e divulgar o fluxo de comunicação de atrasos na administração.
+
+**Procedimentos**
+
+1. Concluir a análise.
+2. Acessar o plano de ação da notificação.
+3. Conferir as ações pré-criadas e seus vínculos com as recomendações de origem.
+4. Consultar o histórico da notificação.
+
+**Resultado esperado**
+
+- Sistema cria automaticamente duas ações, uma para cada recomendação.
+- Em cada ação, o campo **"O que será feito?"** contém exatamente o texto da recomendação de origem.
+- Cada ação mantém vínculo com a recomendação que a originou.
+- Histórico registra a quantidade de ações pré-criadas (duas).
+
+##### CT-FUN-097 — Visualização somente leitura da análise concluída { #ct-fun-097 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Não — Não implementado | US-4.7 + US-4.8 | US-4.7 CA05; US-4.8 CA08 | Fluxo principal |
+
+**Objetivo**
+
+Validar a visualização da análise concluída, incluindo suas seções, o modo somente leitura e o diagrama.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Usuário com acesso ao detalhe de uma notificação cuja análise foi concluída e que possui Diagrama de Ishikawa.
+
+**Procedimentos**
+
+1. Abrir o detalhe da notificação e acessar a seção **"Análise"**.
+2. Percorrer as informações da análise e verificar os controles disponíveis.
+3. Localizar o Diagrama de Ishikawa, selecionar **"Exportar diagrama"** e verificar o arquivo baixado.
+
+**Resultado esperado**
+
+- **US-4.8 CA08:** Sistema exibe a análise em modo somente leitura, organizada nas mesmas seções do formulário, sem blocos de orientação e exemplos.
+- **US-4.7 CA05:** Diagrama de Ishikawa é apresentado com a opção **"Exportar diagrama"**, que baixa o diagrama completo como PNG, inclusive o conteúdo fora da área visível.
+
+#### 3.3.9. História 4.9 - Decidir o encaminhamento do resultado da análise ao setor { #testes-us-4-9 }
+
+##### CT-FUN-098 — Exibição das opções de encaminhamento do resultado { #ct-fun-098 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Não — Não implementado | US-4.9 | CA01 + CA02 | Fluxo principal |
+
+**Objetivo**
+
+Validar que, após concluir uma análise feita pelo NSP sem encaminhamento prévio, o sistema apresenta as opções de decisão e explica suas consequências.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Profissional do Núcleo de Segurança do Paciente autenticado.
+- Notificação cuja análise foi realizada pelo próprio NSP, concluída e ainda não encaminhada ao setor.
+
+**Procedimentos**
+
+1. Acessar a seção **"Análise"** no detalhe da notificação.
+2. Conferir a pergunta, as opções e a caixa de informação.
+
+**Resultado esperado**
+
+- **CA01:** Sistema exibe **"Análise concluída pelo núcleo. Deseja encaminhar o resultado ao setor?"** e apresenta as opções **"Encaminhar ao setor"** e **"Não encaminhar / justificar"**.
+- **CA02:** Caixa de informação explica que, ao encaminhar, o setor responsável recebe o resultado e passa a ter acesso ao incidente; ao não encaminhar, o setor não acessa o incidente nem as informações da análise, que ficam restritas ao núcleo, e uma justificativa deve ser registrada.
+
+##### CT-FUN-099 — Encaminhar o resultado da análise ao setor { #ct-fun-099 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Não — Não implementado | US-4.9 | CA03 | Fluxo principal |
+
+**Objetivo**
+
+Validar o encaminhamento do resultado, a concessão de acesso ao setor, a atualização do status e o registro do histórico.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Profissional do Núcleo de Segurança do Paciente autenticado.
+- Análise concluída pelo NSP sem encaminhamento prévio.
+- Setor responsável definido para a notificação.
+
+**Dados de entrada**
+
+- **Mensagem ao setor:** [TESTE] Resultado encaminhado para ciência e continuidade das ações de melhoria.
+
+**Procedimentos**
+
+1. Acessar a decisão de encaminhamento do resultado.
+2. Selecionar **"Encaminhar ao setor"**.
+3. Informar a mensagem opcional.
+4. Confirmar o encaminhamento.
+5. Consultar o status e o histórico da notificação.
+6. Acessar a notificação com um usuário Gestor da Área do setor responsável.
+
+**Resultado esperado**
+
+- Sistema comunica o resultado ao setor responsável e concede acesso ao incidente e à análise.
+- Status da notificação passa para **"Analisado"**.
+- Histórico registra o setor de destino e a mensagem informada.
+- A análise continua identificando o profissional do NSP como responsável por sua realização; o encaminhamento não altera sua autoria.
+
+##### CT-FUN-100 — Não encaminhar o resultado sem justificativa { #ct-fun-100 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Não — Não implementado | US-4.9 | CA04 | Fluxo negativo |
+
+**Objetivo**
+
+Validar que a justificativa é obrigatória para não encaminhar o resultado.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Profissional do Núcleo de Segurança do Paciente autenticado.
+- Análise concluída pelo NSP sem encaminhamento prévio.
+
+**Procedimentos**
+
+1. Selecionar **"Não encaminhar / justificar"**.
+2. Deixar a justificativa vazia e tentar confirmar.
+3. Verificar a mensagem de validação e que a decisão não foi registrada.
+
+**Resultado esperado**
+
+- Sistema exige uma justificativa e impede a confirmação enquanto ela estiver vazia.
+- Incidente permanece restrito ao núcleo enquanto a decisão não for confirmada.
+
+##### CT-FUN-101 — Confirmar a decisão de não encaminhar o resultado { #ct-fun-101 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Não — Não implementado | US-4.9 | CA04 | Fluxo principal |
+
+**Objetivo**
+
+Validar o registro da decisão de não encaminhar, sua justificativa, o status e as restrições de acesso.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Profissional do Núcleo de Segurança do Paciente autenticado.
+- Análise concluída pelo NSP sem encaminhamento prévio.
+
+**Dados de entrada**
+
+- **Justificativa:** [TESTE] Resultado restrito ao núcleo devido à natureza confidencial das informações da investigação.
+
+**Procedimentos**
+
+1. Selecionar **"Não encaminhar / justificar"**.
+2. Preencher a justificativa.
+3. Confirmar a decisão.
+4. Consultar o status e o histórico da notificação como NSP.
+5. Tentar localizar a notificação e acessar seu endereço diretamente como Gestor da Área do setor.
+
+**Resultado esperado**
+
+- Sistema confirma a decisão e mantém o incidente e as informações da análise restritos ao núcleo.
+- Status da notificação passa para **"Analisado"**.
+- Histórico registra a decisão de não encaminhar e o motivo informado.
+- Gestor da Área não encontra a notificação e não consegue acessar diretamente o incidente nem as informações da análise.
+
+##### CT-FUN-102 — Limite da mensagem opcional de encaminhamento { #ct-fun-102 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| ------------ | ---------------- | ------------------ | ----------------- |
+| Não — Não implementado | US-4.9 | CA03 | Análise de valor limite |
+
+**Objetivo**
+
+Validar o limite de 400 caracteres da mensagem opcional enviada ao setor.
+
+**Pré-condições**
+
+- Sistema disponível.
+- Profissional do Núcleo de Segurança do Paciente autenticado.
+- Análise concluída pelo NSP, aguardando decisão de encaminhamento.
+
+**Dados de entrada**
+
+- Mensagem com 400 caracteres.
+- Mensagem com 401 caracteres.
+
+**Procedimentos**
+
+1. Selecionar **"Encaminhar ao setor"**.
+2. Inserir mensagem com 400 caracteres e verificar o contador.
+3. Substituir por uma mensagem com 401 caracteres e verificar o contador e o conteúdo.
+4. Confirmar o encaminhamento com uma mensagem válida ou sem mensagem.
+
+**Resultado esperado**
+
+- Mensagem com 400 caracteres é aceita.
+- Mensagem com 401 caracteres é sinalizada como acima do limite e não pode ser confirmada até ser corrigida; o texto não é cortado.
+- É possível confirmar o encaminhamento sem preencher a mensagem.
+
 ## 4. Testes End-to-End { #testes-e2e }
 
 ### CT-E2E-001 — Registro completo de notificação com paciente { #ct-e2e-001 }
@@ -5136,6 +5633,166 @@ Validar o percurso da Seção 3 à Seção 5: os PPCs registrados na Seção 3 a
 
 ---
 
+### CT-E2E-028 — Fluxo completo de conclusão da análise com Diagrama de Ishikawa e recomendações { #ct-e2e-028 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.7 | CA01 a CA03 + CA05 a CA08 | Fluxo principal |
+
+**Objetivo**
+
+Validar o fluxo da análise até sua conclusão, verificando a geração e exportação do Diagrama de Ishikawa, o registro de recomendações, a finalização e a exportação do diagrama na visualização da análise concluída.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002), com credenciais de profissional do Núcleo de Segurança do Paciente.
+- Existir uma notificação classificada e disponível para análise.
+- O usuário pode iniciar e registrar a análise da notificação.
+- Para os dados abaixo, a Seção 4 permite registrar fatores em pelo menos duas categorias, vinculados a PPCs, incluindo um tipo de fator associado a dois PPCs e um fator aprofundado com os 5 Porquês.
+
+**Dados de entrada**
+
+- **Incidente em investigação:** [TESTE] Atraso na administração do medicamento prescrito ao paciente.
+- **PPC 1:** Atraso na administração de medicamento.
+- **PPC 2:** Falha na comunicação entre profissionais.
+- **Categoria do fator 1:** Fatores individuais dos profissionais.
+- **Fator 1:** [TESTE] Profissional não conferiu o horário da prescrição.
+- **Categoria do fator 2:** Fatores das tarefas.
+- **Fator 2:** [TESTE] Ausência de conferência sistemática dos horários dos medicamentos.
+- **Respostas dos 5 Porquês do Fator 2:** [TESTE] A conferência não estava definida no fluxo; [TESTE] o fluxo não foi revisado após mudança na rotina.
+- **Fonte/evidência dos fatores:** [TESTE] Prontuário e relato da equipe.
+- **Recomendação 1:** [TESTE] Implantar conferência dos horários dos medicamentos em cada turno.
+- **Recomendação 2:** [TESTE] Revisar e divulgar o fluxo de comunicação de atrasos na administração.
+
+**Procedimentos**
+
+1. Acessar a notificação e iniciar o registro da análise.
+2. Preencher as seções anteriores com as informações necessárias para avançar até a Seção 4.
+3. Na Seção 4, registrar os PPCs e acessar o cartão de cada PPC. Em cada cartão, registrar o mesmo Fator 1 na categoria **"Fatores individuais dos profissionais"** e registrar o Fator 2 na categoria **"Fatores das tarefas"**; preencher também as respostas dos 5 Porquês do Fator 2.
+4. Avançar para a Seção 5.
+5. Conferir o título, a caixa de explicação e o Diagrama de Ishikawa gerado.
+6. Conferir a associação dos fatores aos PPCs e as respostas dos 5 Porquês.
+7. Selecionar **"Exportar diagrama"** e verificar o PNG baixado.
+8. Na área **"Recomendações de melhoria"**, preencher a primeira recomendação.
+9. Selecionar **"+ Adicionar recomendação"** e preencher a segunda recomendação.
+10. Conferir os botões **"Voltar"** e **"Finalizar análise"** e selecionar **"Finalizar análise"**.
+11. Acessar a análise concluída no detalhe da notificação.
+12. Abrir a seção **"Análise"**, localizar o Diagrama de Ishikawa e selecionar **"Exportar diagrama"**.
+
+**Resultado esperado**
+
+- Sistema permite avançar pelas seções preenchidas e, na Seção 5, apresenta o título **"Seção 5 — Resultado (Ishikawa + Recomendações)"** e a caixa de informação definida no CA01.
+- Sistema gera automaticamente um único diagrama, com título **"Diagrama de Ishikawa (espinha de peixe)"**, eixo, cauda, cabeça contendo o incidente e cartões de categorias alternados acima e abaixo do eixo.
+- Diagrama exibe os fatores sob cada PPC relacionado, preserva os textos informados e, para o Fator 2, mostra somente as respostas dos 5 Porquês em ordem, precedidas por **"—"** e sem exibir perguntas ou fontes/evidências.
+- Como o Fator 1 está relacionado a dois PPCs, ele aparece na categoria correspondente sob ambos os PPCs.
+- A exportação na Seção 5 baixa **"diagrama-ishikawa.png"** com fundo branco, resolução adequada para apresentação e todo o conteúdo do diagrama.
+- Sistema apresenta a orientação de recomendações, uma linha inicial com rótulo, placeholder, limite e contador, ícone de lixeira e botão **"+ Adicionar recomendação"**.
+- A segunda linha é exibida como **"Recomendação 2"**; as duas recomendações são mantidas, e o sistema permite finalizar com ambas preenchidas.
+- Sistema apresenta **"Voltar"** e **"Finalizar análise"** na Seção 5 e conclui a análise após a seleção de **"Finalizar análise"**.
+- Na visualização da análise concluída, o Diagrama de Ishikawa e a opção **"Exportar diagrama"** estão disponíveis; a exportação baixa novamente o PNG completo.
+
+### CT-E2E-029 — Conclusão da investigação e geração do plano de ação { #ct-e2e-029 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.8 | CA01 a CA08 | Fluxo principal e alternativo |
+
+**Objetivo**
+
+Validar a conclusão da investigação nos fluxos de análise pelo setor e pelo NSP, incluindo validação de pendências, atualização de status, histórico, criação de ações e visualização somente leitura.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002), com credenciais de Gestor da Área e de profissional do Núcleo de Segurança do Paciente.
+- Existirem duas notificações de teste: uma encaminhada ao setor responsável e outra disponível para análise pelo NSP sem encaminhamento prévio.
+- Cada notificação possuir análise preenchida até a Seção 5, com Diagrama de Ishikawa e duas recomendações válidas.
+
+**Dados de entrada**
+
+- **Recomendação 1:** [TESTE] Implantar conferência dos horários dos medicamentos em cada turno.
+- **Recomendação 2:** [TESTE] Revisar e divulgar o fluxo de comunicação de atrasos na administração.
+- **Pendência para validação:** uma recomendação adicionada sem preenchimento na notificação encaminhada ao setor.
+
+**Procedimentos**
+
+*Notificação encaminhada ao setor — Gestor da Área*
+
+1. Acessar a análise da notificação encaminhada e navegar até a Seção 5.
+2. Confirmar que **"Finalizar análise"** está disponível.
+3. Deixar uma recomendação adicionada sem preenchimento e selecionar **"Finalizar análise"**.
+4. Verificar as mensagens de pendência e que a análise não foi concluída.
+5. Preencher a recomendação pendente e selecionar **"Finalizar análise"** novamente.
+6. Verificar o retorno ao detalhe da notificação, o status, o histórico e a data, hora e usuário da conclusão.
+7. Acessar o plano de ação e conferir as ações criadas a partir das recomendações.
+8. Abrir a seção **"Análise"** no detalhe e verificar a visualização concluída.
+
+*Notificação analisada pelo NSP — profissional do Núcleo de Segurança do Paciente*
+
+9. Acessar a análise da notificação sem encaminhamento prévio e navegar até a Seção 5.
+10. Selecionar **"Finalizar análise"** e confirmar a conclusão, se solicitado.
+11. Verificar o retorno ao detalhe, o status e o histórico da notificação.
+
+**Resultado esperado**
+
+- Na Seção 5, sistema disponibiliza **"Finalizar análise"**.
+- Enquanto houver informação obrigatória pendente, sistema impede a conclusão e informa as pendências no padrão de validação da análise.
+- Após corrigir a pendência e confirmar a conclusão, sistema registra a conclusão e retorna ao detalhe da notificação.
+- Em cada conclusão, sistema registra data, hora, usuário responsável e o evento **"análise concluída"** no histórico.
+- Para a notificação analisada pelo setor, o status passa diretamente para **"Analisado"**.
+- Para a notificação analisada pelo NSP, o status permanece **"Em análise"** até a decisão de encaminhamento do resultado.
+- Para duas recomendações, sistema cria duas ações no plano de ação; cada campo **"O que será feito?"** contém o texto correspondente e cada ação mantém vínculo com sua recomendação de origem.
+- Histórico registra a quantidade de ações pré-criadas.
+- Na análise concluída, sistema exibe as mesmas seções em modo somente leitura, sem blocos de orientação e exemplos; o Diagrama de Ishikawa e **"Exportar diagrama"** estão disponíveis.
+
+### CT-E2E-030 — Decisão do NSP sobre o encaminhamento do resultado da análise { #ct-e2e-030 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-4.9 | CA01 a CA04 | Fluxo principal e alternativo |
+
+**Objetivo**
+
+Validar de ponta a ponta que o NSP decide encaminhar ou não o resultado de análises concluídas, com os efeitos correspondentes sobre acesso, status e histórico.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002), com credenciais de profissional do NSP e de Gestor da Área.
+- Existirem duas notificações de teste com análise concluída pelo NSP e sem encaminhamento prévio.
+- O setor responsável das notificações for conhecido e o usuário Gestor da Área estiver vinculado a esse setor.
+
+**Dados de entrada**
+
+- **Mensagem de encaminhamento:** [TESTE] Resultado encaminhado para ciência e continuidade das ações de melhoria.
+- **Justificativa de não encaminhamento:** [TESTE] Resultado restrito ao núcleo devido à natureza confidencial das informações da investigação.
+
+**Procedimentos**
+
+*Notificação com resultado encaminhado*
+
+1. Como NSP, abrir a seção **"Análise"** da primeira notificação concluída.
+2. Verificar a pergunta **"Análise concluída pelo núcleo. Deseja encaminhar o resultado ao setor?"**, as duas opções e a caixa de informação sobre as consequências.
+3. Selecionar **"Encaminhar ao setor"**, informar a mensagem e confirmar.
+4. Consultar o status e o histórico da notificação.
+5. Como Gestor da Área do setor responsável, localizar a notificação e abrir o incidente e a análise.
+
+*Notificação com resultado não encaminhado*
+
+6. Como NSP, abrir a seção **"Análise"** da segunda notificação concluída.
+7. Selecionar **"Não encaminhar / justificar"** e tentar confirmar sem preencher a justificativa.
+8. Verificar a validação e preencher a justificativa.
+9. Confirmar a decisão e consultar o status e o histórico.
+10. Como Gestor da Área, tentar localizar a notificação e acessar diretamente seu endereço.
+
+**Resultado esperado**
+
+- Antes da decisão, sistema apresenta a pergunta, as opções e explica o efeito de cada escolha sobre o acesso do setor; a decisão de não encaminhar exige justificativa.
+- Para a primeira notificação, sistema comunica o resultado ao setor, concede acesso ao incidente e à análise e atualiza o status para **"Analisado"**.
+- Histórico da primeira notificação registra o setor de destino e a mensagem informada; a autoria da análise continua atribuída ao profissional do NSP.
+- Para a segunda notificação, sistema impede a confirmação sem justificativa; após a confirmação válida, atualiza o status para **"Analisado"** e registra a decisão e o motivo no histórico.
+- A segunda notificação e sua análise permanecem restritas ao núcleo; o Gestor da Área não as encontra nem consegue acessá-las diretamente.
+
+---
+
 ## 5. Testes Não-Funcionais { #testes-nao-funcionais }
 
 ### CT-NF-001 — Validação de disponibilidade contínua do sistema { #ct-nf-001 }
@@ -5571,6 +6228,34 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Padrão | Registrar os fatores dos PPCs da Seção 3, avançar e retomar a análise | Sistema mantém os fatores e o resumo de cada PPC |
 | Alternativo | Incluir um PPC na Seção 4 | Sistema inclui o PPC na tabela da Seção 3 e o mantém ao retomar a análise |
 
+**[CT-FUN-087](#ct-fun-087), [CT-FUN-088](#ct-fun-088), [CT-FUN-089](#ct-fun-089), [CT-FUN-090](#ct-fun-090), [CT-FUN-091](#ct-fun-091), [CT-FUN-092](#ct-fun-092), [CT-FUN-097](#ct-fun-097), [CT-E2E-028](#ct-e2e-028)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Acessar a Seção 5 com fatores registrados, exportar o diagrama e preencher recomendações | Sistema apresenta o diagrama e as recomendações, exporta o PNG e permite finalizar a análise |
+| Alternativo | Acessar a Seção 5 sem fatores contribuintes | Sistema apresenta a explicação e informa que é necessário registrar ao menos um fator na Seção 4 |
+| Alternativo | Acessar a análise concluída | Sistema disponibiliza a exportação do Diagrama de Ishikawa na visualização da análise |
+| Alternativo | Adicionar recomendação e deixá-la vazia | Sistema indica a pendência e impede finalizar até preenchê-la ou removê-la |
+| Alternativo | Falhar a exportação do diagrama | Sistema informa que não foi possível exportar o diagrama |
+
+**[CT-FUN-093](#ct-fun-093), [CT-FUN-094](#ct-fun-094), [CT-FUN-095](#ct-fun-095), [CT-FUN-096](#ct-fun-096), [CT-FUN-097](#ct-fun-097), [CT-E2E-029](#ct-e2e-029)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Concluir análise do setor sem pendências | Sistema registra conclusão, atualiza status para "Analisado" e cria ações a partir das recomendações |
+| Padrão | Concluir análise do NSP sem encaminhamento prévio | Sistema registra conclusão e mantém status "Em análise" até decisão do NSP |
+| Alternativo | Tentar concluir com informações obrigatórias pendentes | Sistema impede conclusão e informa as pendências |
+| Padrão | Acessar análise depois da conclusão | Sistema apresenta as seções em modo somente leitura, sem orientações ou exemplos, e permite exportar o diagrama |
+
+**[CT-FUN-098](#ct-fun-098), [CT-FUN-099](#ct-fun-099), [CT-FUN-100](#ct-fun-100), [CT-FUN-101](#ct-fun-101), [CT-FUN-102](#ct-fun-102), [CT-E2E-030](#ct-e2e-030)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Encaminhar o resultado ao setor | Sistema concede acesso ao setor, atualiza status para "Analisado" e registra destino e mensagem no histórico |
+| Alternativo | Não encaminhar sem informar justificativa | Sistema exige justificativa e não confirma a decisão |
+| Padrão | Não encaminhar com justificativa | Sistema mantém incidente restrito ao NSP, atualiza status para "Analisado" e registra a decisão e o motivo |
+| Alternativo | Inserir mensagem de encaminhamento acima de 400 caracteres | Sistema sinaliza o excesso e impede a confirmação até a correção |
+
 ### 6.2 Partição por Equivalência { #criterios-particao }
 
 **[CT-AUTH-002](#ct-auth-002) e [CT-AUTH-003](#ct-auth-003)**
@@ -5793,6 +6478,50 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Válido | Seção 3 com PPC registrado | Sistema exibe os cartões e, no final da lista, o bloco de inclusão de PPC |
 | Válido | Seção 3 sem PPC registrado | Sistema informa que nenhum PPC foi registrado e exibe o bloco de inclusão de PPC |
 
+**[CT-FUN-098](#ct-fun-098), [CT-FUN-099](#ct-fun-099), [CT-FUN-100](#ct-fun-100), [CT-FUN-101](#ct-fun-101), [CT-E2E-030](#ct-e2e-030)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Encaminhar resultado com mensagem de até 400 caracteres | Sistema comunica o resultado ao setor, concede acesso e registra setor e mensagem no histórico |
+| Válido | Encaminhar resultado sem mensagem | Sistema comunica o resultado ao setor e registra o setor de destino |
+| Válido | Não encaminhar resultado com justificativa preenchida | Sistema restringe o incidente ao NSP e registra decisão e justificativa |
+| Inválido | Não encaminhar sem justificativa | Sistema impede a confirmação da decisão |
+
+**[CT-E2E-021](#ct-e2e-021)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Profissional do NSP, não responsável, com incidente "Classificado" | Sistema disponibiliza "Registrar análise" e atualiza o status para "Em análise" ao salvar |
+| Válido | Gestor da Área com incidente "Encaminhado" ao seu setor | Sistema disponibiliza "Registrar análise" e atualiza o status para "Em análise" ao salvar |
+
+**[CT-FUN-048](#ct-fun-048)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Autor da análise acessa a seção "Análise" | Sistema exibe "Continuar análise" |
+| Inválido | Outro profissional do NSP acessa análise iniciada por outro profissional do NSP | Sistema exibe apenas a mensagem de análise em andamento |
+| Inválido | Profissional do NSP acessa análise iniciada pelo Gestor da Área | Sistema exibe apenas a mensagem de análise em andamento |
+
+**[CT-FUN-049](#ct-fun-049)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Seção sem pendências | Sistema avança para a próxima seção |
+| Inválido | Uma pendência | Sistema exibe o aviso indicando qual é a pendência |
+| Inválido | Várias pendências | Sistema exibe o aviso "Corrija os N itens destacados para continuar." |
+| Inválido | Pendência em tabela | Sistema destaca apenas as células pendentes |
+
+**[CT-FUN-056](#ct-fun-056), [CT-FUN-066](#ct-fun-066), [CT-FUN-067](#ct-fun-067), [CT-FUN-071](#ct-fun-071), [CT-FUN-073](#ct-fun-073), [CT-E2E-023](#ct-e2e-023)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Inválido | Incidente em investigação não preenchido | Sistema exige o campo e bloqueia o avanço |
+| Inválido | Campos obrigatórios de membro não preenchidos | Sistema destaca as pendências e bloqueia o avanço |
+| Inválido | Nenhuma fonte consultada selecionada | Sistema exige ao menos uma fonte |
+| Inválido | Entrevista não preenchida após responder "Sim" | Sistema destaca as células pendentes, exibe "Adicione pelo menos 1 entrevista." e bloqueia o avanço |
+| Inválido | Pendências diversas na Seção 2 | Sistema exibe as mensagens correspondentes e bloqueia o avanço |
+| Inválido | Incidente vazio ou acima do limite | Sistema exibe a pendência ou o aviso de limite e bloqueia o avanço |
+
 ### 6.3 Análise de Valor Limite { #criterios-valor-limite }
 
 **[CT-FUN-003](#ct-fun-003)**
@@ -5851,6 +6580,21 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Limite superior inválido | Pergunta e resposta do 5 Porquês com 101 caracteres | Sistema exibe o aviso de limite e bloqueia o avanço, sem cortar o texto |
 | Último valor válido | 5 Porquês com 15 níveis | Sistema mantém os níveis |
 | Limite superior inválido | Tentativa de adicionar o 16º nível | Sistema não permite adicionar o nível |
+
+
+**[CT-FUN-091](#ct-fun-091)**
+
+| Tipo de Valor | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Último valor válido | Recomendação com 300 caracteres | Sistema aceita o texto e indica no contador que o limite foi atingido |
+| Limite superior inválido | Recomendação com 301 caracteres | Sistema indica excesso no contador, não corta o texto e impede finalizar enquanto exceder o limite |
+
+**[CT-FUN-102](#ct-fun-102)**
+
+| Tipo de Valor | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Último valor válido | Mensagem opcional de encaminhamento com 400 caracteres | Sistema aceita a mensagem |
+| Limite superior inválido | Mensagem opcional de encaminhamento com 401 caracteres | Sistema sinaliza o excesso, preserva o texto e impede confirmar até corrigir |
 
 ---
 
