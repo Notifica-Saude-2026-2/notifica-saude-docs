@@ -17,14 +17,15 @@ hide:
     | 1.3 | 24/09/2026 | Migração do documento (Google Docs) para o MkDocs; renumeração dos IDs duplicados e remoção de um registro repetido e de um registro de modelo não preenchido. | Sophya Ribeiro |
     | 1.4 | 08/10/2026 | Registro dos bugs BUG-FRONT-019 ([e2e#14](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/14)) e BUG-BACK-009 ([e2e#15](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/15)), encontrados na automação dos casos de teste da US-4.2. | Catarina Freisleben |
     | 1.5 | 15/10/2026 | Registro do bug BUG-BACK-010 ([e2e#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20)), encontrado na automação dos casos de teste da US-4.3. | Catarina Freisleben |
+    | 1.6 | 29/10/2026 | Registro do bug BUG-FRONT-020 ([e2e#36](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/36)), encontrado na automação dos casos de teste da US-4.6. Fechamento dos bugs BUG-FRONT-019 ([e2e#14](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/14)), corrigido no [PR #16 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/16), e BUG-BACK-009 ([e2e#15](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/15)), corrigido no [PR #11 do backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend/pull/11), conferidos na [PR e2e#32](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/32). | Catarina Freisleben |
 
 <div class="ns-dec-resumo" markdown>
-<div class="ns-dec-stat"><strong>30</strong><span>bugs registrados</span></div>
-<div class="ns-dec-stat"><strong>27</strong><span>com status <span class="ns-status ns-status--encerrado">Fechado</span></span></div>
-<div class="ns-dec-stat"><strong>3</strong><span>com status <span class="ns-status ns-status--aberto">Aberto</span></span></div>
+<div class="ns-dec-stat"><strong>31</strong><span>bugs registrados</span></div>
+<div class="ns-dec-stat"><strong>29</strong><span>com status <span class="ns-status ns-status--encerrado">Fechado</span></span></div>
+<div class="ns-dec-stat"><strong>2</strong><span>com status <span class="ns-status ns-status--aberto">Aberto</span></span></div>
 <div class="ns-dec-stat"><strong>4</strong><span>de severidade <span class="ns-nivel ns-nivel--alta">Alta</span></span></div>
 <div class="ns-dec-stat"><strong>24</strong><span>de severidade <span class="ns-nivel ns-nivel--media">Média</span></span></div>
-<div class="ns-dec-stat"><strong>2</strong><span>de severidade <span class="ns-nivel ns-nivel--baixa">Baixa</span></span></div>
+<div class="ns-dec-stat"><strong>3</strong><span>de severidade <span class="ns-nivel ns-nivel--baixa">Baixa</span></span></div>
 </div>
 
 ## Sumário
@@ -139,7 +140,8 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 | [BUG-FRONT-016](#bug-front-016) | #57 | Campo "Especifique" não é validado ao selecionar "Outro" no setor da notificação de incidente | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Pedro Silva Soledade<br><span class="ns-bug-dest">→ Luigi Almeida</span> |
 | [BUG-FRONT-017](#bug-front-017) | #58 | Filtro "Never Event" não retorna notificações classificadas no grau de dano em Evento Adverso | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Pedro Silva Soledade<br><span class="ns-bug-dest">→ Luigi Almeida</span> |
 | [BUG-FRONT-018](#bug-front-018) | #59 | Botão "Salvar" finaliza classificação de notificação indevidamente | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Pedro Silva Soledade<br><span class="ns-bug-dest">→ Luigi Almeida</span> |
-| [BUG-FRONT-019](#bug-front-019) | [e2e#14](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/14) | CT-FUN-051: orientação do campo "Informe o incidente em investigação" fica escondida num ícone de ajuda | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ A definir</span> |
+| [BUG-FRONT-019](#bug-front-019) | [e2e#14](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/14) | CT-FUN-051: orientação do campo "Informe o incidente em investigação" fica escondida num ícone de ajuda | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
+| [BUG-FRONT-020](#bug-front-020) | [e2e#36](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/36) | CT-FUN-084 e CT-FUN-086: campos da Seção 4 com limite de caracteres sem o contador "N/limite" | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
 
 </div>
 
@@ -819,10 +821,10 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 ??? bug "BUG-FRONT-019 · e2e#14 · CT-FUN-051: orientação do campo &quot;Informe o incidente em investigação&quot; fica escondida num ícone de ajuda"
 
     <div class="ns-bug-meta" markdown>
-    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--aberto">Aberto</span></span>
+    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--encerrado">Fechado</span></span>
     <span><span class="ns-dec-rotulo">Severidade</span><span class="ns-nivel ns-nivel--baixa">Baixa</span></span>
     <span><span class="ns-dec-rotulo">Reportado por</span>Catarina Freisleben</span>
-    <span><span class="ns-dec-rotulo">Designado para</span>A definir</span>
+    <span><span class="ns-dec-rotulo">Designado para</span>Brenno Ostemberg</span>
     </div>
 
     **Justificativa da severidade:** A orientação existe e pode ser lida passando o mouse, e o preenchimento não fica bloqueado. Mas quem não passa o mouse no ícone não a vê, e o CA11 existe justamente para evitar isso.
@@ -858,6 +860,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 
     - **Onde está no código (front `925a72b`):** `src/components/analise/Secao1.tsx:50` passa a orientação pela prop `dica` do `CampoAnalise`, que a desenha como `InfoTooltip`, o balão do ícone (`CampoAnalise.tsx:45-49`). O mesmo componente já tem a prop `ajuda`, que desenha a caixa azul (`InfoBox`) pedida pelo CA11 (`CampoAnalise.tsx:71-75`). Hoje só esse campo usa `dica`.
     - Encontrado na automação do CT-FUN-051 ([e2e#13](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/13)).
+    - **Correção:** o [PR #16 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/16) (`ec6f8ac`, 15/10/2026) passou a exibir a orientação numa caixa azul. Conferido pelo CT-FUN-051, que deixou de ser falha conhecida na [PR e2e#32](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/32).
 
     **Versões afetadas**
 
@@ -874,6 +877,73 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 
     ![Seção 1 com o mouse sobre o ícone: a orientação aparece num balão escuro](../assets/vvt/relatorio-bugs/bug-front-019-com-hover.png){ loading=lazy }
 
+<a id="bug-front-020"></a>
+
+??? bug "BUG-FRONT-020 · e2e#36 · CT-FUN-084 e CT-FUN-086: campos da Seção 4 com limite de caracteres sem o contador &quot;N/limite&quot;"
+
+    <div class="ns-bug-meta" markdown>
+    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--aberto">Aberto</span></span>
+    <span><span class="ns-dec-rotulo">Severidade</span><span class="ns-nivel ns-nivel--baixa">Baixa</span></span>
+    <span><span class="ns-dec-rotulo">Reportado por</span>Catarina Freisleben</span>
+    <span><span class="ns-dec-rotulo">Designado para</span>Brenno Ostemberg</span>
+    </div>
+
+    **Justificativa da severidade:** Não impede a análise: o limite é avisado e bloqueia o avanço (exceto na inclusão de PPC). Falta a orientação do contador enquanto a pessoa digita.
+
+    **Resumo**
+
+    Na Seção 4 da análise, três campos têm limite de caracteres, mas não mostram o contador "N/limite" que o CA10 da US-4.2 pede para todo campo de texto com limite no formulário de análise: "**Dado que** um campo de texto possua limite de caracteres, **quando** o usuário digitar, **então** o sistema deve exibir um contador "N/limite" abaixo do campo, que fica vermelho ao ultrapassar". O requisito não funcional 6.7.5 diz o mesmo. Nas Seções 1, 2, 3 e 5, todos os campos com limite mostram o contador.
+
+    | Campo | Limite | Contador |
+    | --- | --- | --- |
+    | Pergunta e Resposta de cada nível do 5 Porquês | 100 (US-4.6 CA09) | não aparece |
+    | Descrição do fator ("Descreva o fator identificado e como ele contribuiu para este PPC") | 500 (definido no front) | não aparece |
+    | Campos do bloco "Faltou algum problema na prestação do cuidado?" (incluir PPC na Seção 4) | 500 (os mesmos campos do PPC da Seção 3: US-4.6 CA11 e US-4.5 CA11) | não aparece |
+
+    **Passos para reprodução**
+
+    1. Subir o stack (`npm run stack:up`).
+    2. Entrar como `nsp.b@notificasaude.br` (NSP do Hospital B) e abrir uma notificação com a análise salva até a Seção 3, com um PPC. Em **Continuar análise**, o formulário abre na Seção 4.
+    3. No PPC 1, clicar em **Identificar fatores contribuintes** e marcar "Fatores do ambiente de trabalho".
+    4. Digitar a descrição do fator.
+    5. Clicar em **Usar os 5 Porquês** e digitar a pergunta e a resposta do 1º por quê.
+    6. No bloco "Faltou algum problema na prestação do cuidado?", clicar em **+ Adicionar PPC** e digitar os três campos.
+    7. Para comparar, voltar à Seção 3: os mesmos campos do PPC, na tabela, mostram "N/500".
+
+    **Resultado esperado**
+
+    Os três campos exibem, abaixo deles, o contador "N/limite", que fica vermelho ao ultrapassar o limite: "N/100" na pergunta e na resposta de cada nível do 5 Porquês, "N/500" nos três campos do PPC incluído na Seção 4 e "N/500" na descrição do fator, se esse limite for mantido.
+
+    **Resultado obtido**
+
+    Nenhum dos três mostra o contador. A pergunta e a resposta do 5 Porquês e a descrição do fator avisam e bloqueiam o avanço quando passam do limite, mas sem contador. Na inclusão de PPC, além de não haver contador, o limite não é conferido: pelo código, a inclusão só verifica se os campos estão preenchidos, e um texto com mais de 500 caracteres só aparece como pendência depois, na tabela da Seção 3.
+
+    **Observações**
+
+    - **Onde está no código (front `c9b94f7`):** em `src/components/analise/Secao4.tsx`, o `<Textarea>` só mostra o contador quando recebe a prop `limit`, e estes três não a recebem: linha 516, na `PorquesLista` (pergunta e resposta); linha 327 (descrição do fator); e linha 636, no `AdicionarPpc` (campos do PPC incluído). Nas outras seções, o `TabelaAnalise` passa `limit={{ max, onExceed: "block" }}`, que mostra o contador.
+    - **Limite da descrição do fator:** os 500 caracteres (`DESCRICAO_FATOR_MAX`) não estão nos requisitos; o próprio código diz que o valor ainda vai ser levado às proponentes.
+    - **Protótipo:** esses campos também não têm contador no protótipo, mas a regra geral do CA10 da US-4.2 vale para todo campo com limite do formulário de análise.
+    - Encontrado na automação da US-4.6 ([e2e#35](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/35)), nos campos usados pelos CT-FUN-084 e CT-FUN-086. As fichas desses casos de teste não conferem o contador, então nenhum teste falha por causa dele.
+
+    **Versões afetadas**
+
+    - Frontend `c9b94f7` (`develop` de 26/10/2026), backend `cb23a1e`
+    - Navegador: Chromium, em 1280 × 720
+
+    **Evidência**
+
+    Descrição do fator e 5 Porquês preenchidos, sem contador abaixo dos campos:
+
+    ![Seção 4: descrição do fator e pergunta e resposta do 5 Porquês preenchidas, sem o contador](../assets/vvt/relatorio-bugs/bug-front-020-fator-e-5-porques.png){ loading=lazy }
+
+    Inclusão de PPC na Seção 4, com os três campos preenchidos e sem contador:
+
+    ![Seção 4: bloco de inclusão de PPC com os três campos preenchidos, sem o contador](../assets/vvt/relatorio-bugs/bug-front-020-incluir-ppc.png){ loading=lazy }
+
+    Para comparar, a tabela de PPC da Seção 3, com o contador "61/500" e "53/500" abaixo dos campos:
+
+    ![Seção 3: tabela de PPC com o contador N/500 abaixo de cada campo](../assets/vvt/relatorio-bugs/bug-front-020-secao3-comparacao.png){ loading=lazy }
+
 ### 3.2 Back-end { #back-end }
 
 <div class="ns-bug-tabela" markdown>
@@ -888,7 +958,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 | [BUG-BACK-006](#bug-back-006) | #52 | Validar complexidade de senha no schema de criação de usuário | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Fábio Ramos<br><span class="ns-bug-dest">→ Fábio Ramos</span> |
 | [BUG-BACK-007](#bug-back-007) | #63 | PUT /api/notificacoes/{id} Não atualiza o valor textual de "Outro" no campo sexo | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Lucas Gonçalves<br><span class="ns-bug-dest">→ Lucas Gonçalves</span> |
 | [BUG-BACK-008](#bug-back-008) | #97 | Corrige porta fixa no healthcheck do Dockerfile | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Fábio Ramos<br><span class="ns-bug-dest">→ Fábio Ramos</span> |
-| [BUG-BACK-009](#bug-back-009) | [e2e#15](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/15) | CT-E2E-021: data do último salvamento da análise sai 4 h antes da data de início | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ A definir</span> |
+| [BUG-BACK-009](#bug-back-009) | [e2e#15](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/15) | CT-E2E-021: data do último salvamento da análise sai 4 h antes da data de início | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
 | [BUG-BACK-010](#bug-back-010) | [e2e#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20) | CT-FUN-053: horário do incidente não é coletado nem aparece no resumo da análise | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
 
 </div>
@@ -1283,10 +1353,10 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 ??? bug "BUG-BACK-009 · e2e#15 · CT-E2E-021: data do último salvamento da análise sai 4 h antes da data de início"
 
     <div class="ns-bug-meta" markdown>
-    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--aberto">Aberto</span></span>
+    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--encerrado">Fechado</span></span>
     <span><span class="ns-dec-rotulo">Severidade</span><span class="ns-nivel ns-nivel--media">Média</span></span>
     <span><span class="ns-dec-rotulo">Reportado por</span>Catarina Freisleben</span>
-    <span><span class="ns-dec-rotulo">Designado para</span>A definir</span>
+    <span><span class="ns-dec-rotulo">Designado para</span>Brenno Ostemberg</span>
     </div>
 
     **Justificativa da severidade:** Não bloqueia o preenchimento, mas o sistema registra errado a hora de uma operação que o CA14 manda registrar, e a análise é um registro de auditoria do incidente.
@@ -1328,6 +1398,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
     - A tela da análise ainda não mostra o `updated_at`. O usuário não vê o erro hoje, mas a API devolve a data errada, e qualquer tela ou relatório futuro que use essa data herda o problema.
     - Correções possíveis, a decidir no backend: gerar a data no código e passá-la como parâmetro no SQL, pelo mesmo caminho do Prisma; ou deixar a sessão do Postgres em UTC, o que muda a leitura das datas já gravadas.
     - Encontrado na automação do CT-E2E-021 ([e2e#13](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/13)).
+    - **Correção:** o [PR #11 do backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend/pull/11) (`fa1e7d1`, 19/10/2026) passou a abrir a sessão do Postgres em UTC. Conferido pelo CT-E2E-021, cujo CA14 deixou de ser falha conhecida na [PR e2e#32](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/32).
 
     **Versões afetadas**
 
