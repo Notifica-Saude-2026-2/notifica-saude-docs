@@ -8,6 +8,7 @@
     | Versão | Data | Justificativa | Responsável |
     | --- | --- | --- | --- |
     | 1.0 | 26/10/2026 | Criação da página. | Sophya Ribeiro |
+    | 1.1 | 06/11/2026 | Nova pergunta "Como a ação será realizada?" (perguntas renumeradas) e situação do plano acima da tabela. Prints atualizados. | Sophya Ribeiro |
 
 <span class="ns-perfil ns-perfil--nsp">NSP</span> <span class="ns-perfil ns-perfil--gestor">Gestor da área (incidentes encaminhados ao seu setor)</span>
 
@@ -49,15 +50,16 @@ O formulário segue o modelo **SMART** (específica, mensurável, atingível, re
 | # | Pergunta | Como preencher |
 | :---: | --- | --- |
 | 1 | **O que será feito?** \* | A ação concreta, e não só o objetivo. Ex.: *"Instalar sinalização de piso molhado nos corredores"*, em vez de *"Melhorar a segurança"*. Até 500 caracteres. |
-| 2 | **Onde será feito?** \* | Marque um ou mais setores. Em **Outro**, descreva o local (até 50 caracteres). |
-| 3 | **Quem será o(s) responsável(eis)?** \* | Ao menos uma pessoa, com nome, função e setor. Use **+ Adicionar responsável** para incluir mais. |
-| 4 e 5 | **Previsão de início** e **Previsão de conclusão** \* | A previsão de início não pode ser depois da previsão de conclusão. |
-| 6 | **Precisa de recurso para executar essa ação?** | Com **Sim**, liste cada item e o preço estimado. |
-| 7 | **Depende da aprovação da Alta Gestão?** | Com **Sim**, informe qual aprovação é necessária. |
-| 8 | **Como vamos comprovar que foi feito?** \* | A evidência da execução. Ex.: *"Checklist assinado e anexado ao prontuário"*. |
-| 9 | **Qual resultado esperamos?** \* | O efeito esperado da ação. Ex.: *"Nenhum erro de identificação de paciente no centro cirúrgico"*. |
-| 10 e 11 | **Como vamos saber se funcionou?** e **Quando verificar o resultado?** \* | A forma e o momento da verificação. Ex.: *"Auditoria mensal de prontuários"*, *"em 30 dias"*. |
-| 12 | **Esta ação irá gerar um indicador de acompanhamento?** | Com **Sim**, informe qual indicador. |
+| 2 | **Como a ação será realizada?** \* | Os principais passos para colocar a ação em prática, sem só repetir o que será feito. Ex.: *"Verificar a quantidade de placas necessárias, providenciar a compra e orientar a equipe de limpeza a posicioná-las antes da lavagem, até o piso secar"*. Até 500 caracteres. |
+| 3 | **Onde será feito?** \* | Marque um ou mais setores. Em **Outro**, descreva o local (até 50 caracteres). |
+| 4 | **Quem será o(s) responsável(eis)?** \* | Ao menos uma pessoa, com nome, função e setor. Use **+ Adicionar responsável** para incluir mais. |
+| 5 e 6 | **Previsão de início** e **Previsão de conclusão** \* | A previsão de início não pode ser depois da previsão de conclusão. |
+| 7 | **Precisa de recurso para executar essa ação?** | Com **Sim**, liste cada item e o preço estimado. |
+| 8 | **Depende da aprovação da Alta Gestão?** | Com **Sim**, informe qual aprovação é necessária. |
+| 9 | **Como vamos comprovar que foi feito?** \* | A evidência da execução. Ex.: *"Checklist assinado e anexado ao prontuário"*. |
+| 10 | **Qual resultado esperamos?** \* | O efeito esperado da ação. Ex.: *"Nenhum erro de identificação de paciente no centro cirúrgico"*. |
+| 11 e 12 | **Como vamos saber se funcionou?** e **Quando verificar o resultado?** \* | A forma e o momento da verificação. Ex.: *"Auditoria mensal de prontuários"*, *"em 30 dias"*. |
+| 13 | **Esta ação irá gerar um indicador de acompanhamento?** | Com **Sim**, informe qual indicador. |
 
 \* Campos obrigatórios.
 
@@ -75,7 +77,11 @@ Um mesmo problema pode precisar de várias ações. Clique em **Adicionar outra 
 
 ## A tabela do plano de ação { #tabela }
 
-Todas as ações do incidente ficam em uma tabela, uma por linha, na ordem em que foram registradas.
+Todas as ações do incidente ficam em uma tabela, uma por linha, na ordem em que foram registradas. Acima da tabela, a **Situação do plano** resume o plano como um todo:
+
+- **Em dia**: nenhuma ação está atrasada (inclusive quando há ações com preenchimento pendente);
+- **Com ação atrasada**: ao menos uma ação está com a situação **Atrasada**;
+- **Concluído**: todas as ações foram concluídas ou canceladas.
 
 [![Tabela do plano de ação](../assets/manual-sistema/plano/tabela-acoes.png){ .ns-print }](../assets/manual-sistema/plano/tabela-acoes.png){ target="_blank" }
 
@@ -96,7 +102,7 @@ Todas as ações do incidente ficam em uma tabela, uma por linha, na ordem em qu
 
 </div>
 
-Ao clicar no **olho**, os detalhes aparecem logo abaixo da linha: onde será feito, comprovação, resultado esperado, como e quando verificar, resultado observado, anexos e a data da última atualização.
+Ao clicar no **olho**, os detalhes aparecem logo abaixo da linha: como a ação será realizada, onde será feito, comprovação, resultado esperado, como e quando verificar, resultado observado, anexos e a data da última atualização.
 
 [![Detalhes de uma ação](../assets/manual-sistema/plano/detalhes-acao.png){ .ns-print }](../assets/manual-sistema/plano/detalhes-acao.png){ target="_blank" }
 

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="18.31.1">
+  <bpmn:process id="Process_SDD" name="Fluxo SDD de desenvolvimento" isExecutable="false">
+    <bpmn:task id="Activity_185pq2k" name="Cerimônia de Planning">
+      <bpmn:incoming>Flow_18b1dop</bpmn:incoming>
+      <bpmn:outgoing>Flow_02mv51l</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_1ajhcj2" name="Finalizar com o PR">
+      <bpmn:incoming>Flow_1g3ka0b</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:subProcess id="Activity_19khmge" name="Desenvolvimento SDD durante a Sprint">
+      <bpmn:incoming>Flow_02mv51l</bpmn:incoming>
+      <bpmn:outgoing>Flow_1g3ka0b</bpmn:outgoing>
+      <bpmn:startEvent id="StartEvent_1" name="Inicio da história a partir da plannig">
+        <bpmn:outgoing>Flow_1</bpmn:outgoing>
+      </bpmn:startEvent>
+      <bpmn:task id="Task_GrillDocs" name="Uso da skill:&#10;Grill">
+        <bpmn:incoming>Flow_1</bpmn:incoming>
+        <bpmn:incoming>Flow_Sim</bpmn:incoming>
+        <bpmn:outgoing>Flow_2</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:task id="Task_ToTickets" name="Criação das tarefas com a skill: to-tickets">
+        <bpmn:incoming>Flow_2</bpmn:incoming>
+        <bpmn:outgoing>Flow_3</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:task id="Task_Plano" name="Montar plano de implementação">
+        <bpmn:incoming>Flow_3</bpmn:incoming>
+        <bpmn:outgoing>Flow_4</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:task id="Task_TDD" name="TDD&#10;(ou /implement direto se não precisar de testes)">
+        <bpmn:incoming>Flow_4</bpmn:incoming>
+        <bpmn:outgoing>Flow_5</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:task id="Task_CodeReview" name="Code review local">
+        <bpmn:incoming>Flow_5</bpmn:incoming>
+        <bpmn:incoming>Flow_Implement</bpmn:incoming>
+        <bpmn:outgoing>Flow_6</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:endEvent id="EndEvent_1" name="PR">
+        <bpmn:incoming>Flow_6</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:startEvent id="StartEvent_2" name="Nasceu um bug ou&#10;tarefa não planejada">
+        <bpmn:outgoing>Flow_7</bpmn:outgoing>
+      </bpmn:startEvent>
+      <bpmn:task id="Task_Avaliar" name="Avaliar complexidade&#10;e urgência">
+        <bpmn:incoming>Flow_7</bpmn:incoming>
+        <bpmn:outgoing>Flow_8</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:exclusiveGateway id="Gateway_Complexo" name="Complexo?">
+        <bpmn:incoming>Flow_8</bpmn:incoming>
+        <bpmn:outgoing>Flow_Sim</bpmn:outgoing>
+        <bpmn:outgoing>Flow_Nao</bpmn:outgoing>
+      </bpmn:exclusiveGateway>
+      <bpmn:task id="Task_ValidarProduto" name="Validar entendimento&#10;com alguém de produto">
+        <bpmn:incoming>Flow_Nao</bpmn:incoming>
+        <bpmn:outgoing>Flow_9</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:task id="Task_Implement" name="Implementar a tarefa usando a skill: /implement">
+        <bpmn:incoming>Flow_9</bpmn:incoming>
+        <bpmn:outgoing>Flow_Implement</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Task_GrillDocs" />
+      <bpmn:sequenceFlow id="Flow_Sim" name="Sim" sourceRef="Gateway_Complexo" targetRef="Task_GrillDocs" />
+      <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_GrillDocs" targetRef="Task_ToTickets" />
+      <bpmn:sequenceFlow id="Flow_3" sourceRef="Task_ToTickets" targetRef="Task_Plano" />
+      <bpmn:sequenceFlow id="Flow_4" sourceRef="Task_Plano" targetRef="Task_TDD" />
+      <bpmn:sequenceFlow id="Flow_5" sourceRef="Task_TDD" targetRef="Task_CodeReview" />
+      <bpmn:sequenceFlow id="Flow_Implement" sourceRef="Task_Implement" targetRef="Task_CodeReview" />
+      <bpmn:sequenceFlow id="Flow_6" sourceRef="Task_CodeReview" targetRef="EndEvent_1" />
+      <bpmn:sequenceFlow id="Flow_7" sourceRef="StartEvent_2" targetRef="Task_Avaliar" />
+      <bpmn:sequenceFlow id="Flow_8" sourceRef="Task_Avaliar" targetRef="Gateway_Complexo" />
+      <bpmn:sequenceFlow id="Flow_Nao" name="Não" sourceRef="Gateway_Complexo" targetRef="Task_ValidarProduto" />
+      <bpmn:sequenceFlow id="Flow_9" sourceRef="Task_ValidarProduto" targetRef="Task_Implement" />
+    </bpmn:subProcess>
+    <bpmn:sequenceFlow id="Flow_02mv51l" sourceRef="Activity_185pq2k" targetRef="Activity_19khmge" />
+    <bpmn:sequenceFlow id="Flow_1g3ka0b" sourceRef="Activity_19khmge" targetRef="Event_1ajhcj2" />
+    <bpmn:startEvent id="Event_0do8feq" name="Início de uma sprint">
+      <bpmn:outgoing>Flow_18b1dop</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_18b1dop" sourceRef="Event_0do8feq" targetRef="Activity_185pq2k" />
+    <bpmn:textAnnotation id="TextAnnotation_0h2rfe4">
+      <bpmn:text>Histórias validadas previamente, apresentação das demandas</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1c5dp7g" associationDirection="None" sourceRef="Activity_185pq2k" targetRef="TextAnnotation_0h2rfe4" />
+    <bpmn:textAnnotation id="TextAnnotation_18yb8lf">
+      <bpmn:text>- Validar/aprofundar o entendimento
+- Separar em pequenas tarefas</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_1qhvetu">
+      <bpmn:text>Insumo:
+- História de usuário
+- Tarefas (tickets)
+- CONTEXT.md</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1o9fqdb" associationDirection="None" sourceRef="Task_GrillDocs" targetRef="TextAnnotation_18yb8lf" />
+    <bpmn:association id="Association_1bxi5zx" associationDirection="None" sourceRef="Task_Plano" targetRef="TextAnnotation_1qhvetu" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_SDD">
+      <bpmndi:BPMNShape id="Activity_185pq2k_di" bpmnElement="Activity_185pq2k">
+        <omgdc:Bounds x="310" y="340" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1ajhcj2_di" bpmnElement="Event_1ajhcj2">
+        <omgdc:Bounds x="1752" y="362" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1733" y="405" width="75" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_158jz5z" bpmnElement="Event_0do8feq">
+        <omgdc:Bounds x="172" y="362" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="157" y="405" width="67" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_19khmge_di" bpmnElement="Activity_19khmge" isExpanded="true">
+        <omgdc:Bounds x="480" y="170" width="1201" height="430" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1wusmlc" bpmnElement="StartEvent_1">
+        <omgdc:Bounds x="527" y="232" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="501" y="272" width="89" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1pkqzf4" bpmnElement="Task_GrillDocs">
+        <omgdc:Bounds x="635" y="210" width="130" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_189k0r1" bpmnElement="Task_ToTickets">
+        <omgdc:Bounds x="825" y="210" width="130" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0fhsm0u" bpmnElement="Task_Plano">
+        <omgdc:Bounds x="1015" y="210" width="150" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1jhmrvl" bpmnElement="Task_TDD">
+        <omgdc:Bounds x="1225" y="210" width="150" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1mz68y6" bpmnElement="Task_CodeReview">
+        <omgdc:Bounds x="1435" y="210" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1uk19ag" bpmnElement="EndEvent_1">
+        <omgdc:Bounds x="1625" y="232" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1637" y="272" width="16" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_03g7ofc" bpmnElement="StartEvent_2">
+        <omgdc:Bounds x="527" y="492" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="506" y="532" width="78" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0lu49jj" bpmnElement="Task_Avaliar">
+        <omgdc:Bounds x="635" y="470" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1qnwblr" bpmnElement="Gateway_Complexo" isMarkerVisible="true">
+        <omgdc:Bounds x="840" y="485" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="837" y="542" width="56" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0lrznpx" bpmnElement="Task_ValidarProduto">
+        <omgdc:Bounds x="1015" y="470" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0nl4ast" bpmnElement="Task_Implement">
+        <omgdc:Bounds x="1235" y="470" width="130" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_1015ar3" bpmnElement="Flow_1">
+        <omgdi:waypoint x="563" y="250" />
+        <omgdi:waypoint x="635" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_18z0n3p" bpmnElement="Flow_Sim">
+        <omgdi:waypoint x="865" y="485" />
+        <omgdi:waypoint x="865" y="350" />
+        <omgdi:waypoint x="700" y="350" />
+        <omgdi:waypoint x="700" y="290" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="880" y="463" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0w3v56v" bpmnElement="Flow_2">
+        <omgdi:waypoint x="765" y="250" />
+        <omgdi:waypoint x="825" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1baw605" bpmnElement="Flow_3">
+        <omgdi:waypoint x="955" y="250" />
+        <omgdi:waypoint x="1015" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0qfu8ah" bpmnElement="Flow_4">
+        <omgdi:waypoint x="1165" y="250" />
+        <omgdi:waypoint x="1225" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1jrxmi4" bpmnElement="Flow_5">
+        <omgdi:waypoint x="1375" y="250" />
+        <omgdi:waypoint x="1435" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_09e3swg" bpmnElement="Flow_Implement">
+        <omgdi:waypoint x="1365" y="510" />
+        <omgdi:waypoint x="1500" y="510" />
+        <omgdi:waypoint x="1500" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0eq7ucy" bpmnElement="Flow_6">
+        <omgdi:waypoint x="1565" y="250" />
+        <omgdi:waypoint x="1625" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_13ayueg" bpmnElement="Flow_7">
+        <omgdi:waypoint x="563" y="510" />
+        <omgdi:waypoint x="635" y="510" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0errlqk" bpmnElement="Flow_8">
+        <omgdi:waypoint x="765" y="510" />
+        <omgdi:waypoint x="840" y="510" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0sfiiw7" bpmnElement="Flow_Nao">
+        <omgdi:waypoint x="890" y="510" />
+        <omgdi:waypoint x="1015" y="510" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="947" y="492" width="21" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_03krqrv" bpmnElement="Flow_9">
+        <omgdi:waypoint x="1145" y="510" />
+        <omgdi:waypoint x="1235" y="510" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0h2rfe4_di" bpmnElement="TextAnnotation_0h2rfe4">
+        <omgdc:Bounds x="230" y="220" width="212" height="43" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_18yb8lf_di" bpmnElement="TextAnnotation_18yb8lf">
+        <omgdc:Bounds x="770" y="80" width="272" height="43" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1qhvetu_di" bpmnElement="TextAnnotation_1qhvetu">
+        <omgdc:Bounds x="1100" y="320" width="130" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_02mv51l_di" bpmnElement="Flow_02mv51l">
+        <omgdi:waypoint x="410" y="380" />
+        <omgdi:waypoint x="480" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1g3ka0b_di" bpmnElement="Flow_1g3ka0b">
+        <omgdi:waypoint x="1681" y="380" />
+        <omgdi:waypoint x="1752" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1c5dp7g_di" bpmnElement="Association_1c5dp7g">
+        <omgdi:waypoint x="347" y="340" />
+        <omgdi:waypoint x="321" y="263" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1o9fqdb_di" bpmnElement="Association_1o9fqdb">
+        <omgdi:waypoint x="723" y="210" />
+        <omgdi:waypoint x="770" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1bxi5zx_di" bpmnElement="Association_1bxi5zx">
+        <omgdi:waypoint x="1117" y="290" />
+        <omgdi:waypoint x="1137" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18b1dop_di" bpmnElement="Flow_18b1dop">
+        <omgdi:waypoint x="208" y="380" />
+        <omgdi:waypoint x="310" y="380" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

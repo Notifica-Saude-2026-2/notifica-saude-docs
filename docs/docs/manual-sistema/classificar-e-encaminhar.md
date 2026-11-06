@@ -8,6 +8,7 @@
     | Versão | Data | Justificativa | Responsável |
     | --- | --- | --- | --- |
     | 1.0 | 26/10/2026 | Criação da página. | Sophya Ribeiro |
+    | 1.1 | 06/11/2026 | Informações gerais com as medidas adotadas imediatamente e o número do prontuário ou do atendimento. Prints atualizados. | Sophya Ribeiro |
 
 <span class="ns-perfil ns-perfil--nsp">NSP</span>
 
@@ -21,11 +22,14 @@ Na fila **Novos incidentes**, clique no cartão de um incidente para abrir o det
 
 1. **Cabeçalho**: número do incidente, datas de criação e de ocorrência, responsável e status atual.
 2. **Opções de status** (⋮): concluir ou arquivar o incidente. Veja [Concluir e arquivar](concluir-e-arquivar.md).
-3. **Informações gerais**: o que o notificante registrou.
+3. **Informações gerais**: o que o notificante registrou, incluindo as **medidas adotadas imediatamente** e, quando há paciente envolvido, o **número do prontuário ou do atendimento**.
 4. **Classificação**: preenchida pelo NSP.
 5. **Análise**: disponível depois da classificação.
 6. **Plano de ação**: disponível depois da conclusão da análise.
 7. **Histórico de modificações**: tudo o que já foi feito no incidente, com data, hora e autor.
+
+!!! abstract "Regra do sistema"
+    O **número do prontuário ou do atendimento** é sigiloso: só o **NSP** e **quem conduz a análise** do incidente podem vê-lo, ele **não aparece em relatórios nem em exportações**, e cada acesso a uma tela que o exibe fica registrado no histórico da notificação (RN-31).
 
 ## Corrigir as informações gerais
 

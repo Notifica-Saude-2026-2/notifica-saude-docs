@@ -8,6 +8,7 @@
     | Versão | Data | Justificativa | Responsável |
     | --- | --- | --- | --- |
     | 1.0 | 26/10/2026 | Criação do manual do sistema, com o passo a passo de cada perfil e prints do protótipo funcional. | Sophya Ribeiro |
+    | 1.1 | 06/11/2026 | Status "Em análise": quem age agora passa a ser quem conduz a análise (RN-28 revisada). | Sophya Ribeiro |
 
 Este manual ensina a usar o **NotificaSaúde** no dia a dia, tela a tela. Ele foi escrito para quem vai usar o sistema, e não para quem vai desenvolvê-lo: não é preciso conhecer os requisitos para acompanhar.
 
@@ -55,7 +56,7 @@ flowchart LR
 | **Novo** | A notificação foi registrada e ainda não foi classificada. | NSP |
 | **Classificado** | O NSP classificou o incidente e definiu o prazo para análise. Falta decidir quem vai analisar. | NSP |
 | **Encaminhado** | O NSP enviou o incidente ao setor onde ele ocorreu, para que o gestor faça a análise. | Gestor da área |
-| **Em análise** | Alguém começou a preencher a análise. Se foi o NSP, o incidente continua aqui até o núcleo decidir se envia o resultado ao setor. | Quem iniciou a análise |
+| **Em análise** | Alguém começou a preencher a análise. Se foi o NSP, o incidente continua aqui até o núcleo decidir se envia o resultado ao setor. | Quem conduz a análise |
 | **Analisado** | A análise foi concluída. Já é possível montar o plano de ação. | NSP ou gestor |
 | **Em ação** | Há ao menos uma ação completa no plano de ação, sendo executada e acompanhada. | NSP ou gestor |
 | **Concluído** | O incidente foi encerrado depois do tratamento. Fica somente para consulta. | — |

@@ -7,6 +7,7 @@
     | Versão | Data | Justificativa | Responsável |
     | --- | --- | --- | --- |
     | 1.0 | 18/10/2026 | Criação da página com a situação atual da implantação: protótipo funcional e ambiente de homologação no servidor do NES. Substitui a antiga aba "Implantação e Entregas". | Sophya Ribeiro |
+    | 1.1 | 06/11/2026 | Inclusão da exportação dos incidentes em planilha na descrição do protótipo funcional. | Sophya Ribeiro |
 
 Hoje o NotificaSaúde está disponível em **dois ambientes**, com papéis diferentes: o **protótipo funcional**, que mostra o core completo do sistema e é usado para desenhar e validar as funcionalidades com as proponentes, e o **ambiente de homologação**, no servidor do NES, que roda a versão real do sistema com as funcionalidades já desenvolvidas e testadas.
 
@@ -20,7 +21,7 @@ Hoje o NotificaSaúde está disponível em **dois ambientes**, com papéis difer
 
     <span class="ns-tag ns-tag--arquitetura">Protótipo · GitHub Pages</span>
 
-    Versão navegável com o core completo do sistema: notificação, classificação, encaminhamento, análise do incidente e plano de ação. É onde as funcionalidades são desenhadas e validadas com as proponentes antes de entrarem no desenvolvimento.
+    Versão navegável com o core completo do sistema: notificação, classificação, encaminhamento, análise do incidente, plano de ação e exportação dos incidentes em planilha (XLSX). É onde as funcionalidades são desenhadas e validadas com as proponentes antes de entrarem no desenvolvimento.
 
     - Publicado no GitHub Pages, com deploy automático a cada atualização da branch principal ([decisão 07 do Diário de Decisões](../../gerencia-projeto/diario-de-decisoes.md)).
     - Não tem backend: os dados ficam salvos apenas no navegador de quem usa (localStorage).
