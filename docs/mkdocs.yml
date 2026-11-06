@@ -1,0 +1,190 @@
+site_name: NotificaSaúde
+site_description: Documentação do NotificaSaúde — registro, análise e acompanhamento de incidentes de segurança do paciente.
+repo_url: https://github.com/Notifica-Saude-2026-2/notifica-saude-docs
+repo_name: Notifica-Saude-2026-2/notifica-saude-docs
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: pt-BR
+  logo: assets/favicon.png
+  favicon: assets/favicon.png
+  # Fonte principal dos textos: Inter. A fonte de destaque (Raleway, a mesma da marca
+  # no sistema) é usada só nos títulos principais — ver docs/stylesheets/extra.css.
+  font:
+    text: Inter
+    code: JetBrains Mono
+  # Modo claro é o padrão (primeira paleta). O usuário pode alternar para o escuro,
+  # e a escolha fica salva no navegador.
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Mudar para modo escuro
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Mudar para modo claro
+  features:
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+
+markdown_extensions:
+  # nl2br: uma quebra de linha simples no Markdown vira quebra de linha na página
+  # (como no GitHub). Os documentos são escritos assim — ex.: título do critério de
+  # aceite numa linha e "Dado que... quando... então..." na linha seguinte.
+  - nl2br
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 4
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: datetime
+      timezone: America/Campo_Grande
+      locale: pt
+      fallback_to_build_date: true
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Visão Geral:
+      - Início: index.md
+      - Manual do Sistema:
+          - Visão geral: manual-sistema/index.md
+          - Primeiros passos: manual-sistema/primeiros-passos.md
+          - Registrar uma notificação: manual-sistema/registrar-notificacao.md
+          - Classificar e encaminhar: manual-sistema/classificar-e-encaminhar.md
+          - Registrar a análise: manual-sistema/registrar-analise.md
+          - Plano de ação: manual-sistema/plano-de-acao.md
+          - Concluir e arquivar: manual-sistema/concluir-e-arquivar.md
+          - Gestor da área: manual-sistema/gestor-da-area.md
+          - Dúvidas frequentes: manual-sistema/duvidas-frequentes.md
+  - Descoberta do Produto:
+      - Visão geral: descoberta-produto/index.md
+      - Lean Inception: descoberta-produto/lean-inception/index.md
+      - Documentos das Proponentes: descoberta-produto/documentos-proponentes.md
+  - Requisitos:
+      - Especificação de Requisitos de Software: requisitos/especificacao-requisitos.md
+      - Matriz RBAC: requisitos/matriz-rbac.md
+      - Reuniões:
+          - Visão geral: requisitos/reunioes/index.md
+          - Atas:
+              - Reunião Inicial (06/08/2026): requisitos/reunioes/atas/reuniao-inicial.md
+          - Relatórios:
+              - Visita Técnica: requisitos/reunioes/relatorios/visita-tecnica.md
+  - Desenvolvimento:
+      - Arquitetura:
+          - Especificação de Arquitetura de Software: desenvolvimento/arquitetura/especificacao-arquitetura.md
+          - ADR:
+              - Visão geral: desenvolvimento/arquitetura/adr/index.md
+              - "ADR-0001: Registrar decisões de arquitetura": desenvolvimento/arquitetura/adr/0001-registro-de-decisoes-de-arquitetura.md
+              - "ADR-0002: Adotar aplicação web responsiva para o NotificaSaúde": desenvolvimento/arquitetura/adr/0002-adotar-aplicacao-web-responsiva.md
+              - "ADR-0003: Adotar arquitetura monolítica para o backend do NotificaSaúde": desenvolvimento/arquitetura/adr/0003-adotar-arquitetura-monolitica.md
+              - "ADR-0004: Utilizar SQLite na fase inicial do NotificaSaúde": desenvolvimento/arquitetura/adr/0004-usar-sqlite-na-fase-inicial.md
+              - "ADR-0005: Utilizar React com TypeScript no frontend do NotificaSaúde": desenvolvimento/arquitetura/adr/0005-usar-react-typescript-no-frontend.md
+              - "ADR-0006: Adotar arquitetura cliente-servidor usando REST": desenvolvimento/arquitetura/adr/0006-adotar-arquitetura-cliente-servidor-rest.md
+              - "ADR-0007: Usar Docker para a implantação": desenvolvimento/arquitetura/adr/0007-adotar-docker-para-deploy.md
+              - "ADR-0008: Adotar Arquitetura Centralizada": desenvolvimento/arquitetura/adr/0008-adotar-arquitetura-centralizada.md
+              - "ADR-0009: Adotar multi-tenancy com PostgreSQL": desenvolvimento/arquitetura/adr/0009-adotar-multitenancy-com-postgresql.md
+              - "ADR-0010: Adotar backend com Express.js": desenvolvimento/arquitetura/adr/0010-adotar-backend-expressjs.md
+              - "ADR-0011: Adotar ORM Prisma": desenvolvimento/arquitetura/adr/0011-adotar-orm-prisma.md
+              - "ADR-0012: Adotar Swagger para documentação da API": desenvolvimento/arquitetura/adr/0012-adotar-swagger.md
+              - "ADR-0013: Adotar Logger Estruturado com Pino no Backend": desenvolvimento/arquitetura/adr/0013-adotar-logger-estruturado-backend.md
+              - "ADR-0014: Adotar Métricas de DevOps SRE": desenvolvimento/arquitetura/adr/0014-adotar-metricas-sre.md
+              - "ADR-0015: Adotar Brevo para envio de e-mails transacionais": desenvolvimento/arquitetura/adr/0015-adotar-brevo-para-envio-de-emails.md
+              - "ADR-0016: Usar arquitetura multi-tenancy": desenvolvimento/arquitetura/adr/0016-adotar-multitenancy.md
+              - "ADR-0017: Usar SGBD PostgreSQL para dados de negócio": desenvolvimento/arquitetura/adr/0017-adotar-postgresql-como-sgbd.md
+              - "ADR-0018: Usar Redis para armazenar dados de autenticação": desenvolvimento/arquitetura/adr/0018-adotar-redis-para-dados-de-autenticacao.md
+              - "ADR-0019: Adotar porta MailerService com factory de providers para envio de e-mail": desenvolvimento/arquitetura/adr/0019-adotar-mailer-service-com-factory-de-providers.md
+              - "ADR-0020: Adotar fila BullMQ + worker dedicado para envio de e-mails": desenvolvimento/arquitetura/adr/0020-adotar-fila-bullmq-para-envio-de-emails.md
+              - "ADR-0021: Adotar PostgreSQL como SGBD relacional único com suporte a multitenancy": desenvolvimento/arquitetura/adr/0021-adotar-postgresql-como-sgbd-com-multitenancy.md
+          - Brevo: desenvolvimento/arquitetura/brevo.md
+      - Banco de Dados:
+          - Especificação do Modelo de Domínio: desenvolvimento/banco-de-dados/modelo-dominio.md
+          - Especificação do Modelo Lógico: desenvolvimento/banco-de-dados/modelo-logico.md
+      - Frontend: desenvolvimento/frontend/repositorio.md
+      - Backend: desenvolvimento/backend/repositorio.md
+      - Implantação: desenvolvimento/implantacao/index.md
+  - Qualidade e Testes:
+      - Visão geral: vvt/index.md
+      - Plano de Testes: vvt/plano-de-testes.md
+      - Casos de Teste: vvt/casos-de-teste.md
+      - Matriz de Rastreabilidade: vvt/matriz-rastreabilidade.md
+      - Relatórios:
+          - Relatórios de Testes:
+              - Visão geral: vvt/relatorios-testes/index.md
+              - Cobertura de Código - Semestre 2026.1 - Unitário: vvt/relatorios-testes/cobertura-unitario.md
+              - Cobertura de Código - Semestre 2026.1 - Integração: vvt/relatorios-testes/cobertura-integracao.md
+              - Épico 1 - Verificação de Captcha - Unitário: vvt/relatorios-testes/issue-12-captcha-unitario.md
+              - Épico 1 - Verificação de Captcha - Integração: vvt/relatorios-testes/issue-12-captcha-integracao.md
+              - Épico 2 - Bloqueio de Encaminhamento - Unitário: vvt/relatorios-testes/us-2-3-bloqueio-encaminhamento-unitario.md
+              - Épico 2 - Bloqueio de Encaminhamento - Integração: vvt/relatorios-testes/us-2-3-bloqueio-encaminhamento-integracao.md
+              - Épico 4 - Análise do Incidente - Unitário: vvt/relatorios-testes/analise-secoes-1-2-unitario.md
+              - Épico 4 - Análise do Incidente - Integração: vvt/relatorios-testes/analise-secoes-1-2-integracao.md
+              - Épico 4 - Análise do Incidente - End-to-End (US-4.1): vvt/relatorios-testes/analise-us-4-1-e2e.md
+              - Épico 4 - Análise do Incidente - End-to-End (US-4.2): vvt/relatorios-testes/analise-us-4-2-e2e.md
+              - Épico 4 - Análise do Incidente - End-to-End (US-4.3): vvt/relatorios-testes/analise-us-4-3-e2e.md
+              - Épico 4 - Análise do Incidente - End-to-End (US-4.4): vvt/relatorios-testes/analise-us-4-4-e2e.md
+          - Testes Não-Funcionais: vvt/relatorio-nao-funcionais.md
+          - Bugs: vvt/relatorio-bugs.md
+      - Teste de Usabilidade:
+          - Visão geral: vvt/teste-usabilidade/index.md
+          - Roteiro de Teste: vvt/teste-usabilidade/plano-de-teste.md
+          - Ata do Teste: vvt/teste-usabilidade/ata.md
+          - Relatório: vvt/teste-usabilidade/relatorio.md
+  - Gerência de Configuração:
+      - Visão geral: gcs/index.md
+      - Modelo de Ramificação: gcs/modelo-ramificacao.md
+      - Gerenciamento de Mudanças: gcs/gerenciamento-mudancas.md
+      - Gerenciamento de Pull Requests: gcs/pull-requests.md
+      - Padrão de Mensagens de Commit: gcs/padrao-commits.md
+      - Gerenciamento de Documentação: gcs/gerenciamento-documentacao.md
+      - Definição de Pronto (DoD e DoR): gcs/definicao-de-pronto.md
+      - Gerenciamento de Releases: gcs/gerenciamento-releases.md
+      - Pipelines de CI: gcs/pipelines-ci.md
+      - Uso do act (Execução Local da CI): gcs/uso-act.md
+  - Gestão do Projeto:
+      - Plano de Projeto: gerencia-projeto/plano-projeto.md
+      - Cronograma: gerencia-projeto/cronograma.md
+      - Responsabilidades: gerencia-projeto/responsabilidades.md
+      - Riscos do Projeto: gerencia-projeto/riscos.md
+      - Diário de Decisões: gerencia-projeto/diario-de-decisoes.md
+      - Sprints:
+          - Visão geral: gerencia-projeto/sprints/index.md
+          - Sprint 0: gerencia-projeto/sprints/sprint-0.md
+          - Sprint 1: gerencia-projeto/sprints/sprint-1.md
+      - Uso do MkDocs:
+          - Visão geral: gerencia-projeto/uso-mkdocs/index.md
+          - Decisão da Ferramenta: gerencia-projeto/uso-mkdocs/decisao-da-ferramenta.md
+          - Configuração e Manutenção: gerencia-projeto/uso-mkdocs/configuracao-e-manutencao.md
+          - Guia de Atualização da Documentação: gerencia-projeto/uso-mkdocs/guia-atualizacao-documentacao.md

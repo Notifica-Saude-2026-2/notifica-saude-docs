@@ -1,0 +1,1564 @@
+<h1 align="center">Especificação de Requisitos de Software</h1>
+
+
+<p align="center"><strong>Mantenedores:</strong> Gustavo Henrique, Kauan Cardoso, Sophya Ribeiro, Brenno, Catarina, Eduardo</p>
+
+??? note "Histórico de Alterações"
+
+    | Versão | Data | Justificativa | Responsável |
+    | --- | --- | --- | --- |
+    | 1.0 | 10/03/2026 | Primeira versão do documento, glossário e estrutura dos requisitos. | Sophya Ribeiro |
+    | 1.0 | 11/03/2026 | Inserção de novos termos no glossário. Adição dos épicos 1 e 2, bem como suas respectivas histórias de usuário. | Sophya Ribeiro |
+    | 1.0 | 12/03/2026 | Alteração e inserção nos critérios de aceite da US 2.3. | Sophya Ribeiro |
+    | 1.1 | 16/03/2026 | Ajustes específicos. Primeira validação do documento. | Sophya Ribeiro |
+    | 1.2 | 18/03/2026 | Adição de novo ator, conforme validação das proponentes. Ajustes pontuais em critérios de aceite. Primeira validação formal com proponentes. | Sophya Ribeiro |
+    | 1.3 | 28/04/2026 | Atualização pontual nos épicos 1 e 2, requisitos não-funcionais e regras de negócio. | Sophya Ribeiro, Aline Hirokawa |
+    | 1.4 | 29/04/2026 | Inserção do épico referente a autenticação. | Sophya Ribeiro |
+    | 2.0 | 30/04/2026 | Inserção da História de usuário referente ao status dos incidentes. | Sophya Ribeiro |
+    | 2.1 | 05/05/2026 | Ajustes nos requisitos não-funcionais | Aline Hirokawa |
+    | 2.2 | 07/05/2026 | Adição de novos critérios de aceite na US2.5. | Sophya Ribeiro |
+    | 2.3 | 19/05/2026 | Adição de texto para template do email da US2.5. | Sophya Ribeiro |
+    | 2.4 | 20/05/2026 | Adição de nova pergunta no formulário de classificação. | Sophya Ribeiro |
+    | 2.5 | 01/06/2026 | Atualização no modelo de descrição dos épicos. | Sophya Ribeiro |
+    | 2.6 | 08/06/2026 | Edição e exclusão de requisitos não-funcionais. | Sophya Ribeiro |
+    | 2.7 | 10/08/2026 | Adição do Épico 4, e das histórias de usuários | Gustavo Henrique |
+    | 2.8 | 13/08/2026 | Adição do Épico 5, gestão do plano de ação | Gustavo Henrique |
+    | 3.0 | 23/09/2026 | Revisão completa do fluxo classificação → análise → plano de ação conforme o protótipo funcional validado com as proponentes: atualização das US 2.3, 2.4 e 2.5 e dos épicos 4 e 5; inclusão das US 4.6 a 4.11 (seções do formulário de análise e decisão pós-análise) e 5.5 a 5.7 (ações originadas de recomendações, edição/exclusão de ações e conclusão do incidente); inclusão dos requisitos não-funcionais de usabilidade e feedback (6.7); numeração e ampliação das regras de negócio; novos termos no glossário. | Sophya Ribeiro |
+    | 3.1 | 23/09/2026 | Ajuste do conceito de responsável e de acesso: responsável pelo incidente definido como o profissional do NSP que finalizou a classificação, mantido até o fim do fluxo e apenas como referência (sem conceder ou restringir permissões); fila do gestor da área restrita aos incidentes do seu setor encaminhados pelo NSP, antes ou depois da análise (US 4.1 reescrita, nova RN-26); uso genérico de "o responsável" substituído por "o usuário" nos critérios de aceite. | Sophya Ribeiro |
+    | 3.2 | 23/09/2026 | Remoção das menções a escolha de metodologia (antiga RN-17 e critérios relacionados), com renumeração das regras de negócio seguintes. A história "Acompanhar plano de ação e prazos" passou do épico 4 para o épico 5 (antiga US 4.3, agora US 5.3), com renumeração das histórias seguintes dos dois épicos. | Sophya Ribeiro |
+    | 3.3 | 23/09/2026 | Reorganização das histórias de usuário por épico: épico 2 com a gestão e classificação da notificação (inclui a consulta ao histórico, antiga US 4.4, agora US 2.6); épico 4 somente com a análise, na ordem do fluxo; épico 5 somente com o plano de ação, na ordem do fluxo. | Sophya Ribeiro |
+    | 3.4 | 23/09/2026 | Inclusão do requisito não-funcional 6.2.9 (proteção contra o registro automatizado ou em massa de notificações por robôs) e do critério de aceite CA04 da US 1.1. | Sophya Ribeiro |
+    | 3.5 | 23/09/2026 | Criação do épico 6 — Status e ciclo de vida do incidente, unificando o status, as mudanças provocadas pelas ações do usuário, o arquivamento e a conclusão do incidente (US 6.1 a 6.4). A antiga US 2.4 (status) e a antiga US 5.8 (concluir o incidente) passaram para o épico 6; as histórias seguintes do épico 2 foram renumeradas. As menções a status nas demais histórias foram mantidas, com referência à US 6.2. | Sophya Ribeiro |
+    | 3.6 | 23/09/2026 | Sigilo da identificação do notificante para o gestor da área: novo critério de aceite CA05 na US 4.1, ajuste da Seção 1 da análise (US 4.3), nova RN-27 e novo requisito não-funcional 6.3.4. | Sophya Ribeiro |
+    | 3.7 | 23/09/2026 | Autoria exclusiva da análise em andamento, para tratar acessos simultâneos: somente quem iniciou a análise pode continuá-la e concluí-la; os demais usuários veem "Análise em andamento. Aguarde a finalização para visualizar os detalhes."; início simultâneo resolvido pelo primeiro salvamento no servidor (US 4.2, CA02 a CA04, e nova RN-28). | Sophya Ribeiro |
+    | 3.8 | 23/09/2026 | Limites dos anexos de evidência das ações: no máximo 10 anexos por ação e 10 MB por arquivo (novo CA12 da US 5.6 e RN-25). | Sophya Ribeiro |
+    | 3.9 | 29/09/2026 | Ajustes do formulário de análise e do plano de ação validados com as proponentes no protótipo funcional: Guia de investigação antes da Seção 1 (US 4.2, CA16 a CA18); explicações das seções em caixas com parágrafos e blocos recolhíveis que lembram a escolha do usuário (US 4.2, CA11 e CA19; 6.7.12 e 6.7.13); Seção 3 com nova orientação, "Como preencher", exemplo da cronologia em mini tabela, conferência "Antes de seguir, confira" e aviso de fatos em análise, remoção da pergunta "Foi identificado algum PPC?" e nova tabela de PPC (US 4.5 reescrita); Seções 4 e 4A unificadas em "Seção 4 — Fatores contribuintes", com um cartão por PPC, análise aberta na própria linha, novos campos do fator, 5 Porquês sempre visível e inclusão de PPC na própria seção, deixando de analisar fatos da cronologia (US 4.6 reescrita); Seção 5 com novos textos, diagrama de Ishikawa agrupado por PPC, somente as respostas do 5 Porquês, exportação em PNG e recomendações em linhas (US 4.7 reescrita); botão "Finalizar análise" (US 4.2 e 4.8); plano de ação exibido em tabela (US 5.2, 5.3, 5.5 e 5.6); "Onde será feito?" com seleção de um ou mais setores (US 5.1, CA04 e CA14; RN-24); limite de 200 caracteres nos textos da atualização de andamento (US 5.6, CA16); glossário atualizado (PPC, fatores contribuintes, 5 Porquês, Diagrama de Ishikawa, Guia de investigação). | Sophya Ribeiro |
+    | 3.10 | 26/10/2026 | 5 Porquês fechado por padrão: o fator exibe o convite e o botão "Usar os 5 Porquês", que abre o bloco; opções "Não usar os 5 Porquês" e "Remover 5 Porquês" com confirmação (US 4.6, CA08). | Sophya Ribeiro |
+    | 3.11 | 03/11/2026 | Criação do épico 7 — Exportação de relatório de incidentes, validado com as proponentes no protótipo funcional: exportação em XLSX de todos os incidentes do escopo do perfil, sem considerar filtros (US 7.1 para o NSP e US 7.2 para o gestor da área); novas RN-29 (sigilo do notificante nos relatórios) e RN-30 (escopo do relatório); novo requisito não-funcional 6.3.5; descrição dos atores atualizada. | Sophya Ribeiro |
+    | 3.12 | 03/11/2026 | Ajustes pontuais validados com as proponentes: apresentação do sistema na tela inicial, com a abrangência dos serviços de saúde atendidos (US 1.1, CA05); número do prontuário ou do atendimento como primeiro campo da seção do paciente, visível só ao NSP e a quem conduz a análise, fora de relatórios e com acesso registrado no histórico (US 1.1, CA06; US 2.2, CA05; US 2.5, CA03; US 4.3, CA01; US 7.1 e 7.2, CA03; nova RN-31 e requisito não-funcional 6.3.6); faixa etária do paciente em campo aberto (US 1.1, CA07); novo campo opcional de medidas adotadas imediatamente após o incidente (US 1.1, CA08; US 4.3, CA01; US 7.1, CA06); "Papel do notificante" substituído por "Quem está fazendo esta notificação?", com novas opções (US 1.1, CA09; US 7.1, CA06); Terapia Ocupacional e Fonoaudiologia na lista "Formação" da equipe da análise (US 4.4, CA02); análise em andamento visível a todos os membros do NSP, que podem assumir a sua condução com registro no histórico, e aviso "Atualize a página e tente novamente" em salvamento concorrente (US 4.2, CA02 a CA04, CA07 e nova CA20; US 2.5, CA03; RN-28 reescrita); novo campo obrigatório "Como a ação será realizada?", com caixa de informação e exemplo, após "O que será feito?" (US 5.1, nova CA18 e CA14, com as perguntas renumeradas; US 5.6, CA03; US 7.1, CA07); situação do plano como um todo, por cor, acima da tabela — Em dia, Com ação atrasada ou Concluído (US 5.5, nova CA08). | Sophya Ribeiro |
+
+## Sumário
+
+- [1. Introdução](#introducao)
+- [2. Glossário](#glossario)
+- [3. Descrição dos Atores](#descricao-atores)
+- [4. Épicos](#epicos)
+- [5. Histórias de Usuário](#historias-usuario)
+    - [5.1 Registro de notificações de incidentes](#historias-51)
+    - [5.2 Gestão e classificação de notificações](#historias-52)
+    - [5.3 Autenticação e controle de acesso](#historias-53)
+    - [5.4 Registro de análise em notificação de incidentes](#historias-54)
+    - [5.5 Gestão de plano de ação](#historias-55)
+    - [5.6 Status e ciclo de vida do incidente](#historias-56)
+    - [5.7 Exportação de relatório de incidentes](#historias-57)
+- [6. Requisitos Não-funcionais](#rnf)
+    - [6.1 Disponibilidade](#rnf-disponibilidade)
+    - [6.2 Segurança da Informação](#rnf-seguranca)
+    - [6.3 Proteção de Dados e LGPD](#rnf-lgpd)
+    - [6.4 Compatibilidade e Acesso](#rnf-compatibilidade)
+    - [6.5 Desempenho](#rnf-desempenho)
+    - [6.6 Acessibilidade](#rnf-acessibilidade)
+    - [6.7 Usabilidade e Feedback ao Usuário](#rnf-usabilidade)
+- [7. Regras de Negócio](#regras-negocio)
+- [8. Referências](#referencias)
+
+---
+
+<a id="introducao"></a>
+
+## 1. Introdução
+
+Este documento é destinado aos stakeholders da solução Notifica Saúde, tanto diretos quanto indiretos. Ele apresenta os requisitos de um sistema voltado ao registro, análise e monitoramento de incidentes relacionados à segurança do paciente em serviços de saúde.
+
+A solução proposta permite que usuários realizem notificações de incidentes por meio de um formulário eletrônico, de forma identificada ou anônima. Após o registro, as notificações são encaminhadas ao Núcleo de Segurança do Paciente, responsável pela classificação do incidente, acompanhamento do fluxo de investigação e monitoramento das ações corretivas definidas pelos setores responsáveis.
+
+Além disso, o sistema possibilita o acompanhamento do status das notificações, o registro das análises realizadas pelas áreas envolvidas e a geração de relatórios consolidados para apoio ao monitoramento e à melhoria contínua dos processos relacionados à segurança do paciente.
+
+---
+
+<a id="glossario"></a>
+
+## 2. Glossário
+
+| Termo | Descrição |
+| --- | --- |
+| Incidente | Ocorrência ou circunstância relacionada ao cuidado em saúde que poderia resultar, ou resultou, em dano ao paciente. Inclui desde situações de risco até eventos que efetivamente causaram dano. |
+| Notificação | Registro formal de um incidente relacionado à segurança do paciente realizado no sistema. A notificação é o artefato gerado quando ocorre ou é identificado um incidente, devendo ser registrada independentemente da existência de dano ao paciente, conforme diretrizes e regulamentações de segurança do paciente. Seu objetivo é permitir o monitoramento, a análise e a implementação de ações de melhoria para prevenção de novos incidentes. A notificação pode ser realizada por qualquer pessoa e pode ocorrer de forma identificada ou anônima. |
+| Evento adverso | Tipo de incidente que resulta em dano ao paciente decorrente do cuidado em saúde e não da evolução natural da doença. Pode ser classificado conforme a gravidade do dano (leve, moderado, grave, óbito ou Never Event). |
+| Classificação do Incidente | Processo realizado pelo Núcleo de Segurança do Paciente para categorizar o incidente de acordo com critérios de gravidade, tipo e impacto ao paciente. |
+| Dano Leve | Incidente que não resulta em dano ao paciente, mas que deve ser registrado e monitorado conforme exigências regulatórias e políticas de segurança do paciente. |
+| Dano Moderado | Incidente que causa algum impacto ao paciente, podendo exigir intervenção ou acompanhamento, porém sem resultar em consequências graves ou permanentes. |
+| Dano Grave | Incidente que causa dano significativo ao paciente, podendo resultar em agravamento clínico relevante, necessidade de intervenção médica importante ou prolongamento da internação. |
+| Dano Catastrófico | Incidente que resulta em óbito do paciente decorrente do evento relacionado ao cuidado em saúde. |
+| Near Miss | Incidente que poderia causar dano ao paciente, mas que foi interceptado antes de atingir o paciente ou antes de produzir qualquer consequência. |
+| Circunstância de Risco | Situação ou condição com potencial de causar um incidente relacionado ao cuidado em saúde, mesmo que nenhum erro ou dano tenha ocorrido. |
+| Área Notificada | Setor, unidade ou departamento da instituição de saúde onde o incidente ocorreu. Quando o NSP encaminha o incidente a esse setor, o gestor da área passa a ter acesso a ele e pode conduzir a investigação e o plano de ação. |
+| Gestor da Área | Profissional responsável pela gestão de um setor específico da instituição de saúde. No sistema, só tem acesso aos incidentes do seu setor que o NSP encaminhou a ele, antes da análise (para que o setor a realize) ou depois dela (resultado da análise feita pelo NSP). |
+| Responsável pelo Incidente | Profissional do Núcleo de Segurança do Paciente que registrou a classificação finalizada do incidente. É definido automaticamente nesse momento e se mantém o mesmo até o fim do fluxo (conclusão ou arquivamento), mesmo que o incidente seja encaminhado ao setor. Serve como referência de quem iniciou o tratamento do incidente e não concede nem restringe permissões: qualquer profissional do NSP pode atuar sobre o incidente. Não se confunde com os responsáveis pelas ações do plano de ação. |
+| Investigação de Incidente | Processo de análise conduzido pelo setor onde o incidente ocorreu (quando encaminhado pelo NSP) ou pelo Núcleo de Segurança do Paciente para identificar as causas que levaram à ocorrência do incidente. No sistema, corresponde ao preenchimento do formulário de análise, organizado em seções sequenciais. |
+| Análise de Causa Raiz | Método estruturado de investigação utilizado para identificar as causas fundamentais que contribuíram para a ocorrência de um incidente. No sistema, a análise é registrada pelas seções do formulário de análise, que já incorporam essas técnicas. |
+| Diagrama de Ishikawa | Ferramenta de análise utilizada na investigação de incidentes para identificar e organizar possíveis causas do problema, também conhecida como diagrama de causa e efeito ou espinha de peixe. No sistema, é gerado automaticamente a partir dos fatores contribuintes registrados na análise: cada categoria reúne os fatores agrupados pelo PPC a que se referem e, quando houver aprofundamento, as respostas do 5 Porquês. Pode ser exportado como imagem PNG. |
+| Plano de Ação | Conjunto de ações corretivas e preventivas definidas após a investigação de um incidente, com responsáveis e prazos estabelecidos para evitar recorrência. Cada ação segue o modelo SMART (específica, mensurável, atingível, relevante e com prazo). |
+| Ação Corretiva | Medida adotada para corrigir uma falha identificada e reduzir a probabilidade de repetição do incidente. |
+| Prazo de Tratativa | Período definido para que o incidente seja analisado (pelo NSP ou pelo setor a que foi encaminhado) e as ações ou respostas sejam registradas no sistema. |
+| Prazo para Análise | Data-limite para a análise do incidente, calculada automaticamente a partir da data de registro da notificação e do grau do dano definido na classificação. |
+| Status da Notificação | Estado atual de uma notificação dentro do fluxo do sistema, indicando em que etapa do processo ela se encontra: Novo, Classificado, Encaminhado, Em análise, Analisado, Em ação, Concluído ou Arquivado. |
+| Núcleo de Segurança do Paciente (NSP) | Unidade ou equipe institucional responsável por receber notificações de incidentes, realizar a classificação inicial, acompanhar investigações e monitorar ações corretivas relacionadas à segurança do paciente. |
+| NOTIVISA | Sistema nacional da Agência Nacional de Vigilância Sanitária (ANVISA) utilizado para registro e monitoramento de incidentes relacionados à vigilância sanitária e segurança do paciente. |
+| Never Events | Eventos nunca (NE) são incidentes de segurança do paciente que podem ser evitados e tão graves que nunca deveriam acontecer. |
+| Incidente em Investigação | Descrição curta (até 100 caracteres), escrita por quem realiza a análise, do incidente que está sendo investigado. É exibida no topo das seções do formulário de análise e na "cabeça" do Diagrama de Ishikawa. |
+| Condutor da Análise | Profissional que conduz a análise do incidente. É registrado com nome, formação, função e setor, junto dos demais membros participantes, para documentar a autoria de forma rastreável. |
+| Cronologia do Incidente | Linha do tempo com os fatos relacionados ao incidente, em ordem cronológica, cada um com data, hora, fonte da informação e status de confirmação (Confirmado, Provável ou Em análise). |
+| Problema na Prestação do Cuidado (PPC) | Ação, omissão, decisão ou falha no processo de cuidado que foi diferente do que deveria ter acontecido e que teve importância na sequência do incidente. Nem sempre é um erro de alguém: também conta quando um equipamento, sistema ou processo falhou durante o cuidado (ex.: administração de medicamento diferente do prescrito; falha de equipamento durante o cuidado). Não se confunde com os fatores contribuintes (ex.: falta de pessoal, sobrecarga de trabalho), que são as condições que favoreceram o PPC. Cada PPC registra a descrição do problema, o que deveria ter acontecido e o que aconteceu de diferente. |
+| Fatores Contribuintes | Condições que estavam presentes e podem ter favorecido a ocorrência de um PPC. São identificadas para cada PPC e organizadas nas oito categorias do Protocolo de Londres 2024: fatores do paciente; fatores individuais dos profissionais; fatores das tarefas; fatores da equipe; fatores do ambiente de trabalho; tecnologia e sistemas eletrônicos de informação; fatores organizacionais, gerenciais e culturais; e fatores do contexto institucional. |
+| 5 Porquês | Técnica de aprofundamento que consiste em perguntar "por quê?" repetidamente a partir de um fator identificado, usando cada resposta para formular o próximo "por quê?", até chegar a uma causa capaz de orientar uma ação de melhoria. Não é necessário chegar exatamente a cinco perguntas. No sistema, é opcional e pode ser usado em cada fator contribuinte registrado, com até 15 níveis. |
+| Recomendação | Ação sugerida ao final da análise para tratar as causas identificadas e evitar que o incidente se repita. Ao concluir a análise, cada recomendação dá origem a uma ação no plano de ação da notificação. |
+| Guia de Investigação | Tela de apresentação exibida ao abrir o formulário de análise, antes da Seção 1, que mostra o percurso completo da investigação (Seções 1 a 5 e o Plano de Ação como próximo passo). Não é uma seção do formulário: não possui campos nem entra na contagem de etapas. |
+| Cultura Justa | Princípio que orienta a análise: a investigação não busca punir individualmente profissionais da ponta assistencial, e sim identificar vulnerabilidades e barreiras do sistema. |
+| Ação Pendente de Preenchimento | Ação do plano de ação criada automaticamente a partir de uma recomendação da análise, que ainda não possui todos os campos obrigatórios preenchidos. Não pode ter o andamento atualizado até ser completada. |
+| Efetividade da Ação | Avaliação de se a ação executada produziu o resultado esperado (Sim, Parcialmente ou Não), registrada na atualização do andamento da ação. |
+
+---
+
+<a id="descricao-atores"></a>
+
+## 3. Descrição dos Atores
+
+| Ator | Descrição |
+| --- | --- |
+| Notificante | Usuário responsável por registrar uma notificação de incidente no sistema. Pode ser um profissional de saúde, paciente, acompanhante ou qualquer pessoa que tenha conhecimento do ocorrido. A notificação pode ser realizada de forma identificada ou anônima. |
+| Profissional do Núcleo de Segurança do Paciente (NSP) | Usuário responsável por acessar as notificações registradas, realizar a análise inicial e classificar o incidente conforme critérios estabelecidos. Também acompanha o andamento das notificações. Responsável por gerenciar os usuários vinculados à sua instituição, incluindo cadastro, edição e definição de perfis de acesso. Pode exportar o relatório de todos os incidentes da instituição (épico 7). |
+| Gestor de Área | Usuário responsável pela gestão de um setor da instituição. Acessa somente os incidentes do seu setor que o Núcleo de Segurança do Paciente encaminhou a ele: antes da análise, para realizar a investigação e registrar a análise das causas; ou depois da análise feita pelo NSP, quando o núcleo decide encaminhar o resultado ao setor. Nos incidentes a que tem acesso, define e acompanha o plano de ação com medidas corretivas ou preventivas. Pode exportar o relatório dos incidentes do seu setor a que tem acesso (épico 7). |
+| Administrador do Sistema | Usuário responsável pela administração global do sistema, com acesso irrestrito a todas as instituições cadastradas. Pode gerenciar usuários em nível sistêmico, configurar parâmetros gerais da aplicação, supervisionar o uso do sistema e garantir seu correto funcionamento em todos os contextos institucionais. |
+
+---
+
+<a id="epicos"></a>
+
+## 4. Épicos
+
+Nesta seção são apresentados os épicos do sistema NotificaSaúde, organizados com o objetivo de agrupar funcionalidades relacionadas de acordo com os principais fluxos e necessidades identificados no processo de gestão de incidentes. Cada épico contém uma descrição resumida de seu propósito e a relação das histórias de usuário associadas, permitindo uma visão mais ampla das funcionalidades do produto e de como elas se conectam aos objetivos do sistema.
+
+### Épico 1 — Registro de notificações de incidentes
+
+**COMO** qualquer pessoa que tenha conhecimento de um incidente (profissional de saúde, paciente, acompanhante ou terceiro)
+**QUERO** registrar uma notificação de incidente no sistema
+**PARA** que a ocorrência seja analisada e tratada pela instituição, contribuindo para a melhoria da segurança do paciente.
+
+**Histórias de usuário:** [US 1.1 — Registrar notificação de incidente](#us-1-1)
+
+### Épico 2 — Gestão e classificação de notificações de incidentes
+
+**COMO** profissional do Núcleo de Segurança do Paciente, devidamente autenticado no sistema
+**QUERO** visualizar, complementar, classificar e encaminhar notificações de incidentes registradas e consultar seu histórico
+**PARA** garantir que as ocorrências sejam corretamente analisadas e direcionadas aos setores onde ocorreram para investigação e definição de ações corretivas.
+
+**Histórias de usuário:**
+
+- [US 2.1 — Visualizar notificações registradas](#us-2-1)
+- [US 2.2 — Complementar ou corrigir informações da notificação](#us-2-2)
+- [US 2.3 — Classificar incidente notificado](#us-2-3)
+- [US 2.4 — Encaminhar notificação para o setor](#us-2-4)
+- [US 2.5 — Consultar histórico da notificação](#us-2-5)
+
+### Épico 3 — Autenticação e controle de acesso
+
+**COMO** usuário previamente cadastrado no sistema
+**QUERO** realizar login e recuperar minha senha de acesso quando necessário
+**PARA** acessar a plataforma de forma segura e utilizar suas funcionalidades conforme meu perfil de acesso.
+
+**Histórias de usuário:**
+
+- [US 3.1 — Realizar login no sistema](#us-3-1)
+- [US 3.2 — Recuperar senha de acesso](#us-3-2)
+
+### Épico 4 — Registro de análise em notificação de incidentes
+
+**COMO** gestor da área ou profissional do Núcleo de Segurança do Paciente
+**QUERO** registrar uma análise em uma notificação de incidente, seção a seção, e decidir o destino do seu resultado
+**PARA** investigar as causas do ocorrido e documentar as informações relevantes para definição de ações corretivas e preventivas.
+
+**Histórias de usuário:**
+
+- [US 4.1 — Visualizar incidentes para análise](#us-4-1)
+- [US 4.2 — Registrar análise do incidente](#us-4-2)
+- [US 4.3 — Identificar o incidente em investigação (Seção 1)](#us-4-3)
+- [US 4.4 — Registrar equipe, fontes e entrevistas da análise (Seção 2)](#us-4-4)
+- [US 4.5 — Registrar cronologia e problemas na prestação do cuidado (Seção 3)](#us-4-5)
+- [US 4.6 — Analisar fatores contribuintes de cada PPC e aprofundar com os 5 Porquês (Seção 4)](#us-4-6)
+- [US 4.7 — Revisar o Diagrama de Ishikawa e registrar recomendações (Seção 5)](#us-4-7)
+- [US 4.8 — Concluir investigação do incidente](#us-4-8)
+- [US 4.9 — Decidir o encaminhamento do resultado da análise ao setor](#us-4-9)
+
+### Épico 5 — Gestão de plano de ação
+
+**COMO** profissional do Núcleo de Segurança do Paciente ou gestor da área a que o incidente foi encaminhado
+**QUERO** registrar e acompanhar um plano de ação relacionado ao problema identificado na análise
+**PARA** definir, executar, acompanhar e avaliar as ações necessárias para tratar o problema identificado, até que o incidente possa ser concluído (épico 6).
+
+**Histórias de usuário:**
+
+- [US 5.1 — Acessar e preencher o plano de ação](#us-5-1)
+- [US 5.2 — Adicionar ações ao plano de ação](#us-5-2)
+- [US 5.3 — Completar ações originadas das recomendações da análise](#us-5-3)
+- [US 5.4 — Editar e excluir ações do plano de ação](#us-5-4)
+- [US 5.5 — Acompanhar plano de ação e prazos](#us-5-5)
+- [US 5.6 — Acompanhar e atualizar o andamento das ações](#us-5-6)
+- [US 5.7 — Avaliar a efetividade das ações](#us-5-7)
+
+### Épico 6 — Status e ciclo de vida do incidente
+
+**COMO** profissional do Núcleo de Segurança do Paciente ou gestor da área
+**QUERO** acompanhar o status de cada incidente e entender como as ações realizadas no sistema o alteram, até o encerramento por conclusão ou arquivamento
+**PARA** saber em que etapa do fluxo cada incidente se encontra e encerrá-lo de forma controlada e rastreável.
+
+**Histórias de usuário:**
+
+- [US 6.1 — Visualizar o status e o ciclo de vida do incidente](#us-6-1)
+- [US 6.2 — Atualizar o status a partir das ações do usuário](#us-6-2)
+- [US 6.3 — Arquivar incidente](#us-6-3)
+- [US 6.4 — Concluir incidente](#us-6-4)
+
+### Épico 7 — Exportação de relatório de incidentes
+
+**COMO** profissional do Núcleo de Segurança do Paciente ou gestor da área
+**QUERO** exportar, em formato XLSX, um relatório com todos os incidentes a que tenho acesso e seus respectivos dados
+**PARA** compartilhar, analisar e armazenar os dados dos incidentes fora da plataforma, sem expor a identificação dos notificantes.
+
+**Histórias de usuário:**
+
+- [US 7.1 — Exportar relatório de incidentes da instituição](#us-7-1)
+- [US 7.2 — Exportar relatório de incidentes do setor](#us-7-2)
+
+---
+
+<a id="historias-usuario"></a>
+
+## 5. Histórias de Usuário
+
+Nesta seção são apresentadas as histórias de usuário do sistema NotificaSaúde, elaboradas com o objetivo de representar as necessidades dos diferentes perfis de usuários envolvidos no processo de gestão de incidentes. Cada história é acompanhada de seus respectivos critérios de aceite, contexto de uso e relação com as regras de negócio identificadas, permitindo detalhar os comportamentos esperados do sistema e orientar o desenvolvimento das funcionalidades propostas. As histórias foram definidas com base nas informações levantadas junto aos stakeholders, entrevistas realizadas, análise do fluxo atual de gerenciamento de incidentes em instituições de saúde e validação do protótipo funcional com as proponentes.
+
+<a id="historias-51"></a>
+
+### 5.1 Registro de notificações de incidentes
+
+<a id="us-1-1"></a>
+
+#### US-1.1 — Registrar notificação de incidente
+
+**Épico:** 1 — Registro de notificações de incidentes · **Prioridade:** Alta
+
+**COMO** Notificante
+**QUERO** registrar uma notificação de incidente no sistema
+**PARA** que a ocorrência seja analisada e tratada pela instituição, contribuindo para melhoria da segurança do paciente
+
+**Regras de Negócio:** RN-04, RN-24, RN-31
+
+**Critérios de Aceite**
+
+- **CA01 — Acesso ao formulário de notificação**
+    **Dado que** um usuário acesse o sistema de notificação, **quando** selecionar a opção de registrar um incidente, **então** o sistema deve apresentar um formulário eletrônico para preenchimento da notificação.
+- **CA02 — Campos do formulário de notificação**
+    **Dado que** o usuário esteja preenchendo o formulário de notificação, **quando** visualizar o formulário, **então** o sistema deve apresentar os campos previamente configurados.
+- **CA03 — Registro da notificação**
+    **Dado que** o usuário preencheu o formulário de notificação, **quando** confirmar o envio, **então** o sistema deve registrar a notificação e atribuir o status "Novo".
+- **CA04 — Proteção contra envios em massa**
+    **Dado que** uma mesma origem envie notificações acima do limite permitido ou o envio não passe na verificação de que é feito por uma pessoa (captcha), **quando** confirmar o envio, **então** o sistema não deve registrar a notificação e deve exibir a mensagem "Não foi possível enviar a notificação agora. Aguarde alguns minutos e tente novamente.", conforme o requisito não-funcional 6.2.9.
+- **CA05 — Apresentação do sistema na tela inicial**
+    **Dado que** um usuário acesse a tela inicial do sistema, **quando** a tela for exibida, **então** o sistema deve apresentar, acima das opções de acesso ("Registrar incidente" e "Acessar área profissional"), a seção "Sobre" com os textos: "O Notifica Saúde é um sistema destinado ao registro de incidentes e eventos adversos relacionados à assistência à saúde e ao uso de tecnologias como medicamentos e produtos médico-hospitalares (de todos os níveis de atenção, que possuam Núcleo de Segurança do Paciente (NSP) ou equipe equivalente)." e "Você pode contribuir informando situações que causaram ou poderiam causar danos à saúde, ajudando a melhorar a qualidade e a segurança dos serviços de saúde no país."
+- **CA06 — Número do prontuário ou do atendimento**
+    **Dado que** o incidente envolva paciente, **quando** o usuário preencher a seção "Informações sobre o paciente envolvido", **então** o sistema deve apresentar, como primeiro campo, "Informe o número do prontuário do paciente ou o número do atendimento:", com a orientação "Caso não saiba, escreva “Não sei informar”.", e exigir o preenchimento. O número é sigiloso (RN-31): é exibido normalmente no detalhe da notificação e no resumo da análise, mas somente para o NSP e para quem conduz a análise; não aparece em relatórios nem em exportações; e cada acesso a uma tela que o exibe é registrado no histórico da notificação.
+- **CA07 — Faixa etária do paciente**
+    **Dado que** o incidente envolva paciente, **quando** o usuário preencher a faixa etária do paciente, **então** o sistema deve apresentar um campo de texto aberto (ex.: "3 meses", "8 anos", "45 anos"), e não uma lista de opções, e exigir o preenchimento.
+- **CA08 — Medidas adotadas imediatamente**
+    **Dado que** o usuário esteja na seção "Descrição do incidente", **quando** a seção for exibida, **então** o sistema deve apresentar, logo após o campo "Descreva o incidente", o campo de texto não obrigatório "Quais medidas foram adotadas imediatamente após a identificação do incidente?", com o texto de ajuda exibido logo abaixo da pergunta e acima do campo, na caixa de informação padrão do sistema (fundo azul claro com ícone ⓘ): "Informe as medidas de que você tem conhecimento, como atendimento ao paciente, interrupção de procedimento ou comunicação à equipe responsável. Não é necessário ter realizado pessoalmente essas medidas.". Quando não for preenchido, o detalhe da notificação exibe "Não informado".
+- **CA09 — Quem está fazendo a notificação**
+    **Dado que** o usuário esteja na seção "Descrição do incidente", **quando** informar quem está notificando, **então** o sistema deve apresentar a pergunta obrigatória "Quem está fazendo esta notificação?" (que substitui "Papel do notificante"), com as opções: Paciente; Familiar ou responsável pelo paciente; Acompanhante; Profissional de saúde; Outro profissional do serviço; e Outro. A opção "Outro" abre um campo de texto obrigatório para especificar (RN-24).
+
+**Contexto de Uso:** Esta funcionalidade pode ser utilizada por qualquer pessoa que tenha conhecimento do incidente, incluindo profissionais de saúde, pacientes, acompanhantes ou terceiros. Por ser de acesso público, o formulário é protegido contra envios automatizados em massa (6.2.9).
+
+<a id="historias-52"></a>
+
+### 5.2 Gestão e classificação de notificações
+
+<a id="us-2-1"></a>
+
+#### US-2.1 — Visualizar notificações registradas
+
+**Épico:** 2 — Gestão e classificação de notificações · **Prioridade:** Alta
+
+**COMO** Profissional do Núcleo de Segurança do Paciente, devidamente autenticado no sistema
+**QUERO** visualizar as notificações registradas no sistema
+**PARA** acompanhar os incidentes reportados e iniciar o processo de análise.
+
+**Regras de Negócio:** RN-10
+
+**Critérios de Aceite**
+
+- **CA01 — Acesso à lista de notificações**
+    **Dado que** o usuário esteja autenticado como profissional do Núcleo de Segurança do Paciente, **quando** acessar o painel de notificações, **então** o sistema deve apresentar uma lista com todas as notificações registradas.
+- **CA02 — Informações exibidas na lista**
+    **Dado que** o usuário esteja visualizando a lista de notificações, **quando** as notificações forem exibidas, **então** o sistema deve apresentar, no mínimo: identificador único da notificação (decimal sequencial), data de registro, setor, status da notificação e os primeiros 200 caracteres da descrição.
+- **CA03 — Ordenação padrão das notificações**
+    **Dado que** o profissional do Núcleo de Segurança do Paciente esteja visualizando a lista de notificações, **quando** acessar o painel de notificações, **então** o sistema deve apresentar as notificações ordenadas por padrão das mais recentes para as mais antigas.
+- **CA04 — Ordenações possíveis para as notificações**
+    **Dado que** o usuário esteja visualizando a lista de notificações, **quando** utilizar as opções de ordenação, **então** o sistema deve permitir ordenar as notificações por mais recentes ou mais antigas.
+- **CA05 — Filtros**
+    **Dado que** o usuário esteja visualizando a lista de notificações, **quando** desejar localizar uma notificação específica, **então** o sistema deve permitir buscar notificações pelo tipo de incidente, pelo grau de dano (se houver) e pelo setor onde ocorreu o incidente.
+- **CA06 — Barra de pesquisa**
+    **Dado que** o usuário esteja visualizando a lista de notificações, **quando** informar um identificador na barra de pesquisa, **então** o sistema deve exibir as notificações correspondentes ao identificador informado.
+- **CA07 — Acesso ao detalhamento da notificação**
+    **Dado que** o usuário esteja visualizando a lista de notificações, **quando** selecionar uma notificação específica, **então** o sistema deve apresentar os detalhes completos da notificação registrada, bem como o histórico de modificações.
+
+**Contexto de Uso:** Essa funcionalidade é utilizada pelos profissionais do Núcleo de Segurança do Paciente para acompanhar as notificações registradas no sistema, ter uma visão geral da quantidade de notificações recebidas e iniciar o processo de análise e classificação dos incidentes.
+
+<a id="us-2-2"></a>
+
+#### US-2.2 — Complementar ou corrigir informações da notificação
+
+**Épico:** 2 — Gestão e classificação de notificações · **Prioridade:** Média
+
+**COMO** Profissional do Núcleo de Segurança do Paciente
+**QUERO** complementar ou corrigir informações da notificação registrada
+**PARA** garantir que os dados necessários para análise e encaminhamento do incidente estejam corretos.
+
+**Regras de Negócio:** RN-02, RN-09, RN-31
+
+**Critérios de Aceite**
+
+- **CA01 — Edição de campos da notificação**
+    **Dado que** o profissional do Núcleo de Segurança do Paciente esteja visualizando os detalhes de uma notificação, **quando** selecionar a opção de editar informações da notificação, **então** o sistema deve permitir a edição ou preenchimento de campos complementares da notificação.
+- **CA02 — Campos editáveis**
+    **Dado que** o profissional esteja editando uma notificação, **quando** acessar a visão detalhada da notificação, **então** o sistema deve permitir a edição ou preenchimento dos campos do formulário de registro de incidente.
+- **CA03 — Impedimento de edição da descrição**
+    **Dado que** existe um incidente, **quando** o incidente for editado, **então** o sistema não deve permitir editar a descrição.
+- **CA04 — Registro das alterações**
+    **Dado que** o profissional do Núcleo de Segurança do Paciente realize alterações nas informações da notificação, **quando** salvar as modificações, **então** o sistema deve registrar essas alterações no histórico de modificações, incluindo data, hora, autor e quais campos foram alterados.
+- **CA05 — Prontuário e faixa etária na edição**
+    **Dado que** o incidente envolva paciente, **quando** o profissional abrir a edição das informações, **então** o sistema deve apresentar o número do prontuário ou do atendimento e a faixa etária como campos de texto obrigatórios (US-1.1, CA06 e CA07).
+
+**Contexto de Uso:** Essa funcionalidade permite que o Núcleo de Segurança do Paciente complemente ou corrija informações da notificação quando os dados registrados inicialmente estiverem incompletos ou incorretos, garantindo maior qualidade das informações utilizadas na análise do incidente.
+
+<a id="us-2-3"></a>
+
+#### US-2.3 — Classificar incidente notificado
+
+**Épico:** 2 — Gestão e classificação de notificações · **Prioridade:** Média
+
+**COMO** Profissional do Núcleo de Segurança do Paciente
+**QUERO** classificar o incidente registrado
+**PARA** categorizar a notificação e dar continuidade ao fluxo de análise.
+
+**Regras de Negócio:** RN-03, RN-05, RN-11, RN-14, RN-15, RN-24
+
+**Critérios de Aceite**
+
+- **CA01 — Acesso à classificação do incidente**
+    **Dado que** o usuário esteja visualizando os detalhes de uma notificação com status "Novo" ou "Classificado", **quando** selecionar a opção "Registrar classificação" (ou "Continuar classificação", se já houver rascunho), **então** o sistema deve abrir o formulário de classificação do incidente.
+- **CA02 — Impedimento de classificação**
+    **Dado que** existam campos obrigatórios não preenchidos, **quando** o usuário tentar salvar a classificação, **então** o sistema deve impedir o registro da classificação finalizada e indicar os campos pendentes.
+- **CA03 — Campos de classificação**
+    **Dado que** o usuário esteja classificando um incidente, **quando** acessar o formulário de classificação, **então** o sistema deve apresentar um fluxo estruturado, com exibição condicional de campos conforme a classificação selecionada, contendo:
+    - **Classificação do incidente** (obrigatória, seleção única), cada opção com uma breve descrição e um exemplo:
+        - Circunstância notificável — situação de risco que poderia causar dano (ex.: cama sem grades, equipamentos sem manutenção);
+        - Near Miss — um incidente que não atingiu o paciente (ex.: uma bolsa de sangue foi conectada ao acesso venoso do paciente errado, mas o erro foi detectado antes do início da transfusão);
+        - Incidente sem dano — um evento atingiu o paciente, mas não resultou em dano perceptível (ex.: uma bolsa de sangue foi transfundida, mas não era incompatível);
+        - Evento adverso — um incidente que resulta em dano a um paciente (ex.: a bolsa de sangue errada foi transfundida e o paciente morreu de uma reação hemolítica).
+        Se "Evento adverso", segue para *Grau do dano*; caso contrário, segue direto para *Tipo de incidente*. Alterar a classificação limpa o grau do dano já selecionado.
+    - **Grau do dano** (obrigatório, seleção única, exibido apenas para "Evento adverso"): Leve (sintomas leves, intervenção mínima) / Moderado (requer intervenção, sem risco de vida imediato) / Grave (risco de vida ou dano permanente) / Óbito (morte causada pelo dano) / Never Event (incidentes graves que nunca deveriam ocorrer). Se "Never Event", segue para *Tipo específico (Never Event)*; caso contrário, segue para *Tipo de incidente*.
+    - **Tipo específico (Never Event)** (obrigatório de acordo com a condicional, seleção única, exibido apenas quando o grau do dano for "Never Event"): lista fechada com os eventos-sentinela reconhecidos — alta ou liberação de paciente incapaz para pessoa não autorizada; contaminação na administração de O2 ou gases medicinais; desaparecimento do corpo do recém-nascido que foi a óbito; exodontia de dente errado; gás errado na administração de O2 ou gases medicinais; inseminação artificial ou fertilização in vitro com esperma ou óvulo errado; lesão grave associada à queda do paciente durante a prestação de cuidados; lesão por pressão estágio 3, estágio 4 ou não classificável; óbito associado à queda do paciente durante a prestação de cuidados; óbito intraoperatório ou pós-operatório em paciente ASA Classe 1; óbito ou lesão grave associado à fuga do paciente, a choque elétrico, a objeto metálico em área de ressonância magnética, ao uso de contenção física ou grades da cama, a queimadura, à perda irrecuperável de amostra biológica, à falha no acompanhamento de exames laboratoriais ou radiológicos; óbito ou lesão grave de recém-nascido ou materna em parto de baixo risco; procedimento cirúrgico realizado em local errado, no lado errado do corpo ou no paciente errado; queda do recém-nascido durante o parto; realização de cirurgia errada em um paciente; retenção não intencional de corpo estranho após a cirurgia; suicídio, tentativa ou dano autoinfligido com lesão grave durante a assistência; troca de bebês.
+    - **Tipo de incidente** (obrigatório, múltipla escolha — ao menos uma opção —, exibido apenas se o grau do dano for diferente de "Never Event"): Erro de medicação, Falha na identificação do paciente, Queda, Lesão por pressão, Infecção relacionada à assistência, Procedimento cirúrgico, Equipamento ou dispositivo médico, Falha de diagnóstico, Comunicação, Transfusão sanguínea, Documentação/prontuário, Outro (com campo de texto obrigatório de até 30 caracteres).
+    - **Envolve** (obrigatório, múltipla escolha — ao menos uma opção): Profissional de saúde, Paciente, Familiar/acompanhante, Equipamento médico, Dispositivo médico, Medicamento, Sistema de informação, Ambiente físico, Outro (com campo de texto obrigatório de até 30 caracteres).
+    - **Observações do NSP** (opcional, campo textual, limite de 400 caracteres).
+- **CA04 — Registro da classificação**
+    **Dado que** o usuário preencheu todos os campos obrigatórios de classificação, **quando** selecionar "Salvar classificação", **então** o sistema deve registrar a classificação, exibir o retorno de processamento ("Salvando...") e atualizar o status da notificação para "Classificado".
+- **CA05 — Atribuição de prazo para análise com base na classificação**
+    **Dado que** o profissional do NSP classificou um incidente, **quando** a classificação for salva, **então** o sistema deve exibir na tela e definir automaticamente a data-limite para análise ("Prazo para análise") com base no grau de dano: sem dano (circunstância notificável, near miss ou incidente sem dano) ou dano leve — 10 dias; dano moderado — 7 dias; dano grave — 4 dias; óbito ou Never Event — 2 dias. O prazo conta a partir da data de registro da notificação.
+- **CA06 — Recálculo e exibição do prazo para análise**
+    **Dado que** o incidente possua prazo para análise definido, **quando** a classificação for editada alterando o grau do dano, **então** o sistema deve recalcular o prazo; e, enquanto o incidente estiver com status "Classificado", "Encaminhado" ou "Em análise", o sistema deve exibir o prazo no detalhe da notificação ("Prazo para análise: dd/mm/aaaa") e na listagem ("Vence em X dias", "Vence hoje" ou "Vencido há X dias"). Rascunhos de classificação não possuem prazo.
+- **CA07 — Salvar rascunho da classificação**
+    **Dado que** o usuário esteja preenchendo a classificação, **quando** selecionar "Salvar rascunho", **então** o sistema deve salvar o que foi preenchido sem exigir os campos obrigatórios, exibir a confirmação "Rascunho salvo", identificar a classificação como "Rascunho" / "Classificação em andamento" e manter o status atual da notificação.
+- **CA08 — Bloqueio da classificação conforme o status**
+    **Dado que** o incidente esteja com status diferente de "Novo" ou "Classificado", **quando** o usuário visualizar a classificação, **então** o sistema deve impedir sua criação ou edição e exibir o motivo do bloqueio: "Notificação encaminhada ao setor", "Análise em andamento", "Análise já concluída", "Incidente concluído" ou "Notificação arquivada".
+- **CA09 — Exibição de Never Event**
+    **Dado que** o incidente tenha sido classificado com grau do dano "Never Event", **quando** a classificação for exibida, **então** o sistema deve apresentá-lo como "Evento adverso", com o tipo específico de Never Event selecionado.
+- **CA10 — Responsável pelo incidente**
+    **Dado que** a classificação seja finalizada, **quando** o sistema registrar a operação, **então** o profissional do NSP que finalizou a classificação passa a ser o responsável pelo incidente, exibido no cabeçalho da notificação, e a classificação é registrada no histórico com data, hora e usuário. O responsável é definido na primeira finalização da classificação e se mantém até o fim do fluxo: não muda com edições posteriores da classificação, com o encaminhamento ao setor nem com quem registra a análise ou o plano de ação. O responsável é apenas uma referência de quem iniciou o tratamento do incidente (permite ao profissional localizar os incidentes que classificou sem precisar abri-los) e não concede nem restringe permissões: qualquer profissional do NSP pode visualizar o incidente, registrar a análise e realizar as demais ações do núcleo (a análise em andamento só pode ser continuada por quem a iniciou — RN-28).
+
+**Contexto de Uso:** A classificação do incidente é realizada pelo Núcleo de Segurança do Paciente após o recebimento da notificação, com base em critérios institucionais e diretrizes de segurança do paciente. É ela que define o prazo para análise do incidente e libera a etapa seguinte: a análise pelo próprio núcleo ou o encaminhamento ao setor.
+
+<a id="us-2-4"></a>
+
+#### US-2.4 — Encaminhar notificação para o setor
+
+**Épico:** 2 — Gestão e classificação de notificações · **Prioridade:** Média
+
+**COMO** Profissional do Núcleo de Segurança do Paciente
+**QUERO** encaminhar a notificação para o setor onde o incidente ocorreu
+**PARA** que o gestor da área tenha acesso ao incidente e realize a investigação.
+
+**Regras de Negócio:** RN-06, RN-08, RN-11, RN-16, RN-26
+
+**Critérios de Aceite**
+
+- **CA01 — Escolha entre analisar ou encaminhar**
+    **Dado que** o incidente esteja com status "Classificado", **quando** o profissional do NSP visualizar a seção "Análise" do detalhe da notificação, **então** o sistema deve apresentar a pergunta "Analisar agora ou encaminhar ao setor?" com as opções "Registrar análise" (o próprio NSP realiza a análise) e "Encaminhar para o setor analisar", acompanhada de uma caixa de informação explicando que, ao registrar a análise, ela é feita pelo próprio núcleo e que, ao encaminhar, o profissional do setor passa a ter acesso ao incidente e fica responsável por registrar a análise — sem o encaminhamento, o setor não consegue registrá-la.
+- **CA02 — Encaminhamento ao setor**
+    **Dado que** o incidente já tenha sido classificado, **quando** o profissional do NSP selecionar a opção de encaminhamento, **então** o sistema deve permitir encaminhar a notificação ao setor onde o incidente ocorreu, de acordo com template pré-estabelecido, com um campo opcional de mensagem de até 400 caracteres.
+- **CA03 — Envio de e-mail de encaminhamento**
+    **Dado que** a notificação seja encaminhada a um setor, **quando** o encaminhamento for concluído, **então** o sistema deve enviar um e-mail contendo o número da notificação, instruções de acesso ao sistema, orientações para análise do caso e registro do plano de ação pelo setor responsável, com o seguinte texto:
+
+    > Olá,
+    >
+    > Informamos que o incidente de segurança do paciente nº (Número da Notificação) foi registrado e direcionado para sua unidade/setor.
+    >
+    > Para ter acesso aos detalhes do incidente e à sua gravidade, acesse a plataforma digital Notifica Saúde o mais breve possível e priorize a análise e a condução das ações necessárias para prevenir a recorrência de incidentes semelhantes.
+    >
+    > Para acessar o Notifica Saúde:
+    > 1. Clique no link: (Inserir o link aqui)
+    > 2. Insira seu login e senha institucional.
+    > 3. Localize a notificação nº (Número da Notificação).
+    > 4. Registre a análise detalhada do caso e seu respectivo plano de ação.
+    >
+    > Atenciosamente,
+    > Núcleo de Segurança do Paciente (NSP)
+
+- **CA04 — Encaminhamento de incidentes não classificados**
+    **Dado que** o usuário tente encaminhar um incidente, **quando** a classificação do incidente não estiver finalizada (inexistente ou em rascunho), **então** o sistema deve impedir o encaminhamento da notificação.
+- **CA05 — Atualização do status**
+    **Dado que** o encaminhamento foi realizado, **quando** a operação for concluída, **então** o sistema deve atualizar o status da notificação para "Encaminhado" e registrar o encaminhamento no histórico (ver US-6.2).
+- **CA06 — Restrição de reencaminhamento para o mesmo setor**
+    **Dado que** o gestor da área esteja visualizando um incidente já encaminhado para seu setor, **quando** acessar as opções de encaminhamento da notificação, **então** o sistema não deve exibir a opção de encaminhar o incidente novamente para o mesmo setor.
+- **CA07 — Bloqueio de edição após encaminhamento**
+    **Dado que** a notificação tenha sido encaminhada a um setor, **quando** o usuário acessar a notificação, **então** o sistema não deve permitir a edição das informações gerais e da classificação, exibindo o motivo do bloqueio ("Notificação encaminhada ao setor").
+- **CA08 — Análise exclusiva do setor após encaminhamento**
+    **Dado que** o incidente tenha sido encaminhado, **quando** o gestor da área acessar a notificação, **então** o sistema deve disponibilizar a ele a opção de registrar a análise; sem o encaminhamento, a análise só pode ser registrada pelo NSP.
+- **CA09 — Acesso do gestor a partir do encaminhamento**
+    **Dado que** o NSP encaminhe o incidente a um setor, **quando** o encaminhamento for concluído, **então** o incidente deve passar a aparecer na fila do gestor daquele setor, que passa a ter acesso a ele; antes do encaminhamento, o gestor não visualiza o incidente. O encaminhamento não altera o responsável pelo incidente (RN-11).
+
+**Contexto de Uso:** Após a classificação do incidente, o Núcleo de Segurança do Paciente decide se ele próprio realizará a análise ou se encaminhará a notificação ao gestor do setor onde o incidente ocorreu, que passará a ter acesso ao incidente para realizar a investigação e definir as ações corretivas. O responsável pelo incidente continua sendo o profissional do NSP que finalizou a classificação.
+
+<a id="us-2-5"></a>
+
+#### US-2.5 — Consultar histórico da notificação
+
+**Épico:** 2 — Gestão e classificação de notificações · **Prioridade:** Média
+
+**COMO** gestor da área ou profissional do Núcleo de Segurança do Paciente
+**QUERO** consultar o histórico das alterações realizadas na notificação
+**PARA** garantir rastreabilidade das informações, da classificação, da análise e das ações registradas na notificação.
+
+**Regras de Negócio:** RN-02, RN-09, RN-28, RN-31
+
+**Critérios de Aceite**
+
+- **CA01 — Acesso ao histórico**
+    **Dado que** o usuário possua permissão para visualizar a notificação, **quando** acessar o histórico, **então** o sistema deve apresentar os registros de alterações relacionados à investigação.
+- **CA02 — Identificação das alterações**
+    **Dado que** existam alterações registradas, **quando** o usuário visualizar o histórico, **então** o sistema deve apresentar, no mínimo, a data, hora, usuário que realizou a alteração e informação alterada.
+- **CA03 — Eventos registrados**
+    **Dado que** ocorra uma ação relevante no fluxo, **quando** ela for concluída, **então** o sistema deve incluir um registro no histórico, no mínimo para: classificação; encaminhamento ao setor (com o setor de destino e a mensagem, se informada); conclusão da análise; criação das ações a partir das recomendações; decisão pós-análise (encaminhar o resultado ou não encaminhar, com a justificativa); ação registrada, completada, atualizada (com o status) ou excluída; arquivamento; conclusão do incidente; assunção da condução da análise por outro profissional do NSP (RN-28); e cada consulta ao número do prontuário ou do atendimento do paciente (RN-31).
+- **CA04 — Histórico das ações**
+    **Dado que** tenham sido registradas ações no plano de ação, **quando** o usuário consultar o histórico, **então** o sistema deve permitir identificar as alterações realizadas nas ações registradas.
+- **CA05 — Preservação do histórico**
+    **Dado que** uma alteração tenha sido registrada, **quando** o usuário consultar posteriormente a notificação, **então** o registro histórico deve permanecer disponível conforme as permissões de acesso definidas.
+
+<a id="historias-53"></a>
+
+### 5.3 Autenticação e controle de acesso
+
+<a id="us-3-1"></a>
+
+#### US-3.1 — Realizar login no sistema
+
+**Épico:** 3 — Autenticação e controle de acesso · **Prioridade:** Alta
+
+**COMO** usuário previamente cadastrado no sistema
+**QUERO** realizar login utilizando meu e-mail e senha
+**PARA** acessar as funcionalidades do sistema de forma segura
+
+**Regras de Negócio:** RN-01
+
+**Critérios de Aceite**
+
+- **CA01 — Acesso à tela de login**
+    **Dado que** o usuário acesse o sistema, **quando** não estiver autenticado, **então** o sistema deve apresentar a tela de login.
+- **CA02 — Autenticação com credenciais válidas**
+    **Dado que** o usuário esteja na tela de login, **quando** informar e-mail e senha válidos, **então** o sistema deve autenticar o usuário e redirecioná-lo para a área interna.
+- **CA03 — Validação de credenciais inválidas**
+    **Dado que** o usuário esteja na tela de login, **quando** informar e-mail ou senha inválidos, **então** o sistema deve exibir uma mensagem de erro informando credenciais inválidas.
+
+**Contexto de Uso:** Essa funcionalidade é utilizada por usuários previamente cadastrados no sistema para acessar a plataforma de forma segura, permitindo a utilização das funcionalidades disponíveis de acordo com seu perfil. O login é o ponto de entrada do sistema, sendo necessário para garantir controle de acesso e proteção das informações relacionadas às notificações e à gestão de incidentes.
+
+<a id="us-3-2"></a>
+
+#### US-3.2 — Recuperar senha de acesso
+
+**Épico:** 3 — Autenticação e controle de acesso · **Prioridade:** Alta
+
+**COMO** usuário previamente cadastrado no sistema
+**QUERO** realizar login utilizando meu e-mail e senha
+**PARA** acessar as funcionalidades do sistema de forma segura
+
+**Critérios de Aceite**
+
+- **CA01 — Acesso à recuperação de senha**
+    **Dado que** o usuário esteja na tela de login, **quando** selecionar a opção "Esqueci minha senha", **então** o sistema deve redirecionar para a tela de recuperação de senha.
+- **CA02 — Solicitação de recuperação**
+    **Dado que** o usuário esteja na tela de recuperação de senha, **quando** informar um e-mail válido cadastrado no sistema, **então** o sistema deve enviar um link de redefinição de senha para o e-mail informado.
+- **CA03 — Acesso via link de redefinição**
+    **Dado que** o usuário tenha recebido o e-mail de recuperação, **quando** acessar o link enviado, **então** o sistema deve redirecionar o usuário para a tela de redefinição de senha.
+- **CA04 — Validade do link**
+    **Dado que** o usuário acesse o link de redefinição, **quando** o link estiver expirado ou inválido, **então** o sistema deve exibir uma mensagem de erro e permitir a solicitação de um novo link.
+- **CA05 — Redefinição de senha**
+    **Dado que** o usuário esteja na tela de redefinição de senha, **quando** informar uma nova senha válida, **então** o sistema deve atualizar a senha do usuário com sucesso.
+- **CA06 — Confirmação de alteração**
+    **Dado que** o usuário redefiniu sua senha, **quando** a operação for concluída, **então** o sistema deve informar o sucesso da alteração e permitir que o usuário realize login.
+- **CA07 — Segurança do link**
+    **Dado que** o sistema gere o link de redefinição, **quando** o link for enviado ao usuário, **então** ele deve conter um identificador seguro (token) que permita validar a autenticidade da solicitação.
+- **CA08 — Validade do link (expiração)**
+    **Dado que** o usuário acesse o link de redefinição, **quando** o link tiver sido gerado há mais de 1 hora, **então** o sistema deve considerar o link expirado, exibir uma mensagem de erro e permitir a solicitação de um novo link.
+
+**Contexto de Uso:** Essa funcionalidade é utilizada por usuários que esqueceram sua senha de acesso ao sistema, permitindo a recuperação do acesso de forma segura por meio do envio de um código de verificação para o e-mail cadastrado. Ela garante que o usuário consiga redefinir sua senha e voltar a utilizar o sistema sem a necessidade de intervenção manual, mantendo a segurança e a continuidade do uso da plataforma.
+
+<a id="historias-54"></a>
+
+### 5.4 Registro de análise em notificação de incidentes
+
+<a id="us-4-1"></a>
+
+#### US-4.1 — Visualizar incidentes para análise
+
+**Épico:** 4 — Registro de análise em notificação de incidentes · **Prioridade:** Alta
+
+**COMO** Gestor da Área ou profissional do Núcleo de Segurança do Paciente
+**QUERO** visualizar os incidentes a que tenho acesso para análise e acompanhamento
+**PARA** ter acesso às informações necessárias para iniciar a investigação do incidente.
+
+**Regras de Negócio:** RN-08, RN-11, RN-16, RN-18, RN-26, RN-27
+
+**Critérios de Aceite**
+
+- **CA01 — Fila do gestor da área**
+    **Dado que** o gestor da área esteja autenticado, **quando** acessar a sua lista de incidentes, **então** o sistema deve apresentar somente os incidentes do seu setor que o NSP encaminhou a ele: antes da análise (para que o setor a realize) ou depois da análise feita pelo NSP, quando o núcleo decidiu encaminhar o resultado ao setor. Incidentes de outros setores e incidentes não encaminhados não devem aparecer.
+- **CA02 — Permanência na fila**
+    **Dado que** um incidente tenha sido encaminhado ao setor, **quando** seu status avançar (Em análise, Analisado, Em ação, Concluído ou Arquivado), **então** o incidente deve continuar na fila do gestor daquele setor, que mantém o acesso a ele até o fim do fluxo.
+- **CA03 — Visualização das informações do incidente**
+    **Dado que** o usuário esteja visualizando um incidente a que tem acesso, **quando** acessar seus detalhes, **então** o sistema deve apresentar as informações registradas, incluindo os dados da notificação e sua classificação.
+- **CA04 — Visualização da classificação e do responsável**
+    **Dado que** a notificação tenha sido classificada pelo NSP, **quando** o usuário acessar a notificação, **então** o sistema deve permitir visualizar a classificação, o grau do dano, o tipo de incidente (ou o tipo específico de Never Event), os envolvidos, as observações do NSP, o prazo para análise e o responsável pelo incidente (profissional do NSP que finalizou a classificação — RN-11).
+- **CA05 — Identificação do notificante oculta para o gestor**
+    **Dado que** o usuário seja gestor da área, **quando** visualizar um incidente (detalhe da notificação, Seção 1 da análise ou qualquer outra tela), **então** o sistema deve omitir os campos de identificação do notificante — nome do notificante e celular/e-mail — sem exibir o campo vazio, "Não informado" ou qualquer indicação de que a notificação foi identificada ou anônima; esses dados também não devem ser enviados ao navegador do gestor. Somente o NSP e o Administrador visualizam a identificação do notificante (RN-27).
+- **CA06 — Restrição de acesso do gestor**
+    **Dado que** o gestor da área tente acessar um incidente de outro setor ou que não tenha sido encaminhado ao seu setor pelo NSP (por exemplo, por link direto ou pelo identificador), **quando** a tentativa ocorrer, **então** o sistema deve impedir o acesso às informações do incidente e da análise.
+- **CA07 — Acesso do setor a análises feitas pelo NSP**
+    **Dado que** a análise tenha sido realizada pelo NSP (sem encaminhamento prévio), **quando** o gestor do setor tentar acessar o incidente, **então** o sistema só deve permitir o acesso ao incidente e às informações da análise se o NSP tiver decidido encaminhar o resultado ao setor (ver US-4.9); caso contrário, o incidente não aparece na fila do gestor.
+- **CA08 — Acesso do NSP**
+    **Dado que** o usuário seja profissional do NSP, **quando** acessar a lista de incidentes, **então** o sistema deve apresentar todos os incidentes da instituição (US-2.1), independentemente de encaminhamento ou de quem seja o responsável pelo incidente.
+
+**Contexto de Uso:** Essa funcionalidade permite que quem realiza a investigação — o NSP ou o gestor do setor a que o incidente foi encaminhado — tenha acesso às informações necessárias para compreender o incidente antes de iniciar a análise e registrar suas conclusões. O gestor da área trabalha a partir de uma fila restrita ao seu setor, formada apenas pelo que o NSP encaminhou a ele.
+
+<a id="us-4-2"></a>
+
+#### US-4.2 — Registrar análise do incidente
+
+**Épico:** 4 — Registro de análise em notificação de incidentes · **Prioridade:** Média
+
+**COMO** Gestor da Área ou profissional do Núcleo de Segurança do Paciente
+**QUERO** registrar a análise realizada sobre o incidente
+**PARA** documentar as informações identificadas durante a investigação e contribuir para a definição das ações corretivas ou preventivas.
+
+**Regras de Negócio:** RN-07, RN-08, RN-16, RN-17, RN-28
+
+**Critérios de Aceite**
+
+- **CA01 — Acesso à análise**
+    **Dado que** o incidente esteja "Classificado" (análise pelo NSP) ou "Encaminhado" (análise pelo setor) e nenhuma análise tenha sido iniciada, **quando** qualquer profissional do NSP (incidente "Classificado") ou o gestor da área do setor a que o incidente foi encaminhado (incidente "Encaminhado") acessar a seção "Análise" do detalhe da notificação, **então** o sistema deve disponibilizar a opção "Registrar análise" — não é necessário ser o responsável pelo incidente.
+- **CA02 — Continuar a análise**
+    **Dado que** o usuário seja o condutor atual da análise — quem a iniciou (salvou a primeira seção) ou quem assumiu a sua condução (CA04) —, **quando** acessar a seção "Análise", **então** o sistema deve exibir a opção "Continuar análise", retomando o preenchimento de onde parou. Somente o condutor atual pode continuar e concluir a análise (RN-28).
+- **CA03 — Análise em andamento visível ao NSP**
+    **Dado que** a análise esteja em andamento e o usuário seja profissional do NSP que não é o condutor atual, **quando** acessar a seção "Análise" do incidente, **então** o sistema deve exibir o aviso "Análise em andamento, conduzida por <nome do condutor>.", permitir visualizar o rascunho em modo somente leitura e oferecer a opção "Assumir condução". Para os demais usuários com acesso ao incidente que não sejam do NSP nem o condutor (ex.: gestor da área), o sistema não deve exibir o conteúdo do rascunho e deve apresentar a mensagem "Análise em andamento. Aguarde a finalização para visualizar os detalhes.".
+- **CA04 — Assumir a condução da análise**
+    **Dado que** o profissional do NSP selecione "Assumir condução", **quando** confirmar a pergunta "Deseja assumir a condução desta análise? <nome do condutor> deixará de poder editá-la, e a mudança ficará registrada no histórico." (Não / Sim), **então** o sistema deve torná-lo o condutor atual, permitir que continue a análise de onde parou e registrar no histórico "assumiu a condução da análise (antes conduzida por <nome>)", com data, hora e usuário; o condutor anterior passa a ver a análise como os demais membros do NSP. Com "Não", nada muda.
+- **CA05 — Seções do formulário**
+    **Dado que** o usuário esteja registrando a análise, **quando** navegar pelo formulário, **então** o sistema deve apresentar cinco seções, nesta ordem, com uma barra de progresso de cinco etapas: **Seção 1 — Informações da notificação** (US-4.3); **Seção 2 — Informações da análise** (US-4.4); **Seção 3 — Cronologia do incidente** (US-4.5); **Seção 4 — Fatores contribuintes** (US-4.6); **Seção 5 — Resultado (Ishikawa + Recomendações)** (US-4.7). O Guia de investigação (CA16) é exibido antes da Seção 1 e não conta como etapa.
+- **CA06 — Navegação entre seções**
+    **Dado que** o usuário esteja em uma seção, **quando** selecionar "Próximo", **então** o sistema deve validar a seção atual e avançar para a seguinte; "Voltar" retorna à seção anterior sem perder o que foi preenchido — na Seção 1, "Voltar" retorna ao Guia de investigação (ou ao detalhe da notificação, se o guia estiver oculto — CA17). Na última seção, o botão de avanço passa a ser "Finalizar análise".
+- **CA07 — Salvamento automático do rascunho**
+    **Dado que** o usuário avance de seção, **quando** a seção for validada, **então** o sistema deve salvar automaticamente o rascunho da análise e exibir a confirmação "Rascunho salvo"; o rascunho pode ser retomado depois, somente pelo condutor atual da análise, pela opção "Continuar análise".
+- **CA08 — Validação e indicação das pendências**
+    **Dado que** existam informações obrigatórias não preenchidas ou textos acima do limite na seção atual, **quando** o usuário selecionar "Próximo" ou "Finalizar análise", **então** o sistema deve impedir o avanço e, conforme o padrão de validação do sistema (6.7.6): destacar em vermelho cada campo com problema (em tabelas, apenas as células pendentes); exibir abaixo de cada campo uma mensagem específica do que falta; exibir um aviso de atenção — com uma pendência, indicando qual é; com várias, "Corrija os N itens destacados para continuar." —; e rolar a tela até o primeiro campo pendente. O botão "Próximo" permanece sempre clicável.
+- **CA09 — Destaque somente após tentar avançar**
+    **Dado que** o usuário esteja preenchendo uma seção, **quando** ainda não tiver tentado avançar, **então** o sistema não deve destacar campos em vermelho; após a tentativa, os destaques valem para o que estava pendente naquele clique e somem à medida que cada campo é corrigido — itens criados depois (ex.: uma nova linha em uma tabela) não são destacados enquanto a pessoa preenche.
+- **CA10 — Limites de caracteres**
+    **Dado que** um campo de texto possua limite de caracteres, **quando** o usuário digitar, **então** o sistema deve exibir um contador "N/limite" abaixo do campo, que fica vermelho ao ultrapassar; no momento em que o limite for ultrapassado, o sistema deve exibir um aviso de atenção (ex.: "“Informe o incidente em investigação” deve ter no máximo 100 caracteres (atual: 112)."); o texto não é cortado automaticamente e o avanço fica bloqueado até que seja reduzido.
+- **CA11 — Orientações visíveis e exemplos**
+    **Dado que** o usuário esteja preenchendo o formulário, **quando** visualizar uma seção ou campo, **então** o sistema deve exibir a explicação da seção e as orientações dos campos em caixas de informação visíveis (fundo azul claro com ícone ⓘ), e não escondidas em ícones de ajuda — a explicação pode ter mais de um parágrafo, um por ideia, com os trechos principais em negrito; todo campo de texto vazio deve exibir um exemplo ou instrução (placeholder), menus de seleção começam com "Selecione..." e campos obrigatórios são marcados com asterisco (*).
+- **CA12 — Aviso de cultura justa**
+    **Dado que** o usuário esteja registrando a análise, **quando** o formulário for exibido, **então** o sistema deve apresentar o aviso fixo: "Cultura justa, não punitiva: a investigação retrospectiva nunca deve buscar punir individualmente profissionais da ponta assistencial. Foco em vulnerabilidades latentes e barreiras do sistema."
+- **CA13 — Opção "Outro" nos menus de seleção**
+    **Dado que** um menu de seleção do formulário ofereça a opção "Outro", **quando** o usuário a escolher, **então** o sistema deve exibir um campo de texto para especificar a opção ("Especifique a opção"), obrigatório e com no máximo 30 caracteres.
+- **CA14 — Registro do autor da análise**
+    **Dado que** uma análise seja registrada, **quando** o sistema salvar a análise, **então** deve registrar o usuário que a registrou, a data e a hora da operação.
+- **CA15 — Atualização do status**
+    **Dado que** o primeiro rascunho da análise seja salvo, **quando** a operação for concluída, **então** o sistema deve atualizar o status da notificação de "Classificado" ou "Encaminhado" para "Em análise" (ver US-6.2).
+- **CA16 — Guia de investigação**
+    **Dado que** o usuário abra o formulário de análise, **quando** a tela for exibida, **então** o sistema deve apresentar, antes da Seção 1 e no lugar do formulário, o "Guia de investigação", com:
+    - o texto de abertura: "Nesta investigação, você irá **reconstruir o que aconteceu**, identificar os **problemas na prestação do cuidado** e entender os **fatores que contribuíram** para o incidente, com o objetivo de aprender com o que aconteceu e fortalecer a segurança do cuidado.";
+    - uma caixa de aviso (fundo laranja suave, sem borda) com três parágrafos: "O percurso da investigação é o mesmo, mas a equipe pode realizá-lo de forma mais rápida ou de maneira completa e detalhada. Para essa decisão, considere a gravidade das possíveis consequências, a probabilidade de repetição do evento e o potencial de aprendizagem do incidente."; "Mesmo sem dano grave, o incidente pode exigir maior aprofundamento quando revelar falhas importantes do processo, risco de recorrência ou oportunidade relevante de melhoria."; e "Nesta investigação, o sistema utiliza as categorias de fatores contribuintes do **Protocolo de Londres 2024**. Durante a análise, quando necessário, os fatores identificados podem ser aprofundados com os **5 Porquês**. Ao final, os resultados são apresentados no **Diagrama de Ishikawa**." (termos em negrito na cor azul do sistema);
+    - o bloco "Seu caminho na análise", com as etapas numeradas e ligadas por uma linha vertical, cada uma em um cartão (fundo azul bem claro, sem borda) com selo, título e descrição: 1 · Seção 1 · Dados gerais — "Confira as informações do incidente e defina claramente o que será investigado."; 2 · Seção 2 · Entendimento inicial — "Registre os participantes da análise, as fontes consultadas e, quando necessário, as entrevistas realizadas."; 3 · Seção 3 · Cronologia e PPC — "Organize os fatos em ordem e identifique os Problemas na Prestação do Cuidado (PPC)."; 4 · Seção 4 · Fatores contribuintes — "Para cada PPC, identifique as condições que contribuíram para sua ocorrência. Se necessário, aprofunde um fator com os 5 Porquês."; 5 · Seção 5 · Resultado da análise — "Revise os fatores identificados no Diagrama de Ishikawa e registre as recomendações de melhoria."; 6 · Próximo passo · Plano de Ação — "Transforme as recomendações em ações, definindo responsáveis, prazos e acompanhamento." (esta última em cinza, por estar fora da análise);
+    - a opção "Não mostrar novamente" e o botão "Começar a análise →", que leva à Seção 1.
+- **CA17 — Não mostrar novamente o guia**
+    **Dado que** o usuário marque "Não mostrar novamente" no Guia de investigação, **quando** selecionar "Começar a análise", **então** o sistema deve guardar essa preferência e, nas próximas análises, abrir o formulário diretamente na Seção 1; sem a opção marcada, o guia volta a ser exibido sempre que o formulário for aberto.
+- **CA18 — Guia fora das etapas**
+    **Dado que** o Guia de investigação esteja sendo exibido, **quando** o usuário visualizar a tela, **então** o sistema não deve apresentar campos, validação nem barra de progresso; o guia apenas descreve o percurso e não altera o status da notificação.
+- **CA19 — Orientações e exemplos recolhíveis**
+    **Dado que** uma seção apresente um passo a passo ("Como preencher", "Como identificar um PPC") ou exemplos, **quando** a seção for exibida, **então** o sistema deve apresentá-los em blocos com uma seta que permite recolhê-los e expandi-los, abertos na primeira vez; se o usuário recolher um bloco, o sistema deve lembrar essa escolha e exibi-lo recolhido nas próximas análises, para que usuários que já conhecem o formulário não precisem vê-lo novamente. Esses blocos usam tons neutros (fundo cinza claro, sem borda, textos em cinza escuro), sem competir com os campos do formulário.
+- **CA20 — Salvamento concorrente**
+    **Dado que** dois usuários tentem salvar a mesma análise — por exemplo, dois inícios simultâneos da análise ou um salvamento do condutor anterior depois que outro profissional do NSP assumiu a condução —, **quando** o servidor identificar que a análise foi alterada depois que a página foi carregada, **então** o sistema deve recusar o salvamento, sem gravar o que foi preenchido, e exibir o aviso de erro (toast) "Não foi possível salvar. Atualize a página e tente novamente." A verificação deve ser feita no servidor, e não apenas na tela (RN-28).
+
+**Contexto de Uso:** A funcionalidade é utilizada durante a investigação do incidente para documentar as informações levantadas pelo gestor da área ou pelo profissional do NSP e manter o registro formal da análise realizada. O formulário é autoexplicativo e guia o usuário seção a seção, apontando exatamente o que precisa ser corrigido para avançar.
+
+<a id="us-4-3"></a>
+
+#### US-4.3 — Identificar o incidente em investigação (Seção 1)
+
+**Épico:** 4 — Registro de análise em notificação de incidentes · **Prioridade:** Alta
+
+**COMO** Gestor da Área ou profissional do Núcleo de Segurança do Paciente
+**QUERO** revisar os dados da notificação e informar qual incidente será investigado
+**PARA** delimitar o foco da análise antes de iniciar a investigação.
+
+**Critérios de Aceite**
+
+- **CA01 — Resumo da notificação**
+    **Dado que** o usuário esteja na Seção 1 da análise, **quando** a seção for exibida, **então** o sistema deve apresentar, em modo somente leitura, o resumo da notificação — descrição, data do incidente, horário, turno, número do prontuário ou do atendimento (com o acesso registrado no histórico — RN-31), faixa etária e sexo do paciente (ou "Não envolve o paciente"), notificante (ou "Notificação anônima"; para o gestor da área, a identificação do notificante é omitida — RN-27) — e as medidas adotadas imediatamente após o incidente (ou "Não informado") — e da classificação — classificação, grau do dano, tipo específico (Never Event) ou tipo de incidente, envolvidos, data da classificação e observações do NSP.
+- **CA02 — Incidente em investigação obrigatório**
+    **Dado que** o usuário esteja na Seção 1, **quando** tentar avançar, **então** o sistema deve exigir o preenchimento do campo "Informe o incidente em investigação".
+- **CA03 — Limite do incidente em investigação**
+    **Dado que** o usuário preencha o incidente em investigação, **quando** o texto ultrapassar 100 caracteres, **então** o sistema deve exibir o contador em vermelho, o aviso "“Informe o incidente em investigação” deve ter no máximo 100 caracteres (atual: N)." e bloquear o avanço até que o texto seja reduzido, sem cortá-lo automaticamente.
+- **CA04 — Destaque do incidente nas demais seções**
+    **Dado que** o incidente em investigação tenha sido informado, **quando** o usuário estiver nas Seções 2 em diante, **então** o sistema deve exibir no topo de cada seção apenas o texto "Incidente em investigação: …", sem repetir o resumo completo da notificação.
+
+**Contexto de Uso:** A Seção 1 garante que quem analisa parta das informações já registradas e defina, em poucas palavras, o incidente que será investigado — texto que acompanha toda a análise e dá título ao Diagrama de Ishikawa.
+
+<a id="us-4-4"></a>
+
+#### US-4.4 — Registrar equipe, fontes e entrevistas da análise (Seção 2)
+
+**Épico:** 4 — Registro de análise em notificação de incidentes · **Prioridade:** Alta
+
+**COMO** Gestor da Área ou profissional do Núcleo de Segurança do Paciente
+**QUERO** registrar quem conduz a análise, os demais participantes, as fontes consultadas e as entrevistas realizadas
+**PARA** documentar a autoria da investigação de forma rastreável e as fontes que sustentam suas conclusões.
+
+**Regras de Negócio:** RN-24, RN-31
+
+**Critérios de Aceite**
+
+- **CA01 — Condutor da análise**
+    **Dado que** o usuário esteja na Seção 2, **quando** preencher o "Condutor da análise", **então** o sistema deve exigir todos os campos: Nome (máximo de 50 caracteres), Formação, Função e Setor. A seção deve exibir a orientação: "Informe o condutor da análise e, abaixo, os demais membros participantes. Documentar a autoria de forma rastreável evita investigações conduzidas por uma única pessoa."
+- **CA02 — Opções dos menus da equipe**
+    **Dado que** o usuário esteja preenchendo a equipe, **quando** abrir os menus de seleção, **então** o sistema deve apresentar, além da opção "Outro" (texto obrigatório de até 30 caracteres):
+    - **Formação:** Enfermagem, Medicina, Farmácia, Fisioterapia, Nutrição, Odontologia, Psicologia, Serviço Social, Terapia Ocupacional, Fonoaudiologia, Administração;
+    - **Função:** Enfermeiro(a), Técnico(a) de Enfermagem, Médico(a), Farmacêutico(a), Fisioterapeuta, Nutricionista, Coordenador(a), Gestor(a) de Qualidade e Segurança, Analista de Qualidade;
+    - **Setor:** Qualidade e Segurança do Paciente, Clínica Médica, Farmácia Hospitalar, Centro Cirúrgico, UTI, Pronto-Socorro, Enfermagem, Administrativo.
+- **CA03 — Demais membros participantes**
+    **Dado que** o usuário deseje registrar outros participantes, **quando** selecionar "+ Adicionar membro", **então** o sistema deve incluir uma nova linha com Nome, Formação, Função e Setor. Membros são opcionais, mas todo membro adicionado deve ter todos os campos preenchidos (incluindo o texto de "Outro"); um membro adicionado por engano pode ser removido.
+- **CA04 — Fontes consultadas**
+    **Dado que** o usuário esteja na Seção 2, **quando** informar as fontes consultadas, **então** o sistema deve exigir a seleção de ao menos uma opção entre Prontuário, Protocolo/POP, Relato da equipe, Paciente/família e Outro (texto obrigatório de até 30 caracteres), permitindo selecionar várias, com a orientação "Selecione as fontes de informação utilizadas na análise. Você pode selecionar uma ou mais opções."
+- **CA05 — Necessidade de entrevistas**
+    **Dado que** o usuário esteja na Seção 2, **quando** responder "Alguém precisa ser ouvido?", **então** o sistema deve exigir a resposta (Sim ou Não); com "Não", a tabela de entrevistas não é exibida nem exigida.
+- **CA06 — Registro de entrevistas**
+    **Dado que** o usuário tenha respondido "Sim" em "Alguém precisa ser ouvido?", **quando** a tabela "Registro de cada entrevista" for exibida (já com uma linha em branco), **então** o sistema deve exigir ao menos uma entrevista (botão "+ Adicionar entrevista") com todos os campos preenchidos: Data, Nome (máximo de 50 caracteres), Função (menu com "Outro"), Relato / fatos relevantes (máximo de 500 caracteres) e Problemas ou condições percebidos (máximo de 500 caracteres).
+- **CA07 — Mensagens de pendência da Seção 2**
+    **Dado que** o usuário tente avançar com pendências, **quando** a validação for exibida, **então** o sistema deve indicar o que falta em cada campo — ex.: "Preencha Formação, Função e Setor.", "Selecione ao menos uma opção.", "Especifique a opção “Outro”.", "Adicione pelo menos 1 entrevista." — e, nas tabelas, destacar apenas as células pendentes.
+
+**Contexto de Uso:** A Seção 2 registra a equipe responsável pela investigação e as fontes utilizadas, garantindo rastreabilidade e evitando análises conduzidas por uma única pessoa sem registro de quem participou.
+
+<a id="us-4-5"></a>
+
+#### US-4.5 — Registrar cronologia e problemas na prestação do cuidado (Seção 3)
+
+**Épico:** 4 — Registro de análise em notificação de incidentes · **Prioridade:** Alta
+
+**COMO** Gestor da Área ou profissional do Núcleo de Segurança do Paciente
+**QUERO** registrar a linha do tempo do incidente e os problemas na prestação do cuidado identificados
+**PARA** reconstruir o que aconteceu com base em fontes e identificar os desvios que tiveram importância na sequência do incidente.
+
+**Critérios de Aceite**
+
+- **CA01 — Explicação da seção**
+    **Dado que** o usuário esteja na Seção 3, **quando** a seção for exibida, **então** o sistema deve apresentar, com o título "Seção 3 — Cronologia do incidente", a caixa de informação: "**Construa a cronologia do incidente** em ordem, mostrando os fatos que antecederam o evento, o momento em que ele aconteceu e o que foi feito depois. Registre um fato por linha, sempre com a fonte."
+- **CA02 — Como preencher a cronologia**
+    **Dado que** a caixa de informação da Seção 3 seja exibida, **quando** o usuário visualizar o bloco "Como preencher" (recolhível — US-4.2, CA19), **então** o sistema deve apresentar os passos numerados: 1. **Um fato por linha:** uma ação, um acontecimento ou uma mudança no estado do paciente. 2. **Descreva sem julgar:** identifique as pessoas pela função, não pelo nome, e evite palavras como "erro", "falha" ou "esqueceu". 3. **Cruze as fontes:** compare prontuário, documentos e entrevistas. Se não conferirem, registre cada versão em uma linha e marque "Em análise".
+- **CA03 — Exemplo de registro da cronologia**
+    **Dado que** o usuário esteja preenchendo a cronologia, **quando** o campo "Cronologia" for exibido, **então** o sistema deve apresentar, acima da tabela, o bloco recolhível "Exemplo de registro da cronologia" em formato de mini tabela, com as mesmas colunas da tabela real (Data · Hora · Fato · Fonte · Status) e as linhas:
+
+    | Data | Hora | Fato | Fonte | Status |
+    | --- | --- | --- | --- | --- |
+    | 14/04/2025 | 08:00 | Médico plantonista prescreve ceftriaxona 1 g EV. | Prontuário | Confirmado |
+    | 14/04/2025 | 08:20 | Técnica de enfermagem separa ampola de cefazolina 1 g para administração. | Entrevista | Em análise |
+    | 14/04/2025 | 08:30 | Cefazolina 1 g EV é administrada ao paciente. | Prontuário | Confirmado |
+    | 14/04/2025 | 09:10 | Durante conferência da prescrição, enfermeira identifica que o medicamento prescrito era ceftriaxona 1 g EV. | Prontuário | Confirmado |
+    | 14/04/2025 | 09:20 | Médico assistente é comunicado e paciente permanece em observação. | Prontuário | Confirmado |
+
+- **CA04 — Cronologia obrigatória**
+    **Dado que** o usuário esteja na Seção 3, **quando** tentar avançar, **então** o sistema deve exigir ao menos 1 evento na cronologia, com todos os campos preenchidos (Data, Hora, Fato, Fonte e Status — incluindo o texto de "Outro" na Fonte). A tabela já abre com um evento em branco; se todos forem removidos, o sistema deve exibir "Adicione pelo menos 1 evento.".
+- **CA05 — Exibição da cronologia em linha do tempo**
+    **Dado que** existam eventos na cronologia, **quando** a tabela for exibida, **então** o sistema deve apresentar um evento por linha, com os campos lado a lado na ordem Data · Hora · Fato · Fonte · Status (com rolagem horizontal se não couber na tela) e o botão "+ Adicionar evento".
+- **CA06 — Campos da cronologia**
+    **Dado que** o usuário esteja registrando um evento, **quando** preencher os campos, **então** o sistema deve oferecer: Fato — texto de até 500 caracteres; Fonte — Prontuário, Inspeção no local, Entrevista ou Outro (texto de até 30 caracteres); Status — Confirmado (fonte documental direta), Provável (relato/entrevista sem confirmação documental) ou Em análise (informação pendente de validação, inclusive divergência entre fontes, registrando as duas versões, uma por linha), com a legenda dos status disponível no cabeçalho da coluna.
+- **CA07 — Conferência antes de seguir**
+    **Dado que** o usuário esteja preenchendo a cronologia, **quando** a tabela for exibida, **então** o sistema deve apresentar logo abaixo dela o bloco "Antes de seguir, confira", com os itens (em duas colunas, cada um com um ícone de verificação): "A sequência começa antes do incidente"; "Inclui o momento em que ele foi percebido e o que foi feito depois"; "Os fatos estão descritos sem julgamento"; "As divergências entre fontes estão registradas". O bloco é apenas uma orientação e não bloqueia o avanço.
+- **CA08 — Aviso de fatos em análise**
+    **Dado que** algum evento da cronologia esteja com o status "Em análise", **quando** a tabela for exibida, **então** o sistema deve apresentar, ao lado do bloco "Antes de seguir, confira", o aviso "Há 1 fato em análise." (ou "Há N fatos em análise.", conforme a quantidade), seguido de "Confirme se a divergência foi registrada."; sem eventos "Em análise", o aviso não é exibido. O aviso não bloqueia o avanço.
+- **CA09 — Explicação dos PPCs**
+    **Dado que** o usuário esteja na Seção 3, **quando** o campo "Problemas na Prestação do Cuidado (PPC)" for exibido, **então** o sistema deve apresentar a caixa de informação: "Com base na cronologia acima, identifique se houve alguma ação, omissão, decisão ou **falha no processo de cuidado** que foi diferente do que deveria ter acontecido e que teve importância na sequência do incidente. Pode haver mais de um PPC no mesmo incidente." O sistema não deve mais perguntar "Foi identificado algum Problema na Prestação do Cuidado (PPC)?": a tabela de PPC é sempre exibida.
+- **CA10 — Como identificar um PPC**
+    **Dado que** o campo de PPC seja exibido, **quando** o usuário visualizar o bloco recolhível "Como identificar um PPC" (US-4.2, CA19), **então** o sistema deve apresentar três colunas (empilhadas em telas estreitas):
+    - passos numerados: 1. Reveja a cronologia e pergunte: "O que aconteceu no cuidado que foi diferente do que deveria ter acontecido?" 2. Registre apenas a ação, omissão ou decisão específica. 3. O PPC nem sempre é um erro de alguém. Também conta quando um equipamento, sistema ou processo falhou durante o cuidado. *Ex.: a bomba de infusão infundiu mais rápido do que o programado.* 4. Não registre aqui as causas do problema; elas serão analisadas na etapa de fatores contribuintes.
+    - "Exemplos de PPC" (ícone ✓ verde): administração de medicamento diferente do prescrito; não realizar avaliação ou monitorização prevista; falha de comunicação durante o cuidado (ex.: informação clínica relevante não foi passada no plantão); decisão clínica inadequada; não seguir protocolo de segurança; falha de equipamento durante o cuidado (ex.: bomba de infusão).
+    - "Não são PPC (são fatores contribuintes, analisados depois)" (ícone ✗ vermelho): falta de pessoal; sobrecarga de trabalho; ausência de rotina de comunicação entre setores; falta de treinamento; condições de infraestrutura inadequadas; problemas organizacionais.
+- **CA11 — Registro de PPC**
+    **Dado que** o usuário identifique um PPC, **quando** preencher a tabela "Problemas na Prestação do Cuidado (PPC)" (um PPC por linha, com o botão "+ Adicionar PPC"), **então** o sistema deve apresentar as colunas Nº · Descreva o problema na prestação do cuidado (PPC) · O que deveria ter acontecido? · O que aconteceu de diferente?, todas de texto com até 500 caracteres e contador. Na Seção 3 a tabela é opcional (pode ficar sem PPC), mas todo PPC adicionado deve ter as três colunas preenchidas; a exigência de ao menos 1 PPC é feita na Seção 4 (US-4.6, CA10).
+- **CA12 — Numeração automática dos PPCs**
+    **Dado que** existam PPCs registrados, **quando** a tabela for exibida, **então** o sistema deve numerá-los automaticamente em ordem crescente a partir de 1 (coluna "Nº"), pela posição da linha, sem permitir edição do número e renumerando os seguintes quando um PPC for removido.
+- **CA13 — Legibilidade da tabela de PPC**
+    **Dado que** a tabela de PPC seja exibida, **quando** os títulos das colunas forem longos, **então** o sistema deve quebrá-los em mais de uma linha, sem sobrepor a coluna vizinha; os campos de texto da tabela começam com altura de três linhas, que é também a altura mínima (podem ser aumentados arrastando o canto, mas não reduzidos abaixo dela).
+
+**Contexto de Uso:** A cronologia e os PPCs formam a base factual da análise: a cronologia reconstrói o que aconteceu, e cada PPC registrado na Seção 3 é analisado na Seção 4, onde são identificados os fatores que contribuíram para ele.
+
+<a id="us-4-6"></a>
+
+#### US-4.6 — Analisar fatores contribuintes de cada PPC e aprofundar com os 5 Porquês (Seção 4)
+
+**Épico:** 4 — Registro de análise em notificação de incidentes · **Prioridade:** Alta
+
+**COMO** Gestor da Área ou profissional do Núcleo de Segurança do Paciente
+**QUERO** analisar, um de cada vez, os problemas na prestação do cuidado e registrar os fatores que contribuíram para cada um
+**PARA** entender por que cada PPC aconteceu e, quando necessário, aprofundar a causa até um ponto capaz de orientar uma ação de melhoria.
+
+**Critérios de Aceite**
+
+- **CA01 — Explicação da seção**
+    **Dado que** o usuário esteja na Seção 4, **quando** a seção for exibida, **então** o sistema deve apresentar, com o título "Seção 4 — Fatores contribuintes", a caixa de informação com um parágrafo por linha: "**Nesta seção, vamos investigar por que cada Problema na Prestação do Cuidado (PPC) aconteceu.**"; "Para cada PPC identificado, procure entender quais condições estavam presentes e podem ter favorecido sua ocorrência. Essas condições são chamadas de fatores contribuintes e podem estar relacionadas ao paciente, aos profissionais, às tarefas, à equipe, ao ambiente de trabalho, à tecnologia, à organização ou ao contexto institucional."; "**Analise um PPC por vez e registre apenas os fatores que realmente tiveram relação com ele.**"; "Clique em um problema abaixo para iniciar a análise."
+- **CA02 — Um cartão por PPC**
+    **Dado que** existam PPCs registrados na Seção 3, **quando** a Seção 4 for exibida, **então** o sistema deve listar, sob o título "Problemas na Prestação do Cuidado (PPC) identificados neste incidente", um cartão por PPC com: o número do PPC em destaque circular; a descrição do problema como título (sem o prefixo "PPC N"); "**Deveria:** …" (o que deveria ter acontecido) e "**Aconteceu:** …" (o que aconteceu de diferente); a dica "Clique para identificar quais condições podem ter contribuído para a ocorrência deste PPC."; o botão "Identificar fatores contribuintes"; e uma seta para abrir e fechar. Os fatos da cronologia não são mais analisados nesta seção.
+- **CA03 — Análise aberta na própria linha**
+    **Dado que** o usuário selecione "Identificar fatores contribuintes" (ou a seta) em um PPC, **quando** a análise for aberta, **então** o sistema deve exibi-la dentro do próprio cartão, abaixo dos dados do PPC, com o selo "Em análise" acima do título e a pergunta "Quais condições podem ter contribuído para a ocorrência deste PPC?". Apenas um PPC fica aberto por vez: abrir outro fecha o anterior.
+- **CA04 — Resumo do PPC analisado**
+    **Dado que** um PPC tenha fatores registrados, **quando** o cartão estiver fechado, **então** o sistema deve exibir ao lado do botão o resumo "1 fator registrado" ou "N fatores registrados".
+- **CA05 — Categorias de fatores contribuintes**
+    **Dado que** a análise de um PPC esteja aberta, **quando** o usuário visualizar as categorias, **então** o sistema deve apresentar as oito categorias do Protocolo de Londres 2024, uma abaixo da outra, cada uma com caixa de seleção, título, exemplo e seta: Fatores do paciente (Ex.: doença/complexidade, barreira de comunicação, aspectos sociais); Fatores individuais dos profissionais (Ex.: conhecimento/habilidades, saúde física ou mental, valores profissionais); Fatores das tarefas (Ex.: clareza do processo, protocolo disponível, acesso à informação necessária); Fatores da equipe (Ex.: comunicação verbal/escrita, supervisão, liderança, apoio mútuo); Fatores do ambiente de trabalho (Ex.: dimensionamento de pessoal, carga de trabalho, equipamentos, ambiente físico); Tecnologia e sistemas eletrônicos de informação (Ex.: hardware/software, suporte a decisão, interface, integração de fluxo); Fatores organizacionais, gerenciais e culturais (Ex.: recursos, treinamento, políticas e metas, cultura de segurança); Fatores do contexto institucional (Ex.: contexto regulatório, políticas públicas de saúde, rede externa). Não há categoria "Outro / não mapeado".
+- **CA06 — Registro do fator**
+    **Dado que** o usuário marque uma categoria (pela caixa de seleção ou clicando na linha), **quando** ela for aberta, **então** o sistema deve apresentar: "Descreva o fator identificado e como ele contribuiu para este PPC" — texto obrigatório (*); "Fonte/evidência (opcional)" — caixas de seleção, permitindo marcar várias, entre Prontuário, Entrevista, Observação, Protocolo/documento, Sistema eletrônico e Outro; e o botão "Salvar fator". Desmarcar a categoria fecha e descarta o fator do registro de categorias marcadas.
+- **CA07 — Salvar fator**
+    **Dado que** o usuário tenha descrito o fator, **quando** selecionar "Salvar fator", **então** o sistema deve recolher a categoria, mantendo-a marcada e exibindo abaixo do título um resumo do texto do fator. O fator continua editável ao abrir a categoria novamente; o rascunho da análise é salvo ao avançar de seção (US-4.2, CA07).
+- **CA08 — 5 Porquês do fator**
+    **Dado que** uma categoria esteja aberta, **quando** o usuário visualizar o fator, **então** o sistema deve apresentar o 5 Porquês **fechado por padrão**: abaixo do fator, exibe apenas o convite "Se você quiser entender melhor por que esse fator existia ou aconteceu, utilize os 5 Porquês. Essa ferramenta ajuda a aprofundar a análise de um fator contribuinte já identificado." e o botão "Usar os 5 Porquês". Ao selecionar o botão, o sistema abre o bloco "5 Porquês" com a caixa de informação: "Comece pelo fator identificado e pergunte: "Por que isso aconteceu?". Use cada resposta para formular o próximo "por quê?"." e "Não é necessário chegar exatamente a cinco perguntas. Continue enquanto as respostas ajudarem a aprofundar a causa do fator identificado e encerre a análise quando considerar que chegou a uma causa capaz de orientar uma ação de melhoria." Enquanto o bloco estiver vazio, o botão "Não usar os 5 Porquês" o fecha novamente; com algum nível preenchido, o bloco já abre aberto e o botão passa a ser "Remover 5 Porquês", que pede a confirmação "Remover o 5 Porquês deste fator? Tudo o que foi preenchido nele será apagado." antes de apagar o conteúdo.
+- **CA09 — Níveis do 5 Porquês**
+    **Dado que** o usuário registre o 5 Porquês, **quando** preencher os níveis, **então** o sistema deve apresentar um nível por linha, com o rótulo "1º por quê?", "2º por quê?"…, e os campos "Pergunta" e "Resposta" lado a lado, cada um com até 100 caracteres; o botão "+ Adicionar outro "por quê?"" cria um novo nível já com a pergunta sugerida a partir da resposta anterior ("Por que <resposta>?"), editável; cada nível, exceto o único restante, pode ser removido (ícone ✕); o limite é de 15 níveis. O 5 Porquês é opcional: níveis totalmente em branco são ignorados, mas todo nível começado deve ter pergunta e resposta.
+- **CA10 — Validação da seção**
+    **Dado que** o usuário tente avançar da Seção 4, **quando** a validação for executada, **então** o sistema deve exigir: ao menos 1 PPC registrado ("Adicione pelo menos 1 PPC."); ao menos um fator contribuinte em **cada** PPC ("Marque ao menos um fator contribuinte."); a descrição de todo fator marcado; e pergunta e resposta em todo nível do 5 Porquês começado. O PPC com pendência exibe o selo "Pendências" em vermelho e borda vermelha, e o sistema abre automaticamente o primeiro PPC e as categorias com pendência, destacando exatamente os campos que faltam (ex.: "Preencha Descreva o fator identificado e como ele contribuiu para este PPC e 5 Porquês — Resposta.").
+- **CA11 — Incluir PPC na Seção 4**
+    **Dado que** o usuário perceba, ao analisar os fatores, que um problema na prestação do cuidado não foi registrado, **quando** visualizar o final da lista de PPCs, **então** o sistema deve apresentar o bloco "Faltou algum problema na prestação do cuidado?" com o texto "Se, ao iniciar esta etapa, você perceber que um problema na prestação do cuidado ainda não foi registrado, é possível adicioná-lo aqui." e o botão "+ Adicionar PPC". Ao selecioná-lo, o sistema deve abrir, no próprio bloco, os campos do PPC (os mesmos da Seção 3 — US-4.5, CA11, todos obrigatórios), com os botões "Cancelar" e "Adicionar PPC"; com campos vazios, exibe "Preencha todos os campos do PPC.". O PPC adicionado entra na mesma tabela de PPC da Seção 3 e é aberto em seguida para a análise dos fatores.
+- **CA12 — Sem PPC registrado**
+    **Dado que** nenhum PPC tenha sido registrado, **quando** a Seção 4 for exibida, **então** o sistema deve informar "Nenhum PPC registrado na Seção 3. Adicione abaixo o problema na prestação do cuidado que será analisado." e oferecer o bloco de inclusão de PPC (CA11).
+
+**Contexto de Uso:** A Seção 4 aprofunda cada problema na prestação do cuidado, um por vez, organizando os fatores contribuintes nas categorias do Protocolo de Londres 2024 e, quando útil, descendo até a causa pelos 5 Porquês. É o conteúdo que alimenta automaticamente o Diagrama de Ishikawa.
+
+<a id="us-4-7"></a>
+
+#### US-4.7 — Revisar o Diagrama de Ishikawa e registrar recomendações (Seção 5)
+
+**Épico:** 4 — Registro de análise em notificação de incidentes · **Prioridade:** Alta
+
+**COMO** Gestor da Área ou profissional do Núcleo de Segurança do Paciente
+**QUERO** visualizar os fatores contribuintes organizados em um Diagrama de Ishikawa e registrar recomendações de melhoria
+**PARA** enxergar o quadro completo das causas e definir o que precisa ser feito para evitar que o incidente se repita.
+
+**Regras de Negócio:** RN-19
+
+**Critérios de Aceite**
+
+- **CA01 — Explicação do resultado**
+    **Dado que** o usuário esteja na Seção 5, **quando** a seção for exibida, **então** o sistema deve apresentar, com o título "Seção 5 — Resultado (Ishikawa + Recomendações)", a caixa de informação: "O resultado da análise está apresentado no Diagrama de Ishikawa abaixo. O diagrama reúne os fatores contribuintes identificados na investigação e os organiza por categoria. Cada fator está vinculado ao respectivo problema na prestação do cuidado ao qual se relaciona. Quando um fator tiver sido aprofundado com os 5 Porquês, o diagrama também apresenta as causas identificadas nesse aprofundamento, preservando a relação entre o fator inicial e as causas subsequentes."
+- **CA02 — Geração automática do diagrama**
+    **Dado que** existam fatores contribuintes registrados, **quando** a Seção 5 for exibida, **então** o sistema deve gerar automaticamente um único diagrama, com o título "Diagrama de Ishikawa (espinha de peixe)": eixo central horizontal com cauda à esquerda e "cabeça" à direita contendo o incidente em investigação; cada categoria com fatores é um "osso", exibido como um cartão (fundo branco, borda fina, título na cor do diagrama), alternando acima e abaixo do eixo, com linhas diagonais que se encontram no eixo. A cabeça cresce conforme o tamanho do texto e o diagrama cresce horizontalmente, com rolagem, conforme a quantidade de categorias.
+- **CA03 — Conteúdo de cada categoria no diagrama**
+    **Dado que** uma categoria tenha fatores registrados, **quando** o diagrama for gerado, **então** o sistema deve exibir nela os fatores agrupados pelo PPC a que se referem: uma etiqueta (fundo laranja suave) com a descrição do PPC e, abaixo, cada fator com o texto exatamente como informado pelo usuário. Quando o fator tiver sido aprofundado pelos 5 Porquês, o sistema deve exibir logo abaixo dele **somente as respostas** de cada nível, na ordem, precedidas de "—" e em fonte menor (as perguntas não são exibidas). Quando o mesmo tipo de fator estiver relacionado a mais de um PPC, ele aparece na categoria sob cada um dos respectivos PPCs. A fonte/evidência não é exibida no diagrama.
+- **CA04 — Diagrama sem fatores**
+    **Dado que** nenhum fator contribuinte tenha sido registrado, **quando** a Seção 5 for exibida, **então** o sistema deve informar "Registre ao menos um fator contribuinte na Seção 4 para gerar o diagrama de Ishikawa (espinha de peixe) do resultado final.".
+- **CA05 — Exportar o diagrama**
+    **Dado que** o diagrama tenha sido gerado, **quando** o usuário selecionar "Exportar diagrama" (botão no canto superior direito do diagrama), **então** o sistema deve baixar o diagrama completo — inclusive a parte fora da área visível — como imagem PNG ("diagrama-ishikawa.png"), com fundo branco e resolução adequada para apresentação; durante a geração o botão exibe "Exportando..." e fica desabilitado; em caso de falha, o sistema informa que não foi possível exportar o diagrama. A opção também está disponível na visualização da análise concluída (US-4.8, CA08).
+- **CA06 — Explicação das recomendações**
+    **Dado que** o usuário esteja registrando recomendações, **quando** o campo "Recomendações de melhoria" for exibido, **então** o sistema deve apresentar a caixa de informação: "As recomendações devem ter relação clara com os fatores contribuintes identificados e estar direcionadas à redução das fragilidades do processo ou do sistema encontradas na investigação. Após o registro das recomendações, o próximo passo é a elaboração do Plano de Ação. Quando houver mais de uma recomendação, a equipe deve considerar sua priorização, definindo quais medidas exigem implementação imediata e quais poderão ser executadas em prazos maiores."
+- **CA07 — Registro de recomendações**
+    **Dado que** o usuário esteja na Seção 5, **quando** registrar recomendações, **então** o sistema deve apresentar uma recomendação por linha, com o rótulo "Recomendação N", o campo de texto (placeholder "Descreva a recomendação de melhoria...", até 300 caracteres, com contador) e o ícone de lixeira para remover, além do botão "+ Adicionar recomendação". A seção começa com uma linha; as recomendações são opcionais, mas toda recomendação adicionada deve ser preenchida.
+- **CA08 — Navegação da última seção**
+    **Dado que** o usuário esteja na Seção 5, **quando** visualizar os botões de navegação, **então** o sistema deve apresentar "Voltar" e "Finalizar análise" (US-4.8).
+
+**Contexto de Uso:** A Seção 5 consolida a investigação: o diagrama sintetiza, por categoria e por PPC, as causas identificadas, e as recomendações transformam essas conclusões em ações a serem executadas no plano de ação.
+
+<a id="us-4-8"></a>
+
+#### US-4.8 — Concluir investigação do incidente
+
+**Épico:** 4 — Registro de análise em notificação de incidentes · **Prioridade:** Alta
+
+**COMO** Gestor da Área ou profissional do Núcleo de Segurança do Paciente
+**QUERO** concluir a investigação de um incidente
+**PARA** registrar formalmente o encerramento da etapa de análise e indicar que as informações necessárias para a tratativa foram registradas.
+
+**Regras de Negócio:** RN-08, RN-18, RN-19
+
+**Critérios de Aceite**
+
+- **CA01 — Disponibilidade da conclusão**
+    **Dado que** o usuário esteja na última seção do formulário de análise (Seção 5 — Resultado), **quando** visualizar as opções de navegação, **então** o sistema deve disponibilizar o botão "Finalizar análise".
+- **CA02 — Validação antes da conclusão**
+    **Dado que** existam informações obrigatórias pendentes, **quando** o usuário tentar concluir a investigação, **então** o sistema deve impedir a conclusão e informar as pendências conforme o padrão de validação (US-4.2, CA08).
+- **CA03 — Registro da conclusão**
+    **Dado que** todas as informações obrigatórias tenham sido preenchidas, **quando** o usuário confirmar a conclusão, **então** o sistema deve registrar a conclusão da investigação e retornar ao detalhe da notificação.
+- **CA04 — Registro de data e autor**
+    **Dado que** a investigação seja concluída, **quando** a operação for realizada, **então** o sistema deve registrar a data, hora e usuário que concluiu a investigação e incluir o registro "análise concluída" no histórico da notificação.
+- **CA05 — Atualização do status — análise feita pelo setor**
+    **Dado que** a análise tenha sido realizada pelo setor (incidente encaminhado), **quando** a conclusão for confirmada, **então** o sistema deve atualizar o status da notificação diretamente para "Analisado" (ver US-6.2).
+- **CA06 — Atualização do status — análise feita pelo NSP**
+    **Dado que** a análise tenha sido realizada pelo NSP (sem encaminhamento), **quando** a conclusão for confirmada, **então** o sistema deve manter o status "Em análise" até que o NSP decida encaminhar ou não o resultado ao setor (US-4.9) (ver US-6.2).
+- **CA07 — Criação das ações a partir das recomendações**
+    **Dado que** a análise possua recomendações registradas, **quando** a conclusão for confirmada, **então** o sistema deve criar automaticamente, no plano de ação da notificação, uma ação por recomendação, com o campo "O que será feito?" preenchido com o texto da recomendação e vínculo com a recomendação de origem (US-5.3), registrando no histórico a quantidade de ações pré-criadas.
+- **CA08 — Visualização da análise concluída**
+    **Dado que** a análise tenha sido concluída, **quando** o usuário acessar a seção "Análise" do detalhe da notificação, **então** o sistema deve exibi-la em modo somente leitura, organizada pelas mesmas seções do formulário, incluindo o Diagrama de Ishikawa com a opção "Exportar diagrama" (US-4.7, CA05). Os blocos de orientação e exemplos não são exibidos nessa visualização.
+
+**Contexto de Uso:** A conclusão encerra a etapa de investigação. A partir dela, as recomendações passam a existir como ações do plano de ação e, no caso de análise feita pelo NSP, o núcleo decide se o resultado será compartilhado com o setor.
+
+<a id="us-4-9"></a>
+
+#### US-4.9 — Decidir o encaminhamento do resultado da análise ao setor
+
+**Épico:** 4 — Registro de análise em notificação de incidentes · **Prioridade:** Alta
+
+**COMO** profissional do Núcleo de Segurança do Paciente
+**QUERO** decidir se o resultado da análise feita pelo núcleo será encaminhado ao setor
+**PARA** definir se o setor terá acesso ao incidente e às informações da análise.
+
+**Regras de Negócio:** RN-08, RN-18
+
+**Critérios de Aceite**
+
+- **CA01 — Pergunta após a conclusão da análise**
+    **Dado que** o NSP tenha concluído uma análise feita por ele mesmo (sem encaminhamento prévio), **quando** acessar a seção "Análise" do detalhe da notificação, **então** o sistema deve exibir "Análise concluída pelo núcleo. Deseja encaminhar o resultado ao setor?" com as opções "Encaminhar ao setor" e "Não encaminhar / justificar".
+- **CA02 — Informação sobre a consequência da decisão**
+    **Dado que** a pergunta esteja sendo exibida, **quando** o NSP visualizar as opções, **então** o sistema deve apresentar uma caixa de informação explicando que as informações da análise só poderão ser acessadas pelo setor conforme essa decisão: ao encaminhar, o setor responsável recebe o resultado e passa a ter acesso ao incidente; ao não encaminhar, o setor não terá acesso ao incidente nem às informações da análise, que ficam restritos ao núcleo, e é preciso registrar uma justificativa.
+- **CA03 — Encaminhar o resultado**
+    **Dado que** o NSP selecione "Encaminhar ao setor", **quando** confirmar o encaminhamento (com mensagem opcional de até 400 caracteres), **então** o sistema deve comunicar o resultado ao setor, conceder a ele acesso ao incidente e à análise, atualizar o status para "Analisado" e registrar no histórico o setor de destino e a mensagem. O encaminhamento apenas comunica: não altera quem realizou a análise.
+- **CA04 — Não encaminhar o resultado**
+    **Dado que** o NSP selecione "Não encaminhar / justificar", **quando** confirmar, **então** o sistema deve exigir uma justificativa, manter o incidente restrito ao núcleo, atualizar o status para "Analisado" e registrar no histórico a decisão e o motivo.
+
+**Contexto de Uso:** Quando o próprio núcleo realiza a análise, o setor não tem acesso automático ao resultado. Essa decisão formaliza, com rastreabilidade, se o setor será envolvido.
+
+<a id="historias-55"></a>
+
+### 5.5 Gestão de plano de ação
+
+<a id="us-5-1"></a>
+
+#### US-5.1 — Acessar e preencher o plano de ação
+
+**Épico:** 5 — Gestão de plano de ação · **Prioridade:** Alta
+
+**COMO** profissional do Núcleo de Segurança do Paciente ou gestor da área a que o incidente foi encaminhado
+**QUERO** acessar e preencher o plano de ação relacionado ao problema identificado na análise
+**PARA** definir as ações necessárias para tratar o problema identificado.
+
+**Regras de Negócio:** RN-07, RN-19, RN-24
+
+**Critérios de Aceite**
+
+- **CA01 — Acessar plano de ação**
+    **Dado que** o incidente esteja com status "Analisado" ou "Em ação", **quando** o profissional selecionar "Registrar plano de ação" (ou "Adicionar outra ação", se já houver ações) na seção "Plano de ação" do detalhe da notificação, **então** o sistema deve apresentar o formulário "Registrar plano de ação". Antes da conclusão da análise, a seção informa que o plano de ação ficará disponível após a conclusão da análise.
+- **CA02 — Recuperação automática do problema**
+    **Dado que** a análise tenha recomendações registradas, **quando** for concluída, **então** o sistema deve criar automaticamente uma ação por recomendação com o "O que será feito?" preenchido (US-5.3); e, ao registrar uma nova ação, deve pré-preencher o "O que será feito?" com a próxima recomendação que ainda não tenha ação vinculada, se houver.
+- **CA03 — O que será feito**
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "1. O que será feito?", **então** o sistema deve exigir o campo, aceitando até 500 caracteres.
+- **CA04 — Onde será feito**
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "3. Onde será feito?", **então** o sistema deve apresentar a lista dos setores da instituição (Qualidade e Segurança do Paciente, Clínica Médica, Farmácia Hospitalar, Centro Cirúrgico, UTI, Pronto-Socorro, Enfermagem, Administrativo), um abaixo do outro, cada um com uma caixa de seleção, e por último a opção "Outro", permitindo marcar um ou mais. É obrigatório marcar ao menos uma opção; "Outro" abre um campo de texto obrigatório de até 50 caracteres ("Especifique onde a ação será feita"), que pode ser combinado com os setores marcados. Os locais selecionados são exibidos juntos, separados por ponto e vírgula (ex.: "Farmácia Hospitalar; UTI").
+- **CA05 — Responsável(eis)**
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "4. Quem será o(s) responsável(eis)?", **então** o sistema deve apresentar uma tabela com ao menos um responsável e o botão "+ Adicionar responsável"; cada linha contém Nome (até 50 caracteres), Função e Setor (menus com "Outro", texto de até 30 caracteres), todos obrigatórios — mesma lógica do condutor da análise. A primeira linha não pode ser removida.
+- **CA06 — Previsões de início e conclusão**
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "5. Previsão de início" e "6. Previsão de conclusão", **então** o sistema deve exigir as duas datas e impedir que a previsão de início seja posterior à previsão de conclusão: o calendário limita as datas possíveis e, se o intervalo ficar inválido, os dois campos ficam em vermelho com o aviso "A previsão de início não pode ser posterior à previsão de conclusão." e o salvamento é bloqueado.
+- **CA07 — Situação inicial**
+    **Dado que** o profissional esteja registrando uma nova ação, **quando** o formulário for exibido, **então** o sistema deve apresentar o campo "Situação da ação" com o valor padrão "Em andamento".
+- **CA08 — Necessidade de recurso**
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** responder "7. Precisa de recurso para executar essa ação?" com "Sim", **então** o sistema deve exibir a tabela "Se sim, qual e quanto irá custar?", já com a primeira linha, e o botão "+ Adicionar recurso"; deve haver ao menos um item, e todo item adicionado deve ter Pedido/item (até 100 caracteres) e Preço estimado (em reais) preenchidos.
+- **CA09 — Aprovação da Alta Gestão**
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** responder "8. Depende da aprovação da Alta Gestão?" com "Sim", **então** o sistema deve exigir a informação de qual aprovação é necessária, com até 100 caracteres.
+- **CA10 — Comprovação da execução**
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "9. Como vamos comprovar que foi feito?", **então** o sistema deve exigir o campo, aceitando até 500 caracteres.
+- **CA11 — Resultado esperado**
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "10. Qual resultado esperamos?", **então** o sistema deve exigir o campo, aceitando até 500 caracteres.
+- **CA12 — Verificação do resultado**
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "11. Como vamos saber se funcionou?" e "12. Quando verificar o resultado?", **então** o sistema deve exigir os dois campos, aceitando até 500 e até 100 caracteres, respectivamente.
+- **CA13 — Indicador de acompanhamento**
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** responder "13. Esta ação irá gerar um indicador de acompanhamento?", **então** o sistema deve permitir selecionar entre "Sim" e "Não" e, com "Sim", exigir qual indicador, com até 100 caracteres.
+- **CA14 — Textos explicativos**
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** visualizar cada pergunta, **então** o sistema deve exibir logo abaixo dela uma caixa de informação (fundo azul claro com ícone ⓘ) explicando o sentido do preenchimento, com exemplos: o que será feito (a ação concreta, e não só o objetivo); como a ação será realizada (os principais passos, com exemplo — CA18); onde ("Indique o(s) setor(es) ou local(is) em que a ação será executada. Marque um ou mais — se a ação envolver vários setores, selecione todos. Isso ajuda a saber quem precisa ser envolvido e onde acompanhar a execução."); responsável(eis) (quem garante que a ação aconteça); previsões (acompanhar andamento e identificar atrasos); recurso (gasto necessário, com item e custo estimado, para a gestão prever e aprovar o orçamento — exibida antes mesmo de responder); aprovação da Alta Gestão; comprovação (a evidência da execução); resultado esperado (base da avaliação de eficácia); como saber se funcionou (forma de medição); quando verificar (dar tempo para a ação surtir efeito); e indicador.
+- **CA15 — Limites e campos longos**
+    **Dado que** um campo possua limite de caracteres, **quando** o profissional digitar, **então** o sistema deve exibir o contador "N/limite", destacar o campo em vermelho ao ultrapassar e impedir o salvamento; campos de texto longo têm altura máxima e, a partir dela, o conteúdo rola dentro do campo.
+- **CA16 — Validação ao salvar**
+    **Dado que** existam pendências, **quando** o profissional selecionar "Salvar plano de ação", **então** o sistema deve impedir o salvamento, destacar em vermelho os campos vazios (inclusive as células das tabelas) e exibir um aviso listando os campos que faltam, os textos acima do limite e se as datas estão inválidas.
+- **CA17 — Tabelas responsivas**
+    **Dado que** o formulário seja acessado em diferentes dispositivos, **quando** as tabelas de responsáveis e de recursos forem exibidas, **então** devem ocupar toda a largura disponível; a coluna "Remover" só aparece quando há linha que pode ser removida; e, em telas de celular, cada linha deve ser exibida como um bloco empilhado, com o rótulo acima de cada campo.
+- **CA18 — Como a ação será realizada**
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** informar "2. Como a ação será realizada?", logo após "1. O que será feito?", **então** o sistema deve exigir o campo, aceitando até 500 caracteres, e exibir abaixo da pergunta a caixa de informação: "Explique os principais passos para colocar a ação em prática, sem apenas repetir o que será feito. Exemplo: para a ação “Instalar sinalização de piso molhado nos corredores”: “Verificar a quantidade de placas necessárias, providenciar sua aquisição e orientar a equipe de limpeza a posicioná-las antes de iniciar a lavagem, mantendo-as no local até que o piso esteja seco.”". As demais perguntas do formulário são renumeradas a partir de 3.
+
+**Contexto de Uso:** Essa funcionalidade permite que o NSP ou o gestor da área a que o incidente foi encaminhado, após a conclusão da análise, registre o plano de ação a partir do problema identificado, definindo as informações necessárias para execução e posterior acompanhamento das ações.
+
+<a id="us-5-2"></a>
+
+#### US-5.2 — Adicionar ações ao plano de ação
+
+**Épico:** 5 — Gestão de plano de ação · **Prioridade:** Alta
+
+**COMO** profissional do Núcleo de Segurança do Paciente ou gestor da área a que o incidente foi encaminhado
+**QUERO** adicionar uma ou mais ações relacionadas ao problema identificado
+**PARA** definir todas as medidas necessárias para sua tratativa.
+
+**Regras de Negócio:** RN-07
+
+**Critérios de Aceite**
+
+- **CA01 — Adicionar outra ação**
+    **Dado que** o plano de ação já possua ao menos uma ação, **quando** o profissional selecionar "Adicionar outra ação", **então** o sistema deve abrir o formulário para preenchimento de uma nova ação.
+- **CA02 — Preservação das ações**
+    **Dado que** exista uma ou mais ações registradas, **quando** o profissional adicionar uma nova ação, **então** o sistema deve preservar as informações das ações anteriormente registradas.
+- **CA03 — Associação ao problema**
+    **Dado que** existam múltiplas ações cadastradas, **quando** o plano for salvo, **então** todas as ações devem permanecer associadas à notificação e ao problema identificado na análise; ações originadas de recomendações mantêm o vínculo com a recomendação de origem.
+- **CA04 — Identificação das ações**
+    **Dado que** o profissional adicione mais de uma ação, **quando** as ações forem exibidas, **então** o sistema deve exibir cada ação em uma linha da tabela do plano de ação (US-5.6, CA01), na ordem em que foram registradas.
+- **CA05 — Salvar plano**
+    **Dado que** o profissional tenha preenchido a ação, **quando** selecionar "Salvar plano de ação", **então** o sistema deve validar os campos obrigatórios (US-5.1, CA16), registrar a ação, registrar o evento no histórico e, se o incidente estiver "Analisado", atualizar o status para "Em ação".
+- **CA06 — Cancelar o registro**
+    **Dado que** o profissional esteja preenchendo uma ação, **quando** selecionar "Cancelar", **então** o sistema deve fechar o formulário sem registrar as informações.
+
+**Contexto de Uso:** Essa funcionalidade permite que um mesmo problema identificado durante a análise seja tratado por meio de uma ou mais ações, mantendo todas elas vinculadas ao mesmo plano de ação.
+
+<a id="us-5-3"></a>
+
+#### US-5.3 — Completar ações originadas das recomendações da análise
+
+**Épico:** 5 — Gestão de plano de ação · **Prioridade:** Alta
+
+**COMO** profissional do Núcleo de Segurança do Paciente ou gestor da área a que o incidente foi encaminhado
+**QUERO** completar as ações criadas automaticamente a partir das recomendações da análise
+**PARA** transformar cada recomendação em uma ação completa, com responsável, prazo e forma de acompanhamento.
+
+**Regras de Negócio:** RN-19, RN-20
+
+**Critérios de Aceite**
+
+- **CA01 — Criação a partir das recomendações**
+    **Dado que** a análise tenha sido concluída com recomendações, **quando** o usuário acessar a seção "Plano de ação", **então** o sistema deve exibir uma ação para cada recomendação, com apenas o "O que será feito?" preenchido e a indicação "Veio de uma recomendação da análise". O plano de ação não é cadastrado dentro do formulário de análise, que exige apenas o texto da recomendação.
+- **CA02 — Identificação da ação pendente de preenchimento**
+    **Dado que** uma ação ainda não tenha todos os campos obrigatórios preenchidos, **quando** a linha da ação for exibida na tabela do plano de ação, **então** o sistema deve exibir na coluna "Status", no lugar do status da ação, o selo laranja "Preenchimento pendente" (ao passar o mouse: "Faltam N campo(s) obrigatório(s) para essa ação poder ser acompanhada."); nos detalhes da ação (olho), o sistema deve exibir o aviso "Faltam N campos obrigatórios para essa ação poder ser acompanhada.".
+- **CA03 — Bloqueio do acompanhamento**
+    **Dado que** uma ação esteja pendente de preenchimento, **quando** o usuário visualizar a linha da ação, **então** o sistema não deve oferecer a opção "Atualizar andamento da ação" até que a ação seja completada.
+- **CA04 — Completar preenchimento**
+    **Dado que** o usuário selecione o botão Editar (lápis) de uma ação pendente — que exibe a dica "Completar preenchimento" —, **quando** o formulário for aberto, **então** o sistema deve exibir o título "Completar plano de ação", a explicação "Esta ação foi criada a partir de uma recomendação da análise e ainda não está completa. Preencha os demais campos para que ela possa ser acompanhada." e os dados já existentes, exigindo todos os campos obrigatórios (US-5.1).
+- **CA05 — Ação completada**
+    **Dado que** todos os campos obrigatórios tenham sido preenchidos, **quando** o usuário salvar, **então** o sistema deve passar a exibir o status normal da ação ("Em andamento"), liberar a atualização de andamento, registrar "plano de ação completado" no histórico e, se o incidente estiver "Analisado", atualizar o status para "Em ação".
+- **CA06 — Disponibilidade**
+    **Dado que** a análise tenha sido concluída, **quando** o usuário acessar o plano de ação, **então** o sistema deve permitir completar as ações pendentes inclusive antes da decisão pós-análise do NSP (US-4.9), e enquanto o incidente não estiver concluído.
+
+**Contexto de Uso:** As recomendações registradas na análise são o ponto de partida do plano de ação. Esta funcionalidade garante que cada uma delas seja detalhada com todas as informações necessárias antes de ser acompanhada.
+
+<a id="us-5-4"></a>
+
+#### US-5.4 — Editar e excluir ações do plano de ação
+
+**Épico:** 5 — Gestão de plano de ação · **Prioridade:** Média
+
+**COMO** profissional do Núcleo de Segurança do Paciente ou gestor da área a que o incidente foi encaminhado
+**QUERO** editar os dados de uma ação ou excluí-la
+**PARA** corrigir informações e manter o plano de ação coerente com o que será executado.
+
+**Regras de Negócio:** RN-09, RN-12
+
+**Critérios de Aceite**
+
+- **CA01 — Editar ação**
+    **Dado que** a análise tenha sido concluída e o incidente não esteja concluído, **quando** o usuário selecionar o botão Editar (lápis) de uma ação, **então** o sistema deve abrir o formulário "Editar plano de ação" com os dados atuais da ação.
+- **CA02 — Validação na edição**
+    **Dado que** o usuário esteja editando uma ação, **quando** selecionar "Salvar alterações", **então** o sistema deve exigir todos os campos obrigatórios e limites (US-5.1), indicando quais campos faltam.
+- **CA03 — Situação não editável na edição**
+    **Dado que** o usuário esteja editando uma ação, **quando** o formulário for exibido, **então** o sistema não deve apresentar o campo "Situação da ação", que só é alterado pela atualização de andamento (US-5.6).
+- **CA04 — Dados antigos de responsável**
+    **Dado que** uma ação tenha o responsável registrado como texto livre (registro anterior à tabela de responsáveis), **quando** for editada, **então** o sistema deve apresentar esse nome como a primeira linha da tabela de responsáveis, para que função e setor sejam completados.
+- **CA05 — Excluir ação**
+    **Dado que** o incidente não esteja concluído, **quando** o usuário selecionar Excluir (lixeira) em uma ação, **então** o sistema deve pedir confirmação ("Tem certeza que deseja excluir esse plano de ação? Essa ação não poderá ser desfeita.") e, ao confirmar, excluir a ação e registrar a exclusão no histórico.
+- **CA06 — Incidente concluído**
+    **Dado que** o incidente esteja concluído, **quando** o usuário visualizar as ações, **então** o sistema deve exibi-las apenas para consulta, sem as opções de editar, atualizar andamento ou excluir.
+
+**Contexto de Uso:** Durante a execução do plano, informações como responsáveis e prazos podem mudar. A edição permite manter o plano atualizado, preservando a rastreabilidade no histórico.
+
+<a id="us-5-5"></a>
+
+#### US-5.5 — Acompanhar plano de ação e prazos
+
+**Épico:** 5 — Gestão de plano de ação · **Prioridade:** Média
+
+**COMO** Gestor da Área ou profissional do Núcleo de Segurança do Paciente
+**QUERO** acompanhar as ações definidas no plano de ação
+**PARA** monitorar sua execução e identificar ações pendentes ou próximas do prazo.
+
+**Regras de Negócio:** RN-07, RN-20
+
+**Critérios de Aceite**
+
+- **CA01 — Visualização das ações**
+    **Dado que** exista um plano de ação registrado, **quando** o usuário acessar a seção "Plano de ação" do detalhe da notificação, **então** o sistema deve apresentar as ações vinculadas à notificação em uma tabela, uma ação por linha (US-5.6, CA01).
+- **CA02 — Visualização dos responsáveis**
+    **Dado que** existam ações registradas, **quando** o usuário visualizar o plano de ação, **então** o sistema deve apresentar o(s) responsável(eis) definido(s) para cada ação.
+- **CA03 — Visualização dos prazos**
+    **Dado que** uma ação possua prazos definidos, **quando** o usuário visualizar o plano de ação, **então** o sistema deve apresentar a previsão de início (coluna "Início") e a previsão de conclusão (coluna "Prazo"), no formato dd/mm/aaaa; para ação "Atrasada" com nova previsão de finalização, a coluna "Prazo" exibe também, logo abaixo e em vermelho, "Nova: dd/mm/aaaa". A data e a hora da última atualização da ação são exibidas nos detalhes (olho).
+- **CA04 — Prazo da ação**
+    **Dado que** uma ação seja registrada, **quando** o usuário definir o prazo de execução, **então** o sistema deve armazenar a data prevista para conclusão da ação, que não pode ser anterior à previsão de início.
+- **CA05 — Validação das informações obrigatórias**
+    **Dado que** existam informações obrigatórias não preenchidas, **quando** o usuário tentar salvar o plano de ação, **então** o sistema deve impedir o registro e informar os campos pendentes.
+- **CA06 — Identificação de ações pendentes**
+    **Dado que** existam ações ainda não concluídas, **quando** o usuário consultar o plano de ação, **então** o sistema deve permitir identificar quais ações permanecem pendentes — pelo status de cada ação (Em andamento, Parcialmente concluído, Atrasada) e, para ações pendentes de preenchimento, pelo aviso "Faltam N campos obrigatórios para essa ação poder ser acompanhada" (US-5.3).
+- **CA07 — Informação não preenchida**
+    **Dado que** algum campo de uma ação não tenha sido preenchido, **quando** a tabela ou os detalhes da ação forem exibidos, **então** o sistema deve apresentar "—" nas células da tabela e "Não informado" nos detalhes, nunca um espaço em branco.
+
+- **CA08 — Situação do plano de ação**
+    **Dado que** o incidente tenha ao menos uma ação no plano, **quando** o usuário acessar a seção "Plano de ação", **então** o sistema deve exibir, acima da tabela do plano, "Situação do plano:" com um selo colorido que resume o plano como um todo: **Em dia** (verde) — nenhuma ação atrasada e ao menos uma ação ainda não finalizada, inclusive as pendentes de preenchimento; **Com ação atrasada** (vermelho) — ao menos uma ação com a situação "Atrasada"; **Concluído** (azul) — todas as ações finalizadas, com a situação "Concluído" ou "Cancelada". Sem ações registradas, a situação não é exibida.
+**Contexto de Uso:** A funcionalidade permite ao gestor e ao NSP acompanhar a execução das ações definidas durante a investigação e monitorar os respectivos prazos.
+
+<a id="us-5-6"></a>
+
+#### US-5.6 — Acompanhar e atualizar o andamento das ações
+
+**Épico:** 5 — Gestão de plano de ação · **Prioridade:** Alta
+
+**COMO** profissional do Núcleo de Segurança do Paciente ou gestor da área a que o incidente foi encaminhado
+**QUERO** acompanhar e atualizar o andamento das ações do plano
+**PARA** manter registrado o estado de execução e as evidências relacionadas a cada ação.
+
+**Regras de Negócio:** RN-20, RN-21, RN-25
+
+**Critérios de Aceite**
+
+- **CA01 — Tabela de acompanhamento**
+    **Dado que** existam ações registradas, **quando** o usuário acessar a seção "Plano de ação", **então** o sistema deve exibir as ações em uma tabela, uma ação por linha, com as colunas:
+    - **Ação** — o que será feito;
+    - **Recomendação** — texto da recomendação da análise que originou a ação, ou "—";
+    - **Responsável** — nome(s) do(s) responsável(eis);
+    - **Início** e **Prazo** — previsões de início e de conclusão (US-5.5, CA03);
+    - **Status** — selo com bolinha colorida: Em andamento, Parcialmente concluído, Concluído, Atrasada ou Cancelada, cada um com cor própria, ou "Preenchimento pendente" (US-5.3, CA02);
+    - **Acompanhamento** — a última informação de andamento conforme a situação: resultado observado (Em andamento e Parcialmente concluído), o que foi realizado (Concluído), motivo do atraso (Atrasada) ou motivo do cancelamento (Cancelada); "—" se ainda não houver;
+    - **Ações** — botões da linha (CA02).
+
+    O cabeçalho usa fundo cinza claro, como as demais tabelas do sistema. Em telas estreitas, a tabela rola na horizontal.
+- **CA02 — Ações da linha**
+    **Dado que** o usuário esteja visualizando a tabela, **quando** o incidente não estiver concluído, **então** o sistema deve oferecer, na coluna "Ações", os botões Editar (lápis — US-5.4; em ação pendente, "Completar preenchimento" — US-5.3), Atualizar andamento (setas circulares — somente em ações completas), Visualizar detalhes (olho) e Excluir (lixeira — US-5.4). Os botões devem ficar sempre lado a lado, sem quebrar de linha: se necessário, o sistema usa botões e fonte menores na tabela.
+- **CA03 — Detalhes da ação**
+    **Dado que** o usuário selecione "Visualizar detalhes" (olho), **quando** os detalhes forem exibidos, **então** o sistema deve abrir, logo abaixo da linha da ação e ocupando toda a largura da tabela, os campos: como será realizada, onde será feito, comprovação, resultado esperado, como verificar, quando verificar, resultado observado e os anexos (com opção de download), exibindo "Não informado" para campos vazios, além da data/hora da última atualização; o botão passa a "Ocultar detalhes".
+- **CA04 — Atualização individual da ação**
+    **Dado que** exista uma ação com todos os campos obrigatórios preenchidos, **quando** o usuário selecionar "Atualizar andamento da ação", **então** o sistema deve abrir a tela "Atualizar andamento da ação" da ação selecionada. Ações pendentes de preenchimento não podem ter o andamento atualizado (US-5.3).
+- **CA05 — Identificação automática da ação**
+    **Dado que** o usuário tenha selecionado uma ação para atualização, **quando** a tela de atualização for aberta, **então** o sistema deve apresentar automaticamente a descrição da ação no campo "Ação selecionada", travado (visual de somente leitura, com ícone de cadeado), sem permitir edição.
+- **CA06 — Situação e data real de início**
+    **Dado que** o usuário esteja atualizando uma ação, **quando** a tela for exibida, **então** o sistema deve apresentar lado a lado "Situação da ação" (Em andamento, Parcialmente concluído, Concluído, Atrasada ou Cancelada) e "Data real de início", com uma caixa de informação explicando o que cada situação exige.
+- **CA07 — Ação concluída**
+    **Dado que** o usuário selecione a situação "Concluído", **quando** salvar a atualização, **então** o sistema deve exigir a data real de conclusão e a descrição do que foi realizado.
+- **CA08 — Ação atrasada**
+    **Dado que** o usuário selecione a situação "Atrasada", **quando** salvar a atualização, **então** o sistema deve exigir o motivo do atraso e uma nova previsão de finalização.
+- **CA09 — Ação cancelada**
+    **Dado que** o usuário selecione a situação "Cancelada", **quando** salvar a atualização, **então** o sistema deve exigir o motivo do cancelamento.
+- **CA10 — Registro da evidência**
+    **Dado que** o usuário esteja atualizando uma ação, **quando** informar onde a evidência está armazenada, **então** o sistema deve permitir registrar a localização ou descrição da evidência (ex.: pasta compartilhada, protocolo ou link), exibindo na caixa de informação a comprovação definida no plano para aquela ação.
+- **CA11 — Anexos de evidência**
+    **Dado que** o usuário esteja atualizando uma ação, **quando** selecionar "Escolher arquivos", **então** o sistema deve aceitar somente arquivos PDF, DOCX, PNG e JPG/JPEG — a janela de seleção já filtra esses formatos, e qualquer outro arquivo escolhido não é anexado, com o aviso "O arquivo “X” não foi anexado: só são aceitos PDF, DOCX, PNG e JPG/JPEG." —; os anexos devem aparecer em lista, cada um com a opção de remover antes de salvar. A caixa de informação do campo "Anexar arquivos" deve informar os formatos aceitos, o limite de 10 MB por arquivo e o máximo de 10 anexos por ação, e o texto ao lado do botão exibe "PDF, DOCX, PNG e JPG/JPEG · até 10 MB por arquivo".
+- **CA12 — Quantidade e tamanho dos anexos**
+    **Dado que** o usuário esteja anexando evidências a uma ação, **quando** selecionar os arquivos, **então** o sistema deve aceitar no máximo 10 anexos por ação (somando os já anexados em atualizações anteriores) e no máximo 10 MB por arquivo. O arquivo que ultrapassar o tamanho não é anexado, com o aviso "O arquivo “X” não foi anexado: o tamanho máximo é 10 MB."; ao atingir 10 anexos, a opção "Escolher arquivos" deve ser desabilitada, com a informação "Limite de 10 anexos por ação atingido.". A lista de anexos deve exibir o contador (ex.: 3/10) e o tamanho de cada arquivo.
+- **CA13 — Validação da atualização**
+    **Dado que** existam campos obrigatórios não preenchidos, **quando** o usuário selecionar "Salvar atualização", **então** o sistema deve impedir o salvamento, destacar em vermelho cada campo obrigatório vazio com a mensagem "Campo obrigatório." logo abaixo, listar no aviso final os campos que faltam e rolar a tela até o primeiro campo pendente; o destaque some conforme o campo é preenchido.
+- **CA14 — Atualização da linha da ação**
+    **Dado que** o usuário tenha salvo uma atualização, **quando** retornar ao acompanhamento do plano, **então** o sistema deve apresentar a situação e as informações atualizadas da ação na tabela (inclusive a coluna "Acompanhamento") e registrar a atualização no histórico.
+- **CA15 — Cancelamento da atualização**
+    **Dado que** o usuário esteja preenchendo uma atualização, **quando** selecionar "Cancelar", **então** o sistema deve retornar à tela anterior sem registrar as alterações realizadas.
+- **CA16 — Limite dos textos da atualização**
+    **Dado que** o usuário esteja preenchendo a atualização de andamento, **quando** digitar nos campos de texto — Resultado observado, justificativa do efeito ("Por que o efeito foi parcial?" / "Por que a ação não foi efetiva?"), O que foi realizado?, Motivo do atraso, Motivo do cancelamento e Onde está armazenada a evidência? —, **então** o sistema deve limitar cada um a 200 caracteres, exibindo o contador "N/200" abaixo do campo, que fica vermelho junto com a borda ao ultrapassar; o texto não é cortado, mas ao selecionar "Salvar atualização" o sistema impede o salvamento, informa "Textos acima do limite de 200 caracteres: …" com os campos visíveis que excederam e rola a tela até o primeiro deles. Campos de data e o campo travado "Ação selecionada" não têm esse limite.
+
+**Contexto de Uso:** Essa funcionalidade permite o acompanhamento individual das ações cadastradas no plano, possibilitando que o NSP ou o gestor da área registre o andamento, situação, prazos e evidências da execução.
+
+<a id="us-5-7"></a>
+
+#### US-5.7 — Avaliar a efetividade das ações
+
+**Épico:** 5 — Gestão de plano de ação · **Prioridade:** Alta
+
+**COMO** profissional do Núcleo de Segurança do Paciente ou gestor da área a que o incidente foi encaminhado
+**QUERO** registrar o resultado observado e avaliar sua efetividade
+**PARA** verificar se a ação executada produziu o resultado esperado para o problema identificado.
+
+**Regras de Negócio:** RN-21, RN-23
+
+**Critérios de Aceite**
+
+- **CA01 — Resultado observado**
+    **Dado que** o usuário esteja atualizando uma ação, **quando** informar o resultado observado, **então** o sistema deve permitir registrar o resultado obtido após a execução da ação, exibindo na caixa de informação o resultado esperado registrado no plano, para comparação.
+- **CA02 — Avaliação da efetividade obrigatória**
+    **Dado que** o usuário esteja atualizando uma ação, **quando** salvar a atualização, **então** o sistema deve exigir a resposta a "A ação produziu o efeito esperado?", com as opções "Sim", "Parcialmente" e "Não", e uma caixa de informação explicando as consequências de cada resposta.
+- **CA03 — Efetividade parcial**
+    **Dado que** o usuário selecione "Parcialmente", **quando** salvar a avaliação, **então** o sistema deve exigir o preenchimento de "Por que o efeito foi parcial?".
+- **CA04 — Ação não efetiva**
+    **Dado que** o usuário selecione "Não", **quando** salvar a avaliação, **então** o sistema deve exigir o preenchimento de "Por que a ação não foi efetiva?".
+- **CA05 — Efetividade positiva conclui a ação**
+    **Dado que** o usuário selecione "Sim", **quando** salvar a avaliação, **então** o sistema deve registrar a ação como efetiva e marcá-la automaticamente como "Concluído", independentemente da situação selecionada.
+- **CA06 — Efetividade parcial ou negativa não altera a situação**
+    **Dado que** uma ação possa estar concluída sem necessariamente solucionar o problema, **quando** o usuário avaliar a efetividade como "Parcialmente" ou "Não", **então** o sistema deve manter a situação selecionada pelo usuário, registrando a efetividade separadamente.
+- **CA07 — Registro da avaliação**
+    **Dado que** a avaliação tenha sido preenchida corretamente, **quando** o usuário selecionar "Salvar atualização", **então** o sistema deve registrar o resultado observado e a avaliação de efetividade associados à ação.
+
+**Contexto de Uso:** Essa funcionalidade permite avaliar se as ações executadas produziram o resultado esperado, diferenciando a conclusão da execução da ação de sua efetividade na resolução do problema identificado.
+
+<a id="historias-56"></a>
+
+### 5.6 Status e ciclo de vida do incidente
+
+<a id="us-6-1"></a>
+
+#### US-6.1 — Visualizar o status e o ciclo de vida do incidente
+
+**Épico:** 6 — Status e ciclo de vida do incidente · **Prioridade:** Alta
+
+**COMO** profissional do Núcleo de Segurança do Paciente ou gestor da área
+**QUERO** visualizar o status atual de cada incidente e entender o seu ciclo de vida
+**PARA** saber em que etapa do fluxo o incidente se encontra e o que precisa acontecer para ele avançar.
+
+**Regras de Negócio:** RN-08, RN-12, RN-14
+
+O ciclo de vida do incidente, do registro ao encerramento, é o seguinte:
+
+```mermaid
+flowchart TD
+    inicio(( )) -->|notificação registrada| Novo
+    Novo -->|NSP finaliza a classificação| Classificado
+    Classificado -->|NSP encaminha ao setor| Encaminhado
+    Classificado -->|NSP inicia a análise| EmAnalise["Em análise"]
+    Encaminhado -->|gestor inicia a análise| EmAnalise
+    EmAnalise -->|análise concluída| Analisado
+    Analisado -->|1ª ação completa| EmAcao["Em ação"]
+    Analisado -->|NSP conclui| Concluido(["Concluído"])
+    EmAcao -->|NSP conclui| Concluido
+    qualquer["Qualquer status não final"] -.->|NSP arquiva| Arquivado(["Arquivado"])
+    classDef final fill:#eef1ff,stroke:#183eff,color:#0b0a12,font-weight:bold
+    classDef nota fill:#f7f8fb,stroke:#c9d3ff,stroke-dasharray:4 3,color:#6b6375
+    class Concluido,Arquivado final
+    class qualquer nota
+```
+
+| Status | Significado | Tipo |
+| --- | --- | --- |
+| Novo | Notificação registrada, ainda sem classificação finalizada. | Em andamento |
+| Classificado | Classificação finalizada pelo NSP; aguarda a definição de quem fará a análise (o próprio NSP ou o setor). | Em andamento |
+| Encaminhado | Incidente encaminhado ao setor onde ocorreu, para que o gestor da área realize a análise. | Em andamento |
+| Em análise | Análise em preenchimento ou, quando feita pelo NSP, concluída e aguardando a decisão de encaminhar ou não o resultado ao setor. | Em andamento |
+| Analisado | Análise concluída e plano de ação ainda não montado: nenhuma ação está completa (as ações criadas a partir das recomendações continuam pendentes de preenchimento). O incidente pode seguir para "Em ação" ou ser concluído direto, se não precisar de plano de ação. | Em andamento |
+| Em ação | Ao menos uma ação do plano de ação com todos os campos obrigatórios preenchidos. | Em andamento |
+| Concluído | Incidente encerrado após o tratamento. | Final |
+| Arquivado | Incidente encerrado sem seguir o fluxo até o fim. | Final |
+
+**Critérios de Aceite**
+
+- **CA01 — Status sempre visível**
+    **Dado que** o usuário tenha acesso a um incidente, **quando** visualizar a lista de notificações ou o detalhe do incidente, **então** o sistema deve exibir o status atual do incidente, com um dos oito valores: Novo, Classificado, Encaminhado, Em análise, Analisado, Em ação, Concluído ou Arquivado.
+- **CA02 — Status inicial**
+    **Dado que** uma nova notificação seja registrada, **quando** for criada, **então** o sistema deve definir automaticamente o status como "Novo".
+- **CA03 — Status não editável manualmente**
+    **Dado que** o usuário esteja visualizando um incidente, **quando** acessar o campo de status, **então** o sistema deve permitir apenas a visualização, sem opção de alterar o status manualmente. O status muda somente pelas ações do fluxo, conforme a US-6.2, e pelos encerramentos das US-6.3 e US-6.4.
+- **CA04 — Ordem do fluxo**
+    **Dado que** o incidente esteja em um determinado status, **quando** ocorrer uma ação no sistema, **então** o status só pode avançar pelo caminho Novo → Classificado → (Encaminhado →) Em análise → Analisado → (Em ação →) Concluído, ou ir para Arquivado a partir de qualquer status que não seja final; o sistema não deve permitir retornar a um status anterior.
+- **CA05 — Prazo para análise conforme o status**
+    **Dado que** o incidente possua prazo para análise (RN-14), **quando** estiver "Classificado", "Encaminhado" ou "Em análise", **então** o sistema deve exibir a data-limite para análise junto ao status; nos demais status, o prazo não é exibido.
+- **CA06 — Status finais somente leitura**
+    **Dado que** o incidente esteja "Concluído" ou "Arquivado", **quando** o usuário visualizar ou acessar o incidente, **então** o sistema deve mantê-lo como estado final, em modo somente leitura, não permitindo editar, adicionar ou excluir informações, classificação, análise ou ações, e não deve oferecer nenhuma opção que altere o status.
+
+**Contexto de Uso:** O status permite identificar rapidamente em que etapa cada incidente se encontra, do registro até a conclusão ou o arquivamento, garantindo organização, rastreabilidade e controle do ciclo de vida das notificações, sem alterações manuais indevidas.
+
+<a id="us-6-2"></a>
+
+#### US-6.2 — Atualizar o status a partir das ações do usuário
+
+**Épico:** 6 — Status e ciclo de vida do incidente · **Prioridade:** Alta
+
+**COMO** profissional do Núcleo de Segurança do Paciente ou gestor da área
+**QUERO** que o status do incidente seja atualizado automaticamente conforme as ações que realizo no sistema
+**PARA** manter o status sempre coerente com a etapa real do tratamento, sem precisar alterá-lo manualmente.
+
+**Regras de Negócio:** RN-02, RN-08, RN-16, RN-18, RN-20
+
+O quadro abaixo reúne todas as ações do usuário que alteram o status do incidente. Cada mudança é detalhada nos critérios de aceite e na história onde a ação acontece.
+
+| De | Para | Ação do usuário que provoca a mudança | Quem realiza | Onde acontece |
+| --- | --- | --- | --- | --- |
+| — | Novo | Registrar a notificação | Notificante | US-1.1 |
+| Novo | Classificado | Finalizar a classificação (o rascunho não altera o status) | NSP | US-2.3 |
+| Classificado | Encaminhado | Encaminhar o incidente ao setor | NSP | US-2.4 |
+| Classificado | Em análise | Salvar a primeira seção da análise | NSP | US-4.2 |
+| Encaminhado | Em análise | Salvar a primeira seção da análise | Gestor da área | US-4.2 |
+| Em análise | Analisado | Concluir a análise, quando realizada pelo setor | Gestor da área | US-4.8 |
+| Em análise | Analisado | Decidir encaminhar ou não o resultado ao setor, quando a análise foi realizada pelo NSP | NSP | US-4.9 |
+| Analisado | Em ação | Registrar ou completar a primeira ação com todos os campos obrigatórios | NSP ou gestor da área | US-5.1, US-5.3 |
+| Analisado ou Em ação | Concluído | Concluir o incidente e confirmar | NSP | US-6.4 |
+| Qualquer status não final | Arquivado | Arquivar o incidente e confirmar | NSP | US-6.3 |
+
+**Critérios de Aceite**
+
+- **CA01 — Classificação finalizada**
+    **Dado que** o incidente esteja "Novo", **quando** o profissional do NSP finalizar a classificação (todos os campos obrigatórios preenchidos e salvos, não rascunho), **então** o sistema deve atualizar o status para "Classificado". Salvar a classificação como rascunho ou editá-la com o incidente já "Classificado" não altera o status.
+- **CA02 — Encaminhamento ao setor**
+    **Dado que** o incidente esteja "Classificado", **quando** o profissional do NSP encaminhar o incidente ao setor, **então** o sistema deve atualizar o status para "Encaminhado".
+- **CA03 — Início da análise**
+    **Dado que** o incidente esteja "Classificado" (análise pelo NSP) ou "Encaminhado" (análise pelo setor), **quando** quem realiza a análise salvar a primeira seção do formulário de análise, **então** o sistema deve atualizar o status para "Em análise". Salvar as seções seguintes não altera o status.
+- **CA04 — Conclusão da análise pelo setor**
+    **Dado que** o incidente esteja "Em análise" e a análise seja realizada pelo gestor da área, **quando** a conclusão da investigação for confirmada, **então** o sistema deve atualizar o status para "Analisado".
+- **CA05 — Conclusão da análise pelo NSP**
+    **Dado que** o incidente esteja "Em análise" e a análise seja realizada pelo NSP, **quando** a conclusão da investigação for confirmada, **então** o status deve permanecer "Em análise" até o NSP decidir encaminhar ou não o resultado ao setor; ao registrar a decisão, o sistema deve atualizar o status para "Analisado".
+- **CA06 — Primeira ação completa**
+    **Dado que** o incidente esteja "Analisado", **quando** a primeira ação do plano de ação for registrada ou completada com todos os campos obrigatórios, **então** o sistema deve atualizar o status para "Em ação". Ações pendentes de preenchimento (ex.: criadas automaticamente a partir das recomendações) não alteram o status.
+- **CA07 — Ações que não alteram o status**
+    **Dado que** o incidente esteja "Em ação", **quando** o usuário adicionar, editar, excluir ou atualizar o andamento de ações — inclusive marcando todas como "Concluído" —, **então** o status do incidente não deve ser alterado; o encerramento só ocorre pela conclusão do incidente (US-6.4), que pode ser sugerida pelo sistema.
+- **CA08 — Registro das mudanças no histórico**
+    **Dado que** o status do incidente seja alterado, **quando** a operação for concluída, **então** o sistema deve registrar no histórico da notificação a ação que provocou a mudança, com data, hora e usuário (US-2.5).
+
+**Contexto de Uso:** Cada mudança de status é consequência de uma ação do usuário em outra etapa do fluxo. Esta história concentra essas regras para que o comportamento do status seja o mesmo em todo o sistema.
+
+<a id="us-6-3"></a>
+
+#### US-6.3 — Arquivar incidente
+
+**Épico:** 6 — Status e ciclo de vida do incidente · **Prioridade:** Média
+
+**COMO** profissional do Núcleo de Segurança do Paciente
+**QUERO** arquivar um incidente que não seguirá o fluxo de tratamento
+**PARA** encerrá-lo de forma rastreável, sem precisar concluí-lo.
+
+**Regras de Negócio:** RN-01, RN-09, RN-12, RN-13
+
+**Critérios de Aceite**
+
+- **CA01 — Quando o arquivamento é possível**
+    **Dado que** o incidente esteja com qualquer status, exceto "Concluído" ou "Arquivado", **quando** o profissional do NSP abrir o menu de opções ao lado do status (⋮), **então** o sistema deve disponibilizar a opção de arquivar. Nos status "Concluído" e "Arquivado", a opção não é exibida.
+- **CA02 — Quem pode arquivar**
+    **Dado que** o usuário não seja profissional do NSP ou Administrador (ex.: gestor da área), **quando** visualizar o incidente, **então** o sistema não deve exibir a opção de arquivar.
+- **CA03 — Confirmação de ação irreversível**
+    **Dado que** o profissional selecione a opção de arquivar, **quando** a solicitação for feita, **então** o sistema deve exibir a confirmação "Tem certeza que deseja arquivar essa notificação? Essa decisão não poderá ser alterada."; ao cancelar, nada muda.
+- **CA04 — Resultado do arquivamento**
+    **Dado que** o profissional confirme o arquivamento, **quando** a operação for concluída, **então** o sistema deve atualizar o status para "Arquivado", registrar o arquivamento no histórico com data, hora e usuário e tornar o incidente somente leitura (US-6.1, CA06).
+- **CA05 — Preservação das informações**
+    **Dado que** o incidente seja arquivado, **quando** o usuário acessar o incidente, **então** todas as informações já registradas (notificação, classificação, análise, inclusive em rascunho, e ações) devem ser preservadas e continuar disponíveis para consulta.
+
+**Contexto de Uso:** O arquivamento encerra incidentes que não seguirão o fluxo até a conclusão. Por ser irreversível, é sempre confirmado e fica registrado no histórico.
+
+<a id="us-6-4"></a>
+
+#### US-6.4 — Concluir incidente
+
+**Épico:** 6 — Status e ciclo de vida do incidente · **Prioridade:** Alta
+
+**COMO** profissional do Núcleo de Segurança do Paciente
+**QUERO** concluir o incidente após o tratamento
+**PARA** encerrar formalmente o fluxo da notificação.
+
+**Regras de Negócio:** RN-01, RN-12, RN-22, RN-23
+
+**Critérios de Aceite**
+
+- **CA01 — Quando a conclusão é possível**
+    **Dado que** o incidente esteja "Analisado" ou "Em ação", **quando** o profissional do NSP abrir o menu de opções ao lado do status (⋮), **então** o sistema deve disponibilizar a opção "Concluir incidente". Nos demais status, a opção não é exibida.
+- **CA02 — Quem pode concluir**
+    **Dado que** o usuário não seja profissional do NSP ou Administrador (ex.: gestor da área), **quando** visualizar o incidente, **então** o sistema não deve exibir a opção de concluir nem a sugestão de conclusão.
+- **CA03 — Confirmação de ação irreversível**
+    **Dado que** o profissional solicite a conclusão do incidente, por qualquer caminho, **quando** a solicitação for feita, **então** o sistema deve sempre exibir a confirmação "Tem certeza que deseja concluir esse incidente? Essa decisão não poderá ser alterada." (Não / Sim); com "Não", nada muda.
+- **CA04 — Aviso de ações em andamento**
+    **Dado que** exista ao menos uma ação com status "Em andamento" (incluindo ações pendentes de preenchimento), **quando** o profissional solicitar a conclusão, **então** a confirmação deve informar "Ainda há N ação(ões) em andamento neste incidente. Tem certeza que deseja concluí-lo mesmo assim? Essa decisão não poderá ser alterada."; a conclusão não é bloqueada por ações pendentes. Apenas o status "Em andamento" dispara esse aviso.
+- **CA05 — Sugestão de conclusão**
+    **Dado que** o usuário salve a atualização de uma ação com status "Concluído" (inclusive quando a ação é concluída automaticamente pela efetividade "Sim" — US-5.6 e US-5.7), **quando**, após o salvamento, todas as ações do incidente estiverem finalizadas — "Concluído" ou "Cancelada" —, **então** o sistema deve exibir o aviso "Todas as ações desse incidente já foram concluídas. Deseja concluir o incidente?" com as opções "Sim, concluir incidente" (segue para a confirmação do CA03) e "Não, criar outro plano de ação" (abre o formulário de nova ação, mantendo o incidente "Em ação").
+- **CA06 — Quando a sugestão não aparece**
+    **Dado que** a última ação pendente seja salva como "Cancelada" ou o usuário apenas abra o detalhe do incidente, **quando** a operação for realizada, **então** o sistema não deve exibir a sugestão de conclusão; o incidente pode ser concluído pelo menu (CA01).
+- **CA07 — Resultado da conclusão**
+    **Dado que** o profissional confirme a conclusão, **quando** a operação for concluída, **então** o sistema deve atualizar o status para "Concluído", registrar a conclusão no histórico com data, hora e usuário e tornar o incidente somente leitura (US-6.1, CA06).
+
+**Contexto de Uso:** A conclusão encerra o ciclo de tratamento do incidente, pelo menu de opções do status ou a partir da sugestão exibida quando todas as ações terminam. Por ser irreversível, é sempre confirmada, e o sistema alerta quando ainda há ações em andamento.
+
+<a id="historias-57"></a>
+
+### 5.7 Exportação de relatório de incidentes
+
+<a id="us-7-1"></a>
+
+#### US-7.1 — Exportar relatório de incidentes da instituição
+
+**Épico:** 7 — Exportação de relatório de incidentes · **Prioridade:** Média
+
+**COMO** profissional do Núcleo de Segurança do Paciente
+**QUERO** exportar, em formato XLSX, um relatório com todos os incidentes da instituição e seus respectivos dados
+**PARA** compartilhar, analisar e armazenar os dados dos incidentes fora da plataforma.
+
+**Regras de Negócio:** RN-01, RN-08, RN-10, RN-29, RN-30, RN-31
+
+**Critérios de Aceite**
+
+- **CA01 — Botão de exportação**
+    **Dado que** o profissional do NSP esteja em qualquer lista de incidentes (Todos incidentes, Novos, Classificados, Encaminhados, Em análise, Em ação, Concluídos e Arquivados), **quando** visualizar a barra de filtros, **então** o sistema deve exibir o botão azul "Extrair dados", com ícone de download, à direita do campo "Ordenar por" e com a mesma altura dos campos, e a dica "Extrair xlsx" ao passar o mouse. Quando os filtros não couberem em uma linha, eles quebram em grupos, sem separar "Ordenar por" do seu campo e do botão; no celular, o botão ocupa a linha inteira abaixo dos filtros.
+- **CA02 — Escopo do relatório**
+    **Dado que** o profissional selecione "Extrair dados", **quando** o arquivo for gerado, **então** ele deve conter todos os incidentes da instituição, em todos os status, independentemente da lista aberta, da busca, dos filtros e da ordenação selecionados na tela (RN-30).
+- **CA03 — Sigilo do notificante**
+    **Dado que** o relatório seja gerado, **quando** o arquivo for aberto, **então** nenhuma aba deve conter o nome nem o celular/e-mail do notificante, nem o número do prontuário ou do atendimento do paciente, nem em colunas ocultas, mesmo que o NSP visualize esses dados na plataforma (RN-29 e RN-31).
+- **CA04 — Arquivo gerado**
+    **Dado que** a geração seja concluída, **quando** o download for iniciado, **então** o arquivo deve se chamar `notificasaude-incidentes-instituicao-AAAA-MM-DD.xlsx` (data da geração) e conter três abas: Resumo, Incidentes e Plano de ação.
+- **CA05 — Aba Resumo**
+    **Dado que** o usuário abra a aba Resumo, **quando** ela for exibida, **então** deve apresentar a instituição, o escopo ("Todos os setores da instituição"), a data e a hora da geração, o usuário que gerou e o total de incidentes e, abaixo, três tabelas lado a lado com a quantidade e o percentual de incidentes por status (os oito status — RN-08), por setor e por grau do dano (Sem dano, Leve, Moderado, Grave, Óbito, Never Event e "Ainda não classificado"), sem título ou aviso no topo.
+- **CA06 — Aba Incidentes**
+    **Dado que** o usuário abra a aba Incidentes, **quando** ela for exibida, **então** deve apresentar uma linha por incidente, do mais recente para o mais antigo, com as colunas: Incidente (identificador, ex.: #1006 — RN-10), Status, Data do incidente, Turno, Horário, Registrado em, Instituição, Setor, Descrição, Medidas imediatas, Envolve paciente, Faixa etária, Sexo, Quem notificou (com o texto especificado, quando "Outro"), Anônima, Classificação, Never Event, Tipo de incidente, Envolvidos, Grau do dano, Classificado em, Prazo para análise, Responsável, Análise, Quem analisou, Incidente investigado, Análise concluída em, Recomendações, Ações no plano, Ações concluídas e Última atualização.
+- **CA07 — Aba Plano de ação**
+    **Dado que** o usuário abra a aba Plano de ação, **quando** ela for exibida, **então** deve apresentar uma linha por ação dos incidentes do relatório, com as colunas: Incidente, Nº, O que será feito, Como será realizada, Onde, Responsáveis, Previsão de início, Previsão de conclusão, Situação (ou "Preenchimento pendente" — RN-20), Início real, Conclusão real, Efetividade, Como comprovar, Resultado esperado e Recomendação de origem. Sem ações, a aba exibe "Nenhuma ação registrada nos incidentes deste relatório.".
+- **CA08 — Formatação da planilha**
+    **Dado que** o arquivo seja aberto em um editor de planilhas, **quando** as abas forem exibidas, **então** devem apresentar: cabeçalho azul (#183EFF) com texto branco, em uma linha, com largura suficiente para o título inteiro e o botão de filtro; filtros no cabeçalho; primeira linha e primeira coluna congeladas; linhas alternadas; quebra de texto nas colunas longas; datas no formato dd/mm/aaaa, no horário local; status e grau do dano com as mesmas cores do sistema; e impressão em paisagem, com o cabeçalho repetido em cada página.
+- **CA09 — Retorno ao usuário**
+    **Dado que** o usuário selecione "Extrair dados", **quando** a geração estiver em andamento, **então** o botão deve exibir "Gerando..." e ficar desabilitado; ao concluir, o sistema deve exibir o aviso de sucesso "Relatório gerado com N incidentes." ("1 incidente", no singular) e, em caso de falha, o aviso de erro "Não foi possível gerar o relatório. Tente novamente." (6.7.1 e 6.7.3).
+- **CA10 — Perfis sem exportação**
+    **Dado que** o usuário seja Administrador do Sistema, **quando** acessar o sistema, **então** o botão "Extrair dados" não deve ser exibido e a exportação deve ser recusada pelo servidor, pois o Administrador não acessa os incidentes das instituições (Matriz RBAC).
+
+**Contexto de Uso:** O relatório permite que o NSP leve os dados de todos os incidentes da instituição para fora da plataforma, para compartilhar com a gestão, fazer análises próprias e manter um registro. Por isso ele é sempre completo, sem depender do que está filtrado na tela, e nunca carrega a identificação de quem notificou.
+
+<a id="us-7-2"></a>
+
+#### US-7.2 — Exportar relatório de incidentes do setor
+
+**Épico:** 7 — Exportação de relatório de incidentes · **Prioridade:** Média
+
+**COMO** gestor da área
+**QUERO** exportar, em formato XLSX, um relatório com os incidentes do meu setor a que tenho acesso e seus respectivos dados
+**PARA** compartilhar, analisar e armazenar os dados dos incidentes do setor fora da plataforma.
+
+**Regras de Negócio:** RN-01, RN-26, RN-27, RN-29, RN-30, RN-31
+
+**Critérios de Aceite**
+
+- **CA01 — Botão de exportação**
+    **Dado que** o gestor da área esteja na sua lista de incidentes, **quando** visualizar a barra de filtros, **então** o sistema deve exibir o botão "Extrair dados" nas mesmas condições da US-7.1 (CA01).
+- **CA02 — Escopo do relatório**
+    **Dado que** o gestor selecione "Extrair dados", **quando** o arquivo for gerado, **então** ele deve conter somente os incidentes da sua fila — os do seu setor que o NSP encaminhou a ele, antes ou depois da análise (RN-26) —, em todos os status, independentemente da lista aberta, da busca, dos filtros e da ordenação selecionados na tela (RN-30). Incidentes de outros setores ou não encaminhados nunca entram no relatório.
+- **CA03 — Sigilo do notificante**
+    **Dado que** o relatório do gestor seja gerado, **quando** o arquivo for aberto, **então** nenhuma aba deve conter o nome nem o celular/e-mail do notificante, nem o número do prontuário ou do atendimento do paciente, e a coluna "Anônima" não deve existir, sem qualquer indicação de que a notificação foi identificada ou anônima (RN-27, RN-29 e RN-31).
+- **CA04 — Arquivo gerado**
+    **Dado que** a geração seja concluída, **quando** o download for iniciado, **então** o arquivo deve se chamar `notificasaude-incidentes-<setor>-AAAA-MM-DD.xlsx` e seguir as mesmas abas e a mesma formatação da US-7.1 (CA04 a CA08), com o escopo "Setor <nome do setor> (incidentes encaminhados)" na aba Resumo.
+- **CA05 — Retorno ao usuário**
+    **Dado que** o gestor selecione "Extrair dados", **quando** a geração estiver em andamento, concluir ou falhar, **então** o sistema deve dar o mesmo retorno da US-7.1 (CA09).
+
+**Contexto de Uso:** O gestor exporta apenas o que já pode ver na plataforma, para acompanhar os incidentes do seu setor fora dela. As mesmas restrições de acesso e de sigilo do notificante valem para o arquivo.
+
+---
+
+<a id="rnf"></a>
+
+## 6. Requisitos Não-funcionais
+
+Esta seção descreve os requisitos não funcionais do sistema NotificaSaúde, incluindo aspectos relacionados à disponibilidade, segurança, proteção de dados, desempenho e compatibilidade da solução. Esses requisitos definem características e restrições que o sistema deve atender para garantir seu funcionamento adequado e seguro em ambientes institucionais de saúde.
+
+<a id="rnf-disponibilidade"></a>
+
+### 6.1 Disponibilidade
+
+- **6.1.1** O sistema deve manter disponibilidade mínima de 99,5% ao mês, desconsiderando períodos programados de manutenção previamente comunicados.
+- **6.1.2** O sistema deve permitir o registro de notificações 24 horas por dia, 7 dias por semana, considerando que incidentes podem ocorrer em diferentes turnos de atendimento.
+
+<a id="rnf-seguranca"></a>
+
+### 6.2 Segurança da Informação
+
+- **6.2.1** O sistema deve exigir autenticação para acesso às funcionalidades internas e impedir acesso não autenticado a endpoints protegidos.
+- **6.2.2** O sistema deve garantir controle de acesso baseado em perfis de usuário, de acordo com a Matriz RBAC, impedindo acesso indevido mediante manipulação manual de URLs, rotas ou requisições HTTP.
+- **6.2.3** O sistema deve registrar histórico de modificações realizadas nas notificações.
+- **6.2.4** O sistema deve enviar ao usuário um link de redefinição por e-mail com validade máxima de 1 hora e utilização única, ao ser acionada a funcionalidade de recuperação de senha.
+- **6.2.5** O sistema deve bloquear temporariamente o acesso do usuário e do endereço IP por 60 segundos após 15 tentativas consecutivas de autenticação inválida realizadas em intervalo máximo de 5 minutos.
+- **6.2.6** O sistema deve estabelecer que a senha do usuário, ao ser criada ou redefinida, possua no mínimo: 8 caracteres; um número; uma letra maiúscula; uma letra minúscula; um caractere especial.
+- **6.2.7** O sistema não deve expor informações sensíveis em respostas HTTP, mensagens de erro, logs públicos ou stack traces.
+- **6.2.8** O sistema deve ter verificação via captcha, a fim de verificar se de fato é um humano a acessar o sistema.
+- **6.2.9** O sistema deve possuir uma camada de proteção (guard) contra o registro automatizado ou em massa de notificações — por exemplo, por robôs (bots) — com o objetivo de sobrecarregar ou derrubar o sistema. Como o formulário de notificação é público (não exige login), o envio de notificações deve, no mínimo:
+    - limitar a quantidade de notificações enviadas por uma mesma origem (endereço IP/dispositivo) em um intervalo de tempo, com limites configuráveis (ex.: 5 envios a cada 10 minutos);
+    - exigir a verificação de que o envio é feito por uma pessoa (captcha — 6.2.8) antes de registrar a notificação;
+    - rejeitar, sem gravar no banco de dados, os envios que excederem o limite, que não passarem na verificação ou que ultrapassarem o tamanho máximo permitido (texto e anexos), respondendo com uma mensagem amigável, sem expor detalhes técnicos;
+    - registrar em log as tentativas bloqueadas (data, hora, origem e motivo), para monitoramento;
+    - não impedir o registro legítimo de notificações, inclusive anônimas, por pessoas que enviem dentro dos limites.
+
+<a id="rnf-lgpd"></a>
+
+### 6.3 Proteção de Dados e LGPD
+
+- **6.3.1** O sistema deve permitir o registro de notificações de forma anônima, quando desejado pelo notificante.
+- **6.3.2** O sistema deve limitar o acesso às informações apenas aos usuários autorizados conforme suas permissões de acesso.
+- **6.3.3** O sistema deve garantir o isolamento de modo que cada instituição de saúde tenha acesso aos dados no âmbito de sua própria organização.
+- **6.3.4** O sistema deve restringir os dados de identificação do notificante (nome e celular/e-mail) ao NSP e ao Administrador: para o gestor da área, esses dados devem ser omitidos já na resposta do servidor (API), e não apenas escondidos na tela (RN-27).
+- **6.3.5** O relatório de incidentes exportado (épico 7) deve conter somente os incidentes do escopo do perfil autenticado, com o escopo garantido no servidor, e nunca deve conter os dados de identificação do notificante (nome e celular/e-mail) — nem em colunas ou abas ocultas, nem nos metadados do arquivo (RN-29 e RN-30).
+- **6.3.6** O sistema deve restringir o número do prontuário ou do atendimento do paciente ao NSP e a quem conduz a análise, omitindo-o já na resposta do servidor (API) para os demais perfis; nunca deve incluí-lo em relatórios ou exportações; e deve registrar no histórico da notificação cada acesso a uma tela que exiba esse número, com data, hora e usuário (RN-31).
+
+<a id="rnf-compatibilidade"></a>
+
+### 6.4 Compatibilidade e Acesso
+
+- **6.4.1** O sistema deve ser compatível com os navegadores Chrome, Safari e Microsoft Edge, possuindo as respectivas versões mínimas: 145.0.7632.45/46, 18.6 e 147.0.3912.98.
+- **6.4.2** A interface deve ser responsiva, permitindo o uso em smartphones, tablets e computadores, com seus respectivos viewports mínimos: 375 × 667 pixels, 744 × 1133 pixels e 1024 × 1366 pixels.
+
+<a id="rnf-desempenho"></a>
+
+### 6.5 Desempenho
+
+- **6.5.1** O sistema deve garantir desempenho ao carregar as páginas e submeter os formulários, atendendo aos seguintes critérios:
+    - O desempenho deve ser consistente para ambas as operações de navegação e submissão dos dados;
+    - A latência das respostas da API do sistema deve ser no máximo 500ms no percentil 95 (p95) sob carga de 50 requisições simultâneas.
+
+<a id="rnf-acessibilidade"></a>
+
+### 6.6 Acessibilidade
+
+- **6.6.1** A interface do sistema deve estar em conformidade com as diretrizes WCAG do nível AA.
+
+<a id="rnf-usabilidade"></a>
+
+### 6.7 Usabilidade e Feedback ao Usuário
+
+- **6.7.1** O sistema deve sempre informar o status do que está acontecendo: toda ação do usuário (salvar, enviar, encaminhar, concluir, excluir etc.) deve ter um retorno visível enquanto é processada, ao terminar com sucesso, ao falhar e quando algo precisa ser corrigido. O usuário nunca deve ficar sem saber se a ação funcionou; mensagens de erro não devem usar alertas nativos do navegador.
+- **6.7.2** Ao salvar, o sistema deve indicar o processamento (ex.: botão com o texto "Salvando..." e desabilitado, evitando clique duplo) e, ao concluir, exibir a confirmação (ex.: "Rascunho salvo"), inclusive no salvamento automático do rascunho da análise a cada avanço de seção.
+- **6.7.3** Os avisos flutuantes (toasts) devem seguir três tipos padronizados, com texto e ícone brancos e cores com contraste mínimo WCAG AA:
+
+    | Tipo | Ícone | Cor de fundo | Quando usar |
+    | --- | --- | --- | --- |
+    | Sucesso | ✓ | Verde `#15803d` | Ação concluída (ex.: "Rascunho salvo") |
+    | Erro | ✕ | Vermelho `#b91c1c` | Algo falhou (ex.: erro ao salvar) |
+    | Atenção | ⚠ | Laranja `#c2410c` | Algo precisa ser corrigido pelo usuário (ex.: limite de caracteres ultrapassado) |
+
+- **6.7.4** A interface deve ser autoexplicativa: campos de texto vazios exibem um exemplo ou instrução (placeholder — na falta de um texto específico, "Digite aqui..."), menus de seleção começam com "Selecione...", o campo de "Outro" exibe "Especifique a opção", campos obrigatórios são marcados com asterisco (*) e as orientações de seções e campos ficam visíveis em caixas de informação (fundo azul claro com ícone ⓘ) logo abaixo do título, em vez de escondidas em ícones de ajuda com tooltip.
+- **6.7.5** Campos com limite de caracteres devem exibir um contador "N/limite", que fica vermelho ao ultrapassar o limite. O texto digitado não deve ser cortado automaticamente nos formulários de análise e de plano de ação: o sistema avisa e bloqueia o avanço/salvamento até que seja reduzido. Nos formulários de classificação e de notificação, o texto de "Outro" não permite digitar além do limite.
+- **6.7.6** Nos formulários, o sistema deve dizer exatamente o que impede de avançar ou salvar: o botão de avanço permanece sempre clicável e, ao ser acionado com pendências, o sistema não avança, destaca em vermelho cada campo com problema (em tabelas, apenas as células pendentes), exibe abaixo de cada campo uma mensagem específica do que falta (ex.: "Preencha Formação, Função e Setor.", "Selecione ao menos uma opção.", "Especifique a opção “Outro”.", "Máximo de 100 caracteres (atual: 112)."), exibe um aviso de atenção (com uma pendência, qual é; com várias, "Corrija os N itens destacados para continuar.") e rola a tela até o primeiro campo pendente. Os destaques aparecem somente após a tentativa de avançar e desaparecem à medida que cada campo é corrigido.
+- **6.7.7** Em todos os menus de seleção do sistema com a opção "Outro", o texto especificado deve ter no máximo 30 caracteres, com contador "N/30" — exceto o "Onde será feito?" do plano de ação, que aceita até 50 caracteres (RN-24).
+- **6.7.8** Caixas de texto longo devem ter altura limitada: o usuário pode aumentá-las arrastando o canto até um limite (menor dentro de tabelas) e, a partir dele, o texto rola dentro da própria caixa, sem deformar a tela.
+- **6.7.9** Campos somente leitura exibidos em formulários (ex.: "Ação selecionada" na atualização de andamento) devem ter aparência de bloqueado — fundo cinza, texto esmaecido, borda contínua, ícone de cadeado e cursor de não permitido —, para não serem confundidos com campos editáveis.
+- **6.7.10** Informações não preenchidas devem ser exibidas como "Não informado" (ou "—" em células de tabelas de consulta, como a do plano de ação), nunca como espaço em branco.
+- **6.7.11** Formulários devem manter espaçamento padronizado entre perguntas e posicionar campos relacionados lado a lado quando houver espaço (ex.: previsão de início e de conclusão; situação da ação e data real de início), empilhando-os em telas de celular. Tabelas de preenchimento devem ocupar a largura disponível e, no celular, podem exibir cada linha como um bloco empilhado.
+- **6.7.12** Listas extensas de itens dentro de um formulário (ex.: os PPCs e as categorias de fatores contribuintes na Seção 4 da análise) devem poder ser recolhidas e expandidas, abrindo automaticamente os itens que contenham pendências.
+- **6.7.13** Orientações longas e exemplos exibidos para apoiar usuários novos (ex.: "Como preencher", "Como identificar um PPC", exemplo da cronologia) devem usar tons neutros, com poucas cores, e poder ser recolhidos por uma seta; o sistema deve lembrar, no navegador do usuário, os blocos que ele recolheu, para não exibi-los abertos novamente a quem já conhece o formulário.
+
+---
+
+<a id="regras-negocio"></a>
+
+## 7. Regras de Negócio
+
+**RN-01 — Acesso restrito**
+Somente usuários previamente cadastrados e autorizados devem ter acesso às funcionalidades internas do sistema, como classificação de incidentes, análise, investigação, definição de plano de ação e geração de relatórios. O acesso deve ocorrer mediante autenticação (login e senha) e respeitar os perfis de usuário definidos. Classificar, encaminhar, decidir o encaminhamento pós-análise, concluir e arquivar incidentes são ações exclusivas do Núcleo de Segurança do Paciente (e do Administrador).
+
+**RN-02 — Histórico de modificações**
+Todas as alterações realizadas nas informações de uma notificação devem ser registradas e mantidas em histórico. O sistema deve permitir a visualização das modificações realizadas, incluindo informações como data da alteração, usuário que a realizou e conteúdo modificado, garantindo transparência e rastreabilidade do processo de gestão do incidente. Devem gerar registro, no mínimo: classificação, encaminhamento, conclusão da análise, criação de ações a partir das recomendações, decisão pós-análise, registro/complementação/atualização/exclusão de ações, arquivamento e conclusão do incidente.
+
+**RN-03 — Obrigatoriedade de registro de incidentes**
+Todo incidente relacionado ao cuidado em saúde deve ser passível de registro no sistema, independentemente de ter causado dano ao paciente. A notificação deve ser realizada mesmo em situações classificadas como near miss ou circunstância de risco, conforme diretrizes de segurança do paciente.
+
+**RN-04 — Possibilidade de notificação anônima**
+O sistema deve permitir que notificações sejam registradas de forma anônima, sem a identificação do notificante, com o objetivo de incentivar o registro de incidentes e reduzir barreiras ao relato de ocorrências.
+
+**RN-05 — Classificação obrigatória do incidente**
+Toda notificação registrada deve passar por uma etapa de classificação realizada por um profissional do Núcleo de Segurança do Paciente, que deverá categorizar o incidente conforme os critérios estabelecidos (classificação, grau de dano, tipo de incidente ou tipo de Never Event e envolvidos). Somente usuários do núcleo podem realizar classificação. A classificação pode ser salva como rascunho, mas somente a classificação finalizada libera as etapas seguintes.
+
+**RN-06 — Encaminhamento ao setor**
+Após a classificação finalizada do incidente, o Núcleo de Segurança do Paciente pode encaminhar a notificação ao gestor do setor onde o incidente ocorreu, que passa a ter acesso ao incidente para realizar a investigação e definir as ações corretivas ou preventivas. O encaminhamento não altera o responsável pelo incidente (RN-11). Após o encaminhamento, as informações gerais e a classificação da notificação não podem mais ser editadas.
+
+**RN-07 — Registro de plano de ação**
+Para incidentes que demandem tratativa, o plano de ação deve ser registrado no sistema pelo NSP ou pelo gestor da área a que o incidente foi encaminhado, contendo as medidas a serem adotadas, os responsáveis pela execução de cada ação e os prazos previstos. Novas ações só podem ser registradas com o incidente "Analisado" ou "Em ação", e cada ação deve ter todos os campos obrigatórios do modelo SMART preenchidos para ser acompanhada.
+
+**RN-08 — Acompanhamento do status da notificação**
+Cada notificação deve possuir um status que indique a etapa atual do fluxo de tratamento do incidente, permitindo o monitoramento do processo ao longo do tempo. Os status são: **Novo** (registrada, sem classificação); **Classificado** (classificação finalizada, aguardando definição de quem analisa); **Encaminhado** (encaminhada ao setor para análise); **Em análise** (análise em preenchimento ou, quando feita pelo NSP, aguardando a decisão de encaminhamento do resultado); **Analisado** (análise concluída); **Em ação** (ao menos uma ação completa no plano de ação); **Concluído** (incidente encerrado após o tratamento — status final); e **Arquivado** (encerrado sem seguir o fluxo — status final). O status muda somente pelas ações do fluxo, nunca manualmente.
+
+**RN-09 — Preservação e histórico dos registros**
+As notificações registradas não devem ser excluídas do sistema, garantindo a manutenção do histórico para fins de auditoria, monitoramento institucional e geração de relatórios. Ações do plano de ação podem ser excluídas enquanto o incidente não estiver concluído, mediante confirmação, e toda exclusão deve ser registrada no histórico. Em conformidade com a LGPD, o sistema deve apresentar aos usuários um Termo de Uso e Responsabilidade, com o objetivo de esclarecer a finalidade do tratamento dos dados, os direitos do titular e as condições de utilização da plataforma.
+
+**RN-10 — Identificador de notificações**
+Toda notificação registrada no sistema deve possuir um identificador único, gerado automaticamente no momento do registro. Esse identificador deve permitir a rastreabilidade da notificação ao longo de todo o fluxo de tratamento do incidente, sendo utilizado para consulta, acompanhamento, classificação, investigação e geração de relatórios.
+
+**RN-11 — Responsável pelo incidente**
+O responsável pelo incidente é o profissional do NSP que registrou a classificação finalizada. Ele é definido automaticamente nesse momento e se mantém o mesmo até o fim do fluxo (conclusão ou arquivamento): não muda com edições posteriores da classificação, com o encaminhamento ao setor nem com quem registra a análise ou o plano de ação. Não existe atribuição manual de responsável. O responsável é apenas uma referência de quem iniciou o tratamento do incidente (permite ao profissional localizar os incidentes que classificou sem precisar abri-los) e não concede nem restringe permissões: qualquer profissional do NSP pode visualizar o incidente, registrar a análise e realizar as demais ações do núcleo (a análise em andamento só pode ser continuada por quem a iniciou — RN-28). O responsável pelo incidente não se confunde com os responsáveis pela execução das ações do plano de ação.
+
+**RN-12 — Incidentes concluídos e arquivados são somente leitura**
+Incidentes com status "Concluído" ou "Arquivado" não podem ter informações, classificação, análise ou ações editadas, adicionadas ou excluídas.
+
+**RN-13 — Arquivamento**
+O arquivamento é possível em qualquer status, exceto "Concluído" e "Arquivado", e exige a confirmação de que a decisão não poderá ser alterada.
+
+**RN-14 — Prazo para análise por grau do dano**
+Ao finalizar a classificação, o sistema calcula a data-limite para análise a partir da data de registro da notificação: sem dano (circunstância notificável, near miss ou incidente sem dano) ou dano leve — 10 dias; dano moderado — 7 dias; dano grave — 4 dias; óbito ou Never Event — 2 dias. O prazo é recalculado se o grau do dano for alterado e é exibido enquanto o incidente estiver "Classificado", "Encaminhado" ou "Em análise". Rascunhos de classificação não possuem prazo.
+
+**RN-15 — Bloqueio da classificação**
+A classificação só pode ser criada ou editada com o incidente "Novo" ou "Classificado". A partir do encaminhamento ou do início da análise, ela fica bloqueada, com a exibição do motivo do bloqueio.
+
+**RN-16 — Definição de quem realiza a análise**
+Com o incidente "Classificado", o NSP escolhe entre realizar a análise ou encaminhá-la ao setor. O gestor da área só pode registrar a análise de incidentes encaminhados ao seu setor; sem encaminhamento, a análise é realizada pelo NSP.
+
+**RN-17 — Cultura justa**
+A análise segue o princípio de cultura justa: a investigação retrospectiva não deve buscar punir individualmente profissionais da ponta assistencial, e sim identificar vulnerabilidades latentes e barreiras do sistema. Esse princípio é exibido de forma fixa no formulário de análise.
+
+**RN-18 — Decisão pós-análise e acesso do setor**
+Quando a análise é realizada pelo NSP, ao concluí-la o incidente permanece "Em análise" até o núcleo decidir encaminhar ou não o resultado ao setor. Ao encaminhar (mensagem opcional), o setor passa a ter acesso ao incidente e às informações da análise; ao não encaminhar (justificativa obrigatória), incidente e análise ficam restritos ao núcleo. Em ambos os casos, o status passa a "Analisado". Quando a análise é realizada pelo setor, o status passa diretamente a "Analisado" ao concluí-la.
+
+**RN-19 — Recomendações originam ações do plano de ação**
+Ao concluir a análise, cada recomendação registrada gera automaticamente uma ação no plano de ação, com o "O que será feito?" preenchido com o texto da recomendação e vínculo com a recomendação de origem. O plano de ação não é cadastrado dentro da análise.
+
+**RN-20 — Ações incompletas não são acompanhadas**
+Uma ação sem todos os campos obrigatórios preenchidos (ex.: criada a partir de uma recomendação) fica pendente de preenchimento: em vez do status da ação, exibe o selo "Preenchimento pendente" e não pode ter o andamento atualizado até ser completada. Ao ser completada com o incidente "Analisado", o status do incidente passa a "Em ação".
+
+**RN-21 — Efetividade da ação**
+A atualização do andamento de uma ação exige a avaliação da efetividade ("A ação produziu o efeito esperado?"). A resposta "Sim" marca a ação automaticamente como "Concluído"; as respostas "Parcialmente" e "Não" exigem justificativa e mantêm a situação escolhida pelo usuário.
+
+**RN-22 — Conclusão do incidente**
+O incidente pode ser concluído pelo NSP, com status "Analisado" ou "Em ação", pelo menu de opções do status ou a partir da sugestão de conclusão (RN-23). Por ser irreversível, a conclusão sempre exige confirmação. Ações pendentes não impedem a conclusão, mas, havendo ações "Em andamento", a confirmação informa quantas ainda estão em andamento.
+
+**RN-23 — Sugestão de conclusão do incidente**
+Ao salvar a atualização de uma ação com status "Concluído", se todas as ações do incidente estiverem finalizadas, o sistema sugere concluir o incidente. Uma ação "Cancelada" conta como finalizada para essa verificação, mas salvar a última ação como "Cancelada" não dispara a sugestão.
+
+**RN-24 — Especificação da opção "Outro"**
+Em todos os menus de seleção com a opção "Outro", ao escolhê-la o usuário deve especificar a opção em texto de no máximo 30 caracteres. A única exceção é o local de execução de uma ação do plano de ação ("Onde será feito?"), cujo texto de "Outro" aceita até 50 caracteres; nesse campo, "Outro" é uma das opções de uma lista em que é possível marcar um ou mais setores.
+
+**RN-25 — Anexos de evidência**
+Os anexos de evidência das ações aceitam somente arquivos nos formatos PDF, DOCX, PNG e JPG/JPEG, com no máximo 10 anexos por ação e 10 MB por arquivo. O limite deve ser validado também no servidor.
+
+**RN-26 — Acesso do gestor da área**
+O gestor da área só tem acesso aos incidentes do seu setor que o NSP encaminhou a ele — antes da análise, para que o setor a realize, ou depois da análise feita pelo NSP, quando o núcleo decide encaminhar o resultado ao setor. Sua fila contém apenas esses incidentes, que permanecem nela até o fim do fluxo. Incidentes de outros setores ou não encaminhados não aparecem para o gestor e não podem ser acessados por ele, nem por link direto. O NSP tem acesso a todos os incidentes da instituição.
+
+**RN-27 — Sigilo da identificação do notificante**
+Os dados de identificação do notificante (nome e celular/e-mail) só podem ser visualizados pelo Núcleo de Segurança do Paciente e pelo Administrador. Para o gestor da área, esses campos são omitidos em todas as telas — sem campo vazio, "Não informado" ou indicação de notificação identificada ou anônima — e não são enviados ao seu navegador, preservando o notificante e incentivando o relato de incidentes.
+
+**RN-28 — Condução da análise em andamento**
+A análise em andamento tem um condutor: inicialmente, quem a iniciou, a partir do salvamento da primeira seção. Enquanto ela não for concluída, somente o condutor atual pode continuá-la e concluí-la. A análise em andamento é visível, em modo somente leitura, a todos os profissionais do Núcleo de Segurança do Paciente, e qualquer um deles pode assumir a sua condução, com confirmação e registro no histórico (data, hora, usuário e condutor anterior); a partir daí, o condutor anterior deixa de poder editá-la. Os demais usuários com acesso ao incidente que não sejam do NSP veem apenas a mensagem "Análise em andamento. Aguarde a finalização para visualizar os detalhes.", sem acesso ao rascunho. Salvamentos concorrentes são resolvidos no servidor: o salvamento feito sobre uma versão desatualizada da análise é recusado sem gravar dados, com o aviso "Não foi possível salvar. Atualize a página e tente novamente." Após a conclusão, a análise fica disponível para consulta de todos que têm acesso ao incidente.
+
+**RN-29 — Sigilo do notificante nos relatórios**
+Os dados de identificação do notificante (nome e celular/e-mail) nunca são exportados em relatórios, para nenhum perfil, inclusive o Núcleo de Segurança do Paciente, que os visualiza na plataforma. Esses dados não podem constar no arquivo de nenhuma forma (colunas, abas ou campos ocultos e metadados). No relatório do gestor da área, também não é exportada a indicação de notificação identificada ou anônima (RN-27). O objetivo é proteger o notificante quando o arquivo for compartilhado ou armazenado fora da plataforma.
+
+**RN-30 — Escopo do relatório de incidentes**
+O relatório exportado sempre contém todos os incidentes a que o perfil tem acesso, em todos os status: a instituição inteira para o Núcleo de Segurança do Paciente e a fila do setor para o gestor da área (RN-26). A lista aberta, a busca, os filtros e a ordenação selecionados na tela não alteram o conteúdo do relatório.
+
+**RN-31 — Sigilo do número do prontuário ou do atendimento**
+O número do prontuário ou do atendimento do paciente, informado no registro da notificação, só pode ser visualizado pelo Núcleo de Segurança do Paciente e por quem conduz a análise do incidente (o gestor da área, quando o incidente lhe foi encaminhado para análise). Para esses usuários, o número é exibido normalmente no detalhe da notificação e no resumo da análise; cada acesso a uma tela que o exibe é registrado no histórico da notificação (data, hora e usuário); e ele nunca é incluído em relatórios ou exportações.
+
+---
+
+<a id="referencias"></a>
+
+## 8. Referências
+
+- PRESSMAN, Roger S.; MAXIM, Bruce R. *Engenharia de Software: Uma abordagem profissional*. 8 ed. Porto Alegre: Bookman, 2016.
+- SOMMERVILLE, Ian. *Engenharia de Software*. 9 ed. São Paulo: Pearson, 2011.
+- VALENTE, Marco Tulio. *Engenharia de Software Moderna: Princípios e Práticas para Desenvolvimento de Software com Produtividade*. Editora Independente, 2020.
