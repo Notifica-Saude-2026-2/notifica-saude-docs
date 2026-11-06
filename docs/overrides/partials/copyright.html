@@ -1,0 +1,29 @@
+{#-
+  Override do partials/copyright.html original do mkdocs-material.
+  Adiciona os logos institucionais (FACOM e NES) antes do texto
+  "Made with Material for MkDocs", mantendo tudo dentro de .md-copyright
+  pra herdar o mesmo centralizador definido em extra.css.
+-#}
+<div class="md-copyright">
+  <div class="md-footer-logo">
+    <img src="{{ 'assets/grafo_facom.png' | url }}" alt="FACOM">
+    <span>Facom | UFMS</span>
+  </div>
+  <div class="md-footer-logo">
+    <img src="{{ 'assets/logo-nes.png' | url }}" alt="NES">
+    <span>NES | UFMS</span>
+  </div>
+  {% if config.copyright %}
+    <div class="md-copyright__highlight">
+      {{ config.copyright }}
+    </div>
+  {% endif %}
+  {% if not config.extra.generator == false %}
+    <span class="md-footer-generator">
+      Made with
+      <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+        Material for MkDocs
+      </a>
+    </span>
+  {% endif %}
+</div>
