@@ -8,6 +8,7 @@
     | Versão | Data | Justificativa | Responsável |
     | --- | --- | --- | --- |
     | 1.0 | 26/10/2026 | Criação da página. | Sophya Ribeiro |
+    | 1.1 | 06/11/2026 | Novos campos validados com as proponentes: número do prontuário ou do atendimento, faixa etária em texto livre, medidas adotadas imediatamente e "Quem está fazendo esta notificação?". Prints atualizados. | Sophya Ribeiro |
 
 <span class="ns-perfil ns-perfil--notificante">Notificante</span> <span class="ns-perfil ns-perfil--todos">Qualquer pessoa</span>
 
@@ -43,7 +44,13 @@ Responda se o incidente **envolve um paciente**. Se a resposta for **Não** (por
 
 ### Etapa 2 — Informações sobre o paciente envolvido
 
-Informe a **faixa etária** (0 a 17 anos, 18 a 59 anos ou 60 anos ou mais) e o **sexo** do paciente. O nome do paciente **não** é pedido.
+Informe:
+
+- o **número do prontuário do paciente ou do atendimento**. Se não souber, escreva **"Não sei informar"**;
+- a **faixa etária**, com as suas palavras. Por exemplo: *3 meses*, *8 anos* ou *45 anos*;
+- o **sexo** do paciente.
+
+O nome do paciente **não** é pedido.
 
 === "Celular"
 
@@ -52,6 +59,9 @@ Informe a **faixa etária** (0 a 17 anos, 18 a 59 anos ou 60 anos ou mais) e o *
 === "Computador"
 
     [![Etapa 2 no computador](../assets/manual-sistema/notificacao/computador-2-paciente.png){ .ns-print }](../assets/manual-sistema/notificacao/computador-2-paciente.png){ target="_blank" }
+
+!!! abstract "Regra do sistema"
+    O **número do prontuário ou do atendimento** é sigiloso: só o **NSP** e **quem conduz a análise** do incidente podem vê-lo, ele **não aparece em relatórios nem em exportações**, e cada acesso a uma tela que o exibe fica registrado no histórico da notificação (RN-31).
 
 ### Etapa 3 — Momento e local do incidente
 
@@ -70,7 +80,9 @@ Informe a **data**, o **turno** (manhã, tarde ou noite) e o **horário** em que
 
 ### Etapa 4 — Descrição do incidente
 
-Conte **o que aconteceu**, com suas palavras, e informe o seu **papel**: profissional de saúde, familiar/acompanhante ou outro.
+1. Conte **o que aconteceu**, com suas palavras.
+2. Se souber, informe **quais medidas foram adotadas logo após o incidente**, como atendimento ao paciente, interrupção de um procedimento ou comunicação à equipe responsável. Esse campo é **opcional**, e não é preciso que você mesmo tenha adotado as medidas.
+3. Responda **quem está fazendo esta notificação**: paciente, familiar ou responsável pelo paciente, acompanhante, profissional de saúde, outro profissional do serviço ou outro. Em **Outro**, especifique quem é.
 
 === "Celular"
 

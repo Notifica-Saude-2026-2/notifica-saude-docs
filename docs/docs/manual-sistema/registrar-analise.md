@@ -8,6 +8,7 @@
     | Versão | Data | Justificativa | Responsável |
     | --- | --- | --- | --- |
     | 1.0 | 26/10/2026 | Criação da página. | Sophya Ribeiro |
+    | 1.1 | 06/11/2026 | Condução da análise em andamento conforme a RN-28 revisada: visível ao NSP, com a opção de assumir a condução; resumo da Seção 1 com as medidas adotadas imediatamente e o número do prontuário ou do atendimento. Prints atualizados. | Sophya Ribeiro |
 
 <span class="ns-perfil ns-perfil--nsp">NSP</span> <span class="ns-perfil ns-perfil--gestor">Gestor da área</span>
 
@@ -39,8 +40,8 @@ A análise é a investigação do incidente: o que aconteceu, quais **problemas 
 | **Classificado** (não encaminhado) | Qualquer profissional do NSP |
 | **Encaminhado** ao setor | O gestor da área do setor que recebeu o encaminhamento |
 
-!!! warning "A análise pertence a quem a começou"
-    A partir do momento em que a **primeira seção é salva**, somente quem iniciou a análise pode continuá-la e concluí-la. Para as demais pessoas, a seção **Análise** mostra apenas *"Análise em andamento. Aguarde a finalização para visualizar os detalhes."* Se duas pessoas começarem ao mesmo tempo, vale o primeiro salvamento (RN-28).
+!!! warning "Quem conduz a análise"
+    A partir do momento em que a **primeira seção é salva**, quem iniciou a análise passa a ser o seu **condutor**, e só o condutor pode continuá-la e concluí-la. Os outros profissionais do NSP veem o aviso *"Análise em andamento, conduzida por <nome>."*, podem ler o rascunho e podem clicar em **Assumir condução**. Depois de confirmar, quem assumiu passa a ser o condutor e a troca fica registrada no histórico. Para as demais pessoas, como o gestor da área, a seção **Análise** mostra apenas *"Análise em andamento. Aguarde a finalização para visualizar os detalhes."* Se duas pessoas salvarem a mesma análise ao mesmo tempo, o sistema recusa o segundo salvamento e pede para atualizar a página (RN-28).
 
 ## Guia de investigação { #guia }
 
@@ -72,7 +73,7 @@ Confira os dados já registrados e diga, em poucas palavras, **o que está sendo
 [![Seção 1 — Informações da notificação](../assets/manual-sistema/analise/secao-1.png){ .ns-print }](../assets/manual-sistema/analise/secao-1.png){ target="_blank" }
 
 1. **Título da seção** e barra de progresso.
-2. **Resumo do incidente**: os dados da notificação e da classificação, somente para leitura.
+2. **Resumo do incidente**: os dados da notificação e da classificação, somente para leitura, incluindo as medidas adotadas imediatamente e o número do prontuário ou do atendimento. Cada abertura da análise que exibe esse número fica registrada no histórico (RN-31).
 3. **Informe o incidente em investigação**: uma frase curta, de até **100 caracteres**. Esse texto aparece no topo de todas as seções seguintes e vira a "cabeça" do Diagrama de Ishikawa.
 4. **Próximo**: valida e avança para a Seção 2.
 

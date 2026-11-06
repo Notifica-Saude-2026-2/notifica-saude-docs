@@ -8,6 +8,7 @@
     | Versão | Data | Justificativa | Responsável |
     | --- | --- | --- | --- |
     | 1.0 | 26/10/2026 | Criação da página. | Sophya Ribeiro |
+    | 1.1 | 06/11/2026 | Nova dúvida sobre o número do prontuário e resposta sobre a análise em andamento conforme a RN-28 revisada. | Sophya Ribeiro |
 
 Clique em uma pergunta para ver a resposta.
 
@@ -15,6 +16,9 @@ Clique em uma pergunta para ver a resposta.
 
 ??? question "Preciso me identificar para notificar um incidente?"
     Não. A última etapa do formulário, com nome e contato, é **opcional**. Mesmo quando você se identifica, seus dados só são vistos pelo NSP e pelo administrador, e nunca pelo gestor do setor. Veja [Registrar uma notificação](registrar-notificacao.md).
+
+??? question "Não sei o número do prontuário do paciente. Consigo notificar?"
+    Sim. No campo do número do prontuário ou do atendimento, escreva **"Não sei informar"**. O NSP pode completar a informação depois.
 
 ??? question "Não houve dano ao paciente. Mesmo assim devo notificar?"
     Sim. Situações de risco e incidentes que foram interceptados antes de atingir o paciente (near miss) também devem ser notificados. Eles mostram onde o processo pode falhar antes que alguém se machuque.
@@ -39,7 +43,7 @@ Clique em uma pergunta para ver a resposta.
 ## Análise
 
 ??? question "A seção Análise diz “Análise em andamento” e não consigo abrir. O que fazer?"
-    A análise pertence a quem a começou. Enquanto ela não for concluída, só essa pessoa pode continuá-la. Fale com quem iniciou a análise; o nome aparece no histórico. Depois da conclusão, todos que têm acesso ao incidente podem consultar a análise.
+    Enquanto a análise não for concluída, só o seu **condutor** (quem a iniciou ou quem assumiu a condução) pode continuá-la. Se você é do NSP, pode ler o rascunho e, se precisar, clicar em **Assumir condução**; a troca fica registrada no histórico. Se você é gestor da área, fale com quem conduz a análise ou com o NSP. Depois da conclusão, todos que têm acesso ao incidente podem consultar a análise.
 
 ??? question "Comecei a análise e precisei sair. Perdi o que fiz?"
     Não. A cada avanço de seção, o sistema salva um rascunho automaticamente. Para continuar, abra o incidente e clique em **Continuar análise**.

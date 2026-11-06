@@ -8,6 +8,7 @@
     | Versão | Data | Justificativa | Responsável |
     | --- | --- | --- | --- |
     | 1.0 | 26/10/2026 | Criação da página. | Sophya Ribeiro |
+    | 1.1 | 06/11/2026 | Acesso ao número do prontuário ou do atendimento e condução da análise conforme a RN-28 revisada. | Sophya Ribeiro |
 
 <span class="ns-perfil ns-perfil--gestor">Gestor da área</span>
 
@@ -35,6 +36,7 @@ Incidentes de **outros setores** ou que **não foram encaminhados** não aparece
 | Ver os incidentes encaminhados ao seu setor | :material-check: | :material-check: |
 | Ver todos os incidentes da instituição | — | :material-check: |
 | Ver a identificação do notificante | — | :material-check: |
+| Ver o número do prontuário ou do atendimento do paciente | Só quando conduz a análise | :material-check: |
 | Editar informações gerais e classificar | — | :material-check: |
 | Encaminhar o incidente ao setor | — | :material-check: |
 | [Registrar a análise](registrar-analise.md) de um incidente **encaminhado** | :material-check: | — |
@@ -53,4 +55,4 @@ O passo a passo é o mesmo do NSP: veja [Registrar a análise](registrar-analise
 
 - O botão **Registrar análise** aparece quando o incidente está **Encaminhado** ao seu setor.
 - Ao **finalizar a análise**, o status muda direto para **Analisado**. Não há a etapa de decisão de encaminhamento, que é só para análises feitas pelo NSP.
-- Como no NSP, a análise pertence a quem a começou: se outra pessoa do setor iniciou a análise, você verá a mensagem *"Análise em andamento. Aguarde a finalização para visualizar os detalhes."*
+- A análise em andamento tem um condutor, que é quem a iniciou. Se outra pessoa iniciou a análise, você verá a mensagem *"Análise em andamento. Aguarde a finalização para visualizar os detalhes."* Só o NSP pode assumir a condução de uma análise em andamento (RN-28).
