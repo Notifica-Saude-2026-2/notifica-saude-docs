@@ -1,7 +1,8 @@
 site_name: NotificaSaúde
 site_description: Documentação do NotificaSaúde — registro, análise e acompanhamento de incidentes de segurança do paciente.
-repo_url: https://github.com/Notifica-Saude-2026-2/notifica-saude-docs
-repo_name: Notifica-Saude-2026-2/notifica-saude-docs
+repo_url: https://github.com/Notifica-Saude-2026-2/notifica-saude-issues
+repo_name: Notifica-Saude-2026-2/notifica-saude-issues
+edit_uri: edit/main/docs/docs/
 
 theme:
   name: material
