@@ -18,11 +18,12 @@ hide:
     | 1.4 | 08/10/2026 | Registro dos bugs BUG-FRONT-019 ([e2e#14](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/14)) e BUG-BACK-009 ([e2e#15](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/15)), encontrados na automação dos casos de teste da US-4.2. | Catarina Freisleben |
     | 1.5 | 15/10/2026 | Registro do bug BUG-BACK-010 ([e2e#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20)), encontrado na automação dos casos de teste da US-4.3. | Catarina Freisleben |
     | 1.6 | 29/10/2026 | Registro do bug BUG-FRONT-020 ([e2e#36](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/36)), encontrado na automação dos casos de teste da US-4.6. Fechamento dos bugs BUG-FRONT-019 ([e2e#14](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/14)), corrigido no [PR #16 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/16), e BUG-BACK-009 ([e2e#15](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/15)), corrigido no [PR #11 do backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend/pull/11), conferidos na [PR e2e#32](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/32). | Catarina Freisleben |
+    | 1.7 | 06/11/2026 | Fechamento do bug BUG-BACK-010 ([e2e#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20)), corrigido no [PR #20 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/20) e no [PR #15 do backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend/pull/15), conferido na [PR e2e#47](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/47). | Catarina Freisleben |
 
 <div class="ns-dec-resumo" markdown>
 <div class="ns-dec-stat"><strong>31</strong><span>bugs registrados</span></div>
-<div class="ns-dec-stat"><strong>29</strong><span>com status <span class="ns-status ns-status--encerrado">Fechado</span></span></div>
-<div class="ns-dec-stat"><strong>2</strong><span>com status <span class="ns-status ns-status--aberto">Aberto</span></span></div>
+<div class="ns-dec-stat"><strong>30</strong><span>com status <span class="ns-status ns-status--encerrado">Fechado</span></span></div>
+<div class="ns-dec-stat"><strong>1</strong><span>com status <span class="ns-status ns-status--aberto">Aberto</span></span></div>
 <div class="ns-dec-stat"><strong>4</strong><span>de severidade <span class="ns-nivel ns-nivel--alta">Alta</span></span></div>
 <div class="ns-dec-stat"><strong>24</strong><span>de severidade <span class="ns-nivel ns-nivel--media">Média</span></span></div>
 <div class="ns-dec-stat"><strong>3</strong><span>de severidade <span class="ns-nivel ns-nivel--baixa">Baixa</span></span></div>
@@ -959,7 +960,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 | [BUG-BACK-007](#bug-back-007) | #63 | PUT /api/notificacoes/{id} Não atualiza o valor textual de "Outro" no campo sexo | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Lucas Gonçalves<br><span class="ns-bug-dest">→ Lucas Gonçalves</span> |
 | [BUG-BACK-008](#bug-back-008) | #97 | Corrige porta fixa no healthcheck do Dockerfile | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Fábio Ramos<br><span class="ns-bug-dest">→ Fábio Ramos</span> |
 | [BUG-BACK-009](#bug-back-009) | [e2e#15](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/15) | CT-E2E-021: data do último salvamento da análise sai 4 h antes da data de início | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
-| [BUG-BACK-010](#bug-back-010) | [e2e#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20) | CT-FUN-053: horário do incidente não é coletado nem aparece no resumo da análise | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
+| [BUG-BACK-010](#bug-back-010) | [e2e#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20) | CT-FUN-053: horário do incidente não é coletado nem aparece no resumo da análise | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
 
 </div>
 
@@ -1437,7 +1438,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 ??? bug "BUG-BACK-010 · e2e#20 · CT-FUN-053: horário do incidente não é coletado nem aparece no resumo da análise"
 
     <div class="ns-bug-meta" markdown>
-    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--aberto">Aberto</span></span>
+    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--encerrado">Fechado</span></span>
     <span><span class="ns-dec-rotulo">Severidade</span><span class="ns-nivel ns-nivel--baixa">Baixa</span></span>
     <span><span class="ns-dec-rotulo">Reportado por</span>Catarina Freisleben</span>
     <span><span class="ns-dec-rotulo">Designado para</span>Brenno Ostemberg</span>
@@ -1477,6 +1478,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
         - **Resumo da Seção 1:** `src/components/analise/ResumoNotificacao.tsx`, linhas 57–60 do frontend, mostra Descrição, Data do incidente e Turno.
     - **No documento de requisitos**, o horário aparece só no CA01 da US-4.3.
     - **Correção prevista:** incluir a pergunta do horário no formulário público, guardar a hora no banco e mostrá-la no detalhe da notificação e no resumo da análise.
+    - **Correção:** o [PR #20 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/20) (`aacac63`, 03/11/2026) e o [PR #15 do backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend/pull/15) (`68881d5`, 03/11/2026) passaram a perguntar o horário do incidente no formulário público, obrigatório e coerente com o turno, a guardá-lo e a mostrá-lo no detalhe da notificação e no resumo da análise. Conferido pelo CT-FUN-053, cujo teste do horário deixou de ser falha conhecida e passou a conferir o horário da ficha (10:30) na [PR e2e#47](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/47).
     - Encontrado na automação do CT-FUN-053 ([e2e#19](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/19)).
 
     **Versões afetadas**
