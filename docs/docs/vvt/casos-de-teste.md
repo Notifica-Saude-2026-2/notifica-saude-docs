@@ -42,7 +42,7 @@
     | 4.19 | 28/10/2026 | Adição dos casos de teste da US-4.7 (CT-FUN-087 a CT-FUN-092 e CT-E2E-028) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
     | 4.20 | 28/10/2026 | Adição dos casos de teste da US-4.8 (CT-FUN-093 a CT-FUN-097 e CT-E2E-029) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
     | 4.21 | 28/10/2026 | Adição dos casos de teste da US-4.9 (CT-FUN-098 a CT-FUN-102 e CT-E2E-030) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
-    | 4.22 | 05/11/2026 | Atualização do CT-NF-010 ao padrão de validação dos formulários (RNF 6.7.6): o botão de envio permanece clicável, e o envio sem a verificação concluída exibe a pendência “Confirme que você não é um robô.” em vez de ficar bloqueado. | Catarina Freisleben |
+    | 4.22 | 05/11/2026 | Atualização do CT-NF-010 ao padrão de validação dos formulários (RNF 6.7.6): o botão de envio permanece clicável, e o envio sem a verificação concluída exibe a pendência “Confirme que você não é um robô.” em vez de ficar bloqueado. Correção do histórico: as versões da adição dos casos de teste das US-4.7, US-4.8 e US-4.9 repetiam os números 4.17 e 4.18 e passam a 4.19, 4.20 e 4.21, na ordem em que entraram na documentação, dentro da tabela. | Catarina Freisleben |
 
 ## Sumário
 
