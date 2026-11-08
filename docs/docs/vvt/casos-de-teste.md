@@ -39,11 +39,10 @@
     | 4.16 | 26/10/2026 | Adição dos casos de teste da US-4.6 (CT-FUN-081 a CT-FUN-086 e CT-E2E-027) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste. No 5 Porquês, o CT-FUN-084 segue o protótipo funcional, em que o bloco começa fechado, com o botão "Usar os 5 Porquês"; o CA08 da US-4.6 será ajustado na especificação de requisitos | Catarina Freisleben |
     | 4.17 | 03/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-4.5 (CT-FUN-074 a CT-FUN-080 e CT-E2E-026), automatizados na [PR #34 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/34) | Catarina Freisleben |
     | 4.18 | 03/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-4.6 (CT-FUN-081 a CT-FUN-086 e CT-E2E-027), automatizados na [PR #34 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/34). No CT-FUN-085, os procedimentos e o resultado esperado passam a seguir o comportamento conferido na automação: com mais de uma pendência, o sistema exibe "Corrija os N itens destacados para continuar." e indica cada PPC, e a mensagem com os campos que faltam aparece quando o PPC é a única pendência | Catarina Freisleben |
-    | 4.19 | 28/10/2026 | Adição dos casos de teste da US-4.7 (CT-FUN-087 a CT-FUN-092 e CT-E2E-028) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
-    | 4.20 | 28/10/2026 | Adição dos casos de teste da US-4.8 (CT-FUN-093 a CT-FUN-097 e CT-E2E-029) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
-    | 4.21 | 28/10/2026 | Adição dos casos de teste da US-4.9 (CT-FUN-098 a CT-FUN-102 e CT-E2E-030) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
-    | 4.22 | 07/11/2026 | Correção do histórico de alterações: as versões da adição dos casos de teste das US-4.7, US-4.8 e US-4.9 repetiam os números 4.17 e 4.18 e passam a 4.19, 4.20 e 4.21, na ordem em que entraram na documentação; sai a linha em branco que separava essas três versões das anteriores e as deixava fora da tabela | Catarina Freisleben |
 
+    | 4.17 | 28/10/2026 | Adição dos casos de teste da US-4.7 (CT-FUN-087 a CT-FUN-092 e CT-E2E-028) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
+    | 4.18 | 28/10/2026 | Adição dos casos de teste da US-4.8 (CT-FUN-093 a CT-FUN-097 e CT-E2E-029) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
+    | 4.19 | 28/10/2026 | Adição dos casos de teste da US-4.9 (CT-FUN-098 a CT-FUN-102 e CT-E2E-030) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
 ## Sumário
 
 - [1. Introdução](#introducao)
