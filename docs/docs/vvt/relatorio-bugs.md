@@ -19,14 +19,15 @@ hide:
     | 1.5 | 15/10/2026 | Registro do bug BUG-BACK-010 ([e2e#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20)), encontrado na automação dos casos de teste da US-4.3. | Catarina Freisleben |
     | 1.6 | 29/10/2026 | Registro do bug BUG-FRONT-020 ([e2e#36](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/36)), encontrado na automação dos casos de teste da US-4.6. Fechamento dos bugs BUG-FRONT-019 ([e2e#14](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/14)), corrigido no [PR #16 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/16), e BUG-BACK-009 ([e2e#15](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/15)), corrigido no [PR #11 do backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend/pull/11), conferidos na [PR e2e#32](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/32). | Catarina Freisleben |
     | 1.7 | 07/11/2026 | Fechamento do bug BUG-BACK-010 ([e2e#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20)), corrigido no [PR #20 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/20) e no [PR #15 do backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend/pull/15), conferido na [PR e2e#47](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/47). Fechamento do bug BUG-FRONT-020 ([e2e#36](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/36)), corrigido no [PR #21 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/21) e conferido na `develop` do frontend. | Catarina Freisleben |
+    | 1.8 | 09/11/2026 | Registro do bug BUG-FRONT-021 ([e2e#51](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/51)), encontrado na automação dos casos de teste da US-5.1. | Catarina Freisleben |
 
 <div class="ns-dec-resumo" markdown>
-<div class="ns-dec-stat"><strong>31</strong><span>bugs registrados</span></div>
+<div class="ns-dec-stat"><strong>32</strong><span>bugs registrados</span></div>
 <div class="ns-dec-stat"><strong>31</strong><span>com status <span class="ns-status ns-status--encerrado">Fechado</span></span></div>
-<div class="ns-dec-stat"><strong>0</strong><span>com status <span class="ns-status ns-status--aberto">Aberto</span></span></div>
+<div class="ns-dec-stat"><strong>1</strong><span>com status <span class="ns-status ns-status--aberto">Aberto</span></span></div>
 <div class="ns-dec-stat"><strong>4</strong><span>de severidade <span class="ns-nivel ns-nivel--alta">Alta</span></span></div>
 <div class="ns-dec-stat"><strong>24</strong><span>de severidade <span class="ns-nivel ns-nivel--media">Média</span></span></div>
-<div class="ns-dec-stat"><strong>3</strong><span>de severidade <span class="ns-nivel ns-nivel--baixa">Baixa</span></span></div>
+<div class="ns-dec-stat"><strong>4</strong><span>de severidade <span class="ns-nivel ns-nivel--baixa">Baixa</span></span></div>
 </div>
 
 ## Sumário
@@ -143,6 +144,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 | [BUG-FRONT-018](#bug-front-018) | #59 | Botão "Salvar" finaliza classificação de notificação indevidamente | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Pedro Silva Soledade<br><span class="ns-bug-dest">→ Luigi Almeida</span> |
 | [BUG-FRONT-019](#bug-front-019) | [e2e#14](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/14) | CT-FUN-051: orientação do campo "Informe o incidente em investigação" fica escondida num ícone de ajuda | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
 | [BUG-FRONT-020](#bug-front-020) | [e2e#36](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/36) | CT-FUN-084 e CT-FUN-086: campos da Seção 4 com limite de caracteres sem o contador "N/limite" | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
+| [BUG-FRONT-021](#bug-front-021) | [e2e#51](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/51) | CT-FUN-110: caixa ⓘ das previsões de início e de conclusão acima das perguntas, e não logo abaixo | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
 
 </div>
 
@@ -945,6 +947,60 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
     Para comparar, a tabela de PPC da Seção 3, com o contador "61/500" e "53/500" abaixo dos campos:
 
     ![Seção 3: tabela de PPC com o contador N/500 abaixo de cada campo](../assets/vvt/relatorio-bugs/bug-front-020-secao3-comparacao.png){ loading=lazy }
+
+<a id="bug-front-021"></a>
+
+??? bug "BUG-FRONT-021 · e2e#51 · CT-FUN-110: caixa ⓘ das previsões de início e de conclusão acima das perguntas, e não logo abaixo"
+
+    <div class="ns-bug-meta" markdown>
+    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--aberto">Aberto</span></span>
+    <span><span class="ns-dec-rotulo">Severidade</span><span class="ns-nivel ns-nivel--baixa">Baixa</span></span>
+    <span><span class="ns-dec-rotulo">Reportado por</span>Catarina Freisleben</span>
+    <span><span class="ns-dec-rotulo">Designado para</span>Brenno Ostemberg</span>
+    </div>
+
+    **Justificativa da severidade:** Não impede o preenchimento: a explicação das datas está na tela, só fora da posição que o CA14 pede.
+
+    **Resumo**
+
+    No formulário do plano de ação ("Registrar plano de ação", "Completar plano de ação" e "Editar plano de ação"), a caixa de informação (ⓘ) das datas aparece acima das perguntas "Previsão de início" e "Previsão de conclusão", uma caixa só para as duas. O CA14 da US-5.1 pede a caixa logo abaixo de cada pergunta: "**Dado que** o profissional esteja preenchendo uma ação, **quando** visualizar cada pergunta, **então** o sistema deve exibir logo abaixo dela uma caixa de informação (fundo azul claro com ícone ⓘ) explicando o sentido do preenchimento, com exemplos: […] previsões (acompanhar andamento e identificar atrasos) […]". Nas outras perguntas do formulário, a ordem está certa: primeiro a pergunta, depois a caixa ⓘ, depois o campo.
+
+    **Passos para reprodução**
+
+    1. Subir o stack (`npm run stack:up`).
+    2. Entrar como `nsp.b@notificasaude.br` (NSP do Hospital B) e abrir uma notificação com status "Analisado".
+    3. Na seção "Plano de ação", clicar em **Registrar plano de ação** (ou **Adicionar outra ação**).
+    4. Comparar a pergunta "1. O que será feito?" com as perguntas "4. Previsão de início" e "5. Previsão de conclusão".
+
+    **Resultado esperado**
+
+    As perguntas "Previsão de início" e "Previsão de conclusão" têm a caixa ⓘ logo abaixo delas, entre a pergunta e o campo de data, como as demais perguntas. O texto da caixa pode continuar o mesmo.
+
+    **Resultado obtido**
+
+    A caixa "Defina quando a ação deve começar e até quando deve estar concluída. As datas servem para acompanhar o andamento e identificar ações atrasadas." fica acima das duas perguntas, antes do título "4. Previsão de início".
+
+    **Observações**
+
+    - **Onde está no código (front `51ed198`):** em `src/pages/Admin/NotificacaoDetalhe/components/PlanoAcaoModal.tsx`, linhas 264 a 317, a `InfoBox` das previsões vem antes do `FieldRow` com as duas perguntas. Nas outras perguntas, o componente `Campo` põe a `InfoBox` entre o rótulo e o campo.
+    - **Protótipo:** o protótipo também põe a caixa acima das datas. Na revisão dos casos de teste, a equipe de testes decidiu seguir o CA14, que pede a caixa logo abaixo de cada pergunta (decisão de 08/11/2026).
+    - **Teste:** o CT-FUN-110 confere a posição de cada caixa. O trecho das previsões fica num teste à parte, marcado como falha conhecida (`test.fail`) com o link deste bug. Quando o front corrigir, esse teste passa a acusar, e a marca sai.
+    - Encontrado na automação das US-5.1 a US-5.4 ([e2e#50](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/50)).
+
+    **Versões afetadas**
+
+    - Frontend `51ed198` (`develop` de 06/11/2026), backend `97352ef`
+    - Navegador: Chromium, em 1280 × 900
+
+    **Evidência**
+
+    Para comparar, a pergunta "1. O que será feito?", com a caixa ⓘ entre a pergunta e o campo:
+
+    ![Plano de ação: pergunta "O que será feito?", com a caixa ⓘ logo abaixo e o campo depois](../assets/vvt/relatorio-bugs/bug-front-021-pergunta-1.png){ loading=lazy }
+
+    As previsões, com a caixa ⓘ acima das duas perguntas:
+
+    ![Plano de ação: caixa ⓘ das datas acima das perguntas "Previsão de início" e "Previsão de conclusão"](../assets/vvt/relatorio-bugs/bug-front-021-previsoes.png){ loading=lazy }
 
 ### 3.2 Back-end { #back-end }
 
