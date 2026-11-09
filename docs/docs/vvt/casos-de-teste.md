@@ -43,7 +43,7 @@
     | 4.17 | 28/10/2026 | Adição dos casos de teste da US-4.7 (CT-FUN-087 a CT-FUN-092 e CT-E2E-028) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
     | 4.18 | 28/10/2026 | Adição dos casos de teste da US-4.8 (CT-FUN-093 a CT-FUN-097 e CT-E2E-029) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
     | 4.19 | 28/10/2026 | Adição dos casos de teste da US-4.9 (CT-FUN-098 a CT-FUN-102 e CT-E2E-030) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
-    | 4.23 | 08/11/2026 | Adição dos casos de teste da US-5.1 (CT-FUN-103 a CT-FUN-112) na nova seção do Épico 5 em Testes Funcionais e em Critérios de Teste. O CA18 ("Como a ação será realizada?") fica sem caso de teste até o campo ser publicado no sistema, e as fichas citam as perguntas do formulário pelo texto, sem o número, porque o CA18 as renumera | Catarina Freisleben |
+    | 4.23 | 08/11/2026 | Adição dos casos de teste da US-5.1 (CT-FUN-103 a CT-FUN-112) na nova seção do Épico 5 em Testes Funcionais e em Critérios de Teste. O CA18 ("Como a ação será realizada?") fica sem caso de teste até o campo ser publicado no sistema, e as fichas citam as perguntas do formulário pelo texto, sem o número, porque o CA18 as renumera. A tabela de responsáveis segue o protótipo: nunca fica sem linha, e com duas linhas as duas podem ser removidas (redação do CA05 a ajustar na especificação) | Catarina Freisleben |
     | 4.24 | 08/11/2026 | Adição dos casos de teste da US-5.2 (CT-FUN-113 e CT-FUN-114) nas seções de Testes Funcionais e Critérios de Teste. Os CA03 e CA05 da US-5.2 são conferidos pelo CT-E2E-031 | Catarina Freisleben |
     | 4.25 | 08/11/2026 | Adição dos casos de teste da US-5.3 (CT-FUN-115 a CT-FUN-117) e do CT-E2E-031, que percorre a montagem do plano de ação nas US-5.1 a US-5.3, nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste. No CT-FUN-115 e no CT-E2E-031, a origem da ação é conferida pela coluna "Recomendação" da tabela do plano de ação, como no protótipo funcional, e não pela frase "Veio de uma recomendação da análise" do CA01; a redação do CA01 será ajustada na especificação de requisitos | Catarina Freisleben |
     | 4.26 | 08/11/2026 | Adição dos casos de teste da US-5.4 (CT-FUN-118 a CT-FUN-121 e CT-E2E-032) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Catarina Freisleben |
@@ -4578,7 +4578,7 @@ Validar a lista de locais do "Onde será feito?", a marcação de um ou mais loc
 
 **Objetivo**
 
-Validar a tabela de responsáveis da ação: ao menos uma linha, que não pode ser removida; Nome, Função e Setor obrigatórios; Nome com até 50 caracteres; e a opção "Outro" de Função e de Setor com até 30 caracteres.
+Validar a tabela de responsáveis da ação: ao menos uma linha, sem que a tabela fique vazia; Nome, Função e Setor obrigatórios; Nome com até 50 caracteres; e a opção "Outro" de Função e de Setor com até 30 caracteres.
 
 **Pré-condições**
 
@@ -4605,10 +4605,10 @@ Validar a tabela de responsáveis da ação: ao menos uma linha, que não pode s
 
 **Resultado esperado**
 
-- **CA05 — estrutura:** a tabela começa com uma linha, com Nome, Função e Setor, e o botão "+ Adicionar responsável"; Função e Setor são menus com a opção "Outro"; a primeira linha não pode ser removida
+- **CA05 — estrutura:** a tabela começa com uma linha, com Nome, Função e Setor, e o botão "+ Adicionar responsável"; Função e Setor são menus com a opção "Outro"; com uma linha só, a tabela não oferece "Remover"
 - **CA05 — linha vazia:** o sistema não salva e destaca as três células vazias
 - **CA05 — nome acima do limite:** com 51 caracteres, o contador "N/50" fica vermelho, o texto não é cortado e o sistema não salva
-- **CA05 — segunda linha:** a linha adicionada pode ser removida; "Outro" abre o campo de especificação, e com 31 caracteres o contador "N/30" fica vermelho e o sistema não salva
+- **CA05 — segunda linha:** com duas linhas, as duas oferecem "Remover"; "Outro" abre o campo de especificação, e com 31 caracteres o contador "N/30" fica vermelho e o sistema não salva
 - **CA05 — no limite:** com 50 e 30 caracteres, o sistema salva, e a coluna "Responsável" da tabela do plano mostra os dois nomes
 
 ##### CT-FUN-108 — Previsões de início e de conclusão { #ct-fun-108 }
@@ -4773,7 +4773,7 @@ Validar o comportamento comum dos limites de caracteres (contador, destaque em v
 
 - **CA16 — formulário vazio:** o sistema não salva, destaca em vermelho os campos obrigatórios vazios, inclusive as células da tabela de responsáveis, e exibe um aviso que lista os campos que faltam
 - **CA16 — células de tabela:** com recurso "Sim" e a linha vazia, as células Pedido / item e Preço estimado também ficam em vermelho
-- **CA15 — campo longo:** a caixa de texto cresce até uma altura máxima e, a partir dela, o conteúdo rola dentro do campo
+- **CA15 — campo longo:** a caixa de texto tem uma altura máxima e, a partir dela, o conteúdo rola dentro do campo
 - **CA15 — acima do limite:** o contador de "Qual resultado esperamos?" fica vermelho, o campo é destacado, o texto não é cortado e o sistema não salva
 - **CA16 — pendências combinadas:** o aviso cita o campo que falta, o texto acima do limite e que as datas estão inválidas
 - **CA15 e CA16 — corrigido:** o sistema salva a ação
@@ -4811,7 +4811,7 @@ Validar a apresentação das tabelas de responsáveis e de recursos do formulár
 **Resultado esperado**
 
 - **CA17 — largura:** na tela de computador, as tabelas de responsáveis e de recursos ocupam toda a largura disponível do formulário
-- **CA17 — coluna "Remover":** com uma linha só, a tabela não mostra a coluna "Remover"; com duas linhas, a coluna aparece, e só a linha adicionada pode ser removida
+- **CA17 — coluna "Remover":** com uma linha só, a tabela não mostra a coluna "Remover"; com duas linhas, a coluna aparece, com "Remover" nas duas linhas
 - **CA17 — celular:** na tela de celular, cada linha das duas tabelas é exibida como um bloco empilhado, com o rótulo acima de cada campo
 
 #### 3.4.2. História 5.2 - Adicionar ações ao plano de ação { #testes-us-5-2 }
