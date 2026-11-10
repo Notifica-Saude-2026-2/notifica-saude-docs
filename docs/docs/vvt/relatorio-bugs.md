@@ -1,4 +1,4 @@
-﻿---
+---
 hide:
   - toc
 ---
@@ -18,11 +18,12 @@ hide:
     | 1.4 | 08/10/2026 | Registro dos bugs BUG-FRONT-019 ([e2e#14](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/14)) e BUG-BACK-009 ([e2e#15](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/15)), encontrados na automação dos casos de teste da US-4.2. | Catarina Freisleben |
     | 1.5 | 15/10/2026 | Registro do bug BUG-BACK-010 ([e2e#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20)), encontrado na automação dos casos de teste da US-4.3. | Catarina Freisleben |
     | 1.6 | 29/10/2026 | Registro do bug BUG-FRONT-020 ([e2e#36](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/36)), encontrado na automação dos casos de teste da US-4.6. Fechamento dos bugs BUG-FRONT-019 ([e2e#14](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/14)), corrigido no [PR #16 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/16), e BUG-BACK-009 ([e2e#15](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/15)), corrigido no [PR #11 do backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend/pull/11), conferidos na [PR e2e#32](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/32). | Catarina Freisleben |
+    | 1.7 | 07/11/2026 | Fechamento do bug BUG-BACK-010 ([e2e#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20)), corrigido no [PR #20 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/20) e no [PR #15 do backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend/pull/15), conferido na [PR e2e#47](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/47). Fechamento do bug BUG-FRONT-020 ([e2e#36](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/36)), corrigido no [PR #21 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/21) e conferido na `develop` do frontend. | Catarina Freisleben |
 
 <div class="ns-dec-resumo" markdown>
 <div class="ns-dec-stat"><strong>31</strong><span>bugs registrados</span></div>
-<div class="ns-dec-stat"><strong>29</strong><span>com status <span class="ns-status ns-status--encerrado">Fechado</span></span></div>
-<div class="ns-dec-stat"><strong>2</strong><span>com status <span class="ns-status ns-status--aberto">Aberto</span></span></div>
+<div class="ns-dec-stat"><strong>31</strong><span>com status <span class="ns-status ns-status--encerrado">Fechado</span></span></div>
+<div class="ns-dec-stat"><strong>0</strong><span>com status <span class="ns-status ns-status--aberto">Aberto</span></span></div>
 <div class="ns-dec-stat"><strong>4</strong><span>de severidade <span class="ns-nivel ns-nivel--alta">Alta</span></span></div>
 <div class="ns-dec-stat"><strong>24</strong><span>de severidade <span class="ns-nivel ns-nivel--media">Média</span></span></div>
 <div class="ns-dec-stat"><strong>3</strong><span>de severidade <span class="ns-nivel ns-nivel--baixa">Baixa</span></span></div>
@@ -141,7 +142,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 | [BUG-FRONT-017](#bug-front-017) | #58 | Filtro "Never Event" não retorna notificações classificadas no grau de dano em Evento Adverso | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Pedro Silva Soledade<br><span class="ns-bug-dest">→ Luigi Almeida</span> |
 | [BUG-FRONT-018](#bug-front-018) | #59 | Botão "Salvar" finaliza classificação de notificação indevidamente | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Pedro Silva Soledade<br><span class="ns-bug-dest">→ Luigi Almeida</span> |
 | [BUG-FRONT-019](#bug-front-019) | [e2e#14](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/14) | CT-FUN-051: orientação do campo "Informe o incidente em investigação" fica escondida num ícone de ajuda | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
-| [BUG-FRONT-020](#bug-front-020) | [e2e#36](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/36) | CT-FUN-084 e CT-FUN-086: campos da Seção 4 com limite de caracteres sem o contador "N/limite" | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
+| [BUG-FRONT-020](#bug-front-020) | [e2e#36](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/36) | CT-FUN-084 e CT-FUN-086: campos da Seção 4 com limite de caracteres sem o contador "N/limite" | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
 
 </div>
 
@@ -882,7 +883,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 ??? bug "BUG-FRONT-020 · e2e#36 · CT-FUN-084 e CT-FUN-086: campos da Seção 4 com limite de caracteres sem o contador &quot;N/limite&quot;"
 
     <div class="ns-bug-meta" markdown>
-    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--aberto">Aberto</span></span>
+    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--encerrado">Fechado</span></span>
     <span><span class="ns-dec-rotulo">Severidade</span><span class="ns-nivel ns-nivel--baixa">Baixa</span></span>
     <span><span class="ns-dec-rotulo">Reportado por</span>Catarina Freisleben</span>
     <span><span class="ns-dec-rotulo">Designado para</span>Brenno Ostemberg</span>
@@ -923,6 +924,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
     - **Onde está no código (front `c9b94f7`):** em `src/components/analise/Secao4.tsx`, o `<Textarea>` só mostra o contador quando recebe a prop `limit`, e estes três não a recebem: linha 516, na `PorquesLista` (pergunta e resposta); linha 327 (descrição do fator); e linha 636, no `AdicionarPpc` (campos do PPC incluído). Nas outras seções, o `TabelaAnalise` passa `limit={{ max, onExceed: "block" }}`, que mostra o contador.
     - **Limite da descrição do fator:** os 500 caracteres (`DESCRICAO_FATOR_MAX`) não estão nos requisitos; o próprio código diz que o valor ainda vai ser levado às proponentes.
     - **Protótipo:** esses campos também não têm contador no protótipo, mas a regra geral do CA10 da US-4.2 vale para todo campo com limite do formulário de análise.
+    - **Correção:** o [PR #21 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/21) (`2ce1f31`, 03/11/2026) passou a mostrar o contador nos três campos e a barrar, na inclusão de PPC, o texto acima de 500 caracteres. Conferido em 07/11/2026 na `develop` do frontend (`51ed198`): os campos mostram "N/100" no 5 Porquês e "N/500" na descrição do fator e no PPC incluído, e o contador fica vermelho ao passar do limite. Nenhum teste confere o contador, porque as fichas não o pedem.
     - Encontrado na automação da US-4.6 ([e2e#35](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/35)), nos campos usados pelos CT-FUN-084 e CT-FUN-086. As fichas desses casos de teste não conferem o contador, então nenhum teste falha por causa dele.
 
     **Versões afetadas**
@@ -959,7 +961,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 | [BUG-BACK-007](#bug-back-007) | #63 | PUT /api/notificacoes/{id} Não atualiza o valor textual de "Outro" no campo sexo | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Lucas Gonçalves<br><span class="ns-bug-dest">→ Lucas Gonçalves</span> |
 | [BUG-BACK-008](#bug-back-008) | #97 | Corrige porta fixa no healthcheck do Dockerfile | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Fábio Ramos<br><span class="ns-bug-dest">→ Fábio Ramos</span> |
 | [BUG-BACK-009](#bug-back-009) | [e2e#15](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/15) | CT-E2E-021: data do último salvamento da análise sai 4 h antes da data de início | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
-| [BUG-BACK-010](#bug-back-010) | [e2e#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20) | CT-FUN-053: horário do incidente não é coletado nem aparece no resumo da análise | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
+| [BUG-BACK-010](#bug-back-010) | [e2e#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20) | CT-FUN-053: horário do incidente não é coletado nem aparece no resumo da análise | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
 
 </div>
 
@@ -1437,7 +1439,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 ??? bug "BUG-BACK-010 · e2e#20 · CT-FUN-053: horário do incidente não é coletado nem aparece no resumo da análise"
 
     <div class="ns-bug-meta" markdown>
-    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--aberto">Aberto</span></span>
+    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--encerrado">Fechado</span></span>
     <span><span class="ns-dec-rotulo">Severidade</span><span class="ns-nivel ns-nivel--baixa">Baixa</span></span>
     <span><span class="ns-dec-rotulo">Reportado por</span>Catarina Freisleben</span>
     <span><span class="ns-dec-rotulo">Designado para</span>Brenno Ostemberg</span>
@@ -1477,6 +1479,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
         - **Resumo da Seção 1:** `src/components/analise/ResumoNotificacao.tsx`, linhas 57–60 do frontend, mostra Descrição, Data do incidente e Turno.
     - **No documento de requisitos**, o horário aparece só no CA01 da US-4.3.
     - **Correção prevista:** incluir a pergunta do horário no formulário público, guardar a hora no banco e mostrá-la no detalhe da notificação e no resumo da análise.
+    - **Correção:** o [PR #20 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/20) (`aacac63`, 03/11/2026) e o [PR #15 do backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend/pull/15) (`68881d5`, 03/11/2026) passaram a perguntar o horário do incidente no formulário público, obrigatório e coerente com o turno, a guardá-lo e a mostrá-lo no detalhe da notificação e no resumo da análise. Conferido pelo CT-FUN-053, cujo teste do horário deixou de ser falha conhecida e passou a conferir o horário da ficha (10:30) na [PR e2e#47](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/47).
     - Encontrado na automação do CT-FUN-053 ([e2e#19](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/19)).
 
     **Versões afetadas**
