@@ -399,7 +399,7 @@ const capturas = {
       const preencher = async () => {
         const nomes = await p.$$eval("input[type=radio]", (r) => [...new Set(r.filter((e) => e.offsetParent).map((e) => e.name))]);
         for (const nm of nomes) {
-          const pref = await p.$(`input[type=radio][name="${nm}"][data-testid*="centro-cirurgico"], input[type=radio][name="${nm}"][data-testid*="hospital-regional"], input[type=radio][name="${nm}"][data-testid*="paciente-sim"], input[type=radio][name="${nm}"][data-testid*="sexo-f"]`);
+          const pref = await p.$(`input[type=radio][name="${nm}"][data-testid*="centro-cirurgico"], input[type=radio][name="${nm}"][data-testid*="hospital-regional"], input[type=radio][name="${nm}"][data-testid*="paciente-sim"], input[type=radio][name="${nm}"][data-testid*="sexo-f"], input[type=radio][name="${nm}"][data-testid*="papel-profissional"]`);
           const el = pref || (await p.$(`input[type=radio][name="${nm}"]`));
           await el.check({ force: true }).catch(() => el.click({ force: true }));
         }
@@ -410,8 +410,19 @@ const capturas = {
         }
         for (const i of await p.$$("input[type=date]")) await i.fill("2026-10-20");
         for (const i of await p.$$("input[type=time]")) await i.fill("07:20");
-        for (const t of await p.$$("textarea"))
-          await t.fill("Paciente recebeu a medicação pré-anestésica de outra paciente porque as pulseiras de identificação estavam trocadas. A troca foi percebida na checagem antes da anestesia.");
+        // Campos de texto da Tela 2: nº do prontuário/atendimento e faixa etária (texto livre).
+        const prontuario = await p.$('[data-testid="field-55555555-5555-4555-b555-000000000013"]');
+        if (prontuario) await prontuario.fill("PR-004581");
+        const idade = await p.$('[data-testid="field-55555555-5555-4555-b555-000000000001"]');
+        if (idade) await idade.fill("45 anos");
+        for (const t of await p.$$("textarea")) {
+          const id = (await t.getAttribute("data-testid")) || "";
+          await t.fill(
+            id.endsWith("000000000014")
+              ? "A administração da anestesia foi suspensa, a paciente foi avaliada pelo anestesista e a equipe do centro cirúrgico foi comunicada."
+              : "Paciente recebeu a medicação pré-anestésica de outra paciente porque as pulseiras de identificação estavam trocadas. A troca foi percebida na checagem antes da anestesia.",
+          );
+        }
       };
       const titulos = ["1-informacoes-iniciais", "2-paciente", "3-momento-e-local", "4-descricao", "5-notificante"];
       for (let i = 0; i < titulos.length; i++) {
