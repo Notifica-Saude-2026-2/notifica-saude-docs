@@ -39,10 +39,15 @@
     | 4.16 | 26/10/2026 | Adição dos casos de teste da US-4.6 (CT-FUN-081 a CT-FUN-086 e CT-E2E-027) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste. No 5 Porquês, o CT-FUN-084 segue o protótipo funcional, em que o bloco começa fechado, com o botão "Usar os 5 Porquês"; o CA08 da US-4.6 será ajustado na especificação de requisitos | Catarina Freisleben |
     | 4.17 | 03/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-4.5 (CT-FUN-074 a CT-FUN-080 e CT-E2E-026), automatizados na [PR #34 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/34) | Catarina Freisleben |
     | 4.18 | 03/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-4.6 (CT-FUN-081 a CT-FUN-086 e CT-E2E-027), automatizados na [PR #34 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/34). No CT-FUN-085, os procedimentos e o resultado esperado passam a seguir o comportamento conferido na automação: com mais de uma pendência, o sistema exibe "Corrija os N itens destacados para continuar." e indica cada PPC, e a mensagem com os campos que faltam aparece quando o PPC é a única pendência | Catarina Freisleben |
+    | 4.19 | 28/10/2026 | Adição dos casos de teste da US-4.7 (CT-FUN-087 a CT-FUN-092 e CT-E2E-028) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
+    | 4.20 | 28/10/2026 | Adição dos casos de teste da US-4.8 (CT-FUN-093 a CT-FUN-097 e CT-E2E-029) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
+    | 4.21 | 28/10/2026 | Adição dos casos de teste da US-4.9 (CT-FUN-098 a CT-FUN-102 e CT-E2E-030) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
+    | 4.22 | 05/11/2026 | Atualização do CT-NF-010 ao padrão de validação dos formulários (RNF 6.7.6): o botão de envio permanece clicável, e o envio sem a verificação concluída exibe a pendência “Confirme que você não é um robô.” em vez de ficar bloqueado. Correção do histórico: as versões da adição dos casos de teste das US-4.7, US-4.8 e US-4.9 repetiam os números 4.17 e 4.18 e passam a 4.19, 4.20 e 4.21, na ordem em que entraram na documentação, dentro da tabela. | Catarina Freisleben |
+    | 4.23 | 08/11/2026 | Adição dos casos de teste da US-5.1 (CT-FUN-103 a CT-FUN-112) na nova seção do Épico 5 em Testes Funcionais e em Critérios de Teste. O CA18 ("Como a ação será realizada?") fica sem caso de teste até o campo ser publicado no sistema, e as fichas citam as perguntas do formulário pelo texto, sem o número, porque o CA18 as renumera. A tabela de responsáveis segue o protótipo: nunca fica sem linha, e com duas linhas as duas podem ser removidas (redação do CA05 a ajustar na especificação) | Catarina Freisleben |
+    | 4.24 | 08/11/2026 | Adição dos casos de teste da US-5.2 (CT-FUN-113 e CT-FUN-114) nas seções de Testes Funcionais e Critérios de Teste. Os CA03 e CA05 da US-5.2 são conferidos pelo CT-E2E-031 | Catarina Freisleben |
+    | 4.25 | 08/11/2026 | Adição dos casos de teste da US-5.3 (CT-FUN-115 a CT-FUN-117) e do CT-E2E-031, que percorre a montagem do plano de ação nas US-5.1 a US-5.3, nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste. No CT-FUN-115 e no CT-E2E-031, a origem da ação é conferida pela coluna "Recomendação" da tabela do plano de ação, como no protótipo funcional, e não pela frase "Veio de uma recomendação da análise" do CA01; a redação do CA01 será ajustada na especificação de requisitos | Catarina Freisleben |
+    | 4.26 | 08/11/2026 | Adição dos casos de teste da US-5.4 (CT-FUN-118 a CT-FUN-121 e CT-E2E-032) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Catarina Freisleben |
 
-    | 4.17 | 28/10/2026 | Adição dos casos de teste da US-4.7 (CT-FUN-087 a CT-FUN-092 e CT-E2E-028) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
-    | 4.18 | 28/10/2026 | Adição dos casos de teste da US-4.8 (CT-FUN-093 a CT-FUN-097 e CT-E2E-029) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
-    | 4.19 | 28/10/2026 | Adição dos casos de teste da US-4.9 (CT-FUN-098 a CT-FUN-102 e CT-E2E-030) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
 ## Sumário
 
 - [1. Introdução](#introducao)
@@ -66,6 +71,11 @@
         - [3.3.7. História 4.7 - Revisar o Diagrama de Ishikawa e registrar recomendações](#testes-us-4-7)
         - [3.3.8. História 4.8 - Concluir investigação do incidente](#testes-us-4-8)
         - [3.3.9. História 4.9 - Decidir o encaminhamento do resultado da análise ao setor](#testes-us-4-9)
+    - [3.4. Épico 5 - Gestão de plano de ação](#testes-funcionais-epico-5)
+        - [3.4.1. História 5.1 - Acessar e preencher o plano de ação](#testes-us-5-1)
+        - [3.4.2. História 5.2 - Adicionar ações ao plano de ação](#testes-us-5-2)
+        - [3.4.3. História 5.3 - Completar ações originadas das recomendações da análise](#testes-us-5-3)
+        - [3.4.4. História 5.4 - Editar e excluir ações do plano de ação](#testes-us-5-4)
 - [4. Testes End-to-End](#testes-e2e)
 - [5. Testes Não-Funcionais](#testes-nao-funcionais)
 - [6. Critérios de Teste](#criterios-teste)
@@ -4366,6 +4376,774 @@ Validar o limite de 400 caracteres da mensagem opcional enviada ao setor.
 - Mensagem com 401 caracteres é sinalizada como acima do limite e não pode ser confirmada até ser corrigida; o texto não é cortado.
 - É possível confirmar o encaminhamento sem preencher a mensagem.
 
+### 3.4. Épico 5 - Gestão de plano de ação { #testes-funcionais-epico-5 }
+
+#### 3.4.1. História 5.1 - Acessar e preencher o plano de ação { #testes-us-5-1 }
+
+##### CT-FUN-103 — Acesso ao formulário do plano de ação { #ct-fun-103 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.1 | CA01 + CA07 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que a seção "Plano de ação" do detalhe da notificação só permite registrar ações depois da conclusão da análise, que o botão oferecido depende de o plano já ter ações e que o formulário "Registrar plano de ação" abre com a situação da ação em "Em andamento".
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir a notificação P1, com a análise iniciada e ainda não concluída
+- Existir a notificação P2, com status "Analisado", cuja análise foi concluída sem recomendações (plano de ação sem ações)
+- Existir a notificação P3, com status "Analisado", cuja análise foi concluída com as recomendações 1 e 2 (plano de ação com as duas ações criadas a partir delas)
+- Existir a notificação P4, com status "Em ação"
+
+**Dados de entrada**
+
+- **Recomendação 1:** [TESTE] Implantar conferência dos horários dos medicamentos em cada turno.
+- **Recomendação 2:** [TESTE] Revisar e divulgar o fluxo de comunicação de atrasos na administração.
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Abrir a notificação P1 e expandir a seção "Plano de ação".
+2\. Abrir a notificação P2, expandir a seção "Plano de ação" e selecionar "Registrar plano de ação".
+*Modal Registrar plano de ação*
+3\. Verificar o título do formulário e o campo "Situação da ação", e selecionar "Cancelar".
+*Tela Geral Notificação*
+4\. Abrir a notificação P3, expandir a seção "Plano de ação" e selecionar "Adicionar outra ação".
+*Modal Registrar plano de ação*
+5\. Verificar o título do formulário e o campo "Situação da ação", e selecionar "Cancelar".
+*Tela Geral Notificação*
+6\. Abrir a notificação P4, expandir a seção "Plano de ação" e selecionar "Adicionar outra ação".
+*Modal Registrar plano de ação*
+7\. Verificar o título do formulário e o campo "Situação da ação".
+
+**Resultado esperado**
+
+- **CA01 — análise não concluída (P1):** a seção informa que o plano de ação ficará disponível após a conclusão da análise e não oferece "Registrar plano de ação" nem "Adicionar outra ação"
+- **CA01 — "Analisado", sem ações (P2):** a seção oferece "Registrar plano de ação", que abre o formulário "Registrar plano de ação"
+- **CA01 — "Analisado", com ações (P3):** a seção oferece "Adicionar outra ação", que abre o formulário "Registrar plano de ação"
+- **CA01 — "Em ação" (P4):** a seção oferece "Adicionar outra ação", que abre o formulário "Registrar plano de ação"
+- **CA07:** nas três aberturas, o formulário apresenta o campo "Situação da ação" com o valor "Em andamento"
+
+##### CT-FUN-104 — Pré-preenchimento com a próxima recomendação { #ct-fun-104 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.1 | CA02 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que, ao registrar uma nova ação, o "O que será feito?" vem preenchido com a próxima recomendação da análise que ainda não tem ação vinculada, e vem vazio quando todas as recomendações já têm ação.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Analisado", cuja análise foi concluída com as recomendações 1 e 2, e cujo plano de ação tem só a ação criada a partir da recomendação 1 (a ação da recomendação 2 foi excluída)
+
+**Dados de entrada**
+
+- **Recomendação 2:** [TESTE] Revisar e divulgar o fluxo de comunicação de atrasos na administração.
+- **Onde será feito?:** Enfermagem; Farmácia Hospitalar
+- **Responsável:** [TESTE] Ana Souza; Enfermeiro(a); Enfermagem
+- **Previsão de início:** 01/12/2026
+- **Previsão de conclusão:** 31/12/2026
+- **Precisa de recurso para executar essa ação?:** Não
+- **Depende da aprovação da Alta Gestão?:** Não
+- **Como vamos comprovar que foi feito?:** [TESTE] Registro da conferência assinado em cada turno
+- **Qual resultado esperamos?:** [TESTE] Nenhum medicamento administrado fora do horário prescrito
+- **Como vamos saber se funcionou?:** [TESTE] Auditoria mensal das checagens de horário
+- **Quando verificar o resultado?:** [TESTE] 30 dias após a conclusão
+- **Esta ação irá gerar um indicador de acompanhamento?:** Não
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Expandir a seção "Plano de ação" e selecionar "Adicionar outra ação".
+*Modal Registrar plano de ação*
+2\. Verificar o campo "O que será feito?".
+3\. Preencher os demais campos com os dados de entrada, sem alterar o "O que será feito?", e selecionar "Salvar plano de ação".
+*Tela Geral Notificação*
+4\. Selecionar "Adicionar outra ação".
+*Modal Registrar plano de ação*
+5\. Verificar o campo "O que será feito?".
+
+**Resultado esperado**
+
+- **CA02 — recomendação sem ação vinculada:**
+    - O "O que será feito?" vem preenchido com o texto da recomendação 2
+    - Depois de salva, a nova ação aparece na tabela do plano vinculada à recomendação 2, na coluna "Recomendação"
+- **CA02 — todas as recomendações com ação:** ao adicionar outra ação, o "O que será feito?" vem vazio
+
+##### CT-FUN-105 — Campos de texto da ação: obrigatoriedade e limites { #ct-fun-105 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.1 | CA03 + CA10 + CA11 + CA12 | Partição por equivalência e análise de valor limite |
+
+**Objetivo**
+
+Validar que "O que será feito?", "Como vamos comprovar que foi feito?", "Qual resultado esperamos?", "Como vamos saber se funcionou?" e "Quando verificar o resultado?" são obrigatórios e respeitam os limites de caracteres: 500 nos quatro primeiros e 100 no último.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Analisado", cuja análise foi concluída sem recomendações
+
+**Dados de entrada**
+
+- **Demais campos da ação:** os dados de entrada do [CT-FUN-104](#ct-fun-104)
+- **Textos — limite válido:** texto com 500 caracteres nos quatro campos de texto longo e com 100 caracteres em "Quando verificar o resultado?"
+- **Textos — acima do limite:** texto com 501 caracteres nos quatro campos de texto longo e com 101 caracteres em "Quando verificar o resultado?"
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Expandir a seção "Plano de ação" e selecionar "Registrar plano de ação".
+*Modal Registrar plano de ação*
+2\. Preencher os demais campos com os dados de entrada, deixando vazios os cinco campos de texto, e selecionar "Salvar plano de ação".
+3\. Informar os textos acima do limite nos cinco campos e selecionar "Salvar plano de ação".
+4\. Reduzir os textos ao limite válido e selecionar "Salvar plano de ação".
+
+**Resultado esperado**
+
+- **CA03 — O que será feito?:**
+    - Vazio, o sistema não salva, destaca o campo e o inclui no aviso dos campos que faltam
+    - O campo exibe o contador "N/500"; com 501 caracteres, o contador fica vermelho, o texto não é cortado e o sistema não salva
+- **CA10 — Como vamos comprovar que foi feito?:**
+    - Vazio, o sistema não salva, destaca o campo e o inclui no aviso dos campos que faltam
+    - O campo exibe o contador "N/500"; com 501 caracteres, o contador fica vermelho, o texto não é cortado e o sistema não salva
+- **CA11 — Qual resultado esperamos?:**
+    - Vazio, o sistema não salva, destaca o campo e o inclui no aviso dos campos que faltam
+    - O campo exibe o contador "N/500"; com 501 caracteres, o contador fica vermelho, o texto não é cortado e o sistema não salva
+- **CA12 — Como vamos saber se funcionou? e Quando verificar o resultado?:**
+    - Vazios, o sistema não salva, destaca os dois campos e os inclui no aviso dos campos que faltam
+    - Os campos exibem os contadores "N/500" e "N/100"; com 501 e 101 caracteres, os contadores ficam vermelhos, os textos não são cortados e o sistema não salva
+- **CA03, CA10, CA11 e CA12 — no limite:** com 500 e 100 caracteres, o sistema salva, e a ação aparece na tabela do plano de ação
+
+##### CT-FUN-106 — Local de execução da ação { #ct-fun-106 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.1 | CA04 | Partição por equivalência e análise de valor limite |
+
+**Objetivo**
+
+Validar a lista de locais do "Onde será feito?", a marcação de um ou mais locais, a obrigatoriedade, o texto da opção "Outro" (até 50 caracteres) e a exibição dos locais separados por ponto e vírgula.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Analisado", cuja análise foi concluída sem recomendações
+
+**Dados de entrada**
+
+- **Demais campos da ação:** os dados de entrada do [CT-FUN-104](#ct-fun-104), com o "O que será feito?" "[TESTE] Implantar conferência dos horários dos medicamentos em cada turno."
+- **Ação 1 — local:** Enfermagem
+- **Ação 2 — locais:** Farmácia Hospitalar e UTI, e "Outro"
+- **Especificação de "Outro" — acima do limite:** texto com 51 caracteres
+- **Especificação de "Outro" — limite válido:** texto com 50 caracteres
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Expandir a seção "Plano de ação" e selecionar "Registrar plano de ação".
+*Modal Registrar plano de ação*
+2\. Verificar as opções de "Onde será feito?".
+3\. Preencher os demais campos com os dados de entrada, sem marcar nenhum local, e selecionar "Salvar plano de ação".
+4\. Marcar somente "Enfermagem" e selecionar "Salvar plano de ação".
+*Tela Geral Notificação*
+5\. Selecionar "Adicionar outra ação".
+*Modal Registrar plano de ação*
+6\. Preencher os demais campos com os dados de entrada, marcar "Farmácia Hospitalar", "UTI" e "Outro", sem especificar, e selecionar "Salvar plano de ação".
+7\. Informar a especificação de "Outro" com 51 caracteres e selecionar "Salvar plano de ação".
+8\. Reduzir a especificação para 50 caracteres e selecionar "Salvar plano de ação".
+*Tela Geral Notificação*
+9\. Selecionar "Visualizar detalhes" na ação 2 e verificar o local.
+
+**Resultado esperado**
+
+- **CA04 — lista:** "Onde será feito?" apresenta, um abaixo do outro, cada um com uma caixa de seleção: Qualidade e Segurança do Paciente, Clínica Médica, Farmácia Hospitalar, Centro Cirúrgico, UTI, Pronto-Socorro, Enfermagem, Administrativo e, por último, "Outro"
+- **CA04 — nenhum local:** o sistema não salva, destaca o campo e o inclui no aviso dos campos que faltam
+- **CA04 — um local:** com "Enfermagem", o sistema salva a ação 1
+- **CA04 — "Outro" sem especificação:** marcar "Outro" abre o campo "Especifique onde a ação será feita", obrigatório; vazio, o sistema não salva e destaca o campo
+- **CA04 — acima do limite:** com 51 caracteres, o contador "N/50" fica vermelho, o texto não é cortado e o sistema não salva
+- **CA04 — vários locais:** com 50 caracteres, o sistema salva a ação 2, e os locais aparecem juntos, separados por ponto e vírgula: "Farmácia Hospitalar; UTI; " seguido do texto de "Outro"
+
+##### CT-FUN-107 — Responsáveis pela ação { #ct-fun-107 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.1 | CA05 | Partição por equivalência e análise de valor limite |
+
+**Objetivo**
+
+Validar a tabela de responsáveis da ação: ao menos uma linha, sem que a tabela fique vazia; Nome, Função e Setor obrigatórios; Nome com até 50 caracteres; e a opção "Outro" de Função e de Setor com até 30 caracteres.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Analisado", cuja análise foi concluída sem recomendações
+
+**Dados de entrada**
+
+- **Demais campos da ação:** os dados de entrada do [CT-FUN-104](#ct-fun-104), com o "O que será feito?" "[TESTE] Implantar conferência dos horários dos medicamentos em cada turno."
+- **Responsável 1:** nome com 51 caracteres e, depois, com 50; Enfermeiro(a); Enfermagem
+- **Responsável 2:** [TESTE] Bruno Lima; "Outro" na Função e "Outro" no Setor, com 31 caracteres e, depois, com 30
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Expandir a seção "Plano de ação" e selecionar "Registrar plano de ação".
+*Modal Registrar plano de ação*
+2\. Verificar a tabela de "Quem será o(s) responsável(eis)?".
+3\. Preencher os demais campos com os dados de entrada, deixando vazia a linha do responsável, e selecionar "Salvar plano de ação".
+4\. Preencher o responsável 1 com o nome de 51 caracteres e selecionar "Salvar plano de ação".
+5\. Reduzir o nome para 50 caracteres.
+6\. Selecionar "+ Adicionar responsável", preencher o responsável 2 com os textos de "Outro" de 31 caracteres e selecionar "Salvar plano de ação".
+7\. Reduzir os textos de "Outro" para 30 caracteres e selecionar "Salvar plano de ação".
+
+**Resultado esperado**
+
+- **CA05 — estrutura:** a tabela começa com uma linha, com Nome, Função e Setor, e o botão "+ Adicionar responsável"; Função e Setor são menus com a opção "Outro"; com uma linha só, a tabela não oferece "Remover"
+- **CA05 — linha vazia:** o sistema não salva e destaca as três células vazias
+- **CA05 — nome acima do limite:** com 51 caracteres, o contador "N/50" fica vermelho, o texto não é cortado e o sistema não salva
+- **CA05 — segunda linha:** com duas linhas, as duas oferecem "Remover"; "Outro" abre o campo de especificação, e com 31 caracteres o contador "N/30" fica vermelho e o sistema não salva
+- **CA05 — no limite:** com 50 e 30 caracteres, o sistema salva, e a coluna "Responsável" da tabela do plano mostra os dois nomes
+
+##### CT-FUN-108 — Previsões de início e de conclusão { #ct-fun-108 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.1 | CA06 | Partição por equivalência e análise de valor limite |
+
+**Objetivo**
+
+Validar que a previsão de início e a previsão de conclusão são obrigatórias e que a previsão de início não pode ser posterior à de conclusão.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Analisado", cuja análise foi concluída sem recomendações
+
+**Dados de entrada**
+
+- **Demais campos da ação:** os dados de entrada do [CT-FUN-104](#ct-fun-104), com o "O que será feito?" "[TESTE] Implantar conferência dos horários dos medicamentos em cada turno."
+- **Previsão de conclusão:** 15/12/2026
+- **Previsão de início — inválida:** 16/12/2026
+- **Previsão de início — limite válido:** 15/12/2026
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Expandir a seção "Plano de ação" e selecionar "Registrar plano de ação".
+*Modal Registrar plano de ação*
+2\. Preencher os demais campos com os dados de entrada, sem as previsões, e selecionar "Salvar plano de ação".
+3\. Informar a previsão de conclusão e abrir o calendário da previsão de início.
+4\. Informar a previsão de início inválida e selecionar "Salvar plano de ação".
+5\. Alterar a previsão de início para o limite válido e selecionar "Salvar plano de ação".
+
+**Resultado esperado**
+
+- **CA06 — datas vazias:** o sistema não salva, destaca os dois campos e os inclui no aviso dos campos que faltam
+- **CA06 — calendário:** com a conclusão em 15/12/2026, o calendário da previsão de início não oferece datas posteriores a ela
+- **CA06 — início posterior à conclusão:** os dois campos ficam em vermelho, o sistema exibe "A previsão de início não pode ser posterior à previsão de conclusão." e não salva
+- **CA06 — início igual à conclusão:** o sistema salva a ação
+
+##### CT-FUN-109 — Recurso, aprovação da Alta Gestão e indicador { #ct-fun-109 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.1 | CA08 + CA09 + CA13 | Partição por equivalência e análise de valor limite |
+
+**Objetivo**
+
+Validar as perguntas de "Sim" ou "Não" sobre recurso, aprovação da Alta Gestão e indicador de acompanhamento, e o que cada resposta "Sim" passa a exigir.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Analisado", cuja análise foi concluída sem recomendações
+
+**Dados de entrada**
+
+- **Demais campos da ação:** os dados de entrada do [CT-FUN-104](#ct-fun-104), com o "O que será feito?" "[TESTE] Implantar conferência dos horários dos medicamentos em cada turno."
+- **Recurso 1:** [TESTE] Placas de identificação de horário; R$ 120,00
+- **Recurso 2:** [TESTE] Relógios de parede para os postos de enfermagem; R$ 300,00
+- **Qual aprovação?:** [TESTE] Aprovação da compra pela diretoria administrativa
+- **Qual indicador?:** [TESTE] Doses administradas fora do horário por mês
+- **Textos — limite válido:** texto com 100 caracteres
+- **Textos — acima do limite:** texto com 101 caracteres
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Expandir a seção "Plano de ação" e selecionar "Registrar plano de ação".
+*Modal Registrar plano de ação*
+2\. Preencher os campos com os dados de entrada, com "Não" nas três perguntas, e verificar o formulário.
+3\. Responder "Sim" em "Precisa de recurso para executar essa ação?", em "Depende da aprovação da Alta Gestão?" e em "Esta ação irá gerar um indicador de acompanhamento?", e selecionar "Salvar plano de ação" sem preencher os campos novos.
+4\. Informar 101 caracteres no "Pedido / item" do recurso 1, em "Qual aprovação?" e em "Qual indicador?", informar o preço do recurso 1 e selecionar "Salvar plano de ação".
+5\. Reduzir os três textos para 100 caracteres, selecionar "+ Adicionar recurso" e selecionar "Salvar plano de ação" com a segunda linha vazia.
+6\. Preencher o recurso 2 e selecionar "Salvar plano de ação".
+
+**Resultado esperado**
+
+- **CA08, CA09 e CA13 — "Não":** com "Não" nas três perguntas, nenhum campo adicional é exibido nem exigido
+- **CA08 — "Sim":**
+    - O sistema exibe a tabela "Se sim, qual e quanto irá custar?", já com a primeira linha (Pedido / item e Preço estimado, em reais), e o botão "+ Adicionar recurso"
+    - Com a linha vazia, o sistema não salva e destaca as células
+    - Com 101 caracteres no Pedido / item, o contador fica vermelho e o sistema não salva
+    - A linha adicionada vazia também é pendência
+- **CA09 — "Sim":** o sistema passa a exigir qual aprovação é necessária; vazio, não salva; com 101 caracteres, o contador fica vermelho e o sistema não salva
+- **CA13 — opções e "Sim":** a pergunta oferece "Sim" e "Não"; com "Sim", o sistema passa a exigir qual indicador; vazio, não salva; com 101 caracteres, o contador fica vermelho e o sistema não salva
+- **CA08, CA09 e CA13 — completos:** com 100 caracteres e os dois recursos completos, o sistema salva a ação
+
+##### CT-FUN-110 — Textos explicativos do formulário { #ct-fun-110 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.1 | CA14 | Fluxo principal |
+
+**Objetivo**
+
+Validar que cada pergunta do formulário do plano de ação tem, logo abaixo, uma caixa de informação que explica o sentido do preenchimento, com exemplos.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Analisado", cuja análise foi concluída sem recomendações
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Expandir a seção "Plano de ação" e selecionar "Registrar plano de ação".
+*Modal Registrar plano de ação*
+2\. Sem responder nenhuma pergunta, verificar a caixa de informação abaixo de cada uma.
+
+**Resultado esperado**
+
+- **CA14 — formato:** logo abaixo de cada pergunta há uma caixa de informação com fundo azul claro e ícone ⓘ, visível antes de qualquer resposta
+- **CA14 — conteúdo:** cada caixa explica o sentido do preenchimento, com exemplos:
+    - **O que será feito?:** a ação concreta, e não só o objetivo
+    - **Onde será feito?:** "Indique o(s) setor(es) ou local(is) em que a ação será executada. Marque um ou mais — se a ação envolver vários setores, selecione todos. Isso ajuda a saber quem precisa ser envolvido e onde acompanhar a execução."
+    - **Quem será o(s) responsável(eis)?:** quem garante que a ação aconteça
+    - **Previsões de início e de conclusão:** as datas servem para acompanhar o andamento e identificar atrasos
+    - **Precisa de recurso para executar essa ação?:** o gasto necessário, com o item e o custo estimado, para a gestão prever e aprovar o orçamento
+    - **Depende da aprovação da Alta Gestão?:** quando a ação depende de autorização da Alta Gestão
+    - **Como vamos comprovar que foi feito?:** a evidência da execução
+    - **Qual resultado esperamos?:** o efeito esperado, que é a base da avaliação de eficácia
+    - **Como vamos saber se funcionou?:** a forma de medição
+    - **Quando verificar o resultado?:** dar tempo para a ação surtir efeito antes de avaliar
+    - **Esta ação irá gerar um indicador de acompanhamento?:** o indicador que acompanha a melhoria ao longo do tempo
+
+##### CT-FUN-111 — Limites, campos longos e validação ao salvar { #ct-fun-111 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.1 | CA15 + CA16 | Fluxo alternativo e partição por equivalência |
+
+**Objetivo**
+
+Validar o comportamento comum dos limites de caracteres (contador, destaque em vermelho e bloqueio do salvamento), a altura máxima dos campos de texto longo e o aviso de pendências ao selecionar "Salvar plano de ação".
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Analisado", cuja análise foi concluída sem recomendações
+
+**Dados de entrada**
+
+- **Ação completa:** os dados de entrada do [CT-FUN-104](#ct-fun-104), com o "O que será feito?" "[TESTE] Implantar conferência dos horários dos medicamentos em cada turno."
+- **Texto longo:** texto com 20 linhas curtas, abaixo de 500 caracteres
+- **Texto acima do limite:** texto com 501 caracteres
+- **Datas inválidas:** previsão de início 16/12/2026 e previsão de conclusão 15/12/2026
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Expandir a seção "Plano de ação" e selecionar "Registrar plano de ação".
+*Modal Registrar plano de ação*
+2\. Selecionar "Salvar plano de ação" sem preencher nada.
+3\. Responder "Sim" em "Precisa de recurso para executar essa ação?" e selecionar "Salvar plano de ação" com a linha do recurso vazia.
+4\. Informar o texto longo em "O que será feito?" e verificar o campo.
+5\. Preencher os demais campos com a ação completa, com "Não" em recurso, informar o texto acima do limite em "Qual resultado esperamos?" e as datas inválidas, deixar "Como vamos comprovar que foi feito?" vazio e selecionar "Salvar plano de ação".
+6\. Corrigir os três problemas com a ação completa e selecionar "Salvar plano de ação".
+
+**Resultado esperado**
+
+- **CA16 — formulário vazio:** o sistema não salva, destaca em vermelho os campos obrigatórios vazios, inclusive as células da tabela de responsáveis, e exibe um aviso que lista os campos que faltam
+- **CA16 — células de tabela:** com recurso "Sim" e a linha vazia, as células Pedido / item e Preço estimado também ficam em vermelho
+- **CA15 — campo longo:** a caixa de texto tem uma altura máxima e, a partir dela, o conteúdo rola dentro do campo
+- **CA15 — acima do limite:** o contador de "Qual resultado esperamos?" fica vermelho, o campo é destacado, o texto não é cortado e o sistema não salva
+- **CA16 — pendências combinadas:** o aviso cita o campo que falta, o texto acima do limite e que as datas estão inválidas
+- **CA15 e CA16 — corrigido:** o sistema salva a ação
+
+##### CT-FUN-112 — Tabelas responsivas do formulário { #ct-fun-112 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.1 | CA17 | Partição por equivalência |
+
+**Objetivo**
+
+Validar a apresentação das tabelas de responsáveis e de recursos do formulário do plano de ação em tela de computador e em tela de celular.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Analisado", cuja análise foi concluída sem recomendações
+
+**Dados de entrada**
+
+- **Tela de computador:** 1280 × 800
+- **Tela de celular:** 390 × 844
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Na tela de computador, expandir a seção "Plano de ação" e selecionar "Registrar plano de ação".
+*Modal Registrar plano de ação*
+2\. Verificar a tabela de responsáveis, com uma linha.
+3\. Selecionar "+ Adicionar responsável" e verificar a tabela.
+4\. Responder "Sim" em "Precisa de recurso para executar essa ação?", verificar a tabela de recursos, selecionar "+ Adicionar recurso" e verificar a tabela.
+5\. Repetir os passos 1 a 4 na tela de celular.
+
+**Resultado esperado**
+
+- **CA17 — largura:** na tela de computador, as tabelas de responsáveis e de recursos ocupam toda a largura disponível do formulário
+- **CA17 — coluna "Remover":** com uma linha só, a tabela não mostra a coluna "Remover"; com duas linhas, a coluna aparece, com "Remover" nas duas linhas
+- **CA17 — celular:** na tela de celular, cada linha das duas tabelas é exibida como um bloco empilhado, com o rótulo acima de cada campo
+
+#### 3.4.2. História 5.2 - Adicionar ações ao plano de ação { #testes-us-5-2 }
+
+##### CT-FUN-113 — Adição de ações ao plano { #ct-fun-113 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.2 | CA01 + CA02 + CA04 | Fluxo principal |
+
+**Objetivo**
+
+Validar que "Adicionar outra ação" abre um formulário novo, que as ações já registradas são preservadas e que cada ação aparece numa linha da tabela do plano de ação, na ordem do registro.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Em ação", cuja análise foi concluída sem recomendações, com a ação A registrada e completa
+
+**Dados de entrada**
+
+- **Ação A:** os dados de entrada do [CT-FUN-104](#ct-fun-104), com o "O que será feito?" "[TESTE] Implantar conferência dos horários dos medicamentos em cada turno."
+- **Ação B:** os mesmos dados, com o "O que será feito?" "[TESTE] Treinar a equipe de enfermagem na conferência dos horários"
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Expandir a seção "Plano de ação" e selecionar "Adicionar outra ação".
+*Modal Registrar plano de ação*
+2\. Verificar o formulário, preencher a ação B e selecionar "Salvar plano de ação".
+*Tela Geral Notificação*
+3\. Verificar a tabela do plano de ação.
+4\. Selecionar "Visualizar detalhes" na ação A e verificar os dados.
+
+**Resultado esperado**
+
+- **CA01:** "Adicionar outra ação" abre o formulário "Registrar plano de ação" vazio, sem os dados da ação A
+- **CA02:** depois de salvar a ação B, a ação A continua com todos os dados registrados
+- **CA04:** a tabela exibe uma linha por ação, com a ação A na primeira linha e a ação B na segunda
+
+##### CT-FUN-114 — Cancelamento do registro de ação { #ct-fun-114 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.2 | CA06 | Fluxo alternativo |
+
+**Objetivo**
+
+Validar que cancelar o formulário de uma nova ação fecha o formulário sem registrar nada.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Em ação", cuja análise foi concluída sem recomendações, com a ação A registrada e completa
+
+**Dados de entrada**
+
+- **Ação B:** os dados de entrada do [CT-FUN-104](#ct-fun-104), com o "O que será feito?" "[TESTE] Treinar a equipe de enfermagem na conferência dos horários"
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Expandir as seções "Plano de ação" e "Histórico" e verificar o último evento do histórico.
+2\. Selecionar "Adicionar outra ação".
+*Modal Registrar plano de ação*
+3\. Preencher a ação B e selecionar "Cancelar".
+*Tela Geral Notificação*
+4\. Verificar a tabela do plano de ação e o histórico.
+5\. Selecionar "Adicionar outra ação" e verificar o formulário.
+
+**Resultado esperado**
+
+- **CA06 — cancelar:** o formulário fecha, a tabela continua só com a ação A e o histórico não ganha evento novo
+- **CA06 — nada guardado:** ao abrir o formulário de novo, ele vem vazio, sem os dados da ação B
+
+#### 3.4.3. História 5.3 - Completar ações originadas das recomendações da análise { #testes-us-5-3 }
+
+##### CT-FUN-115 — Exibição das ações pendentes de preenchimento { #ct-fun-115 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.3 | CA01 + CA02 + CA03 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que cada recomendação da análise concluída aparece no plano de ação como uma ação pendente de preenchimento, identificada pela recomendação de origem, com o selo "Preenchimento pendente", os avisos de campos faltantes e sem a atualização de andamento, ao contrário de uma ação completa.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir a notificação P1, com status "Analisado", cuja análise foi concluída com as recomendações 1 e 2, sem ação completada
+- Existir a notificação P2, com status "Em ação", cuja análise foi concluída com as recomendações 1 e 2, com a ação da recomendação 1 completada
+
+**Dados de entrada**
+
+- **Recomendação 1:** [TESTE] Implantar conferência dos horários dos medicamentos em cada turno.
+- **Recomendação 2:** [TESTE] Revisar e divulgar o fluxo de comunicação de atrasos na administração.
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Abrir a notificação P1, expandir a seção "Plano de ação" e verificar a tabela.
+2\. Passar o mouse sobre o selo de status da ação 1.
+3\. Selecionar "Visualizar detalhes" na ação 1.
+4\. Abrir a notificação P2, expandir a seção "Plano de ação" e verificar as duas ações.
+
+**Resultado esperado**
+
+- **CA01 — uma ação por recomendação:** a tabela de P1 tem duas ações, na ordem das recomendações; em cada uma, só o "O que será feito?" está preenchido, com o texto da recomendação, e as demais células mostram "—"; a coluna "Recomendação" mostra o texto da recomendação de origem
+- **CA02 — selo:** na coluna "Status", no lugar do status da ação, aparece o selo laranja "Preenchimento pendente"; ao passar o mouse, o sistema exibe "Faltam N campo(s) obrigatório(s) para essa ação poder ser acompanhada.", em que N é a quantidade de campos obrigatórios vazios
+- **CA02 — detalhes:** os detalhes da ação exibem o aviso "Faltam N campos obrigatórios para essa ação poder ser acompanhada."
+- **CA03 — ação pendente:** a linha da ação pendente não oferece "Atualizar andamento da ação"
+- **CA02 e CA03 — ação completa (P2):** a ação completada mostra o status "Em andamento", sem o selo, e oferece "Atualizar andamento da ação"; a ação da recomendação 2 continua com o selo e sem a opção
+
+##### CT-FUN-116 — Completar uma ação criada a partir de recomendação { #ct-fun-116 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.3 | CA04 + CA05 | Fluxo principal e fluxo alternativo |
+
+**Objetivo**
+
+Validar o formulário "Completar plano de ação" de uma ação criada a partir de recomendação e o resultado de completá-la: o status normal da ação, a atualização de andamento liberada e o registro no histórico.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Analisado", cuja análise foi concluída com as recomendações 1 e 2, sem ação completada
+
+**Dados de entrada**
+
+- **Recomendação 1:** [TESTE] Implantar conferência dos horários dos medicamentos em cada turno.
+- **Demais campos da ação:** os dados de entrada do [CT-FUN-104](#ct-fun-104)
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Expandir a seção "Plano de ação", passar o mouse sobre o botão Editar (lápis) da ação 1 e selecioná-lo.
+*Modal Completar plano de ação*
+2\. Verificar o título, a explicação e os dados do formulário.
+3\. Preencher os demais campos com os dados de entrada, deixando "Como vamos comprovar que foi feito?" vazio, e salvar.
+4\. Preencher "Como vamos comprovar que foi feito?" e salvar.
+*Tela Geral Notificação*
+5\. Verificar a linha da ação 1.
+6\. Expandir a seção "Histórico" e verificar o último evento.
+
+**Resultado esperado**
+
+- **CA04 — abertura:** o lápis exibe a dica "Completar preenchimento" e abre o formulário com o título "Completar plano de ação", a explicação "Esta ação foi criada a partir de uma recomendação da análise e ainda não está completa. Preencha os demais campos para que ela possa ser acompanhada." e o "O que será feito?" com o texto da recomendação 1
+- **CA04 — campos obrigatórios:** com um campo obrigatório vazio, o sistema não salva e indica o campo que falta
+- **CA05 — ação completada:** a ação 1 passa a exibir o status "Em andamento", sem o selo "Preenchimento pendente", e oferece "Atualizar andamento da ação"
+- **CA05 — histórico:** o histórico registra "plano de ação completado"
+
+##### CT-FUN-117 — Disponibilidade para completar as ações { #ct-fun-117 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.3 | CA06 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que as ações pendentes podem ser completadas desde a conclusão da análise, inclusive antes da decisão pós-análise do NSP (US-4.9), e enquanto o incidente não estiver concluído.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir a notificação P1, cuja análise foi concluída pelo NSP com as recomendações 1 e 2, sem a decisão pós-análise registrada (status "Em análise")
+- Existir a notificação P2, cuja análise foi concluída pelo NSP com as recomendações 1 e 2 e com a decisão pós-análise registrada (status "Analisado")
+- Existir a notificação P3, cuja análise foi concluída com as recomendações 1 e 2 e que foi concluída pelo NSP com as ações ainda pendentes (status "Concluído")
+
+**Dados de entrada**
+
+- **Demais campos da ação:** os dados de entrada do [CT-FUN-104](#ct-fun-104)
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Abrir a notificação P1, expandir a seção "Plano de ação" e selecionar o botão Editar (lápis) da ação 1.
+*Modal Completar plano de ação*
+2\. Preencher os demais campos com os dados de entrada e salvar.
+*Tela Geral Notificação*
+3\. Abrir a notificação P2, expandir a seção "Plano de ação" e verificar a ação 1.
+4\. Abrir a notificação P3, expandir a seção "Plano de ação" e verificar a ação 1.
+
+**Resultado esperado**
+
+- **CA06 — antes da decisão pós-análise (P1):** a ação pendente oferece "Completar preenchimento", e o sistema salva a ação completa
+- **CA06 — depois da decisão pós-análise (P2):** a ação pendente oferece "Completar preenchimento"
+- **CA06 — incidente concluído (P3):** a ação pendente não oferece "Completar preenchimento"
+
+#### 3.4.4. História 5.4 - Editar e excluir ações do plano de ação { #testes-us-5-4 }
+
+##### CT-FUN-118 — Edição de ação { #ct-fun-118 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.4 | CA01 + CA02 + CA03 | Fluxo principal e fluxo alternativo |
+
+**Objetivo**
+
+Validar que o botão Editar abre a ação com os dados atuais, sem o campo "Situação da ação", e que "Salvar alterações" exige os campos obrigatórios e os limites.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Em ação", com a ação A registrada e completa
+
+**Dados de entrada**
+
+- **Ação A:** os dados de entrada do [CT-FUN-104](#ct-fun-104), com o "O que será feito?" "[TESTE] Implantar conferência dos horários dos medicamentos em cada turno."
+- **Nova previsão de conclusão:** 15/01/2027
+- **Texto acima do limite:** texto com 501 caracteres
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Expandir a seção "Plano de ação" e selecionar o botão Editar (lápis) da ação A.
+*Modal Editar plano de ação*
+2\. Verificar o título, os dados do formulário e a ausência do campo "Situação da ação".
+3\. Apagar "Como vamos comprovar que foi feito?" e selecionar "Salvar alterações".
+4\. Preencher de novo "Como vamos comprovar que foi feito?", informar o texto acima do limite em "Qual resultado esperamos?" e selecionar "Salvar alterações".
+5\. Voltar "Qual resultado esperamos?" ao texto da ação A, alterar a previsão de conclusão e selecionar "Salvar alterações".
+*Tela Geral Notificação*
+6\. Verificar a linha da ação A.
+
+**Resultado esperado**
+
+- **CA01:** o botão Editar abre o formulário "Editar plano de ação" com os dados atuais da ação A
+- **CA03:** o formulário não apresenta o campo "Situação da ação"
+- **CA02 — campo obrigatório vazio:** o sistema não salva e indica o campo que falta
+- **CA02 — acima do limite:** o contador fica vermelho, o texto não é cortado e o sistema não salva
+- **CA01 e CA02 — alterações válidas:** o sistema salva, e a tabela mostra a nova previsão de conclusão, 15/01/2027
+
+##### CT-FUN-119 — Edição de ação com responsável em texto livre { #ct-fun-119 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.4 | CA04 | Fluxo principal |
+
+**Objetivo**
+
+Validar que uma ação registrada antes da tabela de responsáveis, com o responsável em texto livre, é editada com esse nome na primeira linha da tabela, para que a função e o setor sejam completados.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Em ação", com uma ação registrada antes da tabela de responsáveis, cujo responsável está em texto livre ("[TESTE] Carla Mendes")
+
+**Dados de entrada**
+
+- **Função:** Enfermeiro(a)
+- **Setor:** Enfermagem
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Expandir a seção "Plano de ação" e selecionar o botão Editar (lápis) da ação.
+*Modal Editar plano de ação*
+2\. Verificar a tabela de responsáveis.
+3\. Selecionar "Salvar alterações" sem completar a função e o setor.
+4\. Completar a função e o setor e selecionar "Salvar alterações".
+*Tela Geral Notificação*
+5\. Verificar a coluna "Responsável" da ação.
+
+**Resultado esperado**
+
+- **CA04 — primeira linha:** a tabela de responsáveis começa com "[TESTE] Carla Mendes" no Nome da primeira linha, com Função e Setor vazios
+- **CA04 — função e setor a completar:** sem a função e o setor, o sistema não salva e destaca as duas células
+- **CA04 — completado:** com a função e o setor, o sistema salva, e a coluna "Responsável" mostra "[TESTE] Carla Mendes"
+
+##### CT-FUN-120 — Exclusão de ação { #ct-fun-120 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.4 | CA05 | Fluxo alternativo |
+
+**Objetivo**
+
+Validar que a exclusão de uma ação pede confirmação, que recusar mantém a ação e que confirmar a exclui e registra a exclusão no histórico.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Em ação", com as ações A e B registradas e completas
+
+**Dados de entrada**
+
+- **Ação B:** "[TESTE] Treinar a equipe de enfermagem na conferência dos horários"
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Expandir a seção "Plano de ação" e selecionar o botão Excluir (lixeira) da ação B.
+2\. Verificar a mensagem de confirmação e recusar a exclusão ("Não").
+3\. Selecionar de novo o botão Excluir da ação B e confirmar a exclusão ("Sim").
+4\. Verificar a tabela do plano de ação.
+5\. Expandir a seção "Histórico" e verificar o último evento.
+
+**Resultado esperado**
+
+- **CA05 — confirmação:** o sistema pede confirmação com a mensagem "Tem certeza que deseja excluir esse plano de ação? Essa ação não poderá ser desfeita."
+- **CA05 — recusa:** a confirmação fecha, e a ação B continua na tabela
+- **CA05 — exclusão:** a ação B sai da tabela, e a ação A continua
+- **CA05 — histórico:** o histórico registra a exclusão da ação B
+
+##### CT-FUN-121 — Plano de ação de incidente concluído { #ct-fun-121 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.4 | CA06 | Fluxo alternativo |
+
+**Objetivo**
+
+Validar que, com o incidente concluído, as ações do plano de ação ficam disponíveis apenas para consulta.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Concluído", cujo plano de ação tem a ação A, completa, e uma ação criada a partir de recomendação, ainda pendente
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Expandir a seção "Plano de ação" e verificar as opções de cada ação e da seção.
+2\. Selecionar "Visualizar detalhes" na ação A.
+
+**Resultado esperado**
+
+- **CA06 — somente consulta:** as ações aparecem na tabela sem o botão Editar (lápis), sem "Atualizar andamento da ação" e sem o botão Excluir (lixeira), e a seção não oferece "Adicionar outra ação"
+- **CA06 — detalhes:** "Visualizar detalhes" continua disponível e mostra os dados da ação A
+
 ## 4. Testes End-to-End { #testes-e2e }
 
 ### CT-E2E-001 — Registro completo de notificação com paciente { #ct-e2e-001 }
@@ -5793,6 +6571,109 @@ Validar de ponta a ponta que o NSP decide encaminhar ou não o resultado de aná
 
 ---
 
+### CT-E2E-031 — Montagem do plano de ação até o status "Em ação" { #ct-e2e-031 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.1, US-5.2 e US-5.3 | CA02 (US-5.1) + CA03 e CA05 (US-5.2) + CA01 e CA05 (US-5.3) | Fluxo principal e fluxo alternativo |
+
+**Objetivo**
+
+Validar o percurso do plano de ação desde a conclusão da análise: as recomendações viram ações pendentes, ligadas a elas; completar uma dessas ações, ou registrar uma ação nova, leva o incidente de "Analisado" para "Em ação" e fica no histórico; e as ações continuam associadas à notificação e às recomendações depois de sair e abrir a notificação de novo.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de Gestor da Área
+- Existir a notificação C1, encaminhada ao setor do gestor, com a análise preenchida até a Seção 5, com as recomendações 1 e 2, ainda não concluída
+- Existir a notificação C2, nas mesmas condições da C1
+
+**Dados de entrada**
+
+- **Recomendação 1:** [TESTE] Implantar conferência dos horários dos medicamentos em cada turno.
+- **Recomendação 2:** [TESTE] Revisar e divulgar o fluxo de comunicação de atrasos na administração.
+- **Demais campos das ações:** os dados de entrada do [CT-FUN-104](#ct-fun-104)
+- **Ação nova:** "[TESTE] Treinar a equipe de enfermagem na conferência dos horários", com os mesmos demais campos
+
+**Procedimentos**
+
+*Tela Análise (Gestor da Área)*
+1\. Abrir a análise da notificação C1 na Seção 5 e selecionar "Finalizar análise".
+*Tela Geral Notificação (Gestor da Área)*
+2\. Verificar o status da notificação e expandir a seção "Plano de ação".
+3\. Selecionar o botão Editar (lápis) da ação 1.
+*Modal Completar plano de ação*
+4\. Preencher os demais campos com os dados de entrada e salvar.
+*Tela Geral Notificação (Gestor da Área)*
+5\. Verificar o status da notificação, a ação 1 e o histórico.
+6\. Selecionar "Adicionar outra ação".
+*Modal Registrar plano de ação*
+7\. Verificar o "O que será feito?", preencher a ação nova e selecionar "Salvar plano de ação".
+*Tela Geral Notificação (Gestor da Área)*
+8\. Verificar o status da notificação, a tabela do plano de ação e o histórico.
+9\. Sair da notificação, abri-la de novo e verificar o plano de ação.
+*Tela Análise (Gestor da Área)*
+10\. Abrir a análise da notificação C2 na Seção 5 e selecionar "Finalizar análise".
+*Tela Geral Notificação (Gestor da Área)*
+11\. Expandir a seção "Plano de ação" e selecionar "Adicionar outra ação".
+*Modal Registrar plano de ação*
+12\. Preencher a ação nova e selecionar "Salvar plano de ação".
+*Tela Geral Notificação (Gestor da Área)*
+13\. Verificar o status da notificação, a tabela do plano de ação e o histórico.
+
+**Resultado esperado**
+
+- **Notificação C1 (completar uma ação criada a partir de recomendação):**
+    - **CA01 (US-5.3) e CA02 (US-5.1):** depois de "Finalizar análise", o status é "Analisado", e o plano de ação mostra duas ações, uma por recomendação, só com o "O que será feito?" igual ao texto de cada uma e com o selo "Preenchimento pendente"
+    - **CA03 (US-5.2):** a coluna "Recomendação" de cada ação mostra a recomendação de origem
+    - **CA05 (US-5.3):** depois de completada, a ação 1 passa a "Em andamento", o histórico registra "plano de ação completado", e o status da notificação passa de "Analisado" para "Em ação"
+    - **CA02 (US-5.1):** ao adicionar outra ação, o "O que será feito?" vem vazio, porque as duas recomendações já têm ação
+    - **CA05 (US-5.2):** a ação nova é registrada na terceira linha da tabela, o histórico registra o evento, e o status continua "Em ação"
+    - **CA03 (US-5.2):** ao abrir a notificação de novo, as três ações continuam no plano de ação, na mesma ordem, e as duas primeiras mantêm o vínculo com as recomendações 1 e 2
+- **Notificação C2 (registrar uma ação nova, sem completar as pendentes):**
+    - **CA05 (US-5.2):** a ação nova é registrada, o histórico registra o evento, e o status da notificação passa de "Analisado" para "Em ação"
+    - **CA01 (US-5.3):** as duas ações criadas a partir das recomendações continuam com o selo "Preenchimento pendente"
+
+### CT-E2E-032 — Manutenção do plano até a conclusão do incidente { #ct-e2e-032 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.4 | CA01 + CA05 + CA06 | Fluxo principal |
+
+**Objetivo**
+
+Validar o percurso de manutenção do plano de ação: editar uma ação, excluir outra com confirmação e registro no histórico e, depois que o NSP conclui o incidente, manter o plano apenas para consulta.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Em ação", com as ações A e B registradas e completas
+
+**Dados de entrada**
+
+- **Ação A:** "[TESTE] Implantar conferência dos horários dos medicamentos em cada turno."
+- **Ação B:** "[TESTE] Treinar a equipe de enfermagem na conferência dos horários"
+- **Nova previsão de conclusão da ação A:** 15/01/2027
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Expandir a seção "Plano de ação" e selecionar o botão Editar (lápis) da ação A.
+*Modal Editar plano de ação*
+2\. Alterar a previsão de conclusão e selecionar "Salvar alterações".
+*Tela Geral Notificação*
+3\. Verificar a linha da ação A.
+4\. Selecionar o botão Excluir (lixeira) da ação B e confirmar a exclusão.
+5\. Verificar a tabela do plano de ação e o histórico.
+6\. Concluir o incidente pelo menu de opções ao lado do status e confirmar.
+7\. Verificar o status da notificação e as opções da seção "Plano de ação".
+8\. Sair da notificação, abri-la de novo e verificar a seção "Plano de ação".
+
+**Resultado esperado**
+
+- **CA01:** o formulário de edição abre com os dados da ação A e, depois de salvo, a tabela mostra a nova previsão de conclusão, 15/01/2027
+- **CA05:** depois de confirmada a exclusão, a ação B sai da tabela, e o histórico registra a exclusão
+- **CA06:** com o status "Concluído", a ação A aparece apenas para consulta: sem o botão Editar, sem "Atualizar andamento da ação", sem o botão Excluir e sem "Adicionar outra ação"; continua assim ao abrir a notificação de novo
+
 ## 5. Testes Não-Funcionais { #testes-nao-funcionais }
 
 ### CT-NF-001 — Validação de disponibilidade contínua do sistema { #ct-nf-001 }
@@ -5991,21 +6872,21 @@ Garantir acessibilidade adequada para usuários com necessidades especiais.
 
 **Objetivo**
 
-Garantir que o envio do formulário público exige verificação anti-robô: que a rota recusa requisições sem verificação, que a interface impede o envio enquanto a verificação não é concluída, e que o envio com verificação aprovada registra a notificação normalmente.
+Garantir que o envio do formulário público exige verificação anti-robô: que a rota recusa requisições sem verificação, que a interface não envia a notificação enquanto a verificação não é concluída e avisa o que falta, e que o envio com verificação aprovada registra a notificação normalmente.
 
 **Procedimentos**
 
 1\. Subir o ambiente com a verificação anti-robô ligada.
 2\. Acessar o formulário público de notificação.
 3\. Avançar até a última etapa, observando que o componente de verificação não é exibido nas etapas anteriores.
-4\. Observar a exibição do componente de verificação e o estado do botão de envio antes e depois de a verificação concluir.
-5\. Concluir o envio da notificação.
+4\. Selecionar “Enviar notificação” antes de a verificação concluir e observar o aviso exibido.
+5\. Concluir a verificação e enviar a notificação.
 6\. Enviar uma requisição direta à rota de registro, sem o cabeçalho de verificação.
 
 **Resultado esperado**
 
 - O componente de verificação é exibido apenas na última etapa do formulário.
-- O botão de envio permanece desabilitado enquanto a verificação não é concluída, e é habilitado após a conclusão.
+- Enquanto a verificação não é concluída, selecionar “Enviar notificação” não registra a notificação, e o formulário exibe a pendência “Confirme que você não é um robô.”. O botão permanece clicável, como nos demais formulários do sistema.
 - O envio com verificação aprovada registra a notificação e exibe a confirmação ao usuário.
 - A requisição enviada sem o cabeçalho de verificação é recusada, com código de erro específico indicando verificação ausente.
 
@@ -6255,6 +7136,56 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Alternativo | Não encaminhar sem informar justificativa | Sistema exige justificativa e não confirma a decisão |
 | Padrão | Não encaminhar com justificativa | Sistema mantém incidente restrito ao NSP, atualiza status para "Analisado" e registra a decisão e o motivo |
 | Alternativo | Inserir mensagem de encaminhamento acima de 400 caracteres | Sistema sinaliza o excesso e impede a confirmação até a correção |
+
+**[CT-FUN-111](#ct-fun-111)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Salvar a ação com todos os campos válidos | Sistema registra a ação |
+| Alternativo | Salvar com campos obrigatórios vazios | Sistema não salva, destaca os campos e as células vazias e lista os campos que faltam |
+| Alternativo | Salvar com campo vazio, texto acima do limite e datas inválidas | Sistema não salva e o aviso cita o campo que falta, o texto acima do limite e as datas inválidas |
+
+**[CT-FUN-114](#ct-fun-114)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Salvar a ação nova | Sistema registra a ação |
+| Alternativo | Cancelar o formulário preenchido | Sistema fecha o formulário sem registrar a ação nem evento no histórico |
+
+**[CT-FUN-116](#ct-fun-116)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Alternativo | Salvar a ação pendente com campo obrigatório vazio | Sistema não salva e indica o campo que falta |
+| Padrão | Salvar a ação pendente com todos os campos | Sistema exibe o status "Em andamento", libera a atualização de andamento e registra "plano de ação completado" |
+
+**[CT-FUN-118](#ct-fun-118)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Alternativo | Salvar alterações com campo obrigatório apagado ou texto acima do limite | Sistema não salva e indica o problema |
+| Padrão | Salvar alterações válidas | Sistema grava os dados novos |
+
+**[CT-FUN-120](#ct-fun-120)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Alternativo | Recusar a confirmação de exclusão | Sistema mantém a ação |
+| Padrão | Confirmar a exclusão | Sistema remove a ação e registra a exclusão no histórico |
+
+**[CT-FUN-121](#ct-fun-121)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Plano de ação de incidente não concluído | Sistema oferece editar, atualizar andamento, excluir e adicionar ação |
+| Alternativo | Plano de ação de incidente concluído | Sistema exibe as ações apenas para consulta |
+
+**[CT-E2E-031](#ct-e2e-031)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Completar uma ação criada a partir de recomendação | Sistema registra "plano de ação completado" e atualiza o status de "Analisado" para "Em ação" |
+| Alternativo | Registrar uma ação nova completa, sem completar as pendentes | Sistema registra a ação, atualiza o status de "Analisado" para "Em ação" e mantém as ações das recomendações pendentes |
 
 ### 6.2 Partição por Equivalência { #criterios-particao }
 
@@ -6522,6 +7453,92 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Inválido | Pendências diversas na Seção 2 | Sistema exibe as mensagens correspondentes e bloqueia o avanço |
 | Inválido | Incidente vazio ou acima do limite | Sistema exibe a pendência ou o aviso de limite e bloqueia o avanço |
 
+**[CT-FUN-103](#ct-fun-103)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Inválido | Análise ainda não concluída | Sistema informa que o plano de ação ficará disponível após a conclusão da análise e não oferece o registro |
+| Válido | Incidente "Analisado", sem ações | Sistema oferece "Registrar plano de ação" |
+| Válido | Incidente "Analisado" ou "Em ação", com ações | Sistema oferece "Adicionar outra ação" |
+
+**[CT-FUN-104](#ct-fun-104)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Há recomendação sem ação vinculada | Sistema pré-preenche o "O que será feito?" com o texto dela |
+| Válido | Todas as recomendações têm ação | Sistema abre o "O que será feito?" vazio |
+
+**[CT-FUN-105](#ct-fun-105)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Inválido | Campos de texto obrigatórios vazios | Sistema destaca os campos, lista os que faltam e não salva |
+| Válido | Campos de texto preenchidos dentro do limite | Sistema salva a ação |
+
+**[CT-FUN-106](#ct-fun-106)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Inválido | Nenhum local marcado | Sistema destaca o campo e não salva |
+| Inválido | "Outro" marcado sem especificação | Sistema destaca a especificação e não salva |
+| Válido | Um local marcado | Sistema salva a ação |
+| Válido | Vários locais, com "Outro" especificado | Sistema salva a ação e exibe os locais separados por ponto e vírgula |
+
+**[CT-FUN-107](#ct-fun-107)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Inválido | Linha de responsável vazia | Sistema destaca as células vazias e não salva |
+| Válido | Um responsável completo | Sistema aceita o responsável |
+| Válido | Dois responsáveis, o segundo com "Outro" em Função e Setor | Sistema salva a ação e exibe os dois nomes |
+
+**[CT-FUN-108](#ct-fun-108)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Inválido | Previsões vazias | Sistema destaca os dois campos e não salva |
+| Inválido | Previsão de início posterior à de conclusão | Sistema destaca os dois campos, exibe o aviso de datas e não salva |
+| Válido | Previsão de início igual ou anterior à de conclusão | Sistema salva a ação |
+
+**[CT-FUN-109](#ct-fun-109)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | "Não" em recurso, aprovação e indicador | Sistema não exibe nem exige campos adicionais |
+| Inválido | "Sim" sem preencher o que passa a ser exigido | Sistema destaca as pendências e não salva |
+| Válido | "Sim" com recursos, aprovação e indicador preenchidos | Sistema salva a ação |
+
+**[CT-FUN-111](#ct-fun-111)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Inválido | Formulário vazio | Sistema destaca os campos e as células vazias e lista os campos que faltam |
+| Inválido | Campo vazio, texto acima do limite e datas inválidas ao mesmo tempo | Sistema lista as três pendências no aviso e não salva |
+| Válido | Todas as pendências corrigidas | Sistema salva a ação |
+
+**[CT-FUN-112](#ct-fun-112)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Tela de computador, tabela com uma linha | Sistema exibe a tabela na largura toda, sem a coluna "Remover" |
+| Válido | Tela de computador, tabela com duas linhas | Sistema exibe a coluna "Remover" só para a linha removível |
+| Válido | Tela de celular | Sistema exibe cada linha como um bloco empilhado, com o rótulo acima de cada campo |
+
+**[CT-FUN-115](#ct-fun-115)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Ação criada a partir de recomendação, ainda pendente | Sistema exibe o selo "Preenchimento pendente", os avisos de campos faltantes e não oferece a atualização de andamento |
+| Válido | Ação completada | Sistema exibe o status da ação e oferece a atualização de andamento |
+
+**[CT-FUN-117](#ct-fun-117)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Análise concluída pelo NSP, antes da decisão pós-análise | Sistema permite completar a ação pendente |
+| Válido | Depois da decisão pós-análise | Sistema permite completar a ação pendente |
+| Inválido | Incidente concluído | Sistema não permite completar a ação pendente |
+
 ### 6.3 Análise de Valor Limite { #criterios-valor-limite }
 
 **[CT-FUN-003](#ct-fun-003)**
@@ -6595,6 +7612,45 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | --- | --- | --- |
 | Último valor válido | Mensagem opcional de encaminhamento com 400 caracteres | Sistema aceita a mensagem |
 | Limite superior inválido | Mensagem opcional de encaminhamento com 401 caracteres | Sistema sinaliza o excesso, preserva o texto e impede confirmar até corrigir |
+
+**[CT-FUN-105](#ct-fun-105)**
+
+| Tipo de Valor | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Último valor válido | Campos de texto longo da ação com 500 caracteres | Sistema aceita o texto |
+| Limite superior inválido | Campos de texto longo da ação com 501 caracteres | Sistema indica o excesso no contador, não corta o texto e não salva |
+| Último valor válido | "Quando verificar o resultado?" com 100 caracteres | Sistema aceita o texto |
+| Limite superior inválido | "Quando verificar o resultado?" com 101 caracteres | Sistema indica o excesso no contador, não corta o texto e não salva |
+
+**[CT-FUN-106](#ct-fun-106)**
+
+| Tipo de Valor | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Último valor válido | Especificação de "Outro" em "Onde será feito?" com 50 caracteres | Sistema aceita a especificação |
+| Limite superior inválido | Especificação de "Outro" em "Onde será feito?" com 51 caracteres | Sistema indica o excesso no contador e não salva |
+
+**[CT-FUN-107](#ct-fun-107)**
+
+| Tipo de Valor | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Último valor válido | Nome do responsável com 50 caracteres | Sistema aceita o nome |
+| Limite superior inválido | Nome do responsável com 51 caracteres | Sistema indica o excesso no contador e não salva |
+| Último valor válido | "Outro" de Função e de Setor com 30 caracteres | Sistema aceita a especificação |
+| Limite superior inválido | "Outro" de Função e de Setor com 31 caracteres | Sistema indica o excesso no contador e não salva |
+
+**[CT-FUN-108](#ct-fun-108)**
+
+| Tipo de Valor | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Último valor válido | Previsão de início igual à previsão de conclusão | Sistema salva a ação |
+| Limite superior inválido | Previsão de início um dia depois da previsão de conclusão | Sistema destaca os dois campos, exibe o aviso de datas e não salva |
+
+**[CT-FUN-109](#ct-fun-109)**
+
+| Tipo de Valor | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Último valor válido | Pedido / item, "Qual aprovação?" e "Qual indicador?" com 100 caracteres | Sistema aceita os textos |
+| Limite superior inválido | Pedido / item, "Qual aprovação?" e "Qual indicador?" com 101 caracteres | Sistema indica o excesso no contador e não salva |
 
 ---
 

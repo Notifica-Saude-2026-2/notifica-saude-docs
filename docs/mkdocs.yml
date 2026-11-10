@@ -156,6 +156,8 @@ nav:
               - Épico 4 - Análise do Incidente - End-to-End (US-4.2): vvt/relatorios-testes/analise-us-4-2-e2e.md
               - Épico 4 - Análise do Incidente - End-to-End (US-4.3): vvt/relatorios-testes/analise-us-4-3-e2e.md
               - Épico 4 - Análise do Incidente - End-to-End (US-4.4): vvt/relatorios-testes/analise-us-4-4-e2e.md
+              - Épico 4 - Análise do Incidente - End-to-End (US-4.5): vvt/relatorios-testes/analise-us-4-5-e2e.md
+              - Épico 4 - Análise do Incidente - End-to-End (US-4.6): vvt/relatorios-testes/analise-us-4-6-e2e.md
           - Testes Não-Funcionais: vvt/relatorio-nao-funcionais.md
           - Bugs: vvt/relatorio-bugs.md
       - Teste de Usabilidade:
