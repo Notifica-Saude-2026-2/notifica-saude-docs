@@ -36,6 +36,7 @@
     | 3.10 | 26/10/2026 | 5 Porquês fechado por padrão: o fator exibe o convite e o botão "Usar os 5 Porquês", que abre o bloco; opções "Não usar os 5 Porquês" e "Remover 5 Porquês" com confirmação (US 4.6, CA08). | Sophya Ribeiro |
     | 3.11 | 03/11/2026 | Criação do épico 7 — Exportação de relatório de incidentes, validado com as proponentes no protótipo funcional: exportação em XLSX de todos os incidentes do escopo do perfil, sem considerar filtros (US 7.1 para o NSP e US 7.2 para o gestor da área); novas RN-29 (sigilo do notificante nos relatórios) e RN-30 (escopo do relatório); novo requisito não-funcional 6.3.5; descrição dos atores atualizada. | Sophya Ribeiro |
     | 3.12 | 03/11/2026 | Ajustes pontuais validados com as proponentes: apresentação do sistema na tela inicial, com a abrangência dos serviços de saúde atendidos (US 1.1, CA05); número do prontuário ou do atendimento como primeiro campo da seção do paciente, visível só ao NSP e a quem conduz a análise, fora de relatórios e com acesso registrado no histórico (US 1.1, CA06; US 2.2, CA05; US 2.5, CA03; US 4.3, CA01; US 7.1 e 7.2, CA03; nova RN-31 e requisito não-funcional 6.3.6); faixa etária do paciente em campo aberto (US 1.1, CA07); novo campo opcional de medidas adotadas imediatamente após o incidente (US 1.1, CA08; US 4.3, CA01; US 7.1, CA06); "Papel do notificante" substituído por "Quem está fazendo esta notificação?", com novas opções (US 1.1, CA09; US 7.1, CA06); Terapia Ocupacional e Fonoaudiologia na lista "Formação" da equipe da análise (US 4.4, CA02); análise em andamento visível a todos os membros do NSP, que podem assumir a sua condução com registro no histórico, e aviso "Atualize a página e tente novamente" em salvamento concorrente (US 4.2, CA02 a CA04, CA07 e nova CA20; US 2.5, CA03; RN-28 reescrita); novo campo obrigatório "Como a ação será realizada?", com caixa de informação e exemplo, após "O que será feito?" (US 5.1, nova CA18 e CA14, com as perguntas renumeradas; US 5.6, CA03; US 7.1, CA07); situação do plano como um todo, por cor, acima da tabela — Em dia, Com ação atrasada ou Concluído (US 5.5, nova CA08). | Sophya Ribeiro |
+    | 3.13 | 09/11/2026 | Remoção do critério de aceite "Dados antigos de responsável" da US 5.4, que tratava a conversão de ações registradas antes da tabela de responsáveis e deixou de ser usado; critérios seguintes renumerados (CA04 e CA05). | Sophya Ribeiro |
 
 ## Sumário
 
@@ -994,11 +995,9 @@ Nesta seção são apresentadas as histórias de usuário do sistema NotificaSa�
     **Dado que** o usuário esteja editando uma ação, **quando** selecionar "Salvar alterações", **então** o sistema deve exigir todos os campos obrigatórios e limites (US-5.1), indicando quais campos faltam.
 - **CA03 — Situação não editável na edição**
     **Dado que** o usuário esteja editando uma ação, **quando** o formulário for exibido, **então** o sistema não deve apresentar o campo "Situação da ação", que só é alterado pela atualização de andamento (US-5.6).
-- **CA04 — Dados antigos de responsável**
-    **Dado que** uma ação tenha o responsável registrado como texto livre (registro anterior à tabela de responsáveis), **quando** for editada, **então** o sistema deve apresentar esse nome como a primeira linha da tabela de responsáveis, para que função e setor sejam completados.
-- **CA05 — Excluir ação**
+- **CA04 — Excluir ação**
     **Dado que** o incidente não esteja concluído, **quando** o usuário selecionar Excluir (lixeira) em uma ação, **então** o sistema deve pedir confirmação ("Tem certeza que deseja excluir esse plano de ação? Essa ação não poderá ser desfeita.") e, ao confirmar, excluir a ação e registrar a exclusão no histórico.
-- **CA06 — Incidente concluído**
+- **CA05 — Incidente concluído**
     **Dado que** o incidente esteja concluído, **quando** o usuário visualizar as ações, **então** o sistema deve exibi-las apenas para consulta, sem as opções de editar, atualizar andamento ou excluir.
 
 **Contexto de Uso:** Durante a execução do plano, informações como responsáveis e prazos podem mudar. A edição permite manter o plano atualizado, preservando a rastreabilidade no histórico.
