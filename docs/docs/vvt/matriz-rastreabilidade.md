@@ -26,6 +26,7 @@ hide:
     | 3.11 | 03/11/2026 | Status de automação da US-4.6 (CA01 a CA12) e dos RNF 6.7.4, 6.7.5, 6.7.6 e 6.7.12 nos seus casos de teste, conforme a [PR #34 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/34): "Automatizado". Resumo: 52 casos de teste automatizados. | Catarina Freisleben |
 
     | 3.12 | 05/11/2026 | Inclusão dos casos das US-4.7, US-4.8 e US-4.9, atualização dos vínculos com RN-08, RN-18 e RN-19, consolidação da exportação do diagrama na análise concluída e revisão do resumo: 160 critérios de aceite, 128 com caso de teste (80%), 140 casos de teste de histórias e 52 automatizados. | Gustavo Henrique |
+    | 3.13 | 09/11/2026 | US-5.4 com os critérios CA01 a CA05, após a remoção do critério "Dados antigos de responsável" da Especificação de Requisitos (v3.13). | Sophya Ribeiro |
 
 ## Sumário
 
@@ -257,7 +258,7 @@ Esta matriz relaciona cada critério de aceite das histórias de usuário aos ca
 | **US-5.1** | CA01 a CA09 | — | <span class="ns-rast ns-rast--naodoc">Não documentado</span> | — |
 | **US-5.2** | CA01 a CA05 | — | <span class="ns-rast ns-rast--naodoc">Não documentado</span> | — |
 | **US-5.3** | CA01 a CA11 | — | <span class="ns-rast ns-rast--naodoc">Não documentado</span> | — |
-| **US-5.4** | CA01 a CA06 | — | <span class="ns-rast ns-rast--naodoc">Não documentado</span> | — |
+| **US-5.4** | CA01 a CA05 | — | <span class="ns-rast ns-rast--naodoc">Não documentado</span> | — |
 
 </div>
 
