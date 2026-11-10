@@ -47,6 +47,7 @@
     | 4.24 | 08/11/2026 | Adição dos casos de teste da US-5.2 (CT-FUN-113 e CT-FUN-114) nas seções de Testes Funcionais e Critérios de Teste. Os CA03 e CA05 da US-5.2 são conferidos pelo CT-E2E-031 | Catarina Freisleben |
     | 4.25 | 08/11/2026 | Adição dos casos de teste da US-5.3 (CT-FUN-115 a CT-FUN-117) e do CT-E2E-031, que percorre a montagem do plano de ação nas US-5.1 a US-5.3, nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste. No CT-FUN-115 e no CT-E2E-031, a origem da ação é conferida pela coluna "Recomendação" da tabela do plano de ação, como no protótipo funcional, e não pela frase "Veio de uma recomendação da análise" do CA01; a redação do CA01 será ajustada na especificação de requisitos | Catarina Freisleben |
     | 4.26 | 08/11/2026 | Adição dos casos de teste da US-5.4 (CT-FUN-118 a CT-FUN-121 e CT-E2E-032) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Catarina Freisleben |
+    | 4.27 | 10/11/2026 | Adição dos casos das US-5.5, US-5.6 e US-5.7 (CT-FUN-122 a CT-FUN-131 e CT-E2E-033 a CT-E2E-035) e atualização da matriz de rastreabilidade | Gustavo Henrique |
 
 ## Sumário
 
@@ -76,6 +77,9 @@
         - [3.4.2. História 5.2 - Adicionar ações ao plano de ação](#testes-us-5-2)
         - [3.4.3. História 5.3 - Completar ações originadas das recomendações da análise](#testes-us-5-3)
         - [3.4.4. História 5.4 - Editar e excluir ações do plano de ação](#testes-us-5-4)
+        - [3.4.5. História 5.5 - Visualizar e acompanhar o plano de ação](#testes-us-5-5)
+        - [3.4.6. História 5.6 - Acompanhar e atualizar o andamento das ações](#testes-us-5-6)
+        - [3.4.7. História 5.7 - Avaliar efetividade da ação](#testes-us-5-7)
 - [4. Testes End-to-End](#testes-e2e)
 - [5. Testes Não-Funcionais](#testes-nao-funcionais)
 - [6. Critérios de Teste](#criterios-teste)
@@ -5144,6 +5148,245 @@ Validar que, com o incidente concluído, as ações do plano de ação ficam dis
 - **CA06 — somente consulta:** as ações aparecem na tabela sem o botão Editar (lápis), sem "Atualizar andamento da ação" e sem o botão Excluir (lixeira), e a seção não oferece "Adicionar outra ação"
 - **CA06 — detalhes:** "Visualizar detalhes" continua disponível e mostra os dados da ação A
 
+#### 3.4.5. História 5.5 - Visualizar e acompanhar o plano de ação { #testes-us-5-5 }
+
+##### CT-FUN-122 — Exibição das ações, responsáveis e prazos { #ct-fun-122 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.5 | CA01 + CA02 + CA03 | Fluxo principal |
+
+**Objetivo**
+
+Validar a tabela do plano, seus responsáveis, prazos e data da última atualização.
+
+**Pré-condições**
+
+- Usuário Gestor da Área ou profissional do NSP autenticado e autorizado a consultar a notificação.
+- Notificação com ações, responsáveis, início e prazo cadastrados; incluir uma ação atrasada com nova previsão.
+
+**Procedimentos**
+
+1. Abrir o detalhe da notificação e acessar "Plano de ação".
+2. Conferir as linhas, responsáveis e colunas "Início" e "Prazo".
+3. Abrir os detalhes de uma ação.
+
+**Resultado esperado**
+
+- Cada ação aparece em uma linha, com seus responsáveis.
+- Datas são exibidas como dd/mm/aaaa; na ação atrasada, "Nova: dd/mm/aaaa" aparece abaixo do prazo em vermelho.
+- Os detalhes apresentam data e hora da última atualização.
+
+##### CT-FUN-123 — Pendências, campos vazios e situação consolidada do plano { #ct-fun-123 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.5 | CA05 + CA06 + CA07 + CA08 | Partição por equivalência |
+
+**Objetivo**
+
+Validar identificação de ações incompletas ou pendentes e o resumo da situação do plano.
+
+**Pré-condições**
+
+- Notificações disponíveis com ações pendentes de preenchimento, em andamento, atrasadas e finalizadas; incluir plano sem ações.
+
+**Procedimentos**
+
+1. Consultar o plano com ações incompletas e não concluídas.
+2. Conferir status, aviso de campos obrigatórios pendentes e campos sem valor na tabela e nos detalhes.
+3. Consultar planos em dia, com ação atrasada, concluídos e sem ações.
+
+**Resultado esperado**
+
+- Ações pendentes são identificáveis pelo status e pelo aviso com a quantidade de campos faltantes.
+- Campos vazios são apresentados como "—" na tabela e "Não informado" nos detalhes; nenhuma célula fica em branco.
+- O resumo exibe "Em dia" (verde), "Com ação atrasada" (vermelho) ou "Concluído" (azul), conforme as regras; sem ações, não é exibido.
+- O sistema impede salvar o plano quando faltam informações obrigatórias e informa os campos pendentes.
+
+##### CT-FUN-124 — Validação do prazo da ação { #ct-fun-124 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.5 | CA04 | Análise de valor limite |
+
+**Objetivo**
+
+Garantir que o prazo previsto não seja anterior à previsão de início.
+
+**Procedimentos**
+
+1. Cadastrar uma ação com data de conclusão anterior à data de início e tentar salvar.
+2. Repetir com conclusão igual ou posterior à data de início.
+
+**Resultado esperado**
+
+- A primeira tentativa é bloqueada e o prazo inválido é indicado.
+- A segunda tentativa é aceita e a previsão de conclusão fica armazenada.
+
+#### 3.4.6. História 5.6 - Acompanhar e atualizar o andamento das ações { #testes-us-5-6 }
+
+##### CT-FUN-125 — Tabela, ações disponíveis e detalhes da ação { #ct-fun-125 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.6 | CA01 + CA02 + CA03 | Fluxo principal |
+
+**Objetivo**
+
+Validar a apresentação das ações, controles de linha e expansão dos detalhes.
+
+**Pré-condições**
+
+- Notificação não concluída com ações completas e pendentes, recomendações, atualizações e anexos.
+
+**Procedimentos**
+
+1. Abrir a tabela em tela larga e estreita.
+2. Conferir colunas, status, acompanhamento e botões de cada ação.
+3. Abrir e ocultar os detalhes de uma ação; baixar um anexo.
+
+**Resultado esperado**
+
+- Tabela inclui todas as colunas especificadas, cabeçalho cinza claro e rolagem horizontal em tela estreita.
+- Botões ficam lado a lado; ações pendentes oferecem "Completar preenchimento" e não oferecem atualização de andamento.
+- Detalhes ocupam a largura da tabela e mostram os campos, anexos baixáveis, data/hora da última atualização e "Não informado" nos campos vazios; o controle alterna para "Ocultar detalhes".
+
+##### CT-FUN-126 — Abertura da atualização e identificação da ação { #ct-fun-126 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.6 | CA04 + CA05 + CA06 | Fluxo principal |
+
+**Objetivo**
+
+Validar o início da atualização individual e os dados de contexto apresentados.
+
+**Procedimentos**
+
+1. Tentar atualizar uma ação pendente de preenchimento.
+2. Selecionar "Atualizar andamento" em ação completa.
+3. Conferir a ação selecionada, situação, data real de início e caixa de informação.
+
+**Resultado esperado**
+
+- Ação incompleta não pode ter andamento atualizado.
+- A tela da ação escolhida é aberta; sua descrição aparece bloqueada, com cadeado, e não pode ser editada.
+- Situação e data real de início aparecem lado a lado e a caixa explica os requisitos das situações.
+
+##### CT-FUN-127 — Campos exigidos por situação da ação { #ct-fun-127 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.6 | CA07 + CA08 + CA09 | Partição por equivalência |
+
+**Objetivo**
+
+Verificar os campos obrigatórios condicionados à situação selecionada.
+
+**Procedimentos**
+
+1. Salvar atualizações sem data real de conclusão ou descrição do realizado, selecionando "Concluído".
+2. Repetir sem motivo do atraso ou nova previsão, selecionando "Atrasada".
+3. Repetir sem motivo do cancelamento, selecionando "Cancelada".
+
+**Resultado esperado**
+
+- Em cada situação, o salvamento é impedido até que todos os campos específicos sejam preenchidos.
+
+##### CT-FUN-128 — Evidências e validação de anexos { #ct-fun-128 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.6 | CA10 + CA11 + CA12 | Partição por equivalência |
+
+**Objetivo**
+
+Validar o registro da evidência e as restrições de formato, tamanho e quantidade de anexos.
+
+**Procedimentos**
+
+1. Informar localização da evidência e conferir a comprovação definida no plano.
+2. Anexar arquivos PDF, DOCX, PNG e JPG/JPEG e tentar anexar formato não aceito.
+3. Tentar anexar arquivo acima de 10 MB e completar o limite de 10 anexos considerando atualizações anteriores.
+
+**Resultado esperado**
+
+- Localização/descrição é registrada e a comprovação do plano aparece na caixa informativa.
+- Somente formatos aceitos são anexados; formatos inválidos e arquivos acima de 10 MB são rejeitados com as mensagens especificadas.
+- Cada arquivo permitido pode ser removido antes de salvar; lista exibe tamanho e contador N/10.
+- O seletor fica desabilitado ao atingir 10 anexos e informa "Limite de 10 anexos por ação atingido."; instruções indicam formatos e limite de 10 MB.
+
+##### CT-FUN-129 — Validação, cancelamento, persistência e limites de texto { #ct-fun-129 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.6 | CA13 + CA14 + CA15 + CA16 | Fluxo alternativo e análise de valor limite |
+
+**Objetivo**
+
+Validar as mensagens e limites do formulário de atualização, o cancelamento e o registro do histórico.
+
+**Procedimentos**
+
+1. Tentar salvar com obrigatórios vazios e verificar destaques, lista de pendências e rolagem.
+2. Preencher e cancelar; conferir que não houve alteração.
+3. Salvar uma atualização válida e retornar à tabela e ao histórico.
+4. Inserir textos de 200 e 201 caracteres nos campos limitados e tentar salvar.
+
+**Resultado esperado**
+
+- Campos obrigatórios vazios são destacados com "Campo obrigatório."; aviso lista pendências, rola ao primeiro campo e o destaque some ao preencher.
+- Cancelar retorna sem persistir mudanças.
+- Após salvar, tabela e histórico refletem situação e acompanhamento atualizados.
+- Contador N/200 é exibido; acima do limite, contador e borda ficam vermelhos, texto não é cortado e salvamento é impedido com indicação dos campos excedidos e rolagem ao primeiro.
+
+#### 3.4.7. História 5.7 - Avaliar efetividade da ação { #testes-us-5-7 }
+
+##### CT-FUN-130 — Registro do resultado observado e avaliação de efetividade { #ct-fun-130 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.7 | CA01 + CA02 + CA07 | Fluxo principal |
+
+**Objetivo**
+
+Validar o registro do resultado observado, a comparação com o resultado esperado e a persistência da avaliação.
+
+**Procedimentos**
+
+1. Abrir atualização da ação e conferir a informação do resultado esperado.
+2. Informar resultado observado e salvar sem selecionar efetividade.
+3. Selecionar uma opção de efetividade e salvar.
+
+**Resultado esperado**
+
+- Caixa informativa apresenta resultado esperado cadastrado no plano.
+- Avaliação é obrigatória; opções Sim, Parcialmente e Não e suas consequências são explicadas.
+- Resultado observado e avaliação selecionada ficam registrados na ação.
+
+##### CT-FUN-131 — Consequências da avaliação de efetividade { #ct-fun-131 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.7 | CA03 + CA04 + CA05 + CA06 | Partição por equivalência |
+
+**Objetivo**
+
+Validar justificativas obrigatórias e relação entre efetividade e situação da ação.
+
+**Procedimentos**
+
+1. Selecionar "Parcialmente" e tentar salvar sem justificativa; depois preencher "Por que o efeito foi parcial?" e salvar.
+2. Selecionar "Não" e tentar salvar sem justificativa; depois preencher "Por que a ação não foi efetiva?" e salvar.
+3. Selecionar "Sim" com situação diferente de concluída e salvar.
+
+**Resultado esperado**
+
+- Justificativas correspondentes são obrigatórias para "Parcialmente" e "Não".
+- "Sim" registra a ação como efetiva e altera automaticamente a situação para "Concluído".
+- "Parcialmente" e "Não" registram efetividade separadamente e preservam a situação selecionada.
+
 ## 4. Testes End-to-End { #testes-e2e }
 
 ### CT-E2E-001 — Registro completo de notificação com paciente { #ct-e2e-001 }
@@ -6891,6 +7134,101 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 - A requisição enviada sem o cabeçalho de verificação é recusada, com código de erro específico indicando verificação ausente.
 
 ---
+
+### CT-E2E-033 — Consulta da situação consolidada do plano de ação { #ct-e2e-033 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.5 | CA01 a CA08 | Fluxo principal e partição por equivalência |
+
+**Objetivo**
+
+Validar o fluxo de consulta do plano de ação por um usuário autorizado, da notificação até a visualização das ações, pendências, prazos e situação consolidada.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de Gestor da Área ou profissional do NSP autorizado.
+- Existirem notificações com plano em dia, ação atrasada, todas as ações finalizadas e sem ações cadastradas.
+- Existirem ações completas e pendentes, com responsáveis, prazos e dados parcialmente vazios.
+
+**Procedimentos**
+
+1. Acessar a lista de notificações e abrir uma notificação com plano de ação.
+2. Abrir a seção "Plano de ação" e conferir ações, responsáveis, recomendações, prazos e acompanhamento.
+3. Abrir os detalhes de uma ação e conferir campos vazios e data/hora da atualização.
+4. Repetir a consulta para os planos em dia, com ação atrasada, concluídos e sem ações.
+
+**Resultado esperado**
+
+- Ações são apresentadas uma por linha com responsáveis e prazos no formato previsto; ação atrasada exibe a nova previsão.
+- Status, pendências de preenchimento e situação consolidada correspondem aos dados do plano.
+- Campos vazios são indicados por "—" na tabela e "Não informado" nos detalhes.
+- A situação do plano é ocultada quando não há ações e apresentada com o selo e a cor correspondentes nos demais casos.
+
+### CT-E2E-034 — Atualização de andamento e registro de evidências { #ct-e2e-034 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.6 | CA01 a CA16 | Fluxo principal, alternativo e análise de valor limite |
+
+**Objetivo**
+
+Validar o fluxo completo de atualização de uma ação, incluindo os campos condicionais, evidências, validações, persistência e histórico.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de Gestor da Área ou profissional do NSP autorizado.
+- Notificação não concluída com ação completa e outra pendente de preenchimento.
+- Ação completa com comprovação e resultado esperado definidos no plano.
+
+**Procedimentos**
+
+1. Abrir a notificação e consultar o plano de ação.
+2. Tentar atualizar a ação pendente; em seguida, iniciar a atualização da ação completa.
+3. Conferir a identificação bloqueada da ação e preencher situação e dados requeridos.
+4. Informar localização de evidência, anexar arquivo permitido e tentar anexar formato e tamanho não permitidos; remover um anexo antes de salvar.
+5. Tentar salvar com campos obrigatórios vazios e com texto acima de 200 caracteres.
+6. Salvar uma atualização válida e retornar à tabela e ao histórico.
+7. Iniciar outra atualização, alterar campos e cancelar.
+
+**Resultado esperado**
+
+- Ação incompleta não permite atualizar andamento; ação completa abre a tela vinculada à descrição correta e somente leitura.
+- Campos obrigatórios variam conforme a situação e são validados com mensagens, destaque e foco no primeiro campo pendente.
+- Evidência e anexos respeitam os formatos, limites por arquivo e quantidade total; itens podem ser removidos antes de salvar.
+- Textos acima de 200 caracteres são sinalizados e impedem o salvamento sem truncar conteúdo.
+- Ao salvar, tabela e histórico mostram a atualização persistida; ao cancelar, nenhuma alteração é registrada.
+
+### CT-E2E-035 — Avaliação da efetividade da ação { #ct-e2e-035 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.7 | CA01 a CA07 | Fluxo principal e partição por equivalência |
+
+**Objetivo**
+
+Validar o registro do resultado observado e o efeito da avaliação de efetividade sobre a ação.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP ou Gestor da Área autorizado.
+- Notificação com ação cujo resultado esperado está preenchido e andamento pode ser atualizado.
+
+**Procedimentos**
+
+1. Abrir a atualização da ação e conferir a informação do resultado esperado.
+2. Informar o resultado observado e tentar salvar sem avaliar a efetividade.
+3. Selecionar "Parcialmente" e tentar salvar sem justificativa; preencher a justificativa e salvar.
+4. Repetir para "Não", preenchendo o motivo da não efetividade.
+5. Em outra atualização, selecionar "Sim" mantendo uma situação diferente de concluída e salvar.
+6. Retornar à tabela e consultar os detalhes/histórico da ação.
+
+**Resultado esperado**
+
+- Resultado esperado é apresentado para comparação e a avaliação de efetividade é obrigatória, com opções e consequências explicadas.
+- "Parcialmente" e "Não" exigem suas justificativas e preservam a situação selecionada.
+- "Sim" registra a ação como efetiva e a conclui automaticamente.
+- Resultado observado e avaliação ficam associados à ação e disponíveis após retornar ao plano.
 
 ## 6. Critérios de Teste { #criterios-teste }
 
