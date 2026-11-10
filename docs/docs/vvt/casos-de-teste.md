@@ -39,10 +39,11 @@
     | 4.16 | 26/10/2026 | Adição dos casos de teste da US-4.6 (CT-FUN-081 a CT-FUN-086 e CT-E2E-027) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste. No 5 Porquês, o CT-FUN-084 segue o protótipo funcional, em que o bloco começa fechado, com o botão "Usar os 5 Porquês"; o CA08 da US-4.6 será ajustado na especificação de requisitos | Catarina Freisleben |
     | 4.17 | 03/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-4.5 (CT-FUN-074 a CT-FUN-080 e CT-E2E-026), automatizados na [PR #34 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/34) | Catarina Freisleben |
     | 4.18 | 03/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-4.6 (CT-FUN-081 a CT-FUN-086 e CT-E2E-027), automatizados na [PR #34 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/34). No CT-FUN-085, os procedimentos e o resultado esperado passam a seguir o comportamento conferido na automação: com mais de uma pendência, o sistema exibe "Corrija os N itens destacados para continuar." e indica cada PPC, e a mensagem com os campos que faltam aparece quando o PPC é a única pendência | Catarina Freisleben |
+    | 4.19 | 28/10/2026 | Adição dos casos de teste da US-4.7 (CT-FUN-087 a CT-FUN-092 e CT-E2E-028) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
+    | 4.20 | 28/10/2026 | Adição dos casos de teste da US-4.8 (CT-FUN-093 a CT-FUN-097 e CT-E2E-029) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
+    | 4.21 | 28/10/2026 | Adição dos casos de teste da US-4.9 (CT-FUN-098 a CT-FUN-102 e CT-E2E-030) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
+    | 4.22 | 05/11/2026 | Atualização do CT-NF-010 ao padrão de validação dos formulários (RNF 6.7.6): o botão de envio permanece clicável, e o envio sem a verificação concluída exibe a pendência “Confirme que você não é um robô.” em vez de ficar bloqueado. Correção do histórico: as versões da adição dos casos de teste das US-4.7, US-4.8 e US-4.9 repetiam os números 4.17 e 4.18 e passam a 4.19, 4.20 e 4.21, na ordem em que entraram na documentação, dentro da tabela. | Catarina Freisleben |
 
-    | 4.17 | 28/10/2026 | Adição dos casos de teste da US-4.7 (CT-FUN-087 a CT-FUN-092 e CT-E2E-028) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
-    | 4.18 | 28/10/2026 | Adição dos casos de teste da US-4.8 (CT-FUN-093 a CT-FUN-097 e CT-E2E-029) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
-    | 4.19 | 28/10/2026 | Adição dos casos de teste da US-4.9 (CT-FUN-098 a CT-FUN-102 e CT-E2E-030) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Gustavo Henrique |
 ## Sumário
 
 - [1. Introdução](#introducao)
@@ -5991,21 +5992,21 @@ Garantir acessibilidade adequada para usuários com necessidades especiais.
 
 **Objetivo**
 
-Garantir que o envio do formulário público exige verificação anti-robô: que a rota recusa requisições sem verificação, que a interface impede o envio enquanto a verificação não é concluída, e que o envio com verificação aprovada registra a notificação normalmente.
+Garantir que o envio do formulário público exige verificação anti-robô: que a rota recusa requisições sem verificação, que a interface não envia a notificação enquanto a verificação não é concluída e avisa o que falta, e que o envio com verificação aprovada registra a notificação normalmente.
 
 **Procedimentos**
 
 1\. Subir o ambiente com a verificação anti-robô ligada.
 2\. Acessar o formulário público de notificação.
 3\. Avançar até a última etapa, observando que o componente de verificação não é exibido nas etapas anteriores.
-4\. Observar a exibição do componente de verificação e o estado do botão de envio antes e depois de a verificação concluir.
-5\. Concluir o envio da notificação.
+4\. Selecionar “Enviar notificação” antes de a verificação concluir e observar o aviso exibido.
+5\. Concluir a verificação e enviar a notificação.
 6\. Enviar uma requisição direta à rota de registro, sem o cabeçalho de verificação.
 
 **Resultado esperado**
 
 - O componente de verificação é exibido apenas na última etapa do formulário.
-- O botão de envio permanece desabilitado enquanto a verificação não é concluída, e é habilitado após a conclusão.
+- Enquanto a verificação não é concluída, selecionar “Enviar notificação” não registra a notificação, e o formulário exibe a pendência “Confirme que você não é um robô.”. O botão permanece clicável, como nos demais formulários do sistema.
 - O envio com verificação aprovada registra a notificação e exibe a confirmação ao usuário.
 - A requisição enviada sem o cabeçalho de verificação é recusada, com código de erro específico indicando verificação ausente.
 
