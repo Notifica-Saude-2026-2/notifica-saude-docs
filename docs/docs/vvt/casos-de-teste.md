@@ -48,6 +48,7 @@
     | 4.25 | 08/11/2026 | Adição dos casos de teste da US-5.3 (CT-FUN-115 a CT-FUN-117) e do CT-E2E-031, que percorre a montagem do plano de ação nas US-5.1 a US-5.3, nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste. No CT-FUN-115 e no CT-E2E-031, a origem da ação é conferida pela coluna "Recomendação" da tabela do plano de ação, como no protótipo funcional, e não pela frase "Veio de uma recomendação da análise" do CA01; a redação do CA01 será ajustada na especificação de requisitos | Catarina Freisleben |
     | 4.26 | 08/11/2026 | Adição dos casos de teste da US-5.4 (CT-FUN-118 a CT-FUN-121 e CT-E2E-032) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Catarina Freisleben |
     | 4.27 | 10/11/2026 | Adição dos casos das US-5.5, US-5.6 e US-5.7 (CT-FUN-122 a CT-FUN-131 e CT-E2E-033) e atualização da matriz de rastreabilidade | Gustavo Henrique |
+    | 4.28 | 10/11/2026 | Adição do CT-FUN-132, do CA18 da US-5.1 ("Como a ação será realizada?"), publicado no sistema em 10/11/2026, nas seções de Testes Funcionais e Critérios de Teste. O CT-FUN-110 passa a conferir a caixa de informação dessa pergunta (CA14), e os dados de entrada do CT-FUN-104 ganham a resposta dela | Catarina Freisleben |
 
 ## Sumário
 
@@ -4449,6 +4450,7 @@ Validar que, ao registrar uma nova ação, o "O que será feito?" vem preenchido
 **Dados de entrada**
 
 - **Recomendação 2:** [TESTE] Revisar e divulgar o fluxo de comunicação de atrasos na administração.
+- **Como a ação será realizada?:** [TESTE] Revisar a escala de conferência e orientar a equipe no início de cada turno
 - **Onde será feito?:** Enfermagem; Farmácia Hospitalar
 - **Responsável:** [TESTE] Ana Souza; Enfermeiro(a); Enfermagem
 - **Previsão de início:** 01/12/2026
@@ -4730,6 +4732,7 @@ Validar que cada pergunta do formulário do plano de ação tem, logo abaixo, um
 - **CA14 — formato:** logo abaixo de cada pergunta há uma caixa de informação com fundo azul claro e ícone ⓘ, visível antes de qualquer resposta
 - **CA14 — conteúdo:** cada caixa explica o sentido do preenchimento, com exemplos:
     - **O que será feito?:** a ação concreta, e não só o objetivo
+    - **Como a ação será realizada?:** os principais passos para colocar a ação em prática, com exemplo
     - **Onde será feito?:** "Indique o(s) setor(es) ou local(is) em que a ação será executada. Marque um ou mais — se a ação envolver vários setores, selecione todos. Isso ajuda a saber quem precisa ser envolvido e onde acompanhar a execução."
     - **Quem será o(s) responsável(eis)?:** quem garante que a ação aconteça
     - **Previsões de início e de conclusão:** as datas servem para acompanhar o andamento e identificar atrasos
@@ -4818,6 +4821,50 @@ Validar a apresentação das tabelas de responsáveis e de recursos do formulár
 - **CA17 — largura:** na tela de computador, as tabelas de responsáveis e de recursos ocupam toda a largura disponível do formulário
 - **CA17 — coluna "Remover":** com uma linha só, a tabela não mostra a coluna "Remover"; com duas linhas, a coluna aparece, com "Remover" nas duas linhas
 - **CA17 — celular:** na tela de celular, cada linha das duas tabelas é exibida como um bloco empilhado, com o rótulo acima de cada campo
+
+##### CT-FUN-132 — Como a ação será realizada { #ct-fun-132 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.1 | CA18 | Fluxo principal, partição por equivalência e análise de valor limite |
+
+**Objetivo**
+
+Validar que "Como a ação será realizada?" aparece logo após "O que será feito?", com a caixa de informação do exemplo, que é obrigatória e aceita até 500 caracteres, e que as demais perguntas do formulário são renumeradas a partir de 3.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Analisado", cuja análise foi concluída sem recomendações
+
+**Dados de entrada**
+
+- **O que será feito?:** [TESTE] Implantar conferência dos horários dos medicamentos em cada turno.
+- **Demais campos da ação:** os dados de entrada do [CT-FUN-104](#ct-fun-104)
+- **Como a ação será realizada? — limite válido:** texto com 500 caracteres
+- **Como a ação será realizada? — acima do limite:** texto com 501 caracteres
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Expandir a seção "Plano de ação" e selecionar "Registrar plano de ação".
+*Modal Registrar plano de ação*
+2\. Sem responder nenhuma pergunta, verificar a ordem e a numeração das perguntas e a caixa de informação abaixo de "Como a ação será realizada?".
+3\. Preencher os demais campos com os dados de entrada, deixando "Como a ação será realizada?" vazio, e selecionar "Salvar plano de ação".
+4\. Informar o texto acima do limite em "Como a ação será realizada?" e selecionar "Salvar plano de ação".
+5\. Reduzir o texto ao limite válido e selecionar "Salvar plano de ação".
+*Tela Geral Notificação*
+6\. Selecionar o botão Editar (lápis) da ação e verificar "Como a ação será realizada?".
+
+**Resultado esperado**
+
+- **CA18 — posição e numeração:** "2. Como a ação será realizada?" vem logo após "1. O que será feito?", e as demais perguntas seguem numeradas de 3 a 13: "3. Onde será feito?", "4. Quem será o(s) responsável(eis)?", "5. Previsão de início", "6. Previsão de conclusão", "7. Precisa de recurso para executar essa ação?", "8. Depende da aprovação da Alta Gestão?", "9. Como vamos comprovar que foi feito?", "10. Qual resultado esperamos?", "11. Como vamos saber se funcionou?", "12. Quando verificar o resultado?" e "13. Esta ação irá gerar um indicador de acompanhamento?"
+- **CA18 — caixa de informação:** logo abaixo da pergunta, a caixa com fundo azul claro e ícone ⓘ exibe o texto "Explique os principais passos para colocar a ação em prática, sem apenas repetir o que será feito. Exemplo: para a ação “Instalar sinalização de piso molhado nos corredores”: “Verificar a quantidade de placas necessárias, providenciar sua aquisição e orientar a equipe de limpeza a posicioná-las antes de iniciar a lavagem, mantendo-as no local até que o piso esteja seco.”"\*
+- **CA18 — obrigatório:** vazio, o sistema não salva, destaca o campo e o inclui no aviso dos campos que faltam
+- **CA18 — acima do limite:** o campo exibe o contador "N/500"; com 501 caracteres, o contador fica vermelho, o texto não é cortado e o sistema não salva
+- **CA18 — no limite:** com 500 caracteres, o sistema salva, a ação aparece na tabela do plano de ação e, na edição, o campo mostra o texto salvo
+
+\* O tipo das aspas do exemplo (curvas ou retas) não é conferido.
 
 #### 3.4.2. História 5.2 - Adicionar ações ao plano de ação { #testes-us-5-2 }
 
@@ -7932,6 +7979,13 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Válido | Tela de computador, tabela com duas linhas | Sistema exibe a coluna "Remover" só para a linha removível |
 | Válido | Tela de celular | Sistema exibe cada linha como um bloco empilhado, com o rótulo acima de cada campo |
 
+**[CT-FUN-132](#ct-fun-132)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Inválido | "Como a ação será realizada?" vazio | Sistema destaca o campo, o inclui no aviso dos campos que faltam e não salva |
+| Válido | "Como a ação será realizada?" preenchido dentro do limite | Sistema salva a ação |
+
 **[CT-FUN-115](#ct-fun-115)**
 
 | Cenário | Descrição | Resultado esperado |
@@ -8113,6 +8167,13 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | --- | --- | --- |
 | Último valor válido | Texto com 200 caracteres em campo limitado | Sistema aceita o texto e permite salvar |
 | Limite superior inválido | Texto com 201 caracteres em campo limitado | Sistema indica o excesso e impede o salvamento |
+
+**[CT-FUN-132](#ct-fun-132)**
+
+| Tipo de Valor | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Último valor válido | "Como a ação será realizada?" com 500 caracteres | Sistema aceita o texto e salva a ação |
+| Limite superior inválido | "Como a ação será realizada?" com 501 caracteres | Sistema indica o excesso no contador, não corta o texto e não salva |
 
 ---
 
