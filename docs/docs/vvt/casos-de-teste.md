@@ -53,6 +53,8 @@
     | 4.30 | 10/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-5.2 (CT-FUN-113 e CT-FUN-114), automatizados na [PR #52 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/52) | Catarina Freisleben |
     | 4.31 | 10/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-5.3 (CT-FUN-115 a CT-FUN-117) e no CT-E2E-031, automatizados na [PR #52 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/52) | Catarina Freisleben |
     | 4.32 | 10/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-5.4 (CT-FUN-118, CT-FUN-120 e CT-FUN-121) e no CT-E2E-032, automatizados na [PR #52 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/52). Retirada do CT-FUN-119: o CA04 da US-5.4 (dados antigos de responsável) foi descartado em 10/11/2026, porque as ações registradas antes da tabela de responsáveis não existem mais e o sistema não guarda um responsável só com o nome | Catarina Freisleben |
+    | 4.33 | 11/11/2026 | Adição dos casos de teste da US-6.1 (CT-FUN-133 a CT-FUN-136) na nova seção do Épico 6 em Testes Funcionais e em Critérios de Teste | Catarina Freisleben |
+    | 4.34 | 11/11/2026 | Adição dos casos de teste da US-6.2 (CT-FUN-137 a CT-FUN-139, CT-E2E-036 e CT-E2E-037) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste. Os CT-E2E-036 e CT-E2E-037 percorrem o ciclo de vida do incidente pelas US-6.1 e US-6.2, e o CA06 da US-6.2 também é conferido pelo CT-E2E-031 | Catarina Freisleben |
 
 ## Sumário
 
@@ -85,6 +87,9 @@
         - [3.4.5. História 5.5 - Acompanhar plano de ação e prazos](#testes-us-5-5)
         - [3.4.6. História 5.6 - Acompanhar e atualizar o andamento das ações](#testes-us-5-6)
         - [3.4.7. História 5.7 - Avaliar a efetividade das ações](#testes-us-5-7)
+    - [3.5. Épico 6 - Status e ciclo de vida do incidente](#testes-funcionais-epico-6)
+        - [3.5.1. História 6.1 - Visualizar o status e o ciclo de vida do incidente](#testes-us-6-1)
+        - [3.5.2. História 6.2 - Atualizar o status a partir das ações do usuário](#testes-us-6-2)
 - [4. Testes End-to-End](#testes-e2e)
 - [5. Testes Não-Funcionais](#testes-nao-funcionais)
 - [6. Critérios de Teste](#criterios-teste)
@@ -5520,6 +5525,276 @@ Validar as classes “Sim”, “Parcialmente” e “Não”, os campos condici
 - **CA06 — efetividade parcial ou negativa:** “Parcialmente” e “Não” registram a avaliação e preservam a situação selecionada.
 
 
+### 3.5. Épico 6 - Status e ciclo de vida do incidente { #testes-funcionais-epico-6 }
+
+#### 3.5.1. História 6.1 - Visualizar o status e o ciclo de vida do incidente { #testes-us-6-1 }
+
+##### CT-FUN-133 — Status na lista e no detalhe { #ct-fun-133 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.1 | CA01 + CA02 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que o status atual do incidente aparece na lista de notificações e no detalhe, sempre com um dos oito valores do ciclo de vida, e que uma notificação recém-registrada começa com o status "Novo".
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação em cada um dos oito status: Novo, Classificado, Encaminhado, Em análise, Analisado, Em ação, Concluído e Arquivado
+
+**Dados de entrada**
+
+- **Notificação nova:** os dados de entrada do [CT-E2E-002](#ct-e2e-002)
+
+**Procedimentos**
+
+*Tela Notificação*
+1\. Registrar uma notificação com os dados de entrada.
+*Tela Todos Incidentes*
+2\. Buscar a notificação registrada pelo identificador e verificar o status no card.
+*Tela Geral Notificação*
+3\. Abrir a notificação e verificar o status no cabeçalho.
+*Tela Todos Incidentes*
+4\. Buscar cada notificação das pré-condições pelo identificador e verificar o status no card.
+*Tela Geral Notificação*
+5\. Abrir cada uma delas e verificar o status no cabeçalho.
+
+**Resultado esperado**
+
+- **CA02 — status inicial:** a notificação recém-registrada aparece com o status "Novo", no card e no cabeçalho, sem nenhuma ação depois do registro
+- **CA01 — lista:** o card de cada notificação mostra "Status:" com o status atual dela, um destes oito: Novo, Classificado, Encaminhado, Em análise, Analisado, Em ação, Concluído ou Arquivado
+- **CA01 — detalhe:** o cabeçalho de cada notificação mostra "Status:" com o mesmo valor do card
+
+##### CT-FUN-134 — Status sem alteração manual { #ct-fun-134 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.1 | CA03 | Fluxo principal |
+
+**Objetivo**
+
+Validar que o status do incidente é só exibido, sem nenhuma opção de alterá-lo manualmente: ao lado dele aparecem apenas os encerramentos das US-6.3 e US-6.4, e só para o profissional do NSP.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP e de Gestor da Área
+- Existir uma notificação com status "Em ação", encaminhada ao setor do gestor
+
+**Procedimentos**
+
+*Tela Geral Notificação (profissional do NSP)*
+1\. Abrir a notificação e verificar o status no cabeçalho.
+2\. Abrir o menu ⋮ ao lado do status e verificar as opções.
+*Tela Geral Notificação (Gestor da Área)*
+3\. Abrir a mesma notificação e verificar o status no cabeçalho.
+
+**Resultado esperado**
+
+- **CA03 — só leitura:** o status aparece como um selo no cabeçalho, sem campo, lista ou botão para escolher outro valor
+- **CA03 — menu do NSP:** o menu ⋮ ao lado do status oferece apenas "Concluir incidente" e "Arquivar notificação", os encerramentos das US-6.4 e US-6.3, e nenhuma opção de escolher um status
+- **CA03 — Gestor da Área:** o status aparece da mesma forma, sem o menu ⋮
+
+##### CT-FUN-135 — Prazo para análise conforme o status { #ct-fun-135 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.1 | CA05 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que a data-limite para análise (RN-14) aparece só enquanto o incidente está "Classificado", "Encaminhado" ou "Em análise", e não aparece nos demais status.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação em cada um dos oito status, todas com a classificação finalizada, exceto a "Novo"
+
+**Procedimentos**
+
+*Tela Todos Incidentes*
+1\. Buscar cada notificação pelo identificador e verificar o card.
+*Tela Geral Notificação*
+2\. Abrir cada notificação e verificar a seção "Classificação".
+
+**Resultado esperado**
+
+- **CA05 — com prazo (Classificado, Encaminhado e Em análise):** o card mostra "Análise:" com a situação do prazo ("Até dd/mm/aaaa", "Vence em N dias", "Vence hoje" ou "Vencido há N dias"), e a seção "Classificação" mostra "Prazo para análise: dd/mm/aaaa", com a data-limite definida na classificação
+- **CA05 — sem prazo (Novo, Analisado, Em ação, Concluído e Arquivado):** nem o card nem a seção "Classificação" mostram o prazo
+
+##### CT-FUN-136 — Incidente concluído ou arquivado só para consulta { #ct-fun-136 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.1 | CA06 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que, com o status "Concluído" ou "Arquivado", o incidente fica só para consulta: sem opção de editar, adicionar ou excluir informações, classificação, análise ou ações, e sem opção que altere o status.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Em ação", com a análise concluída e uma ação completa no plano de ação
+- Existir uma notificação com status "Concluído", nas mesmas condições
+- Existir uma notificação com status "Arquivado", arquivada quando estava "Classificado"
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Abrir a notificação "Em ação" e verificar as opções do cabeçalho e das seções "Informações gerais", "Classificação", "Análise" e "Plano de ação".
+2\. Repetir com a notificação "Concluído".
+3\. Repetir com a notificação "Arquivado".
+
+**Resultado esperado**
+
+- **CA06 — contraste ("Em ação"):** o plano de ação oferece o botão Editar (lápis), "Atualizar andamento da ação", o botão Excluir (lixeira) e "Adicionar outra ação", e o menu ⋮ ao lado do status oferece "Concluir incidente" e "Arquivar notificação"
+- **CA06 — "Concluído":** nenhuma seção oferece editar, adicionar ou excluir: "Informações gerais" sem o botão "Editar", "Classificação" com o selo "Edição bloqueada", a análise só para leitura e o plano de ação sem Editar, "Atualizar andamento da ação", Excluir e "Adicionar outra ação"; o status aparece sem o menu ⋮
+- **CA06 — "Arquivado":** "Informações gerais" sem o botão "Editar", "Classificação" com o selo "Edição bloqueada", a seção "Análise" sem "Registrar análise" e sem "Encaminhar para o setor analisar"; o status aparece sem o menu ⋮
+
+#### 3.5.2. História 6.2 - Atualizar o status a partir das ações do usuário { #testes-us-6-2 }
+
+##### CT-FUN-137 — Classificação: só a finalizada muda o status { #ct-fun-137 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.2 | CA01 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que só a classificação finalizada leva o incidente de "Novo" para "Classificado": salvar a classificação como rascunho, ou editá-la com o incidente já "Classificado", não altera o status.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Novo"
+
+**Dados de entrada**
+
+- **Classificação:** os dados de entrada do [CT-E2E-008](#ct-e2e-008)
+- **Edição:** o campo "Observações do NSP" trocado por "[TESTE] Classificação revisada"
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Selecionar "Classificar incidente".
+*Modal Classificação do incidente*
+2\. Preencher só a classificação do incidente e selecionar "Salvar rascunho".
+*Tela Geral Notificação*
+3\. Verificar o status no cabeçalho e selecionar "Editar" na seção "Classificação".
+*Modal Classificação do incidente*
+4\. Completar os campos com os dados de entrada e selecionar "Salvar classificação".
+*Tela Geral Notificação*
+5\. Verificar o status no cabeçalho e selecionar "Editar" na seção "Classificação".
+*Modal Classificação do incidente*
+6\. Fazer a edição dos dados de entrada e selecionar "Salvar classificação".
+*Tela Geral Notificação*
+7\. Verificar o status no cabeçalho.
+
+**Resultado esperado**
+
+- **CA01 — rascunho:** depois de "Salvar rascunho", o status continua "Novo"
+- **CA01 — finalizada:** depois de "Salvar classificação" com todos os campos obrigatórios, o status passa de "Novo" para "Classificado"
+- **CA01 — edição:** depois de editar a classificação já finalizada, o status continua "Classificado"
+
+##### CT-FUN-138 — Análise: só a primeira seção muda o status { #ct-fun-138 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.2 | CA03 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que salvar a Seção 1 da análise leva o incidente a "Em análise", tanto na análise pelo NSP (a partir de "Classificado") quanto na análise pelo setor (a partir de "Encaminhado"), e que salvar as seções seguintes não altera o status.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP e de Gestor da Área
+- Existir a notificação P1, com status "Classificado"
+- Existir a notificação P2, com status "Encaminhado" ao setor do gestor
+
+**Dados de entrada**
+
+- **Seções 1 e 2:** os dados de entrada do [CT-E2E-021](#ct-e2e-021)
+
+**Procedimentos**
+
+*Tela Geral Notificação (profissional do NSP)*
+1\. Abrir a notificação P1 e selecionar "Registrar análise".
+*Tela Análise (profissional do NSP)*
+2\. Preencher a Seção 1 e selecionar "Próximo".
+*Tela Geral Notificação (profissional do NSP)*
+3\. Voltar à notificação e verificar o status no cabeçalho.
+*Tela Análise (profissional do NSP)*
+4\. Continuar a análise, preencher a Seção 2 e selecionar "Próximo".
+*Tela Geral Notificação (profissional do NSP)*
+5\. Voltar à notificação e verificar o status no cabeçalho.
+*Tela Geral Notificação (Gestor da Área)*
+6\. Abrir a notificação P2 e selecionar "Registrar análise".
+*Tela Análise (Gestor da Área)*
+7\. Preencher a Seção 1 e selecionar "Próximo".
+*Tela Geral Notificação (Gestor da Área)*
+8\. Voltar à notificação e verificar o status no cabeçalho.
+
+**Resultado esperado**
+
+- **CA03 — análise pelo NSP:** depois de salvar a Seção 1, a notificação P1 passa de "Classificado" para "Em análise"
+- **CA03 — seção seguinte:** depois de salvar a Seção 2, a notificação P1 continua "Em análise"
+- **CA03 — análise pelo setor:** depois de salvar a Seção 1, a notificação P2 passa de "Encaminhado" para "Em análise"
+
+##### CT-FUN-139 — Ações do plano não mudam o status "Em ação" { #ct-fun-139 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.2 | CA07 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que, com o incidente "Em ação", adicionar, editar, excluir e atualizar o andamento das ações, inclusive até todas ficarem "Concluído", não altera o status: o encerramento só acontece pela conclusão do incidente.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Em ação", cuja análise foi concluída sem recomendações, com a ação A registrada e completa
+
+**Dados de entrada**
+
+- **Ação B:** os dados de entrada do [CT-FUN-104](#ct-fun-104), com o "O que será feito?" "[TESTE] Treinar a equipe de enfermagem na conferência dos horários"
+- **Nova previsão de conclusão da ação A:** 15/01/2027
+- **Andamento da ação A:**
+    - **Situação da ação:** Concluído
+    - **Data real de início:** 01/12/2026
+    - **Data real de conclusão:** 15/12/2026
+    - **O que foi realizado?:** [TESTE] Conferência dos horários implantada em todos os turnos
+    - **Resultado observado:** [TESTE] Nenhum medicamento administrado fora do horário no mês
+    - **A ação produziu o efeito esperado?:** Sim
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Expandir a seção "Plano de ação" e selecionar "Adicionar outra ação".
+*Modal Registrar plano de ação*
+2\. Preencher a ação B e selecionar "Salvar plano de ação".
+*Tela Geral Notificação*
+3\. Verificar o status e selecionar o botão Editar (lápis) da ação A.
+*Modal Editar plano de ação*
+4\. Informar a nova previsão de conclusão e selecionar "Salvar alterações".
+*Tela Geral Notificação*
+5\. Verificar o status, selecionar o botão Excluir (lixeira) da ação B e confirmar com "Sim".
+6\. Verificar o status e selecionar "Atualizar andamento da ação" na ação A.
+*Modal Atualizar andamento da ação*
+7\. Preencher o andamento da ação A e selecionar "Salvar atualização".
+*Tela Geral Notificação*
+8\. Verificar o status, a situação da ação A e as opções do menu ⋮ ao lado do status.
+
+**Resultado esperado**
+
+- **CA07 — adicionar:** depois de registrar a ação B, o status continua "Em ação"
+- **CA07 — editar:** depois de editar a ação A, o status continua "Em ação"
+- **CA07 — excluir:** depois de excluir a ação B, o status continua "Em ação"
+- **CA07 — todas concluídas:** depois de a ação A, a única do plano, passar a "Concluído", o status continua "Em ação", e o menu ⋮ ao lado do status continua oferecendo "Concluir incidente": o encerramento só acontece pela conclusão do incidente
+
 ## 4. Testes End-to-End { #testes-e2e }
 
 ### CT-E2E-001 — Registro completo de notificação com paciente { #ct-e2e-001 }
@@ -7095,6 +7370,121 @@ Percorrer as etapas de acompanhamento e avaliação, verificando que a atualiza�
 - **CA07 (US-5.7) — registro da avaliação:** o resultado observado e a avaliação “Sim” ficam registrados na ação e disponíveis nos detalhes/histórico.
 
 
+### CT-E2E-036 — Ciclo de vida do incidente com análise pelo setor { #ct-e2e-036 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.1 e US-6.2 | CA04 (US-6.1) + CA01, CA02, CA03, CA04, CA06 e CA08 (US-6.2) | Fluxo principal |
+
+**Objetivo**
+
+Validar o ciclo de vida do incidente analisado pelo setor, do registro à conclusão: cada ação do fluxo leva ao status seguinte, a mudança fica no histórico com data, hora e usuário, e o status não volta, porque a ação da etapa anterior deixa de ser oferecida.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP e de Gestor da Área do setor da notificação
+
+**Dados de entrada**
+
+- **Notificação:** os dados de entrada do [CT-E2E-002](#ct-e2e-002)
+- **Classificação:** os dados de entrada do [CT-E2E-008](#ct-e2e-008)
+- **Análise (Seções 1 a 5):** os dados de entrada do [CT-E2E-028](#ct-e2e-028)
+- **Ação completada:** os demais campos com os dados de entrada do [CT-FUN-104](#ct-fun-104)
+
+**Procedimentos**
+
+*Tela Notificação*
+1\. Registrar a notificação com os dados de entrada.
+*Tela Geral Notificação (profissional do NSP)*
+2\. Abrir a notificação, verificar o status e selecionar "Classificar incidente".
+*Modal Classificação do incidente*
+3\. Preencher a classificação e selecionar "Salvar classificação".
+*Tela Geral Notificação (profissional do NSP)*
+4\. Verificar o status, o histórico e a seção "Classificação", e selecionar "Encaminhar para o setor analisar".
+*Modal Encaminhamento*
+5\. Confirmar o encaminhamento ao setor da notificação.
+*Tela Geral Notificação (profissional do NSP)*
+6\. Verificar o status, o histórico e as seções "Classificação" e "Análise".
+*Tela Geral Notificação (Gestor da Área)*
+7\. Abrir a notificação e selecionar "Registrar análise".
+*Tela Análise (Gestor da Área)*
+8\. Preencher a Seção 1 e selecionar "Próximo".
+*Tela Geral Notificação (Gestor da Área)*
+9\. Voltar à notificação e verificar o status e o histórico.
+*Tela Análise (Gestor da Área)*
+10\. Continuar a análise, preencher as Seções 2 a 5 e selecionar "Finalizar análise".
+*Tela Geral Notificação (Gestor da Área)*
+11\. Verificar o status, o histórico, a seção "Análise" e o plano de ação.
+12\. Selecionar o botão Editar (lápis) da ação 1.
+*Modal Completar plano de ação*
+13\. Preencher os demais campos e salvar.
+*Tela Geral Notificação (Gestor da Área)*
+14\. Verificar o status e o histórico.
+*Tela Geral Notificação (profissional do NSP)*
+15\. Abrir o menu ⋮ ao lado do status, selecionar "Concluir incidente" e confirmar com "Sim".
+16\. Verificar o status e o histórico.
+
+**Resultado esperado**
+
+- **CA01 (US-6.2):** a notificação começa "Novo" e, depois de "Salvar classificação", passa para "Classificado"
+- **CA02 (US-6.2):** depois do encaminhamento, o status passa de "Classificado" para "Encaminhado"
+- **CA03 (US-6.2):** depois de o Gestor da Área salvar a Seção 1, o status passa de "Encaminhado" para "Em análise"
+- **CA04 (US-6.2):** depois de "Finalizar análise" pelo Gestor da Área, o status passa de "Em análise" para "Analisado"
+- **CA06 (US-6.2):** as ações criadas a partir das recomendações, ainda com "Preenchimento pendente", não alteram o status; depois de completada a ação 1, o status passa de "Analisado" para "Em ação"
+- **CA04 (US-6.1):** o status só avança, e a ação da etapa anterior deixa de ser oferecida:
+    - depois do encaminhamento, a seção "Classificação" mostra o selo "Edição bloqueada", e a seção "Análise" não oferece mais "Encaminhar para o setor analisar"
+    - depois de "Finalizar análise", a análise fica só para leitura
+    - depois de "Concluir incidente", o status é "Concluído", e o menu ⋮ ao lado do status não aparece mais
+- **CA08 (US-6.2):** o histórico registra cada mudança de status com a ação que a provocou, a data, a hora e o usuário: o registro da classificação, o encaminhamento ao setor, o início da análise, a conclusão da análise, o plano de ação completado e a conclusão do incidente
+
+### CT-E2E-037 — Ciclo de vida do incidente com análise pelo NSP { #ct-e2e-037 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.1 e US-6.2 | CA04 (US-6.1) + CA03, CA05 e CA08 (US-6.2) | Fluxo principal e fluxo alternativo |
+
+**Objetivo**
+
+Validar o ciclo de vida do incidente analisado pelo NSP: a análise começa a partir de "Classificado"; depois de concluída, o incidente continua "Em análise" até o NSP decidir sobre o encaminhamento do resultado; e pode ser concluído direto de "Analisado", sem passar por "Em ação". Cada mudança fica no histórico.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação com status "Classificado"
+
+**Dados de entrada**
+
+- **Análise (Seções 1 a 5):** os dados de entrada do [CT-E2E-028](#ct-e2e-028)
+- **Justificativa de não encaminhamento:** os dados de entrada do [CT-E2E-030](#ct-e2e-030)
+
+**Procedimentos**
+
+*Tela Geral Notificação (profissional do NSP)*
+1\. Abrir a notificação e selecionar "Registrar análise".
+*Tela Análise (profissional do NSP)*
+2\. Preencher a Seção 1 e selecionar "Próximo".
+*Tela Geral Notificação (profissional do NSP)*
+3\. Voltar à notificação e verificar o status, o histórico e a seção "Análise".
+*Tela Análise (profissional do NSP)*
+4\. Continuar a análise, preencher as Seções 2 a 5 e selecionar "Finalizar análise".
+*Tela Geral Notificação (profissional do NSP)*
+5\. Verificar o status, o histórico e a seção "Análise".
+6\. Selecionar "Não encaminhar / justificar", informar a justificativa e confirmar.
+7\. Verificar o status, o histórico e a seção "Análise".
+8\. Abrir o menu ⋮ ao lado do status, selecionar "Concluir incidente" e confirmar com "Sim".
+9\. Verificar o status e o histórico.
+
+**Resultado esperado**
+
+- **CA03 (US-6.2):** depois de salvar a Seção 1, o status passa de "Classificado" para "Em análise"
+- **CA05 (US-6.2) — análise concluída:** depois de "Finalizar análise", o status continua "Em análise", e a seção "Análise" oferece a decisão sobre o resultado: "Encaminhar ao setor" e "Não encaminhar / justificar"
+- **CA05 (US-6.2) — decisão:** depois de registrada a decisão, o status passa de "Em análise" para "Analisado"
+- **CA04 (US-6.1):** o status só avança, e a ação da etapa anterior deixa de ser oferecida:
+    - depois do início da análise, a seção "Análise" não oferece mais "Encaminhar para o setor analisar"
+    - depois da decisão, "Encaminhar ao setor" e "Não encaminhar / justificar" não são oferecidos de novo
+    - de "Analisado", o incidente vai direto para "Concluído", sem passar por "Em ação"
+- **CA08 (US-6.2):** o histórico registra cada mudança de status com a ação que a provocou, a data, a hora e o usuário: o início da análise, a decisão sobre o encaminhamento e a conclusão do incidente
+
 ## 5. Testes Não-Funcionais { #testes-nao-funcionais }
 
 ### CT-NF-001 — Validação de disponibilidade contínua do sistema { #ct-nf-001 }
@@ -7609,6 +7999,13 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Padrão | Completar uma ação criada a partir de recomendação | Sistema registra "plano de ação completado" e atualiza o status de "Analisado" para "Em ação" |
 | Alternativo | Registrar uma ação nova completa, sem completar as pendentes | Sistema registra a ação, atualiza o status de "Analisado" para "Em ação" e mantém as ações das recomendações pendentes |
 
+**[CT-E2E-037](#ct-e2e-037)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Análise concluída pelo NSP, seguida da decisão sobre o encaminhamento do resultado | Sistema mantém o status "Em análise" até a decisão e só então atualiza para "Analisado" |
+| Alternativo | Conclusão do incidente direto de "Analisado", sem plano de ação | Sistema atualiza o status para "Concluído" sem passar por "Em ação" |
+
 ### 6.2 Partição por Equivalência { #criterios-particao }
 
 **[CT-AUTH-002](#ct-auth-002) e [CT-AUTH-003](#ct-auth-003)**
@@ -8007,6 +8404,51 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Válido | “Parcialmente” ou “Não” com justificativa | Sistema registra a avaliação e preserva a situação selecionada |
 | Inválido | “Parcialmente” ou “Não” sem justificativa | Sistema impede o salvamento |
 | Válido | “Sim” com situação “Atrasada” | Sistema registra a avaliação e altera a situação para “Concluído” |
+
+**[CT-FUN-133](#ct-fun-133)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Notificação recém-registrada | Sistema exibe o status "Novo" no card e no cabeçalho |
+| Válido | Notificação em cada um dos oito status | Sistema exibe o status atual, com o mesmo valor no card e no cabeçalho |
+
+**[CT-FUN-135](#ct-fun-135)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Status "Classificado", "Encaminhado" ou "Em análise" | Sistema exibe o prazo para análise no card e na seção "Classificação" |
+| Inválido | Status "Novo", "Analisado", "Em ação", "Concluído" ou "Arquivado" | Sistema não exibe o prazo para análise |
+
+**[CT-FUN-136](#ct-fun-136)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Status "Em ação" | Sistema oferece editar, excluir e adicionar ações e o menu de encerramento ao lado do status |
+| Inválido | Status "Concluído" | Sistema exibe o incidente só para consulta, sem o menu ao lado do status |
+| Inválido | Status "Arquivado" | Sistema exibe o incidente só para consulta, sem o menu ao lado do status |
+
+**[CT-FUN-137](#ct-fun-137)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Inválido | Classificação salva como rascunho | Sistema mantém o status "Novo" |
+| Válido | Classificação finalizada | Sistema atualiza o status para "Classificado" |
+| Inválido | Edição da classificação já finalizada | Sistema mantém o status "Classificado" |
+
+**[CT-FUN-138](#ct-fun-138)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Seção 1 salva pelo NSP, com o incidente "Classificado" | Sistema atualiza o status para "Em análise" |
+| Válido | Seção 1 salva pelo Gestor da Área, com o incidente "Encaminhado" | Sistema atualiza o status para "Em análise" |
+| Inválido | Seção 2 salva, com o incidente "Em análise" | Sistema mantém o status "Em análise" |
+
+**[CT-FUN-139](#ct-fun-139)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Inválido | Adicionar, editar ou excluir ação com o incidente "Em ação" | Sistema mantém o status "Em ação" |
+| Inválido | Atualizar o andamento até todas as ações ficarem "Concluído" | Sistema mantém o status "Em ação" até a conclusão do incidente |
 
 ### 6.3 Análise de Valor Limite { #criterios-valor-limite }
 
