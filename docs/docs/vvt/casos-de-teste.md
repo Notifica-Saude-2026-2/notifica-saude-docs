@@ -7036,6 +7036,50 @@ Validar o percurso de manutenção do plano de ação: editar uma ação, exclui
 - **CA05:** depois de confirmada a exclusão, a ação B sai da tabela, e o histórico registra a exclusão
 - **CA06:** com o status "Concluído", a ação A aparece apenas para consulta: sem o botão Editar, sem "Atualizar andamento da ação", sem o botão Excluir e sem "Adicionar outra ação"; continua assim ao abrir a notificação de novo
 
+### CT-E2E-033 — Atualização e conclusão do plano de ação { #ct-e2e-033 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.5, US-5.6 e US-5.7 | CA07 (US-5.5) + CA15 (US-5.6) + CA02 + CA05 + CA07 (US-5.7) | Fluxo principal |
+
+**Objetivo**
+
+Percorrer as etapas de acompanhamento e avaliação, verificando que a atualização de uma ação altera o que a etapa seguinte exibe, conforme os critérios “Exibir a situação consolidada do plano”, “Registrar atualização e histórico”, “Responder se a ação produziu o efeito esperado?”, “Concluir a ação quando efetiva” e “Registrar resultado e avaliação na ação”.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de Gestor da Área ou profissional do NSP autorizado.
+- Notificação não concluída com ao menos duas ações completas; uma pode ser atualizada e a outra está em andamento.
+- Resultado esperado preenchido para a ação a avaliar; demais ações podem ser finalizadas.
+
+**Dados de entrada**
+
+- Ação A: situação “Em andamento”, nova previsão 20/01/2027, motivo “Prazo reprogramado” e resultado esperado “Reduzir erros de identificação em 50%”.
+- Resultado observado: “Erros de identificação reduzidos em 50%”.
+- Efetividade: “Sim”.
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Abrir o plano de ação e iniciar a atualização da ação A.
+*Tela Atualizar andamento da ação*
+2\. Selecionar “Atrasada”, informar o motivo e a nova previsão de conclusão 20/01/2027 e salvar.
+*Tela Geral Notificação*
+3\. Conferir que o plano apresenta o selo “Com ação atrasada” e a ação A mostra “Nova: 20/01/2027”; iniciar nova atualização da ação A.
+*Tela Atualizar andamento da ação*
+4\. Selecionar situação “Em andamento”, informar o resultado observado, responder “Sim” à pergunta “A ação produziu o efeito esperado?” e salvar.
+*Tela Geral Notificação*
+5\. Conferir a ação A como concluída, finalizar as demais ações disponíveis e consultar a situação consolidada e o histórico.
+
+**Resultado esperado**
+
+- **CA07 (US-5.5) — situação consolidada:** após a primeira atualização, o plano apresenta o selo “Com ação atrasada” e a ação A mostra “Nova: 20/01/2027”; depois de concluídas todas as ações, o selo passa a “Concluído”.
+- **CA15 (US-5.6) — histórico:** cada atualização salva aparece no histórico da ação com os dados atualizados.
+- **CA02 (US-5.7) — avaliação obrigatória:** o formulário exige resposta à pergunta “A ação produziu o efeito esperado?”.
+- **CA05 (US-5.7) — efetividade Sim:** ao responder “Sim”, a situação da ação A passa a “Concluído”.
+- **CA07 (US-5.7) — registro da avaliação:** o resultado observado e a avaliação “Sim” ficam registrados na ação e disponíveis nos detalhes/histórico.
+
+
 ## 5. Testes Não-Funcionais { #testes-nao-funcionais }
 
 ### CT-NF-001 — Validação de disponibilidade contínua do sistema { #ct-nf-001 }
@@ -7254,48 +7298,6 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 
 ---
 
-### CT-E2E-033 — Atualização e conclusão do plano de ação { #ct-e2e-033 }
-
-| Automatizado | História testada | Critério de aceite | Critério de teste |
-| --- | --- | --- | --- |
-| Não — Não implementado | US-5.5, US-5.6 e US-5.7 | CA07 (US-5.5) + CA15 (US-5.6) + CA02 + CA05 + CA07 (US-5.7) | Fluxo principal |
-
-**Objetivo**
-
-Percorrer as etapas de acompanhamento e avaliação, verificando que a atualização de uma ação altera o que a etapa seguinte exibe, conforme os critérios “Exibir a situação consolidada do plano”, “Registrar atualização e histórico”, “Responder se a ação produziu o efeito esperado?”, “Concluir a ação quando efetiva” e “Registrar resultado e avaliação na ação”.
-
-**Pré-condições**
-
-- [CT-AUTH-002](#ct-auth-002) com credenciais de Gestor da Área ou profissional do NSP autorizado.
-- Notificação não concluída com ao menos duas ações completas; uma pode ser atualizada e a outra está em andamento.
-- Resultado esperado preenchido para a ação a avaliar; demais ações podem ser finalizadas.
-
-**Dados de entrada**
-
-- Ação A: situação “Em andamento”, nova previsão 20/01/2027, motivo “Prazo reprogramado” e resultado esperado “Reduzir erros de identificação em 50%”.
-- Resultado observado: “Erros de identificação reduzidos em 50%”.
-- Efetividade: “Sim”.
-
-**Procedimentos**
-
-*Tela Geral Notificação*
-1\. Abrir o plano de ação e iniciar a atualização da ação A.
-*Tela Atualizar andamento da ação*
-2\. Selecionar “Atrasada”, informar o motivo e a nova previsão de conclusão 20/01/2027 e salvar.
-*Tela Geral Notificação*
-3\. Conferir que o plano apresenta o selo “Com ação atrasada” e a ação A mostra “Nova: 20/01/2027”; iniciar nova atualização da ação A.
-*Tela Atualizar andamento da ação*
-4\. Selecionar situação “Em andamento”, informar o resultado observado, responder “Sim” à pergunta “A ação produziu o efeito esperado?” e salvar.
-*Tela Geral Notificação*
-5\. Conferir a ação A como concluída, finalizar as demais ações disponíveis e consultar a situação consolidada e o histórico.
-
-**Resultado esperado**
-
-- **CA07 (US-5.5) — situação consolidada:** após a primeira atualização, o plano apresenta o selo “Com ação atrasada” e a ação A mostra “Nova: 20/01/2027”; depois de concluídas todas as ações, o selo passa a “Concluído”.
-- **CA15 (US-5.6) — histórico:** cada atualização salva aparece no histórico da ação com os dados atualizados.
-- **CA02 (US-5.7) — avaliação obrigatória:** o formulário exige resposta à pergunta “A ação produziu o efeito esperado?”.
-- **CA05 (US-5.7) — efetividade Sim:** ao responder “Sim”, a situação da ação A passa a “Concluído”.
-- **CA07 (US-5.7) — registro da avaliação:** o resultado observado e a avaliação “Sim” ficam registrados na ação e disponíveis nos detalhes/histórico.
 
 ## 6. Critérios de Teste { #criterios-teste }
 
