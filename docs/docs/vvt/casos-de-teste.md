@@ -47,7 +47,7 @@
     | 4.24 | 08/11/2026 | Adição dos casos de teste da US-5.2 (CT-FUN-113 e CT-FUN-114) nas seções de Testes Funcionais e Critérios de Teste. Os CA03 e CA05 da US-5.2 são conferidos pelo CT-E2E-031 | Catarina Freisleben |
     | 4.25 | 08/11/2026 | Adição dos casos de teste da US-5.3 (CT-FUN-115 a CT-FUN-117) e do CT-E2E-031, que percorre a montagem do plano de ação nas US-5.1 a US-5.3, nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste. No CT-FUN-115 e no CT-E2E-031, a origem da ação é conferida pela coluna "Recomendação" da tabela do plano de ação, como no protótipo funcional, e não pela frase "Veio de uma recomendação da análise" do CA01; a redação do CA01 será ajustada na especificação de requisitos | Catarina Freisleben |
     | 4.26 | 08/11/2026 | Adição dos casos de teste da US-5.4 (CT-FUN-118 a CT-FUN-121 e CT-E2E-032) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Catarina Freisleben |
-    | 4.27 | 10/11/2026 | Adição dos casos das US-5.5, US-5.6 e US-5.7 (CT-FUN-122 a CT-FUN-131 e CT-E2E-033 a CT-E2E-035) e atualização da matriz de rastreabilidade | Gustavo Henrique |
+    | 4.27 | 10/11/2026 | Adição dos casos das US-5.5, US-5.6 e US-5.7 (CT-FUN-122 a CT-FUN-131 e CT-E2E-033) e atualização da matriz de rastreabilidade | Gustavo Henrique |
 
 ## Sumário
 
@@ -5216,10 +5216,10 @@ Validar as classes de situação das ações, os campos vazios e o resumo consol
 
 **Resultado esperado**
 
-- **CA05 — pendências:** as ações pendentes são identificadas pelo status e pelo aviso com a quantidade de campos obrigatórios faltantes.
-- **CA06 — campos sem valor:** campos vazios aparecem como “—” na tabela e “Não informado” nos detalhes; nenhuma célula fica em branco.
-- **CA07 — situação consolidada:** o resumo apresenta “Em dia” em verde, “Com ação atrasada” em vermelho ou “Concluído” em azul conforme as ações; não aparece quando não há ações.
-- **CA08 — informações obrigatórias:** o sistema impede salvar o plano incompleto e informa os campos pendentes.
+- **CA06 — pendências:** as ações pendentes são identificadas pelo status e pelo aviso com a quantidade de campos obrigatórios faltantes.
+- **CA07 — campos sem valor:** campos vazios aparecem como “—” na tabela e “Não informado” nos detalhes; nenhuma célula fica em branco.
+- **CA08 — situação consolidada:** o resumo apresenta “Em dia” em verde, “Com ação atrasada” em vermelho ou “Concluído” em azul conforme as ações; não aparece quando não há ações.
+- **CA05 — informações obrigatórias:** o sistema impede salvar o plano incompleto e informa os campos pendentes.
 
 ##### CT-FUN-124 — Validação do prazo da ação { #ct-fun-124 }
 
@@ -5391,8 +5391,8 @@ Validar o registro da evidência e as classes válida e inválida de formato, ta
 **Resultado esperado**
 
 - **CA10 — localização da evidência:** a localização/descrição informada é registrada e a comprovação do plano aparece na caixa informativa.
-- **CA11 — formatos e tamanho:** PDF, DOCX, PNG, JPG e JPEG são aceitos; TXT e arquivo acima de 10 MB são rejeitados com as mensagens especificadas.
-- **CA12 — quantidade e remoção:** cada arquivo permitido pode ser removido antes de salvar; a lista exibe tamanho e contador N/10; ao atingir dez anexos, o seletor fica desabilitado e informa “Limite de 10 anexos por ação atingido.”, com instruções sobre formatos e limite de 10 MB.
+- **CA11 — formatos e remoção:** PDF, DOCX, PNG, JPG e JPEG são aceitos; TXT é rejeitado com a mensagem especificada; cada arquivo permitido pode ser removido antes de salvar.
+- **CA12 — tamanho e quantidade:** arquivo acima de 10 MB é rejeitado com a mensagem especificada; a lista exibe tamanho e contador N/10; ao atingir dez anexos, o seletor fica desabilitado e informa “Limite de 10 anexos por ação atingido.”, com instruções sobre formatos e limite de 10 MB.
 
 ##### CT-FUN-129 — Validação, cancelamento, persistência e limites de texto { #ct-fun-129 }
 
@@ -5426,8 +5426,8 @@ Validar as mensagens, os limites de texto, o cancelamento e o registro de histó
 **Resultado esperado**
 
 - **CA13 — campos obrigatórios:** campos vazios são destacados com “Campo obrigatório.”; o aviso lista pendências, rola ao primeiro campo e o destaque some ao preencher.
-- **CA14 — cancelamento:** cancelar retorna sem persistir mudanças.
-- **CA15 — persistência e histórico:** após salvar, tabela e histórico refletem a situação e o acompanhamento atualizados.
+- **CA15 — cancelamento:** cancelar retorna sem persistir mudanças.
+- **CA14 — persistência e histórico:** após salvar, tabela e histórico refletem a situação e o acompanhamento atualizados.
 - **CA16 — limite de texto:** contador N/200 é exibido; acima do limite, contador e borda ficam vermelhos, o texto não é cortado e o salvamento é impedido com indicação dos campos excedidos e rolagem ao primeiro.
 
 #### 3.4.7. História 5.7 - Avaliar a efetividade das ações { #testes-us-5-7 }
@@ -7040,7 +7040,7 @@ Validar o percurso de manutenção do plano de ação: editar uma ação, exclui
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.5, US-5.6 e US-5.7 | CA07 (US-5.5) + CA15 (US-5.6) + CA02 + CA05 + CA07 (US-5.7) | Fluxo principal |
+| Não — Não implementado | US-5.5, US-5.6 e US-5.7 | CA03 + CA08 (US-5.5) + CA14 (US-5.6) + CA02 + CA05 + CA07 (US-5.7) | Fluxo principal |
 
 **Objetivo**
 
@@ -7073,8 +7073,9 @@ Percorrer as etapas de acompanhamento e avaliação, verificando que a atualiza�
 
 **Resultado esperado**
 
-- **CA07 (US-5.5) — situação consolidada:** após a primeira atualização, o plano apresenta o selo “Com ação atrasada” e a ação A mostra “Nova: 20/01/2027”; depois de concluídas todas as ações, o selo passa a “Concluído”.
-- **CA15 (US-5.6) — histórico:** cada atualização salva aparece no histórico da ação com os dados atualizados.
+- **CA03 (US-5.5) — prazo reprogramado:** após a primeira atualização, a ação A mostra “Nova: 20/01/2027”.
+- **CA08 (US-5.5) — situação consolidada:** o plano apresenta o selo “Com ação atrasada”; depois de concluídas todas as ações, o selo passa a “Concluído”.
+- **CA14 (US-5.6) — histórico:** cada atualização salva aparece na linha da ação e no histórico com os dados atualizados.
 - **CA02 (US-5.7) — avaliação obrigatória:** o formulário exige resposta à pergunta “A ação produziu o efeito esperado?”.
 - **CA05 (US-5.7) — efetividade Sim:** ao responder “Sim”, a situação da ação A passa a “Concluído”.
 - **CA07 (US-5.7) — registro da avaliação:** o resultado observado e a avaliação “Sim” ficam registrados na ação e disponíveis nos detalhes/histórico.
@@ -7971,6 +7972,13 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Limite | Décimo anexo da ação | Sistema aceita e desabilita o seletor |
 | Acima do limite | Décimo primeiro anexo | Sistema impede a inclusão |
 
+**[CT-FUN-129](#ct-fun-129)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Alternativo | Cancelar uma atualização preenchida | Sistema retorna sem persistir as mudanças |
+| Alternativo | Tentar salvar com campos obrigatórios vazios | Sistema lista as pendências e impede o salvamento |
+
 **[CT-FUN-131](#ct-fun-131)**
 
 | Cenário | Descrição | Resultado esperado |
@@ -8098,6 +8106,13 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | --- | --- | --- |
 | Último valor válido | Pedido / item, "Qual aprovação?" e "Qual indicador?" com 100 caracteres | Sistema aceita os textos |
 | Limite superior inválido | Pedido / item, "Qual aprovação?" e "Qual indicador?" com 101 caracteres | Sistema indica o excesso no contador e não salva |
+
+**[CT-FUN-129](#ct-fun-129)**
+
+| Tipo de Valor | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Último valor válido | Texto com 200 caracteres em campo limitado | Sistema aceita o texto e permite salvar |
+| Limite superior inválido | Texto com 201 caracteres em campo limitado | Sistema indica o excesso e impede o salvamento |
 
 ---
 
