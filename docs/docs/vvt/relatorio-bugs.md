@@ -20,13 +20,14 @@ hide:
     | 1.6 | 29/10/2026 | Registro do bug BUG-FRONT-020 ([e2e#36](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/36)), encontrado na automação dos casos de teste da US-4.6. Fechamento dos bugs BUG-FRONT-019 ([e2e#14](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/14)), corrigido no [PR #16 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/16), e BUG-BACK-009 ([e2e#15](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/15)), corrigido no [PR #11 do backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend/pull/11), conferidos na [PR e2e#32](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/32). | Catarina Freisleben |
     | 1.7 | 07/11/2026 | Fechamento do bug BUG-BACK-010 ([e2e#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20)), corrigido no [PR #20 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/20) e no [PR #15 do backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend/pull/15), conferido na [PR e2e#47](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/47). Fechamento do bug BUG-FRONT-020 ([e2e#36](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/36)), corrigido no [PR #21 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/21) e conferido na `develop` do frontend. | Catarina Freisleben |
     | 1.8 | 09/11/2026 | Registro do bug BUG-FRONT-021 ([e2e#51](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/51)), encontrado na automação dos casos de teste da US-5.1. | Catarina Freisleben |
+    | 1.9 | 12/11/2026 | Registro do bug BUG-FRONT-022 ([e2e#59](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/59)), encontrado na revisão da automação dos casos de teste das US-4.7 e US-4.8. | Catarina Freisleben |
 
 <div class="ns-dec-resumo" markdown>
-<div class="ns-dec-stat"><strong>32</strong><span>bugs registrados</span></div>
+<div class="ns-dec-stat"><strong>33</strong><span>bugs registrados</span></div>
 <div class="ns-dec-stat"><strong>31</strong><span>com status <span class="ns-status ns-status--encerrado">Fechado</span></span></div>
-<div class="ns-dec-stat"><strong>1</strong><span>com status <span class="ns-status ns-status--aberto">Aberto</span></span></div>
+<div class="ns-dec-stat"><strong>2</strong><span>com status <span class="ns-status ns-status--aberto">Aberto</span></span></div>
 <div class="ns-dec-stat"><strong>4</strong><span>de severidade <span class="ns-nivel ns-nivel--alta">Alta</span></span></div>
-<div class="ns-dec-stat"><strong>24</strong><span>de severidade <span class="ns-nivel ns-nivel--media">Média</span></span></div>
+<div class="ns-dec-stat"><strong>25</strong><span>de severidade <span class="ns-nivel ns-nivel--media">Média</span></span></div>
 <div class="ns-dec-stat"><strong>4</strong><span>de severidade <span class="ns-nivel ns-nivel--baixa">Baixa</span></span></div>
 </div>
 
@@ -145,6 +146,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 | [BUG-FRONT-019](#bug-front-019) | [e2e#14](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/14) | CT-FUN-051: orientação do campo "Informe o incidente em investigação" fica escondida num ícone de ajuda | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
 | [BUG-FRONT-020](#bug-front-020) | [e2e#36](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/36) | CT-FUN-084 e CT-FUN-086: campos da Seção 4 com limite de caracteres sem o contador "N/limite" | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
 | [BUG-FRONT-021](#bug-front-021) | [e2e#51](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/51) | CT-FUN-110: caixa ⓘ das previsões de início e de conclusão acima das perguntas, e não logo abaixo | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
+| [BUG-FRONT-022](#bug-front-022) | [e2e#59](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/59) | CT-E2E-028: "Exportar diagrama" do Ishikawa falha no Firefox | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
 
 </div>
 
@@ -1001,6 +1003,58 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
     As previsões, com a caixa ⓘ acima das duas perguntas:
 
     ![Plano de ação: caixa ⓘ das datas acima das perguntas "Previsão de início" e "Previsão de conclusão"](../assets/vvt/relatorio-bugs/bug-front-021-previsoes.png){ loading=lazy }
+
+<a id="bug-front-022"></a>
+
+??? bug "BUG-FRONT-022 · e2e#59 · CT-E2E-028: &quot;Exportar diagrama&quot; do Ishikawa falha no Firefox"
+
+    <div class="ns-bug-meta" markdown>
+    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--aberto">Aberto</span></span>
+    <span><span class="ns-dec-rotulo">Severidade</span><span class="ns-nivel ns-nivel--media">Média</span></span>
+    <span><span class="ns-dec-rotulo">Reportado por</span>Catarina Freisleben</span>
+    <span><span class="ns-dec-rotulo">Designado para</span>Brenno Ostemberg</span>
+    </div>
+
+    **Justificativa da severidade:** A exportação do diagrama (US-4.7 CA05) não funciona no Firefox, mas há contorno: exportar em outro navegador (Chrome, Edge ou Safari).
+
+    **Resumo**
+
+    No Firefox, o botão "Exportar diagrama" da Seção 5 da análise ("Resultado (Ishikawa + Recomendações)") não baixa o diagrama: o sistema mostra "Não foi possível exportar o diagrama. Tente novamente." e nenhum arquivo é gerado. No Chromium e no WebKit, o arquivo `diagrama-ishikawa.png` é baixado normalmente. O CA05 da US-4.7 pede: "**Dado que** o diagrama tenha sido gerado, **quando** o usuário selecionar "Exportar diagrama" (botão no canto superior direito do diagrama), **então** o sistema deve baixar o diagrama completo — inclusive a parte fora da área visível — como imagem PNG ("diagrama-ishikawa.png") […]. A opção também está disponível na visualização da análise concluída (US-4.8, CA08)."
+
+    **Passos para reprodução**
+
+    1. Subir o stack (`npm run stack:up`).
+    2. Abrir o sistema no **Firefox** e entrar como `nsp.b@notificasaude.br` (NSP do Hospital B).
+    3. Abrir uma notificação com a análise em andamento, com ao menos um fator contribuinte registrado na Seção 4, e avançar até a Seção 5.
+    4. Clicar em **Exportar diagrama**.
+    5. Para comparar, repetir os passos no Chrome.
+
+    **Resultado esperado**
+
+    O navegador baixa o arquivo `diagrama-ishikawa.png` com o diagrama completo (US-4.7 CA05), também na visualização da análise concluída.
+
+    **Resultado obtido**
+
+    O botão mostra "Exportando..." por um instante, aparece o aviso vermelho "Não foi possível exportar o diagrama. Tente novamente." e nenhum arquivo é baixado. Acontece sempre: 4 de 4 execuções, com o navegador escondido e com ele aberto na tela.
+
+    **Observações**
+
+    - **Causa (erro que o aviso esconde):** o front usa a biblioteca `html-to-image` (versão 1.11.13, a mais recente no npm) para transformar o diagrama em PNG. Antes de gerar a imagem, ela lê o nome das fontes de cada regra `@font-face` da página com `rule.style.fontFamily`. No Firefox, essa propriedade vem `undefined`, e a biblioteca quebra com `TypeError: can't access property "trim", font is undefined`, na função `normalizeFontFamily`. O `catch` do `exportarPng` (`src/components/analise/IshikawaDiagram.tsx`) não registra o erro e mostra só o aviso genérico.
+    - **Por que só no Firefox:** a diferença está no jeito como o motor do Firefox (Gecko) entrega as regras de fonte. Então afeta qualquer Firefox, e não só o do Playwright.
+    - **Teste:** o CT-E2E-028 ([PR e2e#43](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/43)) confere a exportação e reprova no Firefox.
+    - **Por que não apareceu antes:** a CI das PRs roda só o Chromium. A CI da `main` roda os três navegadores, mas o CT-E2E-028 ainda não está na `main`. Encontrado na revisão da [PR e2e#43](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/43), em 12/11/2026.
+
+    **Versões afetadas**
+
+    - Frontend `78a3927` (`develop` de 10/11/2026). A exportação existe desde o [PR #17 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/17) (26/10/2026)
+    - Biblioteca `html-to-image` 1.11.13
+    - Navegador: Firefox 148.0.2 (Playwright 1.59.1); no Chromium 147 e no WebKit, funciona
+
+    **Evidência**
+
+    Firefox, depois de clicar em "Exportar diagrama": o aviso de erro, e nenhum arquivo baixado.
+
+    ![Seção 5 no Firefox: aviso vermelho "Não foi possível exportar o diagrama. Tente novamente."](../assets/vvt/relatorio-bugs/bug-front-022-firefox-aviso.png){ loading=lazy }
 
 ### 3.2 Back-end { #back-end }
 
