@@ -55,6 +55,7 @@
     | 4.32 | 10/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-5.4 (CT-FUN-118, CT-FUN-120 e CT-FUN-121) e no CT-E2E-032, automatizados na [PR #52 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/52). Retirada do CT-FUN-119: o CA04 da US-5.4 (dados antigos de responsável) foi descartado em 10/11/2026, porque as ações registradas antes da tabela de responsáveis não existem mais e o sistema não guarda um responsável só com o nome | Catarina Freisleben |
     | 4.33 | 11/11/2026 | Adição dos casos de teste da US-6.1 (CT-FUN-133 a CT-FUN-136) na nova seção do Épico 6 em Testes Funcionais e em Critérios de Teste | Catarina Freisleben |
     | 4.34 | 11/11/2026 | Adição dos casos de teste da US-6.2 (CT-FUN-137 a CT-FUN-139, CT-E2E-036 e CT-E2E-037) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste. Os CT-E2E-036 e CT-E2E-037 percorrem o ciclo de vida do incidente pelas US-6.1 e US-6.2, e o CA06 da US-6.2 também é conferido pelo CT-E2E-031 | Catarina Freisleben |
+    | 4.35 | 12/11/2026 | Campo "Automatizado" como "Sim" no CT-FUN-132 (CA18 da US-5.1), automatizado na [PR #54 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/54) | Catarina Freisleben |
 
 ## Sumário
 
@@ -4835,7 +4836,7 @@ Validar a apresentação das tabelas de responsáveis e de recursos do formulár
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.1 | CA18 | Fluxo principal, partição por equivalência e análise de valor limite |
+| Sim | US-5.1 | CA18 | Fluxo principal, partição por equivalência e análise de valor limite |
 
 **Objetivo**
 

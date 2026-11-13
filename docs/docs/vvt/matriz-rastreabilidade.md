@@ -38,6 +38,7 @@ hide:
     | 3.22 | 10/11/2026 | Status de automação da US-5.4 (CA01 a CA03, CA05 e CA06), conforme a [PR #52 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/52): "Automatizado". Retirada da linha do CA04 (CT-FUN-119), critério descartado em 10/11/2026. Resumo recalculado a partir das linhas, já com as US-5.5 a 5.7, contando cada critério uma vez: 195 critérios de aceite, 194 com caso de teste (99%), 172 casos de teste de histórias e 72 automatizados (os 52 anteriores e os 20 desta entrega) | Catarina Freisleben |
     | 3.23 | 11/11/2026 | Inclusão do Épico 6 e dos casos de teste da US-6.1 (CA01 a CA06), e das regras de negócio da história. | Catarina Freisleben |
     | 3.24 | 11/11/2026 | Inclusão dos casos de teste da US-6.2 (CA01 a CA08) no Épico 6 e das regras de negócio da história. O CA06 aponta também para o CT-E2E-031, que já confere a primeira ação completa. Resumo recalculado a partir das linhas, contando cada critério uma vez: 209 critérios de aceite, 208 com caso de teste (99%), 181 casos de teste de histórias e 72 automatizados. | Catarina Freisleben |
+    | 3.25 | 12/11/2026 | Status de automação do CA18 da US-5.1 no CT-FUN-132, conforme a [PR #54 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/54): "Automatizado". Resumo: 73 casos de teste automatizados. | Catarina Freisleben |
 
 ## Sumário
 
@@ -62,7 +63,7 @@ Esta matriz relaciona cada critério de aceite das histórias de usuário aos ca
 <div class="ns-dec-stat"><strong>209</strong><span>critérios de aceite mapeados</span></div>
 <div class="ns-dec-stat"><strong>99%</strong><span>com caso de teste (208 de 209)</span></div>
 <div class="ns-dec-stat"><strong>181</strong><span>casos de teste de histórias</span></div>
-<div class="ns-dec-stat"><strong>72</strong><span>casos de teste automatizados</span></div>
+<div class="ns-dec-stat"><strong>73</strong><span>casos de teste automatizados</span></div>
 </div>
 
 <div class="ns-legenda"><strong>Status:</strong> <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> <span class="ns-rast ns-rast--pronto">Pronto para automatizar</span> <span class="ns-rast ns-rast--naodoc">Não documentado</span> <span class="ns-rast ns-rast--naoauto">Não automatizado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> <span class="ns-rast ns-rast--naoloc">Requisito não localizado nos requisitos</span></div>
@@ -284,7 +285,7 @@ Esta matriz relaciona cada critério de aceite das histórias de usuário aos ca
 |  | CA15 | [CT-FUN-111](casos-de-teste.md#ct-fun-111) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 |  | CA16 | [CT-FUN-111](casos-de-teste.md#ct-fun-111) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 |  | CA17 | [CT-FUN-112](casos-de-teste.md#ct-fun-112) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
-|  | CA18 | [CT-FUN-132](casos-de-teste.md#ct-fun-132) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+|  | CA18 | [CT-FUN-132](casos-de-teste.md#ct-fun-132) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 | **US-5.2** | CA01 | [CT-FUN-113](casos-de-teste.md#ct-fun-113) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 |  | CA02 | [CT-FUN-113](casos-de-teste.md#ct-fun-113) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 |  | CA03 | [CT-E2E-031](casos-de-teste.md#ct-e2e-031) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
