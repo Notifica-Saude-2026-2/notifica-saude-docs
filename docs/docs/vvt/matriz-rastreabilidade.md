@@ -31,6 +31,7 @@ hide:
     | 3.15 | 08/11/2026 | Inclusão dos casos de teste da US-5.3 (CA01 a CA06) no Épico 5, no lugar da linha "CA01 a CA11", que seguia a numeração anterior da história. Regras de negócio da US-5.3 corrigidas para RN-19 e RN-20, e ligação do CT-FUN-115 ao RNF 6.7.10. | Catarina Freisleben |
     | 3.16 | 08/11/2026 | Inclusão dos casos de teste da US-5.4 (CA01 a CA06) no Épico 5 e correção das suas regras de negócio para RN-09 e RN-12. Resumo recalculado a partir das linhas, contando cada critério uma vez: 165 critérios de aceite, 163 com caso de teste (99%), 161 casos de teste de histórias e 52 automatizados. | Catarina Freisleben |
     | 3.17 | 10/11/2026 | Inclusão dos casos das US-5.5, US-5.6 e US-5.7 e atualização das referências de rastreabilidade | Gustavo Henrique |
+    | 3.18 | 10/11/2026 | Inclusão do CT-FUN-132 no CA18 da US-5.1 ("Como a ação será realizada?"), publicado no sistema em 10/11/2026, que deixa de ser "Não documentado". Resumo recalculado a partir das linhas, já com as US-5.5 a 5.7, contando cada critério uma vez: 196 critérios de aceite, 195 com caso de teste (99%), 173 casos de teste de histórias e 52 automatizados. | Catarina Freisleben |
 
 ## Sumário
 
@@ -51,9 +52,9 @@ hide:
 Esta matriz relaciona cada critério de aceite das histórias de usuário aos casos de teste que o validam, com o status de documentação e automação de cada caso e o responsável. Também relaciona as histórias às regras de negócio e os requisitos não-funcionais aos seus casos de teste. Os casos de teste estão descritos em [Casos de Teste](casos-de-teste.md).
 
 <div class="ns-dec-resumo" markdown>
-<div class="ns-dec-stat"><strong>165</strong><span>critérios de aceite mapeados</span></div>
-<div class="ns-dec-stat"><strong>99%</strong><span>com caso de teste (163 de 165)</span></div>
-<div class="ns-dec-stat"><strong>161</strong><span>casos de teste de histórias</span></div>
+<div class="ns-dec-stat"><strong>196</strong><span>critérios de aceite mapeados</span></div>
+<div class="ns-dec-stat"><strong>99%</strong><span>com caso de teste (195 de 196)</span></div>
+<div class="ns-dec-stat"><strong>173</strong><span>casos de teste de histórias</span></div>
 <div class="ns-dec-stat"><strong>52</strong><span>casos de teste automatizados</span></div>
 </div>
 
@@ -276,7 +277,7 @@ Esta matriz relaciona cada critério de aceite das histórias de usuário aos ca
 |  | CA15 | [CT-FUN-111](casos-de-teste.md#ct-fun-111) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
 |  | CA16 | [CT-FUN-111](casos-de-teste.md#ct-fun-111) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
 |  | CA17 | [CT-FUN-112](casos-de-teste.md#ct-fun-112) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
-|  | CA18 | — | <span class="ns-rast ns-rast--naodoc">Não documentado</span> | — |
+|  | CA18 | [CT-FUN-132](casos-de-teste.md#ct-fun-132) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
 | **US-5.2** | CA01 | [CT-FUN-113](casos-de-teste.md#ct-fun-113) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
 |  | CA02 | [CT-FUN-113](casos-de-teste.md#ct-fun-113) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
 |  | CA03 | [CT-E2E-031](casos-de-teste.md#ct-e2e-031) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
