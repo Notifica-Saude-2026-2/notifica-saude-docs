@@ -36,6 +36,8 @@ hide:
     | 3.20 | 10/11/2026 | Status de automação da US-5.2 (CA01 a CA06), conforme a [PR #52 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/52): "Automatizado" | Catarina Freisleben |
     | 3.21 | 10/11/2026 | Status de automação da US-5.3 (CA01 a CA06) e do RNF 6.7.10 no seu caso de teste, conforme a [PR #52 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/52): "Automatizado" | Catarina Freisleben |
     | 3.22 | 10/11/2026 | Status de automação da US-5.4 (CA01 a CA03, CA05 e CA06), conforme a [PR #52 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/52): "Automatizado". Retirada da linha do CA04 (CT-FUN-119), critério descartado em 10/11/2026. Resumo recalculado a partir das linhas, já com as US-5.5 a 5.7, contando cada critério uma vez: 195 critérios de aceite, 194 com caso de teste (99%), 172 casos de teste de histórias e 72 automatizados (os 52 anteriores e os 20 desta entrega) | Catarina Freisleben |
+    | 3.23 | 11/11/2026 | Inclusão do Épico 6 e dos casos de teste da US-6.1 (CA01 a CA06), e das regras de negócio da história. | Catarina Freisleben |
+    | 3.24 | 11/11/2026 | Inclusão dos casos de teste da US-6.2 (CA01 a CA08) no Épico 6 e das regras de negócio da história. O CA06 aponta também para o CT-E2E-031, que já confere a primeira ação completa. Resumo recalculado a partir das linhas, contando cada critério uma vez: 209 critérios de aceite, 208 com caso de teste (99%), 181 casos de teste de histórias e 72 automatizados. | Catarina Freisleben |
 
 ## Sumário
 
@@ -46,6 +48,7 @@ hide:
     - [Épico 3](#epico-3)
     - [Épico 4](#epico-4)
     - [Épico 5](#epico-5)
+    - [Épico 6](#epico-6)
 - [3. Histórias de usuário × regras de negócio](#regras-negocio)
 - [4. Requisitos não-funcionais × casos de teste](#requisitos-nao-funcionais)
 
@@ -56,9 +59,9 @@ hide:
 Esta matriz relaciona cada critério de aceite das histórias de usuário aos casos de teste que o validam, com o status de documentação e automação de cada caso e o responsável. Também relaciona as histórias às regras de negócio e os requisitos não-funcionais aos seus casos de teste. Os casos de teste estão descritos em [Casos de Teste](casos-de-teste.md).
 
 <div class="ns-dec-resumo" markdown>
-<div class="ns-dec-stat"><strong>195</strong><span>critérios de aceite mapeados</span></div>
-<div class="ns-dec-stat"><strong>99%</strong><span>com caso de teste (194 de 195)</span></div>
-<div class="ns-dec-stat"><strong>172</strong><span>casos de teste de histórias</span></div>
+<div class="ns-dec-stat"><strong>209</strong><span>critérios de aceite mapeados</span></div>
+<div class="ns-dec-stat"><strong>99%</strong><span>com caso de teste (208 de 209)</span></div>
+<div class="ns-dec-stat"><strong>181</strong><span>casos de teste de histórias</span></div>
 <div class="ns-dec-stat"><strong>72</strong><span>casos de teste automatizados</span></div>
 </div>
 
@@ -333,6 +336,29 @@ Esta matriz relaciona cada critério de aceite das histórias de usuário aos ca
 
 </div>
 
+### Épico 6 { #epico-6 }
+
+<div class="ns-rast-tabela" markdown>
+
+| História | Critério de aceite | Caso de teste | Status | Responsável |
+| --- | --- | --- | --- | --- |
+| **US-6.1** | CA01 | [CT-FUN-133](casos-de-teste.md#ct-fun-133) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+|  | CA02 | [CT-FUN-133](casos-de-teste.md#ct-fun-133) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+|  | CA03 | [CT-FUN-134](casos-de-teste.md#ct-fun-134) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+|  | CA04 | [CT-E2E-036](casos-de-teste.md#ct-e2e-036), [CT-E2E-037](casos-de-teste.md#ct-e2e-037) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+|  | CA05 | [CT-FUN-135](casos-de-teste.md#ct-fun-135) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+|  | CA06 | [CT-FUN-136](casos-de-teste.md#ct-fun-136) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+| **US-6.2** | CA01 | [CT-FUN-137](casos-de-teste.md#ct-fun-137), [CT-E2E-036](casos-de-teste.md#ct-e2e-036) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+|  | CA02 | [CT-E2E-036](casos-de-teste.md#ct-e2e-036) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+|  | CA03 | [CT-FUN-138](casos-de-teste.md#ct-fun-138), [CT-E2E-036](casos-de-teste.md#ct-e2e-036), [CT-E2E-037](casos-de-teste.md#ct-e2e-037) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+|  | CA04 | [CT-E2E-036](casos-de-teste.md#ct-e2e-036) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+|  | CA05 | [CT-E2E-037](casos-de-teste.md#ct-e2e-037) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+|  | CA06 | [CT-E2E-031](casos-de-teste.md#ct-e2e-031), [CT-E2E-036](casos-de-teste.md#ct-e2e-036) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+|  | CA07 | [CT-FUN-139](casos-de-teste.md#ct-fun-139) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+|  | CA08 | [CT-E2E-036](casos-de-teste.md#ct-e2e-036), [CT-E2E-037](casos-de-teste.md#ct-e2e-037) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+
+</div>
+
 ---
 
 ## 3. Histórias de usuário × regras de negócio { #regras-negocio }
@@ -363,6 +389,8 @@ Esta matriz relaciona cada critério de aceite das histórias de usuário aos ca
 |  | US-5.5 | RN-07, RN-20 |
 |  | US-5.6 | RN-20, RN-21, RN-25 |
 |  | US-5.7 | RN-21, RN-23 |
+| **Épico 6** | US-6.1 | RN-08, RN-12, RN-14 |
+|  | US-6.2 | RN-02, RN-08, RN-16, RN-18, RN-20 |
 
 ---
 
