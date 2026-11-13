@@ -1,4 +1,4 @@
-<h1 align="center">Casos de Teste</h1>
+﻿<h1 align="center">Casos de Teste</h1>
 
 <p align="center"><strong>Mantenedores:</strong> Gustavo Henrique, Kauan Cardoso, Sophya Ribeiro, Brenno, Catarina, Eduardo</p>
 
@@ -49,6 +49,10 @@
     | 4.26 | 08/11/2026 | Adição dos casos de teste da US-5.4 (CT-FUN-118 a CT-FUN-121 e CT-E2E-032) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste | Catarina Freisleben |
     | 4.27 | 10/11/2026 | Adição dos casos das US-5.5, US-5.6 e US-5.7 (CT-FUN-122 a CT-FUN-131 e CT-E2E-033) e atualização da matriz de rastreabilidade | Gustavo Henrique |
     | 4.28 | 10/11/2026 | Adição do CT-FUN-132, do CA18 da US-5.1 ("Como a ação será realizada?"), publicado no sistema em 10/11/2026, nas seções de Testes Funcionais e Critérios de Teste. O CT-FUN-110 passa a conferir a caixa de informação dessa pergunta (CA14), e os dados de entrada do CT-FUN-104 ganham a resposta dela | Catarina Freisleben |
+    | 4.29 | 10/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-5.1 (CT-FUN-103 a CT-FUN-112), automatizados na [PR #52 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/52). O CT-FUN-110 fica "Sim" com a falha conhecida da caixa das previsões (BUG-FRONT-021), que não muda o campo | Catarina Freisleben |
+    | 4.30 | 10/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-5.2 (CT-FUN-113 e CT-FUN-114), automatizados na [PR #52 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/52) | Catarina Freisleben |
+    | 4.31 | 10/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-5.3 (CT-FUN-115 a CT-FUN-117) e no CT-E2E-031, automatizados na [PR #52 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/52) | Catarina Freisleben |
+    | 4.32 | 10/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-5.4 (CT-FUN-118, CT-FUN-120 e CT-FUN-121) e no CT-E2E-032, automatizados na [PR #52 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/52). Retirada do CT-FUN-119: o CA04 da US-5.4 (dados antigos de responsável) foi descartado em 10/11/2026, porque as ações registradas antes da tabela de responsáveis não existem mais e o sistema não guarda um responsável só com o nome | Catarina Freisleben |
 
 ## Sumário
 
@@ -4389,7 +4393,7 @@ Validar o limite de 400 caracteres da mensagem opcional enviada ao setor.
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.1 | CA01 + CA07 | Partição por equivalência |
+| Sim | US-5.1 | CA01 + CA07 | Partição por equivalência |
 
 **Objetivo**
 
@@ -4436,7 +4440,7 @@ Validar que a seção "Plano de ação" do detalhe da notificação só permite 
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.1 | CA02 | Partição por equivalência |
+| Sim | US-5.1 | CA02 | Partição por equivalência |
 
 **Objetivo**
 
@@ -4486,7 +4490,7 @@ Validar que, ao registrar uma nova ação, o "O que será feito?" vem preenchido
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.1 | CA03 + CA10 + CA11 + CA12 | Partição por equivalência e análise de valor limite |
+| Sim | US-5.1 | CA03 + CA10 + CA11 + CA12 | Partição por equivalência e análise de valor limite |
 
 **Objetivo**
 
@@ -4532,7 +4536,7 @@ Validar que "O que será feito?", "Como vamos comprovar que foi feito?", "Qual r
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.1 | CA04 | Partição por equivalência e análise de valor limite |
+| Sim | US-5.1 | CA04 | Partição por equivalência e análise de valor limite |
 
 **Objetivo**
 
@@ -4581,7 +4585,7 @@ Validar a lista de locais do "Onde será feito?", a marcação de um ou mais loc
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.1 | CA05 | Partição por equivalência e análise de valor limite |
+| Sim | US-5.1 | CA05 | Partição por equivalência e análise de valor limite |
 
 **Objetivo**
 
@@ -4622,7 +4626,7 @@ Validar a tabela de responsáveis da ação: ao menos uma linha, sem que a tabel
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.1 | CA06 | Partição por equivalência e análise de valor limite |
+| Sim | US-5.1 | CA06 | Partição por equivalência e análise de valor limite |
 
 **Objetivo**
 
@@ -4661,7 +4665,7 @@ Validar que a previsão de início e a previsão de conclusão são obrigatória
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.1 | CA08 + CA09 + CA13 | Partição por equivalência e análise de valor limite |
+| Sim | US-5.1 | CA08 + CA09 + CA13 | Partição por equivalência e análise de valor limite |
 
 **Objetivo**
 
@@ -4709,7 +4713,7 @@ Validar as perguntas de "Sim" ou "Não" sobre recurso, aprovação da Alta Gest�
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.1 | CA14 | Fluxo principal |
+| Sim | US-5.1 | CA14 | Fluxo principal |
 
 **Objetivo**
 
@@ -4748,7 +4752,7 @@ Validar que cada pergunta do formulário do plano de ação tem, logo abaixo, um
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.1 | CA15 + CA16 | Fluxo alternativo e partição por equivalência |
+| Sim | US-5.1 | CA15 + CA16 | Fluxo alternativo e partição por equivalência |
 
 **Objetivo**
 
@@ -4790,7 +4794,7 @@ Validar o comportamento comum dos limites de caracteres (contador, destaque em v
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.1 | CA17 | Partição por equivalência |
+| Sim | US-5.1 | CA17 | Partição por equivalência |
 
 **Objetivo**
 
@@ -4872,7 +4876,7 @@ Validar que "Como a ação será realizada?" aparece logo após "O que será fei
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.2 | CA01 + CA02 + CA04 | Fluxo principal |
+| Sim | US-5.2 | CA01 + CA02 + CA04 | Fluxo principal |
 
 **Objetivo**
 
@@ -4908,7 +4912,7 @@ Validar que "Adicionar outra ação" abre um formulário novo, que as ações j�
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.2 | CA06 | Fluxo alternativo |
+| Sim | US-5.2 | CA06 | Fluxo alternativo |
 
 **Objetivo**
 
@@ -4945,7 +4949,7 @@ Validar que cancelar o formulário de uma nova ação fecha o formulário sem re
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.3 | CA01 + CA02 + CA03 | Partição por equivalência |
+| Sim | US-5.3 | CA01 + CA02 + CA03 | Partição por equivalência |
 
 **Objetivo**
 
@@ -4982,7 +4986,7 @@ Validar que cada recomendação da análise concluída aparece no plano de açã
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.3 | CA04 + CA05 | Fluxo principal e fluxo alternativo |
+| Sim | US-5.3 | CA04 + CA05 | Fluxo principal e fluxo alternativo |
 
 **Objetivo**
 
@@ -5021,7 +5025,7 @@ Validar o formulário "Completar plano de ação" de uma ação criada a partir 
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.3 | CA06 | Partição por equivalência |
+| Sim | US-5.3 | CA06 | Partição por equivalência |
 
 **Objetivo**
 
@@ -5060,7 +5064,7 @@ Validar que as ações pendentes podem ser completadas desde a conclusão da an�
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.4 | CA01 + CA02 + CA03 | Fluxo principal e fluxo alternativo |
+| Sim | US-5.4 | CA01 + CA02 + CA03 | Fluxo principal e fluxo alternativo |
 
 **Objetivo**
 
@@ -5097,48 +5101,11 @@ Validar que o botão Editar abre a ação com os dados atuais, sem o campo "Situ
 - **CA02 — acima do limite:** o contador fica vermelho, o texto não é cortado e o sistema não salva
 - **CA01 e CA02 — alterações válidas:** o sistema salva, e a tabela mostra a nova previsão de conclusão, 15/01/2027
 
-##### CT-FUN-119 — Edição de ação com responsável em texto livre { #ct-fun-119 }
-
-| Automatizado | História testada | Critério de aceite | Critério de teste |
-| --- | --- | --- | --- |
-| Não — Não implementado | US-5.4 | CA04 | Fluxo principal |
-
-**Objetivo**
-
-Validar que uma ação registrada antes da tabela de responsáveis, com o responsável em texto livre, é editada com esse nome na primeira linha da tabela, para que a função e o setor sejam completados.
-
-**Pré-condições**
-
-- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
-- Existir uma notificação com status "Em ação", com uma ação registrada antes da tabela de responsáveis, cujo responsável está em texto livre ("[TESTE] Carla Mendes")
-
-**Dados de entrada**
-
-- **Função:** Enfermeiro(a)
-- **Setor:** Enfermagem
-
-**Procedimentos**
-
-*Tela Geral Notificação*
-1\. Expandir a seção "Plano de ação" e selecionar o botão Editar (lápis) da ação.
-*Modal Editar plano de ação*
-2\. Verificar a tabela de responsáveis.
-3\. Selecionar "Salvar alterações" sem completar a função e o setor.
-4\. Completar a função e o setor e selecionar "Salvar alterações".
-*Tela Geral Notificação*
-5\. Verificar a coluna "Responsável" da ação.
-
-**Resultado esperado**
-
-- **CA04 — primeira linha:** a tabela de responsáveis começa com "[TESTE] Carla Mendes" no Nome da primeira linha, com Função e Setor vazios
-- **CA04 — função e setor a completar:** sem a função e o setor, o sistema não salva e destaca as duas células
-- **CA04 — completado:** com a função e o setor, o sistema salva, e a coluna "Responsável" mostra "[TESTE] Carla Mendes"
-
 ##### CT-FUN-120 — Exclusão de ação { #ct-fun-120 }
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.4 | CA05 | Fluxo alternativo |
+| Sim | US-5.4 | CA05 | Fluxo alternativo |
 
 **Objetivo**
 
@@ -5173,7 +5140,7 @@ Validar que a exclusão de uma ação pede confirmação, que recusar mantém a 
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.4 | CA06 | Fluxo alternativo |
+| Sim | US-5.4 | CA06 | Fluxo alternativo |
 
 **Objetivo**
 
@@ -6984,7 +6951,7 @@ Validar de ponta a ponta que o NSP decide encaminhar ou não o resultado de aná
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.1, US-5.2 e US-5.3 | CA02 (US-5.1) + CA03 e CA05 (US-5.2) + CA01 e CA05 (US-5.3) | Fluxo principal e fluxo alternativo |
+| Sim | US-5.1, US-5.2 e US-5.3 | CA02 (US-5.1) + CA03 e CA05 (US-5.2) + CA01 e CA05 (US-5.3) | Fluxo principal e fluxo alternativo |
 
 **Objetivo**
 
@@ -7046,7 +7013,7 @@ Validar o percurso do plano de ação desde a conclusão da análise: as recomen
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-5.4 | CA01 + CA05 + CA06 | Fluxo principal |
+| Sim | US-5.4 | CA01 + CA05 + CA06 | Fluxo principal |
 
 **Objetivo**
 
