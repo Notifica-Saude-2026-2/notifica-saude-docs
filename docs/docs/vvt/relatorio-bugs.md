@@ -1650,7 +1650,8 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
     - **O protótipo segue a RN-14:** `src/services/localStore.ts` do protótipo funcional (linhas 188 e 189) usa `OBITO: 2` e `NEVER_EVENT: 2`.
     - **O front só mostra** o valor que o servidor calcula, no "Prazo para análise" do detalhe e no "Vence em…" da lista de incidentes.
     - **Confirmação da regra:** a Sophya confirmou em 14/11/2026 que vale a RN-14 (2 dias para óbito e Never Event).
-    - **Como foi achado:** na conferência da ficha do CT-FUN-043 (US-4.1, CA04) contra a especificação e o sistema, na automação dos casos funcionais da US-4.1 ([e2e#66](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/66)). Nenhum teste automatizado exercita este defeito por enquanto. O caso da ficha com Never Event (C2) não foi automatizado, porque pede um Never Event encaminhado ao setor, o que o sistema não permite (US-2.3, CA06).
+    - **Como foi achado:** na conferência da ficha do CT-FUN-043 (US-4.1, CA04) contra a especificação e o sistema, na automação dos casos funcionais da US-4.1 ([e2e#66](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/66)). O caso da ficha com Never Event (C2) não foi automatizado, porque pede um Never Event encaminhado ao setor, o que o sistema não permite (US-2.3, CA06).
+    - **Teste que confere o valor errado:** o teste "classifica incidente como Never Event e valida prazo de 4 dias", do CT-E2E-007 (`tests/e2e/ct-e2e-007.spec.ts`, linha 68), espera o prazo do Never Event com 4 dias a partir do registro. Por isso ele passa enquanto o defeito existe e falha com a correção. O ajuste para 2 dias fica no repositório de e2e. A ficha do CT-E2E-007 não pede o prazo. Apontado pelo Brenno Ostemberg em 15/11/2026.
 
     **Versões afetadas**
 
