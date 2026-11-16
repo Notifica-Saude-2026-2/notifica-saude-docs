@@ -158,10 +158,16 @@ nav:
               - Épico 4 - Análise do Incidente - End-to-End (US-4.4): vvt/relatorios-testes/analise-us-4-4-e2e.md
               - Épico 4 - Análise do Incidente - End-to-End (US-4.5): vvt/relatorios-testes/analise-us-4-5-e2e.md
               - Épico 4 - Análise do Incidente - End-to-End (US-4.6): vvt/relatorios-testes/analise-us-4-6-e2e.md
+              - Épico 4 - Análise do Incidente (Seções 3 a 5) - Unitário: vvt/relatorios-testes/analise-secoes-3-5-unitario.md
+              - Épico 4 - Análise do Incidente (Seções 3 a 5) - Integração: vvt/relatorios-testes/analise-secoes-3-5-integracao.md
+              - Épico 5 - Gestão de Plano de Ação - Unitário: vvt/relatorios-testes/plano-acao-unitario.md
+              - Épico 5 - Gestão de Plano de Ação - Integração: vvt/relatorios-testes/plano-acao-integracao.md
               - Épico 5 - Gestão de Plano de Ação - End-to-End (US-5.1): vvt/relatorios-testes/plano-acao-us-5-1-e2e.md
               - Épico 5 - Gestão de Plano de Ação - End-to-End (US-5.2): vvt/relatorios-testes/plano-acao-us-5-2-e2e.md
               - Épico 5 - Gestão de Plano de Ação - End-to-End (US-5.3): vvt/relatorios-testes/plano-acao-us-5-3-e2e.md
               - Épico 5 - Gestão de Plano de Ação - End-to-End (US-5.4): vvt/relatorios-testes/plano-acao-us-5-4-e2e.md
+              - Épico 6 - Status e Ciclo de Vida - Unitário: vvt/relatorios-testes/ciclo-de-vida-unitario.md
+              - Épico 6 - Status e Ciclo de Vida - Integração: vvt/relatorios-testes/ciclo-de-vida-integracao.md
           - Testes Não-Funcionais: vvt/relatorio-nao-funcionais.md
           - Bugs: vvt/relatorio-bugs.md
       - Teste de Usabilidade:
