@@ -177,6 +177,8 @@ nav:
               - Épico 5 - Gestão de Plano de Ação - End-to-End (US-5.4): vvt/relatorios-testes/plano-acao-us-5-4-e2e.md
               - Épico 6 - Status e Ciclo de Vida - Unitário: vvt/relatorios-testes/ciclo-de-vida-unitario.md
               - Épico 6 - Status e Ciclo de Vida - Integração: vvt/relatorios-testes/ciclo-de-vida-integracao.md
+              - Épico 6 - Status e Ciclo de Vida - End-to-End (US-6.1): vvt/relatorios-testes/ciclo-vida-us-6-1-e2e.md
+              - Épico 6 - Status e Ciclo de Vida - End-to-End (US-6.2): vvt/relatorios-testes/ciclo-vida-us-6-2-e2e.md
               - Épico 7 - Exportação do Relatório de Incidentes - Unitário: vvt/relatorios-testes/relatorio-incidentes-unitario.md
               - Épico 7 - Exportação do Relatório de Incidentes - Integração: vvt/relatorios-testes/relatorio-incidentes-integracao.md
               - Épico 7 - Exportação do Relatório de Incidentes - End-to-End (US-7.1): vvt/relatorios-testes/relatorio-incidentes-us-7-1-e2e.md
