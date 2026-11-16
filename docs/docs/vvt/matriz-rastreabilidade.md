@@ -46,6 +46,7 @@ hide:
     | 3.30 | 16/11/2026 | Inclusão dos casos da US-6.4 (CT-FUN-144 a CT-FUN-147 e CT-E2E-039 a CT-E2E-040), associação às RN-01, RN-12, RN-22 e RN-23 e atualização do resumo: 222 critérios de aceite, 220 com caso de teste (99%), 192 casos de teste de histórias e 87 automatizados | Gustavo Henrique |
     | 3.31 | 16/11/2026 | Inclusão do CT-E2E-041 para cobrir a conclusão automática da última ação por efetividade "Sim" (US-5.7 e US-6.4, CA05) e atualização do resumo para 193 casos de teste de histórias | Gustavo Henrique |
     | 3.32 | 16/11/2026 | Inclusão do Épico 7 e dos casos de teste das US-7.1 (CA01 a CA10) e US-7.2 (CA01 a CA05), das regras de negócio das histórias e da ligação dos casos de teste aos RNF 6.2.2, 6.3.5, 6.3.6, 6.7.1 e 6.7.3. Status "Em automatização" até a PR do notifica-saude-e2e. Resumo atualizado: 237 critérios de aceite, 235 com caso de teste (99%), 208 casos de teste de histórias e 87 automatizados. | Brenno |
+    | 3.33 | 16/11/2026 | Status de automação das US-7.1 (CA01 a CA10) e US-7.2 (CA01 a CA05) e dos RNF 6.2.2, 6.3.5, 6.3.6, 6.7.1 e 6.7.3 nos seus casos de teste, conforme a [PR #79 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/79): "Automatizado". Resumo: 102 casos de teste automatizados (os 87 anteriores e os 15 desta entrega). | Brenno |
 
 ## Sumário
 
@@ -71,7 +72,7 @@ Esta matriz relaciona cada critério de aceite das histórias de usuário aos ca
 <div class="ns-dec-stat"><strong>237</strong><span>critérios de aceite mapeados</span></div>
 <div class="ns-dec-stat"><strong>99%</strong><span>com caso de teste (235 de 237)</span></div>
 <div class="ns-dec-stat"><strong>208</strong><span>casos de teste de histórias</span></div>
-<div class="ns-dec-stat"><strong>87</strong><span>casos de teste automatizados</span></div>
+<div class="ns-dec-stat"><strong>102</strong><span>casos de teste automatizados</span></div>
 </div>
 
 <div class="ns-legenda"><strong>Status:</strong> <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> <span class="ns-rast ns-rast--pronto">Pronto para automatizar</span> <span class="ns-rast ns-rast--naodoc">Não documentado</span> <span class="ns-rast ns-rast--naoauto">Não automatizado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> <span class="ns-rast ns-rast--naoloc">Requisito não localizado nos requisitos</span></div>
@@ -387,21 +388,21 @@ Esta matriz relaciona cada critério de aceite das histórias de usuário aos ca
 
 | História | Critério de aceite | Caso de teste | Status | Responsável |
 | --- | --- | --- | --- | --- |
-| **US-7.1** | CA01 | [CT-FUN-148](casos-de-teste.md#ct-fun-148) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
-|  | CA02 | [CT-FUN-149](casos-de-teste.md#ct-fun-149), [CT-E2E-042](casos-de-teste.md#ct-e2e-042) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
-|  | CA03 | [CT-FUN-150](casos-de-teste.md#ct-fun-150) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
-|  | CA04 | [CT-FUN-151](casos-de-teste.md#ct-fun-151) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
-|  | CA05 | [CT-FUN-152](casos-de-teste.md#ct-fun-152) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
-|  | CA06 | [CT-FUN-153](casos-de-teste.md#ct-fun-153), [CT-E2E-042](casos-de-teste.md#ct-e2e-042) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
-|  | CA07 | [CT-FUN-154](casos-de-teste.md#ct-fun-154), [CT-E2E-042](casos-de-teste.md#ct-e2e-042) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
-|  | CA08 | [CT-FUN-155](casos-de-teste.md#ct-fun-155) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
-|  | CA09 | [CT-FUN-156](casos-de-teste.md#ct-fun-156), [CT-E2E-042](casos-de-teste.md#ct-e2e-042) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
-|  | CA10 | [CT-FUN-157](casos-de-teste.md#ct-fun-157) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
-| **US-7.2** | CA01 | [CT-FUN-158](casos-de-teste.md#ct-fun-158) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
-|  | CA02 | [CT-FUN-159](casos-de-teste.md#ct-fun-159), [CT-E2E-042](casos-de-teste.md#ct-e2e-042) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
-|  | CA03 | [CT-FUN-160](casos-de-teste.md#ct-fun-160) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
-|  | CA04 | [CT-FUN-161](casos-de-teste.md#ct-fun-161) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
-|  | CA05 | [CT-FUN-161](casos-de-teste.md#ct-fun-161), [CT-E2E-042](casos-de-teste.md#ct-e2e-042) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
+| **US-7.1** | CA01 | [CT-FUN-148](casos-de-teste.md#ct-fun-148) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
+|  | CA02 | [CT-FUN-149](casos-de-teste.md#ct-fun-149), [CT-E2E-042](casos-de-teste.md#ct-e2e-042) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
+|  | CA03 | [CT-FUN-150](casos-de-teste.md#ct-fun-150) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
+|  | CA04 | [CT-FUN-151](casos-de-teste.md#ct-fun-151) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
+|  | CA05 | [CT-FUN-152](casos-de-teste.md#ct-fun-152) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
+|  | CA06 | [CT-FUN-153](casos-de-teste.md#ct-fun-153), [CT-E2E-042](casos-de-teste.md#ct-e2e-042) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
+|  | CA07 | [CT-FUN-154](casos-de-teste.md#ct-fun-154), [CT-E2E-042](casos-de-teste.md#ct-e2e-042) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
+|  | CA08 | [CT-FUN-155](casos-de-teste.md#ct-fun-155) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
+|  | CA09 | [CT-FUN-156](casos-de-teste.md#ct-fun-156), [CT-E2E-042](casos-de-teste.md#ct-e2e-042) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
+|  | CA10 | [CT-FUN-157](casos-de-teste.md#ct-fun-157) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
+| **US-7.2** | CA01 | [CT-FUN-158](casos-de-teste.md#ct-fun-158) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
+|  | CA02 | [CT-FUN-159](casos-de-teste.md#ct-fun-159), [CT-E2E-042](casos-de-teste.md#ct-e2e-042) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
+|  | CA03 | [CT-FUN-160](casos-de-teste.md#ct-fun-160) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
+|  | CA04 | [CT-FUN-161](casos-de-teste.md#ct-fun-161) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
+|  | CA05 | [CT-FUN-161](casos-de-teste.md#ct-fun-161), [CT-E2E-042](casos-de-teste.md#ct-e2e-042) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
 
 </div>
 
@@ -468,15 +469,15 @@ Esta matriz relaciona cada critério de aceite das histórias de usuário aos ca
 |  | [CT-NF-008](casos-de-teste.md#ct-nf-008) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoauto">Não automatizado</span> | Equipe 01/2026 |
 | **RNF 8.6.1** | [CT-NF-009](casos-de-teste.md#ct-nf-009) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoauto">Não automatizado</span> | Equipe 01/2026 |
 | **RNF 6.2.2** | [CT-FUN-045](casos-de-teste.md#ct-fun-045) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Equipe 02/2026 |
-|  | [CT-FUN-157](casos-de-teste.md#ct-fun-157) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
+|  | [CT-FUN-157](casos-de-teste.md#ct-fun-157) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
 | **RNF 6.3.4** | [CT-FUN-044](casos-de-teste.md#ct-fun-044) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Equipe 02/2026 |
-| **RNF 6.3.5** | [CT-FUN-150](casos-de-teste.md#ct-fun-150) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
-|  | [CT-FUN-160](casos-de-teste.md#ct-fun-160) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
-| **RNF 6.3.6** | [CT-FUN-150](casos-de-teste.md#ct-fun-150) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
-|  | [CT-FUN-160](casos-de-teste.md#ct-fun-160) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
-| **RNF 6.7.1** | [CT-FUN-156](casos-de-teste.md#ct-fun-156) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
+| **RNF 6.3.5** | [CT-FUN-150](casos-de-teste.md#ct-fun-150) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
+|  | [CT-FUN-160](casos-de-teste.md#ct-fun-160) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
+| **RNF 6.3.6** | [CT-FUN-150](casos-de-teste.md#ct-fun-150) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
+|  | [CT-FUN-160](casos-de-teste.md#ct-fun-160) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
+| **RNF 6.7.1** | [CT-FUN-156](casos-de-teste.md#ct-fun-156) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
 | **RNF 6.7.2** | [CT-E2E-021](casos-de-teste.md#ct-e2e-021) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Equipe 02/2026 |
-| **RNF 6.7.3** | [CT-FUN-156](casos-de-teste.md#ct-fun-156) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> | Brenno |
+| **RNF 6.7.3** | [CT-FUN-156](casos-de-teste.md#ct-fun-156) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Brenno |
 | **RNF 6.7.4** | [CT-FUN-051](casos-de-teste.md#ct-fun-051) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Equipe 02/2026 |
 |  | [CT-FUN-074](casos-de-teste.md#ct-fun-074) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Equipe 02/2026 |
 |  | [CT-FUN-078](casos-de-teste.md#ct-fun-078) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Equipe 02/2026 |

@@ -63,6 +63,7 @@
     | 4.40 | 16/11/2026 | Inclusão dos casos de teste da US-6.4 (CT-FUN-144 a CT-FUN-147 e CT-E2E-039 a CT-E2E-040) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste, com atualização da matriz de rastreabilidade | Gustavo Henrique |
     | 4.41 | 16/11/2026 | Inclusão do CT-E2E-041 para cobrir a sugestão de conclusão após conclusão automática da última ação por efetividade "Sim" (US-5.7 e US-6.4, CA05), com atualização da matriz | Gustavo Henrique |
     | 4.42 | 16/11/2026 | Adição dos casos de teste das US-7.1 e US-7.2 (CT-FUN-148 a CT-FUN-161 e CT-E2E-042) na nova seção do Épico 7 em Testes Funcionais, em Testes End-to-End e em Critérios de Teste | Brenno |
+    | 4.43 | 16/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste das US-7.1 e US-7.2: CT-FUN-148 a CT-FUN-161 e CT-E2E-042, automatizados na [PR #79 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/79) | Brenno |
 
 ## Sumário
 
@@ -6073,7 +6074,7 @@ Validar que confirmar a conclusão atualiza o status, registra data, hora e usu�
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-7.1 | CA01 | Partição por equivalência |
+| Sim | US-7.1 | CA01 | Partição por equivalência |
 
 **Objetivo**
 
@@ -6103,7 +6104,7 @@ Validar que o botão "Extrair dados" aparece nas oito listas de incidentes do NS
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-7.1 | CA02 | Partição por equivalência |
+| Sim | US-7.1 | CA02 | Partição por equivalência |
 
 **Objetivo**
 
@@ -6141,7 +6142,7 @@ Validar que o relatório do NSP traz todos os incidentes da instituição, em to
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-7.1 | CA03 | Partição por equivalência |
+| Sim | US-7.1 | CA03 | Partição por equivalência |
 
 **Objetivo**
 
@@ -6179,7 +6180,7 @@ Validar que, mesmo com o NSP vendo os dados do notificante e do paciente na plat
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-7.1 | CA04 | Fluxo principal |
+| Sim | US-7.1 | CA04 | Fluxo principal |
 
 **Objetivo**
 
@@ -6204,7 +6205,7 @@ Validar o nome do arquivo baixado pelo NSP, com a data da geração, e as três 
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-7.1 | CA05 | Partição por equivalência |
+| Sim | US-7.1 | CA05 | Partição por equivalência |
 
 **Objetivo**
 
@@ -6234,7 +6235,7 @@ Validar o cabeçalho da aba Resumo e as três tabelas lado a lado (por status, p
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-7.1 | CA06 | Partição por equivalência |
+| Sim | US-7.1 | CA06 | Partição por equivalência |
 
 **Objetivo**
 
@@ -6277,7 +6278,7 @@ Validar as colunas da aba Incidentes, a ordem das linhas e os valores de cada co
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-7.1 | CA07 | Partição por equivalência |
+| Sim | US-7.1 | CA07 | Partição por equivalência |
 
 **Objetivo**
 
@@ -6314,7 +6315,7 @@ Validar as colunas da aba Plano de ação e as linhas das ações completas, pen
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-7.1 | CA08 | Fluxo principal |
+| Sim | US-7.1 | CA08 | Fluxo principal |
 
 **Objetivo**
 
@@ -6351,7 +6352,7 @@ Validar a formatação das abas do relatório: cabeçalho, filtros, painéis con
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-7.1 | CA09 | Fluxo alternativo e análise de valor limite |
+| Sim | US-7.1 | CA09 | Fluxo alternativo e análise de valor limite |
 
 **Objetivo**
 
@@ -6395,7 +6396,7 @@ Validar o retorno ao usuário durante e depois da geração: o estado "Gerando..
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-7.1 | CA10 | Fluxo negativo |
+| Sim | US-7.1 | CA10 | Fluxo negativo |
 
 **Objetivo**
 
@@ -6422,7 +6423,7 @@ Validar que o Administrador do Sistema não vê o botão "Extrair dados" e que o
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-7.2 | CA01 | Partição por equivalência |
+| Sim | US-7.2 | CA01 | Partição por equivalência |
 
 **Objetivo**
 
@@ -6445,7 +6446,7 @@ Validar que o botão "Extrair dados" aparece na lista do Gestor da Área nas mes
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-7.2 | CA02 | Partição por equivalência |
+| Sim | US-7.2 | CA02 | Partição por equivalência |
 
 **Objetivo**
 
@@ -6479,7 +6480,7 @@ Validar que o relatório do gestor traz só os incidentes da sua fila (os do seu
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-7.2 | CA03 | Partição por equivalência |
+| Sim | US-7.2 | CA03 | Partição por equivalência |
 
 **Objetivo**
 
@@ -6509,7 +6510,7 @@ Validar que o relatório do gestor não contém o nome nem o contato do notifica
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-7.2 | CA04 + CA05 | Fluxo principal |
+| Sim | US-7.2 | CA04 + CA05 | Fluxo principal |
 
 **Objetivo**
 
@@ -8358,7 +8359,7 @@ Validar que a efetividade "Sim" conclui automaticamente a última ação e, apó
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-7.1 e US-7.2 | CA02, CA06, CA07 e CA09 (US-7.1) + CA02 e CA05 (US-7.2) | Fluxo principal |
+| Sim | US-7.1 e US-7.2 | CA02, CA06, CA07 e CA09 (US-7.1) + CA02 e CA05 (US-7.2) | Fluxo principal |
 
 **Objetivo**
 
