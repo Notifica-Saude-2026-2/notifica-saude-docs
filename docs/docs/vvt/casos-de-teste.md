@@ -1,4 +1,4 @@
-﻿<h1 align="center">Casos de Teste</h1>
+<h1 align="center">Casos de Teste</h1>
 
 <p align="center"><strong>Mantenedores:</strong> Gustavo Henrique, Kauan Cardoso, Sophya Ribeiro, Brenno, Catarina, Eduardo</p>
 
@@ -56,6 +56,9 @@
     | 4.33 | 11/11/2026 | Adição dos casos de teste da US-6.1 (CT-FUN-133 a CT-FUN-136) na nova seção do Épico 6 em Testes Funcionais e em Critérios de Teste | Catarina Freisleben |
     | 4.34 | 11/11/2026 | Adição dos casos de teste da US-6.2 (CT-FUN-137 a CT-FUN-139, CT-E2E-036 e CT-E2E-037) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste. Os CT-E2E-036 e CT-E2E-037 percorrem o ciclo de vida do incidente pelas US-6.1 e US-6.2, e o CA06 da US-6.2 também é conferido pelo CT-E2E-031 | Catarina Freisleben |
     | 4.35 | 12/11/2026 | Campo "Automatizado" como "Sim" no CT-FUN-132 (CA18 da US-5.1), automatizado na [PR #54 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/54) | Catarina Freisleben |
+    | 4.36 | 15/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-4.1: CT-FUN-041 a CT-FUN-046, automatizados na [PR #67 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/67), e CT-E2E-019 e CT-E2E-020, completados na [PR #63](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/63) | Catarina Freisleben |
+    | 4.37 | 15/11/2026 | Campo "Automatizado" como "Sim" no CT-FUN-047 e no CT-FUN-051 (US-4.2), completados na [PR #63 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/63), e no CT-E2E-021, completo desde a [PR #32](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/32) | Catarina Freisleben |
+    | 4.38 | 15/11/2026 | Campo "Automatizado" como "Sim" no CT-FUN-060, no CT-FUN-061 e no CT-E2E-022 (US-4.3), completados na [PR #63 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/63) | Catarina Freisleben |
 
 ## Sumário
 
@@ -1893,7 +1896,7 @@ Validar que informações gerais e classificação da notificação não podem s
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.1 | CA01 | Partição por equivalência |
+| Sim | US-4.1 | CA01 | Partição por equivalência |
 
 **Objetivo**
 
@@ -1935,7 +1938,7 @@ Validar que a fila do gestor da área apresenta somente os incidentes do seu set
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.1 | CA03 | Fluxo principal |
+| Sim | US-4.1 | CA03 | Fluxo principal |
 
 **Objetivo**
 
@@ -1984,7 +1987,7 @@ Validar que o gestor da área visualiza as informações registradas do incident
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.1 | CA04 | Partição por equivalência |
+| Sim | US-4.1 | CA04 | Partição por equivalência |
 
 **Objetivo**
 
@@ -2034,7 +2037,7 @@ Validar que o sistema apresenta a classificação do incidente, o grau do dano, 
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.1 | CA05 | Partição por equivalência |
+| Sim | US-4.1 | CA05 | Partição por equivalência |
 
 **Objetivo**
 
@@ -2077,7 +2080,7 @@ Garantir que o sistema omite do gestor da área os campos de identificação do 
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.1 | CA06 | Partição por equivalência |
+| Sim | US-4.1 | CA06 | Partição por equivalência |
 
 **Objetivo**
 
@@ -2124,7 +2127,7 @@ Garantir que o sistema impede o gestor da área de acessar, por link direto ou p
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.1 | CA08 | Partição por equivalência |
+| Sim | US-4.1 | CA08 | Partição por equivalência |
 
 **Objetivo**
 
@@ -2166,7 +2169,7 @@ Validar que o profissional do NSP visualiza todos os incidentes da instituição
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.2 | CA05 + CA06 | Fluxo alternativo |
+| Sim | US-4.2 | CA05 + CA06 | Fluxo alternativo |
 
 **Objetivo**
 
@@ -2350,7 +2353,7 @@ Validar que os campos de texto com limite de caracteres exibem o contador, avisa
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.2 | CA11 + CA12 + CA19 | Fluxo principal e fluxo alternativo |
+| Sim | US-4.2 | CA11 + CA12 + CA19 | Fluxo principal e fluxo alternativo |
 
 **Objetivo**
 
@@ -2706,7 +2709,7 @@ Validar que o sistema permite o avanço após o texto do incidente ser reduzido 
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
-| Não — Não implementado | US-4.3 | CA04 | Fluxo principal |
+| Sim | US-4.3 | CA04 | Fluxo principal |
 
 **Objetivo**
 
@@ -2743,7 +2746,7 @@ Validar que o incidente informado na Seção 1 é apresentado no topo das Seçõ
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | ------------ | ---------------- | ------------------ | ----------------- |
-| Não — Não implementado | US-4.3 | CA04 | Regra de negócio |
+| Sim | US-4.3 | CA04 | Regra de negócio |
 
 **Objetivo**
 
@@ -6555,7 +6558,7 @@ Validar que o sistema impede o encaminhamento ao setor responsável de notifica�
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.1 | CA02 | Fluxo principal e fluxo alternativo |
+| Sim | US-4.1 | CA02 | Fluxo principal e fluxo alternativo |
 
 **Objetivo**
 
@@ -6615,7 +6618,7 @@ Validar que o incidente encaminhado ao setor permanece na fila do gestor da áre
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.1 | CA07 | Fluxo alternativo |
+| Sim | US-4.1 | CA07 | Fluxo alternativo |
 
 **Objetivo**
 
@@ -6666,7 +6669,7 @@ Validar que, quando a análise é realizada pelo NSP sem encaminhamento prévio,
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.2 | CA01 + CA02 + CA07 + CA14 + CA15 | Fluxo principal e partição por equivalência |
+| Sim | US-4.2 | CA01 + CA02 + CA07 + CA14 + CA15 | Fluxo principal e partição por equivalência |
 
 **Objetivo**
 
@@ -6714,7 +6717,7 @@ Validar o percurso de registro da análise: a disponibilização da opção "Reg
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-4.3 | CA01 até CA04 | Fluxo principal |
+| Sim | US-4.3 | CA01 até CA04 | Fluxo principal |
 
 **Objetivo**
 
