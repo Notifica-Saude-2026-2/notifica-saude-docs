@@ -62,6 +62,7 @@
     | 4.39 | 16/11/2026 | Inclusão dos casos de teste da US-6.3 (CT-FUN-140 a CT-FUN-143 e CT-E2E-038) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste, com atualização da matriz de rastreabilidade | Gustavo Henrique |
     | 4.40 | 16/11/2026 | Inclusão dos casos de teste da US-6.4 (CT-FUN-144 a CT-FUN-147 e CT-E2E-039 a CT-E2E-040) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste, com atualização da matriz de rastreabilidade | Gustavo Henrique |
     | 4.41 | 16/11/2026 | Inclusão do CT-E2E-041 para cobrir a sugestão de conclusão após conclusão automática da última ação por efetividade "Sim" (US-5.7 e US-6.4, CA05), com atualização da matriz | Gustavo Henrique |
+    | 4.42 | 16/11/2026 | Adição dos casos de teste das US-7.1 e US-7.2 (CT-FUN-148 a CT-FUN-161 e CT-E2E-042) na nova seção do Épico 7 em Testes Funcionais, em Testes End-to-End e em Critérios de Teste | Brenno |
 
 ## Sumário
 
@@ -99,6 +100,9 @@
         - [3.5.2. História 6.2 - Atualizar o status a partir das ações do usuário](#testes-us-6-2)
         - [3.5.3. História 6.3 - Arquivar incidente](#testes-us-6-3)
         - [3.5.4. História 6.4 - Concluir incidente](#testes-us-6-4)
+    - [3.6. Épico 7 - Exportação de relatório de incidentes](#testes-funcionais-epico-7)
+        - [3.6.1. História 7.1 - Exportar relatório de incidentes da instituição](#testes-us-7-1)
+        - [3.6.2. História 7.2 - Exportar relatório de incidentes do setor](#testes-us-7-2)
 - [4. Testes End-to-End](#testes-e2e)
 - [5. Testes Não-Funcionais](#testes-nao-funcionais)
 - [6. Critérios de Teste](#criterios-teste)
@@ -6061,6 +6065,476 @@ Validar que confirmar a conclusão atualiza o status, registra data, hora e usu�
 - **CA07 — histórico:** o histórico registra a conclusão com data, hora e usuário que confirmou
 - **CA07 — somente leitura:** as informações permanecem acessíveis, mas sem opções de editar, adicionar, excluir ou alterar o status
 
+### 3.6. Épico 7 - Exportação de relatório de incidentes { #testes-funcionais-epico-7 }
+
+#### 3.6.1. História 7.1 - Exportar relatório de incidentes da instituição { #testes-us-7-1 }
+
+##### CT-FUN-148 — Botão "Extrair dados" nas listas do NSP { #ct-fun-148 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-7.1 | CA01 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que o botão "Extrair dados" aparece nas oito listas de incidentes do NSP, à direita do "Ordenar por", com a mesma altura dos campos e a dica "Extrair xlsx", que acompanha o "Ordenar por" quando os filtros quebram de linha e que, no celular, ocupa a linha inteira abaixo dos filtros.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+
+**Procedimentos**
+
+*Tela Todos Incidentes*
+1\. Abrir cada uma das listas: Todos incidentes, Novos, Classificados, Encaminhados, Em análise, Em ação, Concluídos e Arquivados.
+2\. Em cada lista, verificar a barra de filtros e passar o mouse sobre o botão "Extrair dados".
+3\. Na lista Todos incidentes, reduzir a janela a 1000 px de largura e verificar a barra de filtros.
+4\. Reduzir a janela à largura de celular (390 px) e verificar a barra de filtros.
+
+**Resultado esperado**
+
+- **CA01 — oito listas:** em todas as listas, a barra de filtros exibe o botão azul "Extrair dados", habilitado, com o ícone de download
+- **CA01 — posição e altura:** o botão fica à direita do campo "Ordenar por", na mesma linha e com a mesma altura do campo
+- **CA01 — dica:** ao passar o mouse, o sistema exibe a dica "Extrair xlsx"
+- **CA01 — quebra:** quando os filtros não cabem em uma linha, o rótulo "Ordenar por", o campo e o botão descem juntos, na mesma linha
+- **CA01 — celular:** o botão ocupa a largura inteira da barra, em uma linha própria abaixo dos filtros
+
+##### CT-FUN-149 — Escopo do relatório da instituição { #ct-fun-149 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-7.1 | CA02 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que o relatório do NSP traz todos os incidentes da instituição, em todos os status, e nenhum de outra instituição, e que a lista aberta, a busca, os filtros e a ordenação da tela não mudam o arquivo (RN-30).
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP do Hospital B
+- Existirem, no Hospital B, as notificações:
+    - **I1:** status "Novo"
+    - **I2:** status "Classificado"
+    - **I3:** status "Encaminhado"
+    - **I4:** status "Em análise"
+    - **I5:** status "Analisado"
+    - **I6:** status "Em ação"
+    - **I7:** status "Concluído"
+    - **I8:** status "Arquivado"
+- Existir a notificação **I9**, do Hospital A
+
+**Procedimentos**
+
+*Tela Todos Incidentes*
+1\. Na lista Todos incidentes, sem busca nem filtros, selecionar "Extrair dados" e abrir o arquivo baixado.
+2\. Abrir a lista Concluídos, buscar pelo código da notificação I7 como a tela o mostra (ex.: "#0024"), filtrar por "Evento adverso" com o grau "Grave" e pelo setor "Pronto atendimento / emergência", ordenar por "Mais antigos", selecionar "Extrair dados" e abrir o arquivo baixado.
+
+**Resultado esperado**
+
+- **CA02 — todos os status:** a aba Incidentes do primeiro arquivo tem uma linha para cada notificação de I1 a I8, com o status de cada uma
+- **CA02 — outra instituição:** nenhuma linha corresponde à notificação I9, e a coluna "Instituição" mostra só "Hospital B"
+- **CA02 — total:** a quantidade de linhas da aba Incidentes é igual ao total informado no aviso de sucesso
+- **CA02 — tela não muda o arquivo (RN-30):** o segundo arquivo também tem as notificações de I1 a I8, embora a tela não mostre nenhuma delas, na mesma ordem do primeiro (do mais recente para o mais antigo)
+- **CA02 — outra instituição:** como o código é numerado por instituição (o Hospital A também tem um #0002), I9 é procurada pela descrição
+
+##### CT-FUN-150 — Sigilo do notificante e do paciente no relatório da instituição { #ct-fun-150 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-7.1 | CA03 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que, mesmo com o NSP vendo os dados do notificante e do paciente na plataforma, o relatório não contém o nome nem o contato do notificante, nem o número do prontuário ou do atendimento, em nenhuma aba, nas colunas ocultas ou nas propriedades do arquivo (RN-29, RN-31, RNF 6.3.5 e 6.3.6).
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP do Hospital B
+- Existir a notificação **S1**, identificada, do Hospital B, com os dados de entrada
+- Existir a notificação **S2**, anônima, do Hospital B, com o mesmo prontuário de S1
+
+**Dados de entrada**
+
+- **Nome do notificante:** [TESTE] Notificante Sigiloso Épico Sete
+- **E-mail do notificante:** sigilo.epico7@teste.notificasaude.br
+- **Número do prontuário/atendimento:** PRONT-SIGILO-7007
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Abrir a notificação S1 e verificar os dados do notificante e do paciente.
+*Tela Todos Incidentes*
+2\. Selecionar "Extrair dados" e abrir o arquivo baixado.
+3\. Procurar os dados de entrada em todas as células das abas Resumo, Incidentes e Plano de ação, inclusive nas colunas e linhas ocultas.
+4\. Verificar as propriedades do arquivo (autor e última modificação).
+
+**Resultado esperado**
+
+- **CA03 — dados na plataforma:** a notificação S1 mostra ao NSP o nome, o e-mail e o prontuário dos dados de entrada
+- **CA03 — linhas no relatório:** S1 e S2 aparecem na aba Incidentes, e a coluna "Anônima" mostra "Não" para S1 e "Sim" para S2
+- **CA03 — sigilo:** nenhuma célula, visível ou oculta, contém o nome, o e-mail ou o prontuário dos dados de entrada; não existe coluna de notificante, contato ou prontuário
+- **CA03 — propriedades do arquivo:** o autor e a última modificação são "NotificaSaúde", sem o nome do usuário que gerou nem do notificante
+
+##### CT-FUN-151 — Nome do arquivo e abas do relatório { #ct-fun-151 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-7.1 | CA04 | Fluxo principal |
+
+**Objetivo**
+
+Validar o nome do arquivo baixado pelo NSP, com a data da geração, e as três abas do relatório, na ordem.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+
+**Procedimentos**
+
+*Tela Todos Incidentes*
+1\. Selecionar "Extrair dados" e verificar o arquivo baixado.
+2\. Abrir o arquivo e verificar as abas.
+
+**Resultado esperado**
+
+- **CA04 — nome:** o arquivo se chama `notificasaude-incidentes-instituicao-AAAA-MM-DD.xlsx`, com a data da geração
+- **CA04 — abas:** o arquivo tem exatamente três abas, nesta ordem: Resumo, Incidentes e Plano de ação
+
+##### CT-FUN-152 — Aba Resumo { #ct-fun-152 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-7.1 | CA05 | Partição por equivalência |
+
+**Objetivo**
+
+Validar o cabeçalho da aba Resumo e as três tabelas lado a lado (por status, por setor e por grau do dano), com quantidades que fecham com o total e percentuais coerentes.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP do Hospital B
+- Existir no Hospital B ao menos uma notificação "Ainda não classificada" (status "Novo") e uma classificada sem dano
+
+**Procedimentos**
+
+*Tela Todos Incidentes*
+1\. Selecionar "Extrair dados" e abrir a aba Resumo do arquivo baixado.
+
+**Resultado esperado**
+
+- **CA05 — sem título:** a aba começa pelos dados do relatório, sem título ou aviso no topo
+- **CA05 — dados do relatório:** a aba mostra a Instituição ("Hospital B"), o Escopo ("Todos os setores da instituição"), a data e a hora da geração ("Gerado em"), o nome do usuário que gerou ("Gerado por") e o total de incidentes, igual ao do aviso de sucesso
+- **CA05 — três tabelas lado a lado:** abaixo, na mesma linha, as tabelas "Incidentes por status", "Incidentes por setor" e "Incidentes por grau do dano", cada uma com as colunas do item, "Incidentes" e "%"
+- **CA05 — status:** a tabela por status tem os oito status, na ordem do ciclo de vida (Novo, Classificado, Encaminhado, Em análise, Analisado, Em ação, Concluído e Arquivado), inclusive os sem incidentes
+- **CA05 — grau do dano:** a tabela por grau tem Sem dano, Leve, Moderado, Grave, Óbito, Never Event e "Ainda não classificado", nessa ordem
+- **CA05 — setor:** a tabela por setor lista os setores com incidentes, incluindo "Pronto atendimento / emergência"
+- **CA05 — contas:** em cada tabela, a soma das quantidades é igual ao total, e cada percentual é a quantidade dividida pelo total
+
+##### CT-FUN-153 — Aba Incidentes { #ct-fun-153 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-7.1 | CA06 | Partição por equivalência |
+
+**Objetivo**
+
+Validar as colunas da aba Incidentes, a ordem das linhas e os valores de cada coluna para incidentes em situações diferentes de classificação e de análise.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP do Hospital B
+- Existirem, no Hospital B, as notificações:
+    - **E1:** status "Novo", sem classificação
+    - **E2:** classificada como Near Miss, encaminhada ao setor e com a análise do Gestor da Área iniciada, não concluída
+    - **E3:** classificada, encaminhada ao setor, com a análise do Gestor da Área concluída com as recomendações 1 e 2 e a ação da recomendação 1 completada
+    - **E4:** classificada e com a análise do NSP concluída com as recomendações 1 e 2, sem encaminhamento
+- As notificações foram registradas na ordem E1, E2, E3 e E4
+
+**Dados de entrada**
+
+- **Recomendação 1:** [TESTE] Implantar conferência dos horários dos medicamentos em cada turno.
+- **Recomendação 2:** [TESTE] Revisar e divulgar o fluxo de comunicação de atrasos na administração.
+- **Demais campos da ação:** os dados de entrada do [CT-FUN-104](#ct-fun-104)
+
+**Procedimentos**
+
+*Tela Todos Incidentes*
+1\. Selecionar "Extrair dados" e abrir a aba Incidentes do arquivo baixado.
+2\. Verificar o cabeçalho e as linhas de E1 a E4.
+3\. Comparar a linha de E3 com os dados da notificação (os da pré-condição, os mesmos que a Tela Geral Notificação mostra).
+
+**Resultado esperado**
+
+- **CA06 — colunas:** o cabeçalho tem, nesta ordem: Incidente, Status, Data do incidente, Turno, Horário, Registrado em, Instituição, Setor, Descrição, Medidas imediatas, Envolve paciente, Faixa etária, Sexo, Quem notificou, Anônima, Classificação, Never Event, Tipo de incidente, Envolvidos, Grau do dano, Classificado em, Prazo para análise, Responsável, Análise, Quem analisou, Incidente investigado, Análise concluída em, Recomendações, Ações no plano, Ações concluídas e Última atualização
+- **CA06 — uma linha por incidente:** cada notificação aparece em uma única linha, identificada pelo código (ex.: #1006)
+- **CA06 — ordem:** as linhas vão do registro mais recente para o mais antigo: E4 vem antes de E3, que vem antes de E2, que vem antes de E1
+- **CA06 — sem classificação (E1):** "Classificação" mostra "Não classificado"; "Grau do dano", "Classificado em", "Prazo para análise", "Responsável" e "Quem analisou" ficam vazios; "Análise" mostra "Não iniciada"
+- **CA06 — análise em andamento (E2):** "Análise" mostra "Em andamento" e "Quem analisou", "Setor"; "Incidente investigado", "Análise concluída em" e "Recomendações" ficam vazios
+- **CA06 — análise concluída pelo setor (E3):** "Análise" mostra "Concluída", "Quem analisou", "Setor"; "Recomendações" lista as recomendações 1 e 2; "Ações no plano" mostra 2 e "Ações concluídas", 0; os demais dados são iguais aos da notificação na plataforma
+- **CA06 — análise concluída pelo NSP (E4):** "Quem analisou" mostra "Núcleo (NSP)"
+
+##### CT-FUN-154 — Aba Plano de ação { #ct-fun-154 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-7.1 | CA07 | Partição por equivalência |
+
+**Objetivo**
+
+Validar as colunas da aba Plano de ação e as linhas das ações completas, pendentes de preenchimento e excluídas.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP do Hospital B
+- Existir a notificação **A1**, do Hospital B, com a análise concluída com as recomendações 1, 2 e 3, a ação 1 completada, a ação 2 pendente de preenchimento e a ação 3 excluída
+
+**Dados de entrada**
+
+- **Recomendações 1 e 2:** as do [CT-FUN-153](#ct-fun-153)
+- **Recomendação 3:** [TESTE] Padronizar a dupla checagem dos medicamentos de alta vigilância.
+- **Demais campos da ação 1:** os dados de entrada do [CT-FUN-104](#ct-fun-104)
+
+**Procedimentos**
+
+*Tela Todos Incidentes*
+1\. Selecionar "Extrair dados" e abrir a aba Plano de ação do arquivo baixado.
+2\. Verificar o cabeçalho e as linhas da notificação A1.
+
+**Resultado esperado**
+
+- **CA07 — colunas:** o cabeçalho tem, nesta ordem: Incidente, Nº, O que será feito, Como será realizada, Onde, Responsáveis, Previsão de início, Previsão de conclusão, Nova previsão de conclusão, Situação, Início real, Conclusão real, Efetividade, Como comprovar, Resultado esperado e Recomendação de origem
+- **CA07 — uma linha por ação:** A1 tem duas linhas, as das ações 1 e 2, com o código de A1 na coluna "Incidente"
+- **CA07 — ação completa:** a linha da ação 1 traz os dados de entrada, a "Situação" "Em andamento" e a "Recomendação de origem" igual à recomendação 1
+- **CA07 — ação pendente (RN-20):** a linha da ação 2 traz só o "O que será feito" e a "Recomendação de origem", os dois com o texto da recomendação 2, e a "Situação" "Preenchimento pendente"
+- **CA07 — ação excluída:** nenhuma linha corresponde à ação 3
+
+> A coluna "Nova previsão de conclusão" não está na lista do CA07: foi acrescentada na implementação (a tabela do plano mostra a nova previsão abaixo do prazo da ação Atrasada, e a planilha a separa para manter o filtro). O caso valida o que foi implementado. A mensagem "Nenhuma ação registrada nos incidentes deste relatório." da aba vazia não é verificada aqui, porque a instituição de teste sempre tem ações; ela é coberta pelos testes de integração do backend.
+
+##### CT-FUN-155 — Formatação da planilha { #ct-fun-155 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-7.1 | CA08 | Fluxo principal |
+
+**Objetivo**
+
+Validar a formatação das abas do relatório: cabeçalho, filtros, painéis congelados, linhas alternadas, quebra de texto, datas, cores de status e de grau do dano e configuração de impressão.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP do Hospital B
+- Existir a notificação **G1**, do Hospital B, classificada como Evento adverso com grau do dano Grave
+- Existir a notificação **G2**, do Hospital B, com a análise concluída e a ação 1 completada
+
+**Procedimentos**
+
+*Tela Todos Incidentes*
+1\. Selecionar "Extrair dados" e abrir o arquivo baixado em um editor de planilhas.
+2\. Verificar as abas Incidentes e Plano de ação.
+3\. Verificar a linha de G1 na aba Incidentes.
+4\. Abrir a visualização de impressão das abas.
+
+**Resultado esperado**
+
+- **CA08 — cabeçalho:** nas abas Incidentes e Plano de ação, a primeira linha tem fundo azul (#183EFF) e texto branco, em uma linha, e cada coluna é larga o bastante para o título inteiro e o botão de filtro
+- **CA08 — filtros:** o cabeçalho das abas Incidentes e Plano de ação tem filtro em todas as colunas
+- **CA08 — congelamento:** nas abas Incidentes e Plano de ação, a primeira linha e a primeira coluna ficam congeladas
+- **CA08 — linhas alternadas:** as linhas do corpo alternam o fundo branco e o cinza-claro
+- **CA08 — quebra de texto:** as colunas longas (Descrição, Recomendações, O que será feito) quebram o texto na célula
+- **CA08 — datas:** "Data do incidente", "Classificado em" e "Prazo para análise" estão no formato dd/mm/aaaa, e "Registrado em" e "Última atualização" em dd/mm/aaaa hh:mm, no horário local
+- **CA08 — cores:** o status de G1 tem as cores do selo de status do sistema, e o grau "Grave", as do selo de grau do dano
+- **CA08 — impressão:** as três abas imprimem em paisagem; Incidentes e Plano de ação repetem o cabeçalho em cada página
+
+> A aba Resumo não é uma tabela de linhas: não tem cabeçalho com filtro nem painéis congelados, e começa em B2.
+
+##### CT-FUN-156 — Retorno ao gerar o relatório { #ct-fun-156 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-7.1 | CA09 | Fluxo alternativo e análise de valor limite |
+
+**Objetivo**
+
+Validar o retorno ao usuário durante e depois da geração: o estado "Gerando...", o aviso de sucesso com o total no plural e no singular, o aviso sem o total e o aviso de erro (RNF 6.7.1 e 6.7.3).
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+
+**Dados de entrada**
+
+| Situação | Total informado pelo servidor | Resposta |
+| --- | --- | --- |
+| R1 | real (N) | sucesso |
+| R2 | 0 | sucesso |
+| R3 | 1 | sucesso |
+| R4 | 2 | sucesso |
+| R5 | sem o total | sucesso |
+| R6 | — | falha |
+
+**Procedimentos**
+
+*Tela Todos Incidentes*
+1\. Selecionar "Extrair dados" e verificar o botão enquanto a geração está em andamento.
+2\. Verificar o aviso e o botão depois da geração (R1).
+3\. Repetir a geração com cada uma das situações R2 a R6.
+
+**Resultado esperado**
+
+- **CA09 — em andamento:** o botão mostra "Gerando..." e fica desabilitado; depois volta a "Extrair dados", habilitado
+- **CA09 — sucesso (R1):** o sistema exibe o aviso de sucesso "Relatório gerado com N incidentes.", com o total do servidor
+- **CA09 — zero (R2):** "Relatório gerado com 0 incidentes."
+- **CA09 — singular (R3):** "Relatório gerado com 1 incidente."
+- **CA09 — plural (R4):** "Relatório gerado com 2 incidentes."
+- **CA09 — sem o total (R5):** "Relatório gerado."
+- **CA09 — falha (R6):** o sistema exibe o aviso de erro "Não foi possível gerar o relatório. Tente novamente.", e o botão volta a "Extrair dados", habilitado
+
+> O aviso "Relatório gerado." (R5) não está no CA09: foi acrescentado na implementação para quando o total não chega ao navegador. O caso valida o que foi implementado. As situações R2 a R6 são simuladas na resposta do servidor, porque o Hospital B sempre tem incidentes.
+
+##### CT-FUN-157 — Exportação recusada ao Administrador { #ct-fun-157 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-7.1 | CA10 | Fluxo negativo |
+
+**Objetivo**
+
+Validar que o Administrador do Sistema não vê o botão "Extrair dados" e que o servidor recusa a exportação pedida diretamente por ele (Matriz RBAC, RNF 6.2.2).
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de Administrador do Sistema
+
+**Procedimentos**
+
+*Tela Todos Incidentes*
+1\. Abrir a lista de incidentes e verificar a barra de filtros.
+2\. Pedir o relatório diretamente ao servidor (`GET /api/relatorios/incidentes`) com a sessão do Administrador.
+
+**Resultado esperado**
+
+- **CA10 — sem botão:** a barra de filtros exibe o "Ordenar por", mas não o botão "Extrair dados"
+- **CA10 — recusa no servidor:** o servidor responde 403 e não envia arquivo
+
+#### 3.6.2. História 7.2 - Exportar relatório de incidentes do setor { #testes-us-7-2 }
+
+##### CT-FUN-158 — Botão "Extrair dados" na lista do Gestor da Área { #ct-fun-158 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-7.2 | CA01 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que o botão "Extrair dados" aparece na lista do Gestor da Área nas mesmas condições da lista do NSP ([CT-FUN-148](#ct-fun-148)).
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de Gestor da Área
+
+**Procedimentos**
+
+*Tela Todos Incidentes (Gestor da Área)*
+1\. Abrir a lista de incidentes e seguir os passos 2 a 4 do [CT-FUN-148](#ct-fun-148).
+
+**Resultado esperado**
+
+- **CA01 — botão:** os mesmos resultados do [CT-FUN-148](#ct-fun-148) (botão, posição e altura, dica, quebra e celular), na lista do gestor
+
+##### CT-FUN-159 — Escopo do relatório do setor { #ct-fun-159 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-7.2 | CA02 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que o relatório do gestor traz só os incidentes da sua fila (os do seu setor que o NSP lhe encaminhou, antes ou depois da análise), em todos os status, e nunca os de outros setores ou não encaminhados, independentemente da tela (RN-26 e RN-30).
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de Gestor da Área do setor Pronto atendimento / emergência do Hospital B
+- Existirem, no Hospital B, as notificações:
+    - **K1:** do setor do gestor, encaminhada antes da análise, com status "Encaminhado"
+    - **K2:** do setor do gestor, encaminhada antes da análise, com a análise do gestor concluída e status "Em ação"
+    - **K3:** do setor do gestor, analisada pelo NSP e com o resultado encaminhado ao setor depois da análise
+    - **K4:** do setor do gestor, classificada e não encaminhada
+    - **K5:** do setor do gestor, analisada pelo NSP, com a decisão de não encaminhar o resultado
+    - **K6:** de outro setor do Hospital B, encaminhada a esse setor
+
+**Procedimentos**
+
+*Tela Todos Incidentes (Gestor da Área)*
+1\. Sem busca nem filtros, selecionar "Extrair dados" e abrir a aba Incidentes do arquivo baixado.
+2\. Buscar pelo código da notificação K1 como a tela o mostra (ex.: "#0024"), conferir que a lista mostra K1, selecionar "Extrair dados" e abrir a aba Incidentes do arquivo baixado.
+
+**Resultado esperado**
+
+- **CA02 — fila do gestor:** as notificações K1, K2 e K3 aparecem, com os status de cada uma
+- **CA02 — fora da fila:** as notificações K4, K5 e K6 não aparecem, e a coluna "Setor" mostra só "Pronto atendimento / emergência"
+- **CA02 — total:** a quantidade de linhas é igual ao total informado no aviso de sucesso
+- **CA02 — tela não muda o arquivo (RN-30):** o segundo arquivo também tem K1, K2 e K3
+
+##### CT-FUN-160 — Sigilo e ausência da coluna "Anônima" no relatório do setor { #ct-fun-160 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-7.2 | CA03 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que o relatório do gestor não contém o nome nem o contato do notificante, nem o número do prontuário ou do atendimento, e que não tem a coluna "Anônima" nem qualquer indicação de que a notificação foi identificada ou anônima (RN-27, RN-29, RN-31, RNF 6.3.5 e 6.3.6).
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de Gestor da Área do setor Pronto atendimento / emergência do Hospital B
+- Existir a notificação **S3**, identificada, com os dados de entrada do [CT-FUN-150](#ct-fun-150), encaminhada ao setor do gestor
+- Existir a notificação **S4**, anônima, com o mesmo prontuário, encaminhada ao setor do gestor
+
+**Procedimentos**
+
+*Tela Todos Incidentes (Gestor da Área)*
+1\. Selecionar "Extrair dados" e abrir o arquivo baixado.
+2\. Procurar os dados de entrada em todas as células das três abas, inclusive nas colunas e linhas ocultas, e verificar o cabeçalho da aba Incidentes.
+3\. Verificar as propriedades do arquivo.
+
+**Resultado esperado**
+
+- **CA03 — linhas no relatório:** S3 e S4 aparecem na aba Incidentes
+- **CA03 — sigilo:** nenhuma célula, visível ou oculta, contém o nome, o e-mail ou o prontuário dos dados de entrada
+- **CA03 — sem "Anônima":** a aba Incidentes não tem a coluna "Anônima", e as linhas de S3 e S4 não se distinguem por serem identificada ou anônima; as demais colunas são as do [CT-FUN-153](#ct-fun-153), na mesma ordem
+- **CA03 — propriedades do arquivo:** o autor e a última modificação são "NotificaSaúde"
+
+##### CT-FUN-161 — Arquivo, escopo e retorno do relatório do setor { #ct-fun-161 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-7.2 | CA04 + CA05 | Fluxo principal |
+
+**Objetivo**
+
+Validar o nome do arquivo com o setor do gestor, as abas e a formatação iguais às do relatório da instituição, o escopo do setor na aba Resumo e o retorno ao usuário.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de Gestor da Área do setor Pronto atendimento / emergência do Hospital B
+- Existir ao menos uma notificação encaminhada ao setor do gestor
+
+**Procedimentos**
+
+*Tela Todos Incidentes (Gestor da Área)*
+1\. Selecionar "Extrair dados" e verificar o botão enquanto a geração está em andamento.
+2\. Verificar o aviso e o arquivo baixado.
+3\. Abrir o arquivo e verificar as abas, a aba Resumo e a formatação.
+4\. Gerar de novo com a resposta do servidor em falha.
+
+**Resultado esperado**
+
+- **CA04 — nome:** o arquivo se chama `notificasaude-incidentes-pronto-atendimento-emergencia-AAAA-MM-DD.xlsx`, com a data da geração
+- **CA04 — abas e formatação:** as abas Resumo, Incidentes e Plano de ação, nessa ordem, com a formatação do [CT-FUN-155](#ct-fun-155)
+- **CA04 — escopo:** a aba Resumo mostra o Escopo "Setor Pronto atendimento / emergência (incidentes encaminhados)", e a tabela por setor tem só esse setor
+- **CA05 — retorno:** o botão mostra "Gerando..." e fica desabilitado; ao concluir, o sistema exibe "Relatório gerado com N incidentes.", com o total do servidor; na falha, "Não foi possível gerar o relatório. Tente novamente."
+
 ## 4. Testes End-to-End { #testes-e2e }
 
 ### CT-E2E-001 — Registro completo de notificação com paciente { #ct-e2e-001 }
@@ -7880,6 +8354,57 @@ Validar que a efetividade "Sim" conclui automaticamente a última ação e, apó
 - **CA05 — conclusão automática:** ao salvar a efetividade "Sim", a ação passa a "Concluído" e, sendo a última ação pendente, a sugestão de conclusão é exibida com "Sim, concluir incidente" e "Não, criar outro plano de ação"
 - **CA05 — criar outra ação:** selecionar essa opção abre o formulário; após salvar a nova ação, o incidente permanece "Em ação" e a ação recém-criada aparece no plano
 
+### CT-E2E-042 — Exportação do relatório acompanhando o ciclo do incidente { #ct-e2e-042 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-7.1 e US-7.2 | CA02, CA06, CA07 e CA09 (US-7.1) + CA02 e CA05 (US-7.2) | Fluxo principal |
+
+**Objetivo**
+
+Validar que o relatório acompanha o ciclo de vida de um incidente: a notificação nova entra só no relatório do NSP; depois de encaminhada, entra também no do Gestor da Área; e, depois da análise e do plano de ação, os dois relatórios mostram o status, a análise e as ações atualizados.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP do Hospital B e, em outra sessão, de Gestor da Área do setor Pronto atendimento / emergência
+
+**Dados de entrada**
+
+- **Notificação J1:** registrada no Hospital B, setor Pronto atendimento / emergência, com a descrição "[TESTE] Jornada do relatório de incidentes"
+- **Recomendações 1 e 2:** as do [CT-FUN-153](#ct-fun-153)
+- **Demais campos da ação:** os dados de entrada do [CT-FUN-104](#ct-fun-104)
+
+**Procedimentos**
+
+*Tela Todos Incidentes (profissional do NSP)*
+1\. Selecionar "Extrair dados" e anotar o total do aviso.
+*Formulário de notificação*
+2\. Registrar a notificação J1.
+*Tela Todos Incidentes (profissional do NSP)*
+3\. Selecionar "Extrair dados" e verificar o aviso e a linha de J1.
+*Tela Todos Incidentes (Gestor da Área)*
+4\. Selecionar "Extrair dados" e procurar J1.
+*Tela Geral Notificação (profissional do NSP)*
+5\. Classificar J1 e encaminhá-la ao setor.
+*Tela Todos Incidentes (Gestor da Área)*
+6\. Selecionar "Extrair dados" e verificar a linha de J1.
+*Tela Análise (Gestor da Área)*
+7\. Preencher a análise de J1 até a Seção 5, com as recomendações 1 e 2, e selecionar "Finalizar análise".
+*Tela Geral Notificação (Gestor da Área)*
+8\. Completar a ação 1 com os dados de entrada.
+*Tela Todos Incidentes (Gestor da Área)*
+9\. Selecionar "Extrair dados" e verificar as abas Incidentes e Plano de ação.
+*Tela Todos Incidentes (profissional do NSP)*
+10\. Selecionar "Extrair dados" e verificar as abas Incidentes e Plano de ação.
+
+**Resultado esperado**
+
+- **CA02 e CA09 (US-7.1) — notificação nova:** o total do aviso cresce em ao menos 1 em relação ao passo 1, e J1 aparece com o status "Novo" e a "Análise" "Não iniciada"
+- **CA02 (US-7.2) — antes do encaminhamento:** J1 não aparece no relatório do gestor
+- **CA02 (US-7.2) — depois do encaminhamento:** J1 aparece no relatório do gestor, com o status "Encaminhado"
+- **CA06 e CA07 (US-7.1) e CA02 (US-7.2) — depois do plano:** nos dois relatórios, J1 aparece com o status "Em ação", a "Análise" "Concluída", "Quem analisou" "Setor", as recomendações 1 e 2, "Ações no plano" 2; a aba Plano de ação tem a ação 1 com a "Situação" "Em andamento" e a ação 2 com "Preenchimento pendente"
+- **CA09 (US-7.1) e CA05 (US-7.2) — retorno:** cada geração termina com o aviso de sucesso com o total do servidor
+
 ## 5. Testes Não-Funcionais { #testes-nao-funcionais }
 
 ### CT-NF-001 — Validação de disponibilidade contínua do sistema { #ct-nf-001 }
@@ -8419,6 +8944,28 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Padrão | Análise concluída pelo NSP, seguida da decisão sobre o encaminhamento do resultado | Sistema mantém o status "Em análise" até a decisão e só então atualiza para "Analisado" |
 | Alternativo | Conclusão do incidente direto de "Analisado", sem plano de ação | Sistema atualiza o status para "Concluído" sem passar por "Em ação" |
 
+**[CT-FUN-156](#ct-fun-156)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Geração concluída, com o total de incidentes informado pelo servidor | Sistema baixa o arquivo e exibe "Relatório gerado com N incidentes." |
+| Alternativo | Geração concluída sem o total de incidentes | Sistema baixa o arquivo e exibe "Relatório gerado." |
+| Alternativo | Falha na geração | Sistema exibe "Não foi possível gerar o relatório. Tente novamente." e habilita o botão de novo |
+
+**[CT-FUN-157](#ct-fun-157)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Alternativo | Administrador abre a lista de incidentes | Sistema não exibe o botão "Extrair dados" |
+| Alternativo | Administrador pede o relatório direto ao servidor | Sistema recusa o pedido (403) e não gera arquivo |
+
+**[CT-E2E-042](#ct-e2e-042)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Notificação nova, ainda não encaminhada | Sistema inclui o incidente só no relatório do NSP |
+| Padrão | Notificação encaminhada, com a análise do gestor concluída e o plano de ação iniciado | Sistema inclui o incidente nos relatórios do NSP e do gestor, com status, análise e ações atualizados |
+
 ### 6.2 Partição por Equivalência { #criterios-particao }
 
 **[CT-AUTH-002](#ct-auth-002) e [CT-AUTH-003](#ct-auth-003)**
@@ -8896,6 +9443,66 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | Válido | Concluir com ações "Concluído" e "Cancelada" | Sistema não inclui essas ações na contagem de ações em andamento |
 | Válido | Confirmar conclusão | Sistema atualiza o status, registra data, hora e usuário e torna o incidente somente leitura |
 
+**[CT-FUN-148](#ct-fun-148) e [CT-FUN-158](#ct-fun-158)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Cada uma das oito listas do NSP | Sistema exibe o botão "Extrair dados" à direita do "Ordenar por", com a mesma altura |
+| Válido | Lista do Gestor da Área | Sistema exibe o botão nas mesmas condições |
+| Válido | Largura de celular | Sistema exibe o botão na linha inteira, abaixo dos filtros |
+
+**[CT-FUN-149](#ct-fun-149)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Incidente da instituição, em cada um dos status | Sistema inclui o incidente no relatório |
+| Inválido | Incidente de outra instituição | Sistema não inclui o incidente |
+| Válido | Lista, busca, filtros e ordenação diferentes na tela | Sistema gera o mesmo conjunto de incidentes |
+
+**[CT-FUN-150](#ct-fun-150) e [CT-FUN-160](#ct-fun-160)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Notificação identificada | Sistema gera a linha sem nome, contato e prontuário |
+| Válido | Notificação anônima | Sistema gera a linha sem prontuário |
+| Válido | Relatório do NSP | Sistema inclui a coluna "Anônima" |
+| Válido | Relatório do Gestor da Área | Sistema não inclui a coluna "Anônima" |
+
+**[CT-FUN-152](#ct-fun-152)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Status sem incidentes | Sistema mostra a linha com 0 e 0% |
+| Válido | Incidente sem classificação | Sistema conta o incidente em "Ainda não classificado" |
+| Válido | Incidente classificado sem grau do dano | Sistema conta o incidente em "Sem dano" |
+
+**[CT-FUN-153](#ct-fun-153)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Incidente sem classificação | Sistema mostra "Não classificado" e a análise "Não iniciada" |
+| Válido | Análise em andamento | Sistema mostra "Em andamento", sem o conteúdo da análise |
+| Válido | Análise concluída pelo setor | Sistema mostra "Concluída", "Setor", as recomendações e as ações |
+| Válido | Análise concluída pelo NSP | Sistema mostra "Núcleo (NSP)" em "Quem analisou" |
+
+**[CT-FUN-154](#ct-fun-154)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Ação completa | Sistema gera a linha com a situação da ação |
+| Válido | Ação com preenchimento pendente | Sistema gera a linha com "Preenchimento pendente" |
+| Inválido | Ação excluída | Sistema não gera a linha |
+
+**[CT-FUN-159](#ct-fun-159)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Incidente encaminhado ao setor antes da análise | Sistema inclui o incidente no relatório do gestor |
+| Válido | Resultado da análise do NSP encaminhado ao setor | Sistema inclui o incidente no relatório do gestor |
+| Inválido | Incidente não encaminhado | Sistema não inclui o incidente |
+| Inválido | Analisado pelo NSP, sem encaminhar o resultado | Sistema não inclui o incidente |
+| Inválido | Incidente de outro setor | Sistema não inclui o incidente |
+
 ### 6.3 Análise de Valor Limite { #criterios-valor-limite }
 
 **[CT-FUN-124](#ct-fun-124)**
@@ -9029,6 +9636,14 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | --- | --- | --- |
 | Último valor válido | "Como a ação será realizada?" com 500 caracteres | Sistema aceita o texto e salva a ação |
 | Limite superior inválido | "Como a ação será realizada?" com 501 caracteres | Sistema indica o excesso no contador, não corta o texto e não salva |
+
+**[CT-FUN-156](#ct-fun-156)**
+
+| Tipo de Valor | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Limite inferior | Relatório com 0 incidentes | Sistema exibe "Relatório gerado com 0 incidentes." |
+| Valor válido | Relatório com 1 incidente | Sistema exibe "Relatório gerado com 1 incidente.", no singular |
+| Valor válido | Relatório com 2 incidentes | Sistema exibe "Relatório gerado com 2 incidentes.", no plural |
 
 ---
 
