@@ -23,11 +23,12 @@ hide:
     | 1.9 | 12/11/2026 | Registro do bug BUG-FRONT-022 ([e2e#59](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/59)), encontrado na revisão da automação dos casos de teste das US-4.7 e US-4.8. | Catarina Freisleben |
     | 1.10 | 14/11/2026 | Registro do bug BUG-BACK-011 ([e2e#68](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/68)), encontrado na automação dos casos de teste da US-4.1. | Catarina Freisleben |
     | 1.11 | 14/11/2026 | Registro do bug BUG-BACK-012 ([e2e#70](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/70)), encontrado na conferência dos casos de teste das US-6.1 e US-6.2. | Catarina Freisleben |
+    | 1.12 | 15/11/2026 | Fechamento dos bugs BUG-FRONT-021 ([e2e#51](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/51)), corrigido no [PR #29 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/29), BUG-FRONT-022 ([e2e#59](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/59)), corrigido no [PR #28 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/28), BUG-BACK-011 ([e2e#68](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/68)), corrigido no [PR #20 do backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend/pull/20), e BUG-BACK-012 ([e2e#70](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/70)), corrigido no [PR #21 do backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend/pull/21), conferidos na [PR e2e#72](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/72). | Catarina Freisleben |
 
 <div class="ns-dec-resumo" markdown>
 <div class="ns-dec-stat"><strong>35</strong><span>bugs registrados</span></div>
-<div class="ns-dec-stat"><strong>31</strong><span>com status <span class="ns-status ns-status--encerrado">Fechado</span></span></div>
-<div class="ns-dec-stat"><strong>4</strong><span>com status <span class="ns-status ns-status--aberto">Aberto</span></span></div>
+<div class="ns-dec-stat"><strong>35</strong><span>com status <span class="ns-status ns-status--encerrado">Fechado</span></span></div>
+<div class="ns-dec-stat"><strong>0</strong><span>com status <span class="ns-status ns-status--aberto">Aberto</span></span></div>
 <div class="ns-dec-stat"><strong>4</strong><span>de severidade <span class="ns-nivel ns-nivel--alta">Alta</span></span></div>
 <div class="ns-dec-stat"><strong>26</strong><span>de severidade <span class="ns-nivel ns-nivel--media">Média</span></span></div>
 <div class="ns-dec-stat"><strong>5</strong><span>de severidade <span class="ns-nivel ns-nivel--baixa">Baixa</span></span></div>
@@ -147,8 +148,8 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 | [BUG-FRONT-018](#bug-front-018) | #59 | Botão "Salvar" finaliza classificação de notificação indevidamente | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Pedro Silva Soledade<br><span class="ns-bug-dest">→ Luigi Almeida</span> |
 | [BUG-FRONT-019](#bug-front-019) | [e2e#14](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/14) | CT-FUN-051: orientação do campo "Informe o incidente em investigação" fica escondida num ícone de ajuda | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
 | [BUG-FRONT-020](#bug-front-020) | [e2e#36](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/36) | CT-FUN-084 e CT-FUN-086: campos da Seção 4 com limite de caracteres sem o contador "N/limite" | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
-| [BUG-FRONT-021](#bug-front-021) | [e2e#51](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/51) | CT-FUN-110: caixa ⓘ das previsões de início e de conclusão acima das perguntas, e não logo abaixo | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
-| [BUG-FRONT-022](#bug-front-022) | [e2e#59](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/59) | CT-E2E-028: "Exportar diagrama" do Ishikawa falha no Firefox | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
+| [BUG-FRONT-021](#bug-front-021) | [e2e#51](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/51) | CT-FUN-110: caixa ⓘ das previsões de início e de conclusão acima das perguntas, e não logo abaixo | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
+| [BUG-FRONT-022](#bug-front-022) | [e2e#59](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/59) | CT-E2E-028: "Exportar diagrama" do Ishikawa falha no Firefox | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
 
 </div>
 
@@ -957,7 +958,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 ??? bug "BUG-FRONT-021 · e2e#51 · CT-FUN-110: caixa ⓘ das previsões de início e de conclusão acima das perguntas, e não logo abaixo"
 
     <div class="ns-bug-meta" markdown>
-    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--aberto">Aberto</span></span>
+    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--encerrado">Fechado</span></span>
     <span><span class="ns-dec-rotulo">Severidade</span><span class="ns-nivel ns-nivel--baixa">Baixa</span></span>
     <span><span class="ns-dec-rotulo">Reportado por</span>Catarina Freisleben</span>
     <span><span class="ns-dec-rotulo">Designado para</span>Brenno Ostemberg</span>
@@ -989,6 +990,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
     - **Onde está no código (front `51ed198`):** em `src/pages/Admin/NotificacaoDetalhe/components/PlanoAcaoModal.tsx`, linhas 264 a 317, a `InfoBox` das previsões vem antes do `FieldRow` com as duas perguntas. Nas outras perguntas, o componente `Campo` põe a `InfoBox` entre o rótulo e o campo.
     - **Protótipo:** o protótipo também põe a caixa acima das datas. Na revisão dos casos de teste, a equipe de testes decidiu seguir o CA14, que pede a caixa logo abaixo de cada pergunta (decisão de 08/11/2026).
     - **Teste:** o CT-FUN-110 confere a posição de cada caixa. O trecho das previsões fica num teste à parte, marcado como falha conhecida (`test.fail`) com o link deste bug. Quando o front corrigir, esse teste passa a acusar, e a marca sai.
+    - **Correção:** o [PR #29 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/29) (`977af85`, 15/11/2026) passou a mostrar a caixa ⓘ de cada previsão logo abaixo da pergunta. Conferido em 15/11/2026 na `develop` do frontend (`78246a9`), na [PR e2e#72](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/72): o CT-FUN-110 passa sem a marca de falha conhecida, que saiu, e reprova com o frontend de antes (`45283a7`).
     - Encontrado na automação das US-5.1 a US-5.4 ([e2e#50](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/50)).
 
     **Versões afetadas**
@@ -1011,7 +1013,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 ??? bug "BUG-FRONT-022 · e2e#59 · CT-E2E-028: &quot;Exportar diagrama&quot; do Ishikawa falha no Firefox"
 
     <div class="ns-bug-meta" markdown>
-    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--aberto">Aberto</span></span>
+    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--encerrado">Fechado</span></span>
     <span><span class="ns-dec-rotulo">Severidade</span><span class="ns-nivel ns-nivel--media">Média</span></span>
     <span><span class="ns-dec-rotulo">Reportado por</span>Catarina Freisleben</span>
     <span><span class="ns-dec-rotulo">Designado para</span>Brenno Ostemberg</span>
@@ -1045,6 +1047,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
     - **Por que só no Firefox:** a diferença está no jeito como o motor do Firefox (Gecko) entrega as regras de fonte. Então afeta qualquer Firefox, e não só o do Playwright.
     - **Teste:** o CT-E2E-028 ([PR e2e#43](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/43)) confere a exportação e reprova no Firefox.
     - **Por que não apareceu antes:** a CI das PRs roda só o Chromium. A CI da `main` roda os três navegadores, mas o CT-E2E-028 ainda não está na `main`. Encontrado na revisão da [PR e2e#43](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/43), em 12/11/2026.
+    - **Correção:** o [PR #28 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/28) (`78246a9`, 15/11/2026) passou a exportar o diagrama no Firefox. Conferido em 15/11/2026 na [PR e2e#72](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/72): o CT-E2E-028 passa no Firefox sem a marca de falha conhecida, que saiu, e reprova com o frontend de antes (`45283a7`), sem chegar o download.
 
     **Versões afetadas**
 
@@ -1074,8 +1077,8 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 | [BUG-BACK-008](#bug-back-008) | #97 | Corrige porta fixa no healthcheck do Dockerfile | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Fábio Ramos<br><span class="ns-bug-dest">→ Fábio Ramos</span> |
 | [BUG-BACK-009](#bug-back-009) | [e2e#15](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/15) | CT-E2E-021: data do último salvamento da análise sai 4 h antes da data de início | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
 | [BUG-BACK-010](#bug-back-010) | [e2e#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20) | CT-FUN-053: horário do incidente não é coletado nem aparece no resumo da análise | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
-| [BUG-BACK-011](#bug-back-011) | [e2e#68](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/68) | CT-FUN-043: prazo para análise de Óbito e Never Event calculado com 4 dias, e não 2 (RN-14) | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
-| [BUG-BACK-012](#bug-back-012) | [e2e#70](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/70) | Histórico mostra duas entradas para uma ação ao classificar, encaminhar e iniciar a análise | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
+| [BUG-BACK-011](#bug-back-011) | [e2e#68](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/68) | CT-FUN-043: prazo para análise de Óbito e Never Event calculado com 4 dias, e não 2 (RN-14) | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
+| [BUG-BACK-012](#bug-back-012) | [e2e#70](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/70) | Histórico mostra duas entradas para uma ação ao classificar, encaminhar e iniciar a análise | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
 
 </div>
 
@@ -1617,7 +1620,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 ??? bug "BUG-BACK-011 · e2e#68 · CT-FUN-043: prazo para análise de Óbito e Never Event calculado com 4 dias, e não 2 (RN-14)"
 
     <div class="ns-bug-meta" markdown>
-    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--aberto">Aberto</span></span>
+    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--encerrado">Fechado</span></span>
     <span><span class="ns-dec-rotulo">Severidade</span><span class="ns-nivel ns-nivel--media">Média</span></span>
     <span><span class="ns-dec-rotulo">Reportado por</span>Catarina Freisleben</span>
     <span><span class="ns-dec-rotulo">Designado para</span>Brenno Ostemberg</span>
@@ -1654,6 +1657,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
     - **Confirmação da regra:** a Sophya confirmou em 14/11/2026 que vale a RN-14 (2 dias para óbito e Never Event).
     - **Como foi achado:** na conferência da ficha do CT-FUN-043 (US-4.1, CA04) contra a especificação e o sistema, na automação dos casos funcionais da US-4.1 ([e2e#66](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/66)). O caso da ficha com Never Event (C2) não foi automatizado, porque pede um Never Event encaminhado ao setor, o que o sistema não permite (US-2.3, CA06).
     - **Teste que confere o valor errado:** o teste "classifica incidente como Never Event e valida prazo de 4 dias", do CT-E2E-007 (`tests/e2e/ct-e2e-007.spec.ts`, linha 68), espera o prazo do Never Event com 4 dias a partir do registro. Por isso ele passa enquanto o defeito existe e falha com a correção. O ajuste para 2 dias fica no repositório de e2e. A ficha do CT-E2E-007 não pede o prazo. Apontado pelo Brenno Ostemberg em 15/11/2026.
+    - **Correção:** o [PR #20 do backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend/pull/20) (`ecbba3a`, 15/11/2026) passou o prazo de óbito e Never Event para 2 dias e manteve o grave em 4, o moderado em 7 e o leve ou sem dano em 10. Conferido em 15/11/2026 na `develop` do backend (`946dff0`), na [PR e2e#72](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/72): o CT-E2E-007, ajustado para 2 dias, passa, e reprova com o backend de antes (`5ecd1b4`).
 
     **Versões afetadas**
 
@@ -1675,7 +1679,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 ??? bug "BUG-BACK-012 · e2e#70 · Histórico mostra duas entradas para uma ação ao classificar, encaminhar e iniciar a análise"
 
     <div class="ns-bug-meta" markdown>
-    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--aberto">Aberto</span></span>
+    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--encerrado">Fechado</span></span>
     <span><span class="ns-dec-rotulo">Severidade</span><span class="ns-nivel ns-nivel--baixa">Baixa</span></span>
     <span><span class="ns-dec-rotulo">Reportado por</span>Catarina Freisleben</span>
     <span><span class="ns-dec-rotulo">Designado para</span>Brenno Ostemberg</span>
@@ -1710,6 +1714,7 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
     - **O protótipo** registra uma entrada por ação (`src/services/localStore.ts`, `addHistorico`).
     - **Como foi achado:** na conferência das fichas das US-6.1 e 6.2 contra o sistema, antes da automação. Os testes conferem o que a ficha pede (a ação, com data, hora e usuário) e não contam as entradas.
     - **Teste que dependia das entradas a mais:** o CT-E2E-033 (US-5.5 a US-5.7) avança as páginas do histórico até a última e esperava que o botão de próxima página existisse. Com as entradas em dobro, o histórico do teste passa de 10 entradas e ganha a segunda página. Com uma entrada por ação, ele cabe numa página só, o botão não aparece e o teste estoura o tempo. O ajuste fica no repositório de e2e. Apontado pelo Brenno Ostemberg em 15/11/2026.
+    - **Correção:** o [PR #21 do backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend/pull/21) (`946dff0`, 15/11/2026) passou a gravar a linha do fato e a do status com o mesmo instante, nas três ações, e a tela mostra uma entrada por ação. Conferido em 15/11/2026 na [PR e2e#72](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/72): o histórico do CT-E2E-033 passou de duas páginas para uma, com uma entrada por ação, e o teste passou a funcionar com uma página ou várias.
 
     **Versões afetadas**
 
