@@ -1,4 +1,4 @@
-﻿<h1 align="center">Casos de Teste</h1>
+<h1 align="center">Casos de Teste</h1>
 
 <p align="center"><strong>Mantenedores:</strong> Gustavo Henrique, Kauan Cardoso, Sophya Ribeiro, Brenno, Catarina, Eduardo</p>
 
@@ -56,6 +56,7 @@
     | 4.33 | 11/11/2026 | Adição dos casos de teste da US-6.1 (CT-FUN-133 a CT-FUN-136) na nova seção do Épico 6 em Testes Funcionais e em Critérios de Teste | Catarina Freisleben |
     | 4.34 | 11/11/2026 | Adição dos casos de teste da US-6.2 (CT-FUN-137 a CT-FUN-139, CT-E2E-036 e CT-E2E-037) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste. Os CT-E2E-036 e CT-E2E-037 percorrem o ciclo de vida do incidente pelas US-6.1 e US-6.2, e o CA06 da US-6.2 também é conferido pelo CT-E2E-031 | Catarina Freisleben |
     | 4.35 | 12/11/2026 | Campo "Automatizado" como "Sim" no CT-FUN-132 (CA18 da US-5.1), automatizado na [PR #54 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/54) | Catarina Freisleben |
+    | 4.40 | 15/11/2026 | Correção da tabela de critérios de teste do CT-FUN-024, do CT-FUN-025 e do CT-FUN-026 pela RN-14: leve 10 dias, moderado 7, grave 4 e óbito ou Never Event 2 (antes: leve/moderado 10, grave 7 e Never Event 4). As fichas já traziam os prazos certos. | Catarina Freisleben |
 
 ## Sumário
 
@@ -8081,9 +8082,10 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 
 | Cenário | Descrição | Resultado esperado |
 | --- | --- | --- |
-| Válido | Selecionar grau leve/moderado | Sistema define prazo de 10 dias |
-| Válido | Selecionar grau grave | Sistema define prazo de 7 dias |
-| Válido | Selecionar grau never event | Sistema define prazo de 4 dias |
+| Válido | Selecionar grau leve | Sistema define prazo de 10 dias |
+| Válido | Selecionar grau moderado | Sistema define prazo de 7 dias |
+| Válido | Selecionar grau grave | Sistema define prazo de 4 dias |
+| Válido | Selecionar grau óbito ou never event | Sistema define prazo de 2 dias |
 
 **[CT-E2E-018](#ct-e2e-018)**
 
