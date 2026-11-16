@@ -162,6 +162,8 @@ nav:
               - Épico 5 - Gestão de Plano de Ação - End-to-End (US-5.2): vvt/relatorios-testes/plano-acao-us-5-2-e2e.md
               - Épico 5 - Gestão de Plano de Ação - End-to-End (US-5.3): vvt/relatorios-testes/plano-acao-us-5-3-e2e.md
               - Épico 5 - Gestão de Plano de Ação - End-to-End (US-5.4): vvt/relatorios-testes/plano-acao-us-5-4-e2e.md
+              - Épico 6 - Status e Ciclo de Vida - End-to-End (US-6.1): vvt/relatorios-testes/ciclo-vida-us-6-1-e2e.md
+              - Épico 6 - Status e Ciclo de Vida - End-to-End (US-6.2): vvt/relatorios-testes/ciclo-vida-us-6-2-e2e.md
           - Testes Não-Funcionais: vvt/relatorio-nao-funcionais.md
           - Bugs: vvt/relatorio-bugs.md
       - Teste de Usabilidade:
