@@ -59,6 +59,9 @@
     | 4.36 | 15/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste da US-4.1: CT-FUN-041 a CT-FUN-046, automatizados na [PR #67 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/67), e CT-E2E-019 e CT-E2E-020, completados na [PR #63](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/63) | Catarina Freisleben |
     | 4.37 | 15/11/2026 | Campo "Automatizado" como "Sim" no CT-FUN-047 e no CT-FUN-051 (US-4.2), completados na [PR #63 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/63), e no CT-E2E-021, completo desde a [PR #32](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/32) | Catarina Freisleben |
     | 4.38 | 15/11/2026 | Campo "Automatizado" como "Sim" no CT-FUN-060, no CT-FUN-061 e no CT-E2E-022 (US-4.3), completados na [PR #63 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/63) | Catarina Freisleben |
+    | 4.39 | 16/11/2026 | Inclusão dos casos de teste da US-6.3 (CT-FUN-140 a CT-FUN-143 e CT-E2E-038) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste, com atualização da matriz de rastreabilidade | Gustavo Henrique |
+    | 4.40 | 16/11/2026 | Inclusão dos casos de teste da US-6.4 (CT-FUN-144 a CT-FUN-147 e CT-E2E-039 a CT-E2E-040) nas seções de Testes Funcionais, Testes End-to-End e Critérios de Teste, com atualização da matriz de rastreabilidade | Gustavo Henrique |
+    | 4.41 | 16/11/2026 | Inclusão do CT-E2E-041 para cobrir a sugestão de conclusão após conclusão automática da última ação por efetividade "Sim" (US-5.7 e US-6.4, CA05), com atualização da matriz | Gustavo Henrique |
 
 ## Sumário
 
@@ -94,6 +97,8 @@
     - [3.5. Épico 6 - Status e ciclo de vida do incidente](#testes-funcionais-epico-6)
         - [3.5.1. História 6.1 - Visualizar o status e o ciclo de vida do incidente](#testes-us-6-1)
         - [3.5.2. História 6.2 - Atualizar o status a partir das ações do usuário](#testes-us-6-2)
+        - [3.5.3. História 6.3 - Arquivar incidente](#testes-us-6-3)
+        - [3.5.4. História 6.4 - Concluir incidente](#testes-us-6-4)
 - [4. Testes End-to-End](#testes-e2e)
 - [5. Testes Não-Funcionais](#testes-nao-funcionais)
 - [6. Critérios de Teste](#criterios-teste)
@@ -5799,6 +5804,263 @@ Validar que, com o incidente "Em ação", adicionar, editar, excluir e atualizar
 - **CA07 — excluir:** depois de excluir a ação B, o status continua "Em ação"
 - **CA07 — todas concluídas:** depois de a ação A, a única do plano, passar a "Concluído", o status continua "Em ação", e o menu ⋮ ao lado do status continua oferecendo "Concluir incidente": o encerramento só acontece pela conclusão do incidente
 
+#### 3.5.3. História 6.3 - Arquivar incidente { #testes-us-6-3 }
+
+##### CT-FUN-140 — Disponibilidade da opção de arquivar { #ct-fun-140 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.3 | CA01 + CA02 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que a opção de arquivar é oferecida ao profissional do NSP nos status não finais, não é oferecida nos status "Concluído" e "Arquivado", e não aparece para o Gestor da Área.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP, Administrador e Gestor da Área
+- Existir uma notificação em cada status: Novo, Classificado, Encaminhado, Em análise, Analisado, Em ação, Concluído e Arquivado; as notificações encaminhadas pertencem ao setor do Gestor da Área
+
+**Procedimentos**
+
+*Tela Geral Notificação (profissional do NSP)*
+1\. Abrir cada notificação com status Novo, Classificado, Encaminhado, Em análise, Analisado e Em ação, abrir o menu ⋮ ao lado do status e verificar as opções.
+2\. Abrir as notificações com status "Concluído" e "Arquivado" e verificar se o menu ⋮ não aparece.
+*Tela Geral Notificação (Administrador)*
+3\. Abrir uma notificação em status não final e verificar a opção de arquivar.
+*Tela Geral Notificação (Gestor da Área)*
+4\. Abrir a notificação encaminhada ao seu setor e verificar as opções do cabeçalho.
+
+**Resultado esperado**
+
+- **CA01 — status não final:** o menu ⋮ oferece "Arquivar notificação" nos status Novo, Classificado, Encaminhado, Em análise, Analisado e Em ação
+- **CA01 — status final:** em "Concluído" e "Arquivado", a opção de arquivar não é exibida
+- **CA02 — perfis autorizados:** profissional do NSP e Administrador visualizam a opção nos status não finais
+- **CA02 — Gestor da Área:** não visualiza a opção de arquivar
+
+##### CT-FUN-141 — Confirmação e cancelamento do arquivamento { #ct-fun-141 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.3 | CA03 | Fluxo alternativo |
+
+**Objetivo**
+
+Validar o texto da confirmação de arquivamento e que cancelar a ação não altera o incidente.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação em status "Classificado", com dados e histórico registrados
+
+**Procedimentos**
+
+*Tela Geral Notificação (profissional do NSP)*
+1\. Abrir a notificação e registrar o status, os dados exibidos e as entradas atuais do histórico.
+2\. Abrir o menu ⋮ ao lado do status e selecionar "Arquivar notificação".
+3\. Conferir o texto de confirmação e selecionar "Cancelar".
+4\. Conferir novamente o status, os dados, o histórico e as opções do cabeçalho.
+
+**Resultado esperado**
+
+- **CA03 — confirmação:** o sistema exibe exatamente "Tem certeza que deseja arquivar essa notificação? Essa decisão não poderá ser alterada."
+- **CA03 — cancelamento:** a confirmação é fechada sem alterar o status, sem registrar evento de arquivamento no histórico e sem remover ou modificar informações; a opção continua disponível
+
+##### CT-FUN-142 — Arquivamento, histórico e somente leitura { #ct-fun-142 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.3 | CA04 | Fluxo principal |
+
+**Objetivo**
+
+Validar que a confirmação atualiza o status para "Arquivado", registra data, hora e usuário no histórico e deixa o incidente somente para consulta.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação em status "Em ação", com classificação, análise concluída e ao menos uma ação
+
+**Procedimentos**
+
+*Tela Geral Notificação (profissional do NSP)*
+1\. Abrir a notificação, abrir o menu ⋮, selecionar "Arquivar notificação" e confirmar a mensagem com "Sim".
+2\. Conferir o status e a entrada mais recente do histórico.
+3\. Verificar as opções de edição, inclusão e exclusão nas seções de informações gerais, classificação, análise e plano de ação, além do cabeçalho.
+
+**Resultado esperado**
+
+- **CA04 — status:** o status passa para "Arquivado"
+- **CA04 — histórico:** o histórico registra o arquivamento com data, hora e usuário que confirmou a ação
+- **CA04 — somente leitura:** não há opções para editar, adicionar ou excluir informações, classificação, análise ou ações; o menu ⋮ não aparece
+
+##### CT-FUN-143 — Preservação das informações do incidente arquivado { #ct-fun-143 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.3 | CA05 | Partição por equivalência |
+
+**Objetivo**
+
+Validar que as informações já registradas, inclusive análise em rascunho e ações, permanecem disponíveis para consulta após o arquivamento.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existirem notificações arquivadas com dados da notificação e classificação: uma com análise salva como rascunho e outra com análise concluída e ações registradas
+
+**Procedimentos**
+
+*Tela Geral Notificação (profissional do NSP)*
+1\. Abrir a notificação arquivada com análise salva como rascunho.
+2\. Consultar as seções de informações gerais, classificação e análise, e comparar com os dados registrados antes do arquivamento.
+3\. Abrir a notificação arquivada com ações registradas.
+4\. Consultar as seções de informações gerais, classificação, análise e plano de ação, e comparar com os dados registrados antes do arquivamento.
+
+**Resultado esperado**
+
+- **CA05 — notificação e classificação:** os dados registrados antes do arquivamento continuam disponíveis e inalterados
+- **CA05 — análise em rascunho:** o conteúdo salvo em rascunho permanece disponível para consulta
+- **CA05 — ações:** as ações já registradas e seus dados permanecem disponíveis para consulta
+- O incidente permanece somente leitura, conforme [US-6.1, CA06](#ct-fun-136)
+
+#### 3.5.4. História 6.4 - Concluir incidente { #testes-us-6-4 }
+
+##### CT-FUN-144 — Disponibilidade da conclusão e da sugestão { #ct-fun-144 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.4 | CA01 + CA02 + CA06 | Partição por equivalência |
+
+**Objetivo**
+
+Validar em quais status o NSP pode concluir pelo menu, que a sugestão de conclusão respeita as permissões do perfil e as condições previstas, e que o Gestor da Área não recebe essas opções.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP, Administrador e Gestor da Área
+- Existir notificação em cada status do ciclo: Novo, Classificado, Encaminhado, Em análise, Analisado, Em ação, Concluído e Arquivado; a notificação encaminhada pertence ao setor do Gestor da Área
+- Existirem notificações "Em ação" com uma última ação pendente para o Administrador e para o Gestor da Área
+- Existir uma notificação cuja última ação foi salva como "Cancelada"
+
+**Procedimentos**
+
+*Tela Geral Notificação (profissional do NSP)*
+1\. Abrir uma notificação em cada status e verificar se o menu ⋮ oferece "Concluir incidente".
+2\. Abrir a notificação cuja última ação foi salva como "Cancelada" e verificar que a sugestão não é exibida; abrir o detalhe de outra notificação "Em ação" sem salvar uma ação e verificar o mesmo.
+*Tela Geral Notificação (Administrador)*
+3\. Conferir a opção de concluir pelo menu e atualizar a última ação pendente para "Concluído"; verificar se a sugestão é exibida.
+*Tela Geral Notificação (Gestor da Área)*
+4\. Abrir uma notificação encaminhada e uma notificação "Em ação" acessível ao perfil e verificar se não há opção de concluir; atualizar a última ação pendente para "Concluído" e verificar se a sugestão não é exibida.
+
+**Resultado esperado**
+
+- **CA01 — status permitidos:** o menu oferece "Concluir incidente" somente nos status "Analisado" e "Em ação"
+- **CA01 — demais status:** nos status Novo, Classificado, Encaminhado, Em análise, Concluído e Arquivado, a opção não aparece
+- **CA02 — perfis:** profissional do NSP e Administrador visualizam a opção/sugestão conforme status e condições; o Gestor da Área não visualiza nem a opção de conclusão nem a sugestão, inclusive ao salvar a última ação como "Concluído"
+- **CA06 — ação cancelada:** salvar a última ação como "Cancelada" não exibe a sugestão
+- **CA06 — apenas abrir:** abrir o detalhe sem salvar uma atualização não exibe a sugestão
+
+##### CT-FUN-145 — Confirmação e aviso de ações em andamento { #ct-fun-145 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.4 | CA03 + CA04 | Fluxo alternativo |
+
+**Objetivo**
+
+Validar a confirmação em qualquer caminho de conclusão e o aviso com a contagem exata de ações "Em andamento", incluindo ações pendentes de preenchimento, sem bloquear a conclusão.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação "Em ação" com uma ação em andamento e uma ação pendente de preenchimento, ambas com status "Em andamento", além de ações "Concluído" e "Cancelada"
+- Existir outra notificação "Analisado" sem ação em andamento
+- Existir outra notificação "Em ação" cujas ações estejam todas nos status "Concluído" ou "Cancelada"
+
+**Procedimentos**
+
+*Tela Geral Notificação (profissional do NSP)*
+1\. Na notificação "Analisado", selecionar "Concluir incidente" no menu ⋮ e conferir a confirmação padrão; selecionar "Não".
+2\. Na notificação "Em ação" sem nenhuma ação "Em andamento", selecionar "Concluir incidente" e conferir a confirmação padrão sem o aviso contextual; selecionar "Não".
+3\. Na notificação com duas ações "Em andamento", selecionar "Concluir incidente" e conferir o aviso, incluindo a ação pendente de preenchimento; selecionar "Não".
+4\. Solicitar novamente a conclusão nessa notificação e confirmar com "Sim".
+
+**Resultado esperado**
+
+- **CA03 — confirmação padrão:** exibe exatamente "Tem certeza que deseja concluir esse incidente? Essa decisão não poderá ser alterada." com as opções "Não" e "Sim"; "Não" mantém os dados e o status
+- **CA04 — sem ações em andamento:** se todas as ações estiverem "Concluído" ou "Cancelada", o sistema exibe a confirmação padrão, sem o aviso contextual
+- **CA04 — aviso contextual:** com duas ações "Em andamento", exibe exatamente "Ainda há 2 ação(ões) em andamento neste incidente. Tem certeza que deseja concluí-lo mesmo assim? Essa decisão não poderá ser alterada."
+- **CA04 — contagem e conclusão:** ações "Concluído" e "Cancelada" não entram na contagem; confirmar com "Sim" conclui o incidente mesmo com ações pendentes/em andamento
+
+##### CT-FUN-146 — Sugestão de conclusão após finalizar todas as ações { #ct-fun-146 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.4 | CA05 + CA06 | Fluxo principal e fluxo alternativo |
+
+**Objetivo**
+
+Validar que salvar a última ação como "Concluído" sugere a conclusão, que a opção de criar outro plano mantém o incidente "Em ação", e que salvar como "Cancelada" ou apenas abrir o detalhe não gera sugestão.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação "Em ação" com uma ação pendente de atualização e todas as outras ações em "Concluído" ou "Cancelada"
+- Existir outra notificação "Em ação" cuja última ação pendente possa ser atualizada para "Cancelada"
+- Existir uma notificação "Em ação" com uma ação pendente em situação "Atrasada", cuja efetividade possa concluir automaticamente essa ação
+
+**Dados de entrada**
+
+- Dados de andamento da ação conforme [CT-FUN-129](#ct-fun-129), com situação "Concluído" e efetividade preenchida
+- Dados completos de uma nova ação conforme [CT-FUN-104](#ct-fun-104)
+- Para conclusão automática: dados de andamento do [CT-FUN-131](#ct-fun-131), com situação "Atrasada", campos de realização preenchidos e efetividade "Sim"
+
+**Procedimentos**
+
+*Tela Geral Notificação*
+1\. Na primeira notificação, atualizar a última ação pendente para "Concluído" e salvar.
+2\. Conferir a sugestão e selecionar "Não, criar outro plano de ação".
+3\. No formulário de nova ação, conferir que o incidente permanece "Em ação" e cancelar o formulário sem salvar.
+4\. Na segunda notificação, salvar a última ação pendente como "Cancelada" e verificar a ausência da sugestão.
+5\. Na terceira notificação, responder "Sim" à efetividade da ação atrasada para que ela passe automaticamente a "Concluído" e verificar a sugestão após salvar.
+
+**Resultado esperado**
+
+- **CA05 — sugestão:** ao finalizar a última ação, o sistema exibe "Todas as ações desse incidente já foram concluídas. Deseja concluir o incidente?" com "Sim, concluir incidente" e "Não, criar outro plano de ação"
+- **CA05 — criar outro plano:** selecionar "Não, criar outro plano de ação" abre o formulário de nova ação e mantém o incidente "Em ação"
+- **CA05 — conclusão automática:** quando a efetividade "Sim" conclui automaticamente a última ação, a sugestão de conclusão também é exibida
+- **CA06 — cancelamento da ação:** quando a última ação pendente é salva como "Cancelada", a sugestão não aparece
+- **CA06 — visualizar:** abrir o detalhe sem salvar ação não exibe a sugestão
+
+##### CT-FUN-147 — Resultado e somente leitura após concluir { #ct-fun-147 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.4 | CA07 | Fluxo principal |
+
+**Objetivo**
+
+Validar que confirmar a conclusão atualiza o status, registra data, hora e usuário no histórico e deixa o incidente somente para consulta.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir notificação "Analisado" ou "Em ação" com notificação, classificação, análise e ações registradas
+
+**Procedimentos**
+
+*Tela Geral Notificação (profissional do NSP)*
+1\. Solicitar a conclusão pelo menu ou pela sugestão e confirmar com "Sim".
+2\. Conferir o status e o registro mais recente do histórico.
+3\. Verificar as opções de edição, inclusão e exclusão das informações gerais, classificação, análise e plano de ação, além do menu ao lado do status.
+
+**Resultado esperado**
+
+- **CA07 — status:** o incidente passa para "Concluído"
+- **CA07 — histórico:** o histórico registra a conclusão com data, hora e usuário que confirmou
+- **CA07 — somente leitura:** as informações permanecem acessíveis, mas sem opções de editar, adicionar, excluir ou alterar o status
+
 ## 4. Testes End-to-End { #testes-e2e }
 
 ### CT-E2E-001 — Registro completo de notificação com paciente { #ct-e2e-001 }
@@ -7489,6 +7751,135 @@ Validar o ciclo de vida do incidente analisado pelo NSP: a análise começa a pa
     - de "Analisado", o incidente vai direto para "Concluído", sem passar por "Em ação"
 - **CA08 (US-6.2):** o histórico registra cada mudança de status com a ação que a provocou, a data, a hora e o usuário: o início da análise, a decisão sobre o encaminhamento e a conclusão do incidente
 
+### CT-E2E-038 — Arquivamento rastreável do incidente { #ct-e2e-038 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.3 | CA01, CA03, CA04 e CA05 | Fluxo principal e fluxo alternativo |
+
+**Objetivo**
+
+Validar o arquivamento irreversível pelo profissional do NSP, do menu de status à confirmação, mudança de status e registro no histórico, verificando também que os dados persistem para consulta. A cobertura de perfis e de status em que a opção aparece fica detalhada no [CT-FUN-140](#ct-fun-140).
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existirem duas notificações do NSP: uma em "Em análise", com análise salva como rascunho, e outra em "Em ação", com análise concluída e ao menos uma ação registrada
+- Em ambas, estarem registrados dados da notificação e classificação
+
+**Procedimentos**
+
+*Tela Geral Notificação (profissional do NSP)*
+1\. Abrir a notificação em "Em análise" e conferir os dados de notificação, classificação e rascunho da análise.
+2\. Abrir o menu ⋮ ao lado do status e selecionar "Arquivar notificação".
+3\. Conferir o texto de confirmação e selecionar "Cancelar"; verificar que o status e o histórico não mudaram e a opção continua disponível.
+4\. Abrir novamente o menu ⋮, selecionar "Arquivar notificação" e confirmar com "Sim".
+5\. Conferir o status, o histórico e as opções de edição; consultar os dados de notificação, classificação e análise.
+6\. Repetir os passos de arquivamento e confirmação com a notificação em "Em ação".
+7\. Conferir o status, o histórico, o modo somente leitura e os dados de notificação, classificação e plano de ação.
+
+**Resultado esperado**
+
+- **CA03 — confirmação e cancelamento:** a confirmação exibe exatamente "Tem certeza que deseja arquivar essa notificação? Essa decisão não poderá ser alterada."; cancelar não altera status, histórico ou dados
+- **CA04 — resultado:** ao confirmar cada arquivamento, o status passa a "Arquivado" e o histórico registra a ação com data, hora e usuário
+- **CA04 — somente leitura:** após arquivar, não há menu de encerramento nem opções para editar, adicionar ou excluir informações
+- **CA05 — dados preservados:** os dados da notificação, classificação, análise em rascunho ou concluída e ações permanecem disponíveis para consulta, conforme existiam em cada notificação
+
+### CT-E2E-039 — Sugestão e conclusão após finalizar o plano de ação { #ct-e2e-039 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.4 | CA03, CA05 e CA07 | Fluxo principal |
+
+**Objetivo**
+
+Validar que finalizar a última ação oferece a sugestão de conclusão e que aceitar percorre a confirmação, atualiza o status e registra o encerramento no histórico.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação "Em ação" com uma ação pendente e todas as demais ações "Concluído" ou "Cancelada"
+
+**Dados de entrada**
+
+- Dados de andamento da ação conforme [CT-FUN-129](#ct-fun-129), com situação "Concluído" e efetividade preenchida
+
+**Procedimentos**
+
+*Tela Geral Notificação (profissional do NSP)*
+1\. Atualizar a última ação pendente para "Concluído" e salvar.
+2\. Conferir a sugestão "Todas as ações desse incidente já foram concluídas. Deseja concluir o incidente?" e selecionar "Sim, concluir incidente".
+3\. Conferir a confirmação irreversível e selecionar "Sim".
+4\. Verificar status, histórico, dados do incidente e opções disponíveis nas seções.
+
+**Resultado esperado**
+
+- **CA05 — sugestão:** a mensagem e as opções "Sim, concluir incidente" e "Não, criar outro plano de ação" são exibidas após a última ação ser finalizada
+- **CA03 — confirmação:** selecionar "Sim, concluir incidente" abre a confirmação "Tem certeza que deseja concluir esse incidente? Essa decisão não poderá ser alterada."
+- **CA07 — resultado:** após confirmar, o status é "Concluído", o histórico registra data, hora e usuário e as informações ficam somente para consulta
+
+### CT-E2E-040 — Conclusão com ações ainda em andamento { #ct-e2e-040 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-6.4 | CA01, CA03, CA04 e CA07 | Fluxo principal e fluxo alternativo |
+
+**Objetivo**
+
+Validar a conclusão pelo menu quando ainda há ações em andamento, incluindo ações pendentes de preenchimento, com aviso e contagem correta, sem bloquear o encerramento.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir notificação "Em ação" com duas ações "Em andamento", incluindo uma pendente de preenchimento, e outras ações nos status "Concluído" e "Cancelada"
+
+**Procedimentos**
+
+*Tela Geral Notificação (profissional do NSP)*
+1\. Abrir o menu ⋮ ao lado do status e selecionar "Concluir incidente".
+2\. Conferir o aviso de que há duas ações em andamento e selecionar "Sim".
+3\. Verificar o status, o histórico e as opções disponíveis nas seções.
+
+**Resultado esperado**
+
+- **CA01 — disponibilidade:** o menu oferece "Concluir incidente" para o status "Em ação"
+- **CA04 — aviso:** a confirmação informa "Ainda há 2 ação(ões) em andamento neste incidente. Tem certeza que deseja concluí-lo mesmo assim? Essa decisão não poderá ser alterada."; a contagem inclui a ação pendente de preenchimento e exclui as ações "Concluído" e "Cancelada"
+- **CA04 — confirmação:** confirmar conclui o incidente mesmo com ações em andamento
+- **CA07 — resultado:** o status passa a "Concluído", o histórico registra data, hora e usuário e o incidente fica somente para consulta
+
+### CT-E2E-041 — Sugestão após conclusão automática por efetividade { #ct-e2e-041 }
+
+| Automatizado | História testada | Critério de aceite | Critério de teste |
+| --- | --- | --- | --- |
+| Não — Não implementado | US-5.7 e US-6.4 | CA05 (US-6.4) | Fluxo principal e fluxo alternativo |
+
+**Objetivo**
+
+Validar que a efetividade "Sim" conclui automaticamente a última ação e, após salvar, exibe a sugestão de conclusão do incidente com o caminho para criar outra ação.
+
+**Pré-condições**
+
+- [CT-AUTH-002](#ct-auth-002) com credenciais de profissional do NSP
+- Existir uma notificação "Em ação" com uma ação pendente de atualização e todas as demais ações nos status "Concluído" ou "Cancelada"
+
+**Dados de entrada**
+
+- Dados de andamento da ação conforme [CT-FUN-131](#ct-fun-131), com situação "Atrasada", campos de realização preenchidos e efetividade "Sim"
+- Dados completos de uma nova ação conforme [CT-FUN-104](#ct-fun-104)
+
+**Procedimentos**
+
+*Tela Geral Notificação (profissional do NSP)*
+1\. Atualizar a última ação pendente com os dados de entrada e salvar a efetividade "Sim".
+2\. Conferir que a situação da ação passa automaticamente a "Concluído" e que aparece a sugestão "Todas as ações desse incidente já foram concluídas. Deseja concluir o incidente?".
+3\. Selecionar "Não, criar outro plano de ação" e preencher os dados da nova ação.
+4\. Salvar a nova ação e verificar o status do incidente e o plano de ação.
+
+**Resultado esperado**
+
+- **CA05 — conclusão automática:** ao salvar a efetividade "Sim", a ação passa a "Concluído" e, sendo a última ação pendente, a sugestão de conclusão é exibida com "Sim, concluir incidente" e "Não, criar outro plano de ação"
+- **CA05 — criar outra ação:** selecionar essa opção abre o formulário; após salvar a nova ação, o incidente permanece "Em ação" e a ação recém-criada aparece no plano
+
 ## 5. Testes Não-Funcionais { #testes-nao-funcionais }
 
 ### CT-NF-001 — Validação de disponibilidade contínua do sistema { #ct-nf-001 }
@@ -7778,6 +8169,24 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | --- | --- | --- |
 | Padrão | NSP conclui a análise e encaminha o resultado ao setor | Sistema passa a exibir o incidente e a análise ao gestor |
 | Alternativo | NSP conclui a análise e não encaminha o resultado, com justificativa | Sistema não exibe o incidente ao gestor e impede o acesso direto |
+
+**[CT-FUN-141](#ct-fun-141), [CT-E2E-038](#ct-e2e-038)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Profissional do NSP seleciona "Arquivar notificação" e confirma | Sistema muda o status para "Arquivado" e registra a ação no histórico |
+| Alternativo | Profissional do NSP cancela a confirmação | Sistema mantém status, histórico e dados sem alterações |
+
+**[CT-FUN-145](#ct-fun-145), [CT-FUN-146](#ct-fun-146), [CT-E2E-039](#ct-e2e-039), [CT-E2E-040](#ct-e2e-040), [CT-E2E-041](#ct-e2e-041)**
+
+| Fluxo | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Padrão | Concluir pelo menu sem ações em andamento | Sistema exibe confirmação irreversível e conclui após confirmação |
+| Alternativo | Solicitar conclusão com ações "Em andamento" | Sistema informa a quantidade, mas permite concluir após confirmação |
+| Alternativo | Salvar a última ação como "Concluído" e aceitar a sugestão | Sistema abre a confirmação e conclui o incidente |
+| Alternativo | Salvar a última ação como "Cancelada" | Sistema não sugere a conclusão |
+| Alternativo | Escolher criar outro plano de ação na sugestão | Sistema abre o formulário de nova ação e mantém o status "Em ação" |
+| Alternativo | Efetividade "Sim" conclui automaticamente a última ação | Sistema exibe a sugestão após salvar e mantém o status "Em ação" ao criar outra ação |
 
 **[CT-FUN-047](#ct-fun-047)**
 
@@ -8453,6 +8862,39 @@ Garantir que o envio do formulário público exige verificação anti-robô: que
 | --- | --- | --- |
 | Inválido | Adicionar, editar ou excluir ação com o incidente "Em ação" | Sistema mantém o status "Em ação" |
 | Inválido | Atualizar o andamento até todas as ações ficarem "Concluído" | Sistema mantém o status "Em ação" até a conclusão do incidente |
+
+**[CT-FUN-140](#ct-fun-140)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | NSP ou Administrador visualiza incidente em status não final | Sistema oferece "Arquivar notificação" |
+| Inválido | Incidente em status "Concluído" ou "Arquivado" | Sistema não oferece a opção de arquivar |
+| Inválido | Gestor da Área visualiza incidente | Sistema não oferece a opção de arquivar |
+
+**[CT-FUN-142](#ct-fun-142), [CT-FUN-143](#ct-fun-143), [CT-E2E-038](#ct-e2e-038)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Arquivar incidente com dados registrados | Sistema atualiza o status, registra data, hora e usuário e preserva os dados para consulta |
+| Válido | Consultar incidente arquivado | Sistema apresenta notificação, classificação, análise salva e ações em modo somente leitura |
+
+**[CT-FUN-144](#ct-fun-144)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Incidente "Analisado" ou "Em ação" acessado por NSP/Administrador | Sistema oferece "Concluir incidente" |
+| Inválido | Incidente em qualquer outro status | Sistema não oferece a opção de concluir |
+| Inválido | Gestor da Área visualiza incidente | Sistema não oferece conclusão nem sugestão |
+| Inválido | Última ação salva como "Cancelada" ou apenas detalhe aberto | Sistema não exibe sugestão de conclusão |
+
+**[CT-FUN-145](#ct-fun-145), [CT-FUN-147](#ct-fun-147), [CT-E2E-039](#ct-e2e-039), [CT-E2E-040](#ct-e2e-040)**
+
+| Cenário | Descrição | Resultado esperado |
+| --- | --- | --- |
+| Válido | Concluir sem ações em andamento | Sistema exibe confirmação padrão e registra a conclusão após confirmar |
+| Válido | Concluir com duas ações "Em andamento", uma pendente de preenchimento | Sistema avisa e conta as duas, sem bloquear a conclusão |
+| Válido | Concluir com ações "Concluído" e "Cancelada" | Sistema não inclui essas ações na contagem de ações em andamento |
+| Válido | Confirmar conclusão | Sistema atualiza o status, registra data, hora e usuário e torna o incidente somente leitura |
 
 ### 6.3 Análise de Valor Limite { #criterios-valor-limite }
 
