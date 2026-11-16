@@ -1,4 +1,4 @@
-﻿---
+---
 hide:
   - toc
 ---
@@ -39,6 +39,9 @@ hide:
     | 3.23 | 11/11/2026 | Inclusão do Épico 6 e dos casos de teste da US-6.1 (CA01 a CA06), e das regras de negócio da história. | Catarina Freisleben |
     | 3.24 | 11/11/2026 | Inclusão dos casos de teste da US-6.2 (CA01 a CA08) no Épico 6 e das regras de negócio da história. O CA06 aponta também para o CT-E2E-031, que já confere a primeira ação completa. Resumo recalculado a partir das linhas, contando cada critério uma vez: 209 critérios de aceite, 208 com caso de teste (99%), 181 casos de teste de histórias e 72 automatizados. | Catarina Freisleben |
     | 3.25 | 12/11/2026 | Status de automação do CA18 da US-5.1 no CT-FUN-132, conforme a [PR #54 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/54): "Automatizado". Resumo: 73 casos de teste automatizados. | Catarina Freisleben |
+    | 3.26 | 15/11/2026 | Status de automação da US-4.1 (CA01 a CA08) e dos RNF 6.2.2 e 6.3.4, conforme a [PR #67 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/67) (CT-FUN-041 a CT-FUN-046) e a [PR #63](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/63) (CT-E2E-019 e CT-E2E-020): "Automatizado" | Catarina Freisleben |
+    | 3.27 | 15/11/2026 | Status de automação da US-4.2 (CA02, CA05, CA06, CA11 e CA19) e dos RNF 6.7.2 e 6.7.4, conforme a [PR #63 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/63): "Automatizado", sem o "Não implementado" das Seções 3 a 5. Inclusão do CA20 (salvamento concorrente), criado na especificação 3.12, como "Não documentado" | Catarina Freisleben |
+    | 3.28 | 15/11/2026 | Status de automação do CA04 da US-4.3, conforme a [PR #63 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/63): "Automatizado", sem o "Não implementado" das Seções 3 em diante. Resumo recalculado a partir das linhas: 210 critérios de aceite, 208 com caso de teste (99%), 181 casos de teste de histórias e 87 automatizados. | Catarina Freisleben |
 
 ## Sumário
 
@@ -60,10 +63,10 @@ hide:
 Esta matriz relaciona cada critério de aceite das histórias de usuário aos casos de teste que o validam, com o status de documentação e automação de cada caso e o responsável. Também relaciona as histórias às regras de negócio e os requisitos não-funcionais aos seus casos de teste. Os casos de teste estão descritos em [Casos de Teste](casos-de-teste.md).
 
 <div class="ns-dec-resumo" markdown>
-<div class="ns-dec-stat"><strong>209</strong><span>critérios de aceite mapeados</span></div>
-<div class="ns-dec-stat"><strong>99%</strong><span>com caso de teste (208 de 209)</span></div>
+<div class="ns-dec-stat"><strong>210</strong><span>critérios de aceite mapeados</span></div>
+<div class="ns-dec-stat"><strong>99%</strong><span>com caso de teste (208 de 210)</span></div>
 <div class="ns-dec-stat"><strong>181</strong><span>casos de teste de histórias</span></div>
-<div class="ns-dec-stat"><strong>73</strong><span>casos de teste automatizados</span></div>
+<div class="ns-dec-stat"><strong>87</strong><span>casos de teste automatizados</span></div>
 </div>
 
 <div class="ns-legenda"><strong>Status:</strong> <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> <span class="ns-rast ns-rast--emauto">Em automatização</span> <span class="ns-rast ns-rast--pronto">Pronto para automatizar</span> <span class="ns-rast ns-rast--naodoc">Não documentado</span> <span class="ns-rast ns-rast--naoauto">Não automatizado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> <span class="ns-rast ns-rast--naoloc">Requisito não localizado nos requisitos</span></div>
@@ -176,25 +179,25 @@ Esta matriz relaciona cada critério de aceite das histórias de usuário aos ca
 
 | História | Critério de aceite | Caso de teste | Status | Responsável |
 | --- | --- | --- | --- | --- |
-| **US-4.1** | CA01 | [CT-FUN-041](casos-de-teste.md#ct-fun-041) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
-|  | CA02 | [CT-E2E-019](casos-de-teste.md#ct-e2e-019) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
-|  | CA03 | [CT-FUN-042](casos-de-teste.md#ct-fun-042) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
-|  | CA04 | [CT-FUN-043](casos-de-teste.md#ct-fun-043) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
-|  | CA05 | [CT-FUN-044](casos-de-teste.md#ct-fun-044) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
-|  | CA06 | [CT-FUN-045](casos-de-teste.md#ct-fun-045) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
-|  | CA07 | [CT-E2E-020](casos-de-teste.md#ct-e2e-020) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
-|  | CA08 | [CT-FUN-046](casos-de-teste.md#ct-fun-046) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+| **US-4.1** | CA01 | [CT-FUN-041](casos-de-teste.md#ct-fun-041) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
+|  | CA02 | [CT-E2E-019](casos-de-teste.md#ct-e2e-019) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
+|  | CA03 | [CT-FUN-042](casos-de-teste.md#ct-fun-042) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
+|  | CA04 | [CT-FUN-043](casos-de-teste.md#ct-fun-043) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
+|  | CA05 | [CT-FUN-044](casos-de-teste.md#ct-fun-044) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
+|  | CA06 | [CT-FUN-045](casos-de-teste.md#ct-fun-045) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
+|  | CA07 | [CT-E2E-020](casos-de-teste.md#ct-e2e-020) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
+|  | CA08 | [CT-FUN-046](casos-de-teste.md#ct-fun-046) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 | **US-4.2** | CA01 | [CT-E2E-021](casos-de-teste.md#ct-e2e-021) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
-|  | CA02 | [CT-E2E-021](casos-de-teste.md#ct-e2e-021) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+|  | CA02 | [CT-E2E-021](casos-de-teste.md#ct-e2e-021) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 |  | CA03 | [CT-FUN-048](casos-de-teste.md#ct-fun-048) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 |  | CA04 | [CT-FUN-048](casos-de-teste.md#ct-fun-048) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
-|  | CA05 | [CT-FUN-047](casos-de-teste.md#ct-fun-047) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
-|  | CA06 | [CT-FUN-047](casos-de-teste.md#ct-fun-047) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+|  | CA05 | [CT-FUN-047](casos-de-teste.md#ct-fun-047) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
+|  | CA06 | [CT-FUN-047](casos-de-teste.md#ct-fun-047) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 |  | CA07 | [CT-E2E-021](casos-de-teste.md#ct-e2e-021) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 |  | CA08 | [CT-FUN-049](casos-de-teste.md#ct-fun-049) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 |  | CA09 | [CT-FUN-049](casos-de-teste.md#ct-fun-049) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 |  | CA10 | [CT-FUN-050](casos-de-teste.md#ct-fun-050) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
-|  | CA11 | [CT-FUN-051](casos-de-teste.md#ct-fun-051) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+|  | CA11 | [CT-FUN-051](casos-de-teste.md#ct-fun-051) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 |  | CA12 | [CT-FUN-051](casos-de-teste.md#ct-fun-051) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 |  | CA13 | [CT-FUN-050](casos-de-teste.md#ct-fun-050) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 |  | CA14 | [CT-E2E-021](casos-de-teste.md#ct-e2e-021) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
@@ -202,11 +205,12 @@ Esta matriz relaciona cada critério de aceite das histórias de usuário aos ca
 |  | CA16 | [CT-FUN-052](casos-de-teste.md#ct-fun-052) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 |  | CA17 | [CT-FUN-052](casos-de-teste.md#ct-fun-052) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
 |  | CA18 | [CT-FUN-052](casos-de-teste.md#ct-fun-052) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
-|  | CA19 | [CT-FUN-051](casos-de-teste.md#ct-fun-051) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Catarina |
+|  | CA19 | [CT-FUN-051](casos-de-teste.md#ct-fun-051) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Catarina |
+|  | CA20 | — | <span class="ns-rast ns-rast--naodoc">Não documentado</span> | Catarina |
 | **US-4.3** | CA01 | [CT-FUN-053](casos-de-teste.md#ct-fun-053), [CT-FUN-054](casos-de-teste.md#ct-fun-054), [CT-FUN-055](casos-de-teste.md#ct-fun-055), [CT-E2E-022](casos-de-teste.md#ct-e2e-022) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Gustavo Henrique |
 |  | CA02 | [CT-FUN-056](casos-de-teste.md#ct-fun-056), [CT-E2E-022](casos-de-teste.md#ct-e2e-022), [CT-E2E-023](casos-de-teste.md#ct-e2e-023) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Gustavo Henrique |
 |  | CA03 | [CT-FUN-057](casos-de-teste.md#ct-fun-057), [CT-FUN-058](casos-de-teste.md#ct-fun-058), [CT-FUN-059](casos-de-teste.md#ct-fun-059), [CT-E2E-022](casos-de-teste.md#ct-e2e-022), [CT-E2E-023](casos-de-teste.md#ct-e2e-023) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Gustavo Henrique |
-|  | CA04 | [CT-FUN-060](casos-de-teste.md#ct-fun-060), [CT-FUN-061](casos-de-teste.md#ct-fun-061), [CT-E2E-022](casos-de-teste.md#ct-e2e-022) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
+|  | CA04 | [CT-FUN-060](casos-de-teste.md#ct-fun-060), [CT-FUN-061](casos-de-teste.md#ct-fun-061), [CT-E2E-022](casos-de-teste.md#ct-e2e-022) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Gustavo Henrique |
 | **US-4.4** | CA01 | [CT-FUN-062](casos-de-teste.md#ct-fun-062), [CT-FUN-064](casos-de-teste.md#ct-fun-064), [CT-E2E-024](casos-de-teste.md#ct-e2e-024), [CT-E2E-025](casos-de-teste.md#ct-e2e-025) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
 |  | CA02 | [CT-FUN-063](casos-de-teste.md#ct-fun-063) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
 |  | CA03 | [CT-FUN-065](casos-de-teste.md#ct-fun-065), [CT-FUN-066](casos-de-teste.md#ct-fun-066), [CT-E2E-024](casos-de-teste.md#ct-e2e-024) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Gustavo Henrique |
@@ -418,10 +422,10 @@ Esta matriz relaciona cada critério de aceite das histórias de usuário aos ca
 | **RNF 8.5.1** | [CT-NF-007](casos-de-teste.md#ct-nf-007) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Equipe 01/2026 |
 |  | [CT-NF-008](casos-de-teste.md#ct-nf-008) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoauto">Não automatizado</span> | Equipe 01/2026 |
 | **RNF 8.6.1** | [CT-NF-009](casos-de-teste.md#ct-nf-009) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoauto">Não automatizado</span> | Equipe 01/2026 |
-| **RNF 6.2.2** | [CT-FUN-045](casos-de-teste.md#ct-fun-045) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Equipe 02/2026 |
-| **RNF 6.3.4** | [CT-FUN-044](casos-de-teste.md#ct-fun-044) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Equipe 02/2026 |
-| **RNF 6.7.2** | [CT-E2E-021](casos-de-teste.md#ct-e2e-021) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Equipe 02/2026 |
-| **RNF 6.7.4** | [CT-FUN-051](casos-de-teste.md#ct-fun-051) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> <span class="ns-rast ns-rast--naoimpl">Não implementado</span> | Equipe 02/2026 |
+| **RNF 6.2.2** | [CT-FUN-045](casos-de-teste.md#ct-fun-045) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Equipe 02/2026 |
+| **RNF 6.3.4** | [CT-FUN-044](casos-de-teste.md#ct-fun-044) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Equipe 02/2026 |
+| **RNF 6.7.2** | [CT-E2E-021](casos-de-teste.md#ct-e2e-021) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Equipe 02/2026 |
+| **RNF 6.7.4** | [CT-FUN-051](casos-de-teste.md#ct-fun-051) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Equipe 02/2026 |
 |  | [CT-FUN-074](casos-de-teste.md#ct-fun-074) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Equipe 02/2026 |
 |  | [CT-FUN-078](casos-de-teste.md#ct-fun-078) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Equipe 02/2026 |
 |  | [CT-FUN-081](casos-de-teste.md#ct-fun-081) | <span class="ns-rast ns-rast--doc">Documentado</span> <span class="ns-rast ns-rast--auto">Automatizado</span> | Equipe 02/2026 |
