@@ -129,6 +129,15 @@ nav:
               - "ADR-0019: Adotar porta MailerService com factory de providers para envio de e-mail": desenvolvimento/arquitetura/adr/0019-adotar-mailer-service-com-factory-de-providers.md
               - "ADR-0020: Adotar fila BullMQ + worker dedicado para envio de e-mails": desenvolvimento/arquitetura/adr/0020-adotar-fila-bullmq-para-envio-de-emails.md
               - "ADR-0021: Adotar PostgreSQL como SGBD relacional único com suporte a multitenancy": desenvolvimento/arquitetura/adr/0021-adotar-postgresql-como-sgbd-com-multitenancy.md
+              - "ADR-0022: Adotar JSONB para o conteúdo da análise até o fim da Seção 5": desenvolvimento/arquitetura/adr/0022-adotar-conteudo-da-analise-em-jsonb.md
+              - "ADR-0023: Adotar bytea no PostgreSQL para os anexos de evidência": desenvolvimento/arquitetura/adr/0023-adotar-anexos-de-evidencia-em-bytea.md
+              - "ADR-0024: Adotar geração do relatório de incidentes em XLSX no servidor": desenvolvimento/arquitetura/adr/0024-adotar-relatorio-de-incidentes-gerado-no-servidor.md
+              - "ADR-0025: Adotar design system próprio no frontend, com tokens e sem MUI": desenvolvimento/arquitetura/adr/0025-adotar-design-system-proprio-no-frontend.md
+              - "ADR-0026: Adotar controle de concorrência com trava da notificação e versão por updated_at": desenvolvimento/arquitetura/adr/0026-adotar-controle-de-concorrencia-com-trava-e-versao.md
+              - "ADR-0027: Adotar trilha de auditoria no plano de ação, com atualizações só de inclusão e exclusão lógica": desenvolvimento/arquitetura/adr/0027-adotar-trilha-de-auditoria-do-plano-de-acao.md
+              - "ADR-0028: Adotar sessão do PostgreSQL em UTC no cliente Prisma": desenvolvimento/arquitetura/adr/0028-adotar-sessao-do-postgresql-em-utc.md
+              - "ADR-0029: Adotar o plano de ação como container magro, sem campos próprios": desenvolvimento/arquitetura/adr/0029-adotar-plano-de-acao-como-container-magro.md
+              - "ADR-0030: Adotar acesso do Gestor de Área escopado por setor": desenvolvimento/arquitetura/adr/0030-adotar-acesso-do-gestor-escopado-por-setor.md
           - Brevo: desenvolvimento/arquitetura/brevo.md
       - Banco de Dados:
           - Especificação do Modelo de Domínio: desenvolvimento/banco-de-dados/modelo-dominio.md

@@ -7,6 +7,7 @@
     | Versão | Data | Justificativa | Responsável |
     | --- | --- | --- | --- |
     | 1.0 | 18/10/2026 | Migração das ADRs do repositório de documentação descontinuado para o MkDocs, com a lista de decisões e o modelo de registro. | Sophya Ribeiro |
+    | 1.1 | 12/11/2026 | Inclusão das ADR-0022 a ADR-0030, com as decisões de arquitetura das sprints 2 e 3. | Brenno |
 
 Os *Architecture Decision Records* (ADRs) registram as decisões arquiteturais do NotificaSaúde: o contexto em que cada decisão foi tomada, a decisão em si e as suas consequências. O formato segue o modelo [descrito por Michael Nygard](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions){ target="_blank" }, adotado na [ADR-0001](0001-registro-de-decisoes-de-arquitetura.md).
 
@@ -40,10 +41,19 @@ Decisões descontinuadas ou substituídas continuam disponíveis para contexto h
 | [ADR&#8209;0019](0019-adotar-mailer-service-com-factory-de-providers.md) | Adotar porta MailerService com factory de providers para envio de e-mail | <span class="ns-tag ns-tag--requisitos">Aceita</span> | 20/05/2026 |
 | [ADR&#8209;0020](0020-adotar-fila-bullmq-para-envio-de-emails.md) | Adotar fila BullMQ + worker dedicado para envio de e-mails | <span class="ns-tag ns-tag--requisitos">Aceita</span> | 21/05/2026 |
 | [ADR&#8209;0021](0021-adotar-postgresql-como-sgbd-com-multitenancy.md) | Adotar PostgreSQL como SGBD relacional único com suporte a multitenancy | <span class="ns-tag ns-tag--requisitos">Aceita</span> | 02/06/2026 |
+| [ADR&#8209;0022](0022-adotar-conteudo-da-analise-em-jsonb.md) | Adotar JSONB para o conteúdo da análise até o fim da Seção 5 | <span class="ns-tag ns-tag--requisitos">Aceita</span> | 29/09/2026 |
+| [ADR&#8209;0023](0023-adotar-anexos-de-evidencia-em-bytea.md) | Adotar bytea no PostgreSQL para os anexos de evidência | <span class="ns-tag ns-tag--requisitos">Aceita</span> | 27/10/2026 |
+| [ADR&#8209;0024](0024-adotar-relatorio-de-incidentes-gerado-no-servidor.md) | Adotar geração do relatório de incidentes em XLSX no servidor | <span class="ns-tag ns-tag--requisitos">Aceita</span> | 04/11/2026 |
+| [ADR&#8209;0025](0025-adotar-design-system-proprio-no-frontend.md) | Adotar design system próprio no frontend, com tokens e sem MUI | <span class="ns-tag ns-tag--requisitos">Aceita</span> | 30/09/2026 |
+| [ADR&#8209;0026](0026-adotar-controle-de-concorrencia-com-trava-e-versao.md) | Adotar controle de concorrência com trava da notificação e versão por updated_at | <span class="ns-tag ns-tag--requisitos">Aceita</span> | 27/10/2026 |
+| [ADR&#8209;0027](0027-adotar-trilha-de-auditoria-do-plano-de-acao.md) | Adotar trilha de auditoria no plano de ação, com atualizações só de inclusão e exclusão lógica | <span class="ns-tag ns-tag--requisitos">Aceita</span> | 27/10/2026 |
+| [ADR&#8209;0028](0028-adotar-sessao-do-postgresql-em-utc.md) | Adotar sessão do PostgreSQL em UTC no cliente Prisma | <span class="ns-tag ns-tag--requisitos">Aceita</span> | 09/10/2026 |
+| [ADR&#8209;0029](0029-adotar-plano-de-acao-como-container-magro.md) | Adotar o plano de ação como container magro, sem campos próprios | <span class="ns-tag ns-tag--requisitos">Aceita</span> | 09/09/2026 |
+| [ADR&#8209;0030](0030-adotar-acesso-do-gestor-escopado-por-setor.md) | Adotar acesso do Gestor de Área escopado por setor | <span class="ns-tag ns-tag--requisitos">Aceita</span> | 09/09/2026 |
 
 ## Modelo de ADR
 
-Toda nova decisão deve ser registrada em um novo arquivo nesta pasta, com o próximo número da sequência (ex.: `0022-adotar-<assunto>.md`), seguindo o modelo abaixo. Ao substituir ou descontinuar uma decisão, atualize também o status da ADR anterior, com o link para a nova.
+Toda nova decisão deve ser registrada em um novo arquivo nesta pasta, com o próximo número da sequência (ex.: `0031-adotar-<assunto>.md`), seguindo o modelo abaixo. Ao substituir ou descontinuar uma decisão, atualize também o status da ADR anterior, com o link para a nova.
 
 ```markdown
 <h1 align="center">ADR-NNNN — Título da decisão</h1>
