@@ -64,6 +64,7 @@
     | 4.41 | 16/11/2026 | Inclusão do CT-E2E-041 para cobrir a sugestão de conclusão após conclusão automática da última ação por efetividade "Sim" (US-5.7 e US-6.4, CA05), com atualização da matriz | Gustavo Henrique |
     | 4.42 | 16/11/2026 | Adição dos casos de teste das US-7.1 e US-7.2 (CT-FUN-148 a CT-FUN-161 e CT-E2E-042) na nova seção do Épico 7 em Testes Funcionais, em Testes End-to-End e em Critérios de Teste | Brenno |
     | 4.43 | 16/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste das US-7.1 e US-7.2: CT-FUN-148 a CT-FUN-161 e CT-E2E-042, automatizados na [PR #79 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/79) | Brenno |
+    | 4.44 | 16/11/2026 | Campo "Automatizado" como "Sim" nos casos de teste das US-6.1 e US-6.2: CT-FUN-133 a CT-FUN-139, CT-E2E-036 e CT-E2E-037, automatizados na [PR #74 do notifica-saude-e2e](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/74) | Catarina Freisleben |
 
 ## Sumário
 
@@ -5547,7 +5548,7 @@ Validar as classes “Sim”, “Parcialmente” e “Não”, os campos condici
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-6.1 | CA01 + CA02 | Partição por equivalência |
+| Sim | US-6.1 | CA01 + CA02 | Partição por equivalência |
 
 **Objetivo**
 
@@ -5585,7 +5586,7 @@ Validar que o status atual do incidente aparece na lista de notificações e no 
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-6.1 | CA03 | Fluxo principal |
+| Sim | US-6.1 | CA03 | Fluxo principal |
 
 **Objetivo**
 
@@ -5614,7 +5615,7 @@ Validar que o status do incidente é só exibido, sem nenhuma opção de alterá
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-6.1 | CA05 | Partição por equivalência |
+| Sim | US-6.1 | CA05 | Partição por equivalência |
 
 **Objetivo**
 
@@ -5641,7 +5642,7 @@ Validar que a data-limite para análise (RN-14) aparece só enquanto o incidente
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-6.1 | CA06 | Partição por equivalência |
+| Sim | US-6.1 | CA06 | Partição por equivalência |
 
 **Objetivo**
 
@@ -5673,7 +5674,7 @@ Validar que, com o status "Concluído" ou "Arquivado", o incidente fica só para
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-6.2 | CA01 | Partição por equivalência |
+| Sim | US-6.2 | CA01 | Partição por equivalência |
 
 **Objetivo**
 
@@ -5716,7 +5717,7 @@ Validar que só a classificação finalizada leva o incidente de "Novo" para "Cl
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-6.2 | CA03 | Partição por equivalência |
+| Sim | US-6.2 | CA03 | Partição por equivalência |
 
 **Objetivo**
 
@@ -5761,7 +5762,7 @@ Validar que salvar a Seção 1 da análise leva o incidente a "Em análise", tan
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-6.2 | CA07 | Partição por equivalência |
+| Sim | US-6.2 | CA07 | Partição por equivalência |
 
 **Objetivo**
 
@@ -8115,7 +8116,7 @@ Percorrer as etapas de acompanhamento e avaliação, verificando que a atualiza�
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-6.1 e US-6.2 | CA04 (US-6.1) + CA01, CA02, CA03, CA04, CA06 e CA08 (US-6.2) | Fluxo principal |
+| Sim | US-6.1 e US-6.2 | CA04 (US-6.1) + CA01, CA02, CA03, CA04, CA06 e CA08 (US-6.2) | Fluxo principal |
 
 **Objetivo**
 
@@ -8182,7 +8183,7 @@ Validar o ciclo de vida do incidente analisado pelo setor, do registro à conclu
 
 | Automatizado | História testada | Critério de aceite | Critério de teste |
 | --- | --- | --- | --- |
-| Não — Não implementado | US-6.1 e US-6.2 | CA04 (US-6.1) + CA03, CA05 e CA08 (US-6.2) | Fluxo principal e fluxo alternativo |
+| Sim | US-6.1 e US-6.2 | CA04 (US-6.1) + CA03, CA05 e CA08 (US-6.2) | Fluxo principal e fluxo alternativo |
 
 **Objetivo**
 
