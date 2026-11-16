@@ -21,14 +21,16 @@ hide:
     | 1.7 | 07/11/2026 | Fechamento do bug BUG-BACK-010 ([e2e#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20)), corrigido no [PR #20 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/20) e no [PR #15 do backend](https://github.com/Notifica-Saude-2026-2/notifica-saude-backend/pull/15), conferido na [PR e2e#47](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/pull/47). Fechamento do bug BUG-FRONT-020 ([e2e#36](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/36)), corrigido no [PR #21 do frontend](https://github.com/Notifica-Saude-2026-2/notifica-saude-frontend/pull/21) e conferido na `develop` do frontend. | Catarina Freisleben |
     | 1.8 | 09/11/2026 | Registro do bug BUG-FRONT-021 ([e2e#51](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/51)), encontrado na automação dos casos de teste da US-5.1. | Catarina Freisleben |
     | 1.9 | 12/11/2026 | Registro do bug BUG-FRONT-022 ([e2e#59](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/59)), encontrado na revisão da automação dos casos de teste das US-4.7 e US-4.8. | Catarina Freisleben |
+    | 1.10 | 14/11/2026 | Registro do bug BUG-BACK-011 ([e2e#68](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/68)), encontrado na automação dos casos de teste da US-4.1. | Catarina Freisleben |
+    | 1.11 | 14/11/2026 | Registro do bug BUG-BACK-012 ([e2e#70](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/70)), encontrado na conferência dos casos de teste das US-6.1 e US-6.2. | Catarina Freisleben |
 
 <div class="ns-dec-resumo" markdown>
-<div class="ns-dec-stat"><strong>33</strong><span>bugs registrados</span></div>
+<div class="ns-dec-stat"><strong>35</strong><span>bugs registrados</span></div>
 <div class="ns-dec-stat"><strong>31</strong><span>com status <span class="ns-status ns-status--encerrado">Fechado</span></span></div>
-<div class="ns-dec-stat"><strong>2</strong><span>com status <span class="ns-status ns-status--aberto">Aberto</span></span></div>
+<div class="ns-dec-stat"><strong>4</strong><span>com status <span class="ns-status ns-status--aberto">Aberto</span></span></div>
 <div class="ns-dec-stat"><strong>4</strong><span>de severidade <span class="ns-nivel ns-nivel--alta">Alta</span></span></div>
-<div class="ns-dec-stat"><strong>25</strong><span>de severidade <span class="ns-nivel ns-nivel--media">Média</span></span></div>
-<div class="ns-dec-stat"><strong>4</strong><span>de severidade <span class="ns-nivel ns-nivel--baixa">Baixa</span></span></div>
+<div class="ns-dec-stat"><strong>26</strong><span>de severidade <span class="ns-nivel ns-nivel--media">Média</span></span></div>
+<div class="ns-dec-stat"><strong>5</strong><span>de severidade <span class="ns-nivel ns-nivel--baixa">Baixa</span></span></div>
 </div>
 
 ## Sumário
@@ -1072,6 +1074,8 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
 | [BUG-BACK-008](#bug-back-008) | #97 | Corrige porta fixa no healthcheck do Dockerfile | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Fábio Ramos<br><span class="ns-bug-dest">→ Fábio Ramos</span> |
 | [BUG-BACK-009](#bug-back-009) | [e2e#15](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/15) | CT-E2E-021: data do último salvamento da análise sai 4 h antes da data de início | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
 | [BUG-BACK-010](#bug-back-010) | [e2e#20](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/20) | CT-FUN-053: horário do incidente não é coletado nem aparece no resumo da análise | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--encerrado">Fechado</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
+| [BUG-BACK-011](#bug-back-011) | [e2e#68](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/68) | CT-FUN-043: prazo para análise de Óbito e Never Event calculado com 4 dias, e não 2 (RN-14) | <span class="ns-nivel ns-nivel--media">Média</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
+| [BUG-BACK-012](#bug-back-012) | [e2e#70](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/70) | Histórico mostra duas entradas para uma ação ao classificar, encaminhar e iniciar a análise | <span class="ns-nivel ns-nivel--baixa">Baixa</span> | <span class="ns-status ns-status--aberto">Aberto</span> | Catarina Freisleben<br><span class="ns-bug-dest">→ Brenno Ostemberg</span> |
 
 </div>
 
@@ -1607,6 +1611,116 @@ Defeitos identificados durante a execução dos testes, agrupados pela camada em
     O resumo da Seção 1 mostra a data do incidente e o turno, sem o horário:
 
     ![Resumo da Seção 1: data do incidente 09/10/2026 e turno Manhã (07h-13h), sem horário](../assets/vvt/relatorio-bugs/bug-back-010-resumo.png){ loading=lazy }
+
+<a id="bug-back-011"></a>
+
+??? bug "BUG-BACK-011 · e2e#68 · CT-FUN-043: prazo para análise de Óbito e Never Event calculado com 4 dias, e não 2 (RN-14)"
+
+    <div class="ns-bug-meta" markdown>
+    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--aberto">Aberto</span></span>
+    <span><span class="ns-dec-rotulo">Severidade</span><span class="ns-nivel ns-nivel--media">Média</span></span>
+    <span><span class="ns-dec-rotulo">Reportado por</span>Catarina Freisleben</span>
+    <span><span class="ns-dec-rotulo">Designado para</span>Brenno Ostemberg</span>
+    </div>
+
+    **Justificativa da severidade:** Não impede classificar nem analisar. Mas o prazo dos incidentes mais graves (Óbito e Never Event) sai 2 dias mais longo do que a RN-14 prevê, igual ao de um dano grave.
+
+    **Resumo**
+
+    Ao finalizar a classificação com grau do dano "Óbito" ou "Never Event", o sistema calcula o prazo para análise com 4 dias a partir do registro da notificação, o mesmo do dano grave. A RN-14 pede 2 dias.
+
+    A RN-14 diz: "Ao finalizar a classificação, o sistema calcula a data-limite para análise a partir da data de registro da notificação: sem dano (circunstância notificável, near miss ou incidente sem dano) ou dano leve — 10 dias; dano moderado — 7 dias; dano grave — 4 dias; óbito ou Never Event — 2 dias. […]"
+
+    **Passos para reprodução**
+
+    1. Subir o stack (`npm run stack:up`).
+    2. Entrar como NSP do Hospital B (`nsp.b@notificasaude.br`) e abrir uma notificação "Novo".
+    3. Classificar como Evento adverso, grau do dano "Never Event" (ou "Óbito"), e salvar a classificação.
+    4. Conferir "Prazo para análise" na seção "Classificação" e comparar com a data de registro ("Criado em").
+
+    **Resultado esperado**
+
+    Prazo para análise = data de registro + 2 dias (RN-14). Uma notificação registrada em 14/11/2026 vence em 16/11/2026.
+
+    **Resultado obtido**
+
+    Prazo para análise = data de registro + 4 dias. A notificação de Never Event registrada em 14/11/2026 vence em 18/11/2026, a mesma data de uma notificação de dano grave registrada no mesmo dia.
+
+    **Observações**
+
+    - **Causa:** em `src/modules/classificacao/classificacao.service.ts` do backend, a função `calcularDataValidade` (linhas 17 a 25) põe o grave, o óbito e o Never Event no mesmo grupo, de 4 dias.
+    - **O protótipo segue a RN-14:** `src/services/localStore.ts` do protótipo funcional (linhas 188 e 189) usa `OBITO: 2` e `NEVER_EVENT: 2`.
+    - **O front só mostra** o valor que o servidor calcula, no "Prazo para análise" do detalhe e no "Vence em…" da lista de incidentes.
+    - **Confirmação da regra:** a Sophya confirmou em 14/11/2026 que vale a RN-14 (2 dias para óbito e Never Event).
+    - **Como foi achado:** na conferência da ficha do CT-FUN-043 (US-4.1, CA04) contra a especificação e o sistema, na automação dos casos funcionais da US-4.1 ([e2e#66](https://github.com/Notifica-Saude-2026-2/notifica-saude-e2e/issues/66)). O caso da ficha com Never Event (C2) não foi automatizado, porque pede um Never Event encaminhado ao setor, o que o sistema não permite (US-2.3, CA06).
+    - **Teste que confere o valor errado:** o teste "classifica incidente como Never Event e valida prazo de 4 dias", do CT-E2E-007 (`tests/e2e/ct-e2e-007.spec.ts`, linha 68), espera o prazo do Never Event com 4 dias a partir do registro. Por isso ele passa enquanto o defeito existe e falha com a correção. O ajuste para 2 dias fica no repositório de e2e. A ficha do CT-E2E-007 não pede o prazo. Apontado pelo Brenno Ostemberg em 15/11/2026.
+
+    **Versões afetadas**
+
+    - Backend `18a73e6` (`develop` de 10/11/2026) e `5ecd1b4` (`develop` de 13/11/2026)
+    - `notifica-saude-backend/src/modules/classificacao/classificacao.service.ts:17-25`
+
+    **Evidência**
+
+    Notificação classificada como Never Event, registrada em 14/11/2026, com o prazo para análise em 18/11/2026 (backend `5ecd1b4`):
+
+    ![Detalhe da notificação #0046: Criado em 14/11/2026, grau do dano Never Event e Prazo para análise 18/11/2026](../assets/vvt/relatorio-bugs/bug-back-011-never-event.png){ loading=lazy }
+
+    Para comparar, uma notificação de dano grave registrada no mesmo dia, com o mesmo prazo:
+
+    ![Detalhe da notificação #0047: Criado em 14/11/2026, grau do dano Grave e Prazo para análise 18/11/2026](../assets/vvt/relatorio-bugs/bug-back-011-grave.png){ loading=lazy }
+
+<a id="bug-back-012"></a>
+
+??? bug "BUG-BACK-012 · e2e#70 · Histórico mostra duas entradas para uma ação ao classificar, encaminhar e iniciar a análise"
+
+    <div class="ns-bug-meta" markdown>
+    <span><span class="ns-dec-rotulo">Status</span><span class="ns-status ns-status--aberto">Aberto</span></span>
+    <span><span class="ns-dec-rotulo">Severidade</span><span class="ns-nivel ns-nivel--baixa">Baixa</span></span>
+    <span><span class="ns-dec-rotulo">Reportado por</span>Catarina Freisleben</span>
+    <span><span class="ns-dec-rotulo">Designado para</span>Brenno Ostemberg</span>
+    </div>
+
+    **Justificativa da severidade:** Nenhum dado se perde nem sai errado: a ação, a data, a hora e o usuário estão certos. Mas o histórico ganha entradas a mais, e a classificação parece ter sido registrada duas vezes.
+
+    **Resumo**
+
+    No histórico da notificação, três ações aparecem em duas entradas, e não numa só: finalizar a classificação ("Classificação registrada." duas vezes), encaminhar ao setor ("Notificação encaminhada para … analisar." e "Status alterado para Encaminhado.") e iniciar a análise ("Análise iniciada." e "Status alterado para Em análise."). As demais ações que mudam o status aparecem numa entrada só, e o protótipo registra uma entrada por ação.
+
+    **Passos para reprodução**
+
+    1. Subir o stack (`npm run stack:up`).
+    2. Entrar como NSP do Hospital B (`nsp.b@notificasaude.br`), abrir uma notificação "Novo", classificá-la e selecionar "Salvar classificação".
+    3. Encaminhar a notificação ao setor dela.
+    4. Entrar como Gestor da Área do setor (`gestor.b@notificasaude.br`), abrir a notificação, selecionar "Registrar análise", preencher a Seção 1 e selecionar "Próximo".
+    5. Abrir a notificação e ver a seção "Histórico de modificações".
+
+    **Resultado esperado**
+
+    Uma entrada por ação, como no protótipo, cada uma com data, hora e usuário (US-6.2 CA08 e US-2.5): "Classificação registrada.", "Notificação encaminhada para Pronto atendimento / emergência analisar." e "Análise iniciada.".
+
+    **Resultado obtido**
+
+    Seis entradas para as três ações: "Classificação registrada." duas vezes; "Notificação encaminhada para Pronto atendimento / emergência analisar." e "Status alterado para Encaminhado."; "Análise iniciada." e "Status alterado para Em análise.". Todas com a mesma data, hora e usuário da ação.
+
+    **Observações**
+
+    - **Causa:** para cada ação, o backend grava duas linhas no histórico: a do fato e a da mudança de status. A tela junta numa entrada só as linhas com o mesmo instante e o mesmo usuário (`agruparHistorico`, em `src/utils/historicoStatus.ts` do frontend). Para isso, o backend tem o relógio de eventos (`src/shared/lib/historico-eventos.ts`), que a linha do status usa. Na classificação (`classificacao.repository.ts`, linhas 44 e 84), no encaminhamento (`encaminhamento.repository.ts`, linha 53) e no início da análise (`investigacao.repository.ts`, linha 131), a linha do fato não usa o relógio e fica com o horário padrão do banco. Os instantes diferem, e a tela mostra duas entradas.
+    - **Por que a classificação repete a mesma frase:** a tela traduz a linha do status "Classificado" também como "Classificação registrada.".
+    - **O protótipo** registra uma entrada por ação (`src/services/localStore.ts`, `addHistorico`).
+    - **Como foi achado:** na conferência das fichas das US-6.1 e 6.2 contra o sistema, antes da automação. Os testes conferem o que a ficha pede (a ação, com data, hora e usuário) e não contam as entradas.
+    - **Teste que dependia das entradas a mais:** o CT-E2E-033 (US-5.5 a US-5.7) avança as páginas do histórico até a última e esperava que o botão de próxima página existisse. Com as entradas em dobro, o histórico do teste passa de 10 entradas e ganha a segunda página. Com uma entrada por ação, ele cabe numa página só, o botão não aparece e o teste estoura o tempo. O ajuste fica no repositório de e2e. Apontado pelo Brenno Ostemberg em 15/11/2026.
+
+    **Versões afetadas**
+
+    - Backend `18a73e6` (`develop` de 10/11/2026) e `5ecd1b4` (`develop` de 13/11/2026); frontend `78a3927` e `45283a7`
+    - `notifica-saude-backend/src/modules/classificacao/classificacao.repository.ts`, `encaminhamento/encaminhamento.repository.ts` e `investigacao/investigacao.repository.ts`
+
+    **Evidência**
+
+    Histórico de uma notificação classificada, encaminhada e com a análise iniciada pelo gestor (backend `5ecd1b4`):
+
+    ![Histórico de modificações com "Classificação registrada." duas vezes, "Notificação encaminhada…" seguida de "Status alterado para Encaminhado." e "Análise iniciada." seguida de "Status alterado para Em análise."](../assets/vvt/relatorio-bugs/bug-back-012-historico.png){ loading=lazy }
 
 ### 3.3 End-to-End { #end-to-end }
 
